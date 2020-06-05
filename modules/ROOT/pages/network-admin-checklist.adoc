@@ -1,0 +1,212 @@
+= Complete the Network Admin Checklists
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Before you set up your private network, use the checklists to gather information you'll need 
+from your network administrator.
+
+== Private Network Checklist 
+
+[%header,cols="20a,30a,20a,20a"]
+|===
+|Item |Description| Example |More Info  
+|Region|The region to deploy your apps to|`us-west-2`| <<Region>>
+|CIDR block| The range of IP addresses that your apps can use| `10.111.0.0/24` | <<CIDR Block>>
+|===
+
+== VPN Checklist 
+
+[%header,cols="20a,30a,20a,20a"]
+|===
+|Item |Description | Example | More Info 
+|Remote IP address|The public (single, static) IP address of your VPN endpoint | example |
+|Routing type|Dynamic or Static||<<dynamic,Dynamic Routing Checklist>> 
+<<static,Static Routing Checklist>>
+|Tunnel configuration|Automatic or Custom||<<custom-tunnel,Custom Tunnel Checklist>>
+|===
+
+If your device supports Border Gateway Protocol (BGP), select the dynamic routing type and complete this checklist. 
+
+[[dynamic]]
+.Dynamic Routing Checklist 
+[%header,cols="20a,30a,20a,20a"]
+|===
+|Item |Description | Example | More Info 
+|Remote ASN|The ASN that corresponds to your backend.|65001 .2+| <<ASN>>
+|Local ASN|A private ASN (64512–65534) to assign to the Anypoint side |64512|
+|===
+
+Static requires you to specify the routes (subnets) in your network that are accessible through Anypoint VPN.
+
+[[static]]
+.Static Routing Checklist 
+[%header,cols="20a,30a,20a,20a"]
+|===
+|Item |Description | Example | More Info 
+|Static IP prefixes| The IP prefixes to advertise to your private network in Anypoint, in CIDR notation| `10.0.0.0/8` |<<Static IP Prefixes>>
+|Local ASN|A private ASN (64512–65534) to assign to the Anypoint side |64512|<<ASN>>|
+|===
+
+[[custom-tunnel]]
+.Custom Tunnel Checklist 
+[%header,cols="20a,30a,20a,20a"]
+|===
+|Item |Description | Example | More Info 
+|Inside IP CIDRs|The IP address range for the internal address of the VPN tunnel| `169.254.0.0/16` .2+|<<Custom Tunnel Configuration>>
+|Pre-shared keys| |8740893_45||
+|===
+
+
+== VPN Connection Checklist 
+
+[[vpn-connection]]
+[%header,cols="20a,30a,20a,20a"]
+|===
+|Item |Description | Example | More Info 
+|Device vendor|The vendor of your network gateway device |Cisco .3+|<<Supported Network Devices>>
+|Device platform|The platform of your network gateway device|ASA 5500 Series
+|Device software|The software running on your network device|ASA 8.2+
+|===
+
+
+== Internal DNS Servers Checklist 
+
+
+[[dns-servers]]
+[%header,cols="20a,30a,20a,20a"]
+|===
+|Item |Description | Example | More Info 
+|IP addresses|The IP addresses of your internal DNS server |`208.67.111.111` .2+|<<Internal DNS Servers>>
+|Domains|The domains to be resolved by the internal DNS server|`mulesoft.com`|
+|===
+
+
+== Region 
+
+The complete list of supported regions is:
+
+[%header]
+|===
+|Region|Sub-Domain
+|US East (North Virginia)| `us-e1.cloudhub.io`
+|US East (Ohio)| `us-e2.cloudhub.io`
+|US West (Oregon)| `us-w2.cloudhub.io`
+|US West (North California)| `us-w1.cloudhub.io`
+|Canada (Central)| `ca-c1.cloudhub.io`
+|Brazil (Sao Paulo)| `br-s1.cloudhub.io`
+|Europe (Ireland)| `ir-e1.cloudhub.io`
+|Europe (Frankfurt)| `de-c1.cloudhub.io`
+|UK (London)| `uk-e1.cloudhub.io`
+|Asia Pacific (Tokyo)| `jp-e1.cloudhub.io`
+|Asia Pacific (Sydney)| `au-s1.cloudhub.io`
+|Asia Pacific (Singapore)| `sg-s1.cloudhub.io`
+|===
+
+== CIDR Block 
+
+The CIDR block is the range of IP addresses, in CIDR notation, that the apps deployed in your private network use. 
+
+Apps use multiple IP addresses.
+For each app, allocate 10 IP addresses. 
+
+For example, to grant your private network 256 IP addresses between `10.111.0.0` and `10.111.0.255`, set the CIDR block to `10.111.0.0/24`.
+
+Ensure that you specify CIDR blocks from a private IP space, 
+and that they don't overlap with any other CIDR blocks in your private spaces,
+or any CIDR blocks in use in your corporate network.
+
+== ASN 
+
+The Autonomous System Number (ASN) specifies the collection of routing prefixes.
+For dynamic routing, configure both a remote and local ASN. 
+
+Remote ASN::
+The ASN corresponding to your backend.
+You can use an existing ASN assigned to your network or a private ASN (64512–65534) that is not already assigned to your network.
+The default value is 65001.
+Local ASN::
+An ASN for the MuleSoft side.
+Use a private ASN (64512–65534) that is not already assigned to your network.
+The default value is 64512.
+
+== Static IP Prefixes
+
+A maximum of 95 route table entries is allowed per private network,
+regardless of the number of VPN connections.
+To avoid exceeding the limit, consolidate networks to the fewest number possible.
+
+
+== Custom Tunnel Configuration
+
+Inside IP CIDRs::
++
+--
+For each tunnel, enter the IP address range for the internal address of the VPN tunnel.
+
+You can specify a size /30 CIDR block from the `169.254.0.0/16` range.
+The CIDR block must be unique across all private network connections.
+
+You cannot use the following CIDR blocks:
+----
+169.254.0.0/30
+169.254.1.0/30
+169.254.2.0/30
+169.254.3.0/30
+169.254.4.0/30
+169.254.5.0/30
+169.254.169.252/30
+----
+--
+Pre-shared keys::
++
+--
+For static connections, your VPN endpoint uses pre-shared keys (PSKs) to establish IKE Security Associations.
+
+For each tunnel, enter a value of between 8-64 characters that does not begin with zero (0).
+Use only alphanumeric characters, periods (.), and underscores (&#95;). 
+--
+
+== Supported Network Devices
+
+The following network devices are known to work with Anypoint VPN.
+If your device does not appear in the list of tested devices,
+check the <<vpn_requirements,requirements>> to verify that your device is suitable for use with Anypoint VPN.
+
+[%header%autowidth.spread]
+|===
+|Device Vendor | Device Platform | Device Software 
+|Check Point | Security Gateway | R77.10 or later
+.2+|Cisco | ASA | ASA 8.2 or later
+|IOS | Cisco IOS 12.4 or later
+|Dell | SonicWALL | SonicOS 5.9 or later
+|Fortinet | Fortigate 40+ Series | FortiOS 4.0 or later
+.4+|Juniper | J-Series Service Router | JunOS 9.5 or later
+| SRX-Series Services Gateway | JunOS 11.0 or later
+| SSG | ScreenOS 6.1 or 6.2 or later
+| ISG | ScreenOS 6.1 or 6.2 or later
+|Netgate | pfSense | OS 2.2.5 or later
+|Palo Alto Networks || PANOS 4.1.2 or later
+.6+|Yamaha .6+|| RT107e 
+| RTX1200 
+| RTX1210 
+| RTX1500 
+| RTX3000 
+| SRT100 
+.2+|Microsoft .2+|Windows Server| 2008 R2 or later 
+|2012 R2 or later
+.2+|Zyxel .2+|Zywall Series| 4.20 or later for statically routed Anypoint VPN connections 
+|4.30 or later for dynamically routed Anypoint VPN connections
+|===
+
+== Internal DNS Servers 
+
+You can specify custom private domains by adding the IP address and domain name for your network.
+When you provide private domains, your worker resolves them using your private DNS,
+so you can still use the internal host names of your private network
+(make sure your applications call the backend resources by FQDN).
+
+IP addresses::
+Up to three IP addresses of your internal DNS server
+Domains::
+The common portion of your internal domain name, such as `mulesoft.com`
