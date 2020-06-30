@@ -1,0 +1,55 @@
+= Customize Your Private Space
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+
+
+== Enable Inbound Traffic to Your Apps Deployed in the Private Space	
+
+== Before You Begin
+
+* Update the Nameservers for Your Domains	
+* Create a CNAME Record to Route Queries (if necessary)	
+
+== Configure DNS for Inbound Traffic Server
+// === Configure Secure Domains for HTTPS Traffic
+// ==== Add TLS Certificates	
+// ==== Specify How to Handle HTTP Requests to Secure Domains	
+// === Add Insecure Domains for HTTP Traffic				
+
+. Specify the protocol to use.
++
+Select either HTTPS for secure HTTPS traffice or HTTP for insecure HTTP traffic:
++
+** *Accept HTTPS requests*
++
+Optionally, select to redirect HTTP requests to HTTPS.
+
+** *Accept HTTP requests only* 
++
+Select this option if you don't have TLS certificates, or if you enable HTTPS outside Anypoint Platform.
+. For HTTPS, add TLS certificates.
+// Add certificates so that you can use their domains when deploying apps to this private space.
+. Click *Save Domains*. 
+
+
+=== Validate: Verify Inbound Traffic Configuration		
+
+== Authenticate Trusted Clients (2-Way SSL)		
+=== Add Client TLS Certificates	
+=== Configure Revocation List (if not in certificate)	
+
+== Configure Firewall Rules Settings for the Private Space
+=== Before You Begin	
+		Configure Anypoint Security for Edge Policies	
+		Specify IP Addresses to Whitelist	
+		Control Inbound Traffic with Firewall Rules	
+		Apply Edge Security Policies to the Private Space	
+Configure Logging			
+	Specify Load Balancer Log Level		
+	Specify RTFC Log Level		
+	Forward Logs to Anypoint Monitoring		
+	Forward Logs to External Services		
+Configure Internal DNS to Resolve Private Domains			
+	Update DNS Server with Private Domains		

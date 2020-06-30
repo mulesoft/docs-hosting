@@ -37,6 +37,7 @@ If your device supports Border Gateway Protocol (BGP), select the dynamic routin
 |Local ASN|A private ASN (64512–65534) to assign to the Anypoint side |64512|
 |===
 
+
 Static requires you to specify the routes (subnets) in your network that are accessible through Anypoint VPN.
 
 [[static]]
@@ -207,6 +208,11 @@ so you can still use the internal host names of your private network
 (make sure your applications call the backend resources by FQDN).
 
 IP addresses::
-Up to three IP addresses of your internal DNS server
+Up to three IP addresses of your internal DNS server.
+
+// Add IP addresses for internal DNS servers, separated by commas. Multiple servers are allowed for redundancy. They should each support all domains added below.
+
 Domains::
 The common portion of your internal domain name, such as `mulesoft.com`
+
+// Add domains to be resolved by internal DNS, separated by commas.

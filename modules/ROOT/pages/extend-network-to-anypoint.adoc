@@ -1,4 +1,0 @@
-= Extend Your Network to Anypoint Platform 
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]

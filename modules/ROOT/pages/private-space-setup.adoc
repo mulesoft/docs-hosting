@@ -1,0 +1,55 @@
+= Set Up a Private Space for Runtime Fabric Cloud Deployments
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+
+== Workflow
+
+* Create Private Network
+* Create a VPN 
+* Connect VPN to Your Corporate Network 
+* Customize Your Private Space
+
+
+== Before You Begin
+
+=== Complete the Network Admin Checklists 
+
+* Private Network Checklist 
+* VPN Checklist 
+* VPN Connection Checklist
+
+=== Assign Roles and Permissions
+
+
+
+== Create the Private Network
+
+. Click *Create network*. 
+. Select the region. 
+. Enter the CIDR block.
++
+The CIDR block is the range of IP addresses that your apps can use.
+// Apps use multiple IPs, so allow IPs for roughly 10 times the number of apps you expect to deploy. Don’t overlap with blocks already in use.
+. Click *Create*.
+
+If the private network creation fails, click *Retry* to try again.
+
+=== Configure Internal DNS Servers
+
+If your corporate network uses internal DNS servers to resolve requests to custom domains, input their details here.
+
+. Under *Private network*, click the *Configure* link.
+. Enter comma-separated IP addresses for your internal DNS servers.
+. Enter comma-separated domain names to be resolved by internal DNS.
+. Click *Create*.
+
+== Create the VPN 
+
+. 
+
+== Connect the VPN to Your Corporate Network 
+
+
+// Connecting your VPN to your corporate network is done outside of Anypoint Platform. Tell us about your gateway device to get a customized guide for you or your network admin to follow.
