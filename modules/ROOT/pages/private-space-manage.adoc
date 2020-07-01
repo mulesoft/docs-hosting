@@ -28,10 +28,20 @@ This action can’t be undone.
 . Click *...* in the upper-right and select *Delete*.
 . Click *Delete private space* to confirm the deletion.
 
+== Rename a Private Space
+
+. From Anypoint Platform, select *Runtime Manager*.
+. Click *Private Spaces* in the left menu.
+. Click the name of the private space you want to delete.
+. Click *...* in the upper-right and select *Rename*.
+. Enter the new name for the private space and click *Rename*.
+
 == Delete a Private Network 
 
 Deleting a private network also deletes its VPN.
 This action can’t be undone.
+
+You can't delete a network that's in use.
 
 . From Anypoint Platform, select *Runtime Manager*.
 . Click *Private Spaces* in the left menu.

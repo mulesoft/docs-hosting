@@ -4,7 +4,6 @@ include::_attributes.adoc[]
 endif::[]
 
 
-
 == Enable Inbound Traffic to Your Apps Deployed in the Private Space	
 
 == Before You Begin
@@ -13,43 +12,189 @@ endif::[]
 * Create a CNAME Record to Route Queries (if necessary)	
 
 == Configure DNS for Inbound Traffic Server
+
 // === Configure Secure Domains for HTTPS Traffic
-// ==== Add TLS Certificates	
-// ==== Specify How to Handle HTTP Requests to Secure Domains	
-// === Add Insecure Domains for HTTP Traffic				
 
-. Specify the protocol to use.
+. From Anypoint Platform, select *Runtime Manager*.
+. Click *Private Spaces* in the left menu.
+. Click the name of the private space you want to manage.
+. Click the *Domains* tab.
+. Configure how the load balancer accepts inbound traffic:
 +
-Select either HTTPS for secure HTTPS traffice or HTTP for insecure HTTP traffic:
-+
-** *Accept HTTPS requests*
-+
-Optionally, select to redirect HTTP requests to HTTPS.
+--
+[NOTE]
+Runtime Fabric Cloud does not allow you to accept only insecure HTTP requests.
 
-** *Accept HTTP requests only* 
-+
-Select this option if you don't have TLS certificates, or if you enable HTTPS outside Anypoint Platform.
-. For HTTPS, add TLS certificates.
+From the *Accept HTTPS requests* list, select one of:
+
+** *Redirect HTTP to HTTPS*
+** *Drop HTTP requests*
+** *Also accept HTTP requests*
+--
+. Add TLS certificates:
 // Add certificates so that you can use their domains when deploying apps to this private space.
++
+--
+[NOTE]
+The `cloudhub-cert.pem` certificate is provided by default and can't be removed.
+
+.. Click *Add certificate*.
+.. Select the source:
+
+*Upload PEM files*
+
+... Click *Browse* and upload a public certificate file from your local system.
+... Click *Browse* and upload a private key file from your local system. 
+... Enter the password for your key. 
++
+Leave this field blank if your key isn't encrypted.
+... Optionally, click *Browse* and upload a CA path certificate.
+... Click *Add certificate*. 
+
+*Upload JKS file*
+
+... Click *Browse* and upload a keystore (JKS) file.
+... Enter the keystore password.
+... Click *Next*.
+... Select an alias from the keystore to add the domains.
+... Click *Next*. 
+... Click the key password for the alias you selected.
+... Click *Add certificate*.  
+
+*Import from Secrets Manager*
+
+... Select the environment.
+... Select the secret group.
+... Click *Add certificate*.  
+--
 . Click *Save Domains*. 
 
 
-=== Validate: Verify Inbound Traffic Configuration		
+=== Validate: Verify Inbound Traffic Configuration
 
-== Authenticate Trusted Clients (2-Way SSL)		
-=== Add Client TLS Certificates	
-=== Configure Revocation List (if not in certificate)	
+== Authenticate Trusted Clients (2-Way SSL)
+
+. From Anypoint Platform, select *Runtime Manager*.
+. Click *Private Spaces* in the left menu.
+. Click the name of the private space you want to manage.
+. Click the *Clients* tab.
+. Configure client validation:
+// how to manage requests from untrusted external clients
++
+--
+.. Select *Authenticate external clients*.
+.. Specify to block or allow untrusted clients.
+--
+. Add truststores that contain public certificates for trusted clients:
++
+.. Click *Add truststore*.
+.. Browse and select the truststore to upload.
+. (Optional) Add certificate revocation lists (CRL) to revoke certificates.
++
+If the CRL is not in the certificate, add it:
++
+.. Click *Add revocation list*.
+.. Browse and select the CRL to upload.
+. Configure limits for inbound traffic to the private space:
++
+--
+.. Click *Show* to display the advanced settings.
+.. Specify the limits:
+
+Max simultaneous connections::
+The maximum number of simultaneous connections, by default 512.
+Max requests per connections::
+The maximum number of requests between 1 and 1000.
+Connection idle timeout::
+The connection timeout, by default 10 seconds.
+Read request timeout::
+The maximum number of seconds spent reading a request before it terminates, by default 10 seconds.
+Read response timeout::
+The maximum number of seconds spent initiating a response before the connection terminates, by default 300 seconds.
+Write response timeout::
+The maximum number of seconds spent writing a response before the connection terminates, by default 10 seconds.
+Max pipeline depth::
+The maximum number of requests allowed from the same client, by default 1000. 
+--
+. Click *Save clients* or *Discard changes*.
+
+=== Delete Certificate and CRL Files
+
+To delete a certificate or CRL file, click *...* to the right of the certificate details and select *Delete*.
+
 
 == Configure Firewall Rules Settings for the Private Space
-=== Before You Begin	
-		Configure Anypoint Security for Edge Policies	
-		Specify IP Addresses to Whitelist	
-		Control Inbound Traffic with Firewall Rules	
-		Apply Edge Security Policies to the Private Space	
-Configure Logging			
-	Specify Load Balancer Log Level		
-	Specify RTFC Log Level		
-	Forward Logs to Anypoint Monitoring		
-	Forward Logs to External Services		
-Configure Internal DNS to Resolve Private Domains			
-	Update DNS Server with Private Domains		
+
+// Configure Anypoint Security for Edge Policies	
+// Specify IP Addresses to Whitelist	
+// Control Inbound Traffic with Firewall Rules	
+// Apply Edge Security Policies to the Private Space	
+
+. From Anypoint Platform, select *Runtime Manager*.
+. Click *Private Spaces* in the left menu.
+. Click the name of the private space you want to manage.
+. Click the *Firewall rules* tab.
+. Configure rules for inbound traffic:
++
+--
+.. Select the *Type*, *Source*, and *Port Range* from the dropdown lists.
+.. Click *Add rule* to add another rule.
+--
+. Configure rules for outbound traffic:
++
+--
+.. Select the *Type*, *Source*, and *Port Range* from the dropdown lists.
+.. Click *Add rule* to add another rule.
+--
+. Click *Save firewall rules* or *Discard changes*.
+
+
+== Configure Environments to Associate with the Private Space 
+
+. From Anypoint Platform, select *Runtime Manager*.
+. Click *Private Spaces* in the left menu.
+. Click the name of the private space you want to manage.
+. Click the *Environments* tab.
+. Select the environments from the dropdown list:
++
+--
+** *Any environment*
+** *Sandbox environments*
+** *Production environments*
+--
+. Select the business groups from the dropdown list:
++
+--
+** *Any business group*
+** *Selected business group*, then enter the business group.
+
+To remove a business group, click the *X* to the right of the entry.
+--
+. Click *Save environments* or *Discard changes*.
+
+
+== Configure Logging to Associate with the Private Space 
+
+. From Anypoint Platform, select *Runtime Manager*.
+. Click *Private Spaces* in the left menu.
+. Click the name of the private space you want to manage.
+. Click the *Logging* tab.
+. Select logging options:
++
+--
+** *Show logs in Anypoint Monitoring*
++
+Select this option to view application logs in Anypoint Monitoring (Titanium-level subscriptions only).
+** *Forward logs to an external service*
++
+https://docs.google.com/document/d/1oeqJCHjIzvMQrE5j4auUm5yND64on_VcRiYRuA6JmcM/edit
+--
+
+//	Specify Load Balancer Log Level		
+//	Specify RTFC Log Level		
+// Configure Internal DNS to Resolve Private Domains			
+// 	Update DNS Server with Private Domains		
+
+== See Also 
+
+* A 
