@@ -1,31 +1,30 @@
-= Customize Your Private Space
+= Customize a Private Space
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
 
-== Enable Inbound Traffic to Your Apps Deployed in the Private Space	
+== Enable Inbound Traffic to Your Apps Deployed in a Private Space	
 
 == Before You Begin
 
-* Update the Nameservers for Your Domains	
-* Create a CNAME Record to Route Queries (if necessary)	
+* Update the name servers for your domains.	
+* Create a CNAME record to route queries (if necessary).
 
 == Configure DNS for Inbound Traffic Server
 
 // === Configure Secure Domains for HTTPS Traffic
 
-. From Anypoint Platform, select *Runtime Manager*.
-. Click *Private Spaces* in the left menu.
-. Click the name of the private space you want to manage.
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the *Domains* tab.
 . Configure how the load balancer accepts inbound traffic:
 +
 --
-[NOTE]
-Runtime Fabric Cloud does not allow you to accept only insecure HTTP requests.
+Runtime Fabric Cloud doesn't allow you to accept only insecure HTTP requests.
 
-From the *Accept HTTPS requests* list, select one of:
+From the *Accept HTTPS requests* list, select one of the following:
 
 ** *Redirect HTTP to HTTPS*
 ** *Drop HTTP requests*
@@ -34,13 +33,13 @@ From the *Accept HTTPS requests* list, select one of:
 . Add TLS certificates:
 // Add certificates so that you can use their domains when deploying apps to this private space.
 +
---
 [NOTE]
 The `cloudhub-cert.pem` certificate is provided by default and can't be removed.
 
 .. Click *Add certificate*.
 .. Select the source:
-
++
+--
 *Upload PEM files*
 
 ... Click *Browse* and upload a public certificate file from your local system.
@@ -50,17 +49,18 @@ The `cloudhub-cert.pem` certificate is provided by default and can't be removed.
 Leave this field blank if your key isn't encrypted.
 ... Optionally, click *Browse* and upload a CA path certificate.
 ... Click *Add certificate*. 
-
+--
 *Upload JKS file*
-
++
+--
 ... Click *Browse* and upload a keystore (JKS) file.
-... Enter the keystore password.
-... Click *Next*.
-... Select an alias from the keystore to add the domains.
-... Click *Next*. 
+... Enter the keystore password and then click *Next*.
+... Select an alias from the keystore to add the domains and then click *Next*. 
 ... Click the key password for the alias you selected.
 ... Click *Add certificate*.  
-
+--
++
+--
 *Import from Secrets Manager*
 
 ... Select the environment.
@@ -74,9 +74,9 @@ Leave this field blank if your key isn't encrypted.
 
 == Authenticate Trusted Clients (2-Way SSL)
 
-. From Anypoint Platform, select *Runtime Manager*.
-. Click *Private Spaces* in the left menu.
-. Click the name of the private space you want to manage.
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the *Clients* tab.
 . Configure client validation:
 // how to manage requests from untrusted external clients
@@ -123,16 +123,16 @@ The maximum number of requests allowed from the same client, by default 1000.
 To delete a certificate or CRL file, click *...* to the right of the certificate details and select *Delete*.
 
 
-== Configure Firewall Rules Settings for the Private Space
+== Configure Firewall Rules Settings for a Private Space
 
 // Configure Anypoint Security for Edge Policies	
 // Specify IP Addresses to Whitelist	
 // Control Inbound Traffic with Firewall Rules	
 // Apply Edge Security Policies to the Private Space	
 
-. From Anypoint Platform, select *Runtime Manager*.
-. Click *Private Spaces* in the left menu.
-. Click the name of the private space you want to manage.
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the *Firewall rules* tab.
 . Configure rules for inbound traffic:
 +
@@ -149,11 +149,11 @@ To delete a certificate or CRL file, click *...* to the right of the certificate
 . Click *Save firewall rules* or *Discard changes*.
 
 
-== Configure Environments to Associate with the Private Space 
+== Configure Environments to Associate with a Private Space 
 
-. From Anypoint Platform, select *Runtime Manager*.
-. Click *Private Spaces* in the left menu.
-. Click the name of the private space you want to manage.
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the *Environments* tab.
 . Select the environments from the dropdown list:
 +
@@ -173,11 +173,11 @@ To remove a business group, click the *X* to the right of the entry.
 . Click *Save environments* or *Discard changes*.
 
 
-== Configure Logging to Associate with the Private Space 
+== Configure Logging to Associate with a Private Space 
 
-. From Anypoint Platform, select *Runtime Manager*.
-. Click *Private Spaces* in the left menu.
-. Click the name of the private space you want to manage.
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the *Logging* tab.
 . Select logging options:
 +

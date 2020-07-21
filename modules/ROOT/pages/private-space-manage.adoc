@@ -4,47 +4,36 @@ include::_attributes.adoc[]
 endif::[]
 
 
-== Create a Private Space 
 
-. From Anypoint Platform, select *Runtime Manager*.
-. Click *Private Spaces* in the left menu.
-. Click *Create private space*.
-. Enter a name for your private space and click *Create*.
-+
-Private space names can contain up to 60 alphanumeric characters (a-z, A-Z, 0-9), spaces, and hyphens (-).
-Runtime Manager supports Unicode characters in private space names.
-+
-The private space name appears in the list when you select a deployment target for your apps.
+== Rename a Private Space
 
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click *...* in the upper-right and select *Rename*.
+. Enter the new name for the private space and click *Rename*.
 
 == Delete a Private Space
 
 Deleting a private space also deletes any related private networks, VPNs, and files.
 This action can’t be undone.
 
-. From Anypoint Platform, select *Runtime Manager*.
-. Click *Private Spaces* in the left menu.
-. Click the name of the private space you want to delete.
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click *...* in the upper-right and select *Delete*.
 . Click *Delete private space* to confirm the deletion.
 
-== Rename a Private Space
-
-. From Anypoint Platform, select *Runtime Manager*.
-. Click *Private Spaces* in the left menu.
-. Click the name of the private space you want to delete.
-. Click *...* in the upper-right and select *Rename*.
-. Enter the new name for the private space and click *Rename*.
 
 == Delete a Private Network 
 
 Deleting a private network also deletes its VPN.
 This action can’t be undone.
 
-You can't delete a network that's in use.
+You can't delete a network if it is in use.
 
-. From Anypoint Platform, select *Runtime Manager*.
-. Click *Private Spaces* in the left menu.
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 . Click the name of the private space that includes the private network you want to delete.
 . Click *...* in the *Private network* area and select *Delete network*.
 . Click *Delete* to confirm the deletion.
@@ -54,8 +43,8 @@ You can't delete a network that's in use.
 
 This action can’t be undone.
 
-. From Anypoint Platform, select *Runtime Manager*.
-. Click *Private Spaces* in the left menu.
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 . Click the name of the private space that includes the VPN you want to delete.
 . Click *...* in the *VPN* area and select *Delete VPN*.
 . Click *Delete* to confirm the deletion.

@@ -3,5 +3,7 @@
 ** xref:features.adoc[Features of Runtime Fabric Cloud]
 ** xref:private-space-setup.adoc[Set Up a Private Space for Runtime Fabric Cloud Deployments]
 *** xref:network-admin-checklist.adoc[Complete the Network Admin Checklists]
-*** xref:private-space-customize.adoc[Customize Your Private Space]
+*** xref:private-space-roles.adoc[Assign Roles and Permissions]
+*** xref:private-space-configure.adoc[Create and Configure the Private Space]
+*** xref:private-space-customize.adoc[Customize the Private Space]
 *** xref:private-space-manage.adoc[Manage Private Spaces]

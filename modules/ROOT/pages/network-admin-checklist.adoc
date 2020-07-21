@@ -11,7 +11,7 @@ from your network administrator.
 [%header,cols="20a,30a,20a,20a"]
 |===
 |Item |Description| Example |More Info  
-|Region|The region to deploy your apps to|`us-west-2`| <<Region>>
+|Region|The region to deploy your apps to|*US East (N. Virginia)* (`us-east-1`)| <<Region>>
 |CIDR block| The range of IP addresses that your apps can use| `10.111.0.0/24` | <<CIDR Block>>
 |===
 
@@ -108,14 +108,15 @@ The complete list of supported regions is:
 
 The CIDR block is the range of IP addresses, in CIDR notation, that the apps deployed in your private network use. 
 
-Apps use multiple IP addresses.
-For each app, allocate 10 IP addresses. 
+Because each app uses multiple IP addresses, allocate at least 10 IP addresses for each app.
 
 For example, to grant your private network 256 IP addresses between `10.111.0.0` and `10.111.0.255`, set the CIDR block to `10.111.0.0/24`.
 
-Ensure that you specify CIDR blocks from a private IP space, 
-and that they don't overlap with any other CIDR blocks in your private spaces,
-or any CIDR blocks in use in your corporate network.
+When specifying CIDR blocks, ensure that the CIDR blocks:
+
+* Are from a private IP space.
+* Don't overlap with any other CIDR blocks in your private spaces.
+* Don't overlap with any CIDR blocks in use in your corporate network.
 
 == ASN 
 

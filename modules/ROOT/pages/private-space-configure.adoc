@@ -1,0 +1,124 @@
+= Create and Configure a Private Space
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+== Create the Private Space 
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+. Click *Create private space*.
+. Enter a name for your private space and click *Create*.
++
+Private space names can contain up to 60 alphanumeric characters (a-z, A-Z, 0-9), spaces, and hyphens (-).
+Runtime Manager supports Unicode characters in private space names.
++
+The private space name appears in the list when you select a deployment target for your apps.
++
+You can rename a private space, if necessary.
+
+
+== Create a Private Network
+
+[IMPORTANT]
+You can't change the private network configuration after it's created.
+To change the configuration, delete the private network and create it again.
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. In the *Private network* tab, click *Create network* under *Private network*. 
+. Select the region. 
+. Enter the CIDR block.
++
+The CIDR block is the range of IP addresses that your apps can use.
+. Click *Create*.
+
+The private network can take up to 30 minutes to create.
+After the network creation succeeds, you can deploy an application to test the private network.  
+
+If the private network creation fails, delete it and click *Create network* to try again.
+
+=== Test the Private Network by Deploying an App 
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. Click *Deploy application*.
+. In the *Deploy Application* page, select the name of the private space from the *Deployment Target* list and complete the fields in the page.
+. Click *Deploy Application*. 
+
+
+=== Configure Internal DNS Servers
+
+If your corporate network uses internal DNS servers to resolve requests to custom domains, enter the IP addresses and domain names.
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. In the *Private network* tab, click the *Configure* link under *Private network*.
+. Enter the IP addresses (comma-separated) for your internal DNS servers.
+. Enter the domain names (comma-separated) to be resolved by internal DNS.
+. Click *Create*.
+
+== Create a VPN
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. In the *Private network* tab, click *Create VPN* under *Next Step*.
+. Enter the remote IP address (a single, static IP address) for your VPN endpoint.
+. Select the routing type:
++
+Dynamic::
+Select this option if your device supports Border Gateway Protocol (BGP).
+Static::
++
+.. Specify the static IP prefixes (comma-separated) in CIDR notation.
+.. Enter a local private ASN that isn't already assigned to your network.
+. Select the tunnel configuration:
++
+Automatic::
+This option requires no further configuration.
+Custom::
++
+.. Specify the IP ranges (in CIR forma) for the internal address of each VPN tunnel.
+.. Specify the PSKs for each VPN tunnel. 
+. Click *Create*. 
+
+// If the VPN creation fails, click *Retry* to try again.
+
+== Connect a VPN to Your Corporate Network 
+
+To connect the VPN to your corporate network, provide information
+about your gateway device to generate configuration for your network administrator to use when configuring your gateway device. 
+
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. In the *Private network* tab, click *View guide* under *Last Step*.
+
+. Click *View guide*.
+. Select the *Device vendor*, *Device platform*, and *Device software* from the drop-down lists.
++
+The dialog displays the customized configuration file for your gateway device.
++
+. Click *Copy* to copy and paste the configuration or *Download* to download the file to your local system.
+. Click *Done*.
+. Give the configuration information to your network administrator to use when configuring your gateway device.
++
+For information, see https://docs.aws.amazon.com/vpc/latest/adminguide/Welcome.html[Your customer gateway device] in the AWS VPN documentation.
+
+
+== Test a VPN Connection 
+
+To test the VPN connection, use the Network Tools Application. 
+
+For download and usage information about the Network Tools Application, see https://help.mulesoft.com/s/article/How-To-Use-Network-Tools-Application[How To Use Network Tools Application].
+
+== See Also 
+
+* xref:network-admin-checklist.adoc[Complete the Network Admin Checklists]
+* xref:private-space-manage.adoc#rename-a-private-space[Rename a Private Space]
+* xref:private-space-manage.adoc#delete-a-private-network[Delete a Private Network]
+* xref:private-space-customize.adoc[Customize a Private Space]

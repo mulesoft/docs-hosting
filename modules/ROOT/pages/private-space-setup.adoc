@@ -6,11 +6,13 @@ endif::[]
 
 == Workflow
 
+. Create the private space. 
 . Create the private network.
+. Test the private space by deploying an app.
 . Configure internal DNS servers, if necessary. 
-* Create the VPN. 
-* Connect the VPN to your corporate network.
-* Customize the private space.
+. Create the VPN. 
+. Connect the VPN to your corporate network.
+. Customize the private space.
 
 
 == Before You Begin
@@ -20,108 +22,15 @@ endif::[]
 ** xref:network-admin-checklist.adoc#private-network-checklist[Private Network Checklist]
 ** xref:network-admin-checklist.adoc#vpn-checklist[VPN Checklist] 
 ** xref:network-admin-checklist.adoc#vpn-connection-checklist[VPN Connection Checklist]
+** xref:network-admin-checklist.adoc#internal-dns-servers-checklist[Internal DNS Servers Checklist]
 
-* Assign roles and permissions
+* Assign roles and permissions.
 
-
-== Create the Private Space 
-
-. From Anypoint Platform, select *Runtime Manager*.
-. Click *Private Spaces* in the left menu.
-. Click *Create private space*.
-. Enter a name for your private space and click *Create*.
-+
-Private space names can contain up to 60 alphanumeric characters (a-z, A-Z, 0-9), spaces, and hyphens (-).
-Runtime Manager supports Unicode characters in private space names.
-+
-The private space name appears in the list when you select a deployment target for your apps.
-
-
-== Create the Private Network
-
-. From Anypoint Platform, select *Runtime Manager*.
-. Click *Private Spaces* in the left menu.
-. Click the name of the private space you want to manage.
-. In the *Private network* tab, click *Create network* under *Private network*. 
-. Select the region. 
-. Enter the CIDR block.
-+
-The CIDR block is the range of IP addresses that your apps can use.
-// Apps use multiple IPs, so allow IPs for roughly 10 times the number of apps you expect to deploy. Don’t overlap with blocks already in use.
-. Click *Create*.
-
-If the private network creation fails, click *Retry* to try again.
-
-=== Configure Internal DNS Servers
-
-If your corporate network uses internal DNS servers to resolve requests to custom domains,
-enter the IP addresses and domain names.
-
-. From Anypoint Platform, select *Runtime Manager*.
-. Click *Private Spaces* in the left menu.
-. Click the name of the private space you want to manage.
-. In the *Private network* tab, click the *Configure* link under *Private network*.
-. Enter the IP addresses (comma-separated) for your internal DNS servers.
-. Enter the domain names (comma-separated) to be resolved by internal DNS.
-. Click *Create*.
-
-== Create the VPN
-
-. From Anypoint Platform, select *Runtime Manager*.
-. Click *Private Spaces* in the left menu.
-. Click the name of the private space you want to manage.
-. In the *Private network* tab, click *Create VPN* under *Next Step*.
-. Enter the remote IP address (a single, static IP address) for your VPN endpoint.
-. Select the routing type:
-+
-** *Dynamic*
-+
-Select this option if your device supports Border Gateway Protocol (BGP).
-** *Static*
-+
-... Specify the static IP prefixes (comma-separated) in CIDR notation.
-... Enter a local private ASN that isn't already assigned to your network.
-. Select the tunnel configuration:
-+
-** *Automatic*
-+
-This option requires no further configuration.
-** *Custom*
-+
-... Specify the IP ranges (in CIR forma) for the internal address of each VPN tunnel.
-... Specify the PSKs for each VPN tunnel. 
-. Click *Create*. 
-
-// If the VPN creation fails, click *Retry* to try again.
-
-
-== Connect the VPN to Your Corporate Network 
-
-
-// Connecting your VPN to your corporate network is done outside of Anypoint Platform. Tell us about your gateway device to get a customized guide for you or your network admin to follow.
-
-
-. From Anypoint Platform, select *Runtime Manager*.
-. Click *Private Spaces* in the left menu.
-. Click the name of the private space you want to manage.
-. In the *Private network* tab, click *View guide* under *Last Step*.
-
-. Click *View guide*.
-. Select the *Device vendor*, *Device platform*, and *Device software* from the drop-down lists.
-+
-The dialog displays the customized configuration file for your gateway device.
-+
-. Click *Copy* to copy and paste the configuration or *Download* to download the file to your local system.
-. Click *Done*.
-. Give the configuration information to your network administrator to use when configuring your gateway device.
-+
-For information, see https://docs.aws.amazon.com/vpc/latest/adminguide/Welcome.html[Your customer gateway device] in the AWS VPN documenation.
-
-
-== Test the VPN Connection 
-
-https://help.mulesoft.com/s/article/How-To-Use-Network-Tools-Application[How To Use Network Tools Application]
 
 == See Also 
 
-* xref:private-space-manage.adoc[Manage Private Spaces]
+
+* xref:network-admin-checklist.adoc[Complete the Network Admin Checklists]
+* xref:private-space-roles.adoc[Assign Roles and Permissions]
+* xref:private-space-configure.adoc[Create and Configure the Private Space]
+* xref:private-space-customize.adoc[Customize Your Private Space]
