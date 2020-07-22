@@ -6,6 +6,10 @@ endif::[]
 Before you set up your private network, use the checklists to gather information you'll need 
 from your network administrator.
 
+(*View the checklist* link from *Private network* tab)
+
+// Should this page include other network admin requests - Domains tab?
+
 == Private Network Checklist 
 
 [%header,cols="20a,30a,20a,20a"]

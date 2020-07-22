@@ -2,4 +2,9 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-== Feature Comparison: Runtime Fabric Cloud and CloudHub
+
+//== Feature Comparison: Runtime Fabric Cloud and CloudHub 
+
+== Features Included in the Internal Beta Release
+
+List from Sundip

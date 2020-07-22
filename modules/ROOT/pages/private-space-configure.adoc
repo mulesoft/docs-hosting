@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-== Create the Private Space 
+== Create a Private Space 
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
@@ -111,6 +111,8 @@ For information, see https://docs.aws.amazon.com/vpc/latest/adminguide/Welcome.h
 
 
 == Test a VPN Connection 
+
+// (Link from *Private network* tab?)
 
 To test the VPN connection, use the Network Tools Application. 
 

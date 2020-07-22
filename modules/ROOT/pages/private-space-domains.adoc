@@ -1,0 +1,77 @@
+= Enable Inbound Traffic to Your Apps Deployed in a Private Space	
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+
+
+== Before You Begin
+
+* Update the name servers for your domains.	
+* Create a CNAME record to route queries (if necessary).
+
+== Configure DNS for Inbound Traffic Server
+
+// === Configure Secure Domains for HTTPS Traffic
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click the *Domains* tab.
+. Configure how the load balancer accepts inbound traffic:
++
+--
+Runtime Fabric Cloud doesn't allow you to accept only insecure HTTP requests.
+
+From the *Accept HTTPS requests* list, select one of the following:
+
+** *Redirect HTTP to HTTPS*
+** *Drop HTTP requests*
+** *Also accept HTTP requests*
+--
+. Add TLS certificates:
+// Add certificates so that you can use their domains when deploying apps to this private space.
++
+[NOTE]
+The `cloudhub-cert.pem` certificate is provided by default and can't be removed.
+
+.. Click *Add certificate*.
+.. Select the source:
++
+--
+*Upload PEM files*
+
+... Click *Browse* and upload a public certificate file from your local system.
+... Click *Browse* and upload a private key file from your local system. 
+... Enter the password for your key. 
++
+Leave this field blank if your key isn't encrypted.
+... Optionally, click *Browse* and upload a CA path certificate.
+... Click *Add certificate*. 
+--
+*Upload JKS file*
++
+--
+... Click *Browse* and upload a keystore (JKS) file.
+... Enter the keystore password and then click *Next*.
+... Select an alias from the keystore to add the domains and then click *Next*. 
+... Click the key password for the alias you selected.
+... Click *Add certificate*.  
+--
++
+--
+*Import from Secrets Manager*
+
+... Select the environment.
+... Select the secret group.
+... Click *Add certificate*.  
+--
+. Click *Save Domains*. 
+
+
+=== Validate: Verify Inbound Traffic Configuration
+
+
+== See Also 
+
+* A 

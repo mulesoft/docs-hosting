@@ -1,0 +1,55 @@
+= Configure Environments to Associate with a Private Space
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+
+== Configure Environments to Associate with a Private Space 
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click the *Environments* tab.
+. Select the environments from the dropdown list:
++
+--
+** *Any environment*
+** *Sandbox environments*
+** *Production environments*
+--
+. Select the business groups from the dropdown list:
++
+--
+** *Any business group*
+** *Selected business group*, then enter the business group.
+
+To remove a business group, click the *X* to the right of the entry.
+--
+. Click *Save environments* or *Discard changes*.
+
+
+== Configure Logging to Associate with a Private Space 
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click the *Logging* tab.
+. Select logging options:
++
+--
+** *Show logs in Anypoint Monitoring*
++
+Select this option to view application logs in Anypoint Monitoring (Titanium-level subscriptions only).
+** *Forward logs to an external service*
++
+https://docs.google.com/document/d/1oeqJCHjIzvMQrE5j4auUm5yND64on_VcRiYRuA6JmcM/edit
+--
+
+//	Specify Load Balancer Log Level		
+//	Specify RTFC Log Level		
+// Configure Internal DNS to Resolve Private Domains			
+// 	Update DNS Server with Private Domains		
+
+== See Also 
+
+* A 
