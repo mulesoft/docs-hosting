@@ -7,4 +7,54 @@ endif::[]
 
 == What is a Private Space?
 
+////
+
 Steal information from VPC section of CloudHub docs
+
+
+
+A _private space_ is a virtual, private, and isolated network segment in the cloud to host your CloudHub workers.
+
+Connecting to your Anypoint VPC extends your corporate network and allows CloudHub workers to access resources behind your corporate firewall. You can connect on-premises data centers through a secured VPN tunnel, or a private AWS VPC through VPC peering, or by using AWS Direct Connect.
+
+The base Anypoint VPC subscription includes two Anypoint VPCs and each Anypoint VPC can be associated with multiple environments. This allows you, for example, to have one isolated network for your production environment, and another for your non-productions environments, for example, QA and staging. Your licensing requirements depend on your specific deployment scenario. 
+
+Anypoint VPC supports different Amazon regions. During setup, you need to specify which Amazon region you want. You can even have multiple Anypoint VPCs inside a single Amazon region.
+
+image::virtual-private-cloud-78b5f.png[]
+
+Each Anypoint VPC allows you to configure firewall rules to apply to your workers. You can choose to expose or block your custom ports and even block requests to your apps coming from CloudHub's shared load balancer. 
+
+If you use dedicated load balancers, you can configure one or more dedicated load balancers to validate requests using your own SSL certificates, and to map input URLs to call to different CloudHub applications. 
+
+Combining firewall rules and dedicated load balancers configurations, enables you to fine tune how external services reach your applications.
+
+
+
+
+
+An Anypoint VPC is a logically private and isolated network hosted inside CloudHub. You can connect your private intranet to your Anypoint VPC as if they were all part of a single, private network. 
+
+The Anypoint VPC configuration exposes the DNS record `mule-worker-internal-<app-name>.cloudhub.io`. This is a DNS A record, which includes the IP addresses of all your workers. This DNS record cannot be accessed from outside your Anypoint VPC.
+
+Each Anypoint VPC allows you to configure firewall rules to check inbound connections directly to your workers. 
+
+Four firewall rules are created by default--two rules that allow your private address space to connect through ports 8091 and 8092, and two rules that whitelist external requests proxied by CloudHub's shared load balancer through ports 8081 and 8082. 
+
+All traffic that is not whitelisted in a firewall rule is blocked by default.
+
+
+You can configure a dedicated load balancer inside your VPC, which allows you to provide custom certificates and optionally enforce two-way SSL client authentication. If you configure proxy rules that map your applications to custom domains, you can, for example, host everything under a single vanity domain.
+
+An Anypoint VPC architecture with a dedicated load balancer would look like this:
+
+A CloudHub dedicated load balancer is assigned to a particular Anypoint VPC. The dedicated load balancer then routes traffic to that particular Anypoint VPC within the particular service region of the VPC.
+
+Each dedicated load balancer has a DNS A record `<lb-name>.lb.anypointdns.net` resolving to two public IP addresses of its two instances. +
+Through your DNS provider, you can add a `CNAME` record pointing to the dedicated `A` record and use your own domain names to access it. This DNS A record can also be reached from outside the VPC. +
+Additionally, a CloudHub dedicated load balancer has an internal domain name to be used by applications and clients within the Anypoint VPC. The structure is `internal-<lb-name>.lb.anypointdns.net`.
+
+////
+
+
+== See Also
