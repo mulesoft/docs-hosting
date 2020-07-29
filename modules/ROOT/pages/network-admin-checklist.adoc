@@ -3,8 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Before you set up your private network, use the checklists to gather information you'll need 
-from your network administrator.
+Use the checklists to gather information you'll need from your network administrator to set up your private network. 
 
 (*View the checklist* link from *Private network* tab)
 
@@ -13,6 +12,7 @@ from your network administrator.
 == Private Network Checklist 
 
 [%header,cols="20a,30a,20a,20a"]
+.Private Network
 |===
 |Item |Description| Example |More Info  
 |Region|The region to deploy your apps to|*US East (N. Virginia)* (`us-east-1`)| <<Region>>
@@ -22,6 +22,7 @@ from your network administrator.
 == VPN Checklist 
 
 [%header,cols="20a,30a,20a,20a"]
+.VPN
 |===
 |Item |Description | Example | More Info 
 |Remote IP address|The public (single, static) IP address of your VPN endpoint | example |
@@ -30,10 +31,12 @@ from your network administrator.
 |Tunnel configuration|Automatic or Custom||<<custom-tunnel,Custom Tunnel Checklist>>
 |===
 
-If your device supports Border Gateway Protocol (BGP), select the dynamic routing type and complete this checklist. 
+If your gateway device supports Border Gateway Protocol (BGP), select the dynamic routing type and complete this checklist.
+
+See <<Requirements for Dynamic VPN Connections>>.
 
 [[dynamic]]
-.Dynamic Routing Checklist 
+.Dynamic Routing 
 [%header,cols="20a,30a,20a,20a"]
 |===
 |Item |Description | Example | More Info 
@@ -42,10 +45,13 @@ If your device supports Border Gateway Protocol (BGP), select the dynamic routin
 |===
 
 
-Static requires you to specify the routes (subnets) in your network that are accessible through Anypoint VPN.
+Static routing requires you to specify the routes (subnets) in your network that are accessible through Anypoint VPN.
+
+See <<Requirements for Static VPN Connections>>.
+
 
 [[static]]
-.Static Routing Checklist 
+.Static Routing 
 [%header,cols="20a,30a,20a,20a"]
 |===
 |Item |Description | Example | More Info 
@@ -54,7 +60,7 @@ Static requires you to specify the routes (subnets) in your network that are acc
 |===
 
 [[custom-tunnel]]
-.Custom Tunnel Checklist 
+.Custom Tunnel 
 [%header,cols="20a,30a,20a,20a"]
 |===
 |Item |Description | Example | More Info 
@@ -67,6 +73,7 @@ Static requires you to specify the routes (subnets) in your network that are acc
 
 [[vpn-connection]]
 [%header,cols="20a,30a,20a,20a"]
+.VPN Connection 
 |===
 |Item |Description | Example | More Info 
 |Device vendor|The vendor of your network gateway device |Cisco .3+|<<Supported Network Devices>>
@@ -77,9 +84,9 @@ Static requires you to specify the routes (subnets) in your network that are acc
 
 == Internal DNS Servers Checklist 
 
-
 [[dns-servers]]
 [%header,cols="20a,30a,20a,20a"]
+.Internal DNS Servers
 |===
 |Item |Description | Example | More Info 
 |IP addresses|The IP addresses of your internal DNS server |`208.67.111.111` .2+|<<Internal DNS Servers>>
@@ -92,6 +99,7 @@ Static requires you to specify the routes (subnets) in your network that are acc
 The complete list of supported regions is:
 
 [%header]
+.Supported Regions 
 |===
 |Region|Sub-Domain
 |US East (North Virginia)| `us-e1.cloudhub.io`
@@ -173,13 +181,17 @@ For each tunnel, enter a value of between 8-64 characters that does not begin wi
 Use only alphanumeric characters, periods (.), and underscores (&#95;). 
 --
 
-== Supported Network Devices
+== Supported Gateway Devices
 
-The following network devices are known to work with Anypoint VPN.
+A gateway device is a physical or software appliance on your organization's side of the VPN connection.
+Your network administrator must configure the device to work with the Anypoint VPN connection.
+
+The following gateway network devices are known to work with Anypoint VPN.
 If your device does not appear in the list of tested devices,
-check the <<vpn_requirements,requirements>> to verify that your device is suitable for use with Anypoint VPN.
+check the requirements to verify that your device is suitable for use with Anypoint VPN.
 
 [%header%autowidth.spread]
+.Supported Gateway Devices 
 |===
 |Device Vendor | Device Platform | Device Software 
 |Check Point | Security Gateway | R77.10 or later
@@ -205,6 +217,35 @@ check the <<vpn_requirements,requirements>> to verify that your device is suitab
 |4.30 or later for dynamically routed Anypoint VPN connections
 |===
 
+
+=== Requirements for Static VPN Connections 
+
+To create a static VPN connection, your VPN endpoint must be able to:
+
+* Establish IKE Security Associations using a Pre-Shared Key (PSK) 
+* Establish IPsec Security Associations in Tunnel mode
+* Utilize any combination of IPsec settings that MuleSoft supports
+* Fragment IP packets before encryption 
++
+You must fragment packets that are too large to transmit. Your VPN device must be able to fragment packets before encapsulation.
+* Use one Security Association (SA) pair per tunnel 
++
+Anypoint VPN supports one unique SA pair per tunnel (a pair refers to one inbound and one outbound connection). Some policy-based devices create an SA for each ACL (access-control list) entry. In this situation, you must consolidate your rules and then filter unwanted traffic.
+* Use IPsec Dead Peer Detection (DPD)
++
+DPD allows devices to rapidly identify when network conditions change. You can enable DPD on the MuleSoft endpoint using `DPD Interval: 10` and `DPD Retries: 3`.
+* Allow asymmetric routing 
++
+Asymmetric routing occurs when routing policies send traffic from your network to the VPC through one tunnel and traffic returns from the VPC through the other tunnel. The MuleSoft VPN endpoint selects the tunnel using an internal algorithm, making the return path dynamic. If your device uses an active/active tunnel configuration, you must allow asymmetric routing for each Anypoint VPN connection.
+
+=== Requirements for Dynamic VPN Connections
+
+To create a dynamic VPN connection, in addition to the static VPN connection requirements, the VPN endpoint must be able to:
+
+* Establish BGP peering
+* Support route-based VPNs (bind tunnels to logical interfaces)
+
+
 == Internal DNS Servers 
 
 You can specify custom private domains by adding the IP address and domain name for your network.
@@ -214,10 +255,7 @@ so you can still use the internal host names of your private network
 
 IP addresses::
 Up to three IP addresses of your internal DNS server.
-
 // Add IP addresses for internal DNS servers, separated by commas. Multiple servers are allowed for redundancy. They should each support all domains added below.
-
 Domains::
-The common portion of your internal domain name, such as `mulesoft.com`
-
+The common portion of your internal domain name, such as `mulesoft.com`.
 // Add domains to be resolved by internal DNS, separated by commas.

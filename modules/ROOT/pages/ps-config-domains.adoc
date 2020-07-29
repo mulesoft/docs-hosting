@@ -1,4 +1,4 @@
-= Enable Inbound Traffic to Your Apps Deployed in a Private Space	
+= Enable Inbound Traffic to Your Apps Deployed to a Private Space	
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -36,11 +36,8 @@ From the *Accept HTTPS requests* list, select one of the following:
 The `cloudhub-cert.pem` certificate is provided by default and can't be removed.
 
 .. Click *Add certificate*.
-.. Select the source:
+.. Upload PEM files:
 +
---
-*Upload PEM files*
-
 ... Click *Browse* and upload a public certificate file from your local system.
 ... Click *Browse* and upload a private key file from your local system. 
 ... Enter the password for your key. 
@@ -48,30 +45,73 @@ The `cloudhub-cert.pem` certificate is provided by default and can't be removed.
 Leave this field blank if your key isn't encrypted.
 ... Optionally, click *Browse* and upload a CA path certificate.
 ... Click *Add certificate*. 
---
-*Upload JKS file*
+.. Upload a JKS file:
 +
---
 ... Click *Browse* and upload a keystore (JKS) file.
 ... Enter the keystore password and then click *Next*.
 ... Select an alias from the keystore to add the domains and then click *Next*. 
 ... Click the key password for the alias you selected.
 ... Click *Add certificate*.  
---
+.. Import from Secrets Manager:
 +
---
-*Import from Secrets Manager*
-
 ... Select the environment.
 ... Select the secret group.
 ... Click *Add certificate*.  
---
+. Click *Advanced settings* to configure the log levels for the load balancer in the private space.
++
+See <<Load Balancer Log Levels>>.
 . Click *Save Domains*. 
 
 
-=== Validate: Verify Inbound Traffic Configuration
+== Load Balancer Log Levels 
+
+Runtime Fabric Cloud enables you to specify the severity level of messages that are written to the log file.
+
+[%header,cols="2*a"]
+.Runtime Fabric Cloud Log Levels
+|===
+| Level 
+| Description
+
+| All Priorities
+| All messages
+
+| ERROR
+| Only error messages, such when an exception occurs
+
+| FATAL
+| Only fatal messages when an application fails
+
+| INFO
+| Informative messages
+
+| SYSTEM
+| Messages about application and worker startup
+
+| CONSOLE
+| Messages about console events, such as setting the object store
+
+| WARN
+| Warning messages
+
+| DEBUG
+| Debugging messages
+|===
+
+You can specify log levels for a Mule application or API proxy during deployment.
+
+////
+You can use Anypoint Runtime Manager to change the application log level by configuring the following property:
+```
+logging.level.<PACKAGE>=LEVEL
+``` 
+For example, if you use Runtime Manager to add the 
+`logging.level.org.mule.service.http.impl.service.HttpMessageLogger=DEBUG` property, `DEBUG` level log information is emitted from `HttpMessageLogger`.
+////
+
+== Validate: Verify Inbound Traffic Configuration
 
 
 == See Also 
 
-* A 
+* xref:ps-config-logging.adoc[Configure Log Forwarding for a Private Space]

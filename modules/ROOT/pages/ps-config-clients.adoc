@@ -1,4 +1,4 @@
-= Authenticate Trusted Clients (2-Way SSL)
+= Set Up Authentication for Trusted Clients
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -31,7 +31,7 @@ If the CRL is not in the certificate, add it:
 +
 --
 .. Click *Show* to display the advanced settings.
-.. Specify the limits:
+.. Specify the limits for inbound traffic to the private space:
 
 Max simultaneous connections::
 The maximum number of simultaneous connections, by default 512.
@@ -53,34 +53,3 @@ The maximum number of requests allowed from the same client, by default 1000.
 === Delete Certificate and CRL Files
 
 To delete a certificate or CRL file, click *...* to the right of the certificate details and select *Delete*.
-
-
-== Configure Firewall Rules Settings for a Private Space
-
-// Configure Anypoint Security for Edge Policies	
-// Specify IP Addresses to Whitelist	
-// Control Inbound Traffic with Firewall Rules	
-// Apply Edge Security Policies to the Private Space	
-
-//SELECT PRIVATE SPACE SHARED
-include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the *Firewall rules* tab.
-. Configure rules for inbound traffic:
-+
---
-.. Select the *Type*, *Source*, and *Port Range* from the dropdown lists.
-.. Click *Add rule* to add another rule.
---
-. Configure rules for outbound traffic:
-+
---
-.. Select the *Type*, *Source*, and *Port Range* from the dropdown lists.
-.. Click *Add rule* to add another rule.
---
-. Click *Save firewall rules* or *Discard changes*.
-
-
-== See Also 
-
-* A 

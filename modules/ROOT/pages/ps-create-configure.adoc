@@ -121,6 +121,10 @@ For download and usage information about the Network Tools Application, see http
 == See Also 
 
 * xref:network-admin-checklist.adoc[Complete the Network Admin Checklists]
-* xref:private-space-manage.adoc#rename-a-private-space[Rename a Private Space]
-* xref:private-space-manage.adoc#delete-a-private-network[Delete a Private Network]
-* xref:private-space-customize.adoc[Customize a Private Space]
+* xref:ps-manage.adoc#rename-a-private-space[Rename a Private Space]
+* xref:ps-manage.adoc#delete-a-private-network[Delete a Private Network]
+* xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to a Private Space]
+* xref:ps-config-clients.adoc[Set Up Authentication for Trusted Clients]
+* xref:ps-config-fw-rules.adoc[Configure Firewall Rules to Allow Traffic to a Private Space]
+* xref:ps-config-env.adoc[Associate Environments and Business Groups with a Private Space]
+* xref:ps-config-logging.adoc[Configure Log Forwarding for a Private Space]
