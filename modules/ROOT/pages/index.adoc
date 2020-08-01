@@ -7,30 +7,38 @@ endif::[]
 
 == What is a Private Space?
 
+(In progress)
+
+A _private space_ is a virtual, private, and isolated network segment in the cloud to host your apps.
+
+Connecting to your private space extends your corporate network and enables workers in the private space to access resources behind your corporate firewall.
+You can connect on-premises data centers through a secured VPN tunnel, or a private AWS VPC through VPC peering, or by using AWS Direct Connect.
+
+Private spaces support different Amazon regions.
+During setup, you specify which Amazon region you want. You can even have multiple private space inside a single Amazon region.
+ 
+ 
+ 
 ////
 
 Steal information from VPC section of CloudHub docs
 
 
 
-A _private space_ is a virtual, private, and isolated network segment in the cloud to host your CloudHub workers.
+The base subscription includes two private spaces and you can associate each private space with multiple environments.
+This enables you to have one isolated network for your production environment, and another for your non-production environments, such as QA and staging.
+Your licensing requirements depend on your specific deployment scenario. 
 
-Connecting to your Anypoint VPC extends your corporate network and allows CloudHub workers to access resources behind your corporate firewall. You can connect on-premises data centers through a secured VPN tunnel, or a private AWS VPC through VPC peering, or by using AWS Direct Connect.
 
-The base Anypoint VPC subscription includes two Anypoint VPCs and each Anypoint VPC can be associated with multiple environments. This allows you, for example, to have one isolated network for your production environment, and another for your non-productions environments, for example, QA and staging. Your licensing requirements depend on your specific deployment scenario. 
 
-Anypoint VPC supports different Amazon regions. During setup, you need to specify which Amazon region you want. You can even have multiple Anypoint VPCs inside a single Amazon region.
+// image::virtual-private-cloud-78b5f.png[]
 
-image::virtual-private-cloud-78b5f.png[]
-
-Each Anypoint VPC allows you to configure firewall rules to apply to your workers. You can choose to expose or block your custom ports and even block requests to your apps coming from CloudHub's shared load balancer. 
+You can configure firewall rules to control traffic to your private space.
+You can expose or block your custom ports and even block requests to your apps coming from shared load balancer. 
 
 If you use dedicated load balancers, you can configure one or more dedicated load balancers to validate requests using your own SSL certificates, and to map input URLs to call to different CloudHub applications. 
 
 Combining firewall rules and dedicated load balancers configurations, enables you to fine tune how external services reach your applications.
-
-
-
 
 
 An Anypoint VPC is a logically private and isolated network hosted inside CloudHub. You can connect your private intranet to your Anypoint VPC as if they were all part of a single, private network. 
