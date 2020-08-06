@@ -52,4 +52,5 @@ Additionally, a CloudHub dedicated load balancer has an internal domain name to 
 == See Also
 
 * xref:ps-create-configure.adoc[Create and Configure a Private Space]
+* xref:network-admin-checklist.adoc#regions[Regions]
 * xref:ps-config-fw-rules.adoc[Configure Firewall Rules to Allow Traffic to a Private Space]

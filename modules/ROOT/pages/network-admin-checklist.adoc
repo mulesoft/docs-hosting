@@ -75,7 +75,7 @@ For information, see xref:ps-create-configure.adoc#create-a-private-network[Crea
 |Item |Description| Example |More Info  
 |Region|The region to deploy your apps to|*US East (N. Virginia)*
 
-(`us-east-1`)| <<Region>>
+(`us-east-1`)| <<Regions>>
 |CIDR block| The range of IP addresses that your apps can use| `192.0.2.0/24` | <<CIDR Block>>
 |===
 
@@ -158,15 +158,13 @@ For information, see xref:ps-create-configure.adoc#connect-a-vpn-to-your-corpora
 .VPN Connection 
 |===
 |Item |Description | Example | More Info 
-|Device vendor|The vendor of your network gateway device |Cisco .3+|<<Supported Network Devices>>
+|Device vendor|The vendor of your network gateway device |Cisco .3+|<<Supported Gateway Devices>>
 |Device platform|The platform of your network gateway device|ASA 5500 Series
 |Device software|The software running on your network device|ASA 8.2+
 |===
 
 
-
-
-== Region 
+== Regions
 
 The complete list of supported regions is:
 
