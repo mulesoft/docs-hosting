@@ -37,6 +37,7 @@ image::splunk-config-http-collector.png[Add new option for the HTTP Event Collec
 
 . Follow the steps to set up the data input and obtain the token.
 
+////
 To send data to Splunk over TCP, you must first enable the input source in Splunk:
 
 . Sign in to your Splunk account.
@@ -46,6 +47,8 @@ To send data to Splunk over TCP, you must first enable the input source in Splun
 .The arrow shows the *Add new* option for TCP in the Splunk Data Inputs page.
 image::splunk-config-tcp.png[Add new option for TCP in the Splunk Data Inputs page]
 . Follow the steps to set up the data input.
+
+////
 
 For more information about setting up data inputs, see the https://docs.splunk.com/Documentation/Splunk/8.0.2/Data/WhatSplunkcanmonitor[Splunk documentation].
 

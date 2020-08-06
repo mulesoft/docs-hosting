@@ -9,52 +9,36 @@ endif::[]
 
 (In progress)
 
-A _private space_ is a virtual, private, and isolated network segment in the cloud to host your apps.
+A _private space_ is a virtual, private, and isolated network hosted in the Runtime Fabric Cloud in which you deploy your apps.
+You can use Anypoint VPN to connect your private intranet to your private space so that they function as a single, private network. 
+The VPN enables apps in the private space to access resources in your on-premises data centers behind your corporate firewall.
 
-Connecting to your private space extends your corporate network and enables workers in the private space to access resources behind your corporate firewall.
-You can connect on-premises data centers through a secured VPN tunnel, or a private AWS VPC through VPC peering, or by using AWS Direct Connect.
+Private spaces support different Amazon regions and you can configure multiple private spaces in a single Amazon region.
 
-Private spaces support different Amazon regions.
-During setup, you specify which Amazon region you want. You can even have multiple private space inside a single Amazon region.
- 
- 
+
+By default, Runtime Fabric Cloud blocks all traffic to the private space and provides firewall rules to allow connections through specified ports. 
+You can configure additional firewall rules to control traffic to your private space, expose or block your custom ports, and block requests to your apps. 
  
 ////
 
 Steal information from VPC section of CloudHub docs
 
-
-
 The base subscription includes two private spaces and you can associate each private space with multiple environments.
 This enables you to have one isolated network for your production environment, and another for your non-production environments, such as QA and staging.
 Your licensing requirements depend on your specific deployment scenario. 
 
-
-
-// image::virtual-private-cloud-78b5f.png[]
-
-You can configure firewall rules to control traffic to your private space.
-You can expose or block your custom ports and even block requests to your apps coming from shared load balancer. 
+image::virtual-private-cloud-78b5f.png[]
 
 If you use dedicated load balancers, you can configure one or more dedicated load balancers to validate requests using your own SSL certificates, and to map input URLs to call to different CloudHub applications. 
 
 Combining firewall rules and dedicated load balancers configurations, enables you to fine tune how external services reach your applications.
 
 
-An Anypoint VPC is a logically private and isolated network hosted inside CloudHub. You can connect your private intranet to your Anypoint VPC as if they were all part of a single, private network. 
-
 The Anypoint VPC configuration exposes the DNS record `mule-worker-internal-<app-name>.cloudhub.io`. This is a DNS A record, which includes the IP addresses of all your workers. This DNS record cannot be accessed from outside your Anypoint VPC.
-
-Each Anypoint VPC allows you to configure firewall rules to check inbound connections directly to your workers. 
-
-Four firewall rules are created by default--two rules that allow your private address space to connect through ports 8091 and 8092, and two rules that whitelist external requests proxied by CloudHub's shared load balancer through ports 8081 and 8082. 
-
-All traffic that is not whitelisted in a firewall rule is blocked by default.
 
 
 You can configure a dedicated load balancer inside your VPC, which allows you to provide custom certificates and optionally enforce two-way SSL client authentication. If you configure proxy rules that map your applications to custom domains, you can, for example, host everything under a single vanity domain.
 
-An Anypoint VPC architecture with a dedicated load balancer would look like this:
 
 A CloudHub dedicated load balancer is assigned to a particular Anypoint VPC. The dedicated load balancer then routes traffic to that particular Anypoint VPC within the particular service region of the VPC.
 
@@ -66,3 +50,6 @@ Additionally, a CloudHub dedicated load balancer has an internal domain name to 
 
 
 == See Also
+
+* xref:ps-create-configure.adoc[Create and Configure a Private Space]
+* xref:ps-config-fw-rules.adoc[Configure Firewall Rules to Allow Traffic to a Private Space]

@@ -3,29 +3,93 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Use the checklists to gather information you'll need from your network administrator to set up your private network. 
+Use the following checklists to gather information you'll need from your network administrator to set up your private network:
 
-(*View the checklist* link from *Private network* tab)
+* <<Private Network Checklist>>
+* <<VPN Checklist>>
+* <<Internal DNS Servers Checklist>>
+* <<VPN Connection Checklist>>
 
+
+Complete the checklists to enable:
+
+* Integration specialists to understand the information necessary to set up the private network and VPN
+* Network administrators to understand and provide the required information
+
+// (*View the checklist* link from *Private network* tab)
 // Should this page include other network admin requests - Domains tab?
 
-== Private Network Checklist 
+== Summary of Information Required to Set Up a Private Space
+
+The following list summarizes the information required to set up a private space.
+For details about each requirement, see the tables that follow.
+ 
+* Private Network
++
+** Region: `us-east-1`
+** CIDR Block: `192.0.2.0/24`
+* VPN
++
+** Remote IP address: `198.51.100.0`
+** Routing Type
++
+*** Dynamic
++
+**** Remote ASN: `65001`
+**** Local ASN: `64512`
+*** Static
++
+**** Static IP Prefixes: `10.0.0.0/8`
+**** Local ASN: `64512`
+** Tunnel Configuration
++
+*** Automatic
+*** Custom
++
+**** Inside IP CIDRs: `169.254.0.0/16`
++
+***** Tunnel 1
+***** Tunnel 2
+**** Preshared Keys: `8740893_45`
++
+***** Tunnel 1
+***** Tunnel 2
+* VPN Connection 
++
+** Device vendor: Cisco
+** Device platform: ASA 5500 Series
+** Device software: ASA 8.2+
+* Internal DNS Servers
++
+** IP addresses: `208.67.111.111`
+** Domains: `mulesoft.com`
+
+== Private Network Checklist
+
+Use the information in this checklist to configure the private network.
+For information, see xref:ps-create-configure.adoc#create-a-private-network[Create a Private Network].
 
 [%header,cols="20a,30a,20a,20a"]
 .Private Network
 |===
 |Item |Description| Example |More Info  
-|Region|The region to deploy your apps to|*US East (N. Virginia)* (`us-east-1`)| <<Region>>
-|CIDR block| The range of IP addresses that your apps can use| `10.111.0.0/24` | <<CIDR Block>>
+|Region|The region to deploy your apps to|*US East (N. Virginia)*
+
+(`us-east-1`)| <<Region>>
+|CIDR block| The range of IP addresses that your apps can use| `192.0.2.0/24` | <<CIDR Block>>
 |===
 
 == VPN Checklist 
+
+Use the information in this checklist to configure the VPN.
+For information, see xref:ps-create-configure.adoc#create-a-vpn[Create a VPN].
+
 
 [%header,cols="20a,30a,20a,20a"]
 .VPN
 |===
 |Item |Description | Example | More Info 
-|Remote IP address|The public (single, static) IP address of your VPN endpoint | example |
+|Remote IP address|The public (single, static) IP address of your VPN endpoint | `198.51.100.0` |
 |Routing type|Dynamic or Static||<<dynamic,Dynamic Routing Checklist>> 
 <<static,Static Routing Checklist>>
 |Tunnel configuration|Automatic or Custom||<<custom-tunnel,Custom Tunnel Checklist>>
@@ -40,8 +104,8 @@ See <<Requirements for Dynamic VPN Connections>>.
 [%header,cols="20a,30a,20a,20a"]
 |===
 |Item |Description | Example | More Info 
-|Remote ASN|The ASN that corresponds to your backend.|65001 .2+| <<ASN>>
-|Local ASN|A private ASN (64512–65534) to assign to the Anypoint side |64512|
+|Remote ASN|The ASN that corresponds to your backend.|`65001` .2+| <<ASN>>
+|Local ASN|A private ASN (64512–65534) to assign to the Anypoint Platform side |`64512`|
 |===
 
 
@@ -55,8 +119,8 @@ See <<Requirements for Static VPN Connections>>.
 [%header,cols="20a,30a,20a,20a"]
 |===
 |Item |Description | Example | More Info 
-|Static IP prefixes| The IP prefixes to advertise to your private network in Anypoint, in CIDR notation| `10.0.0.0/8` |<<Static IP Prefixes>>
-|Local ASN|A private ASN (64512–65534) to assign to the Anypoint side |64512|<<ASN>>|
+|Static IP prefixes| The IP prefixes to advertise to your private network in Anypoint Platform, in CIDR notation| `10.0.0.0/8` |<<Static IP Prefixes>>
+|Local ASN|A private ASN (64512–65534) to assign to the Anypoint Platform side |`64512`|<<ASN>>|
 |===
 
 [[custom-tunnel]]
@@ -65,11 +129,29 @@ See <<Requirements for Static VPN Connections>>.
 |===
 |Item |Description | Example | More Info 
 |Inside IP CIDRs|The IP address range for the internal address of the VPN tunnel| `169.254.0.0/16` .2+|<<Custom Tunnel Configuration>>
-|Pre-shared keys| |8740893_45||
+|Pre-shared keys| |`8740893_45`||
+|===
+
+== Internal DNS Servers Checklist 
+
+Use the information in this checklist to configure internal DNS servers.
+For information, see xref:ps-create-configure.adoc#configure-internal-dns-servers[Configure Internal DNS Servers].
+
+
+[[dns-servers]]
+[%header,cols="20a,30a,20a,20a"]
+.Internal DNS Servers
+|===
+|Item |Description | Example | More Info 
+|IP addresses|The IP addresses of your internal DNS server |`208.67.111.111` .2+|<<Internal DNS Servers>>
+|Domains|The domains to be resolved by the internal DNS server|`mulesoft.com`|
 |===
 
 
 == VPN Connection Checklist 
+
+Use the information in this checklist connect a VPN to your corporate network.
+For information, see xref:ps-create-configure.adoc#connect-a-vpn-to-your-corporate-network[Connect a VPN to Your Corporate Network].
 
 [[vpn-connection]]
 [%header,cols="20a,30a,20a,20a"]
@@ -82,16 +164,6 @@ See <<Requirements for Static VPN Connections>>.
 |===
 
 
-== Internal DNS Servers Checklist 
-
-[[dns-servers]]
-[%header,cols="20a,30a,20a,20a"]
-.Internal DNS Servers
-|===
-|Item |Description | Example | More Info 
-|IP addresses|The IP addresses of your internal DNS server |`208.67.111.111` .2+|<<Internal DNS Servers>>
-|Domains|The domains to be resolved by the internal DNS server|`mulesoft.com`|
-|===
 
 
 == Region 
@@ -118,17 +190,18 @@ The complete list of supported regions is:
 
 == CIDR Block 
 
-The CIDR block is the range of IP addresses, in CIDR notation, that the apps deployed in your private network use. 
+The CIDR block is the range of IP addresses, in CIDR notation, that the apps deployed in your private space use. 
 
 Because each app uses multiple IP addresses, allocate at least 10 IP addresses for each app.
+If you're unsure how many apps will be deployed to the private space, contact your integration specialist. 
 
 For example, to grant your private network 256 IP addresses between `10.111.0.0` and `10.111.0.255`, set the CIDR block to `10.111.0.0/24`.
 
 When specifying CIDR blocks, ensure that the CIDR blocks:
 
-* Are from a private IP space.
-* Don't overlap with any other CIDR blocks in your private spaces.
-* Don't overlap with any CIDR blocks in use in your corporate network.
+* Are from a private IP space
+* Don't overlap with any other CIDR blocks in your private spaces
+* Don't overlap with any CIDR blocks in use in your corporate network
 
 == ASN 
 
@@ -140,9 +213,9 @@ The ASN corresponding to your backend.
 You can use an existing ASN assigned to your network or a private ASN (64512–65534) that is not already assigned to your network.
 The default value is 65001.
 Local ASN::
-An ASN for the MuleSoft side.
-Use a private ASN (64512–65534) that is not already assigned to your network.
-The default value is 64512.
+An ASN for the Anypoint Platform side.
+Use a private ASN (`64512–65534`) that is not already assigned to your network.
+The default value is `64512`.
 
 == Static IP Prefixes
 
@@ -161,7 +234,7 @@ For each tunnel, enter the IP address range for the internal address of the VPN 
 You can specify a size /30 CIDR block from the `169.254.0.0/16` range.
 The CIDR block must be unique across all private network connections.
 
-You cannot use the following CIDR blocks:
+You cannot use the following reserved CIDR blocks:
 ----
 169.254.0.0/30
 169.254.1.0/30
@@ -224,7 +297,7 @@ To create a static VPN connection, your VPN endpoint must be able to:
 
 * Establish IKE Security Associations using a Pre-Shared Key (PSK) 
 * Establish IPsec Security Associations in Tunnel mode
-* Utilize any combination of IPsec settings that MuleSoft supports
+* Utilize any combination of IPsec settings that Anypoint Platform supports
 * Fragment IP packets before encryption 
 +
 You must fragment packets that are too large to transmit. Your VPN device must be able to fragment packets before encapsulation.
@@ -233,10 +306,12 @@ You must fragment packets that are too large to transmit. Your VPN device must b
 Anypoint VPN supports one unique SA pair per tunnel (a pair refers to one inbound and one outbound connection). Some policy-based devices create an SA for each ACL (access-control list) entry. In this situation, you must consolidate your rules and then filter unwanted traffic.
 * Use IPsec Dead Peer Detection (DPD)
 +
-DPD allows devices to rapidly identify when network conditions change. You can enable DPD on the MuleSoft endpoint using `DPD Interval: 10` and `DPD Retries: 3`.
+DPD allows devices to rapidly identify when network conditions change. You can enable DPD on the Anypoint Platform endpoint using `DPD Interval: 10` and `DPD Retries: 3`.
 * Allow asymmetric routing 
 +
-Asymmetric routing occurs when routing policies send traffic from your network to the VPC through one tunnel and traffic returns from the VPC through the other tunnel. The MuleSoft VPN endpoint selects the tunnel using an internal algorithm, making the return path dynamic. If your device uses an active/active tunnel configuration, you must allow asymmetric routing for each Anypoint VPN connection.
+Asymmetric routing occurs when routing policies send traffic from your network to the VPC through one tunnel and traffic returns from the VPC through the other tunnel.
+The Anypoint Platform VPN endpoint selects the tunnel using an internal algorithm, making the return path dynamic.
+If your device uses an active/active tunnel configuration, you must allow asymmetric routing for each Anypoint VPN connection.
 
 === Requirements for Dynamic VPN Connections
 
