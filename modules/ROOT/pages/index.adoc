@@ -3,48 +3,36 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-(*Learn more* link from *Private Spaces* page)
+// (*Learn more* link from *Private Spaces* page)
 
 == What is a Private Space?
 
-(In progress)
+A _private space_ is a virtual, private, and isolated network hosted in the Runtime Fabric Cloud into which you deploy your apps.
 
-A _private space_ is a virtual, private, and isolated network hosted in the Runtime Fabric Cloud in which you deploy your apps.
-You can use Anypoint VPN to connect your private intranet to your private space so that they function as a single, private network. 
+Anypoint VPN (virtual private network) connects your private intranet to your private space to function as a single, private network. 
 The VPN enables apps in the private space to access resources in your on-premises data centers behind your corporate firewall.
+The VPN connection comprises two VPN tunnels between the private space in Anypoint Platform and a _gateway device_, a physical or software appliance located in your network.
 
-Private spaces support different Amazon regions and you can configure multiple private spaces in a single Amazon region.
+When you create the private space, you associate a range of IP addresses for the apps in your private space to use and the region where they run. 
+Private spaces support Amazon regions.
+You can configure multiple private spaces in a single Amazon region, enabling you to set up separate isolated networks for your production and non-production environments, 
+such as QA or staging.
 
-
+You control the traffic to and from your private spaces. 
 By default, Runtime Fabric Cloud blocks all traffic to the private space and provides firewall rules to allow connections through specified ports. 
 You can configure additional firewall rules to control traffic to your private space, expose or block your custom ports, and block requests to your apps. 
- 
+
+The private space includes dedicated load balancers (DLB), which routes traffic to the private space.
+You can configure DLBs to validate requests using your custom SSL certificates and enforce two-way SSL client authentication.
+DLBs also enable you to map input URLs to call specific applications within the private space. 
+With proxy rules, you can map your applications to a custom domain and host your apps under a single, vanity domain.
+
+
+By combining firewall rules and DLB configuration, you can fine-tune how external services reach your applications.
+
 ////
 
-Steal information from VPC section of CloudHub docs
-
-The base subscription includes two private spaces and you can associate each private space with multiple environments.
-This enables you to have one isolated network for your production environment, and another for your non-production environments, such as QA and staging.
-Your licensing requirements depend on your specific deployment scenario. 
-
 image::virtual-private-cloud-78b5f.png[]
-
-If you use dedicated load balancers, you can configure one or more dedicated load balancers to validate requests using your own SSL certificates, and to map input URLs to call to different CloudHub applications. 
-
-Combining firewall rules and dedicated load balancers configurations, enables you to fine tune how external services reach your applications.
-
-
-The Anypoint VPC configuration exposes the DNS record `mule-worker-internal-<app-name>.cloudhub.io`. This is a DNS A record, which includes the IP addresses of all your workers. This DNS record cannot be accessed from outside your Anypoint VPC.
-
-
-You can configure a dedicated load balancer inside your VPC, which allows you to provide custom certificates and optionally enforce two-way SSL client authentication. If you configure proxy rules that map your applications to custom domains, you can, for example, host everything under a single vanity domain.
-
-
-A CloudHub dedicated load balancer is assigned to a particular Anypoint VPC. The dedicated load balancer then routes traffic to that particular Anypoint VPC within the particular service region of the VPC.
-
-Each dedicated load balancer has a DNS A record `<lb-name>.lb.anypointdns.net` resolving to two public IP addresses of its two instances. +
-Through your DNS provider, you can add a `CNAME` record pointing to the dedicated `A` record and use your own domain names to access it. This DNS A record can also be reached from outside the VPC. +
-Additionally, a CloudHub dedicated load balancer has an internal domain name to be used by applications and clients within the Anypoint VPC. The structure is `internal-<lb-name>.lb.anypointdns.net`.
 
 ////
 
