@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Use the following checklists to gather information you'll need from your network administrator to set up your private network:
+Use the following checklists to gather information you'll need to set up your private network:
 
 * <<Private Network Checklist>>
 * <<VPN Checklist>>
@@ -18,6 +18,27 @@ Complete the checklists to enable:
 
 // (*View the checklist* link from *Private network* tab)
 // Should this page include other network admin requests - Domains tab?
+
+[cols="15a,10a,15a,15a,15a"]
+.Private Space Configuration Template 
+|===
+5+|*Private Network Setup*
+|Region     4+|
+|CIDR Block 4+|
+5+|*Virtual Private Network Setup*
+.5+|Routing Type .2+| Dynamic | Remote ASN  2+|
+                              | Local ASN   2+|
+4+| *_OR_*
+                 .2+| Static  | Static IP Prefixes 2+|
+                              | Local ASN          2+|
+.7+|Tunnel Configuration |Automatic 3+|
+  4+| *_OR_*
+                         .4+|Custom .2+| Tunnel 1 | Inside IP CIDRs |
+                                                  | Pre-shared Keys |
+                                    .2+| Tunnel 2 | Inside IP CIDRs |
+                                                  | Pre-shared Keys |
+|===
+
 
 == Summary of Information Required to Set Up a Private Space
 
