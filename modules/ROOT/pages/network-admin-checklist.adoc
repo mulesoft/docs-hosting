@@ -3,18 +3,8 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Use the following checklists to gather information you'll need to set up your private network:
+Use the following checklists to gather information you'll need to set up your private network.
 
-* <<Private Network Checklist>>
-* <<VPN Checklist>>
-* <<Internal DNS Servers Checklist>>
-* <<VPN Connection Checklist>>
-
-
-Complete the checklists to enable:
-
-* Integration specialists to understand the information necessary to set up the private network and VPN
-* Network administrators to understand and provide the required information
 
 // (*View the checklist* link from *Private network* tab)
 // Should this page include other network admin requests - Domains tab?
@@ -23,13 +13,13 @@ Complete the checklists to enable:
 .Private Space Configuration Template 
 |===
 5+|*Private Network Setup*
-|Region     4+|
-|CIDR Block 4+|
+|<<Region>>     4+|
+|<<CIDR Block>> 4+|
 5+|*Virtual Private Network Setup*
 .5+|Routing Type .2+| Dynamic | Remote ASN  2+|
                               | Local ASN   2+|
 4+| *_OR_*
-                 .2+| Static  | Static IP Prefixes 2+|
+                 .2+| Static  | <<Static IP Prefixes>> 2+|
                               | Local ASN          2+|
 .7+|Tunnel Configuration |Automatic 3+|
   4+| *_OR_*
@@ -47,8 +37,8 @@ For details about each requirement, see the tables that follow.
  
 * Private Network
 +
-** Region: `us-east-1`
-** CIDR Block: `192.0.2.0/24`
+** <<Region>>: `us-east-1`
+** <<CIDR Block>>: `192.0.2.0/24`
 * VPN
 +
 ** Remote IP address: `198.51.100.0`
@@ -60,7 +50,7 @@ For details about each requirement, see the tables that follow.
 **** Local ASN: `64512`
 *** Static
 +
-**** Static IP Prefixes: `10.0.0.0/8`
+**** <<Static IP Prefixes>>: `10.0.0.0/8`
 **** Local ASN: `64512`
 ** Tunnel Configuration
 +
@@ -185,7 +175,7 @@ For information, see xref:ps-create-configure.adoc#connect-a-vpn-to-your-corpora
 |===
 
 
-== Regions
+== Region
 
 The complete list of supported regions is:
 
