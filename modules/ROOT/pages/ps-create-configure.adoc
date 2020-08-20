@@ -120,7 +120,7 @@ For download and usage information about the Network Tools Application, see http
 
 == See Also 
 
-* xref:network-admin-checklist.adoc[Complete the Network Admin Checklists]
+* xref:ps-gather-setup-info.adoc[Gather Required Setup Information]
 * xref:ps-manage.adoc#rename-a-private-space[Rename a Private Space]
 * xref:ps-manage.adoc#delete-a-private-network[Delete a Private Network]
 * xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to a Private Space]

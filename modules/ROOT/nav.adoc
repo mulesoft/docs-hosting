@@ -2,7 +2,7 @@
 * xref:index.adoc[Anypoint Runtime Fabric Cloud]
 ** xref:features.adoc[Features of Runtime Fabric Cloud]
 ** xref:ps-setup.adoc[Set Up a Private Space for Runtime Fabric Cloud Deployments]
-*** xref:network-admin-checklist.adoc[Complete the Network Admin Checklists]
+*** xref:ps-gather-setup-info.adoc[Gather Required Setup Information]
 *** xref:ps-assign-roles.adoc[Assign Roles and Permissions]
 *** xref:ps-create-configure.adoc[Create and Configure the Private Space]
 *** xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to a Private Space]

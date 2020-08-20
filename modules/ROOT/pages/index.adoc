@@ -40,5 +40,5 @@ image::virtual-private-cloud-78b5f.png[]
 == See Also
 
 * xref:ps-create-configure.adoc[Create and Configure a Private Space]
-* xref:network-admin-checklist.adoc#regions[Regions]
+* xref:ps-gather-setup-info.adoc#region[Region]
 * xref:ps-config-fw-rules.adoc[Configure Firewall Rules to Allow Traffic to a Private Space]

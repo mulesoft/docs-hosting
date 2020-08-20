@@ -24,20 +24,14 @@ endif::[]
 
 == Before You Begin
 
-* Complete the network admin checklists:
-
-** xref:network-admin-checklist.adoc#private-network-checklist[Private Network Checklist]
-** xref:network-admin-checklist.adoc#vpn-checklist[VPN Checklist] 
-** xref:network-admin-checklist.adoc#vpn-connection-checklist[VPN Connection Checklist]
-** xref:network-admin-checklist.adoc#internal-dns-servers-checklist[Internal DNS Servers Checklist]
-
+* Gather required setup information.
 * Assign roles and permissions.
 
 
 == See Also 
 
 
-* xref:network-admin-checklist.adoc[Complete the Network Admin Checklists]
+* xref:ps-gather-setup-info.adoc[Gather Required Setup Information]
 * xref:ps-assign-roles.adoc[Assign Roles and Permissions]
 * xref:ps-create-configure.adoc[Create and Configure a Private Space]
 * xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to a Private Space]
