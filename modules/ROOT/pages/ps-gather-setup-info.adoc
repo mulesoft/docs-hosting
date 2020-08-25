@@ -13,7 +13,7 @@ For information about private spaces, see xref:index.adoc#what-is-a-private-spac
 == (Better) Table: Information Required to Set Up a Private Space
 
 
-[cols="1,15a,15a,15a,15a,40a"]
+[cols="1,16a,13a,19a,20a,30a"]
 .Private Space Configuration Form 
 |===
 6+|
