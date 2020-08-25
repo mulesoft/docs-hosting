@@ -114,6 +114,6 @@ Packets might carry a Don't Fragment (`DF`) flag, indicating that the packet mus
 * xref:ps-create-configure.adoc[Create and Configure a Private Space]
 * xref:ps-gather-setup-info.adoc#region[Region]
 * xref:ps-config-fw-rules.adoc[Configure Firewall Rules to Allow Traffic to a Private Space]
-* xref:ps-gather-setup-info.adoc#requirements-for-dynamic-vpn-connections[Requirements for Dynamic VPN Connections]
-* xref:ps-gather-setup-info.adoc#requirements-for-static-vpn-connections[Requirements for Static VPN Connections]
+* xref:ps-gather-setup-info.adoc#requirements-for-dynamic-vpn-connections[Dynamic VPN Connection Requirements]
+* xref:ps-gather-setup-info.adoc#requirements-for-static-vpn-connections[Static VPN Connection Requirements]
 * xref:ps-gather-setup-info.adoc#supported-gateway-devices[Supported Gateway Devices]
