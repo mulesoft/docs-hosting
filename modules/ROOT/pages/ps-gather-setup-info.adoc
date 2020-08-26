@@ -83,29 +83,29 @@ For details about each requirement, see the sections that follow.
 
 The _region_ is the Amazon region to deploy your apps to, such as `us-east-1`.
 
+The region to which you deploy your application determines the DNS record for your integration.
+For example, if you deploy an application named `myapp` to Canada (Central),
+the domain used to access the application is `myapp.ca-c1.cloudhub.io`. 
+
 The complete list of supported regions is:
 
 [%header]
 .Supported Regions 
 |===
-|Region|Sub-Domain
-|US East (North Virginia)| `us-e1.cloudhub.io`
+|Region|DNS Record
+|US East (Northern Virginia)| `us-e1.cloudhub.io`
 |US East (Ohio)| `us-e2.cloudhub.io`
+|US West (Northern California)| `us-w1.cloudhub.io`
 |US West (Oregon)| `us-w2.cloudhub.io`
-|US West (North California)| `us-w1.cloudhub.io`
 |Canada (Central)| `ca-c1.cloudhub.io`
-|Brazil (Sao Paulo)| `br-s1.cloudhub.io`
+|South America (Sao Paulo)| `br-s1.cloudhub.io`
 |Europe (Ireland)| `ir-e1.cloudhub.io`
 |Europe (Frankfurt)| `de-c1.cloudhub.io`
-|UK (London)| `uk-e1.cloudhub.io`
-|Asia Pacific (Tokyo)| `jp-e1.cloudhub.io`
-|Asia Pacific (Sydney)| `au-s1.cloudhub.io`
+|Europe (London)| `uk-e1.cloudhub.io`
 |Asia Pacific (Singapore)| `sg-s1.cloudhub.io`
+|Asia Pacific (Sydney)| `au-s1.cloudhub.io`
+|Asia Pacific (Tokyo)| `jp-e1.cloudhub.io`
 |===
-
-The domain provided for your application is based on the region to which your application is deployed.
-For example, if you deploy an application named `myapp` to Canada (Central), the domain used to access the application is `myapp.ca-c1.cloudhub.io`. 
-
 
 
 == CIDR Block 
