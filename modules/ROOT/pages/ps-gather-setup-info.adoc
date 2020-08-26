@@ -10,7 +10,39 @@ For information about private spaces, see xref:index.adoc#what-is-a-private-spac
 // (*View the checklist* link from *Private network* tab)
 // Should this page include other network admin requests - Domains tab?
 
-== (Better) Table: Information Required to Set Up a Private Space
+== List: Information Required to Set Up a Private Space
+
+The following list summarizes the information required to set up a private space.
+For details about each requirement, see the sections that follow.
+ 
+* Private Network
++
+** <<Region>>
+** <<CIDR Block,CIDR block>>
+** Internal DNS Servers (Optional)
++
+*** <<IP Addresses,IP addresses>>
+*** <<Domains>>
+* VPN
++
+** <<Remote IP Address,Remote IP addresses>>
+** <<Local ASN>>
+** <<Remote ASN>> (<<Dynamic VPN Connection Requirements,dynamic routing>>) or <<Static IP Prefixes>> (<<Static VPN Connection Requirements,static routing>>)  
+** Custom tunnel configuration (optional)
++
+*** Tunnel 1
++
+**** <<Inside IP CIDRs,Inside IP CIDR>>
+**** <<Pre-shared Keys,Pre-shared key>>
+*** Tunnel 2
+**** <<Inside IP CIDRs,Inside IP CIDR>>
+**** <<Pre-shared Keys,Pre-shared key>>
+** Device vendor
+** Device platform
+** Device software
+
+
+== Table: Information Required to Set Up a Private Space
 
 
 [cols="1,16a,13a,19a,20a,30a"]
@@ -18,8 +50,11 @@ For information about private spaces, see xref:index.adoc#what-is-a-private-spac
 |===
 6+|
 6+|*Private Network Setup*
-.2+||<<Region>>     4+|
+.5+||<<Region>>     4+|
 |<<CIDR Block>> 4+|
+5+|*Internal DNS Setup* (Optional)
+|<<IP Addresses>> 4+|
+|<<Domains>>  4+|
 6+|*Virtual Private Network Setup*
 .12+||<<Remote IP Address>> 4+|
 .5+|Routing Type .2+|  <<Static VPN Connection Requirements,Static>>  | <<Static IP Prefixes>> 2+|
@@ -37,97 +72,8 @@ For information about private spaces, see xref:index.adoc#what-is-a-private-spac
 .3+||<<Supported Gateway Devices,Device Vendor>>    4+|
 |<<Supported Gateway Devices,Device Platform>>  4+|
 |<<Supported Gateway Devices,Device Software>>  4+|
-6+|*Internal DNS Setup*
-.2+||<<IP Addresses>>    4+|
-|<<Domains>>  4+|
 6+|
 |===
-
-
-== Table: Information Required to Set Up a Private Space
-
-The following table summarizes the information required to set up a private space.
-For details about each requirement, see the sections that follow.
-
-
-[stripes="even",frame="sides",cols="15a,15a,15a,15a,40a"]
-.Private Space Configuration Form 
-|===
-5+|
-5+|*Private Network Setup*
-|<<Region>>     4+|
-|<<CIDR Block>> 4+|
-5+|*Virtual Private Network Setup*
-|<<Remote IP Address>> 4+|
-.5+|Routing Type .2+|  <<Static VPN Connection Requirements,Static>>  | <<Static IP Prefixes>> 2+|
-                              | <<Local ASN>>   2+|
-^.^| *_OR_* 3+|
-.2+| <<Dynamic VPN Connection Requirementss,Dynamic>> | <<Remote ASN>>  2+|
-                              | <<Local ASN>>          2+|
-.6+|Tunnel Configuration |Automatic 3+|
-^.^| *_OR_* 3+|
-                       .4+|Custom   .2+| Tunnel 1 | <<Inside IP CIDRs>> |
-                                                  | <<Pre-shared Keys>> |
-                                    .2+| Tunnel 2 | <<Inside IP CIDRs>> |
-                                                  | <<Pre-shared Keys>> |
-
-5+|*VPN Connection Setup*
-
-|<<Supported Gateway Devices,Device Vendor>>    4+|
-|<<Supported Gateway Devices,Device Platform>>  4+|
-|<<Supported Gateway Devices,Device Software>>  4+|
-5+|*Internal DNS Setup*
-|<<IP Addresses>>    4+|
-|<<Domains>>  4+|
-5+|
-|===
-
-
-
-== List: Information Required to Set Up a Private Space
-
-The following list summarizes the information required to set up a private space.
-For details about each requirement, see the sections that follow.
- 
-* Private Network
-+
-** <<Region>>: `us-east-1`
-** <<CIDR Block>>: `192.0.2.0/24`
-* VPN
-+
-** <<Remote IP Address>>: `198.51.100.0`
-** Routing Type
-+
-***  <<Static VPN Connection Requirements,Static>>
-+
-**** <<Static IP Prefixes>>: `10.0.0.0/8`
-**** <<Local ASN>>: `64512`
-*** <<Dynamic VPN Connection Requirements,Dynamic>>
-+
-**** <<Remote ASN>>: `65001`
-**** <<Local ASN>>: `64512`
-** Tunnel Configuration
-+
-*** Automatic
-*** Custom
-+
-**** <<Inside IP CIDRs>>: `169.254.0.0/16`
-+
-***** Tunnel 1
-***** Tunnel 2
-**** <<Pre-shared Keys>>: `8740893_45`
-+
-***** Tunnel 1
-***** Tunnel 2
-* VPN Connection 
-+
-** Device vendor: Cisco
-** Device platform: ASA 5500 Series
-** Device software: ASA 8.2+
-* Internal DNS Servers
-+
-** <<IP Addresses>>: `208.67.111.111`
-** <<Domains>>: `mulesoft.com`
 
 
 
