@@ -196,16 +196,21 @@ To create a static VPN connection, your VPN endpoint must be able to:
 
 * Establish IKE Security Associations using a Pre-Shared Key (PSK) 
 * Establish IPsec Security Associations in Tunnel mode
-* Utilize any combination of IPsec settings that Anypoint Platform supports
+* Use any combination of IPsec settings that Anypoint Platform supports
 * Fragment IP packets before encryption 
 +
-You must fragment packets that are too large to transmit. Your VPN device must be able to fragment packets before encapsulation.
+You must fragment packets that are too large to transmit.
++
+Your gateway device must be able to fragment packets before encapsulation.
 * Use one Security Association (SA) pair per tunnel 
 +
-Anypoint VPN supports one unique SA pair per tunnel (a pair refers to one inbound and one outbound connection). Some policy-based devices create an SA for each ACL (access-control list) entry. In this situation, you must consolidate your rules and then filter unwanted traffic.
+Anypoint VPN supports one unique SA pair (one inbound and one outbound connection) per tunnel.
+Some policy-based devices create an SA for each ACL (access-control list) entry.
+In this situation, you must consolidate your rules and then filter unwanted traffic.
 * Use IPsec Dead Peer Detection (DPD)
 +
-DPD allows devices to rapidly identify when network conditions change. You can enable DPD on the Anypoint Platform endpoint using `DPD Interval: 10` and `DPD Retries: 3`.
+DPD allows devices to rapidly identify when network conditions change.
+You can enable DPD on the Anypoint Platform endpoint using `DPD Interval: 10` and `DPD Retries: 3`.
 * Allow asymmetric routing 
 +
 Asymmetric routing occurs when routing policies send traffic from your network to the VPC through one tunnel and traffic returns from the VPC through the other tunnel.
@@ -214,7 +219,7 @@ If your device uses an active/active tunnel configuration, you must allow asymme
 
 === Local ASN 
 
-The _local ASN_ is a private ASN (64512–65534) to assign to the Anypoint Platform side
+The _local ASN_ (Autonomous System Number) specifies a private ASN (64512–65534) to assign to the Anypoint Platform side.
 
 You configure the local ASN for both static and dynamic routing. 
 
@@ -223,7 +228,7 @@ The default value is `64512`.
 
 === Remote ASN
 
-The _remote ASN_ (Autonomous System Number is the collection of routing prefixes that correspond to your backend.
+The _remote ASN_ specifies the routing prefixes that correspond to your backend.
 
 You configure the remote ASN only for dynamic routing. 
 
@@ -244,8 +249,10 @@ To avoid exceeding the limit, consolidate networks to the fewest number possible
 
 === Custom Tunnel Configuration (Optional)
 
-Select custom tunnel configuration if you want to specify custom values form
+Select custom tunnel configuration if you want to specify custom values for
 inside IP CIDRs and pre-shared keys.
+If you select automatic tunnel configuration, these values are auto-generated.
+
 
 ==== Inside IP CIDRs
 
