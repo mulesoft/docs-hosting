@@ -6,11 +6,15 @@ endif::[]
 Use the following sections to gather the information you'll need to set up your private space.
 For information about private spaces, see xref:index.adoc#what-is-a-private-space[What is a Private Space?].
 
+You might need to collaborate with your network administrator if you don't have access to this information.
+In this case, share this setup checklist with them and provide an estimate of the number of apps you expect to deploy
+to the private space for <<CIDR Block,CIDR block>> configuration.
+
 
 // (*View the checklist* link from *Private network* tab)
 // Should this page include other network admin requests - Domains tab?
 
-== List: Information Required to Set Up a Private Space
+== Information Required to Set Up a Private Space (List)
 
 The following list summarizes the information required to set up a private space.
 For details about each requirement, see the sections that follow.
@@ -19,7 +23,7 @@ For details about each requirement, see the sections that follow.
 +
 ** <<Region>>
 ** <<CIDR Block,CIDR block>>
-** Internal DNS Servers (Optional)
+** <<Internal DNS Server,Internal DNS servers>> (optional)
 +
 *** <<IP Addresses,IP addresses>>
 *** <<Domains>>
@@ -27,7 +31,7 @@ For details about each requirement, see the sections that follow.
 +
 ** <<Remote IP Address,Remote IP addresses>>
 ** <<Local ASN>>
-** <<Remote ASN>> (<<Dynamic VPN Connection Requirements,dynamic routing>>) or <<Static IP Prefixes>> (<<Static VPN Connection Requirements,static routing>>)  
+** <<Remote ASN>> (<<Dynamic VPN Connection Requirements,dynamic routing>>) or <<Static IP Prefixes,Static IP prefixes>> (<<Static VPN Connection Requirements,static routing>>)  
 ** Custom tunnel configuration (optional)
 +
 *** Tunnel 1
@@ -37,39 +41,37 @@ For details about each requirement, see the sections that follow.
 *** Tunnel 2
 **** <<Inside IP CIDRs,Inside IP CIDR>>
 **** <<Pre-shared Keys,Pre-shared key>>
-** Device vendor
-** Device platform
-** Device software
+** <<Supported Gateway Devices,Device vendor>>
+** <<Supported Gateway Devices,Device platform>>
+** <<Supported Gateway Devices,Device software>>
 
 
-== Table: Information Required to Set Up a Private Space
+== Information Required to Set Up a Private Space (Table)
 
 
-[cols="1,16a,13a,19a,20a,30a"]
+[cols="1,20a,20a,20a,20a,19a"]
 .Private Space Configuration Form 
 |===
 6+|
 6+|*Private Network Setup*
-.5+||<<Region>>     4+|
+.4+||<<Region>>     4+|
 |<<CIDR Block>> 4+|
-5+|*Internal DNS Setup* (Optional)
-|<<IP Addresses>> 4+|
-|<<Domains>>  4+|
+.2+|<<Internal DNS Server,Internal DNS server>>
+
+(Optional) |<<IP Addresses>> 3+|
+|<<Domains>>  3+|
 6+|*Virtual Private Network Setup*
-.12+||<<Remote IP Address>> 4+|
-.5+|Routing Type .2+|  <<Static VPN Connection Requirements,Static>>  | <<Static IP Prefixes>> 2+|
-                                                                                |<<Local ASN>> 2+|
-|*_OR_* 3+|
-.2+| <<Dynamic VPN Connection Requirements,Dynamic>> | <<Remote ASN>> 2+|
-|<<Local ASN>> 2+|
-.6+|Tunnel Configuration |Automatic 3+|
-| *_OR_* 3+|
- .4+<.^|Custom   .2+| Tunnel 1 | <<Inside IP CIDRs>> |
-                                                | <<Pre-shared Keys>> |
-              .2+| Tunnel 2 | <<Inside IP CIDRs>> |
-                                                 | <<Pre-shared Keys>> |
-6+|*VPN Connection Setup*
-.3+||<<Supported Gateway Devices,Device Vendor>>    4+|
+.13+||<<Remote IP Address>> 4+|
+.2+|<<Static VPN Connection Requirements,Static Routing Type>>| <<Static IP Prefixes>> 3+|
+                                                                                |<<Local ASN>> 3+|
+^.^|*_OR_* 4+|
+.2+| <<Dynamic VPN Connection Requirements,Dynamic Routing Type>> | <<Remote ASN>> 3+|
+|<<Local ASN>> 3+|
+ .4+|Custom Tunnel Configuration (Optional)   .2+| Tunnel 1 | <<Inside IP CIDRs>> 2+|
+                                                | <<Pre-shared Keys>> 2+|
+              .2+| Tunnel 2 | <<Inside IP CIDRs>> 2+|
+                                                 | <<Pre-shared Keys>> 2+|
+|<<Supported Gateway Devices,Device Vendor>>    4+|
 |<<Supported Gateway Devices,Device Platform>>  4+|
 |<<Supported Gateway Devices,Device Software>>  4+|
 6+|
@@ -101,12 +103,16 @@ The complete list of supported regions is:
 |Asia Pacific (Singapore)| `sg-s1.cloudhub.io`
 |===
 
+The domain provided for your application is based on the region to which your application is deployed.
+For example, if you deploy an application named `myapp` to Canada (Central), the domain used to access the application is `myapp.ca-c1.cloudhub.io`. 
+
+
+
 == CIDR Block 
 
 The _CIDR block_ is the range of IP addresses, in CIDR notation, that the apps deployed in your private space use. 
 
 Because each app uses multiple IP addresses, allocate at least 10 IP addresses for each app.
-If you're unsure how many apps will be deployed to the private space, contact your integration specialist. 
 
 For example, to grant your private network 256 IP addresses between `10.111.0.0` and `10.111.0.255`, set the CIDR block to `10.111.0.0/24`.
 
@@ -117,10 +123,32 @@ When specifying CIDR blocks, ensure that the CIDR blocks:
 * Don't overlap with any CIDR blocks in use in your corporate network
 
 
+== Internal DNS Server 
+
+
+You can specify custom private domains by adding the IP address and domain name for your network.
+When you provide private domains, your worker resolves them using your private DNS,
+so you can still use the internal host names of your private network
+(make sure your applications call the backend resources by FQDN).
+
+
+== IP Addresses
+
+The _IP addresses_ are up to three IP addresses of your internal DNS server.
+
+// Add IP addresses for internal DNS servers, separated by commas. Multiple servers are allowed for redundancy. They should each support all domains added below.
+
+== Domains
+
+_Domains_ are the domains to be resolved by the internal DNS server.
+
+The domain is the common portion of your internal domain name, such as `mulesoft.com`.
+// Add domains to be resolved by internal DNS, separated by commas.
+
+
 == Remote IP Address 
 
 The _remote IP address_ is the public (single, static) IP address of your VPN endpoint
-
 
 
 == Static VPN Connection Requirements
@@ -256,27 +284,6 @@ check the requirements to verify that your device is suitable for use with Anypo
 |===
 
 
-== Internal DNS Server 
-
-
-You can specify custom private domains by adding the IP address and domain name for your network.
-When you provide private domains, your worker resolves them using your private DNS,
-so you can still use the internal host names of your private network
-(make sure your applications call the backend resources by FQDN).
-
-
-== IP Addresses
-
-The _IP addresses_ are up to three IP addresses of your internal DNS server.
-
-// Add IP addresses for internal DNS servers, separated by commas. Multiple servers are allowed for redundancy. They should each support all domains added below.
-
-== Domains
-
-_Domains_ are the domains to be resolved by the internal DNS server.
-
-The domain is the common portion of your internal domain name, such as `mulesoft.com`.
-// Add domains to be resolved by internal DNS, separated by commas.
 
 
 ////
