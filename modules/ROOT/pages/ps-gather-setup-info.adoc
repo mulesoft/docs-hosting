@@ -14,12 +14,20 @@ to the private space for <<CIDR Block,CIDR block>> configuration.
 // (*View the checklist* link from *Private network* tab)
 // Should this page include other network admin requests - Domains tab?
 
-== Information Required to Set Up a Private Space (List)
+[NOTE]
+====
+The following two sections provide the same information in different formats:
+
+* <<Information Required to Set Up a Private Space (Checklist)>>
+* <<Information Required to Set Up a Private Space (Table)>>
+====
+
+== Information Required to Set Up a Private Space (Checklist)
 
 The following list summarizes the information required to set up a private space.
 For details about each requirement, see the sections that follow.
  
-* Private Network
+* *Private Network Setup*
 +
 ** <<Region>>
 ** <<CIDR Block,CIDR block>>
@@ -27,7 +35,7 @@ For details about each requirement, see the sections that follow.
 +
 *** <<IP Addresses,IP addresses>>
 *** <<Domains>>
-* VPN
+* *Virtual Private Network Setup*
 +
 ** <<Remote IP Address,Remote IP addresses>>
 ** <<Local ASN>>
@@ -56,7 +64,7 @@ For details about each requirement, see the sections that follow.
 6+|*Private Network Setup*
 .4+||<<Region>>     4+|
 |<<CIDR Block>> 4+|
-.2+|<<Internal DNS Server,Internal DNS server>>
+.2+|<<Internal DNS Server>>
 
 (Optional) |<<IP Addresses>> 3+|
 |<<Domains>>  3+|
