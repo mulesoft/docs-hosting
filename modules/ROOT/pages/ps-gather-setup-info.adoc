@@ -70,18 +70,20 @@ For details about each requirement, see the sections that follow.
 |<<Domains>>  3+|
 6+|*Virtual Private Network Setup*
 .13+||<<Remote IP Address>> 4+|
-.2+|<<Static VPN Connection Requirements,Static Routing Type>>| <<Static IP Prefixes>> 3+|
+.2+|<<Static VPN Connection Requirements,Static Routing>>| <<Static IP Prefixes>> 3+|
                                                                                 |<<Local ASN>> 3+|
 ^.^|*_OR_* 4+|
-.2+| <<Dynamic VPN Connection Requirements,Dynamic Routing Type>> | <<Remote ASN>> 3+|
+.2+| <<Dynamic VPN Connection Requirements,Dynamic Routing>> | <<Remote ASN>> 3+|
 |<<Local ASN>> 3+|
- .4+|Custom Tunnel Configuration (Optional)   .2+| Tunnel 1 | <<Inside IP CIDRs>> 2+|
+ .4+|Custom Tunnel Configuration
+ 
+ (Optional)   .2+| Tunnel 1 | <<Inside IP CIDRs>> 2+|
                                                 | <<Pre-shared Keys>> 2+|
               .2+| Tunnel 2 | <<Inside IP CIDRs>> 2+|
                                                  | <<Pre-shared Keys>> 2+|
-|<<Supported Gateway Devices,Device Vendor>>    4+|
-|<<Supported Gateway Devices,Device Platform>>  4+|
-|<<Supported Gateway Devices,Device Software>>  4+|
+.3+|<<Supported Gateway Devices,Gateway Device>>|Vendor 3+|
+|Platform  3+|
+|Software  3+|
 6+|
 |===
 
