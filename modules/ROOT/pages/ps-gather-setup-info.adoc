@@ -221,6 +221,7 @@ If your device uses an active/active tunnel configuration, you must allow asymme
 
 The _local ASN_ (Autonomous System Number) specifies a private ASN (64512–65534) to assign to the Anypoint Platform side.
 
+[NOTE]
 You configure the local ASN for both static and dynamic routing. 
 
 Use a private ASN (`64512–65534`) that is not already assigned to your network.
@@ -230,6 +231,7 @@ The default value is `64512`.
 
 The _remote ASN_ specifies the routing prefixes that correspond to your backend.
 
+[NOTE]
 You configure the remote ASN only for dynamic routing. 
 
 Use either an existing ASN assigned to your network or a private ASN (64512–65534) that is not 
@@ -241,6 +243,7 @@ The default value is 65001.
 
 The _static IP prefixes_ are IP prefixes to advertise to your private network in Anypoint Platform, in CIDR notation.
 
+[NOTE]
 You configure the static IP prefixes only for static routing. 
 
 A maximum of 95 route table entries is allowed per private network,
