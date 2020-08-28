@@ -141,24 +141,48 @@ When specifying CIDR blocks, ensure that the CIDR blocks:
 
 === Internal DNS Server (Optional)
 
-You can specify custom private domains by adding the IP address and domain name for your network.
-When you provide private domains, your worker resolves them using your private DNS,
-so you can still use the internal host names of your private network
-(make sure your applications call the backend resources by FQDN).
 
+To enable apps deployed to a private space to access
+internal resources that are not reachable from the public internet, 
+configure domain resolution for your internal networks.
+
+To configure the internal DNS server, specify the IP address for your internal 
+domain server and the internal domains that you want to access from the private space.
+The private space resolves the domains using the specified DNS server, 
+enabling you to use internal host names in your private network
+as long as your applications use the FQDN to request back-end resources. 
 
 ==== IP Addresses
 
-The _IP addresses_ specify up to three IP addresses of your internal DNS server.
+The _IP addresses_ identify the internal name servers that respond to DNS queries for the specified internal domains.
 
-// Add IP addresses for internal DNS servers, separated by commas. Multiple servers are allowed for redundancy. They should each support all domains added below.
+To provide redundancy, you can configure up to three internal DNS servers.
+
+When configuring the IP addresses for the DNS servers, keep the following in mind:
+
+* You configure DNS servers within a private space, so the server IP addresses you configure must be reachable from the private space.
++
+If the server isn't reachable, DNS resolution fails.
+* If you configure multiple servers, the private space queries any DNS server in the list for the specified domains at any time, in any order.
+* All name servers must present the same DNS record.
+* After the private space receives a valid response from any configured name server, it doesn't retry the request.
++
+If one of the name servers doesn't have a record for the domain,
+it returns the response `NXDOMAIN` (non-existent domain).
+Because this response is valid, the private space doesn't send the query
+to the other servers. 
+
 
 ==== Domains
 
-_Domains_ identify the domains to be resolved by the internal DNS server.
+_Domains_ identify the internal domains that must be accessible from the private space.
+The configured internal DNS servers resolve the specified domains, and the 
+external DNS server resolves all other domains.
 
-The domain is the common portion of your internal domain name, such as `mulesoft.com`.
-// Add domains to be resolved by internal DNS, separated by commas.
+To specify an internal domain, use the second-level domain name, such as `mulesoft.com`.
+
+[NOTE]
+The total number of characters for all configured domains is 229.
 
 
 == Virtual Private Network Requirements 
