@@ -99,6 +99,26 @@ For details about each requirement, see the sections that follow.
 
 The _region_ is the Amazon region to deploy your apps to, such as `us-east-1`.
 
+The complete list of supported regions is:
+
+----
+US East (Northern Virginia)
+US East (Ohio)
+US West (Northern California)
+US West (Oregon)
+Canada (Central)
+South America (Sao Paulo)
+Europe (Ireland)
+Europe (Frankfurt)
+Europe (London)
+Asia Pacific (Singapore)
+Asia Pacific (Sydney)
+Asia Pacific (Tokyo)
+----
+
+
+////
+
 The region to which you deploy your application determines the DNS record for your integration.
 For example, if you deploy an application named `myapp` to Canada (Central),
 the domain used to access the application is `myapp.ca-c1.cloudhub.io`. 
@@ -122,7 +142,7 @@ The complete list of supported regions is:
 |Asia Pacific (Sydney)| `au-s1.cloudhub.io`
 |Asia Pacific (Tokyo)| `jp-e1.cloudhub.io`
 |===
-
+////
 
 === CIDR Block 
 
