@@ -1,0 +1,385 @@
+= Gather Required Setup Information
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Use the following sections to gather the information you'll need to set up your private space.
+For information about private spaces, see xref:index.adoc#what-is-a-private-space[What is a Private Space?].
+
+You might need to collaborate with your network administrator if you don't have access to this information.
+In this case, share this setup checklist with them and provide an estimate of the number of apps you expect to deploy
+to the private space for <<CIDR Block,CIDR block>> configuration.
+
+
+// (*View the checklist* link from *Private network* tab)
+// Should this page include other network admin requests - Domains tab?
+
+////
+
+[NOTE]
+====
+The following two sections provide the same information in different formats:
+
+* <<Information Required to Set Up a Private Space>>
+* <<Information Required to Set Up a Private Space (Table)>>
+====
+////
+
+
+== Information Required to Set Up a Private Space
+
+The following list summarizes the information required to set up a private space.
+For details about each requirement, see the sections that follow.
+ 
+* *Private Network Setup*
++
+** <<Region>>
+** <<CIDR Block,CIDR block>>
+** <<Internal DNS Server,Internal DNS servers>> (optional)
++
+*** <<IP Addresses,IP addresses>>
+*** <<Domains>>
+* *Virtual Private Network Setup*
++
+** <<Remote IP Address,Remote IP addresses>>
+** <<Local ASN>>
+** <<Remote ASN>> (<<Dynamic VPN Connection Requirements,dynamic routing>>) or <<Static IP Prefixes,Static IP prefixes>> (<<Static VPN Connection Requirements,static routing>>)  
+** <<Custom Tunnel Configuration (Optional),Custom tunnel configuration>> (optional)
++
+*** Tunnel 1
++
+**** <<Inside IP CIDRs,Inside IP CIDR>>
+**** <<Pre-shared Keys,Pre-shared key>>
+*** Tunnel 2
+**** <<Inside IP CIDRs,Inside IP CIDR>>
+**** <<Pre-shared Keys,Pre-shared key>>
+** <<Supported Gateway Devices,Device vendor>>
+** <<Supported Gateway Devices,Device platform>>
+** <<Supported Gateway Devices,Device software>>
+
+////
+
+== Information Required to Set Up a Private Space (Table)
+
+
+[cols="1,20a,20a,20a,20a,19a"]
+.Private Space Configuration Form 
+|===
+6+|
+6+|*Private Network Setup*
+.4+||<<Region>>     4+|
+|<<CIDR Block>> 4+|
+.2+|<<Internal DNS Server>> (Optional) |<<IP Addresses>> 3+|
+|<<Domains>>  3+|
+6+|*Virtual Private Network Setup*
+.12+||<<Remote IP Address>> 4+|
+|<<Local ASN>> 4+|
+|<<Dynamic VPN Connection Requirements,Dynamic Routing>> Configuration | <<Remote ASN>> 3+|
+^.^|*_OR_* 4+|
+|<<Static VPN Connection Requirements,Static Routing>> Configuration| <<Static IP Prefixes>> 3+|
+ .4+|<<Custom Tunnel Configuration (Optional),Custom Tunnel Configuration>> (Optional)   .2+| Tunnel 1 | <<Inside IP CIDRs>> 2+|
+                                                | <<Pre-shared Keys>> 2+|
+              .2+| Tunnel 2 | <<Inside IP CIDRs>> 2+|
+                                                 | <<Pre-shared Keys>> 2+|
+.3+|<<Supported Gateway Devices,Gateway Device>>|Vendor 3+|
+|Platform  3+|
+|Software  3+|
+6+|
+|===
+
+////
+
+== Private Network Requirements 
+
+* <<Region>>
+* <<CIDR Block>>
+* <<Internal DNS Server (Optional)>>
+
+=== Region
+
+The _region_ is the Amazon region to deploy your apps to, such as `us-east-1`.
+
+The complete list of supported regions is:
+
+----
+US East (Northern Virginia)
+US East (Ohio)
+US West (Northern California)
+US West (Oregon)
+Canada (Central)
+South America (Sao Paulo)
+Europe (Ireland)
+Europe (Frankfurt)
+Europe (London)
+Asia Pacific (Singapore)
+Asia Pacific (Sydney)
+Asia Pacific (Tokyo)
+----
+
+
+////
+
+The region to which you deploy your application determines the DNS record for your integration.
+For example, if you deploy an application named `myapp` to Canada (Central),
+the domain used to access the application is `myapp.ca-c1.cloudhub.io`. 
+
+The complete list of supported regions is:
+
+[%header]
+.Supported Regions 
+|===
+|Region|DNS Record
+|US East (Northern Virginia)| `us-e1.cloudhub.io`
+|US East (Ohio)| `us-e2.cloudhub.io`
+|US West (Northern California)| `us-w1.cloudhub.io`
+|US West (Oregon)| `us-w2.cloudhub.io`
+|Canada (Central)| `ca-c1.cloudhub.io`
+|South America (Sao Paulo)| `br-s1.cloudhub.io`
+|Europe (Ireland)| `ir-e1.cloudhub.io`
+|Europe (Frankfurt)| `de-c1.cloudhub.io`
+|Europe (London)| `uk-e1.cloudhub.io`
+|Asia Pacific (Singapore)| `sg-s1.cloudhub.io`
+|Asia Pacific (Sydney)| `au-s1.cloudhub.io`
+|Asia Pacific (Tokyo)| `jp-e1.cloudhub.io`
+|===
+////
+
+=== CIDR Block 
+
+The _CIDR block_ is the range of IP addresses, in CIDR notation, that the apps deployed in your private space use. 
+
+Because each app uses multiple IP addresses, allocate at least 10 IP addresses for each app.
+
+For example, to grant your private network 256 IP addresses between `10.111.0.0` and `10.111.0.255`, set the CIDR block to `10.111.0.0/24`.
+
+When specifying CIDR blocks, ensure that the CIDR blocks:
+
+* Are from a private IP space
+* Don't overlap with any other CIDR blocks in your private spaces
+* Don't overlap with any CIDR blocks in use in your corporate network
+
+
+=== Internal DNS Server (Optional)
+
+
+To enable apps deployed to a private space to access
+internal resources that are not reachable from the public internet, 
+configure domain resolution for your internal networks.
+
+To configure the internal DNS server, specify the IP address for your internal 
+domain server and the internal domains that you want to access from the private space.
+The private space resolves the domains using the specified DNS server, 
+enabling you to use internal host names in your private network
+as long as your applications use the FQDN to request back-end resources. 
+
+==== IP Addresses
+
+The _IP addresses_ identify the internal name servers that respond to DNS queries for the specified internal domains.
+
+To provide redundancy, you can configure up to three internal DNS servers.
+
+When configuring the IP addresses for the DNS servers, keep the following in mind:
+
+* You configure DNS servers within a private space, so the server IP addresses you configure must be reachable from the private space.
++
+If the server isn't reachable, DNS resolution fails.
+* If you configure multiple servers, the private space queries any DNS server in the list for the specified domains at any time, in any order.
+* All name servers must present the same DNS record.
+* After the private space receives a valid response from any configured name server, it doesn't retry the request.
++
+If one of the name servers doesn't have a record for the domain,
+it returns the response `NXDOMAIN` (non-existent domain).
+Because this response is valid, the private space doesn't send the query
+to the other servers. 
+
+
+==== Domains
+
+_Domains_ identify the internal domains that must be accessible from the private space.
+The configured internal DNS servers resolve the specified domains, and the 
+external DNS server resolves all other domains.
+
+To specify an internal domain, use the second-level domain name, such as `mulesoft.com`.
+
+[NOTE]
+The total number of characters for all configured domains is 229.
+
+
+== Virtual Private Network Requirements 
+
+* <<Remote IP Address>>
+* <<Dynamic VPN Connection Requirements>>
+* <<Static VPN Connection Requirements>>
+* <<Local ASN>>
+* <<Remote ASN>> (dynamic routing only)
+* <<Static IP Prefixes>> (static routing only)
+* <<Inside IP CIDRs>> (custom tunnel configuration only)
+* <<Pre-shared Keys>> (custom tunnel configuration only)
+* <<Supported Gateway Devices>>
+
+=== Remote IP Address 
+
+The _remote IP address_ is the public (single, static) IP address of your VPN endpoint.
+
+=== Dynamic VPN Connection Requirements
+
+For dynamic routing, your device uses Border Gateway Protocol (BGP) to advertise routes to Anypoint VPN.
+If your device supports BGP, select dynamic routing. 
+
+To create a dynamic VPN connection, in addition to the static VPN connection requirements, 
+your VPN device must be able to:
+
+* Establish BGP peering
+* Support route-based VPNs (bind tunnels to logical interfaces)
+
+=== Static VPN Connection Requirements
+
+Static routing requires you to specify the routes (subnets) in your network that are accessible through Anypoint VPN.
+
+To create a static VPN connection, your VPN endpoint must be able to:
+
+* Establish IKE Security Associations using a Pre-Shared Key (PSK) 
+* Establish IPsec Security Associations in Tunnel mode
+* Use any combination of IPsec settings that Anypoint Platform supports
+* Fragment IP packets before encryption 
++
+You must fragment packets that are too large to transmit.
++
+Your gateway device must be able to fragment packets before encapsulation.
+* Use one Security Association (SA) pair per tunnel 
++
+Anypoint VPN supports one unique SA pair (one inbound and one outbound connection) per tunnel.
+Some policy-based devices create an SA for each ACL (access-control list) entry.
+In this situation, you must consolidate your rules and then filter unwanted traffic.
+* Use IPsec Dead Peer Detection (DPD)
++
+DPD allows devices to rapidly identify when network conditions change.
+You can enable DPD on the Anypoint Platform endpoint using `DPD Interval: 10` and `DPD Retries: 3`.
+* Allow asymmetric routing 
++
+Asymmetric routing occurs when routing policies send traffic from your network to the VPC through one tunnel and traffic returns from the VPC through the other tunnel.
+The Anypoint Platform VPN endpoint selects the tunnel using an internal algorithm, making the return path dynamic.
+If your device uses an active/active tunnel configuration, you must allow asymmetric routing for each Anypoint VPN connection.
+
+=== Local ASN 
+
+The _local ASN_ (Autonomous System Number) specifies a private ASN (64512–65534) to assign to the Anypoint Platform side.
+
+[NOTE]
+You configure the local ASN for both static and dynamic routing. 
+
+Use a private ASN (`64512–65534`) that is not already assigned to your network.
+The default value is `64512`.
+
+=== Remote ASN
+
+The _remote ASN_ specifies the routing prefixes that correspond to your backend.
+
+[NOTE]
+You configure the remote ASN only for dynamic routing. 
+
+Use either an existing ASN assigned to your network or a private ASN (64512–65534) that is not 
+already assigned to your network.
+The default value is 65001.
+
+
+=== Static IP Prefixes
+
+The _static IP prefixes_ are IP prefixes to advertise to your private network in Anypoint Platform, in CIDR notation.
+
+[NOTE]
+You configure the static IP prefixes only for static routing. 
+
+A maximum of 95 route table entries is allowed per private network,
+regardless of the number of VPN connections.
+To avoid exceeding the limit, consolidate networks to the fewest number possible.
+
+=== Custom Tunnel Configuration (Optional)
+
+Select custom tunnel configuration if you want to specify custom values for
+inside IP CIDRs and pre-shared keys.
+If you select automatic tunnel configuration, these values are auto-generated.
+
+
+==== Inside IP CIDRs
+
+The _inside IP CIDRs_ is the IP address range for the internal address of the VPN tunnel.
+
+[NOTE]
+You specify the inside IP CIDRs only for custom tunnel configuration. 
+For automatic tunnel configuration, these values are auto-generated.
+
+For each tunnel, enter the IP address range for the internal address of the VPN tunnel.
+
+You can specify a size /30 CIDR block from the `169.254.0.0/16` range.
+The CIDR block must be unique across all private network connections.
+
+You cannot use the following reserved CIDR blocks:
+
+----
+169.254.0.0/30
+169.254.1.0/30
+169.254.2.0/30
+169.254.3.0/30
+169.254.4.0/30
+169.254.5.0/30
+169.254.169.252/30
+----
+
+==== Pre-shared Keys
+
+A _pre-shared key_ (PSK) is a shared secret which was previously shared between 
+two ends of a connection for the VPN tunnels.
+
+[NOTE]
+You specify the PSK only for custom tunnel configuration. 
+For automatic tunnel configuration, these values are auto-generated.
+
+For static connections, your VPN endpoint uses pre-shared keys (PSKs) to establish IKE Security Associations.
+
+For each tunnel, enter a value of between 8-64 characters that does not begin with zero (0).
+Use only alphanumeric characters, periods (.), and underscores (&#95;). 
+
+
+=== Supported Gateway Devices
+
+A _gateway device_ is a physical or software appliance on your organization's side of the VPN connection.
+
+Your network administrator must configure the device to work with the Anypoint VPN connection.
+
+The following gateway network devices are known to work with Anypoint VPN.
+If your device does not appear in the list of tested devices,
+check the requirements to verify that your device is suitable for use with Anypoint VPN.
+
+[%header%autowidth.spread]
+.Supported Gateway Devices 
+|===
+|Device Vendor | Device Platform | Device Software 
+|Check Point | Security Gateway | R77.10 or later
+.2+|Cisco | ASA | ASA 8.2 or later
+|IOS | Cisco IOS 12.4 or later
+|Dell | SonicWALL | SonicOS 5.9 or later
+|Fortinet | Fortigate 40+ Series | FortiOS 4.0 or later
+.4+|Juniper | J-Series Service Router | JunOS 9.5 or later
+| SRX-Series Services Gateway | JunOS 11.0 or later
+| SSG | ScreenOS 6.1 or 6.2 or later
+| ISG | ScreenOS 6.1 or 6.2 or later
+|Netgate | pfSense | OS 2.2.5 or later
+|Palo Alto Networks || PANOS 4.1.2 or later
+.6+|Yamaha .6+|| RT107e 
+| RTX1200 
+| RTX1210 
+| RTX1500 
+| RTX3000 
+| SRT100 
+.2+|Microsoft .2+|Windows Server| 2008 R2 or later 
+|2012 R2 or later
+.2+|Zyxel .2+|Zywall Series| 4.20 or later for statically routed Anypoint VPN connections 
+|4.30 or later for dynamically routed Anypoint VPN connections
+|===
+
+
+
+== See Also 
+
+* xref:index.adoc#what-is-a-private-space[What is a Private Space?]

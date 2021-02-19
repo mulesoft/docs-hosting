@@ -1,0 +1,37 @@
+= Associate Environments and Business Groups with a Private Space
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Before you can deploy to a private space, you must specify the environments and at least one business group to associate with it.
+
+To associate environment types in a business group or groups with the private space:
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click the *Environments* tab.
+. Select the environments from the dropdown list:
++
+--
+** *Any environment*
+** *Sandbox environments*
+** *Production environments*
+--
+. Select the business groups from the dropdown list:
++
+--
+** *Any business group*
+** *Selected business group*
++
+Type the business group name in the *Add business groups* field and select it from the list.
++
+The list includes all business groups in the organization to which the private space is registered and that have not yet been added.
+--
+. To remove a business group, click the *X* to the right of the entry.
+. Click *Save environments* or *Discard changes*.
+
+== See Also 
+
+* https://docs.mulesoft.com/access-management/roles.html[Roles] (Link out from Beta docs)
+* https://docs.mulesoft.com/access-management/users#granting-permissions-and-roles-to-users[Granting Permissions and Roles to Users] (Link out from Beta docs)

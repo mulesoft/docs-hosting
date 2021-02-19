@@ -1,0 +1,18 @@
+//SELECT PRIVATE SPACE SHARED
+//tag::selectPrivateSpace[]
+. From Anypoint Platform, select *Runtime Manager*.
+. Click *Private Spaces* in the left menu.
+// end::selectPrivateSpace[]
+
+
+//CLICK PRIVATE SPACE NAME SHARED
+//tag::clickPrivateSpaceName[]
+. Click the name of the private space you want to manage.
+// end::clickPrivateSpaceName[]
+
+
+//SELECT RTM APPS SHARED
+//tag::selectAppsPage[]
+. From Anypoint Platform, select *Runtime Manager*.
+. Click *Applications* in the left menu.
+// end::selectAppsPage[]

@@ -1,0 +1,50 @@
+= Manage Private Spaces
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+
+
+== Rename a Private Space
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click *...* in the upper-right and select *Rename*.
+. Enter the new name for the private space and click *Rename*.
+
+== Delete a Private Space
+
+Deleting a private space also deletes any related private networks, VPNs, and files.
+This action can’t be undone.
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click *...* in the upper-right and select *Delete*.
+. Click *Delete private space* to confirm the deletion.
+
+
+== Delete a Private Network 
+
+Deleting a private network also deletes its VPN.
+This action can’t be undone.
+
+You can't delete a network if it is in use.
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+. Click the name of the private space that includes the private network you want to delete.
+. Click *...* in the *Private network* area and select *Delete network*.
+. Click *Delete* to confirm the deletion.
+
+
+== Delete a VPN  
+
+This action can’t be undone.
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+. Click the name of the private space that includes the VPN you want to delete.
+. Click *...* in the *VPN* area and select *Delete VPN*.
+. Click *Delete* to confirm the deletion.
