@@ -1,2 +1,0 @@
-.xref:index.adoc[Runtime Fabric Cloud]
-* xref:index.adoc[Runtime Fabric Cloud]
