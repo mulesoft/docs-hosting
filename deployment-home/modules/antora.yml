@@ -1,5 +1,3 @@
 name: rtfcloud
 title: Runtime Fabric
 version: '1.8'
-nav:
-- modules/ROOT/nav.adoc
