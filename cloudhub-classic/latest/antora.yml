@@ -1,0 +1,5 @@
+name: cloudhub--classic-rtfcloud
+title: CloudHub
+version: master
+nav:
+- modules/ROOT/nav.adoc
