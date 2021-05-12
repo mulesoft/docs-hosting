@@ -3,16 +3,65 @@
 The deployment project, like the connectors project, brings together multiple components with multiple versions.
 Like connectors, to do that, the structure here must follow certain rules.
 
+== Building
+To build, you need to make two changes to your antora playbook.  Looking at this example
+
+[source, yml]
+runtime:
+  cache_dir: ./.cache/antora
+site:
+  title: MuleSoft Documentation
+  url: https://docs.mulesoft.com
+  start_page: general::index.adoc
+  robots: allow
+  keys:
+    google_site_verification: bP8EYmIV6h5gQ4wnRbdBs6SbWCe1rb4R8H0_gOuGBVI
+git:
+  ensure_git_suffix: false
+content:
+  - url: https://github.com/mulesoft/docs-general
+    branches: latest
+  - url: https://git@github.com/mulesoft/docs-release-notes
+    branches: latest
+  - url: https://github.com/mulesoft/docs-rtf-cloud.git
+    branches: feature/all-in-one-nav
+    start_paths: '*/{{0..9},{1..9}{0..9}}.*, */latest, deployment-home'
+asciidoc:
+  attributes:
+    idprefix: '@'
+    idseparator: '-@'
+    export-site-navigation-data: ''
+    site-component-order: general, release-notes, *, tcat-server
+    toc: ~
+ui:
+  bundle:
+    url: /Users/sanderson/git/mulesoft/docs-rtf-cloud/ui-bundle.zip
+  supplemental_files: ./static-files
+
+The first change is that the `docs-rtf-cloud` component has a special key called `start_paths`.  That key lets the build know where the `antora.yml` files in this repo can be found.
+
+The first one, the funny looking
+one with braces, says "In any directory, look for an antora.yml file in subdirectories that follow our versioning scheme (i.e., 1.7, 12.0)".
+
+The second one is similar, but seeks `antora.yml` in any
+in a latest directory.
+
+At the end is a special value, deployment-home, which is the non-versioned directory that groups the content in the project together.  This pattern should work for you without
+change *unless* you choose to use a non-standard directory structure.  If so, reach out on #docsinfra-request and we'll make it work.
+
+The other change is the url for the ui bundle.  The example won't work for you, unless your username is sanderson and you have the same file structure as I do.  You'll want to update it based
+on the directory this repo is in on your local computer.  If you aren't sure, open a terminal in this directory, and type `pwd` and it will give you the path, just add `ui-bundle.zip` to the end.
+
 == To update overview material
 The `deployments-home` directory includes all the overview material related to the deployment project.  Follow normal antora
 processes for editing content there, this includes adding new items to the table of contents by updating the nav.adoc file.
 
-WARNING: Do not change the name in `antora.yml`.
+WARNING: Do not change the name in `antora.yml` unless the name ends with `-rtfcloud`.
 
 == To add a new version to existing content
 You've been working with the runtime-fabric team and they want to release a new version.  Just like with other antora projects, simply add a new directory that matches the version; for example, `runtime_fabric/1.9`.  In that directory, use the standard antora structure.  If you copy the `antora.yml` file from another version, make sure you change the version key so there are no conflicts.
 
-WARNING: Do not change the name in `antora.yml`.
+WARNING: Do not change the name in `antora.yml` unless the name ends with `-rtfcloud`.
 
 == To add a new top level item
 The deployment area has a new feature, `cloudbro`, a friendly way to deploy in the cloud.  To create that, create the `cloudbro` directory as a sibling to the existing content directories, then create a child version directory for your `antora.yml` file and the modules directory.  The structure should look something like the following (using the existing cloudhub to make the example clearer):
@@ -60,4 +109,3 @@ If you want to use a unique icon in the table of contents, file a for the DOCSIN
 
 == Known issues
 1. The sort order in the final table of contents is an alpha sort.  Currently we can control the top level sort order (by modifying `antora-playbook.yml`, but no lower.
-2. Building the content won't currently create a ToC that matches the expectation.  After the proof of concept for the project is approved, the DOCSINFRA team will finish up the code, including testing and documenting it, and then make it available for use.
