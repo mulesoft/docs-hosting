@@ -1,0 +1,63 @@
+= Writing in the Deployment project
+
+The deployment project, like the connectors project, brings together multiple components with multiple versions.
+Like connectors, to do that, the structure here must follow certain rules.
+
+== To update overview material
+The `deployments-home` directory includes all the overview material related to the deployment project.  Follow normal antora
+processes for editing content there, this includes adding new items to the table of contents by updating the nav.adoc file.
+
+WARNING: Do not change the name in `antora.yml`.
+
+== To add a new version to existing content
+You've been working with the runtime-fabric team and they want to release a new version.  Just like with other antora projects, simply add a new directory that matches the version; for example, `runtime_fabric/1.9`.  In that directory, use the standard antora structure.  If you copy the `antora.yml` file from another version, make sure you change the version key so there are no conflicts.
+
+WARNING: Do not change the name in `antora.yml`.
+
+== To add a new top level item
+The deployment area has a new feature, `cloudbro`, a friendly way to deploy in the cloud.  To create that, create the `cloudbro` directory as a sibling to the existing content directories, then create a child version directory for your `antora.yml` file and the modules directory.  The structure should look something like the following (using the existing cloudhub to make the example clearer):
+
+[source]
+├── CODEOWNERS
+├── README.md
+├── cloudhub
+│   └── latest
+│       ├── antora.yml
+│       └── modules
+│           └── ROOT
+│               ├── nav.adoc
+│               └── pages
+│                   ├── _partials
+│                   │   └── select-private-space.adoc
+│                   ├── features.adoc
+│                   ├── index.adoc
+│                   └── ps-setup.adoc
+├── cloudbro
+│   └── latest
+│       ├── antora.yml
+│       └── modules
+│           └── ROOT
+│               ├── nav.adoc
+│               └── pages
+│                   ├── _partials
+│                   │   └── bro.adoc
+│                   ├── features.adoc
+│                   ├── index.adoc
+│                   └── bro-setup.adoc
+
+Edit `antora.yml` as you normally would, but you need to keep in mind one rule
+
+IMPORTANT: The `name` key in every antora.yml file in this project *must* end with `-rtfcloud`.  For example, the `antora.yml` file for `cloudbro` might look like this:
+
+[source,yaml]
+name: cloudbro-rtfcloud
+title: Bro, let's deploy!
+version: 'latest'
+nav:
+- modules/ROOT/nav.adoc
+
+If you want to use a unique icon in the table of contents, file a for the DOCSINFRA team; please include a greyscale svg of the icon in the issue and the value of the `name` key in your antora.yml file.
+
+== Known issues
+1. The sort order in the final table of contents is an alpha sort.  Currently we can control the top level sort order (by modifying `antora-playbook.yml`, but no lower.
+2. Building the content won't currently create a ToC that matches the expectation.  After the proof of concept for the project is approved, the DOCSINFRA team will finish up the code, including testing and documenting it, and then make it available for use.
