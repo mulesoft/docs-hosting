@@ -1,5 +1,5 @@
 name: cloudhub-rtfcloud
-title: CloudHub 2.0
+title: Cloud Deployment - CloudHub
 version: master
 nav:
 - modules/ROOT/nav.adoc

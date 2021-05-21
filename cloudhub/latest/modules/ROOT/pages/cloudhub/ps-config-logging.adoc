@@ -1,0 +1,176 @@
+= Configure Log Forwarding for a Private Space 
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+
+CloudHub 2.0 supports log forwarding to:
+
+* Anypoint Monitoring
++
+Forwards only application logs to Anypoint Monitoring and requires a Titanium subscription
+* External services: 
++
+Forwards application and load-balancer logs to the specified service:
++
+** Azure
+** BigQuery
+** Datadog
+** Elasticsearch
+** Splunk
+
+
+== Before You Begin 
+
+(Other prereqs)
+
+=== Splunk Prerequisites 
+
+To send data to Splunk using the HTTP Event Collector, you must first set up the data input and obtain a token from Splunk:
+
+. Sign in to your Splunk account.
+. Navigate to *Settings* > *Data Inputs*.
+. For the *HTTP Event Collector* type, click *Add new*.
++
+.The arrow shows the *Add new* option for the HTTP Event Collector in the Splunk Data Inputs page.
+image::splunk-config-http-collector.png[Add new option for the HTTP Event Collector in the Splunk Data Inputs page]
+
+. Follow the steps to set up the data input and obtain the token.
+
+////
+To send data to Splunk over TCP, you must first enable the input source in Splunk:
+
+. Sign in to your Splunk account.
+. Navigate to *Settings* > *Data Inputs*.
+. For the *TCP* type, click *Add new*.
++
+.The arrow shows the *Add new* option for TCP in the Splunk Data Inputs page.
+image::splunk-config-tcp.png[Add new option for TCP in the Splunk Data Inputs page]
+. Follow the steps to set up the data input.
+
+////
+
+For more information about setting up data inputs, see the https://docs.splunk.com/Documentation/Splunk/8.0.2/Data/WhatSplunkcanmonitor[Splunk documentation].
+
+//	Specify Load Balancer Log Level		
+//	Specify RTFC Log Level		
+// Configure Internal DNS to Resolve Private Domains			
+// 	Update DNS Server with Private Domains		
+
+== Configure Log Forwarding 
+
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click the *Logging* tab.
+. Select logging options:
++
+--
+** *Show logs in Anypoint Monitoring*
++
+This option is available only if you have a Titanium subscription.
+** *Forward logs to an external service*
+--
+. To forward logs to an external service, select the service and enter the configuration information for the service:
++
+*** <<Azure Log Analytics Configuration Parameters>> 
+*** <<BigQuery Configuration Parameters>>
+*** <<Datadog Configuration Parameters>> 
+*** <<Elasticsearch Configuration Parameters, Elasticsearch Configuration Parameters>>
+*** <<Splunk Configuration Parameters>>
+
+. Select to forward logs from:
++
+** *Mule applications*
++
+You can disable log forwarding for an app during deployment. 
+** *Load balancer*
++
+Configure load balancer log levels in the *Domains* tab.
++
+See xref:ps-config-domains.adoc#load-balancer-log-levels[Load Balancer Log Levels].
+
+=== Azure Log Analytics Configuration Parameters
+
+[%header%autowidth.spread,cols="a,a,a,a"]
+.Azure Log Analytics Configuration Parameters
+|===
+| Parameter | Description | Required | Default Value
+| Customer ID | Specifies the customer ID or workspace ID string. | Yes |
+| Shared Key | Specifies the primary or secondary connected sources client authentication key. | Yes |
+| Log Type | Specifies the event type name. | No | runtime_fabric_cloud
+|===
+
+=== BigQuery Configuration Parameters
+
+[%header%autowidth.spread,cols="a,a,a,a"]
+.BigQuery Configuration Parameters
+|===
+| Parameter | Description | Required | Default Value
+| blah | blah | blah | blah
+|===
+
+=== Datadog Configuration Parameters 
+
+[%header%autowidth.spread,cols="a,a,a,a"]
+.Datadog Configuration Parameters
+|===
+| Parameter | Description | Required | Default Value
+| blah | blah | blah | blah
+|===
+
+=== Elasticsearch Configuration Parameters
+
+[%header%autowidth.spread,cols="a,a,a,a"]
+.Elasticsearch Configuration Parameters
+|===
+| Parameter | Description | Required | Default Value
+| Host | Specifies the IP address or hostname of the target Elasticsearch instance. | Yes | 127.0.0.1
+| Port | Specifies the TCP port of the target Elasticsearch instance. | Yes | 9200
+| Index | Specifies the index name. | Yes | runtime_fabric_cloud
+| Path | Elasticsearch accepts new data on HTTP query path `/_bulk`. But it is also possible to serve Elasticsearch behind a reverse proxy on a subpath. This option defines such a path on the output plugin side. It adds a path prefix in the indexing HTTP POST URI. | No | Empty string
+| Buffer Size | Specifies the buffer size used to read the response from the Elasticsearch HTTP service. This option is useful for debugging purposes where reading the full response is needed. Note that the size of the response grows depending on the number of records inserted. To specify an unlimited amount of memory, set this value to `False`. Otherwise, set the value according to the Unit Size specification. | No | 4KB
+| HTTP User | Specifies an optional username credential for Elastic X-Pack access. | No | 
+| HTTP Passwd | Specifies a password for the user defined in `HTTP User`. | No | 
+| Type | Specifies the type name. | No | runtime_fabric_cloud
+| Logstash Format | Enables Logstash format compatibility. This option takes a Boolean value: `True`, `False`, `On`, or `Off`. | No |
+| Logstash Prefix | When `Logstash Format` is enabled, the `Index` name is composed of a prefix and the date. For example, if `Logstash Prefix` is set to `mydata`, your index becomes `mydata-YYYY.MM.DD`. The last string that is appended belongs to the date when the data is generated. | No | logstash
+| Logstash DateFormat | Specifies the time format (based on `strftime`) that is used to generate the second part of the `Index` name. | No | %Y.%m.%d
+| Time Key | When `Logstash Format` is enabled, each record is assigned a new timestamp field. The `Time Key` property defines the name of that field. | No | @timestamp
+| Time Key Format | When `Logstash Format` is enabled, this property defines the format of the timestamp. | No | %Y-%m-%dT%H:%M:%S
+| Include Tag Key | When enabled, the tag name is appended to the record. | No | Off
+| Tag Key | When `Include Tag Key` is enabled, this property defines the key name for the tag. | No |
+| Generate ID | When enabled, generates the `_id` value for outgoing records. This prevents duplicate records when retrying ES. | No | Off
+| Replace Dots | When enabled, replaces field name dots ('.') with an underscore ('_'), which is required by Elasticsearch 2.0 through 2.3. | No | Off
+| Trace Output | When enabled, prints the Elasticsearch API calls to stdout (for diagnosis). | No | Off
+| Trace Error | When enabled, prints the Elasticsearch API calls to stdout when Elasticsearch returns an error. | No | Off
+| Current Time Index | Specifies using the current time for index generation instead of message record information. | No | Off
+| Logstash Prefix Key | Prefixes keys with this string. | No |
+| TLS | Enables or disables TLS support. | No | Off
+| CA Path Certificate File |  Specifies the CA certificate file to be uploaded. This option is available only when TLS is enabled. | No |
+|===
+
+
+=== Splunk Configuration Parameters
+
+[%header%autowidth.spread,cols="a,a,a,a"]
+.Splunk Configuration Parameters
+|===
+| Parameter | Description | Required | Default Value
+| Host | Specifies the IP address or hostname of the target Splunk service. | Yes | 127.0.0.1
+| Port | Specifies the TCP port of the target Splunk service. | Yes | 8088
+| Splunk token | Specifies the Authentication Token for the HTTP Event Collector interface.
+
+CloudHub 2.0 hides and stores this value securely. | Yes |
+| HTTP user (optional)| Specifies a username for basic authentication on the HTTP Event Collector. | No |
+| HTTP password (optional) | Specifies a password for the user defined in HTTP user.
+CloudHub 2.0 hides and stores this value securely. | No |
+| TLS | Enables or disables TLS support. | No | Off
+| CA Path Certificate File |  Specifies the CA certificate file to upload. This option is available only when TLS is enabled. | No |
+|===
+
+
+== See Also 
+
+* xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed in a Private Space]
