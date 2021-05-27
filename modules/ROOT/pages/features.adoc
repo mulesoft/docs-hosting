@@ -1,9 +1,9 @@
-= Features of Runtime Fabric Cloud
+= Features of CloudHub 2.0
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Runtime Fabric Cloud includes many of the features from CloudHub and Runtime Fabric on-premises.
+CloudHub 2.0 includes many of the features from CloudHub and Runtime Fabric on-premises.
 
 == Features Included in the Internal Beta Release
 
@@ -21,10 +21,10 @@ This release includes these features:
 
 * *Internal* operational monitoring and alerting
 +
-Runtime Fabric Cloud alerts you when when applications become unresponsive.
+CloudHub 2.0 alerts you when when applications become unresponsive.
 * Load-based cluster-level autoscaling
 +
-Runtime Fabric Cloud provides auto-scaling groups for fault-tolerance.
+CloudHub 2.0 provides auto-scaling groups for fault-tolerance.
 * Bursting and CPU oversubscription for application deployments
 * Application administration and supportability
 * Custom properties
@@ -33,16 +33,16 @@ For information on setting custom properties, see
 https://docs.mulesoft.com/runtime-manager/cloudhub-manage-props.html#add-application-properties-in-runtime-manager[Add Application Properties in Runtime Manager].
 * xref:ps-create-configure.adoc#test-the-private-network-by-deploying-an-app[Deploy Mule apps to a private space].
 +
-Runtime Fabric Cloud provides a secure cloudhub.io endpoint for sending requests to applications.
+CloudHub 2.0 provides a secure cloudhub.io endpoint for sending requests to applications.
 * xref:ps-config-logging.adoc[Forward logs to a third-party provider].
 
 
-== Feature Comparison: Runtime Fabric Cloud, Runtime Fabric On-Premises, and CloudHub 
+== Feature Comparison: CloudHub 2.0, Runtime Fabric On-Premises, and CloudHub 
 
 [%header,cols="30a,20a,20a,20a"]
 .Feature Comparison 
 |===
-| Feature/Capability | CloudHub | Runtime Fabric On-Premises | Runtime Fabric Cloud 
+| Feature/Capability | CloudHub | Runtime Fabric On-Premises | CloudHub 2.0 
 4+|*Customer Administration*
 | Supports cloud of choice (not AWS)| No| Yes| No
 | Cluster separation per environment| No| Yes| No

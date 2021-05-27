@@ -1,4 +1,4 @@
-= Runtime Fabric Cloud
+= CloudHub 2.0
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -7,7 +7,7 @@ endif::[]
 
 == What is a Private Space?
 
-A _private space_ is a virtual, private, and isolated network hosted in the Runtime Fabric Cloud into which you deploy your apps.
+A _private space_ is a virtual, private, and isolated network hosted in CloudHub 2.0 into which you deploy your apps.
 
 Anypoint VPN (virtual private network) connects your private intranet to your private space to function as a single, private network. 
 The VPN enables apps in the private space to access resources in your on-premises data centers behind your corporate firewall.
@@ -19,7 +19,7 @@ You can configure multiple private spaces in a single Amazon region, enabling yo
 such as QA or staging.
 
 You control the traffic to and from your private spaces. 
-By default, Runtime Fabric Cloud blocks all traffic to the private space and provides firewall rules to allow connections through specified ports. 
+By default, CloudHub 2.0 blocks all traffic to the private space and provides firewall rules to allow connections through specified ports. 
 You can configure additional firewall rules to control traffic to your private space, expose or block your custom ports, and block requests to your apps. 
 
 The private space includes dedicated load balancers (DLB), which routes traffic to the private space.

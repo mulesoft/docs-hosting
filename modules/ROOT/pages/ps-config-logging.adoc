@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 
 
-Runtime Fabric Cloud supports log forwarding to:
+CloudHub 2.0 supports log forwarding to:
 
 * Anypoint Monitoring
 +
@@ -162,10 +162,10 @@ See xref:ps-config-domains.adoc#load-balancer-log-levels[Load Balancer Log Level
 | Port | Specifies the TCP port of the target Splunk service. | Yes | 8088
 | Splunk token | Specifies the Authentication Token for the HTTP Event Collector interface.
 
-Runtime Fabric Cloud hides and stores this value securely. | Yes |
+CloudHub 2.0 hides and stores this value securely. | Yes |
 | HTTP user (optional)| Specifies a username for basic authentication on the HTTP Event Collector. | No |
 | HTTP password (optional) | Specifies a password for the user defined in HTTP user.
-Runtime Fabric Cloud hides and stores this value securely. | No |
+CloudHub 2.0 hides and stores this value securely. | No |
 | TLS | Enables or disables TLS support. | No | Off
 | CA Path Certificate File |  Specifies the CA certificate file to upload. This option is available only when TLS is enabled. | No |
 |===

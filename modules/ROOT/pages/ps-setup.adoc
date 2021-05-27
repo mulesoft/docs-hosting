@@ -1,4 +1,4 @@
-= Set Up a Private Space for Runtime Fabric Cloud Deployments
+= Set Up a Private Space for CloudHub 2.0 Deployments
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

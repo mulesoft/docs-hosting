@@ -27,17 +27,25 @@ To change the configuration, delete the private network and create it again.
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. In the *Private network* tab, click *Create network* under *Private network*. 
-. Select the region. 
-. Enter the CIDR block.
+. In the *Private network* tab, click *Create Private Network*. 
+. In the *Create Private Network* page:
+.. Select the region.
++
+See xref:ps-gather-setup-info.adoc#region[Region].
+.. Enter the CIDR block.
 +
 The CIDR block is the range of IP addresses that your apps can use.
-. Click *Create*.
++
+See xref:ps-gather-setup-info.adoc#cidr-block[CIDR Block].
+.. Click *Create*.
 
 The private network can take up to 30 minutes to create.
-After the network creation succeeds, you can deploy an application to test the private network.  
 
-If the private network creation fails, delete it and click *Create network* to try again.
+While the network is created, you can create a connection to an external network.
+
+After the network creation succeeds, you can deploy an application to test the private network.
+
+If the private network creation fails, delete it and click *Create Private Network* to try again.
 
 === Test the Private Network by Deploying an App 
 
@@ -47,6 +55,173 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 . In the *Deploy Application* page, select the name of the private space from the *Deployment Target* list and complete the fields in the page.
 . Click *Deploy Application*. 
 
+
+=== Create a Connection to an External Network
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. In the *Private network* tab, click *Create Connection*. 
+. In the *Create Connection* page:
+.. Enter a name for your connection.
++
+Connection names can contain up to 60 alphanumeric characters (a-z, A-Z, 0-9), spaces, and hyphens (-).
+Runtime Manager supports Unicode characters in connection names.
+.. Select the *Connection Type*:
+*** VPN
+*** Transit Gateway
++
+See xref:ps-gather-setup-info.adoc#connection-type[Connection Type].
+.. Click *Next* and, depending on the connection type you selected:
++
+*** VPN connection type, follow the steps in <<create-a-vpn>>.
+*** Transit Gateway connection type, follow the steps in <<create-a-transit-gateway-attachment>>.
+
+
+
+
+== Create a VPN
+
+[NOTE]
+After you create a VPN, you can't change any of the VPN settings,
+except the static IP prefixes.
+
+On the *Create VPN* page:
+
+. Enter the remote IP address (a single, static IP address) for your VPN endpoint.
+. Select the routing type:
++
+Dynamic (BGP)::
+Select this option if your device supports Border Gateway Protocol (BGP).
++
+.. In the *Local ASN* field, enter a local private ASN that isn't already assigned to your network.
++
+See xref:ps-gather-setup-info.adoc#local-asn[Local ASN].
+.. In the *Remote ASN* field, enter a private ASN 
++
+See xref:ps-gather-setup-info.adoc#static-ip-prefixes[Static IP Prefixes].
++
+To display the existing routes for the private network, click *Show Existing Routes for this Network*.
++
+See xref:ps-gather-setup-info.adoc#dynamic-vpn-connection-requirements[Dynamic VPN Connection Requirements].
+Static::
+Select this option ... why?
++ 
+See xref:ps-gather-setup-info.adoc#static-vpn-connection-requirements[Static VPN Connection Requirements].
++
+.. In the *Local ASN* field, enter a local private ASN that isn't already assigned to your network.
++
+If you have already created a VPN in this private space, the *Create VPN* page doesn't display the *Local ASN* field.
++
+See xref:ps-gather-setup-info.adoc#local-asn[Local ASN].
+.. In the *Static Routes* field, specify the static IP prefixes (comma-separated) in CIDR notation.
++
+See xref:ps-gather-setup-info.adoc#static-ip-prefixes[Static IP Prefixes].
++
+To display the existing routes for the private network, click *Show Existing Routes for this Network*.
+. Select the tunnel configuration:
++
+Automatic::
+This option requires no further configuration.
+Custom::
++
+.. Specify the IP ranges (in CIDR format) for the internal address of each VPN tunnel.
++
+See xref:ps-gather-setup-info.adoc#inside-ip-cidrs[Inside IP CIDRs].
+.. Specify the PSKs for each VPN tunnel.
++
+See xref:ps-gather-setup-info.adoc#pre-shared-keys[Pre-shared Keys].
+. Click *Create VPN*. 
+
+The VPN can take up to 15 minutes to create.
+
+While the VPN is created, you can create a redundant VPN.
+
+If the VPN creation fails, click *Create VPN* to try again.
+
+
+== Create a Redundant VPN
+
+Redundant VPNs inherit some settings from the intial VPN configuration.
+
+[NOTE]
+After you create a redundant VPN, you can't change any of the settings.
+
+
+Redundant VPNs have some values configured automatically based on the configuration of the first VPN. These values are hidden.
+For connections with dynamic routing, only Remote IP and Remote ASN are required. Note the adjusted descriptions for these fields.
+Remote ASN matches the first VPN by default, but may be changed.
+
+
+. In the *Private network* tab, click *Create Redundant VPN*.
+. Enter the remote IP address (a single, static IP address) for your VPN endpoint.
+. In the *Create Redundant VPN* page, complete the fields, based on the routing type of the initial VPN:
++
+Dynamic (BGP)::
++
+.. In the *Remote ASN* field, enter a private ASN.
+Static::
++ 
+See xref:ps-gather-setup-info.adoc#static-vpn-connection-requirements[Static VPN Connection Requirements].
++
+.. In the *Local ASN* field, enter a local private ASN that isn't already assigned to your network.
++
+If you have already created a VPN in this private space, the *Create VPN* page doesn't display the *Local ASN* field.
++
+See xref:ps-gather-setup-info.adoc#local-asn[Local ASN].
+.. In the *Static Routes* field, specify the static IP prefixes (comma-separated) in CIDR notation.
++
+See xref:ps-gather-setup-info.adoc#static-ip-prefixes[Static IP Prefixes].
++
+To display the existing routes for the private network, click *Show Existing Routes for this Network*.
+. Select the tunnel configuration:
++
+Automatic::
+This option requires no further configuration.
+Custom::
++
+.. Specify the IP ranges (in CIDR format) for the internal address of each VPN tunnel.
++
+See xref:ps-gather-setup-info.adoc#inside-ip-cidrs[Inside IP CIDRs].
+.. Specify the PSKs for each VPN tunnel.
++
+See xref:ps-gather-setup-info.adoc#pre-shared-keys[Pre-shared Keys].
+. Click *Create Redundant VPN*. 
+
+The redundant VPN can take up to 15 minutes to create.
+
+If the redundant VPN creation fails, click *Create Redundant VPN* to try again.
+
+
+== Create a Transit Gateway Attachment
+
+
+== Connect a VPN to Your Corporate Network 
+
+To connect the VPN to your corporate network, provide information
+about your gateway device to generate configuration for your network administrator to use when configuring your gateway device. 
+
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. In the *Private network* tab, click *View Connection Guide*.
+. In the *VPN Connection Guide* page, select the *Device vendor*, *Device platform*, and *Device software* from the drop-down lists.
+. Click *Download Guide*.
++
+The configuration file, in `.txt` format downloads to your local system.
+. Click *X* to close the window.
+. Give the configuration information file  to your network administrator to use when configuring your gateway device.
++
+For information, see https://docs.aws.amazon.com/vpc/latest/adminguide/Welcome.html[Your customer gateway device] in the AWS VPN documentation.
+
+
+== Test a VPN Connection 
+
+// (Link from *Private network* tab?)
+
+To test the VPN connection, use the Network Tools Application. 
+
+For download and usage information about the Network Tools Application, see https://help.mulesoft.com/s/article/How-To-Use-Network-Tools-Application[How To Use Network Tools Application].
 
 === Configure Internal DNS Servers
 
@@ -59,64 +234,6 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Enter the IP addresses (comma-separated) for your internal DNS servers.
 . Enter the domain names (comma-separated) to be resolved by internal DNS.
 . Click *Create*.
-
-== Create a VPN
-
-//SELECT PRIVATE SPACE SHARED
-include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. In the *Private network* tab, click *Create VPN* under *Next Step*.
-. Enter the remote IP address (a single, static IP address) for your VPN endpoint.
-. Select the routing type:
-+
-Dynamic::
-Select this option if your device supports Border Gateway Protocol (BGP).
-Static::
-+
-.. Specify the static IP prefixes (comma-separated) in CIDR notation.
-.. Enter a local private ASN that isn't already assigned to your network.
-. Select the tunnel configuration:
-+
-Automatic::
-This option requires no further configuration.
-Custom::
-+
-.. Specify the IP ranges (in CIR forma) for the internal address of each VPN tunnel.
-.. Specify the PSKs for each VPN tunnel. 
-. Click *Create*. 
-
-// If the VPN creation fails, click *Retry* to try again.
-
-== Connect a VPN to Your Corporate Network 
-
-To connect the VPN to your corporate network, provide information
-about your gateway device to generate configuration for your network administrator to use when configuring your gateway device. 
-
-
-//SELECT PRIVATE SPACE SHARED
-include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. In the *Private network* tab, click *View guide* under *Last Step*.
-
-. Click *View guide*.
-. Select the *Device vendor*, *Device platform*, and *Device software* from the drop-down lists.
-+
-The dialog displays the customized configuration file for your gateway device.
-+
-. Click *Copy* to copy and paste the configuration or *Download* to download the file to your local system.
-. Click *Done*.
-. Give the configuration information to your network administrator to use when configuring your gateway device.
-+
-For information, see https://docs.aws.amazon.com/vpc/latest/adminguide/Welcome.html[Your customer gateway device] in the AWS VPN documentation.
-
-
-== Test a VPN Connection 
-
-// (Link from *Private network* tab?)
-
-To test the VPN connection, use the Network Tools Application. 
-
-For download and usage information about the Network Tools Application, see https://help.mulesoft.com/s/article/How-To-Use-Network-Tools-Application[How To Use Network Tools Application].
 
 == See Also 
 

@@ -21,7 +21,7 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Configure how the load balancer accepts inbound traffic:
 +
 --
-Runtime Fabric Cloud doesn't allow you to accept only insecure HTTP requests.
+CloudHub 2.0 doesn't allow you to accept only insecure HTTP requests.
 
 From the *Accept HTTPS requests* list, select one of the following:
 
@@ -65,10 +65,10 @@ See <<Load Balancer Log Levels>>.
 
 == Load Balancer Log Levels 
 
-Runtime Fabric Cloud enables you to specify the severity level of messages that are written to the log file.
+CloudHub 2.0 enables you to specify the severity level of messages that are written to the log file.
 
 [%header,cols="2*a"]
-.Runtime Fabric Cloud Log Levels
+.CloudHub 2.0 Log Levels
 |===
 | Level 
 | Description

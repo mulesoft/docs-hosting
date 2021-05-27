@@ -1,5 +1,5 @@
 name: rtf-cloud
-title: Runtime Fabric Cloud
+title: CloudHub 2.0
 version: master
 nav:
 - modules/ROOT/nav.adoc

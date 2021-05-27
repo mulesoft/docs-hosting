@@ -6,7 +6,7 @@ endif::[]
 Before you set up your private space, assign the required roles and permissions.
 To assign roles and permissions, you need access to Anypoint access management. 
 
-To set up and manage Anypoint Runtime Fabric Cloud, you must have one of the following:
+To set up and manage CloudHub 2.0, you must have one of the following:
 
 * *Organization Administrators* role for the environments associated with the private space.
 +
@@ -20,7 +20,7 @@ To add these permissions:
 .. Click the *Runtime Manager* tab and then, for each environment, select *Manage Private Spaces* from the *Permission(s)* list.
 --
 
-You might also need the following permissions to enable inbound traffic to Runtime Fabric Cloud:
+You might also need the following permissions to enable inbound traffic to CloudHub 2.0:
 
 * *Grant access to secrets*
 * *Manage Secret Groups*

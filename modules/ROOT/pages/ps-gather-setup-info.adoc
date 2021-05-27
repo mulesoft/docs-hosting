@@ -39,7 +39,7 @@ For details about each requirement, see the sections that follow.
 +
 *** <<IP Addresses,IP addresses>>
 *** <<Domains>>
-* *Virtual Private Network Setup*
+* *VPN Setup*
 +
 ** <<Remote IP Address,Remote IP addresses>>
 ** <<Local ASN>>
@@ -56,6 +56,9 @@ For details about each requirement, see the sections that follow.
 ** <<Supported Gateway Devices,Device vendor>>
 ** <<Supported Gateway Devices,Device platform>>
 ** <<Supported Gateway Devices,Device software>>
+* *Transit Gateway Setup*
++
+
 
 ////
 
@@ -93,6 +96,7 @@ For details about each requirement, see the sections that follow.
 
 * <<Region>>
 * <<CIDR Block>>
+* <<Connection Type>>
 * <<Internal DNS Server (Optional)>>
 
 === Region
@@ -158,6 +162,10 @@ When specifying CIDR blocks, ensure that the CIDR blocks:
 * Don't overlap with any other CIDR blocks in your private spaces
 * Don't overlap with any CIDR blocks in use in your corporate network
 
+=== Connection Type
+
+* Virtual Private Network (VPN)
+* Transit Gateway 
 
 === Internal DNS Server (Optional)
 
@@ -205,7 +213,7 @@ To specify an internal domain, use the second-level domain name, such as `muleso
 The total number of characters for all configured domains is 229.
 
 
-== Virtual Private Network Requirements 
+== VPN Requirements 
 
 * <<Remote IP Address>>
 * <<Dynamic VPN Connection Requirements>>
@@ -231,6 +239,10 @@ your VPN device must be able to:
 
 * Establish BGP peering
 * Support route-based VPNs (bind tunnels to logical interfaces)
+
+////
+Dynamic (BGP) Routing Type option should link to an explanation of the difference between routing types, especially related to how they handle failover when a redundant VPN exists.
+////
 
 === Static VPN Connection Requirements
 
@@ -261,19 +273,38 @@ Asymmetric routing occurs when routing policies send traffic from your network t
 The Anypoint Platform VPN endpoint selects the tunnel using an internal algorithm, making the return path dynamic.
 If your device uses an active/active tunnel configuration, you must allow asymmetric routing for each Anypoint VPN connection.
 
+
+
 === Local ASN 
 
 The _local ASN_ (Autonomous System Number) specifies a private ASN (64512–65534) to assign to the Anypoint Platform side.
 
 [NOTE]
-You configure the local ASN for both static and dynamic routing. 
+You configure the local ASN for both static and dynamic routing.
 
 Use a private ASN (`64512–65534`) that is not already assigned to your network.
 The default value is `64512`.
 
+Although the local ASN isn't used for static routing, 
+you must specify this value when you create the first VPN because it's
+required for future VPN connections using BGP for this private space.
+
+For subsequent VPNs that you create in the private space,
+the *Local ASN* option is not available for static routing.
+
+To change the local ASN after creating the VPN,
+you must delete all existing connections first.
+
+////
+Local ASN is a property of the VPN gateway, which is used for all VPNs in a private space and must be created with its first VPN. The only opportunity to set the Local ASN is when the VPN gateway is created.
+
+However, to answer your second question, Michelle said that users can set a different Local ASN when creating a VPN if they delete all existing connections first, presumably because we'll create a new VPN gateway at that point.
+////
+
+
 === Remote ASN
 
-The _remote ASN_ specifies the routing prefixes that correspond to your backend.
+The _remote ASN_ specifies private ASN that corresponds to your backend.
 
 [NOTE]
 You configure the remote ASN only for dynamic routing. 
@@ -341,6 +372,8 @@ For each tunnel, enter a value of between 8-64 characters that does not begin wi
 Use only alphanumeric characters, periods (.), and underscores (&#95;). 
 
 
+
+
 === Supported Gateway Devices
 
 A _gateway device_ is a physical or software appliance on your organization's side of the VPN connection.
@@ -377,6 +410,18 @@ check the requirements to verify that your device is suitable for use with Anypo
 .2+|Zyxel .2+|Zywall Series| 4.20 or later for statically routed Anypoint VPN connections 
 |4.30 or later for dynamically routed Anypoint VPN connections
 |===
+
+== Transit Gateway Requirements
+
+== Redundant VPN
+
+////
+
+Explanation of the difference between routing types, especially related to how they handle failover when a redundant VPN exists.
+
+
+Create a redundant VPN connection to the same external network to reduce downtime if another VPN or gateway fails. Because this connection uses dynamic routing, failover will be automatic. 
+////
 
 
 
