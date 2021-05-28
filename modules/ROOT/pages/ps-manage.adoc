@@ -4,13 +4,12 @@ include::_attributes.adoc[]
 endif::[]
 
 
-
 == Rename a Private Space
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click *...* in the upper-right and select *Rename*.
+. Click the Private Space menu (*...*) and select *Rename*.
 . Enter the new name for the private space and click *Rename*.
 
 == Delete a Private Space
@@ -21,8 +20,8 @@ This action can’t be undone.
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click *...* in the upper-right and select *Delete*.
-. Click *Delete private space* to confirm the deletion.
+. Click the Private Space menu (*...*) and select *Delete*.
+. Click *Delete* to confirm the deletion.
 
 
 == Delete a Private Network 
@@ -30,12 +29,14 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 Deleting a private network also deletes its VPN.
 This action can’t be undone.
 
-You can't delete a network if it is in use.
+You can't delete a network if it is currently in use.
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 . Click the name of the private space that includes the private network you want to delete.
-. Click *...* in the *Private network* area and select *Delete network*.
+. On the *Private network* tab, click the Private Network menu (*...*) and select *Delete*:
++
+image::vpn-delete.png[Delete option in the Private Network menu]
 . Click *Delete* to confirm the deletion.
 
 
@@ -46,5 +47,5 @@ This action can’t be undone.
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 . Click the name of the private space that includes the VPN you want to delete.
-. Click *...* in the *VPN* area and select *Delete VPN*.
+. On the *Private network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Delete*:
 . Click *Delete* to confirm the deletion.

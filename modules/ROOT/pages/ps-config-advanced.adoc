@@ -1,8 +1,7 @@
-= Enable Inbound Traffic to Your Apps Deployed to a Private Space	
+= Configure Advanced Private Space Settings	
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-
 
 
 == Before You Begin
@@ -14,10 +13,10 @@ endif::[]
 
 // === Configure Secure Domains for HTTPS Traffic
 
-//SELECT PRIVATE SPACE SHARED
+// SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the *Domains & TLS* tab.
+. Click the *Advanced* tab.
 . Configure how the load balancer accepts inbound traffic:
 +
 --
@@ -57,16 +56,25 @@ Leave this field blank if your key isn't encrypted.
 ... Select the environment.
 ... Select the secret group.
 ... Click *Add certificate*.  
-. Click *Advanced settings* to configure the log levels for the load balancer in the private space.
+. Click *Load Balanceer Log Level* to configure the log levels for the load balancer in the private space.
 +
-See <<Load Balancer Log Levels>>.
+See <<Configure Load Balancer Log Levels>>.
 . Click *Save Domains*. 
 
+=== Validate: Verify Inbound Traffic Configuration
 
-== Load Balancer Log Levels 
+
+== Configure Load Balancer Log Levels 
 
 CloudHub 2.0 enables you to specify the severity level of messages that are written to the log file.
 
+// SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click the *Advanced* tab.
+. Select the log level from the dropdown list: 
++
+--
 [%header,cols="2*a"]
 .CloudHub 2.0 Log Levels
 |===
@@ -97,6 +105,7 @@ CloudHub 2.0 enables you to specify the severity level of messages that are writ
 | DEBUG
 | Debugging messages
 |===
+--
 
 You can specify log levels for a Mule application or API proxy during deployment.
 
@@ -109,7 +118,36 @@ For example, if you use Runtime Manager to add the
 `logging.level.org.mule.service.http.impl.service.HttpMessageLogger=DEBUG` property, `DEBUG` level log information is emitted from `HttpMessageLogger`.
 ////
 
-== Validate: Verify Inbound Traffic Configuration
+== Specify the Read Response Timeout
+
+// SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click the *Advanced* tab.
+. Enter the read-response timeout value.
++
+The default timeout is 300 seconds.
++
+If no data is sent or received in the specified time, the load balancer closes the client and private space connections.
+. Click *Save Changes*.
+
+
+== Configure Cipher Suites
+
+// SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click the *Advanced* tab.
+. Select either:
++
+** *Use Default Ciphers*
+** *Customize*
++
+Select the cipher suite to add.
+. Click *Save Changes*.
+
+
+
 
 
 == See Also 
