@@ -3,6 +3,8 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+include::partial$feature-availability.adoc[tag=featureUnavailable]
+
 
 == Authenticate Trusted Clients (2-Way SSL)
 

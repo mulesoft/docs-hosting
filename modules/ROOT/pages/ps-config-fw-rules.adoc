@@ -52,13 +52,17 @@ Source IP address:
 Port Range::
 Ports in addition to 8081 (http.port) and 8082 (https.port) through which you want to allow external traffic 
 .. Click *Add rule* to add another rule.
-.. To remove a firewall rule, click the *X* to the right of the entry.
+.. To remove a firewall rule, click the *X* icon for the entry:
++
+image::fw-rule-delete.png[Delete icon in the Firewall rules tab]
 --
-
 . Click *Save firewall rules* or *Discard changes*.
+
+////
 . Configure rules for outbound traffic:
 +
 --
 .. Select the *Type*, *Source*, and *Port Range* from the dropdown lists.
 .. Click *Add rule* to add another rule.
 --
+////

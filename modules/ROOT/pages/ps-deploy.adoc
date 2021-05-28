@@ -16,9 +16,12 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 .. Select an applicaton file:
 +
 *** To upload a Mule app JAR file from your system, select *Choose file > Upload file*.
-*** To choose an example app from Anypoint Exchange, select *Choose file > Import file from Exchange*.
+*** To choose an example app from Anypoint Exchange:
+.... Select *Choose file > Import file from Exchange*.
+.... In the *Get from Exchange* page, enter `hello` in the *Search assets by name*:
 +
-In the *Get from Exchange* page, enter `hello` in the *Search assets by name*, click *hello-world*, and then click *Select*.
+image::rtm-get-from-exchange.png[Get from Exchange page]
+.... Click *Hello World* and then click *Select*.
 .. Complete the fields in the page.
 .. Click *Deploy Application*. 
 

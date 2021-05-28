@@ -3,11 +3,13 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+include::partial$feature-availability.adoc[tag=featureUnavailable]
 
 
 == Before You Begin
 
-* Update the name servers for your domains.	
+* Update the name servers for your domains.
+// https://docs.mulesoft.com/runtime-fabric/1.7/enable-inbound-traffic#step-1-configure-inbound-traffic-using-anypoint-runtime-manager	
 * Create a CNAME record to route queries (if necessary).
 
 == Configure DNS for Inbound Traffic Server
@@ -18,6 +20,8 @@ endif::[]
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the *Domains & TLS* tab.
+
+////
 . Configure how the load balancer accepts inbound traffic:
 +
 --
@@ -29,6 +33,8 @@ From the *Accept HTTPS requests* list, select one of the following:
 ** *Drop HTTP requests*
 ** *Also accept HTTP requests*
 --
+////
+
 . Add TLS certificates:
 // Add certificates so that you can use their domains when deploying apps to this private space.
 +
