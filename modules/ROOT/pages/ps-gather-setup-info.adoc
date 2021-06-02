@@ -31,36 +31,80 @@ The following two sections provide the same information in different formats:
 The following list summarizes the information required to set up a private space.
 For details about each requirement, see the sections that follow.
  
-* *Private Network Setup*
+*Private Network Setup*::
 +
-** <<Region>>
-** <<CIDR Block,CIDR block>>
-** <<Internal DNS Server,Internal DNS servers>> (optional)
+--
+* <<Region>>
+* <<CIDR Block,CIDR block>>
+* <<Internal DNS Server,Internal DNS servers>> (optional)
+
+** <<IP Addresses,IP addresses>>
+** <<Domains>>
+--
+
+*VPN Connection Type*::
 +
-*** <<IP Addresses,IP addresses>>
-*** <<Domains>>
-* *VPN Setup*
-+
-** <<Remote IP Address,Remote IP addresses>>
+--
+* <<Remote IP Address,Remote IP>>
+* *<<Dynamic VPN Connection Requirements,Dynamic Routing Type>>*
+
 ** <<Local ASN>>
-** <<Remote ASN>> (<<Dynamic VPN Connection Requirements,dynamic routing>>) or <<Static IP Prefixes,Static IP prefixes>> (<<Static VPN Connection Requirements,static routing>>)  
-** <<Custom Tunnel Configuration (Optional),Custom tunnel configuration>> (optional)
-+
-*** Tunnel 1
-+
-**** <<Inside IP CIDRs,Inside IP CIDR>>
-**** <<Pre-shared Keys,Pre-shared key>>
-*** Tunnel 2
-**** <<Inside IP CIDRs,Inside IP CIDR>>
-**** <<Pre-shared Keys,Pre-shared key>>
-** <<Supported Gateway Devices,Device vendor>>
-** <<Supported Gateway Devices,Device platform>>
-** <<Supported Gateway Devices,Device software>>
-* *Transit Gateway Setup*
-+
+** <<Remote ASN>>
+* *<<Static VPN Connection Requirements,Static Routing Type>>*
+** <<Local ASN>> (_first VPN only_)
+** <<Static IP Prefixes,Static IP prefixes>> 
+* *Automatic Tunnel Configuration* (_no configuration required_)
+* *<<Custom Tunnel Configuration (Optional),Custom Tunnel Configuration>>* (_optional_)
 
+** Tunnel 1
 
-////
+*** <<Inside IP CIDRs,Inside IP CIDR>>
+*** <<Pre-shared Keys,Pre-shared key>>
+** Tunnel 2
+*** <<Inside IP CIDRs,Inside IP CIDR>>
+*** <<Pre-shared Keys,Pre-shared key>>
+
+** *Supported Gateway Devices*
+*** <<Supported Gateway Devices,Device vendor>>
+*** <<Supported Gateway Devices,Device platform>>
+*** <<Supported Gateway Devices,Device software>>
+--
+
+*Transit Gateway Attachment Connection Type*::
++
+--
+* Blah
+* Blah
+--
+
+*Redundant VPN Connection* (_optional_)::
++
+--
+* *<<Dynamic VPN Connection Requirements,Dynamic Routing Type>>*
+
+** <<Remote IP Address,Remote IP>>
+** <<Remote ASN>>
+
+* *<<Static VPN Connection Requirements,Static Routing Type>>*
+
+** <<Static IP Prefixes,Static IP prefixes>> 
+* *Automatic Tunnel Configuration* (_no configuration required_)
+* *<<Custom Tunnel Configuration (Optional),Custom Tunnel Configuration>>* (_optional_)
+
+** Tunnel 1
+
+*** <<Inside IP CIDRs,Inside IP CIDR>>
+*** <<Pre-shared Keys,Pre-shared key>>
+** Tunnel 2
+*** <<Inside IP CIDRs,Inside IP CIDR>>
+*** <<Pre-shared Keys,Pre-shared key>>
+
+** *Supported Gateway Devices*
+*** <<Supported Gateway Devices,Device vendor>>
+*** <<Supported Gateway Devices,Device platform>>
+*** <<Supported Gateway Devices,Device software>>
+--
+
 
 == Information Required to Set Up a Private Space (Table)
 
@@ -72,25 +116,34 @@ For details about each requirement, see the sections that follow.
 6+|*Private Network Setup*
 .4+||<<Region>>     4+|
 |<<CIDR Block>> 4+|
-.2+|<<Internal DNS Server>> (Optional) |<<IP Addresses>> 3+|
+.2+|<<Internal DNS Server,Internal DNS server>>
+
+(_optional_) |<<IP Addresses,IP addresses>> 3+|
 |<<Domains>>  3+|
-6+|*Virtual Private Network Setup*
-.12+||<<Remote IP Address>> 4+|
+6+|*VPN Connection Type*
+.13+||<<Remote IP Address>> 4+|
 |<<Local ASN>> 4+|
-|<<Dynamic VPN Connection Requirements,Dynamic Routing>> Configuration | <<Remote ASN>> 3+|
+|*<<Dynamic VPN Connection Requirements,Dynamic Routing Configuration>>* | <<Remote ASN>> 3+|
 ^.^|*_OR_* 4+|
-|<<Static VPN Connection Requirements,Static Routing>> Configuration| <<Static IP Prefixes>> 3+|
- .4+|<<Custom Tunnel Configuration (Optional),Custom Tunnel Configuration>> (Optional)   .2+| Tunnel 1 | <<Inside IP CIDRs>> 2+|
+|*<<Static VPN Connection Requirements,Static Routing Configuration>>* | <<Static IP Prefixes>> 3+|
+|*Automatic Tunnel Configuration* 4+| (_no configuration required_)
+ .4+|*<<Custom Tunnel Configuration (Optional),Custom Tunnel Configuration>>* (_optional_)   .2+| Tunnel 1 | <<Inside IP CIDRs>> 2+|
                                                 | <<Pre-shared Keys>> 2+|
               .2+| Tunnel 2 | <<Inside IP CIDRs>> 2+|
                                                  | <<Pre-shared Keys>> 2+|
-.3+|<<Supported Gateway Devices,Gateway Device>>|Vendor 3+|
+.3+|*<<Supported Gateway Devices,Gateway Device>>*|Vendor 3+|
 |Platform  3+|
 |Software  3+|
+6+|*Redundant VPN Setup*
+||Blah    4+|
+||Blah    4+|
+6+|*Transit Gateway Attachment Connection Type*
+||Blah    4+|
+||Blah    4+|
 6+|
-|===
 
-////
+
+|===
 
 == Private Network Requirements 
 
@@ -204,7 +257,9 @@ as long as your applications use the FQDN to request back-end resources.
 
 The _Server IP addresses_ identify the internal name servers that respond to DNS queries for the specified internal domains.
 
-To provide redundancy, you can configure up to three internal DNS servers.
+
+
+To provide redundancy, you can configure multiple internal DNS servers.
 
 When configuring the IP addresses for the DNS servers, keep the following in mind:
 
@@ -224,7 +279,7 @@ to the other servers.
 ==== Domains
 
 _Domains_ identify the internal domains that must be accessible from the private space.
-The configured internal DNS servers resolve the specified domains, and the 
+The configured internal DNS servers resolve the specified domaina, and the 
 external DNS server resolves all other domains.
 
 To specify an internal domain, use the second-level domain name, such as `mulesoft.com`.
@@ -432,6 +487,9 @@ check the requirements to verify that your device is suitable for use with Anypo
 |===
 
 == Redundant VPN
+
+The default value for *Remote ASN* is inherited from the first VPN.
+You can change this value.
 
 ////
 

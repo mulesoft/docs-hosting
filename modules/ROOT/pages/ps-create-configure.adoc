@@ -138,15 +138,11 @@ If the VPN creation fails, click *Create VPN* to try again.
 
 == Create a Redundant VPN
 
-Redundant VPNs inherit some settings from the intial VPN configuration.
+Redundant VPNs inherit some settings from the intial VPN configuration automatically.
+You can't change these settings.
 
 [NOTE]
 After you create a redundant VPN, you can't change any of the settings.
-
-
-Redundant VPNs have some values configured automatically based on the configuration of the first VPN. These values are hidden.
-For connections with dynamic routing, only Remote IP and Remote ASN are required. Note the adjusted descriptions for these fields.
-Remote ASN matches the first VPN by default, but may be changed.
 
 
 . In the *Private network* tab, click *Create Redundant VPN*.
@@ -220,14 +216,16 @@ To test the VPN connection, use the Network Tools Application.
 
 For download and usage information about the Network Tools Application, see https://help.mulesoft.com/s/article/How-To-Use-Network-Tools-Application[How To Use Network Tools Application].
 
-=== Configure Internal DNS Servers
+== Resolve Private Domains in Your Internal Network
 
-If your corporate network uses internal DNS servers to resolve requests to custom domains, enter the IP addresses and domain names.
+If your corporate network uses internal DNS servers to resolve requests to custom domains, configure the private space with these IP addresses and domain names.
+The private space uses your internal DNS to resolve internal host names of your private network (make sure your applications call the backend resources by FQDN).
+
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. In the *Private network* tab, click the *Configure* link in the *Private Network* section.
+. In the *Private network* tab, click the *Configure* link for *Internal DNS servers*.
 . Enter the xref:ps-gather-setup-info.adoc#server-ip-addresses[server IP addresses] (comma-separated) for your internal DNS servers.
 . Enter the xref:ps-gather-setup-info.adoc#domains[domain addresses] (comma-separated) to be resolved by internal DNS.
 . Click *Create*.
