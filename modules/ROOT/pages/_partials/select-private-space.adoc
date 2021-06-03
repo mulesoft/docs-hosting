@@ -16,3 +16,8 @@
 . From Anypoint Platform, select *Runtime Manager*.
 . Click *Applications* in the Runtime Manager menu.
 // end::selectAppsPage[]
+
+// RENAME SHARED
+// tag::renameItem[]
+. Enter the new name and click *Rename*.
+// end::renameItem[]

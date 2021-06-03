@@ -70,12 +70,6 @@ For details about each requirement, see the sections that follow.
 *** <<Supported Gateway Devices,Device software>>
 --
 
-*Transit Gateway Attachment Connection Type*::
-+
---
-* Blah
-* Blah
---
 
 *Redundant VPN Connection* (_optional_)::
 +
@@ -103,6 +97,13 @@ For details about each requirement, see the sections that follow.
 *** <<Supported Gateway Devices,Device vendor>>
 *** <<Supported Gateway Devices,Device platform>>
 *** <<Supported Gateway Devices,Device software>>
+--
+
+*Transit Gateway Attachment Connection Type*::
++
+--
+* Blah
+* Blah
 --
 
 
@@ -235,13 +236,8 @@ When specifying CIDR blocks, ensure that the CIDR blocks:
 * Don't overlap with any CIDR blocks in use in your corporate network
 
 
-=== Connection Type
-
-* <<VPN Requirements,Virtual Private Network (VPN)>>
-* <<Transit Gateway Attachment Requirements,Transit Gateway Attachment>>
 
 === Internal DNS Server (Optional)
-
 
 To enable apps deployed to a private space to access
 internal resources that are not reachable from the public internet, 
@@ -256,8 +252,6 @@ as long as your applications use the FQDN to request back-end resources.
 ==== Server IP Addresses
 
 The _Server IP addresses_ identify the internal name servers that respond to DNS queries for the specified internal domains.
-
-
 
 To provide redundancy, you can configure multiple internal DNS servers.
 
@@ -288,6 +282,11 @@ To specify an internal domain, use the second-level domain name, such as `muleso
 The total number of characters for all configured domains is 229.
 
 
+=== Connection Type
+
+* <<VPN Requirements,Virtual Private Network (VPN)>>
+* <<Transit Gateway Attachment Requirements,Transit Gateway Attachment>>
+
 == VPN Requirements 
 
 * <<Remote IP Address>>
@@ -304,7 +303,7 @@ The total number of characters for all configured domains is 229.
 
 The _remote IP address_ is the public (single, static) IP address of your VPN endpoint.
 
-=== Dynamic VPN Connection Requirements
+=== Dynamic VPN Connections
 
 For dynamic routing, your device uses Border Gateway Protocol (BGP) to advertise routes to Anypoint VPN.
 If your device supports BGP, select dynamic routing. 
@@ -319,7 +318,7 @@ your VPN device must be able to:
 Dynamic (BGP) Routing Type option should link to an explanation of the difference between routing types, especially related to how they handle failover when a redundant VPN exists.
 ////
 
-=== Static VPN Connection Requirements
+=== Static VPN Connections
 
 Static routing requires you to specify the routes (subnets) in your network that are accessible through Anypoint VPN.
 
@@ -352,18 +351,15 @@ If your device uses an active/active tunnel configuration, you must allow asymme
 
 === Local ASN 
 
-The _local ASN_ (Autonomous System Number) specifies a private ASN (64512–65534) to assign to the Anypoint Platform side.
+The _local ASN_ (Autonomous System Number) specifies a private ASN (`64512–65534`) to assign to the Anypoint Platform side of the VPN.
+
+Use a private ASN that is not already assigned to your network.
+The default value is `64512`.
 
 [NOTE]
 You configure the local ASN for both static and dynamic routing.
 
-Use a private ASN (`64512–65534`) that is not already assigned to your network.
-The default value is `64512`.
-
-Although the local ASN isn't used for static routing, 
-you must specify this value when you create the first VPN because it's
-required for future VPN connections using BGP for this private space.
-
+include::partial$caveats.adoc[tag=localAsnNote]
 For subsequent VPNs that you create in the private space,
 the *Local ASN* option is not available for static routing.
 
@@ -379,33 +375,37 @@ However, to answer your second question, Michelle said that users can set a diff
 
 === Remote ASN
 
-The _remote ASN_ specifies private ASN that corresponds to your backend.
+The _remote ASN_ specifies a private ASN that corresponds to your backend.
 
 [NOTE]
 You configure the remote ASN only for dynamic routing. 
 
-Use either an existing ASN assigned to your network or a private ASN (64512–65534) that is not 
+Use either an existing ASN assigned to your network or a private ASN (`64512–65534`) that is not 
 already assigned to your network.
-The default value is 65001.
+The default value is `65001`.
 
 
 === Static IP Prefixes
 
-The _static IP prefixes_ are IP prefixes to advertise to your private network in Anypoint Platform, in CIDR notation.
+The _static IP prefixes_ are IP prefixes to advertise to your private network in Anypoint Platform,
+in CIDR notation.
 
 [NOTE]
-You configure the static IP prefixes only for static routing. 
+You configure the static IP prefixes only for static routing.
 
 A maximum of 95 route table entries is allowed per private network,
 regardless of the number of VPN connections.
 To avoid exceeding the limit, consolidate networks to the fewest number possible.
 
+
 === Custom Tunnel Configuration (Optional)
 
 Select custom tunnel configuration if you want to specify custom values for
 inside IP CIDRs and pre-shared keys.
-If you select automatic tunnel configuration, these values are auto-generated.
 
+Any values that you don't specify are autogenerated.
+
+If you select automatic tunnel configuration, all values are auto-generated.
 
 ==== Inside IP CIDRs
 

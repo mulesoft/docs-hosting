@@ -10,7 +10,7 @@ endif::[]
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the Private Space menu (*...*) and select *Rename*.
-. Enter the new name for the private space and click *Rename*.
+include::partial$select-private-space.adoc[tag=renameItem]
 
 == Delete a Private Space
 
@@ -20,9 +20,10 @@ This action can’t be undone.
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the Private Space menu (*...*) and select *Delete*.
-. Click *Delete* to confirm the deletion.
+. Click the Private Space menu (*...*) and select *Delete*:
+image::ps-delete.png[Delete option in the Private Space menu]
 
+. Click *Delete* to confirm the deletion.
 
 == Delete a Private Network 
 
@@ -36,9 +37,44 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 . Click the name of the private space that includes the private network you want to delete.
 . On the *Private network* tab, click the Private Network menu (*...*) and select *Delete*:
 +
-image::vpn-delete.png[Delete option in the Private Network menu]
+image::private-network-delete.png[Delete option in the Private Network menu]
 . Click *Delete* to confirm the deletion.
 
+
+== Rename a Connection
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+. Click the name of the private space that includes the connection you want to rename.
+. On the *Private network* tab, in the *Connections* section, click the Connections menu (*...*) and select *Rename*:
++
+image::connection-rename.png[Rename option in the Connections menu]
+include::partial$select-private-space.adoc[tag=renameItem]
+
+== Edit Routes 
+
+== Rename a VPN
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+. Click the name of the private space that includes the VPN you want to rename.
+. On the *Private network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Rename*:
++
+image::vpn-rename.png[Rename option in the VPN menu]
+include::partial$select-private-space.adoc[tag=renameItem]
+
+
+
+
+== View VPN Status
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+. Click the name of the private space that includes the VPN you want to view.
+. On the *Private network* tab, in the *Connections* section, click the VPN menu (*...*) and select *View Details*:
++
+image::vpn-view-details.png[View Details option in the VPN menu]
+. Click *X* to close the *VPN Details* window.
 
 == Delete a VPN  
 
@@ -48,4 +84,6 @@ This action can’t be undone.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 . Click the name of the private space that includes the VPN you want to delete.
 . On the *Private network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Delete*:
++
+image::vpn-delete.png[Delete option in the VPN menu]
 . Click *Delete* to confirm the deletion.

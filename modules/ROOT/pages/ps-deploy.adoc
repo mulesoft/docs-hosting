@@ -23,6 +23,20 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 image::rtm-get-from-exchange.png[Get from Exchange page]
 .... Click *Hello World* and then click *Select*.
 .. Complete the fields in the page.
++
+*** *Deployment model* 
++
+--
+Rolling update::
+Maintains availability by incrementally updating replicas.
+Requires one additional replica's worth of resources to succeed.
+Recreate::
+Terminates replicas before redeployment.
+Redeployment is faster and doesn't require additional resources.
+--
++
+For information about the other deployment options, see
+https://docs.mulesoft.com/runtime-fabric/1.9/deploy-to-runtime-fabric#deploy-a-mule-application-to-runtime-fabric[Deploy a Mule Application to Runtime Fabric].
 .. Click *Deploy Application*. 
 
 == Download a Test App from Exchange
