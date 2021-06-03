@@ -121,12 +121,11 @@ See xref:ps-gather-setup-info.adoc#local-asn[Local ASN].
 .. In the *Remote ASN* field, enter a private ASN.
 +
 See xref:ps-gather-setup-info.adoc#remote-asn[Remote ASN].
+.. Click *Show Existing Routes for this Network* to view the existing routes for the private network.
 
-. Click *Show Existing Routes for this Network* to view the existing routes for the private network.
-+
 Static::
 Select this option if your device doesn't support BGP.
-+ 
++
 See xref:ps-gather-setup-info.adoc#static-vpn-connections[Static VPN Connections].
 +
 .. In the *Local ASN* field, enter a local private ASN that isn't already assigned to your network.
@@ -137,7 +136,8 @@ See xref:ps-gather-setup-info.adoc#local-asn[Local ASN].
 .. In the *Static Routes* field, specify the static IP prefixes (comma-separated) in CIDR notation.
 +
 See xref:ps-gather-setup-info.adoc#static-ip-prefixes[Static IP Prefixes].
-. Click *Show Existing Routes for this Network* to view the existing routes for the private network.
+.. Click *Show Existing Routes for this Network* to view the existing routes for the private network.
+
 . Select the tunnel configuration:
 +
 Automatic::
