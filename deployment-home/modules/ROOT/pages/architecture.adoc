@@ -1,0 +1,4 @@
+= Architecture
+:page-layout: rtfcloud-home
+
+Test

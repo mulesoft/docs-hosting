@@ -12,8 +12,8 @@
 *** xref:cloudhub/ps-config-logging.adoc[Configure Log Forwarding for a Private Space]
 *** xref:cloudhub/ps-manage.adoc[Manage Private Spaces]
 
-* xref:classic/cloudhub.adoc[CloudHub Classic]
- ** xref:classic/cloudhub-faq.adoc[Features of CloudHub Classic]
+* xref:classic/cloudhub.adoc[CloudHub]
+ ** xref:classic/cloudhub-faq.adoc[Features of CloudHub]
  *** xref:classic/cloudhub-app-runtime-version-updates.adoc[CloudHub Runtime Continuous Updates]
  *** xref:classic/developing-applications-for-cloudhub.adoc[Develop Applications for CloudHub]
  *** xref:classic/cloudhub-architecture.adoc[CloudHub Architecture]
