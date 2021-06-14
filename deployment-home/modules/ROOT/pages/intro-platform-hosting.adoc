@@ -1,5 +1,3 @@
 = Anypoint Platform Hosting Options
-:page-layout: rtfcloud-home
 
-
-include::general:ROOT:page$intro-platform-hosting.adoc[Anypoint Platform Hosting Options]
+// include::general:ROOT:page$intro-platform-hosting.adoc[Anypoint Platform Hosting Options]

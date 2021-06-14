@@ -1,4 +1,3 @@
-.xref:index.adoc[Deployment]
-* xref:index.adoc[Deployment Overview]
- ** xref:intro-platform-hosting.adoc[Anypoint Platform Hosting Options]
- ** xref:architecture.adoc[Runtime Fabric Architecture]
+.xref:index.adoc[Anypoint Platform Hosting Options]
+* xref:index.adoc[Anypoint Platform Hosting Options]
+

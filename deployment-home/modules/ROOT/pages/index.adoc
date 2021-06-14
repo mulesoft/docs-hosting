@@ -1,4 +1,6 @@
-= Deploying an Application or API
+include::general:ROOT:page$intro-platform-hosting.adoc[Anypoint Platform Hosting Options]
+
+////
 :page-layout: rtfcloud-home
 
 Hello!  This is the new RTF Cloud home page.  Yes, I know, that's probably the wrong name, but this is just a placeholder.
@@ -8,3 +10,5 @@ More placeholder text.
 A disciple of another sect once came to Drescher as he was eating his morning meal.
 “I would like to give you this personality test”, said the outsider, “because I want you to be happy.”
 Drescher took the paper that was offered him and put it into the toaster, saying: “I wish the toaster to be happy, too.”
+
+////
