@@ -1,0 +1,62 @@
+= Deploy Apps to Private Spaces
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+You deploy apps to a private space using Runtime Manager.
+
+== Deploy an App to a Private Space
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. Click *Deploy application*.
+. In the *Deploy Application* page:
+.. Enter the name of the application.
+.. Select the name of the private space from the *Deployment Target* list.
+.. Select an applicaton file:
++
+*** To upload a Mule app JAR file from your system, select *Choose file > Upload file*.
+*** To choose an example app from Anypoint Exchange:
+.... Select *Choose file > Import file from Exchange*.
+.... In the *Get from Exchange* page, enter `hello` in the *Search assets by name*:
++
+image::rtm-get-from-exchange.png[Get from Exchange page]
+.... Click *Hello World* and then click *Select*.
+.. Complete the fields in the page.
++
+*** *Deployment model* 
++
+--
+Rolling update::
+Maintains availability by incrementally updating replicas.
+Requires one additional replica's worth of resources to succeed.
+Recreate::
+Terminates replicas before redeployment.
+Redeployment is faster and doesn't require additional resources.
+--
++
+For information about the other deployment options, see
+https://docs.mulesoft.com/runtime-fabric/1.9/deploy-to-runtime-fabric#deploy-a-mule-application-to-runtime-fabric[Deploy a Mule Application to Runtime Fabric].
+.. Click *Deploy Application*. 
+
+== Download a Test App from Exchange
+
+If you don't have a Mule app to test with, you can download an example app from Anypoint Exchange.
+
+[NOTE]
+You must be logged into your Anypoint Platform account to see the example assets on Exchange. 
+
+. From Anypoint Platform, select *Exchange*.
+
+. From the *All assets* list, select *Provided by MuleSoft*.
+. From the *All types* menu, select *Examples*.
+. Click an app to download, for example, *Hello World*. 
+. Click *Download*:
++
+image::exchange-app-download.png[Download button in Exchange]
++
+Exchange downloads the app JAR file to your local system.
+
+== See Also
+
+* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft]

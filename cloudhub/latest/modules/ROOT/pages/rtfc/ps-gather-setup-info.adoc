@@ -31,36 +31,84 @@ The following two sections provide the same information in different formats:
 The following list summarizes the information required to set up a private space.
 For details about each requirement, see the sections that follow.
  
-* *Private Network Setup*
+*Private Network Setup*::
 +
-** <<Region>>
-** <<CIDR Block,CIDR block>>
-** <<Internal DNS Server,Internal DNS servers>> (optional)
+--
+* <<Name>>
+* <<Region>>
+* <<CIDR Block,CIDR block>>
+* <<Internal DNS Server,Internal DNS servers>> (optional)
+
+** <<IP Addresses,IP addresses>>
+** <<Domains>>
+--
+
+*VPN Connection Type*::
 +
-*** <<IP Addresses,IP addresses>>
-*** <<Domains>>
-* *VPN Setup*
-+
-** <<Remote IP Address,Remote IP addresses>>
+--
+* <<Remote IP Address,Remote IP>>
+* *<<Dynamic VPN Connection Requirements,Dynamic Routing Type>>*
+
 ** <<Local ASN>>
-** <<Remote ASN>> (<<Dynamic VPN Connection Requirements,dynamic routing>>) or <<Static IP Prefixes,Static IP prefixes>> (<<Static VPN Connection Requirements,static routing>>)  
-** <<Custom Tunnel Configuration (Optional),Custom tunnel configuration>> (optional)
-+
-*** Tunnel 1
-+
-**** <<Inside IP CIDRs,Inside IP CIDR>>
-**** <<Pre-shared Keys,Pre-shared key>>
-*** Tunnel 2
-**** <<Inside IP CIDRs,Inside IP CIDR>>
-**** <<Pre-shared Keys,Pre-shared key>>
-** <<Supported Gateway Devices,Device vendor>>
-** <<Supported Gateway Devices,Device platform>>
-** <<Supported Gateway Devices,Device software>>
-* *Transit Gateway Setup*
-+
+** <<Remote ASN>>
+* *<<Static VPN Connection Requirements,Static Routing Type>>*
+** <<Local ASN>> (_first VPN only_)
+** <<Static IP Prefixes,Static IP prefixes>> 
+* *Automatic Tunnel Configuration* (_no configuration required_)
+* *<<Custom Tunnel Configuration (Optional),Custom Tunnel Configuration>>* (_optional_)
+
+** Tunnel 1
+
+*** <<Inside IP CIDRs,Inside IP CIDR>>
+*** <<Pre-shared Keys,Pre-shared key>>
+** Tunnel 2
+*** <<Inside IP CIDRs,Inside IP CIDR>>
+*** <<Pre-shared Keys,Pre-shared key>>
+
+** *Supported Gateway Devices*
+*** <<Supported Gateway Devices,Device vendor>>
+*** <<Supported Gateway Devices,Device platform>>
+*** <<Supported Gateway Devices,Device software>>
+--
 
 
-////
+*Redundant VPN Connection* (_optional_)::
++
+--
+* *<<Dynamic VPN Connection Requirements,Dynamic Routing Type>>*
+
+** <<Remote IP Address,Remote IP>>
+** <<Remote ASN>>
+
+* *<<Static VPN Connection Requirements,Static Routing Type>>*
+
+** <<Static IP Prefixes,Static IP prefixes>> 
+* *Automatic Tunnel Configuration* (_no configuration required_)
+* *<<Custom Tunnel Configuration (Optional),Custom Tunnel Configuration>>* (_optional_)
+
+** Tunnel 1
+
+*** <<Inside IP CIDRs,Inside IP CIDR>>
+*** <<Pre-shared Keys,Pre-shared key>>
+** Tunnel 2
+*** <<Inside IP CIDRs,Inside IP CIDR>>
+*** <<Pre-shared Keys,Pre-shared key>>
+
+** *Supported Gateway Devices*
+*** <<Supported Gateway Devices,Device vendor>>
+*** <<Supported Gateway Devices,Device platform>>
+*** <<Supported Gateway Devices,Device software>>
+--
+
+*Transit Gateway Attachment Connection Type*::
++
+--
+* <<transit-gateway-name,Name>>
+* <<transit-gateway-region,Region>>
+* <<transit-gateway-routing,Routing>>
+* Blah
+--
+
 
 == Information Required to Set Up a Private Space (Table)
 
@@ -70,34 +118,57 @@ For details about each requirement, see the sections that follow.
 |===
 6+|
 6+|*Private Network Setup*
+||<<Name>> 4+|
 .4+||<<Region>>     4+|
 |<<CIDR Block>> 4+|
-.2+|<<Internal DNS Server>> (Optional) |<<IP Addresses>> 3+|
+.2+|<<Internal DNS Server,Internal DNS server>>
+
+(_optional_) |<<IP Addresses,IP addresses>> 3+|
 |<<Domains>>  3+|
-6+|*Virtual Private Network Setup*
-.12+||<<Remote IP Address>> 4+|
+6+|*VPN Connection Type*
+.13+||<<Remote IP Address>> 4+|
 |<<Local ASN>> 4+|
-|<<Dynamic VPN Connection Requirements,Dynamic Routing>> Configuration | <<Remote ASN>> 3+|
+|*<<Dynamic VPN Connection Requirements,Dynamic Routing Configuration>>* | <<Remote ASN>> 3+|
 ^.^|*_OR_* 4+|
-|<<Static VPN Connection Requirements,Static Routing>> Configuration| <<Static IP Prefixes>> 3+|
- .4+|<<Custom Tunnel Configuration (Optional),Custom Tunnel Configuration>> (Optional)   .2+| Tunnel 1 | <<Inside IP CIDRs>> 2+|
+|*<<Static VPN Connection Requirements,Static Routing Configuration>>* | <<Static IP Prefixes>> 3+|
+|*Automatic Tunnel Configuration* 4+| (_no configuration required_)
+ .4+|*<<Custom Tunnel Configuration (Optional),Custom Tunnel Configuration>>* (_optional_)   .2+| Tunnel 1 | <<Inside IP CIDRs>> 2+|
                                                 | <<Pre-shared Keys>> 2+|
               .2+| Tunnel 2 | <<Inside IP CIDRs>> 2+|
                                                  | <<Pre-shared Keys>> 2+|
-.3+|<<Supported Gateway Devices,Gateway Device>>|Vendor 3+|
+.3+|*<<Supported Gateway Devices,Gateway Device>>*|Vendor 3+|
 |Platform  3+|
 |Software  3+|
+6+|*Redundant VPN Setup*
+||Blah    4+|
+||Blah    4+|
+6+|*Transit Gateway Attachment Connection Type*
+||<<transit-gateway-name>>    4+|
+||<<transit-gateway-region>>    4+|
+||<<transit-gateway-routing>>    4+|
+||Blah    4+|
 6+|
-|===
 
-////
+
+|===
 
 == Private Network Requirements 
 
+* <<Name>>
 * <<Region>>
 * <<CIDR Block>>
 * <<Connection Type>>
 * <<Internal DNS Server (Optional)>>
+
+=== Name
+
+Private space names can contain up to 60 alphanumeric characters (a-z, A-Z, 0-9), spaces, and hyphens (-).
+Runtime Manager supports Unicode characters in private space names.
+
+The private space name appears in the list when you select a deployment target for your apps.
+
+You can rename a private space, if necessary.
+
 
 === Region
 
@@ -150,25 +221,40 @@ The complete list of supported regions is:
 
 === CIDR Block 
 
-The _CIDR block_ is the range of IP addresses, in CIDR notation, that the apps deployed in your private space use. 
+The _CIDR block_ is the range of IPv4 addresses, in CIDR (Classless Inter-Domain Routing) notation
+that the apps deployed in your private space use.
+The CIDR block defines the size of the private space.
+For example, to grant your private network 256 IP addresses between `10.111.0.0` and `10.111.0.255`, 
+set the CIDR block to `10.111.0.0/24`.
 
-Because each app uses multiple IP addresses, allocate at least 10 IP addresses for each app.
+When you create a private space, you must specify the CIDR block.
+You can't resize or change the CIDR block after you create the private space.
+For this reason, ensure that you correctly anticipate your requirements before configuring this parameter.
 
-For example, to grant your private network 256 IP addresses between `10.111.0.0` and `10.111.0.255`, set the CIDR block to `10.111.0.0/24`.
+Because some addresses are reserved for fault tolerance, infrastructure, and zero-downtime,
+the allowed block size that you can assign for your Anypoint VPC is between `/16` and `/28`.
+
+[%header]
+.CIDR Block Sizing 
+|===
+| Netmask | Number of IP Addresses
+| `/16`| 65,536
+| `/28`| 16
+|===
+
+To estimate the size required for the CIDR block, multiply by 10 the number apps expected to deploy
+in the private space.
+For more specific estimations, use an internet tool for calculating CIDR ranges.
 
 When specifying CIDR blocks, ensure that the CIDR blocks:
 
 * Are from a private IP space
-* Don't overlap with any other CIDR blocks in your private spaces
+* Don't overlap with any other CIDR blocks assigned to your other private spaces
 * Don't overlap with any CIDR blocks in use in your corporate network
 
-=== Connection Type
 
-* Virtual Private Network (VPN)
-* Transit Gateway 
 
 === Internal DNS Server (Optional)
-
 
 To enable apps deployed to a private space to access
 internal resources that are not reachable from the public internet, 
@@ -180,11 +266,11 @@ The private space resolves the domains using the specified DNS server,
 enabling you to use internal host names in your private network
 as long as your applications use the FQDN to request back-end resources. 
 
-==== IP Addresses
+==== Server IP Addresses
 
-The _IP addresses_ identify the internal name servers that respond to DNS queries for the specified internal domains.
+The _Server IP addresses_ identify the internal name servers that respond to DNS queries for the specified internal domains.
 
-To provide redundancy, you can configure up to three internal DNS servers.
+To provide redundancy, you can configure multiple internal DNS servers.
 
 When configuring the IP addresses for the DNS servers, keep the following in mind:
 
@@ -204,7 +290,7 @@ to the other servers.
 ==== Domains
 
 _Domains_ identify the internal domains that must be accessible from the private space.
-The configured internal DNS servers resolve the specified domains, and the 
+The configured internal DNS servers resolve the specified domaina, and the 
 external DNS server resolves all other domains.
 
 To specify an internal domain, use the second-level domain name, such as `mulesoft.com`.
@@ -212,6 +298,11 @@ To specify an internal domain, use the second-level domain name, such as `muleso
 [NOTE]
 The total number of characters for all configured domains is 229.
 
+
+=== Connection Type
+
+* <<VPN Requirements,Virtual Private Network (VPN)>>
+* <<Transit Gateway Attachment Requirements,Transit Gateway Attachment>>
 
 == VPN Requirements 
 
@@ -229,7 +320,7 @@ The total number of characters for all configured domains is 229.
 
 The _remote IP address_ is the public (single, static) IP address of your VPN endpoint.
 
-=== Dynamic VPN Connection Requirements
+=== Dynamic VPN Routing (BGP)
 
 For dynamic routing, your device uses Border Gateway Protocol (BGP) to advertise routes to Anypoint VPN.
 If your device supports BGP, select dynamic routing. 
@@ -244,7 +335,7 @@ your VPN device must be able to:
 Dynamic (BGP) Routing Type option should link to an explanation of the difference between routing types, especially related to how they handle failover when a redundant VPN exists.
 ////
 
-=== Static VPN Connection Requirements
+=== Static VPN Routing
 
 Static routing requires you to specify the routes (subnets) in your network that are accessible through Anypoint VPN.
 
@@ -277,18 +368,15 @@ If your device uses an active/active tunnel configuration, you must allow asymme
 
 === Local ASN 
 
-The _local ASN_ (Autonomous System Number) specifies a private ASN (64512–65534) to assign to the Anypoint Platform side.
+The _local ASN_ (Autonomous System Number) specifies a private ASN (`64512–65534`) to assign to the Anypoint Platform side of the VPN.
+
+Use a private ASN that is not already assigned to your network.
+The default value is `64512`.
 
 [NOTE]
 You configure the local ASN for both static and dynamic routing.
 
-Use a private ASN (`64512–65534`) that is not already assigned to your network.
-The default value is `64512`.
-
-Although the local ASN isn't used for static routing, 
-you must specify this value when you create the first VPN because it's
-required for future VPN connections using BGP for this private space.
-
+include::partial$caveats.adoc[tag=localAsnNote]
 For subsequent VPNs that you create in the private space,
 the *Local ASN* option is not available for static routing.
 
@@ -304,33 +392,37 @@ However, to answer your second question, Michelle said that users can set a diff
 
 === Remote ASN
 
-The _remote ASN_ specifies private ASN that corresponds to your backend.
+The _remote ASN_ specifies a private ASN that corresponds to your backend.
 
 [NOTE]
 You configure the remote ASN only for dynamic routing. 
 
-Use either an existing ASN assigned to your network or a private ASN (64512–65534) that is not 
+Use either an existing ASN assigned to your network or a private ASN (`64512–65534`) that is not 
 already assigned to your network.
-The default value is 65001.
+The default value is `65001`.
 
 
 === Static IP Prefixes
 
-The _static IP prefixes_ are IP prefixes to advertise to your private network in Anypoint Platform, in CIDR notation.
+The _static IP prefixes_ are IP prefixes to advertise to your private network in Anypoint Platform,
+in CIDR notation.
 
 [NOTE]
-You configure the static IP prefixes only for static routing. 
+You configure the static IP prefixes only for static routing.
 
 A maximum of 95 route table entries is allowed per private network,
 regardless of the number of VPN connections.
 To avoid exceeding the limit, consolidate networks to the fewest number possible.
 
+
 === Custom Tunnel Configuration (Optional)
 
 Select custom tunnel configuration if you want to specify custom values for
 inside IP CIDRs and pre-shared keys.
-If you select automatic tunnel configuration, these values are auto-generated.
 
+Any values that you don't specify are autogenerated.
+
+If you select automatic tunnel configuration, all values are auto-generated.
 
 ==== Inside IP CIDRs
 
@@ -411,9 +503,10 @@ check the requirements to verify that your device is suitable for use with Anypo
 |4.30 or later for dynamically routed Anypoint VPN connections
 |===
 
-== Transit Gateway Requirements
-
 == Redundant VPN
+
+The default value for *Remote ASN* is inherited from the first VPN.
+You can change this value.
 
 ////
 
@@ -422,6 +515,32 @@ Explanation of the difference between routing types, especially related to how t
 
 Create a redundant VPN connection to the same external network to reduce downtime if another VPN or gateway fails. Because this connection uses dynamic routing, failover will be automatic. 
 ////
+
+
+== Transit Gateway Attachment Requirements
+
+* <<transit-gateway-name>>
+* <<transit-gateway-region>>
+* <<transit-gateway-routing>>
+
+[[transit-gateway-name]]
+=== Name
+
+Transit gateway attachment names can contain up to 255 alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-).
+Runtime Manager supports Unicode characters in private space names.
+
+Use the same name for your transit gateway in AWS. 
+You can change this name later. 
+
+[[transit-gateway-region]]
+=== Region
+
+The region corresponds to the location your AWS transit gateway.
+
+Your private space and AWS transit gateway must be in the same region.
+
+[[transit-gateway-routing]]
+=== Routing
 
 
 

@@ -106,7 +106,7 @@ To limit the impact of this behavior, configure your endpoint with TCP MSS Adjus
 +
 Packets might carry a Don't Fragment (`DF`) flag, indicating that the packet must not be fragmented. Some VPN devices can override the `DF` flag and fragment packets unconditionally when required. If available, enable the setting `Clear Don't Fragment (DF) Bit`.
 
-
+== Transit Gateway Attachments
 
 
 == See Also

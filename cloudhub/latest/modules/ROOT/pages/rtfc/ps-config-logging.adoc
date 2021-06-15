@@ -4,6 +4,9 @@ include::_attributes.adoc[]
 endif::[]
 
 
+include::partial$feature-availability.adoc[tag=featureUnavailable]
+
+
 CloudHub 2.0 supports log forwarding to:
 
 * Anypoint Monitoring

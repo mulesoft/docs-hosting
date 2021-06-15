@@ -24,11 +24,14 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 ** *Any business group*
 ** *Selected business group*
 +
-Type the business group name in the *Add business groups* field and select it from the list.
+Enter the business group name in the *Add business groups* field and select it from the list.
 +
 The list includes all business groups in the organization to which the private space is registered and that have not yet been added.
 --
-. To remove a business group, click the *X* to the right of the entry.
+. To remove a business group, click the *X* for the entry:
++
+image::bg-delete.png[Delete icon in the Environments tab]
+
 . Click *Save environments* or *Discard changes*.
 
 == See Also 

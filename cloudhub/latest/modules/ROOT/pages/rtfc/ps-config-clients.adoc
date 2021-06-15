@@ -3,10 +3,12 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+include::partial$feature-availability.adoc[tag=featureUnavailable]
+
 
 == Authenticate Trusted Clients (2-Way SSL)
 
-//SELECT PRIVATE SPACE SHARED
+// SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the *Clients* tab.
