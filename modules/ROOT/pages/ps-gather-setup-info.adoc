@@ -118,8 +118,8 @@ For details about each requirement, see the sections that follow.
 |===
 6+|
 6+|*Private Network Setup*
-||<<Name>> 4+|
-.4+||<<Region>>     4+|
+.5+||<<Name>> 4+|
+|<<Region>>     4+|
 |<<CIDR Block>> 4+|
 .2+|<<Internal DNS Server,Internal DNS server>>
 
