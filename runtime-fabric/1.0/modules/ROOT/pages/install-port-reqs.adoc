@@ -1,0 +1,95 @@
+= Network and Port Requirements for Anypoint Runtime Fabric
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+This topic describes the network settings and port settings required to install and run Anypoint Runtime Fabric.
+
+== Required Port Settings
+
+Below are the TCP and UDP network port requirements for Anypoint Runtime Fabric.
+
+=== TCP Ports
+
+The following table lists the *TCP* ports that must be accessible:
+
+[%header%autowidth.spread]
+|===
+| Port | Protocol | Direction | Description
+| 5672 | TCP (AMQP) | Outbound to Internet | Anypoint Management Center
+| 443 | TCP (HTTPS) | Outbound to Internet | Management services, API Manager policy updates, API Analytics Ingestion, and Resource retrieval (application files, container images).
+| 443 | TCP (HTTPS) | Ingress | Inbound traffic to Mules
+| 32009 | TCP (HTTPS) | Ingress | Runtime Fabric Ops Center
+| 2379, 2380, 4001, 7001 | TCP | Internal | Etcd distributed database
+| 6060 | TCP | Internal | Health check
+| 6443, 8080 | TCP | Internal | Kubernetes API server
+| 30000-32767 | TCP | Internal | Internal services port range
+| 10248-10250 | TCP | Internal | Kubernetes components
+| 10255 | TCP | Internal | Kubernetes components
+| 53 | TCP | Internal | Internal DNS
+| 7496 | TCP | Internal  | Peer-to-peer connectivity
+| 5000 | TCP | Internal | Docker registry
+| 3022 - 3025 | TCP | Internal | Remote debugging services
+| 3080 | TCP | Internal | Runtime Fabric internal Ops Center
+| 3008 - 3012 | TCP | Internal | Runtime Fabric internal services
+| 7575, 7373 | TCP | Internal | Runtime Fabric internal services
+|===
+
+=== UDP Ports
+
+The following table lists the *UDP* ports that must be accessible:
+
+[%header%autowidth.spread]
+|===
+| Port | Protocol | Direction | Description
+| 53 | UDP | Internal | Internal DNS
+| 8472 | UDP | Internal | Overlay networking
+|===
+
+== Additional Ports Used During Installation
+
+The following table lists the ports that must be accessible when installing Anypoint Runtime Fabric. After completing the installation, you can safely disable these ports.
+
+[%header%autowidth.spread]
+|===
+| Port | Protocol | Direction | Description
+| 61008-61010 | TCP (HTTPS) | Internal | Used during installation
+| 61022-61024 | TCP (HTTPS) | Internal | Installer agent ports
+| 4242 | TCP | Internal | Bandwidth checker
+|===
+
+== Port IPs and Hostnames to Whitelist
+
+In your network, you may need to whitelist the hostnames and ports of various parts of the Anypoint Platform to allow Anypoint Runtime Fabric to communicate with the MuleSoft-managed online Anypoint Platform APIs and services, and to download dependencies during installation or upgrades.
+
+These tables show you the ports and hostnames to add to your whitelists to allow communication between Runtime Fabric and Anypoint Platform:
+
+[%header%autowidth.spread]
+|===
+| Port | Protocol | Hostnames
+| 5672 | TCP (AMQP) | `transport-layer.prod.cloudhub.io`
+| 443 | HTTPS | `*.prod.cloudhub.io`
+| 443 | HTTPS | `anypoint.mulesoft.com`
+| 443 | HTTPS | `*.anypoint.mulesoft.com`
+| 443 | HTTPS | `kubernetes-charts.storage.googleapis.com`
+| 443 | HTTPS | `worker-cloud-helm-prod.s3.amazonaws.com`
+| 443 | HTTPS | `docker-images-prod.s3.amazonaws.com`
+.2+| 443 .2+| HTTPS | US control plane: `ecr.us-east-1.amazonaws.com`
+| EU control plane: `ecr.eu-central-1.amazonaws.com`
+.2+| 443 .2+| HTTPS | US control plane: `*.ecr.us-east-1.amazonaws.com`
+| EU control plane: `*.ecr.eu-central-1.amazonaws.com`
+.2+| 443 .2+| HTTPS | US control plane: `prod-us-east-1-starport-layer-bucket.s3.amazonaws.com`
+| EU control plane: `prod-eu-central-1-starport-layer-bucket.s3.amazonaws.com`
+
+|===
+
+== Required Network Settings
+
+The following are the network settings required for Anypoint Runtime Fabric:
+
+* A subnet with enough IP address allotable to add additional VMs to Runtime Fabric.
+* Shell/SSH access to each VM used to install Runtime Fabric.
+
+== See Also
+
+* xref:install-sys-reqs.adoc[Verify System Requirements for Anypoint Runtime Fabric]

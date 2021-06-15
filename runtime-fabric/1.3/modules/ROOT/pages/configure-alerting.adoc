@@ -1,0 +1,73 @@
+= Configure Alerting on Runtime Fabric
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Runtime Fabric enables you to send alerts through an existing SMTP server. Runtime Fabric provides alert functionality to send notifications when system health is compromised.
+
+== Procedure
+
+. Using a terminal, open a shell/SSH connection to a controller VM.
+. Create a file named `alert-smtp.yaml` that contains the following:
++
+----
+kind: smtp
+version: v2
+metadata:
+  name: smtp
+spec:
+  host: <smtp host>
+  port: <smtp port>
+  username: <username>
+  password: <password>
+---
+kind: alerttarget
+version: v2
+metadata:
+  name: email-alerts
+spec:
+  email: <email>
+----
+
+. Modify the contents of `alert-smtp.yaml` using the following values specific to your environment:
++
+[%header,cols="2*a"]
+|===
+|Key | Description
+|`smtp.host` | The endpoint of the SMTP server.
+|`<smtp port>` | The port used to connect to the SMTP server. (465 by default).
+|`<username>` | The username to use when connecting to the SMTP server.
+|`<password>` | The password to use when connecting to the SMTP server.
+|`<email>` | The recipient email address.
+
+|===
++
+. Run the following on the controller VM.
+----
+$ gravity resource create -f alert-smtp.yaml
+----
+
+Alerts should now be configured to send through your SMTP server.
+
+[NOTE]
+Currently only a single alerts email recipient is supported.
+
+== Built-in Alerts
+
+The following table lists some of default alerts provided by Anypoint Runtime Fabric:
+
+[%header,cols="2*a"]
+|===
+|Alert | Description
+| High CPU usage | Sends a warning when > 75% used. Triggers a critical error when > 90% used.
+| High memory usage | Sends a warning when > 80% used. Triggers a critical error when > 90% used.
+| High disk space usage | Sends a warning when > 80% used. Triggers a critical error when > 90% used.
+| High node usage | Sends a warning when > 90% used. Triggers a critical error when > 95% used.
+| etcd instance health | Sends an error when the etcd master is unaccessible for longer than 5 min.
+|===
+
+
+== See Also
+
+* xref:runtime-fabric-logs.adoc[Configure Log Forwarding on Anypoint Runtime Fabric]
+* xref:deploy-to-runtime-fabric.adoc[Deploy a Mule Application to a Runtime Fabric]

@@ -1,0 +1,50 @@
+= Anypoint Runtime Fabric Overview
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Anypoint Runtime Fabric is a container service that automates the deployment and orchestration of Mule applications and API gateways. Runtime Fabric runs within a customer-managed infrastructure on AWS, Azure, virtual machines (VMs), and bare-metal servers.
+
+Some of the capabilities of Anypoint Runtime Fabric include:
+
+* Isolation between applications by running a separate Mule runtime per application.
+* Ability to run multiple versions of Mule runtime on the same set of resources.
+* Scaling applications across multiple replicas.
+* Automated application fail-over.
+* Application management with Anypoint Runtime Manager.
+
+[NOTE]
+Contact your Customer Success Manager for information on how enable Anypoint Runtime Fabric on your account.
+
+== Runtime Fabric and Other PaaS Providers
+
+Anypoint Runtime Fabric contains all of the components it requires. These components, including Docker and Kubernetes, are optimized to work efficiently with Mule runtimes and other MuleSoft services.
+
+[WARNING]
+Installing Runtime Fabric within an existing Kubernetes-based PaaS is not supported.
+
+If you are already using a PaaS solution, MuleSoft recommends deploying Runtime Fabric in parallel with your PaaS. This enables you to take advantage of the complete benefits of Anypoint Platform.
+
+== Connecting Runtime Fabric to Anypoint Management Center
+
+Anypoint Runtime Fabric supports the following:
+
+* Deploying applications from Anypoint Runtime Manager.
+* Deploying policy updates of API gateways using API Manager.
+* Storing and retrieving assets with Anypoint Exchange.
+
+To enable integration with the Anypoint Management Center, Runtime Fabric requires outbound access to Anypoint Platform on port 443. This connection is secured using mutual TLS. A set of services running on the controller VMs initiates outbound connections to retrieve the metadata and assets required to deploy an application. These services then translate and communicate with other internal services to cache the assets locally and deploy the application.
+
+[NOTE]
+Check with your network administrator about enabling required outbound connections from your organization's network.
+
+== Anypoint Runtime Fabric and Standalone Mule Runtimes (Hybrid Deployments)
+
+Hybrid deployments of Mule applications require you to install a version of the Mule runtime on a server and deploy one or more applications on the server. Each application shares the Mule runtime and the resources made available to it. Other resources such as certificates or database connections may also be shared using domains.
+
+Anypoint Runtime Fabric provisions resources differently. Each Mule application and API gateway runs within their own Mule runtime and in their own container. The resources the container can access is specified when deploying a Mule application or API proxy. This enables Mule applications to horizontally scale across VMs without relying on other dependencies. It also ensures that different applications do not compete with each other for resources on the same VM.
+
+== See Also
+
+* xref:architecture.adoc[Runtime Fabric Architecture]
+* xref:install-prereqs.adoc[Anypoint Runtime Fabric Installation Prerequisites]
