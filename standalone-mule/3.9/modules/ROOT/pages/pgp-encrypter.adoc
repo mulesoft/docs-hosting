@@ -1,0 +1,444 @@
+= PGP Encrypter
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: anypoint studio, esb, connector, endpoint, pgp encrypter, encryption, pretty good privacy
+
+Mule can encrypt a message payload, or part of a payload, using Pretty Good Privacy (PGP). PGP combines data compression and data encryption to secure messages. The compression reduces message transmission time between origin and destination.
+
+There are two scenarios that this document addresses:
+
+* Using another party's public key to *encrypt* messages in a Mule application
+* Using one's own set of private and public keys to accept and *decrypt* messages in a Mule application
+
+The PGP Encrypter is a combination of the name, comment, and email used when the key was generated. +
+The sections below outline the steps involved in encrypting or decrypting messages using PGP in Mule.
+
+== Prerequisites
+
+This document assumes that you are reasonably familiar with PGP encryption, and the concept of public and private keys.
+
+The Encryption module does not support ASCII-armored keyrings. For more details see the xref:pgp-encrypter.adoc#using-asc-keys[Using ASCII-armored Keys] section below.
+
+[[encryption]]
+== Encrypt
+
+You can configure Mule flows to encrypt messages using PGP, to do so you need to add the receiver's public key to your "key ring" in Mule. You can configure the Encryption module to encrypt any part of your message before sending.
+
+[[encryption_studio]]
+To encrypt in Anypoint Studio Visual Editor:
+
+. Use a tool such as GPG Keychain Access to *import* the other party's public key. Refer to the section below for more details about using GPG to facilitate implementation of PGP encryption and decryption in Mule.
+. *Export* the public key using the same tool, selecting binary as the output format. This produces a key ring file with a `.gpg` extension.
+. Store the `.gpg` file in a place that the Mule application can access at runtime. Record the file path of the `.gpg` file (also known as your public key ring file).
+. In your Mule application, create a global *Encryption* element, specifying a name for the element; change the default value for the *Default Encrypter* to `PGP_ENCRYPTER`.
+. On the *Pgp Encrypter* tab, configure the fields according to the table below.
++
+image::pgp-both2.png[pgp_both2]
++
+[%header,cols="2*a"]
+|===
+|Field |Value
+2+|*General Tab*
+|*Name* |Required - A unique name for the global element.
+|*Default Encrypter* |PGP_ENCRYPTER
+2+|*Pgp Encrypter Tab*
+|*Reference or expression* |If selected, in the *Pgp Encrypter Config Reference*, use an expression to reference attributes you have defined elsewhere in the XML configuration of your applications or to reference the configurations defined in a bean.
+|*Define attributes* |If selected, enter values in the following field.
+|*Public Key Ring File Name* |Enter the file path of the public key ring. This binary "key ring" holds the message receiver's public key. Read more about creating the public key ring above. Note that you do not enter the public key itself, only the location of the key ring file in which the public is stored.
+|*Secret Key Ring File Name* | Enter the file path of the private key ring. This binary "key ring" holds the message sender’s private key. Read more about finding and creating public and private key rings in the Generating PGP Keys section above.
+|*Secret Alias Id* | The 64 bit (16 characters) Key ID of the secret key used to sign the message.
+|*Secret Passphrase* | The password to access the private key. When you generate keys using GPG, the wizard or command line prompt demands that you enter your Real Name and Email Address, then asks you to create a password for accessing your keys. The password you used to generate the keys is the value you enter as the secret passphrase, which Mule uses to access the contents of the private key ring.
+|*Principal* | An alternative to using a clientID and secret to authenticate a client, define a username and password as the principal.
+
+|*Encryption algorithm* | The encryption algorithm used for the symmetric cipher. +
+Default algorithm: AES_256
+
+Allowed algorithms:
+
+* IDEA
+* TRIPLE_DES
+* CAST5
+* BLOWFISH
+* SAFER
+* DES
+* AES_128
+* AES_192
+* AES_256
+* TWOFISH
+* CAMELLIA_128
+* CAMELLIA_192
+* CAMELLIA_256
+|*Output Mode* | The PGP encryption output mode. +
+Default Value: ARMOR
+
+Allowed modes:
+
+* ARMOR
+* BINARY
+|===
++
+. Set an *Encryption* message processor in the flow in which you wish to encrypt data in the message payload.
+. Configure the message processor according to the table below.
++
+image::pgp-encrypter.png[PGP_encrypter]
++
+[%header,cols="2*a"]
+|===
+|Field |Value
+|*Display Name* |A unique name for your message processor.
+|*Config Reference* |Required - Use the drop down to select the global Encryption element you created in the steps above.
+|*Operation* |Required - Encrypter
+|*Input reference* |Enter a Mule expression to define the part(s) of the message Mule should encrypt. If no value is entered, Mule encrypts the entire message payload.
+|*Select encrypter* |Required - PGP_ENCRYPTER
+|*Reference or expression* |If selected, in the *Pgp Encrypter Reference*, use an expression to reference attributes you have defined elsewhere in the XML configuration of your applications or to reference the configurations defined in a bean.
+|*Define attributes* |If selected, enter values in the following field.
+|*Principal* |An alternative to using a clientID and secret to authenticate a client, define a username and password as the principal.
+|*Encryption algorithm* | The encryption algorithm used for the symmetric cipher. +
+Default algorithm: AES_256
+
+Allowed algorithms:
+
+* IDEA
+* TRIPLE_DES
+* CAST5
+* BLOWFISH
+* SAFER
+* DES
+* AES_128
+* AES_192
+* AES_256
+* TWOFISH
+* CAMELLIA_128
+* CAMELLIA_192
+* CAMELLIA_256
+|*Output Mode* | The PGP encryption output mode. +
+Default Value: ARMOR
+
+Allowed modes:
+
+* ARMOR
+* BINARY
+|===
++
+. Click OK to save your PGP encrypter configuration.
+
+
+[[encryption_xml]]
+To encrypt in the XML Editor or Standalone:
+
+. Use a tool such as GPG Keychain Access to *import* the other party's public key.
+. *Export* the public key using the same tool, selecting binary as the output format. This produces a key ring file with a `.gpg` extension.
+. Store the `.gpg` file in a place that the Mule application can access at runtime; record the file path of the `.gpg` file (also known as your public key ring file).
+. In your Mule application, create a global `encryption:config` element, set above all the flows in your config file.
+. Configure the global element's attributes and child element according to the table below.
++
+[source,xml,linenums]
+----
+<encryption:config name="Encryption_PGP" defaultEncrypter="PGP_ENCRYPTER" doc:name="Encryption_PGP">
+        <encryption:pgp-encrypter-config publicKeyRingFileName="./mule.gpg"/>
+</encryption:config>
+----
++
+[%header,cols="2*a"]
+|===
+|Attribute |Value
+|*name* |Required - A unique name for your global element.
+|*defaultEncrypter* |Required - PGP_ENCRYPTER
+|*doc:name* |A display name for the element in Studio's Visual Editor. Not applicable for Standalone.
+|===
++
+** Child Element: Required - `encryption:pgp-encrypter-config`
+** Child Element Attribute: *publicKeyRingFileName* - Required - Set the value to the file path of the public key ring. This binary "key ring" holds the message receiver's public key. Read more about creating the public key ring above. Note that you do not enter the public key itself, only the location of the key ring file in which the public is stored.
++
+. To the flow in which you wish to encrypt data in the message payload, add an `encryption:encrypt` element.
+. Configure the element's attributes and child element according to the tables below.
++
+[source,xml,linenums]
+----
+<encryption:encrypt config-ref="Encryption_PGP" doc:name="Encryption" using="PGP_ENCRYPTER" input-ref="#[message.payload]">
+        <encryption:pgp-encrypter principal="fernando.martinez &lt;fernando.martinez@mulesoft.com&gt;" />
+</encryption:encrypt>
+----
++
+[%header,cols="2*a"]
+|===
+|Attribute |Value
+|*config-ref* |Required - Use the name of the global Encryption element you created.
+|*doc:name* |A display name for the element in Studio's Visual Editor. Not applicable for Standalone.
+|*using* |Required - PGP_ENCRYPTER
+|*input-ref* |Enter a Mule expression to define the part(s) of the message Mule should encrypt. If this attribute is not defined, Mule encrypts the entire message payload.
+|===
++
+[%header%autowidth.spread]
+|===
+|Child Attribute |required
+|*encryption:pgp-encrypter* |x
+|===
++
+[%header%autowidth.spread]
+|===
+|Child Element Attributes |required |Value
+|*principal* | x  |An alternative to using a clientID and secret to authenticate a client, define a username and password as the principal. When you generate a set of keys with GPG, you are asked to enter a Real Name, and an Email Address– together, these two pieces of data form the value of your Principal.
+|===
+
+== Atomic Encrypt and Sign
+
+Just like you configure the Encryption operation, you can use Mule to atomically encrypt and sign part of your message using an encryption transformer. This process requires the private key of the signer (usually the sender) to be present in the configured private key ring. In addition, the configured secret passphrase must correspond to the private key.
+
+To atomically encrypt and sign in the Anypoint Studio Visual Editor:
+
+. Follow the steps in <<encryption_studio, Encrypt>> to configure the *encryption* stage, but select the *Encrypt and sign* operation.
+. Select the *Singer principal* (A). This setting corresponds to the user whose *private key* will be used for signing the message. To validate the attached signature, the configuration requires the recipient of the message to possess A's *public key*. It also requires that the private configuration contain that user's private key and secret passphrase.
++
+image::pgp-signer-principal.png[generate_keys]
+
+
+To atomically ecrypt and sign in the XML Editor or Standalone:
+
+. Follow the XML steps in <<encryption_xml, Encrypt>> to configure the *encryption* stage, but change the global element's name to `encryption:encrypt-and-sign`.
+. In addition to use the attributes and child elements of the Encryption operation, provide the `signerPrincipal` attribute.
+
+[source,xml,linenums]
+----
+<encryption:encrypt-and-sign config-ref="Encryption_PGP" doc:name="Encryption" using="PGP_ENCRYPTER" input-ref="#[message.payload]" signerPrincipal="Alice &lt;alice@example.com&gt;">
+        <encryption:pgp-encrypter principal="fernando.martinez &lt;fernando.martinez@mulesoft.com&gt;" />
+</encryption:encrypt>
+----
+
+[%header,cols="2*a"]
+|===
+|Attribute |Value
+|`signerPrincipal` |Required - The principal of the signer credentials. Requires that the private configures contains that user's *private key* and *secret passphrase*.
+|===
+
+== Decrypting
+
+Before you configure a Mule flow to decrypt messages that were encrypted using your public keys, you must:
+
+. Generate a set of keys: *public* and *private*.
+. Send the *public key* out to those who send you encrypted messages.
+
+Then you can set an Encryption message processor in your Mule flow that uses the *private key* to decrypt messages it receives.
+
+Mule itself does not generate sets of keys, nor distribute public keys. Access the *Generating PGP Keys* section below to learn more about key generation; otherwise, if you already have your keys, proceed to the instructions to set up an Encryption message processor in your Mule flow.
+
+=== Generating PGP Keys
+
+You can use a tool such as GPG Keychain Access] to create a new set of keys in the application (see screenshot below) or from the command line, answering questions to customize and identify your keys (see code sample below). Best practice recommends using the same key size – 1536 bits or 2048 bits – in all your environments (development, QA and production).
+
+image::generate-keys.png[generate_keys]
+
+[source,text,linenums]
+----
+Aarons-MacBook-Air:~ aaron$ gpg --gen-key
+gpg (GnuPG/MacGPG2) 2.0.19; Copyright (C) 2012 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Please select what kind of key you want:
+   (1) RSA and RSA (default)
+   (2) DSA and Elgamal
+   (3) DSA (sign only)
+   (4) RSA (sign only)
+Your selection? 1
+RSA keys may be between 1024 and 8192 bits long.
+What keysize do you want? (2048) 2048
+Requested keysize is 2048 bits
+Please specify how long the key should be valid.
+         0 = key does not expire
+      <n>  = key expires in n days
+      <n>w = key expires in n weeks
+      <n>m = key expires in n months
+      <n>y = key expires in n years
+Key is valid for? (0) <n=2>
+invalid value
+Key is valid for? (0) 2
+Key expires at Tue Aug 25 11:46:00 2015 PDT
+Is this correct? (y/N) y
+
+GnuPG needs to construct a user ID to identify your key.
+Real name: Aaron Somebody
+Email address: aaron.somebody@mulesoft.com
+Comment: no comment
+You selected this USER-ID:
+    "Aaron Somebody (no comment) <aaron.somebody@mulesoft.com>"
+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
+You need a Passphrase to protect your secret key.
+<passphrase entered, and hidden>
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+gpg: key D54945B4 marked as ultimately trusted
+public and secret key created and signed.
+gpg: checking the trustdb
+gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
+gpg: depth: 0  valid:   3  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 3u
+gpg: next trustdb check due at 2015-08-25
+pub   2048R/D54945B4 2015-08-23 [expires: 2015-08-25]
+      Key fingerprint = 68BC E0A3 A377 417A 5102  ABB3 7689 9D95 D549 45B4
+uid                  Aaron Somebody (no comment) <aaron.somebody@mulesoft.com>
+sub   2048R/C1596E6C 2015-08-23 [expires: 2015-08-25]
+----
+
+When it completes the operation, the key generation tool adds your new public key to a system-wide public key ring and adds your private key to a parallel system-wide private key ring. The next step is to identify the file path of the key rings to make them available for Mule to access.
+
+* Find the public key ring file (`pubring.gpg`) on your local drive
+* Find the private key ring file (`secring.gpg`)
+* *Mac or Unix*: located in the _hidden_ `.gnupg` folder on your local drive
+* *Windows*: location varies according to your local configuration, but may be at a location similar to `C:/Users/myuser/AppData/Roaming/gnupg`
+
+[TIP]
+You can get the Key ID of a secret key by running `gpg --list-packets <KEYS_FILENAME.gpg>`
+
+=== Configuring a Decrypter
+
+
+*Studio Visual Editor*
+
+. Before you begin, ensure you have the following three pieces of information in your possession:
+.. The file path of your public key ring
+.. The file path of your private key ring
+.. The 64 bit (16 characters) Key ID of the secret key used to sign the message (Secret Client ID).
++
+See *Generating PGP Keys* section above to learn more about acquiring these values.
+. Create a global *Encryption* element, specifying a name for the element if you wish. Change the default value for the *Default Encrypter* to `PGP_ENCRYPTER`.
+. On the *Pgp Encrypter* tab, configure the fields according to the table below.
++
+image::pgp-both-decrypt.png[pgp_both_decrypt]
++
+[%header,cols="2*a"]
+|===
+|Field |Value
+2+|*General Tab*
+|*Name* |Required - A unique name for the global element.
+|*Default Encrypter* |PGP_ENCRYPTER
+2+|*Pgp Encrypter Tab*
+|*Reference or expression* |If selected, in the *Pgp Encrypter Reference*, use an expression to reference attributes you have defined elsewhere in the XML configuration of your applications or to reference the configurations defined in a bean.
+|*Define attributes* |If selected, enter values in the following four fields.
+|*Public Key Ring File Name* |Enter the file path of the public key ring. This binary "key ring" holds the public key. Read more about finding and creating public key rings in the Generating PGP Keys section above.
+|*Secret Key Ring File Name* |Enter the file path of the private key ring. This binary "key ring" holds the message sender's private key. Read more about finding and creating public and private key rings in the Generating PGP Keys section above.
+|*Secret Alias Id* |The 64 bit (16 characters) Key ID of the secret key used to sign the message.
+|*Secret Passphrase* |The password to access the private key. When you generate keys using GPG, the wizard or command line prompt demands that you enter your Real Name and Email Address, then asks you to create a password for accessing your keys. The password you used to generate the keys is the value you enter as the secret passphrase, which Mule uses to access the contents of the private key ring.
+|===
++
+. Set an *Encryption* message processor in the flow in which you wish to encrypt data in the message payload.
+. Configure the message processor according to the table below.
++
+[%header,cols="2*a"]
+|===
+|Field |Value
+|*Display Name* |A unique name for your message processor.
+|*Config Reference* |Required - Use the drop-down to select the global Encryption element you created.
+|*Operation* |Required - Decrypter
+|*Input reference* |Enter a Mule expression to define the part(s) of the message Mule should decrypt. If no value is entered, Mule decrypts the entire message payload.
+|*Select encrypter* |Required - PGP_ENCRYPTER
+|*Reference or expression* |If selected, in the *Pgp Encrypter Reference*, use an expression to reference attributes you have defined elsewhere in the XML configuration of your applications or to reference the configurations defined in a bean.
+|*Define attributes* |If selected, enter values in the following field.
+|*Principal* |An alternative to using a clientID and secret to authenticate a client, define a username and password as the principal. When you generate a set of keys with GPG, you are asked to enter a Real Name, and an Email Address– together, these two pieces of data form the value of your Principal.
+|*Verify Signature If Found* |*DEFAULT: False*. If a signature of the message is found while decrypting, attempt to verify the decrypted contents against it. Notice that if this option is *enabled*, and the validation fails or the signer *public key* is missing, the operation will fail.
+|===
+
+*XML Editor or Standalone*
+
+. Before you begin, ensure you have the following three pieces of information in your possession:
+.. The file path of your public key ring
+.. The file path of your private key ring
+.. The 64 bit (16 characters) Key ID of the secret key used to sign the message (Secret Client ID).
++
+See *Generating PGP Keys* section above to learn more about acquiring these values.
+. Create a global `encryption:config` element, set above all the flows in your config file.
+. Configure the global element's attributes and child element according to the table below.
++
+
+[source,xml,linenums]
+----
+<encryption:config name="Decryption_PGP" defaultEncrypter="PGP_ENCRYPTER" doc:name="Decryption_PGP" >
+        <encryption:pgp-encrypter-config publicKeyRingFileName="./mule.gpg" secretKeyRingFileName="./secring.gpg" secretAliasId="A7743F3F" secretPassphrase="mule1234"/>
+</encryption:config>
+----
+
++
+[%header%autowidth.spread]
+|===
+|Attribute |required |Value
+|*name* |x |A unique name for your global element.
+|*defaultEncrypter* |  |PGP_ENCRYPTER
+|*doc:name* |  |A display name for the element in Studio's Visual Editor. Not applicable for Standalone.
+|===
++
+[%header%autowidth.spread]
+|===
+|Child Element |required
+|*encryption:pgp-encrypter-config* |x
+|===
++
+[%autowidth.spread]
+|===
+|*Child Element Attributes* |*required* |*Value*
+|*publicKeyRingFileName* | x |Enter a value for the file path of the public key ring. This binary "key ring" holds the public key. Read more about finding and creating public key rings above.
+|*secretKeyRingFileName* |x  |Enter a value for the file path of the private key ring. This binary "key ring" holds the message sender's private key. Read more about finding and creating public and private key rings above.
+|*secretAliasId* | | The hexadecimal value of the RSA public key. +
+If not set, the runtime gets this value from the message to decrypt. +
+If set, The runtime will throw an exception if it doesn't match with the necessary key to decrypt the message.
+|===
+. Add an `encryption:decrypt` element to the flow in which you wish to decrypt data in the message payload.
+. Configure the element's attributes and child element according to the tables below.
++
+
+[source,xml,linenums]
+----
+<encryption:decrypt config-ref="Decryption_PGP" doc:name="Decryption" using="PGP_ENCRYPTER" input-ref="#[message.payload]" verifySignatureIfFound="true">
+        <encryption:pgp-encrypter principal="fernando.martinez &lt;fernando.martinez@mulesoft.com&gt;" />
+</encryption:decrypt>
+----
+
++
+[%header%autowidth.spread]
+|===
+|Attribute |required |Value
+|*config-ref* |x |Use the name of the global Encryption element you created.
+|*doc:name* |  |A display name for the element in Studio's Visual Editor. Not applicable for Standalone.
+|*using* |x |PGP_ENCRYPTER
+|*input-ref* |  |Enter a Mule expression to define the part(s) of the message Mule should decrypt. If no value is entered, Mule decrypts the entire message payload.
+|*verifySignatureIfFound* |  |*DEFAULT: False*. If a signature of the message is found while decrupting, attemp to verify the decrypted contents against it. Notice that if this option is *enabled*, and the validation fails, or the signer *public key* is missing, the operation will fail.
+|===
++
+[%header%autowidth.spread]
+|===
+|Child Attribute |required
+|*encryption:pgp-encrypter* |x
+|===
++
+[%header%autowidth.spread]
+|===
+|Child Element Attributes |required |Value
+|*principal* |  |An alternative to using a clientID and secret to authenticate a client, define a username and password as the principal. When you generate a set of keys with GPG, you are asked to enter a Real Name, and an Email Address– together, these two pieces of data form the value of your Principal.
+|===
+
+== Using ASCII-armored Keys
+
+The Encryption module does not support ASCII-armored keyrings. You need to dearmor the keys first to use them.
+
+The following procedure allows you to dearmor keys using GNU Privacy Guard <https://www.gnupg.org>. You may alternatively use any PGP tool of your choice:
+
+. Rename your current public & private keyring files to use the `.asc` extension if they are not using it yet.
+. Run the following command for each file:
++
+[source,linenums]
+----
+./gpg --dearmor <KEYS_FILENAME.asc>
+----
++
+. This creates new files with `.gpg` appended to their filename.
+. Use the newly generated files as your encryption keys.
+
+== See Also
+
+* xref:mule-credentials-vault.adoc[Mule Credentials Vault].
+* xref:mule-message-encryption-processor.adoc[XML or JCE Encryption].
+* https://blogs.mulesoft.com/dev/mule-dev/using-pgp-security-explained-from-the-top/[Using PGP Security: Explained from the Top]

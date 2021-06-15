@@ -1,0 +1,138 @@
+= Parse Template Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: anypoint studio, parse
+
+Parse Template is the Mule component to use for processing a template and obtaining a result. A template is defined as text with embedded Mule expressions that are evaluated and replaced with their result.
+
+You can configure template through an external file reference, or you can embed it in the component definition itself.
+
+<<code_example>>
+
+== Configuring a Parse Template
+
+. In Studio, drag a Parse Template message processor from the palette onto the canvas.
+. Configure the fields described in this table:
++
+image::parse.png[]
++
+[%header,cols="20a,20a,60a"]
+|===
+|Field |Value |Description
+|*Content* |Template String |A string to use as a template. Instead of defining the template in an external file, you can use this field to write it inline. It can contain embedded expressions to be evaluated and replaced with their results.
+|*Display Name* |Parse Template |Customize to display a unique name for the transformer in your application.
+|*Location* |filepath |Define the location of the file that Mule uses as a template into which to insert values extracted from the message properties or variables.
+|*Target Variable* | Variable Name | The name of a variable that stores the result of evaluating the expression defined in Target Value.
+|*Target Value* | Expression | Mule Expression to be evaluated after executing Parse Template. The result of this expression is stored in a variable with the name defined in the Target Variable field.
+|===
+
+
+If you are using the XML editor in Studio or a Standalone Mule instance:
+
+* Add a `parse-template` element to your flow, then configure it according to the tables below.
++
+[source,xml]
+----
+<parse-template location="users/administrator/desktop/hrweb/confirmation.html" doc:name="Parse Template"/>
+----
+
+Attributes of the `parse-template` element:
+
+[%header,cols="30a,70a"]
+|===
+|Element Attributes |Value
+|`content`     |A string representing the template to be used where the embedded expressions will be evaluated and replaced by their results.
+|`location`    |Filepath which defines the location of the file that Mule uses as a template into which to insert values extracted from the message properties or variables.
+|`doc:name`    |Customize to display a unique name for the transformer in your application. (Note: Not needed in Mule standalone.)
+|`target`      |The name of a variable where the result of the expression defined in `targetValue` will be stored after the Parse Template is executed.
+|`targetValue` |A Mule Expression that will be evaluated after the Parse Template is executed and which result will be stored in a variable with name as defined in the `target` attribute.
+|===
+
+
+[[code_example]]
+== Code Example
+
+The following example demonstrates the use of a Parse Template in an application
+that accepts queries by `employeeID` to acquire data about an employee.
+
+In this case, Parse Template uses a file external to the flow as a template into which it inserts values for fields (`name`, `department`, `job title`, `start date`, and `employee type`) drawn from the message payload. The flow then returns the template-built payload to the caller.
+
+image::parse-template-flow.png[]
+
+[source,html,linenums]
+----
+include::{examplesdir}/responseHtml.template[]
+----
+
+[source,xml,linenums]
+----
+include::{examplesdir}/parse-template-reference.xml[]
+----
+
+To use the application in this example, you must send an HTTP request with a URL that includes an ID query parameter, such as `+http://localhost:8081/getEmployee?id=12345+`.
+
+== Special Characters
+
+Parse Template supports the use of expressions within a template and the use of literals within these expressions. The template recognizes certain special characters, such as the sequence `\#[` and quotations marks. You can escape such characters to treat them as regular characters.
+
+* `#[an-expression]`:
++
+Within a template, use the characters `+#[]+` to designate an expression. For example, a template can contain expressions within HTML elements, such as `<td>#[upper("mulesoft")]</td>`, which resolves to `<td>MULESOFT</td>`. Empty expressions (`+#[]+`) return an error, but empty strings, such as `+#['']+` or `+#[""]+` are valid expressions.
+
+* Sub-expressions:
++
+To resolve a sub-expression that is surrounded by quotation marks, surround the sub-expression with another `+#[]+`. For example, the four elements in the template snippet below contain the same sub-expression (`upper("world")`), either inside or outside of quotation marks. The first two return the same results. The last two do not process `upper("world")` because the sub-expression is inside the quotation marks but not surrounded by another `+#[]+`.
++
+.Parse Template Snippet:
+[souce,XML,linenums]
+----
+<td>#['hello #[upper("world")]']</td>
+<td>#['hello ' ++ upper("world")]</td>
+<td>#['hello upper("world")']</td>
+<td>#['hello ++ upper("world")']</td>
+----
++
+.Output Values:
+[souce,XML,linenums]
+----
+<td>hello WORLD</td>
+<td>hello WORLD</td>
+<td>hello upper("world")</td>
+<td>hello ++ upper("world")</td>
+----
+
+* Escape character (`\`):
++
+Parse Template uses the character sequence `+#[+` to identify where an expression begins. To avoid this behavior and treat that sequence as literal characters, escape it with `\`. For example, `<td>\#[</td>` returns `<td>#[</td>`.
++
+In addition, expressions can contain strings with special characters that you want to treat as regular characters. To escape any special characters within a string that is embedded inside an expression, append `\` to the character. Examples of special characters include the sequence `\#[`, quotations marks (`'` or `"`), apostrophes (`'`), and `$`. It is not necessary to escape `\#` or `[` unless they are adjacent to one another in the string, with the `\#` preceding the `[`.
++
+.Parse Template Snippet:
+[souce,XML,linenums]
+----
+<td>\#[</td>
+<td>#['abcd\#[-1234' ++ now() as String ++ '.log']</td>
+<td>'abc'def'</td>
+<td>#['abc\'def']</td>
+<td>"xyz"xyz"</td>
+<td>#["xyz\"xyz"]</td>
+<td>#["abc\$DEF\#ghi\[JKL]"]</td>
+----
++
+.Output Values:
+[souce,XML,linenums]
+----
+<td>#[</td>
+<td>abcd#[-12342020-07-06T17:20:10.683-07:00.log</td>
+<td>'abc'def'</td>
+<td>abc'def</td>
+<td>"xyz"xyz"</td>
+<td>xyz"xyz</td>
+<td>abc$DEF#ghi[JKL]</td>
+----
+
+
+== See Also
+
+xref:variable-transformer-reference.adoc[Set Variable Transformer]

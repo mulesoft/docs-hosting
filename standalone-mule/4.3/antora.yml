@@ -1,0 +1,5 @@
+name: standalone-mule-rtfcloud
+title: On-Premises Deployment - Standalone Mule
+version: '4.3'
+nav:
+- modules/ROOT/nav.adoc

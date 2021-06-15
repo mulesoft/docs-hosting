@@ -1,0 +1,75 @@
+= On-Error Error Handlers
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+On Error components define the types of errors that they handle. You configure
+On Error components inside the scope-like Error Handler component.
+
+When an error occurs, the Error Handler component routes the Mule error to the
+first On Error component that matches the error. At this point, the error
+becomes available for inspection, so the On Error component can execute and
+act accordingly.
+
+Mule supports two types of On Error components. Both can perform matching
+through an error type (or group of error types) or through an expression
+(for advanced use cases). Each On Error component specifies a different
+behavior to perform when an error occurs. This behavior affects the
+outcome of its owner (the Flow or Try scope where the Error Handler is defined):
+
+[%header%autowidth.spread,cols='a,a']
+|===
+|On Error Scope |Description
+| On Error Propagate
+| Executes but propagates the error to the next level up, breaking the owner's execution. +
+If a transaction is being handled, it’s rolled back.
+
+image::error-handling-e77ec.png[]
+
+| On Error Continue
+| Executes and uses the result of the execution, as the result of its owner, as if the owner had actually completed the execution successfully. +
+If a transaction is being handled, it would be committed as well.
+|===
+
+Each On Error Scope can be set up to accept a different set of error types. Both in Studio and Design Center, you can pick from a list of errors that could be raised by the components used in the error handler's owner.
+
+You can also set up a path that accepts the type *ANY*, matching all error types that aren't used by other paths. Note that conditions are evaluated in order, so for other paths to be evaluated, the *ANY* path must always be the last.
+Keep in mind that without a explicit final path for *ANY*, default error handling will apply and the error will be logged and propagated, meaning it will continue to spread as if an `on-error-propagate` had been configured.
+
+As an alternative to mapping a path to a set of error types, you can map it to a freely defined condition. For example, you can map a path to a condition by setting the When field to:
+
+`#[error.cause.message contains "fatal"]`
+
+Each flow can contain only one error handler, however this error handler can contain as many On Error scopes as you see necessary. As mentioned before, by default, non explicitly handled errors are propagated.
+
+== Reusing On-Error Scopes
+
+Just like error handlers can be shared by exposing them globally and referencing them
+in flows and try scopes, on-error scopes can be reused as well. You can define and name
+an on-error scope globally and then reference it using a reference on-error component as
+in the example below.
+
+.Example: XML Configuration for Referenced On-Error
+[source,xml,linenums]
+----
+<on-error-propagate name="sharedPropagateHandler">
+  <logger message="An unhandled error has occurred."/>
+</on-error-propagate>
+
+<on-error-continue type="EXPRESSION" name="sharedContinueHandler">
+  <logger message="An expression failed to evaluate."/>
+</on-error-continue>
+
+<error-handler name="reusingHandlers">
+  <on-error ref="sharedContinueHandler"/>
+  <on-error-continue type="ROUTING">
+    <logger message="An expression failed to evaluate."/>
+  </on-error-continue>
+  <on-error ref="sharedPropagateHandler"/>
+</error-handler>
+----
+
+== See Also
+
+* xref:mule-error-concept.adoc[Mule Errors]
+* xref:try-scope-concept.adoc[Try Scope]
