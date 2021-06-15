@@ -12,7 +12,7 @@ CloudHub 2.0 supports log forwarding to:
 * Anypoint Monitoring
 +
 Forwards only application logs to Anypoint Monitoring and requires a Titanium subscription
-* External services: 
+* External services 
 +
 Forwards application and load-balancer logs to the specified service:
 +
@@ -22,10 +22,14 @@ Forwards application and load-balancer logs to the specified service:
 ** Elasticsearch
 ** Splunk
 
+// How can we share this content with RTF?
 
 == Before You Begin 
 
-(Other prereqs)
+To forward to:
+
+* Anypoint Monitoring, ensure you have a Titanium subscription.
+* External services, configure the external service.
 
 === Splunk Prerequisites 
 
@@ -93,6 +97,13 @@ You can disable log forwarding for an app during deployment.
 Configure load balancer log levels in the *Domains* tab.
 +
 See xref:ps-config-domains.adoc#load-balancer-log-levels[Load Balancer Log Levels].
+. Click *Save logging* or *Discard changes*.
++
+The *Logging* page displays a message indicating that the 
+logging configuration is applied.
+. Click *Send a test message* to test the connection
+between your private space and the external service.
+
 
 === Azure Log Analytics Configuration Parameters
 
@@ -174,6 +185,14 @@ CloudHub 2.0 hides and stores this value securely. | No |
 |===
 
 
+== Delete the External Logging Configuration
+
+To delete the configuration, deselect *Forward logs to an external service*
+and then click *Save logging*. 
+
+
 == See Also 
 
 * xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed in a Private Space]
+* xref:ps-deploy.adoc[Deploy Apps to Private Spaces]
+* xref:runtime-fabric::deploy-to-runtime-fabric.adoc[Deploy a Mule Application to Runtime Fabric]
