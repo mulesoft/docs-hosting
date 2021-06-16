@@ -1,4 +1,11 @@
-include::general:ROOT:page$intro-platform-hosting.adoc[Anypoint Platform Hosting Options]
+= Runtime Plane Hosting Options
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+MuleSoft provides three options for hosting on the Anypoint Platform runtime plane.
+
+include::general:ROOT:page$intro-platform-hosting.adoc[tag=content,leveloffset=-1]
 
 ////
 :page-layout: rtfcloud-home
@@ -12,3 +19,7 @@ A disciple of another sect once came to Drescher as he was eating his morning me
 Drescher took the paper that was offered him and put it into the toaster, saying: “I wish the toaster to be happy, too.”
 
 ////
+
+== See Also
+
+* xref:general::intro-platform-hosting.adoc[Anypoint Platform Hosting Options]

@@ -1,3 +1,0 @@
-= Anypoint Platform Hosting Options
-
-// include::general:ROOT:page$intro-platform-hosting.adoc[Anypoint Platform Hosting Options]
