@@ -5,13 +5,73 @@ endif::[]
 
 MuleSoft provides three options for hosting on the Anypoint Platform runtime plane.
 
-include::general:ROOT:page$intro-platform-hosting.adoc[tag=content,leveloffset=-2]
+* CloudHub
++
+CloudHub is MuleSoft's cloud-based environment for hosting the Mule runtime server and related services. CloudHub enables you to deploy an API or a Mule application on a platform that’s managed by MuleSoft.
++
+CloudHub also provides high availability, clustering and failover of your APIs and Mule applications and performs load balancing for them. See xref:runtime-manager::cloudhub.adoc[CloudHub] for more information.
++
+CloudHub can only be managed only by version of the cloud control plane that exists in the same environment (US cloud, EU cloud, or MuleSoft Government Cloud).
+
+* Runtime Fabric
++
+Runtime Fabric is a container service that enables you to run Mule applications and API gateways within a data center or third-party cloud environment that you control and manage. You can install Runtime Fabric on a set of physical servers, virtual machines, or within Amazon Web Services and Microsoft Azure.
++
+Runtime Fabric comes bundled with technology such as Docker and Kubernetes, which offer benefits such as high availability, failover, clustering, and load balancing. See xref:runtime-fabric::index.adoc[Anypoint Runtime Fabric Overview] for more information.
++
+Runtime Fabric can be managed only by Cloud control planes (US cloud, EU cloud). MuleSoft Government Cloud and Anypoint Platform PCE do not support Runtime Fabric.
+
+* Standalone Runtimes
++
+The standalone option enables you to host Mule runtime engine server and related services in an environment that you manage. Using standalone runtimes, the Mule runtime server can run on a physical server, a virtual machine, or within a third-party cloud installation like Amazon Web Services or Microsoft Azure.
++
+When using standalone runtimes, you are also responsible for providing the framework for high availability, failover, clustering and load balancing. See xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises].
++
+You can manage standalone runtimes by using cloud control planes (US Cloud, EU Cloud, MuleSoft Government Cloud) or a customer-hosted control plane (Anypoint Platform PCE).
+
+=== Support Matrix for Runtime Plane Hosting Options
+
+Not all Anypoint Platform components are supported in each of the Runtime Plane hosting options:
+
+[%header,cols="4*a"]
+|===
+| Anypoint Platform Component | CloudHub | Runtime Fabric | Standalone
+| Mule runtime engine | Y | Y | Y
+| Anypoint MQ | Y | N | N
+| Anypoint Object Store | Y | N | N
+| Anypoint DataGraph | Y | N | N
+| Connectors | Y | Y | Y
+|===
+
+
+* Anypoint MQ and Anypoint Object Store
++
+Runtime Fabric and standalone runtimes do not support Anypoint MQ or Anypoint Object Store. Instead, Runtime Fabric and standalone runtimes support Mule clustering. On Runtime Fabric, multiple replicas of the same application can share objects. On standalone runtimes, multiple Mule runtime engines can share objects with each other.
++
+See xref:mule-runtime::choosing-the-right-clustering-topology.adoc[Cluster Runtime Instances]
+
+* Connector Support
++
+Connectors that retrieve and manipulate files on the file system are not supported, for example Anypoint Connector for File (File Connector). Mule applications deployed to Runtime Fabric do not have access to the file system of the virtual machine or the network mount.
+
+== Control Plane and Runtime Plane Support Matrix
+
+The following table lists the runtime plane options that are supported in each control plane hosting option.
+
+[%header,cols="5*a"]
+|===
+| Runtime Plane | US Cloud | EU Cloud| Government Cloud | Anypoint Platform PCE
+| CloudHub | Y | Y | Y | N
+| Standalone runtimes | Y | Y | Y | Y
+| Runtime Fabric | Y | Y | N | N
+|===
+
+
+
+
+// include::general:ROOT:page$intro-platform-hosting.adoc[tag=content,leveloffset=-2]
 
 ////
 :page-layout: rtfcloud-home
 
 ////
-
-== See Also
-
-* xref:general::intro-platform-hosting.adoc[Anypoint Platform Hosting Options]
