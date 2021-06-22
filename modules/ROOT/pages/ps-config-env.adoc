@@ -34,6 +34,17 @@ image::bg-delete.png[Delete icon in the Environments tab]
 
 . Click *Save environments* or *Discard changes*.
 
+== Manage Resources for a Business Group
+
+To view or manage resources associated with a business group:
+
+. From Anypoint Platform, select *Access Management* > *Business Groups*, and then click the business group.
+. Click the *Settings* tab.
+. In the *Resources* section, view or modify the allocation for a resource, such as *Production vCores*.
+. Click *Save Changes*.
+
+
+
 == See Also 
 
 * https://docs.mulesoft.com/access-management/roles.html[Roles] (Link out from Beta docs)
