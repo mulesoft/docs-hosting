@@ -10,13 +10,13 @@ To set up and manage CloudHub 2.0, you must have one of the following:
 
 * *Organization Administrators* role for the environments associated with the private space.
 +
-To specify this role, from Anypoint Platform, select *Access Management* > *Roles* > *Organization Administrators*, and then enter your user name to add it to the role.
+To specify this role, from Anypoint Platform, select *Access Management* > *Roles* > *Organization Administrators*, and then enter a user name to add it to the role.
 * *Manage Private Spaces* permissions
 +
 --
 To add these permissions:
 
-.. From Anypoint Platform, select *Access Management* > *Users*, and then click your user name.
+.. From Anypoint Platform, select *Access Management* > *Users*, and then click the user name.
 .. Click the *Runtime Manager* tab and then, for each environment, select *Manage Private Spaces* from the *Permission(s)* list.
 --
 

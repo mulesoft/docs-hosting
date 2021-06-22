@@ -4,10 +4,9 @@ include::_attributes.adoc[]
 endif::[]
 
 
-Use Anypoint VPN to create a secure connection between your private space and your on-premises network.
+Anypoint VPN (virtual private network) creates a secure connection between your private space and your on-premises network.
 
-
-Anypoint VPN (virtual private network) enables apps running in the private space
+Anypoint VPN enables apps running in the private space
 to access resources in your on-premises data centers behind your corporate firewall.
 The VPN connection comprises two VPN tunnels between the private space in Anypoint Platform and a _gateway device_, a physical or software appliance located in your network.
 

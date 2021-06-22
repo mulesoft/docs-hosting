@@ -1,10 +1,11 @@
-= Create and Configure a Private Space
+= Create and Configure the Private Space
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
 
-Create a _private space_, a virtual, private, and isolated network hosted in CloudHub 2.0,
+To extend your network to Anypoint Platform, create a _private space_, 
+a virtual, private, and isolated network hosted in CloudHub 2.0,
 to deploy your apps to.
 
 
