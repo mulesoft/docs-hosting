@@ -34,7 +34,7 @@ https://docs.mulesoft.com/runtime-manager/cloudhub-manage-props.html#add-applica
 * xref:ps-create-configure.adoc#test-the-private-network-by-deploying-an-app[Deploy Mule apps to a private space].
 +
 CloudHub 2.0 provides a secure cloudhub.io endpoint for sending requests to applications.
-* xref:ps-config-logging.adoc[Forward logs to a third-party provider].
+* xref:ps-config-log-forwarding.adoc[Forward logs to a third-party provider].
 
 
 == Feature Comparison: CloudHub 2.0, Runtime Fabric On-Premises, and CloudHub 

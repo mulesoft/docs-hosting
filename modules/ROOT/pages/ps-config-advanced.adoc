@@ -154,4 +154,4 @@ Select the cipher suite to add.
 
 == See Also 
 
-* xref:ps-config-logging.adoc[Configure Log Forwarding for a Private Space]
+* xref:ps-config-log-forwarding.adoc[Configure Log Forwarding for a Private Space]

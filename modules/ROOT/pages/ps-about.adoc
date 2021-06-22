@@ -1,0 +1,71 @@
+= Private Spaces
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+A _private space_ is a virtual, private, and isolated area in CloudHub 2.0 in which to run your apps,
+You can create multiple private spaces, either in the same or different regions.
+
+You connect your private intranet to your private space to function as a single, private network. 
+
+In each private space, you define:
+
+* A _private network_, which is a virtual cloud where apps deployed to this private space run.
+* A connection from the private network to your external network, either via Anypoint VPN or a transit gateway connection.
+* *DNS target and TLS context* _need info here_
+* Firewall rules to allow and block inbound and outbound traffic to your private space.
++
+See xref:ps-config-fw-rules.adoc[Configure Firewall Rules to Manage Traffic to a Private Space].
+* The environments and business groups to allow to deploy to the private space.
++
+See xref:ps-config-env.adoc[Associate Environments and Business Groups with a Private Space].
+* Where to forward logs, either Anypoint Monitoring or an external service such as Splunk.
++
+See xref:ps-config-log-forwarding.adoc[Configure Log Forwarding for a Private Space].
+
+// Utilize Anypoint Security Edge policies
+
+
+== Private Network
+
+When you create the private network, you associate a range of IP addresses for the apps in your private space to use, the region in which they run, and optionally, any internal DNS servers to resolve requests to custom domain.
+
+Private spaces support Amazon regions.
+You can configure multiple private spaces in a single Amazon region, enabling you to set up separate isolated networks for your production and non-production environments, 
+such as QA or staging.
+
+== Private Network Connections
+
+You can connect a private space to your private network using the following methods:
+
+* xref:ps-vpn-about.adoc[Anypoint VPN]
+* xref:ps-tgw-about.adoc[Transit gateway attachment]
+
+[NOTE]
+A maximum of 95 route table entries is allowed per private space,
+regardless of the number of connections.
+To avoid exceeding the limit, consolidate networks to the fewest number possible.
+
+
+== DNS Target and TLS Context 
+
+== Firewall Rules
+
+You control the traffic to and from your private spaces. 
+By default, CloudHub 2.0 blocks all traffic to the private space and provides firewall rules to allow connections through specified ports. 
+You can configure additional firewall rules to control traffic to your private space, expose or block your custom ports, and block requests to your apps. 
+
+The private space includes dedicated load balancers (DLB), which routes traffic to the private space.
+You can configure DLBs to validate requests using your custom SSL certificates and enforce two-way SSL client authentication.
+DLBs also enable you to map input URLs to call specific applications within the private space. 
+With proxy rules, you can map your applications to a custom domain and host your apps under a single, vanity domain.
+
+By combining firewall rules and DLB configuration, you can fine-tune how external services reach your applications.
+
+
+
+
+== See Also
+
+* xref:ps-create-configure.adoc[Create and Configure a Private Space]
+* xref:ps-config-fw-rules.adoc[Configure Firewall Rules to Manage Traffic to a Private Space]

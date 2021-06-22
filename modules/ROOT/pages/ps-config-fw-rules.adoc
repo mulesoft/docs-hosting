@@ -1,4 +1,4 @@
-= Configure Firewall Rules to Allow Traffic to a Private Space
+= Configure Firewall Rules to Manage Traffic to a Private Space
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
