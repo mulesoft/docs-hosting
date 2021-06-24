@@ -16,4 +16,4 @@
 *** xref:ps-config-advanced.adoc[Configure Advanced Private Space Settings]
 ** xref:ps-manage.adoc[Manage Private Spaces]
 ** xref:ps-deploy.adoc[Deploy Apps to Private Spaces]
-
+*** xref:ps-view-logs.adoc[View Log Data]

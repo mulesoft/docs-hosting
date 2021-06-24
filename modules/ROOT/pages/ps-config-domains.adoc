@@ -121,3 +121,4 @@ For example, if you use Runtime Manager to add the
 == See Also 
 
 * xref:ps-config-log-forwarding.adoc[Configure Log Forwarding for a Private Space]
+* xref:ps-deploy.adoc[Deploy Apps to Private Spaces]

@@ -31,7 +31,7 @@ CloudHub 2.0 provides auto-scaling groups for fault-tolerance.
 +
 For information on setting custom properties, see 
 https://docs.mulesoft.com/runtime-manager/cloudhub-manage-props.html#add-application-properties-in-runtime-manager[Add Application Properties in Runtime Manager].
-* xref:ps-create-configure.adoc#test-the-private-network-by-deploying-an-app[Deploy Mule apps to a private space].
+* xref:ps-deploy.adoc[Deploy Apps to Private Spaces].
 +
 CloudHub 2.0 provides a secure cloudhub.io endpoint for sending requests to applications.
 * xref:ps-config-log-forwarding.adoc[Forward logs to a third-party provider].
