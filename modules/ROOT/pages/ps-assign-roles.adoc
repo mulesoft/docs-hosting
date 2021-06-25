@@ -27,4 +27,4 @@ To deploy applications, you must have the *Exchange Contributor* role associated
 
 == See Also 
 
-* https://docs.mulesoft.com/access-management/roles.html[Roles] (Link out from Beta docs)
+* https://docs.mulesoft.com/access-management/roles.html[Roles^] (Link out from Beta docs)
