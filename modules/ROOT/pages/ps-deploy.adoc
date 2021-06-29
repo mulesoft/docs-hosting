@@ -3,6 +3,13 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+
+include::partial$feature-availability.adoc[tag=featureUnavailable]
+
+
+*THIS IS PLACEHOLDER CONTENT UNTIL THE UI IS AVAILABLE* 
+
+
 You deploy apps to a private space using Runtime Manager.
 
 == Deploy an App to a Private Space
@@ -13,7 +20,7 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 . In the *Deploy Application* page:
 .. Enter the name of the application.
 .. Select the name of the private space from the *Deployment Target* list.
-.. Select an applicaton file:
+.. Select an application file:
 +
 *** To upload a Mule app JAR file from your system, select *Choose file > Upload file*.
 *** To choose an example app from Anypoint Exchange:
@@ -22,9 +29,24 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 +
 image::rtm-get-from-exchange.png[Get from Exchange page]
 .... Click *Hello World* and then click *Select*.
-.. Complete the fields in the page.
+.. Complete the fields for each tab on the page.
+. Click *Deploy Application*. 
+
+=== Deployment Target tab 
+
+Runtime version::
+Specifies the Mule runtime engine version
+Replicas::
+Specifies the number of replicas, or instances, of the application to deploy
 +
-*** *Deployment model* 
+A minimum of two replicas is required for high availability.
+Run in Runtime Cluster Mode::
+Enables Mule clustering across each replica of the application
+Enforce deploying replicas across nodes::
+Selecting this option might cause some replicas in the deployment to remain in Pending status if there are unsufficient worker nodes or resources available on the worker nodes needed to deploy each replica.
+The deployment status transitions to Running after all replicas are deployed on different worker nodes.
+
+Deployment model::
 +
 --
 Rolling update::
@@ -34,10 +56,67 @@ Recreate::
 Terminates replicas before redeployment.
 Redeployment is faster and doesn't require additional resources.
 --
+Resource allocation::
 +
+--
+* Reserved CPU: blah
+* CPU Limit: blah
+* Memory: blah
+--
+
+
+=== Ingress tab 
+
+Enable Public Endpoint::
+Indicates that the endpoint can be reached via the public internet
++
+-- 
+Domain::
+Specifies the domain, such as `cloudhub.io`, for the app.
+Domains are configured for the private space.
+See xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to a Private Space].
+Path:: 
+Specifies the path to the app
+Configure Base Path::
+Specifies the base path (between the domain and the app name) for the app
+Enable Last-Mile Security::
+Forwards HTTPS connections to be decrypted by this application. This requires an SSL certificate to be included in the Mule application, and also requires more CPU resources. This option is only applicable to Runtime Fabric on VMs / baremetal.
+--
+
+=== Properties tab 
+
+Similar to CH 1.0, with secret properties.
+
+xref:ps-manage-props.adoc[Manage App Properties on CloudHub 2.0].
+
+=== JVM tab
+
+TBD
+
+=== Logs tab
+
+If log forwarding is not configured for the private space, the options in the *Logs* tab are disabled.
+
+See xref:ps-config-log-forwarding.adoc[Configure Log Forwarding for a Private Space].
+
+
+
+Show logs in Anypoint Monitoring::
+Forwards only application logs to Anypoint Monitoring and requires a Titanium subscription.
+
+Forward logs to _service_::
+Forwards application and load-balancer logs to the specified service:
++
+** Azure
+** BigQuery
+** Datadog
+** Elasticsearch
+** Splunk
+
+For information about viewing logs, see xref:ps-view-logs.adoc[View Log Data for Deployed Apps].
+
 For information about the other deployment options, see
 https://docs.mulesoft.com/runtime-fabric/1.9/deploy-to-runtime-fabric#deploy-a-mule-application-to-runtime-fabric[Deploy a Mule Application to Runtime Fabric].
-.. Click *Deploy Application*. 
 
 == Download a Test App from Exchange
 

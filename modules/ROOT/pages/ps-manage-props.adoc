@@ -3,8 +3,10 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-*THIS IS CH 1.0 PLACEHOLDER CONTENT* 
+include::partial$feature-availability.adoc[tag=featureUnavailable]
 
+
+*THIS IS CH 1.0 PLACEHOLDER CONTENT UNTIL THE UI IS AVAILABLE* 
 
 In a CloudHub 2.0 deployment, you can add properties to an application by using either Anypoint Runtime Manager or a properties file.
 

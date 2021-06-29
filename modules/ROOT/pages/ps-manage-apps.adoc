@@ -1,0 +1,10 @@
+= Manage Apps in Private Spaces
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+
+* xref:ps-manage-props.adoc[Manage App Properties]
+* xref:ps-view-logs.adoc[View App Logs]
+* xref:ps-view-diagnostics[View App Diagnostics]
+* xref:ps-manage-schedules[Manage App Schedules]

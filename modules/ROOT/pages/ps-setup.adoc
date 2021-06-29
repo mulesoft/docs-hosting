@@ -5,40 +5,32 @@ endif::[]
 
 == Before You Begin
 
-* Assign roles and permissions.
-* Gather required setup information.
+* xref:ps-assign-roles.adoc[Assign roles and permissions].
+* xref:ps-gather-setup-info.adoc[Gather required setup information].
 
 
 == Workflow
 
-. Create the private space. 
-. Create the private network.
-.. Test the private network by deploying an app.
-.. Configure internal DNS servers, if necessary. 
-. Create a Connection to an External Network. 
-** Create a VPN.
-** Create a transit gateway attachment.
+. xref:ps-create-configure.adoc[Create the private space]. 
+. xref:ps-create-configure.adoc#create-a-private-network[Create the private network].
+.. xref:ps-deploy.adoc[Test the private network by deploying an app].
+.. xref:ps-create-configure.adoc#resolve-private-domains-in-your-internal-network[Configure internal DNS servers, if necessary]. 
+. xref:ps-create-configure.adoc#create-a-connection-to-an-external-network[Create a Connection to an External Network]. 
+** xref:ps-create-configure.adoc#create-a-vpn[Create a VPN].
+** xref:ps-create-configure.adoc#create-a-transit-gateway-attachment[Create a transit gateway attachment].
 . Customize the private space:
 +
 --
-.. Enable inbound traffic to your apps deployed to the private space.
-.. Set up authentication for trusted clients.
-.. Configure firewall rules to allow traffic.
-.. Associate environments and business groups with the private space.
-.. Configure log forwarding for the private space.
-.. Configure advanced settings.
+.. xref:ps-config-domains.adoc[Enable inbound traffic to your apps deployed to the private space].
+.. xref:ps-config-clients.adoc[Set up authentication for trusted clients].
+.. xref:ps-config-fw-rules.adoc[Configure firewall rules to manage traffic to a private space].
+.. xref:ps-config-env.adoc[Associate environments and business groups with the private space].
+.. xref:ps-config-log-forwarding.adoc[Configure log forwarding for the private space].
+.. xref:ps-config-advanced.adoc[Configure advanced settings].
 --
 
 == See Also 
 
-* xref:ps-assign-roles.adoc[Assign Roles and Permissions]
-* xref:ps-gather-setup-info.adoc[Gather Required Setup Information]
 * xref:ps-create-configure.adoc[Create and Configure a Private Space]
-* xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to a Private Space]
-* xref:ps-config-clients.adoc[Set Up Authentication for Trusted Clients]
-* xref:ps-config-fw-rules.adoc[Configure Firewall Rules to Manage Traffic to a Private Space]
-* xref:ps-config-env.adoc[Associate Environments and Business Groups with a Private Space]
-* xref:ps-config-log-forwarding.adoc[Configure Log Forwarding for a Private Space]
-* xref:ps-config-advanced.adoc[Configure Advanced Private Space Settings]
-* xref:ps-deploy.adoc[Deploy Apps to Private Spaces]
+
 
