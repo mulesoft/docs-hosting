@@ -90,14 +90,14 @@ When a new runtime version is available:
 * The *Applications* page displays a banner and the *Update Available* tab lists the apps that require updates:
 +
 .The screenshot shows (*1*) the banner and (*2*) the *Update Available* tab on the *Applications* page.
-image::cloudhub-app-update-req-page.png[Applications page with banner and Update Available tab]
+image::ch2-app-update-req-page.png[Applications page with banner and Update Available tab]
 +
 If no apps require updates, no banner appears and the *Update Available* tab is empty.
 
 *  *Update available* and the new date patch appear in the *Runtime version* menu in the *Settings* page for the application:
 +
 .The screenshot shows (*1*) the date patch version update and (*2*) *Update available* in the *Runtime version* menu.
-image::cloudhub-app-update-versions.png[Date patch version update and Update available in the Runtime version menu.]
+image::ch2-app-update-versions.png[Date patch version update and Update available in the Runtime version menu.]
 
 
 MuleSoft applies the monthly updates automatically, based on the published schedule. 
@@ -123,14 +123,14 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 If the app requires an update, *Update available* appears in the *Runtime version* menu:
 +
 .The screenshot shows (*1*) *Update available* and (*2*) the *Runtime version* menu on the *Settings* page.
-image::cloudhub-app-update-available-setting.png[Update available and the Runtime version menu on the application Settings page]
+image::ch2-app-update-available-setting.png[Update available and the Runtime version menu on the application Settings page]
 
 . Select the latest version from the *Runtime version* menu.
 +
 Although the version number of the update might be the same as the installed version, a later date identifies the update:
 +
 .The arrow shows the version update date in the *Runtime version* menu.
-image::cloudhub-app-update-available-versions.png[Version update date in the Runtime version menu]
+image::ch2-app-update-available-versions.png[Version update date in the Runtime version menu]
 
 . If you want to see details about the version, click the *Read release notes* link.
 . Click the *Apply Changes* button to update the app. 

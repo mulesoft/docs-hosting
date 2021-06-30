@@ -1,0 +1,59 @@
+= View Diagnostic Data for Deployed Apps
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+include::partial$feature-availability.adoc[tag=featureUnavailable]
+
+
+*THIS IS PLACEHOLDER CONTENT BASED ON THE DESIGN SPEC UNTIL THE UI IS AVAILABLE* 
+
+You can run a thread dump, which is a snapshot of all the threads in a replica.
+The thread dump indicates the current state of the server, which is helpful for debugging and support.
+
+CloudHub 2.0 retains thread dumps for 30 days or up to 150 MB.
+
+== Run a Thread Dump
+
+[NOTE]
+The app must be running to run a thread dump.
+
+To run a thread dump:
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. Click the application name.
+. In the navigation menu, click *Diagnostics*.
+. Click *Run Thread Dump* and select the active replica to trigger the thread dump from the dropdown.
++
+CloudHub 2.0 displays the latest thread dump at the top of the list and downloads it automatically.
+
+== View and Download Past Thread Dumps
+
+To view past thread dumps:
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. Click the application name.
+. In the navigation menu, click *Diagnostics*.
++
+The page displays any past thread dumps.
++
+* To view logs for a deployment and replica associated with the thread dump, click *View Logs*.
+* To download a thread dump, click *Download*.
+
+CloudHub 2.0 downloads the diagnostic output to a text file in the format `__appName__-instance-__instanceID__-__workerNumber__-diag.txt`. 
+Use a text editor to view the diagnostics file.
+
+//// 
+[TIP]
+====
+You can also use the following URL to download a diagnostics file directly:
+
+`api/v2/applications/__appName__/instances/__instanceId__/diagnostics`
+====
+//// 
+
+== See Also
+
+* xref:ps-view-logs.adoc[View Log Data for Deployed Apps]

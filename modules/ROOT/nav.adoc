@@ -20,5 +20,5 @@
 *** xref:ps-manage-props.adoc[Manage App Properties on CloudHub 2.0]
 ** xref:ps-manage-apps.adoc[Manage Apps in Private Spaces]
 *** xref:ps-view-logs.adoc[View App Logs]
-*** xref:ps-view-diagnostics.adoc[View App Diagnostics]
+*** xref:ps-view-diag.adoc[View App Diagnostics]
 *** xref:ps-manage-schedules.adoc[Manage App Schedules]

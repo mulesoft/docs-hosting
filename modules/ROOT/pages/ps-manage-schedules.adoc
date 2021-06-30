@@ -59,7 +59,7 @@ Flow names can contain only letters (a-zA-Z), numbers (0-9), hyphen (-), undersc
 To use the scheduling feature in Runtime Manager, deploy an application that includes one or more Scheduler elements:
 
 .The arrow shows the *Scheduler* component in the Anypoint Studio canvas.
-image::cloudhub-scheduler-studio.png[Scheduler component in the Anypoint Studio canvas]
+image::ch2-scheduler-studio.png[Scheduler component in the Anypoint Studio canvas]
 
 You can download this example app from Exchange.
 
@@ -68,7 +68,7 @@ After deploying an app to CloudHub, view and manage the Scheduler elements in Ru
 . Click *Applications* in the left pane, click the app, and then click *Schedules*:
 +
 .The screenshot shows (*1*) the *Logs* option, (*2*) the *Last Run* column, and (*3*) the frequency link on the *Schedules* page.
-image::cloudhub-scheduler-rtm.png[Logs option, the Last Run column, and the frequency link on the Schedules page]
+image::ch2-scheduler-rtm.png[Logs option, the Last Run column, and the frequency link on the Schedules page]
 +
 The *Last Run* column shows the date and time each Scheduler element last ran.
 You can click *Logs* in the left navigation menu to see more information about when the jobs started and ended scheduled runs.
@@ -84,7 +84,7 @@ CloudHub does not run the scheduled job until you reenable it.
 ** Click the frequency link in the *Schedule* column to open the schedule editor:
 +
 .The arrow shows the *Switch to advanced mode* link in the schedule editor.
-image::cloudhub-scheduler-frequency.png[Switch to advanced mode link in the schedule editor]
+image::ch2-scheduler-frequency.png[Switch to advanced mode link in the schedule editor]
 +
 In the schedule editor, change the frequency of the schedule or deselect *Enabled* to disable the schedule.
 +
@@ -105,7 +105,7 @@ To use cron expressions to specify the schedule frequency:
 . In the advanced mode page, click *Quick reference* to expand or collapse the table that lists required fields and allowed values:
 +
 .The screenshot shows (*1*) the *Quick reference* toggle, (*2*) the *more* link, and the *Switch to basic mode* link on the advanced mode page.
-image::cloudhub-scheduler-cron.png[Quick reference toggle, the more link, and the Switch to basic mode link on the advanced mode page]
+image::cloudhub2-scheduler-cron.png[Quick reference toggle, the more link, and the Switch to basic mode link on the advanced mode page]
 +
 The cron expression in this example sets the schedule to every 10 seconds.
 +
