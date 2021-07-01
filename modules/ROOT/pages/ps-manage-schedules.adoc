@@ -120,7 +120,7 @@ The cron expression in this example sets the schedule to every 10 seconds.
 +
 On this page:
 
-* Click *more* to view the http://www.quartz-scheduler.org/documentation[Quartz documentation] for information about building cron triggers.
+* Click *more* to view the http://www.quartz-scheduler.org/documentation[Quartz documentation^] for information about building cron triggers.
 +
 Select a version, click *Documentation > User's Guide > Tutorial*, and then click the *CronTrigger* lesson.
 +
@@ -131,4 +131,4 @@ Because all schedules are based in the UTC timezone, the timezone configuration 
 
 == See Also
 
-* http://www.quartz-scheduler.org/documentation[Quartz documentation]
+* http://www.quartz-scheduler.org/documentation[Quartz documentation^]

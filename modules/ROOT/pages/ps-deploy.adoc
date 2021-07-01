@@ -85,13 +85,12 @@ Forwards HTTPS connections to be decrypted by this application. This requires an
 
 === Properties tab 
 
-Similar to CH 1.0, with secret properties.
-
-xref:ps-manage-props.adoc[Manage App Properties on CloudHub 2.0].
+See xref:ps-manage-props.adoc[Manage App Properties on CloudHub 2.0] and 
+xref:ps-protect-app-props.adoc[Safely Hide Application Properties].
 
 === JVM tab
 
-TBD
+include::partial$feature-availability.adoc[tag=featureUnavailable]
 
 === Logs tab
 

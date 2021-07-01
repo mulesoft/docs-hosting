@@ -32,7 +32,7 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 
 Type::
 Protocol type (inbound and outbound):
-
++
 * *HTTPS*
 * *HTTP*
 * *TCP*
@@ -50,10 +50,15 @@ This option is available only if a private network exists in the private space.
 
 Port Range::
 Ports in addition to 8081 (http.port) and 8082 (https.port) through which you want to allow external traffic.
+
 * *All (0-65535)*
 * *Custom Range*
 
++
+
 Inbound traffic limitations:
+
++
 * HTTP: Only port 80 is supported.
 * HTTPS: Only port 443 is supported.
 * TCP and UDP: Only ports 1024 and above are supported.
@@ -61,7 +66,9 @@ Inbound traffic limitations:
 .. Click *Add rule* to add a rule.
 .. To remove a firewall rule, click the *X* icon for the entry:
 +
+
 image::fw-rule-delete.png[Delete icon in the Firewall rules tab]
+
 --
 . Click *Save firewall rules* or *Discard changes*.
 

@@ -195,4 +195,4 @@ and then click *Save logging*.
 
 * xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed in a Private Space]
 * xref:ps-deploy.adoc[Deploy Apps to Private Spaces]
-* xref:runtime-fabric::deploy-to-runtime-fabric.adoc[Deploy a Mule Application to Runtime Fabric]
+* https://docs.mulesoft.com/runtime-fabric/1.9/deploy-to-runtime-fabric#deploy-a-mule-application-to-runtime-fabric[Deploy a Mule Application to Runtime Fabric^] (link out from Beta docs).
