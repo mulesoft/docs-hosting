@@ -39,6 +39,9 @@ The logs page displays all logs for the most recent deployment, with the latest 
 
 * To open the currently selected deployment in Anypoint Monitoring, click *View in Monitoring*.
 * To view logs for past deployments, click the *Deployed* dropdown and select the deployment.
++
+<replace screenshot>
++
 // .The arrow shows the dropdown to filter log output by deployment.
 image::ch2-logs-deploy.png[Filter log output by deployment]
 -- 
@@ -48,13 +51,18 @@ image::ch2-logs-deploy.png[Filter log output by deployment]
 * Filter logs by deployment
 +
 Click the *Deployed* dropdown and select the deployment.
++
+<replace screenshot>
++
 // .The arrow shows the dropdown to filter log output by deployment.
 image::ch2-logs-deploy.png[Filter log output by deployment]
 
 * Filter log by replica
 +
 Hover over a log message and select *Hide Others*.
++
 <screenshot>
++
 To clear the replica filter, click the *x* for the selected replica.
 
 * Filter logs by time date and time range
@@ -67,7 +75,15 @@ The *Latest Messages* button changes to show the selected date and time range.
 
 * Filter logs by log level
 +
-Click *Log Levels* and check the log levels to display.
+Click *Log Levels* and check the log levels to display:
++
+--
+** *Fatal*: List only fatal messages for when an application fails
+** *Error*: List only error messages, such as when an exception occurs.
+** *Warn*: List warning messages
+** *Info*: List informative messages
+** *Debug*: List debugging messages
+--
 +
 [NOTE]
 Some log levels might not be available depending on the dynamic log level setting for the deployment.
@@ -78,6 +94,8 @@ The *Log Levels* button changes to show the selected number of log levels displa
 == Download Logs
 
 To download logs based on the current filters, click *Download*.
+
+<replace screenshot>
 
 // .The arrow shows the Download icon to download log output.
 image::ch2-logs-download.png[Download log output]
@@ -103,20 +121,11 @@ CloudHub downloads the Mule log output to a text file in the format `__appName__
 Use a text editor to view the log file.
 
 For more information about Mule logs, see xref:mule-runtime::logging-in-mule.adoc#runtime-log[Runtime Log].
-////
 
-//// 
 == Deployment History Persistence
 
 CloudHub stores up to 30 days of inactive deployments history based on the last modified time of the deployment.
-////
 
-
-
-
-
-
-//// 
 == Search Logs
 
 Search for logs that contain specified values or search for logs by date and priority.
@@ -139,51 +148,6 @@ The *Date & Time* filter lets you search the log by specifying a date range. Pos
 * *Last week*
 * *Last month*
 
-=== Search by Message Priority
-
-The *Priority* filter lets you view specific events in the log. You can also specify different priorities by typing `priority<type>` in the search box, as shown in the *Command* column in the table.
-
-Possible values are:
-
-[%header,cols="3*a"]
-|===
-| Value
-| Description
-| Command
-
-| All Priorities
-| List all messages
-| N/A
-
-| `ERROR`
-| List only error messages, such as when an exception occurs.
-| priority:ERROR
-
-| `FATAL`
-| List only fatal messages for when an application fails
-| priority:FATAL
-
-| `INFO`
-| List informative messages
-| priority:INFO
-
-| `SYSTEM`
-| List messages about application and worker startup
-| priority:SYSTEM
-
-| `CONSOLE`
-| List message about console events such as setting the object store
-| priority:CONSOLE
-
-| `WARN`
-| List warning messages
-| priority:WARN
-
-| `DEBUG`
-| List debugging messages
-| priority:DEBUG
-
-|===
 
 === Wildcard Searching
 

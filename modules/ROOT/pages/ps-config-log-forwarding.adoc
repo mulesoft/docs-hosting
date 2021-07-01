@@ -57,7 +57,7 @@ image::splunk-config-tcp.png[Add new option for TCP in the Splunk Data Inputs pa
 
 ////
 
-For more information about setting up data inputs, see the https://docs.splunk.com/Documentation/Splunk/8.0.2/Data/WhatSplunkcanmonitor[Splunk documentation].
+For more information about setting up data inputs, see the https://docs.splunk.com/Documentation/Splunk/8.0.2/Data/WhatSplunkcanmonitor[Splunk documentation^].
 
 //	Specify Load Balancer Log Level		
 //	Specify RTFC Log Level		

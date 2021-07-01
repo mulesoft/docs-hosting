@@ -200,7 +200,7 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 The connection guide, in `.txt` format, downloads to your local system.
 . Give the connection guide to your network administrator to use to configure your gateway device.
 +
-For information, see https://docs.aws.amazon.com/vpc/latest/adminguide/Welcome.html[Your customer gateway device] in the AWS VPN documentation.
+For information, see https://docs.aws.amazon.com/vpc/latest/adminguide/Welcome.html[Your customer gateway device^] in the AWS VPN documentation.
 
 
 === Test a VPN Connection 
@@ -209,11 +209,16 @@ For information, see https://docs.aws.amazon.com/vpc/latest/adminguide/Welcome.h
 
 To test the VPN connection, use the Network Tools Application. 
 
-For download and usage information about the Network Tools Application, see https://help.mulesoft.com/s/article/How-To-Use-Network-Tools-Application[How To Use Network Tools Application].
+For download and usage information about the Network Tools Application, see https://help.mulesoft.com/s/article/How-To-Use-Network-Tools-Application[How To Use Network Tools Application^] (KB article).
 
 == Create a Transit Gateway Attachment
 
 // figure out how to share this entire bit with CH 1.0.
+
+include::partial$feature-availability.adoc[tag=featureUnavailable]
+
+*THIS IS CH 1.0 PLACEHOLDER CONTENT UNTIL THE UI IS AVAILABLE* 
+
 
 On the *Create Transit Gateway Attachment* page:
 

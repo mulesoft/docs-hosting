@@ -47,5 +47,5 @@ To view or manage resources associated with a business group:
 
 == See Also 
 
-* https://docs.mulesoft.com/access-management/roles.html[Roles] (Link out from Beta docs)
-* https://docs.mulesoft.com/access-management/users#granting-permissions-and-roles-to-users[Granting Permissions and Roles to Users] (Link out from Beta docs)
+* https://docs.mulesoft.com/access-management/roles.html[Roles^] (Link out from Beta docs)
+* https://docs.mulesoft.com/access-management/users#granting-permissions-and-roles-to-users[Granting Permissions and Roles to Users^] (Link out from Beta docs)

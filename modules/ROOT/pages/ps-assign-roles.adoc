@@ -10,10 +10,10 @@ To set up and manage CloudHub 2.0, you must have one of the following:
 
 * *Organization Administrators* role for the environments associated with the private space.
 +
-To specify this role, see https://docs.mulesoft.com/access-management/roles.html[Roles].
+To specify this role, see https://docs.mulesoft.com/access-management/roles.html[Roles^](Link out from Beta docs).
 * *Manage Private Spaces* permissions
 +
-To add these permissions to a team, see https://docs.mulesoft.com/access-management/teams[Teams].
+To add these permissions to a team, see https://docs.mulesoft.com/access-management/teams[Teams^] (Link out from Beta docs).
 
 
 To enable inbound traffic to CloudHub 2.0, you might also need the following permissions:

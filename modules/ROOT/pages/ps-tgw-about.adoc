@@ -48,6 +48,6 @@ Consolidate networks to the fewest number possible to avoid exceeding the limit.
 
 For information about limitations when attaching a VPC to a transit gateway, 
 see 
-https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html[Transit gateway attachments to a VPC] in the AWS documentation.
+https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html[Transit gateway attachments to a VPC^] in the AWS documentation.
 
 

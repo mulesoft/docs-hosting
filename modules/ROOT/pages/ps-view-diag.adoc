@@ -26,6 +26,8 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 . In the navigation menu, click *Diagnostics*.
 . Click *Run Thread Dump* and select the active replica to trigger the thread dump from the dropdown.
 +
+<screenshot>
++
 CloudHub 2.0 displays the latest thread dump at the top of the list and downloads it automatically.
 
 == View and Download Past Thread Dumps
@@ -38,6 +40,8 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 . In the navigation menu, click *Diagnostics*.
 +
 The page displays any past thread dumps.
++
+<screenshot>
 +
 * To view logs for a deployment and replica associated with the thread dump, click *View Logs*.
 * To download a thread dump, click *Download*.

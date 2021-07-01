@@ -6,6 +6,7 @@ endif::[]
 
 *THIS IS CH 1.0 PLACEHOLDER CONTENT* 
 
+(Update to match new RTF page)
 
 Because CloudHub 2.0 is an integration platform as a service (iPaaS), 
 it manages operating system and Mule runtime engine patching,
@@ -146,7 +147,7 @@ In this case, the app continues to run correctly on the previous runtime version
 
 Although the Runtime Manager UI doesn't support updating multiple apps to the latest runtime version, 
 you can use the CloudHub 2.0 API to perform a bulk update. 
-See https://help.mulesoft.com/s/article/How-to-Perform-a-Bulk-CloudHub-Application-Update-to-the-Latest-Runtime-Releases[How to Perform a Bulk CloudHub Application Update to the Latest Runtime Releases].
+See https://help.mulesoft.com/s/article/How-to-Perform-a-Bulk-CloudHub-Application-Update-to-the-Latest-Runtime-Releases[How to Perform a Bulk CloudHub Application Update to the Latest Runtime Releases^] (KB article).
 
 
 == Zero-Downtime Restart Limitations
