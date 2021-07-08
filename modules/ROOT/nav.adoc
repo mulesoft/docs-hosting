@@ -14,6 +14,7 @@
 *** xref:ps-config-env.adoc[Associate Environments and Business Groups with a Private Space]
 *** xref:ps-config-log-forwarding.adoc[Configure Log Forwarding for a Private Space]
 *** xref:ps-config-advanced.adoc[Configure Advanced Private Space Settings]
+*** xref:ps-troubleshoot.adoc[Troubleshoot Private Spaces]
 ** xref:ps-manage.adoc[Manage Private Spaces]
 ** xref:ps-deploy.adoc[Deploy Apps to Private Spaces]
 *** xref:ps-app-runtime-version-updates.adoc[CloudHub 2.0 Runtime Continuous Updates]
