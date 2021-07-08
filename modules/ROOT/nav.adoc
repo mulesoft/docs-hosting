@@ -19,7 +19,7 @@
 ** xref:ps-deploy.adoc[Deploy Apps to Private Spaces]
 *** xref:ps-app-runtime-version-updates.adoc[CloudHub 2.0 Runtime Continuous Updates]
 *** xref:ps-manage-props.adoc[Change App Behavior with Properties]
-**** xref:ps-protect-app-props.adoc[Safely Hide Application Properties]
+**** xref:ps-protect-app-props.adoc[Protect App Property Values]
 ** xref:ps-manage-apps.adoc[Manage Apps in Private Spaces]
 *** xref:ps-view-logs.adoc[View App Logs]
 *** xref:ps-view-diag.adoc[View App Diagnostics]

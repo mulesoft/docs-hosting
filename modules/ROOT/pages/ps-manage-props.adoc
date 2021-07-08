@@ -8,10 +8,21 @@ include::partial$feature-availability.adoc[tag=featureUnavailable]
 
 *THIS IS CH 1.0 PLACEHOLDER CONTENT UNTIL THE UI IS AVAILABLE* 
 
-You can change the behavior of the app while it's running using properties in either Anypoint Runtime Manager or a properties file.
+You can change the behavior of the app while it's running using _properties_.
 
+Application properties are variables that act as placeholders in your Mule application and are set at runtime.
+When you deploy an application or update an existing application in Runtime Manager, Mule runtime engine supplies the values for the property variables using the information you configure in the *Properties* tab.
+
+For example, you can configure a JDBC connector in which the username is set to `${dbUsername}` and the password is set to `${dbPassword}`.
+In Runtime Manager, you can set these two properties as application properties.
+
+For sensitive information, you can protect the property values so that,
+after you save them in Runtime Manager, their values aren't visible in the console
+or passed between the console and CloudHub 2.0.
+For information, see xref:ps-protect-app-props.adoc[Protect App Property Values].
+
+You can properties in either Anypoint Runtime Manager or a properties file.
 If you set properties both in the properties file in your application and in Runtime Manager, the values set in Runtime Manager always override the values in the properties file when your application deploys.
-
 
 == Add Application Properties in Runtime Manager 
 
@@ -23,7 +34,7 @@ To add properties:
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
-. Click the application name.
+. Click the app name.
 . In the navigation menu, click *Settings*.
 . On the *Settings* page, click the *Properties* tab:
 +
@@ -43,12 +54,13 @@ To work around this limitation, use Chrome in incognito mode or use another brow
 +
 --
 ** If you want to hide the value in Runtime Manager, click *Protect* and then click *Protect value* to confirm.
++
+See xref:ps-protect-app-props.adoc[Protect App Property Values].
 ** If you want to change a key or value, edit the text in the field.
 ** If you want to delete a property, click *X*.
 ** Click *Apply Changes*.
 --
 . Select *Restart* from the menu in the top right to restart the application.
-
 
 
 === Example: Using Properties to Set Environment Variables 
@@ -64,7 +76,7 @@ To create set an environment variable using an application property:
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
-. Click the application name.
+. Click the app name.
 . In the navigation menu, click *Settings*.
 . On the *Settings* page, click the *Properties* tab. 
 . Define the variable by entering it in the *Text view*, in `key=value` format:
@@ -100,7 +112,7 @@ Although this method is not the best practice on CloudHub 2.0 (because the *Prop
 To prevent CloudHub 2.0 properties from overriding properties bundled with the deployable archive, change options in the `property-placeholder` element in the Mule application.
 For more information about nondefault property placeholder options, see the https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/support/PropertySourcesPlaceholderConfigurer.html[Spring documentation on Property Placeholder options^].
 
-== CloudHub 2.0 Reserved Properties 
+== Reserved Properties 
 
 *These values are for CH 1.0 - still applicable? I guess remove worker-specific props?*
 
@@ -172,10 +184,8 @@ Example output:
 ----
 
 
-
-
 == See Also
 
 * https://docs.mulesoft.com/mule-runtime/4.3/configuring-properties[Configuring Properties^] (Mule 4) (Link out from Beta docs)
 * xref:ps-deploy.adoc[Deploy Apps to Private Spaces]
-* xref:ps-protect-app-props.adoc[Safely Hide Application Properties]
+* xref:ps-protect-app-props.adoc[Protect App Property Values]
