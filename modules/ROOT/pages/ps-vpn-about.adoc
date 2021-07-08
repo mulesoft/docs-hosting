@@ -58,8 +58,10 @@ Your endpoint must initiate traffic to establish and maintain the connection bec
 
 Anypoint VPN supports dynamic or static routing for VPN connections.
 
-* *Dynamic routing* Your device uses Border Gateway Protocol (BGP) to advertise routes to Anypoint VPN. Use BGP routing if your device supports this protocol.
-* *Static routing* - Requires you to specify the routes (subnets) in your network that are accessible through Anypoint VPN.
+Dynamic routing::
+Your device uses Border Gateway Protocol (BGP) to advertise routes to Anypoint VPN. Use BGP routing if your device supports this protocol.
+Static routing::
+Requires you to specify the routes (subnets) in your network that are accessible through Anypoint VPN.
 
 [NOTE]
 A maximum of 95 route table entries is permitted per private space, regardless of the number of VPN connections.
@@ -86,6 +88,42 @@ To limit the impact of this behavior, configure your endpoint with TCP MSS Adjus
 * Reset the `DF` flag on packets.
 +
 Packets might carry a Don't Fragment (`DF`) flag, indicating that the packet must not be fragmented. Some VPN devices can override the `DF` flag and fragment packets unconditionally when required. If available, enable the setting `Clear Don't Fragment (DF) Bit`.
+
+== VPN High Availability
+
+////
+
+https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-redundant-connection.html
+
+risks of having a VPN that’s not highly available, potential causes, and recommendations on how to address it. We can assume in this case that their VPN uses static routing, so it’s possible that this is intended behavior.
+
+
+////
+
+=== VPN and Tunnel Status
+
+New VPN connections that you create appear in the *Connections* section of the private space.
+Initially, both VPN tunnels display DOWN while the infrastructure is created.
+
+Depending on your configuration, tunnels might report a status of DOWN during normal operations.
+
+
+[%header%autowidth.spread]
+|===
+|Status |Tunnel 1/2 |Description
+|`Pending` |`DOWN/DOWN` |The VPN connection is recently created, and actions are pending in the background.
+
+You might see this status for 10-15 minutes after creating a VPN.
+|`Available` |`DOWN/DOWN` |The VPN connection is created, but the remote side is not configured or is not sending traffic.
+|`Available` |`Up/Up` or `Up/Down` |The VPN connection is created, and the remote side established the connection successfully.
+
+Tunnels operate in active/active or active/passive mode, depending on the routing configuration and your VPN device type. 
+|`Failed` |`DOWN/DOWN` | The VPN connection is not created.
+
+Delete the VPN and try again. If this failure recurs, contact MuleSoft Support.
+|===
+
+
 
 
 == See Also

@@ -514,6 +514,8 @@ Explanation of the difference between routing types, especially related to how t
 
 
 Create a redundant VPN connection to the same external network to reduce downtime if another VPN or gateway fails. Because this connection uses dynamic routing, failover will be automatic. 
+
+Benefits of a redundant VPN
 ////
 
 

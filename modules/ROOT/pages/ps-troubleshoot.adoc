@@ -1,0 +1,16 @@
+= Troubleshoot Private Spaces  
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+== VPN Tunnel Down
+
+== Tunnels in a VPN Advertising Different Numbers of Routes
+
+== VPNs in a Connection Advertising Different Numbers of Routes
+
+== VPN not Connected to Your External Network
+
+
+== See Also 
+
