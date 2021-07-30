@@ -3,10 +3,6 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-
-include::partial$feature-availability.adoc[tag=featureUnavailable]
-
-
 CloudHub 2.0 supports log forwarding to:
 
 * Anypoint Monitoring
@@ -17,10 +13,10 @@ Forwards only application logs to Anypoint Monitoring and requires a Titanium su
 Forwards application and load-balancer logs to the specified service:
 +
 ** Azure
-** BigQuery
-** Datadog
 ** Elasticsearch
+** Graylog (GELF)
 ** Splunk
+** CloudWatch
 
 // How can we share this content with RTF?
 
@@ -78,25 +74,25 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 +
 This option is available only if you have a Titanium subscription.
 ** *Forward logs to an external service*
---
 . To forward logs to an external service, select the service and enter the configuration information for the service:
 +
 *** <<Azure Log Analytics Configuration Parameters>> 
-*** <<BigQuery Configuration Parameters>>
-*** <<Datadog Configuration Parameters>> 
-*** <<Elasticsearch Configuration Parameters, Elasticsearch Configuration Parameters>>
+*** <<Elasticsearch Configuration Parameters>>
+*** <<GELF Configuration Parameters>> 
 *** <<Splunk Configuration Parameters>>
-
+*** <<CloudWatch Configuration Parameters>>
+--
 . Select to forward logs from:
-+
+
 ** *Mule applications*
 +
-You can disable log forwarding for an app during deployment. 
-** *Load balancer*
+You can disable log forwarding for an app during deployment.
+** *CloudHub 2.0 components and Ingress load balancer*
 +
 Configure load balancer log levels in the *Domains* tab.
-+
 See xref:ps-config-domains.adoc#load-balancer-log-levels[Load Balancer Log Levels].
+** *Monitoring and appliance services*
+
 . Click *Save logging* or *Discard changes*.
 +
 The *Logging* page displays a message indicating that the 
@@ -112,27 +108,14 @@ between your private space and the external service.
 |===
 | Parameter | Description | Required | Default Value
 | Customer ID | Specifies the customer ID or workspace ID string. | Yes |
-| Shared Key | Specifies the primary or secondary connected sources client authentication key. | Yes |
-| Log Type | Specifies the event type name. | No | runtime_fabric_cloud
+| Shared Key | Specifies the primary or secondary connected sources client authentication key.
+
+This value is hidden and stored securely.
+ | Yes |
+| Log Type | Specifies the event type name. | No | runtime_fabric
 |===
 
-=== BigQuery Configuration Parameters
 
-[%header%autowidth.spread,cols="a,a,a,a"]
-.BigQuery Configuration Parameters
-|===
-| Parameter | Description | Required | Default Value
-| blah | blah | blah | blah
-|===
-
-=== Datadog Configuration Parameters 
-
-[%header%autowidth.spread,cols="a,a,a,a"]
-.Datadog Configuration Parameters
-|===
-| Parameter | Description | Required | Default Value
-| blah | blah | blah | blah
-|===
 
 === Elasticsearch Configuration Parameters
 
@@ -142,21 +125,27 @@ between your private space and the external service.
 | Parameter | Description | Required | Default Value
 | Host | Specifies the IP address or hostname of the target Elasticsearch instance. | Yes | 127.0.0.1
 | Port | Specifies the TCP port of the target Elasticsearch instance. | Yes | 9200
-| Index | Specifies the index name. | Yes | runtime_fabric_cloud
-| Path | Elasticsearch accepts new data on HTTP query path `/_bulk`. But it is also possible to serve Elasticsearch behind a reverse proxy on a subpath. This option defines such a path on the output plugin side. It adds a path prefix in the indexing HTTP POST URI. | No | Empty string
-| Buffer Size | Specifies the buffer size used to read the response from the Elasticsearch HTTP service. This option is useful for debugging purposes where reading the full response is needed. Note that the size of the response grows depending on the number of records inserted. To specify an unlimited amount of memory, set this value to `False`. Otherwise, set the value according to the Unit Size specification. | No | 4KB
+| Index | Specifies the index name. | Yes | runtime_fabric
+| Path | Elasticsearch accepts new data on HTTP query path `/_bulk`. You can also serve Elasticsearch behind a reverse proxy on a subpath. This option defines such a path on the output plugin side. It adds a path prefix in the indexing HTTP POST URI. | No | Empty string
+
+| Buffer Size | Specifies the buffer size used to read the response from the Elasticsearch HTTP service.
+
+This option is useful for debugging purposes where reading the full response is needed.
+The size of the response grows depending on the number of records inserted. To specify an unlimited amount of memory, set this value to `False`. Otherwise, set the value according to the Unit Size specification. | No | 4KB
 | HTTP User | Specifies an optional username credential for Elastic X-Pack access. | No | 
-| HTTP Passwd | Specifies a password for the user defined in `HTTP User`. | No | 
+| HTTP Password | Specifies a password for the user defined in `HTTP User`. | No | 
 | Type | Specifies the type name. | No | runtime_fabric_cloud
-| Logstash Format | Enables Logstash format compatibility. This option takes a Boolean value: `True`, `False`, `On`, or `Off`. | No |
+| Logstash Format | Enables Logstash format compatibility.
+
+This option takes a Boolean value: `True`, `False`, `On`, or `Off`. | No |
 | Logstash Prefix | When `Logstash Format` is enabled, the `Index` name is composed of a prefix and the date. For example, if `Logstash Prefix` is set to `mydata`, your index becomes `mydata-YYYY.MM.DD`. The last string that is appended belongs to the date when the data is generated. | No | logstash
-| Logstash DateFormat | Specifies the time format (based on `strftime`) that is used to generate the second part of the `Index` name. | No | %Y.%m.%d
+| Logstash Date Format | Specifies the time format (based on `strftime`) that is used to generate the second part of the `Index` name. | No | %Y.%m.%d
 | Time Key | When `Logstash Format` is enabled, each record is assigned a new timestamp field. The `Time Key` property defines the name of that field. | No | @timestamp
 | Time Key Format | When `Logstash Format` is enabled, this property defines the format of the timestamp. | No | %Y-%m-%dT%H:%M:%S
 | Include Tag Key | When enabled, the tag name is appended to the record. | No | Off
 | Tag Key | When `Include Tag Key` is enabled, this property defines the key name for the tag. | No |
 | Generate ID | When enabled, generates the `_id` value for outgoing records. This prevents duplicate records when retrying ES. | No | Off
-| Replace Dots | When enabled, replaces field name dots ('.') with an underscore ('_'), which is required by Elasticsearch 2.0 through 2.3. | No | Off
+| Replace Dots | When enabled, replaces field name dots (`.`) with an underscore (`_`), which is required by Elasticsearch 2.0 through 2.3. | No | Off
 | Trace Output | When enabled, prints the Elasticsearch API calls to stdout (for diagnosis). | No | Off
 | Trace Error | When enabled, prints the Elasticsearch API calls to stdout when Elasticsearch returns an error. | No | Off
 | Current Time Index | Specifies using the current time for index generation instead of message record information. | No | Off
@@ -164,6 +153,51 @@ between your private space and the external service.
 | TLS | Enables or disables TLS support. | No | Off
 | CA Path Certificate File |  Specifies the CA certificate file to be uploaded. This option is available only when TLS is enabled. | No |
 |===
+
+
+=== GELF Configuration Parameters
+
+[%header%autowidth.spread,cols="a,a,a,a"]
+.GELF Configuration Parameters
+|===
+| Key | Description | Required | Default Value
+| Match | Specifies the pattern to match for log tags to be output by this plugin. | Yes |
+| Host | Specifies the IP address or hostname of the target Graylog server. | Yes | 127.0.0.1
+| Port | Specifies the port on which your Graylog GELF input is listening. | Yes | 12201
+| Mode | Specifies the protocol to use (`tls`, `tcp`, or `udp`). | Yes | udp
+| Gelf Short Message Key | Specifies a short descriptive message.
+
+This value must be set in GELF. | Yes | log
+| Gelf Timestamp Key | Specifies your log timestamp.
+
+This value should be set in GELF. | No | timestamp
+| Gelf Host Key | Specifies the key for the value that is used as the name of the host, source, or application that sent the message.
+
+This value must be set in GELF. | No | host
+| Gelf Full Message Key | Specifies the key to use as the long message, which can contain a backtrace.
+
+This value is optional in GELF. | No | full_message
+| Gelf Level Key | Specifies the key to be used as the log level.
+
+The key value must be a standard syslog level (between 0 and 7). | No | level
+| Packet Size | Specifies the size of packets to be sent if the transport protocol is set to `udp`. | No | 1420
+| Compress | Specifies compression of your UDP packets if the transport protocol is set to `udp`. | No | true
+| TLS | Enables or disables TLS support. | No | Off
+| CA Path Certificate File |  Specifies the CA certificate file to be uploaded.
+
+This option is available only when TLS is enabled. | No |
+|===
+
+Example output plugin configuration:
+```
+[OUTPUT]
+    Name                    gelf
+    Match                   kube.*
+    Host                    <your-graylog-server>
+    Port                    12201
+    Mode                    tcp
+    Gelf_Short_Message_Key  log
+```
 
 
 === Splunk Configuration Parameters
@@ -174,25 +208,114 @@ between your private space and the external service.
 | Parameter | Description | Required | Default Value
 | Host | Specifies the IP address or hostname of the target Splunk service. | Yes | 127.0.0.1
 | Port | Specifies the TCP port of the target Splunk service. | Yes | 8088
-| Splunk token | Specifies the Authentication Token for the HTTP Event Collector interface.
+| Splunk Token | Specifies the Authentication Token for the HTTP Event Collector interface.
 
 CloudHub 2.0 hides and stores this value securely. | Yes |
-| HTTP user (optional)| Specifies a username for basic authentication on the HTTP Event Collector. | No |
-| HTTP password (optional) | Specifies a password for the user defined in HTTP user.
+| HTTP User | Specifies a username for basic authentication on the HTTP Event Collector. | No |
+| HTTP Password | Specifies a password for the user defined in HTTP user.
+
 CloudHub 2.0 hides and stores this value securely. | No |
 | TLS | Enables or disables TLS support. | No | Off
-| CA Path Certificate File |  Specifies the CA certificate file to upload. This option is available only when TLS is enabled. | No |
+| CA Path Certificate File |  Specifies the CA certificate file to upload.
+
+This option is available only when TLS is enabled. | No |
 |===
 
+
+==== CloudWatch Configuration Parameters
+
+[%header%autowidth.spread,cols="a,a,a,a"]
+.CloudWatch Configuration Parameters
+|===
+| Key | Description | Required | Default Value
+| Region | Specifies the AWS region. | Yes |
+| AWS Access Key ID | Specifies the access key ID for the IAM user. | Yes |
+| AWS Secret Access Key | Specifies the AWS secret access key for the IAM user. | Yes |
+| Log Group Name | Specifies the name of the CloudWatch log group to which you want log records sent.| Yes | runtime_fabric_cloudwatch
+| Log Stream Name | Specifies the name of the CloudWatch log stream to which you want log records sent. | Yes |
+| Log Stream Prefix | Specifies the prefix for the log stream name.
+
+The tag is appended to the prefix to construct the full log stream name. Not compatible with the `Log Stream Name` option. | No |
+| Role ARN | Specifies the ARN of an IAM role to assume (for cross account access). | No |
+| Auto Create Group | Automatically creates the log group.
+
+Valid values are `On` or `Off` (case sensitive). | No | Off
+|===
+
+[NOTE]
+You must specify either  `Log Stream Name` or `Log Stream Prefix`, but not both.
+
+Example output plugin configuration:
+```
+[OUTPUT]
+    Name                   cloudwatch_logs
+    region                 us-east-1
+    aws_access_key_id      <your_AWS_access_key_ID>
+    aws_secret_access_key  <your_AWS_secret_access_key>
+    log_group_name         runtime_fabric_cloudwatch
+    log_stream_prefix      my_stream
+    auto_create_group      On
+```
+
+////
+==== Syslog Configuration Parameters
+
+[%header%autowidth.spread,cols="a,a,a,a"]
+.Syslog Configuration Parameters
+|===
+| Key | Description | Required | Default Value
+| Host | Host name or IP address of the remote Syslog server | Yes |
+| Port | TCP or UDP port of the remote Syslog server | Yes | 514
+| Mode | The mode of the transport type | Yes | udp
+| Syslog format | Syslog protocol format | No | rfc5424
+| Syslog Maxsize | Integer value that sets the maximum number of bytes per message | No | 1024 for rfc3164, 2048 for rfc5424
+|===
+
+Example output plugin configuration:
+```
+[OUTPUT]
+    Name           syslog
+    Host           127.0.0.1
+    Port           514
+    Mode           udp
+    Syslog_Format  rfc5424
+    Syslog_Maxsize 2048
+```
+==== Datadog Configuration Parameters
+
+[%header%autowidth.spread,cols="a,a,a,a"]
+.Datadog Configuration Parameters
+|===
+| Key | Description | Required | Default Value
+| Host | The host name of the remote Datadog server. | Yes |
+| Api Key | The Datadog API key. | Yes |
+| Compress | Compresses the payload in GZIP format. Datadog recommends setting this to `gzip`. | No | `gzip`
+| Datadog Service | The name of the service generating the logs. For example, `runtime_fabric` | No |
+| Datadog Source | The type of service. For example, `postgres` or `nginx` | No |
+| Datadog Tags | The tags assigned to the logs in Datadog. | No |
+| TLS | End-to-end secure communications protocol support. DataDog does not support CA certificate files.| No | Off
+|===
+
+Example output plugin configuration:
+```
+[OUTPUT]
+    Name        datadog
+    Host        http-intake.logs.datadoghq.com
+    apikey      <your-datadog-api-key>
+    TLS         on
+    compress    gzip
+    dd_service  <your-app-service>
+    dd_source   <your-app-source>
+    dd_tags     team:logs,foo:bar
+```
+////
 
 == Delete the External Logging Configuration
 
 To delete the configuration, deselect *Forward logs to an external service*
 and then click *Save logging*. 
 
-
 == See Also 
 
 * xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed in a Private Space]
 * xref:ps-deploy.adoc[Deploy Apps to Private Spaces]
-* https://docs.mulesoft.com/runtime-fabric/1.9/deploy-to-runtime-fabric#deploy-a-mule-application-to-runtime-fabric[Deploy a Mule Application to Runtime Fabric^] (link out from Beta docs).
