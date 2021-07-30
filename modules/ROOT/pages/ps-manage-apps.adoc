@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 
 
-* xref:ps-manage-props.adoc[Manage App Properties]
+* xref:ps-manage-props.adoc[Change App Behavior with Properties]
 * xref:ps-view-logs.adoc[View App Logs]
 * xref:ps-view-diagnostics[View App Diagnostics]
 * xref:ps-manage-schedules[Manage App Schedules]
