@@ -521,9 +521,30 @@ Benefits of a redundant VPN
 
 == Transit Gateway Attachment Requirements
 
+
 * <<transit-gateway-name>>
 * <<transit-gateway-region>>
 * <<transit-gateway-routing>>
+
+=== Prerequisites
+
+Before you can add a transit gateway to CloudHub:
+
+* Create a transit gateway on your corporate AWS account.
++
+See https://docs.aws.amazon.com/vpc/latest/tgw/tgw-getting-started.html[Getting started with transit gateways^] in the AWS documentation for information about creating a transit gateway on AWS.
++
+One transit gateway can support up to 10 VPC attachments.
+* Purchase a Private Space offering with Transit Gateway entitlements.
++
+The *Transit Gateways* page is visible in Runtime Manager to Anypoint organizations that have an Anypoint VPC/VPN license.
++
+Attaching one Anypoint VPC to an AWS Transit Gateway uses one Anypoint VPN license.
+* Sign in to an Anypoint Platform account with either the CloudHub 2.0 Network Administrator or the CloudHub 2.0 Network Viewer user permission.
++
+See xref:access-management::users.adoc#grant-permissions-and-roles-to-users[Grant Permissions and Roles to Users].
+
+* Identify the subnets in your network (in CIDR notation) that you want to make accessible through the transit gateway.
 
 [[transit-gateway-name]]
 === Name
@@ -544,7 +565,8 @@ Your private space and AWS transit gateway must be in the same region.
 [[transit-gateway-routing]]
 === Routing
 
-
+A maximum of 95 route table entries is permitted per VPC, regardless of the number of transit gateway attachments.
+Consolidate networks to the fewest number possible to avoid exceeding the limit.
 
 == See Also 
 

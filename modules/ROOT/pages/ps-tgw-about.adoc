@@ -4,14 +4,17 @@ include::_attributes.adoc[]
 endif::[]
 
 
-AWS Transit Gateway is a network transit hub that provides a centralized way to connect your AWS VPCs and on-premise networks.
-The transit gateway simplifies your network connectivity by functioning as a cloud router, 
-managing your VPC connections and requiring only one connection from CloudHub.
+AWS Transit Gateway acts as a cloud router in AWS, simplifying network access between VPCs,
+on-premise, and third-party software, while providing increased visibility and control over the network.
+Transit gateways effectively merge your organization’s cloud resources and on-premises datacenters
+into one network topology.
 
+On CloudHub, you can take advantage of this network simplification by securely attaching an Anypoint Virtual Private Cloud (VPC)
+to an AWS Transit Gateway in your AWS account.
 
-On Anypoint Platform, you can attach your private space to your AWS Transit Gateway in your AWS account.
-This attachment enables your private space to access any AWS VPCs and on-premise networks that 
-you allow via your Transit Gateway. 
+You can add multiple transit gateways to your Anypoint Platform organization.
+The number of transit gateways you can add depends on the transit gateway entitlements available to your account. 
+Contact your MuleSoft account representative if you don't know how many entitlements are associated with your account. 
 
 To use transit gateway attachments, your private space and AWS transit gateway must be in the same region.
 
@@ -19,35 +22,19 @@ image::ps-overview-tgw.png[Transit Gateway Overview]
 
 To attach your private space to your transit gateway, see xref:ps-create-configure.adoc#create-a-connection-to-an-external-network[Create a Connection to an External Network].
 
-////
+== Limitations
 
-Use transit gateway attachments to create a secure connection between your Virtual Private Cloud (VPC) and your private corporate networks.
-You can add multiple transit gateway attachments if required. 
+The following limits are governed by AWS limits:
 
-[NOTE]
-The number of transit gateways you can add depends on the transit gateway entitlements available to your account.
-Contact your MuleSoft account representative if you don't know how many entitlements are associated with your account. 
-
-////
-
-== Transit Gateway Attachment Routing
-
-VPC supports static routing for transit gateway attachments.
-
-You must configure the routes (subnets) in your network that you want to be accessible through the transit gateway attachments:
-
-* On Anypoint Platform, add the AWS VPC routes to the transit gateway route table.
-* On AWS, add the Anypoint VPC routes to the AWS VPC route table.
-
-
-[NOTE]
-A maximum of 95 route table entries is permitted per VPC, regardless of the number of transit gateway attachments.
-Consolidate networks to the fewest number possible to avoid exceeding the limit.  
-
-=== Transit Gateway Attachment Limitations
+* Maximum number of transit gateways per VPC
+* Maximum number of VPCs that you can attach to a transit gateway
 
 For information about limitations when attaching a VPC to a transit gateway, 
 see 
 https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html[Transit gateway attachments to a VPC^] in the AWS documentation.
 
 
+== See Also
+
+* https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html[What is a transit gateway?^] in the AWS documentation
+* https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html[Transit gateway route tables^] in the AWS documentation

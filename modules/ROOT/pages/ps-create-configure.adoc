@@ -75,7 +75,7 @@ Runtime Manager supports Unicode characters in connection names.
 .. Select the *Connection Type*, click *Next*, and then, depending on the connection type you selected:
 +
 *** *VPN*: Follow the steps in <<create-a-vpn>>.
-*** *Transit Gateway*: Follow the steps in <<create-a-transit-gateway-attachment>>.
+*** *Transit Gateway*: Follow the steps in <<connect-to-a-transit-gateway>>.
 --
 
 == Create a VPN
@@ -211,7 +211,7 @@ To test the VPN connection, use the Network Tools Application.
 
 For download and usage information about the Network Tools Application, see https://help.mulesoft.com/s/article/How-To-Use-Network-Tools-Application[How To Use Network Tools Application^] (KB article).
 
-== Create a Transit Gateway Attachment
+== Connect to a Transit Gateway
 
 // figure out how to share this entire bit with CH 1.0.
 
@@ -220,26 +220,25 @@ include::partial$feature-availability.adoc[tag=featureUnavailable]
 *THIS IS CH 1.0 PLACEHOLDER CONTENT UNTIL THE UI IS AVAILABLE* 
 
 
-On the *Create Transit Gateway Attachment* page:
+On the *Create Connection* page:
 
-. Specify a xref:ps-gather-setup-info.adoc#transit-gateway-name[name] for your transit gateway.
+. Select *Transit Gateway* and enter the transit gateway xref:ps-gather-setup-info.adoc#transit-gateway-name[name] in the *Connection Name* field.
 +
 Use the same name for your transit gateway in AWS.
-You can change this name later. 
-. Select the xref:ps-gather-setup-info.adoc#transit-gateway-region[region] that corresponds to the location your AWS transit gateway.
+You can change this name later.
 +
-Your private space and AWS transit gateway must be in the same region.
 . Click *Next*.
 +
-The *Add transit gateway* page lists the steps to create a resource share in AWS.
+The *Add Transit Gateway* page lists the steps to create a resource share in AWS.
+. In *Static Routes*, enter the IP prefixes of the external networks to connect through the transit gateway.
 
 === Create a Resource Share
 
 . Sign in to your AWS corporate account.
-. In Anypoint Platform, click the *Create Resource Share* link on the *Add transit gateway* page. 
+. In Anypoint Platform, click the *Create resource share* link on the *Add transit gateway* page. 
 +
 The link opens the AWS RAM console to the page for creating a resource share in the region you specified.
-. In the *Create resource share* page on AWS: 
+. On the AWS *Create resource share* page:
 +
 --
 .. Under *Description*, enter a descriptive name for the resource share in the *Name* field.
@@ -247,18 +246,20 @@ The link opens the AWS RAM console to the page for creating a resource share in 
 +
 The transit gateway ID appears in the *Selected resources* field.
 .. Under *Principals - _optional_*, ensure that *Allow external accounts* is selected, 
-enter the MuleSoft AWS account ID that appears in the *Add transit gateway* page, and click *Add*.
+enter the MuleSoft AWS account ID that appears on the *Add transit gateway* page, and click *Add*.
 +
 The AWS account number appears in the *Selected principals* field.
+.. Under *Tags*, add a tag if you want.
 .. Click *Create resource share*.
-.. Copy the following values for the resource share you just created: *ID* and *Owner*.
+.. Copy the *ID* and *Owner* values for the resource share you just created. 
 --
 . In Anypoint Platform, in the *Add transit gateway* window: 
 +
 --
 .. Click *Next*.
-.. Paste the values you copied from AWS in the *ID* and *Owner* fields.
-
+.. Paste the values you copied from AWS in the *ID* and *Owner* fields:
++
+<screenshot>
 *** The resource share *ID* field contains alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-).
 *** The resource share *Owner* field contains only numbers.
 
@@ -268,15 +269,21 @@ The AWS account number appears in the *Selected principals* field.
 The *Transit Gateways* page shows the progress for connecting to AWS and adding the transit gateway to Anypoint Platform.
 
 When the transit gateway addition succeeds, the *Transit Gateways* page displays the *Transit gateway added* message.
-The *Transit Gateways* page updates the owner and ID from AWS and the State as *Available*.
+The *Transit Gateways* page updates the owner and ID from AWS and the state as *Available*:
+
+<screenshot>
 
 // image::tgw-resource-share-available.png[Transit gateway added]
 
-// If the transit gateway addition fails, see xref:tgw-troubleshoot.adoc[Troubleshoot Transit Gateway Attachments].
+// If the transit gateway addition fails, see xref:ps-troubleshoot.adoc[Troubleshoot Transit Gateway Attachments].
 
 === Attach a Private Space to the Transit Gateway
 
 After the transit gateway attachment succeeds, you can attach your private space.
+
+For information about limitations when attaching a VPC to a transit gateway, 
+see 
+https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html[Transit gateway attachments to a VPC^] in the AWS documentation.
 
 To attach a private space to the transit gateway:
 
@@ -286,12 +293,13 @@ The *Attach Private Space* button is disabled if no private spaces are available
 . From the *Select Private Space* window, select the private space to attach.
 +
 The window displays only the private spaces that you manage in the same region as the transit gateway.
-The window doesn't display private spaces:
+The window displays only the VPCs that are:
 +
 --
-* In other regions
-* Already attached to a transit gateway
-* In Business Groups for which you don't have Cloudhub Network Administrator permissions
+* In the same region as the transit gateway
+* Not already attached to the transit gateway
+// Can VPCs be added to multiple transit gateways?
+* In business groups for which you have CloudHub 2.0 Network Administrator permissions
 --
 . Click *Next*.
 . Sign in to your AWS corporate account.
@@ -310,11 +318,21 @@ To verify that the attachment is correct, select the Transit Gateway attachment 
 +
 The *Transit Gateways* page shows the progress for accepting the attachment from Anypoint Platform to AWS.
 
-When the attachment succeeds, the *Transit Gateways* page displays the *Private space attached* message, and the private space shows the `Attached successfully` message.
+When the VPC attachment succeeds, the *Transit Gateways* page displays the *Private space attached* message and the attachment state indicates that it's attached to Transit Gateway.
 
-// If the attachment fails, see xref:tgw-troubleshoot.adoc[Troubleshoot Transit Gateway Attachments].
+// If the VPC attachment state is `Rejected`, see xref:tgw-troubleshoot.adoc[Troubleshoot Transit Gateway Attachments].
 
-=== Add Routes to the Transit Gateway Route Table
+=== Configure Transit Gateway Routing
+
+CloudHub 2.0 supports static routing for transit gateways.
+
+You must configure the network routes (subnets) that you want to be accessible through the transit gateway:
+
+* On Anypoint Platform, <<enable_outbound_traffic_from_ps,enable outbound traffic from the private space>> to an external destination.
+* On AWS, <<enable_inbound_traffic_on_aws,enable inbound traffic>> through your transit gateway. 
+
+[[enable_outbound_traffic_from_ps]]
+==== Enable Outbound Traffic from the Private Space
 
 After the *Private space attached* message appears, you can add routes so apps deployed to the private space can access the transit gateway.
 
@@ -332,6 +350,13 @@ When the route addition succeeds, the *Transit Gateways* page shows the *Route a
 and the *Transit Gateways* page shows the route CIDR in the route table.
 
 In the route table, added routes show *Transit Gateway* as the value in the *Next hop* column. 
+
+[[enable_inbound_traffic_on_aws]]
+==== Enable Inbound Traffic Through the Transit Gateway
+
+After successfully adding routes to the transit gateway route table in Anypoint Platform, enable inbound traffic through your transit gateway on AWS. 
+
+You might need to coordinate with your network administrator to enable inbound traffic.
 
 
 == See Also 
