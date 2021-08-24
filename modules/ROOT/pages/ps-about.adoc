@@ -45,9 +45,9 @@ You can connect a private space to your private network using the following meth
 * xref:ps-tgw-about.adoc[Transit gateway attachment]
 
 [NOTE]
+Before configuring routing, consolidate networks to the fewest number possible.
 A maximum of 95 route table entries is allowed per private space,
 regardless of the number of connections.
-To avoid exceeding the limit, consolidate networks to the fewest number possible.
 
 
 == DNS Target and TLS Context 

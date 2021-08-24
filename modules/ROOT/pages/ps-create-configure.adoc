@@ -238,7 +238,7 @@ The *Add Transit Gateway* page lists the steps to create a resource share in AWS
 . In Anypoint Platform, click the *Create resource share* link on the *Add transit gateway* page. 
 +
 The link opens the AWS RAM console to the page for creating a resource share in the region you specified.
-. On the AWS *Create resource share* page:
+. Take the following actions on the AWS *Create resource share* page:
 +
 --
 .. Under *Description*, enter a descriptive name for the resource share in the *Name* field.
@@ -253,7 +253,7 @@ The AWS account number appears in the *Selected principals* field.
 .. Click *Create resource share*.
 .. Copy the *ID* and *Owner* values for the resource share you just created. 
 --
-. In Anypoint Platform, in the *Add transit gateway* window: 
+. Take the following actions in the Anypoint Platform *Add transit gateway* window: 
 +
 --
 .. Click *Next*.
@@ -312,13 +312,13 @@ The link opens the AWS RAM console to the page for accepting the transit gateway
 +
 The attachment might take a few minutes to appear.
 +
-To verify that the attachment is correct, select the Transit Gateway attachment ID and, in the *Details* tab, ensure that the *Resource owner account ID* is the MuleSoft AWS account ID from the *Add transit gateway* page.
+To verify that the attachment is correct, select the transit gateway attachment ID and, in the *Details* tab, ensure that the *Resource owner account ID* is the MuleSoft AWS account ID from the *Add transit gateway* page.
 .. From the *Actions* menu, select *Accept*.
 . In Anypoint Platform, in the *Accept Private Space Attachment* window, click *Done*.
 +
 The *Transit Gateways* page shows the progress for accepting the attachment from Anypoint Platform to AWS.
 
-When the VPC attachment succeeds, the *Transit Gateways* page displays the *Private space attached* message and the attachment state indicates that it's attached to Transit Gateway.
+When the VPC attachment succeeds, the *Transit Gateways* page displays the *Private space attached* message and the attachment state indicates that it's attached to AWS Transit Gateway.
 
 // If the VPC attachment state is `Rejected`, see xref:tgw-troubleshoot.adoc[Troubleshoot Transit Gateway Attachments].
 
@@ -326,7 +326,7 @@ When the VPC attachment succeeds, the *Transit Gateways* page displays the *Priv
 
 CloudHub 2.0 supports static routing for transit gateways.
 
-You must configure the network routes (subnets) that you want to be accessible through the transit gateway:
+Configure the network routes (subnets) that you want to be accessible through the transit gateway:
 
 * On Anypoint Platform, <<enable_outbound_traffic_from_ps,enable outbound traffic from the private space>> to an external destination.
 * On AWS, <<enable_inbound_traffic_on_aws,enable inbound traffic>> through your transit gateway. 
