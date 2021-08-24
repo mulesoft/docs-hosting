@@ -1,4 +1,4 @@
-= Deploy Apps to Private Spaces
+= Deploy Apps to CloudHub 2.0
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

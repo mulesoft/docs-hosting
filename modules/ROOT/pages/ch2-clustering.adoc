@@ -5,6 +5,8 @@ endif::[]
 
 *THIS IS CH 1.0 PLACEHOLDER CONTENT* 
 
+Remove persistent queues; point to Anypoint MQ instead?
+
 
 Clustering provides scalability, workload distribution, and added reliability to your applications on CloudHub. This functionality is powered by CloudHub's scalable load-balancing service, worker scale-out, and persistent queues features.
 
@@ -245,8 +247,7 @@ This issue occurs only when a flow produces messages that need to be added to a 
 == See Also
 
 * xref:cloudhub-architecture.adoc#cloudhub-workers[CloudHub Workers]
-* xref:managing-queues.adoc[Manage Queues]
-* xref:cloudhub-architecture.adoc[CloudHub architecture]
-* xref:mule-runtime::transaction-management.adoc[Transaction Management]
+* xref:cloudhub-architecture.adoc[CloudHub Architecture]
+* xref:mule-runtime::transaction-management.adoc[Transaction Management^]
 * xref:connectors::vm/vm-connector.adoc[VM Connector]
-* xref:mule-runtime::reliability-patterns.adoc[Reliability Patterns]
+* xref:mule-runtime::reliability-patterns.adoc[Reliability Patterns^]

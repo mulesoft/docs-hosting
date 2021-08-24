@@ -37,12 +37,12 @@ CloudHub 2.0 provides a secure cloudhub.io endpoint for sending requests to appl
 * xref:ps-config-log-forwarding.adoc[Forward logs to a third-party provider].
 
 
-== Feature Comparison: CloudHub 2.0, Runtime Fabric On-Premises, and CloudHub 
+== Feature Comparison: CloudHub 2.0, Runtime Fabric On-Premises, and CloudHub 1.0 
 
 [%header,cols="30a,20a,20a,20a"]
 .Feature Comparison 
 |===
-| Feature/Capability | CloudHub | Runtime Fabric On-Premises | CloudHub 2.0 
+| Feature/Capability | CloudHub 1.0 | Runtime Fabric On-Premises | CloudHub 2.0 
 4+|*Customer Administration*
 | Supports cloud of choice (not AWS)| No| Yes| No
 | Cluster separation per environment| No| Yes| No
