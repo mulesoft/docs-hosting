@@ -70,5 +70,5 @@ By combining firewall rules and DLB configuration, you can fine-tune how externa
 
 == See Also
 
-* xref:ps-create-configure.adoc[Create and Configure a Private Space]
+* xref:ps-create-configure.adoc[Create and Configure Private Spaces]
 * xref:ps-config-fw-rules.adoc[Configure Firewall Rules to Manage Traffic to a Private Space]

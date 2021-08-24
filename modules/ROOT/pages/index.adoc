@@ -121,5 +121,5 @@ When deploying to CloudHub, keep in mind the following limitations:
 == See Also
 
 * xref:ch2-features.adoc[Features of CloudHub 2.0]
-* xref:ps-create-configure.adoc[Create and Configure a Private Space]
+* xref:ps-create-configure.adoc[Create and Configure Private Spaces]
 * xref:ps-gather-setup-info.adoc#region[Region]

@@ -108,7 +108,7 @@ The metaspace limit for apps deployed to CloudHub 2.0 is currently 256 MB, regar
 The initial metaspace size is 128 MB; metaspace garbage collection begins after the metaspace reaches that threshold.
 
 You can scale your applications horizontally by adding multiple replicas(?)s and using Anypoint MQ for persistent queues.
-See xref:ch2-clustering.adoc#worker-scale-out[Worker Scaleout] and 
+See xref:ch2-clustering.adoc#replica-scale-out[Replica Scaleout] and 
 https://docs.mulesoft.com/mq/[Anypoint MQ^] (Link out from Beta docs).
 
 CloudHub 2.0 monitors replicas to verify that they are operating correctly.
@@ -178,7 +178,7 @@ This allows you to keep servicing requests from your old application while the n
 
 Clustering provides scalability, workload distribution, and added reliability to applications on CloudHub.
 These capabilities are powered by the scalable load-balancing service and
-xref:ch2-clustering.adoc#worker-scaleout[replica scaleout] features.
+xref:ch2-clustering.adoc#replica-scaleout[replica scaleout] features.
 
 ==== Scale Out and Data Center Redundancy
 
@@ -215,11 +215,12 @@ For more information about MuleSoft security, see the http://mulesoft.com/downlo
 * http://status.mulesoft.com/[status.mulesoft.com^]
 * http://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^]
 * http://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^]
+* https://docs.mulesoft.com/runtime-manager/deployment-strategies[Deployment Options]
+
 
 ////
 * xref:cloudhub-networking-guide.adoc[CloudHub Networking Guide]
 * xref:cloudhub-faq.adoc[CloudHub FAQ]
-* xref:deployment-strategies.adoc[Deployment Options]
 * xref:maintenance-and-upgrade-policy.adoc[Maintenance and Upgrade Policy]
 * xref:ch2-clustering.adoc[Clustering]
 * https://aws.amazon.com/ec2/instance-types/[Amazon EC2 Instance Types]

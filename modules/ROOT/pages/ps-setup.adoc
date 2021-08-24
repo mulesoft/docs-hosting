@@ -31,6 +31,6 @@ endif::[]
 
 == See Also 
 
-* xref:ps-create-configure.adoc[Create and Configure a Private Space]
+* xref:ps-create-configure.adoc[Create and Configure Private Spaces]
 
 

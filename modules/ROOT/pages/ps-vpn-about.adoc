@@ -128,7 +128,7 @@ Delete the VPN and try again. If this failure recurs, contact MuleSoft Support.
 
 == See Also
 
-* xref:ps-create-configure.adoc[Create and Configure a Private Space]
+* xref:ps-create-configure.adoc[Create and Configure Private Spaces]
 * xref:ps-gather-setup-info.adoc#region[Region]
 * xref:ps-config-fw-rules.adoc[Configure Firewall Rules to Manage Traffic to a Private Space]
 * xref:ps-gather-setup-info.adoc#requirements-for-dynamic-vpn-connections[Dynamic VPN Connection Requirements]

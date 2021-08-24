@@ -1,0 +1,14 @@
+= Shared Spaces
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+
+A _shared space_ is a virtual, private, and isolated area in CloudHub 2.0 in which to run your apps,
+You can create multiple private spaces, either in the same or different regions.
+
+
+
+== See Also
+
+* xref:ps-about.adoc[Private Spaces]
