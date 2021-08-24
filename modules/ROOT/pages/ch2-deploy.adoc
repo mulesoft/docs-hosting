@@ -103,8 +103,8 @@ See xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to 
 
 For information about configuring app properties, see:
 
-* xref:ps-manage-props.adoc[Change App Behavior with Properties] 
-* xref:ps-protect-app-props.adoc[Protect App Property Values]
+* xref:ch2-manage-props.adoc[Change App Behavior with Properties] 
+* xref:ch2-protect-app-props.adoc[Protect App Property Values]
 
 === JVM Tab
 
@@ -129,7 +129,7 @@ Forwards application and load-balancer logs to the specified service:
 ** Splunk
 ** CloudWatch
 
-For information about viewing logs, see xref:ps-view-logs.adoc[View Log Data for Deployed Apps].
+For information about viewing logs, see xref:ch2-view-logs.adoc[View Log Data for Deployed Apps].
 
 
 == Download a Test App from Exchange

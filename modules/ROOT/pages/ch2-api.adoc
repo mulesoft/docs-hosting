@@ -221,8 +221,8 @@ Date: Mon, 10 Aug 2015 00:12:55 GMT
 * https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Access Management API^]
 * https://docs.mulesoft.com/runtime-manager/deployment-strategies.html[Deployment Options^] (Link out from Beta docs)
 * xref:index.adoc[CloudHub 2.0]
-* xref:ps-deploy.adoc[Deploy Apps to Private Spaces]
-* xref:ps-manage-apps.adoc[Manage Apps in Private Spaces]
+* xref:ch2-deploy.adoc[Deploy Apps to CloudHub 2.0]
+* xref:ch2-manage-apps.adoc[Manage Apps Deployed to CloudHub 2.0]
 * https://docs.mulesoft.com/monitoring/[Anypoint Monitoring^] (Link out from Beta docs)
 // * xref:developing-applications-for-cloudhub.adoc[Develop Applications for CloudHub]
 // * xref:monitoring.adoc[Monitor Applications and Servers]

@@ -67,7 +67,7 @@ To use the scheduling feature in Runtime Manager, deploy an application that inc
 image::ch2-scheduler-studio.png[Scheduler component in the Anypoint Studio canvas]
 
 You can download this example app from Exchange.
-For information, see xref:ps-deploy.adoc#download-a-test-app-from-exchange[Download a Test App from Exchange].
+For information, see xref:ch2-deploy.adoc#download-a-test-app-from-exchange[Download a Test App from Exchange].
 
 After deploying an app to a private space, view and manage the Scheduler elements in Runtime Manager:
 

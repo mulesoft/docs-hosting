@@ -318,4 +318,4 @@ and then click *Save logging*.
 == See Also 
 
 * xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed in a Private Space]
-* xref:ps-deploy.adoc[Deploy Apps to Private Spaces]
+* xref:ch2-deploy.adoc[Deploy Apps to CloudHub 2.0]

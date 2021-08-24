@@ -60,4 +60,4 @@ You can also use the following URL to download a diagnostics file directly:
 
 == See Also
 
-* xref:ps-view-logs.adoc[View Log Data for Deployed Apps]
+* xref:ch2-view-logs.adoc[View Log Data for Deployed Apps]

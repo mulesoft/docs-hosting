@@ -1,0 +1,10 @@
+= Manage Apps Deployed to CloudHub 2.0
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+
+* xref:ch2-manage-props.adoc[Change App Behavior with Properties]
+* xref:ch2-view-logs.adoc[View App Logs]
+* xref:ch2-view-diagnostics[View App Diagnostics]
+* xref:ch2-manage-schedules[Manage App Schedules]

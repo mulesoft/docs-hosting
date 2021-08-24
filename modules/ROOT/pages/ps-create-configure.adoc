@@ -36,7 +36,7 @@ The private network can take up to 30 minutes to create.
 +
 While the network is created, you can 
 <<Create a Connection to an External Network,create a connection to an external network>>.
-. After the network creation succeeds, xref:ps-deploy.adoc[deploy an application] to test the private network.
+. After the network creation succeeds, xref:ch2-deploy.adoc[deploy an application] to test the private network.
 
 If the private network creation fails, delete it and click *Create Private Network* to try again.
 

@@ -163,4 +163,4 @@ You can also search for an exact term in the log message with a few common quant
 
 == See Also
 
-* xref:ps-view-diag.adoc[View Diagnostic Data for Deployed Apps]
+* xref:ch2-view-diag.adoc[View Diagnostic Data for Deployed Apps]
