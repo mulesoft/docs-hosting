@@ -1,7 +1,7 @@
 .xref:index.adoc[CloudHub 2.0]
 * xref:index.adoc[CloudHub 2.0]
 ** xref:ch2-features.adoc[Features of CloudHub 2.0]
-*** xref:shared-space-about.adoc[Shared Spaces]
+*** xref:ch2-shared-space-about.adoc[Shared Spaces]
 *** xref:ps-about.adoc[Private Spaces]
 **** xref:ps-vpn-about.adoc[Anypoint VPN]
 **** xref:ps-tgw-about.adoc[Transit Gateway Attachments]
