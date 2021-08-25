@@ -6,7 +6,7 @@ endif::[]
 // (*Learn more* link from *Private Spaces* page)
 
 
-A _private space_ is a virtual, private, and isolated area in CloudHub 2.0 in which to run your apps,
+A _private space_ is a virtual, private, and isolated area in CloudHub 2.0 in which to run your apps.
 You can create multiple private spaces, either in the same or different regions.
 
 You connect your private intranet to your private space to function as a single, private network. 
