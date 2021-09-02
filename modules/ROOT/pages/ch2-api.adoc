@@ -61,9 +61,19 @@ Before getting started, familiarize yourself with operations for applications.
 You can use any HTTP client with the CloudHub 2.0 API.
 With Java, use the https://jersey.github.io/[Jersey client^] or http://hc.apache.org/httpclient-3.x/index.html[HttpClient^] with https://github.com/codehaus/jackson[Jackson^] for JSON support.
 
+
+=== Authenticate with the CloudHub 2.0 APIs
+
 To access operations in the CloudHub 2.0 API, you must:
 
 include::partial$ch2-api-authenticate.adoc[]
+
+
+=== Deploy an App
+
+=== Modify an Attribute in a Private Space
+
+== Add a Firewall Rule 
 
 === Get a List of Applications
 
