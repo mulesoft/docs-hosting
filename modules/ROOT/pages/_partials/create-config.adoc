@@ -1,0 +1,5 @@
+// Shared Connection Name
+// tag::connectionNameReqs[]
+Connection names can contain up to 60 alphanumeric characters (a-z, A-Z, 0-9), spaces, and hyphens (-).
+Runtime Manager supports Unicode characters in connection names.
+// end::connectionNameReqs[]
