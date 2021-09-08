@@ -7,8 +7,14 @@ By default, all traffic to your private space is blocked unless it is explicitly
 
 Creating a private space automatically creates these firewall rules:
 
-* Two rules to allow outbound connections from within your private space through ports 8091 and 8092.
-* Two rules to allow inbound connections from any host through ports 8081 and 8082.
+* Two rules to allow inbound connections from any host:
+** HTTPS: port 443
+** HTTP: port 80
+* Three rules to allow outbound connections from within your private space to any host:
+** HTTPS: port 443 (can't be deleted)
+** HTTPS: All ports
+** HTTP: All ports
+
 
 [NOTE]
 You cannot configure firewall rules for ports below 1024.
