@@ -68,14 +68,11 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 . In the *Create Connection* page:
 +
 --
-.. Enter a name for your connection.
-+
-Connection names can contain up to 60 alphanumeric characters (a-z, A-Z, 0-9), spaces, and hyphens (-).
-Runtime Manager supports Unicode characters in connection names.
 .. Select the *Connection Type*, click *Next*, and then, depending on the connection type you selected:
 +
 *** *VPN*: Follow the steps in <<create-a-vpn>>.
 *** *Transit Gateway*: Follow the steps in <<connect-to-a-transit-gateway>>.
+
 --
 
 == Create a VPN
@@ -84,9 +81,11 @@ Runtime Manager supports Unicode characters in connection names.
 After you create a VPN, you can't change any of the VPN settings,
 except the static IP prefixes for static routing.
 
-On the *Create VPN* page:
-
-. Enter the 
+. On the *Create Connection* page, enter a name for your connection, and then click *Next*.
++
+// Shared Connection Name
+include::partial$create-config.adoc[tag=connectionNameReqs]
+. On the *Create VPN* page, enter the 
 xref:ps-gather-setup-info.adoc#remote-ip-address[remote IP address] (a single, static IP address) for your VPN endpoint.
 . Select the routing type:
 +
@@ -95,8 +94,7 @@ Select this option if your device supports Border Gateway Protocol (BGP).
 BGP supports automatic failover for redundant connections.
 +
 .. In the *Local ASN* field, enter a xref:ps-gather-setup-info.adoc#local-asn[local private ASN] that isn't already assigned to your network.
-+
-include::partial$caveats.adoc[tag=localAsnNote]
+
 .. In the *Remote ASN* field, enter a xref:ps-gather-setup-info.adoc#remote-asn[private ASN].
 +
 Click *Show Existing Routes for this Network* to view the existing routes for the private network.
@@ -105,6 +103,8 @@ xref:ps-gather-setup-info.adoc#static-vpn-routing[Static]::
 Select this option if your device doesn't support BGP.
 +
 .. In the *Local ASN* field, enter a xref:ps-gather-setup-info.adoc#local-asn[local private ASN] that isn't already assigned to your network.
++
+include::partial$caveats.adoc[tag=localAsnNote]
 +
 If you have already created a VPN in this private space, the *Create VPN* page doesn't display the *Local ASN* field.
 +
@@ -147,7 +147,6 @@ Redundant VPNs inherit some settings from the intial VPN configuration automatic
 
 [NOTE]
 After you create a redundant VPN, you can't change any of the settings.
-
 
 . In the *Private network* tab, click *Create Redundant VPN*.
 . In the *Create Redundant VPN* page, complete the fields, based on the routing type of the initial VPN:
@@ -217,8 +216,7 @@ For download and usage information about the Network Tools Application, see http
 
 include::partial$feature-availability.adoc[tag=featureUnavailable]
 
-*THIS IS CH 1.0 PLACEHOLDER CONTENT UNTIL THE UI IS AVAILABLE* 
-
+*THIS IS PLACEHOLDER CONTENT BASED ON THE DESIGN SPEC* 
 
 On the *Create Connection* page:
 
@@ -227,10 +225,16 @@ On the *Create Connection* page:
 Use the same name for your transit gateway in AWS.
 You can change this name later.
 +
+// Shared Connection Name
+include::partial$create-config.adoc[tag=connectionNameReqs]
 . Click *Next*.
 +
 The *Add Transit Gateway* page lists the steps to create a resource share in AWS.
-. In *Static Routes*, enter the IP prefixes of the external networks to connect through the transit gateway.
+. In *Static Routes*, enter the IP prefixes of the external networks to connect through the transit gateway, and then click *Next*.
++
+After you attach the transit gateway, the private space includes the routes you specify here.
++
+To display the existing routes for the network, click *Show Existing Routes for this Network*.
 
 === Create a Resource Share
 
@@ -334,7 +338,9 @@ Configure the network routes (subnets) that you want to be accessible through th
 [[enable_outbound_traffic_from_ps]]
 ==== Enable Outbound Traffic from the Private Space
 
-After the *Private space attached* message appears, you can add routes so apps deployed to the private space can access the transit gateway.
+After the *Private space attached* message appears, the private spaces adds the routes that you 
+<<Connect to a Transit Gateway,specified>>
+so that apps deployed to the private space can access the transit gateway.
 
 To add routes to the transit gateway route table:
 
