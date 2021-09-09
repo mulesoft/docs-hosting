@@ -26,7 +26,7 @@ To change the configuration, delete the private network and create it again.
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. In the *Private network* tab, click *Create Private Network*. 
+. In the *Network* tab, click *Create Private Network*. 
 . In the *Create Private Network* page:
 .. Select the xref:ps-gather-setup-info.adoc#region[region] where you want your apps to run.
 .. Enter the xref:ps-gather-setup-info.adoc#cidr-block[CIDR block], which is the range of IP addresses that your apps can use.
@@ -239,9 +239,9 @@ To display the existing routes for the network, click *Show Existing Routes for 
 === Create a Resource Share
 
 . Sign in to your AWS corporate account.
-. In Anypoint Platform, click the *Create resource share* link on the *Add transit gateway* page. 
+. In Anypoint Platform, click the *Create Resource Share* link on the *Add Transit Gateway* page. 
 +
-The link opens the AWS RAM console to the page for creating a resource share in the region you specified.
+The link opens the AWS RAM console to the page for creating a resource share in the region you specified for your private space.
 . Take the following actions on the AWS *Create resource share* page:
 +
 --
@@ -250,14 +250,14 @@ The link opens the AWS RAM console to the page for creating a resource share in 
 +
 The transit gateway ID appears in the *Selected resources* field.
 .. Under *Principals - _optional_*, ensure that *Allow external accounts* is selected, 
-enter the MuleSoft AWS account ID that appears on the *Add transit gateway* page, and click *Add*.
+enter the MuleSoft AWS account ID that appears on the *Add Transit Gateway* page, and click *Add*.
 +
 The AWS account number appears in the *Selected principals* field.
 .. Under *Tags*, add a tag if you want.
 .. Click *Create resource share*.
 .. Copy the *ID* and *Owner* values for the resource share you just created. 
 --
-. Take the following actions in the Anypoint Platform *Add transit gateway* window: 
+. Take the following actions in the Anypoint Platform *Add Transit Gateway* page: 
 +
 --
 .. Click *Next*.
@@ -267,19 +267,24 @@ The AWS account number appears in the *Selected principals* field.
 *** The resource share *ID* field contains alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-).
 *** The resource share *Owner* field contains only numbers.
 
-.. Click *Add*.
+.. Click *Next*.
 --
 +
-The *Transit Gateways* page shows the progress for connecting to AWS and adding the transit gateway to Anypoint Platform.
-
-When the transit gateway addition succeeds, the *Transit Gateways* page displays the *Transit gateway added* message.
-The *Transit Gateways* page updates the owner and ID from AWS and the state as *Available*:
+The *Add Transit Gateway* page shows the progress for connecting to the resource share on AWS and creating the attachment.
++
+When the attachment succeeds, the *Add Transit Gateway* page displays the *Attachment Created* message.
+.. Click *Done*.
++
+The *Connections* section on the *Transit Gateway* page shows the transit gateway ID and owner from AWS and indicates that the state is *Available*:
 
 <screenshot>
 
 // image::tgw-resource-share-available.png[Transit gateway added]
 
-// If the transit gateway addition fails, see xref:ps-troubleshoot.adoc[Troubleshoot Transit Gateway Attachments].
+If the VPC attachment state is not `Attached to Private Network`,
+click *Accept the attachment* link.
+
+If the transit gateway addition fails, see xref:ps-troubleshoot.adoc#troubleshoot-transit-gateway-attachments[Troubleshoot Transit Gateway Attachments].
 
 === Attach a Private Space to the Transit Gateway
 
@@ -316,7 +321,7 @@ The link opens the AWS RAM console to the page for accepting the transit gateway
 +
 The attachment might take a few minutes to appear.
 +
-To verify that the attachment is correct, select the transit gateway attachment ID and, in the *Details* tab, ensure that the *Resource owner account ID* is the MuleSoft AWS account ID from the *Add transit gateway* page.
+To verify that the attachment is correct, select the transit gateway attachment ID and, in the *Details* tab, ensure that the *Resource owner account ID* is the MuleSoft AWS account ID from the *Add Transit Gateway* page.
 .. From the *Actions* menu, select *Accept*.
 . In Anypoint Platform, in the *Accept Private Space Attachment* window, click *Done*.
 +
