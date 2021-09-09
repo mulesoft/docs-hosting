@@ -11,6 +11,11 @@ endif::[]
 
 == VPN not Connected to Your External Network
 
+== Troubleshoot Transit Gateway Attachments
+
+`We couldn’t find a matching resource share. Please review the ID and Owner and try again.`
+
+`This resource share is already in use by this organization or a different organization.`
 
 == See Also 
 
