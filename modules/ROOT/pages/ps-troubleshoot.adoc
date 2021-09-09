@@ -3,19 +3,34 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-== VPN Tunnel Down
+== Troubleshoot VPN Connections
 
-== Tunnels in a VPN Advertising Different Numbers of Routes
+=== VPN Tunnel Down
 
-== VPNs in a Connection Advertising Different Numbers of Routes
+=== Tunnels in a VPN Advertising Different Numbers of Routes
 
-== VPN not Connected to Your External Network
+=== VPNs in a Connection Advertising Different Numbers of Routes
+
+=== VPN not Connected to Your External Network
 
 == Troubleshoot Transit Gateway Attachments
 
-`We couldn’t find a matching resource share. Please review the ID and Owner and try again.`
+=== Resource Share Attachments
 
-`This resource share is already in use by this organization or a different organization.`
+If you get the following messages when attaching a resource share,
+verify that you entered the correct resource share ID and owner:
+
+* `We couldn’t find a matching resource share. Please review the ID and Owner and try again.`
+* `This resource share is already in use by this organization or a different organization.`
+
+=== Transit Gateway State is Unknown
+
+If the Transit Gateway state is unknown, the resource share has probably 
+been disabled or deleted.
+
+In this case, resolve this issue on AWS.
+
+
 
 == See Also 
 
