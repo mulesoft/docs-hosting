@@ -5,6 +5,7 @@ endif::[]
 
 *This topic is discombobulated* 
 
+test
 
 include::partial$feature-availability.adoc[tag=featureUnavailable]
 
