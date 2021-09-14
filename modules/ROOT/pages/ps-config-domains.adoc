@@ -3,10 +3,36 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-*This topic is discombobulated* 
-
+*This topic is in progress* 
 
 include::partial$feature-availability.adoc[tag=featureUnavailable]
+
+
+CloudHub 2.0 uses Transport Layer Security (TLS) contexts to encrypt 
+inbound traffic to the private space.
+
+Each TLS context includes:
+
+* *Keystore*, which allows communication to your app using custom domains.
++
+--
+A keystore is a repository of security certificates (either authorization certificates or public key certificates), along with their corresponding private keys used, for example, in SSL encryption.
+
+CloudHub 2.0 supports the following keystore types:
+
+** JKS
+** PEM
+--
+* *Truststore* (optional), which enables mutual TLS by identifying trusted external clients or private certificate authorities (CAs).
++
+--
+A truststore is a repository of security certificates from other parties that you expect to communicate with, or from Certificate Authorities that you trust to identify other parties.
+
+CloudHub 2.0 accepts truststore files in PEM formats.
+--
+
+When you add the TLS context, you can select the ciphers to use with the TLS context.
+
 
 
 == Before You Begin
@@ -125,3 +151,4 @@ For example, if you use Runtime Manager to add the
 
 * xref:ps-config-log-forwarding.adoc[Configure Log Forwarding for a Private Space]
 * xref:ch2-deploy.adoc[Deploy Apps to CloudHub 2.0]
+* https://docs.mulesoft.com/mule-runtime/latest/tls-configuration[Configure TLS with Keystores and Truststores^] (Link out from Beta docs)
