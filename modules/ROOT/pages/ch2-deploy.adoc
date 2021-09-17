@@ -7,11 +7,13 @@ endif::[]
 include::partial$feature-availability.adoc[tag=featureUnavailable]
 
 
-*THIS IS PLACEHOLDER CONTENT UNTIL THE UI IS AVAILABLE* 
+*This topic is updated to the Design Spec*
+
+*Last update* 16-Sep-21
 
 // How can we share this content with RTF?
 
-Question: Do we need two topics - one each for shared and private?
+*Question: Do we need two topics - one each for shared and private?*
 
 You deploy apps to a private space using Runtime Manager.
 
@@ -38,7 +40,7 @@ image::rtm-get-from-exchange.png[Get from Exchange page]
 +
 *** <<specify_runtime_options,Specify runtime options>>.
 *** <<configure_public_endpoint,Configure a public endpoint for the app>>.
-*** <<app_properties,Configure app properties>>.
+*** <<app_properties,Change app behavior with properties>>.
 *** <<enable_tls_v1,Enable TLS v1 and TLS v1.1 with JVM arguments>>.
 *** <<forward_logs,Forward logs to other services>>.
 
@@ -100,7 +102,10 @@ private space), you can't select a subdomain or path.
 For private spaces, the administrator configures the domains for the space.
 See xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to a Private Space].
 +
-After you select the domain, you can view the corresponding TLS context by clicking *View TLS Context*.
+After you select the domain, you can view the corresponding TLS context by clicking *View TLS Context*:
++
+<screenshot>
++
 For private spaces, the administrator configures the TLS context for the space.
 See xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to a Private Space].
 * *Subdomain*: If the domain includes a wildcard, you can configure the subdomain.
@@ -154,8 +159,6 @@ The following headers are available:
 | x-ssl-client-dn | Contents of the client certificate DN field
 |===
 --
-
-
 
 
 [[view_private_endpoint]]
@@ -216,7 +219,7 @@ Resolves to the environment that you deploy the app to (?)
 
 
 [[app_properties]]
-=== Configure App Properties
+=== Change App Behavior with Properties
 
 You can configure property values, such as specifying the environment or setting passwords and usernames, during app deployment.
 
@@ -229,7 +232,9 @@ For information about configuring app properties, see:
 [[enable_tls_v1]]
 === Enable TLS v1 and TLS v1.1
 
-Starting with the https://docs.mulesoft.com/release-notes/cloudhub/cloudhub-runtimes-release-notes#august-3-2021[August 3, 2021 patch releases], Mule runtime engine disables TLS v1 and TLS v1.1 by default for all runtime versions.
+*REMOVE THIS CONTENT FOR GA?*
+
+Starting with the https://docs.mulesoft.com/release-notes/cloudhub/cloudhub-runtimes-release-notes#august-3-2021[August 3, 2021 patch releases^], Mule runtime engine disables TLS v1 and TLS v1.1 by default for all runtime versions.
 
 If your app requires TLS v1 or TLS v1.1, you can enable them using JVM (Java Virtual Machine) arguments when you deploy to CloudHub 2.0:
 
@@ -286,4 +291,5 @@ Exchange downloads the app JAR file to your local system.
 == See Also
 
 * https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^]
+* xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to a Private Space]
 

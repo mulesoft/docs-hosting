@@ -8,19 +8,31 @@ include::partial$feature-availability.adoc[tag=featureUnavailable]
 
 *THIS IS PLACEHOLDER CONTENT BASED ON THE DESIGN SPEC UNTIL THE UI IS AVAILABLE* 
 
+*Will this just be a button to DOWNLOAD logs?*
+
+*Last update* 16-Sep-21
+
+////
+FC: replica, levels, time filters
+GA: thread dumps: trigger, view, prev/next message nav, config menu sort
+////
 
 CloudHub 2.0 provides access to log data that includes deployment messages and events for each replica and Mule runtime engine logs.
 
 For more advanced searching and log management, you can use Anypoint Monitoring (requires Titanium subscription).
 See https://docs.mulesoft.com/monitoring/[Anypoint Monitoring Overview^] (Link out from Beta docs).
 
-CloudHub 2.0 stores up to 150 MB of log data per application, or up to 30 days, whichever limit is reached first.
+CloudHub 2.0 stores up to 150 MB of log data per config, or up to 30 days, whichever limit is reached first.
 
 
 [NOTE]
 CloudHub 2.0 stores log data in Universal Time (UTC); however, the console displays the log using your computer's local time zone.
 
 == View Logs
+
+// need to define config 
+
+
 
 To view logs for applications deployed to a private space:
 
@@ -29,78 +41,103 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 . Click the application name.
 . In the navigation menu, click *Logs*.
 +
-The logs page displays all logs for the most recent deployment, with the latest messages at the bottom.
-+
 --
-* To search within the currently displayed log, enter the search term in the *Search* field and press Enter.
-+
-** Click a log message to view it in context.
-** Click *Search results* to return to the search results.
+The logs page displays all logs for all replicas for the selected config,
+with the latest messages at the bottom.
+The config represents the deployment since the last update.
+
+The page streams log messages as they occur, unless the last deployed section is closed.
+Logs from before the last updated time appear in the previous deployments section.
+
+Each message includes the severity, time (relative and absolute), and replica name.
 
 * To open the currently selected deployment in Anypoint Monitoring, click *View in Monitoring*.
-* To view logs for past deployments, click the *Deployed* dropdown and select the deployment.
-+
-<replace screenshot>
-+
+* To view logs for past deployments, click the *Past deployments* dropdown and select the deployment.
+* To view logs for a different config, click the *Config* dropdown and select the config.
+
+The config label indicates the relative time of deployment, such as 10 hours ago.
+
+<screenshot>
+// +
 // .The arrow shows the dropdown to filter log output by deployment.
-image::ch2-logs-deploy.png[Filter log output by deployment]
+// image::ch2-logs-deploy.png[Filter log output by deployment]
 -- 
+
+== Search Logs
+
+To search within the currently displayed config:
+
+. Enter the search term in the *Search* field and press Enter.
++
+The results display includes the currently selected config, replica,
+and log levels.
++
+To change any of these elements, click *<- Search Results* to exit the search results.
+. Click the next <icon> and previous <icon> buttons to navigate the search results:
++
+<screenshot>
+. Click a log message to view it in context.
++
+Click *Search Results* to return to the search results.
+
 
 == Filter Logs
 
-* Filter logs by deployment
+* Filter logs by config ID
 +
-Click the *Deployed* dropdown and select the deployment.
+Click the *Config* dropdown and select the config to view:
 +
-<replace screenshot>
-+
+<screenshot>
+// +
 // .The arrow shows the dropdown to filter log output by deployment.
-image::ch2-logs-deploy.png[Filter log output by deployment]
+// image::ch2-logs-deploy.png[Filter log output by deployment]
 
-* Filter log by replica
+* *Filter log by replica*
 +
-Hover over a log message and select *Hide Others*.
+Hover over a log message and select *Hide Others*:
 +
 <screenshot>
 +
 To clear the replica filter, click the *x* for the selected replica.
 
-* Filter logs by time date and time range
+* *Filter logs by time date and time range*
 +
-Click *Latest Messages*, select the date range, and optionally time, from the dropdown, and click *Apply*.
+Click *Time Range*, select the date range, and optionally time, and click *Apply*.
++
+Alternatively, click *Show Latest Messages*:
 +
 <screenshot>
 +
-The *Latest Messages* button changes to show the selected date and time range.
+The button label changes to show the selected date and time range.
 
-* Filter logs by log level
+* *Filter logs by log level*
 +
 Click *Log Levels* and check the log levels to display:
 +
 --
-** *Fatal*: List only fatal messages for when an application fails
-** *Error*: List only error messages, such as when an exception occurs.
-** *Warn*: List warning messages
-** *Info*: List informative messages
-** *Debug*: List debugging messages
+** *Fatal*: Fatal messages for when an application fails
+** *Error*: Error messages, such as when an exception occurs
+** *Warn*: Warning messages
+** *Info*: Informative messages
+** *Debug*: Debugging messages
 --
 +
 [NOTE]
 Some log levels might not be available depending on the dynamic log level setting for the deployment.
 +
-The *Log Levels* button changes to show the selected number of log levels displayed.
+The *Log Levels* button changes to show the selected number of log levels.
 
 
 == Download Logs
 
-To download logs based on the current filters, click *Download*.
+To download logs based on the current filters, click the download (<icon>) button:
 
-<replace screenshot>
+<screenshot>
 
 // .The arrow shows the Download icon to download log output.
-image::ch2-logs-download.png[Download log output]
+// image::ch2-logs-download.png[Download log output]
 
-CloudHub 2.0 downloads the log output to a text file in the format `__configID__.-__Replica__.log`.
+CloudHub 2.0 downloads the log output, using the current filters, to a text file in the format `__configID__.-__Replica__.log`.
 Use a text editor to view the log file.
 
 //// 

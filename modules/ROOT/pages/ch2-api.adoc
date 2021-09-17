@@ -69,11 +69,16 @@ To access operations in the CloudHub 2.0 API, you must:
 include::partial$ch2-api-authenticate.adoc[]
 
 
+
 === Deploy an App
+
+Martin?
 
 === Modify an Attribute in a Private Space
 
-== Add a Firewall Rule 
+Xuan?
+
+=== Add a Firewall Rule 
 
 === Get a List of Applications
 
