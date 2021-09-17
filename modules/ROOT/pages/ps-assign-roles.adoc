@@ -8,6 +8,8 @@ To assign roles and permissions, you need access to Anypoint access management.
 
 To set up and manage CloudHub 2.0, you must have one of the following:
 
+// Need to revise this from Teams perspective.
+
 * *Organization Administrators* role for the environments associated with the private space.
 +
 To specify this role, see https://docs.mulesoft.com/access-management/roles.html[Roles^](Link out from Beta docs).

@@ -5,8 +5,7 @@ endif::[]
 
 *THIS IS CH 1.0 PLACEHOLDER CONTENT* 
 
-Remove persistent queues; point to Anypoint MQ instead?
-
+*Removed persistent queues; point to Anypoint MQ instead.*
 
 Clustering provides scalability, workload distribution, and added reliability to your applications on CloudHub 2.0.
 This functionality is powered by CloudHub's scalable load-balancing service, replica scale-out, and Anypoint MQ features.
