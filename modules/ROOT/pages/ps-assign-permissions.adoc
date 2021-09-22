@@ -1,0 +1,23 @@
+= Assign Permissions 
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Before you set up your private space, ensure you have the required permissions 
+assigned to your user account or a team to which you belong.
+To assign permissions, you need access to Anypoint access management and Organization Administrator permissions.
+
+To set up and manage CloudHub 2.0, you must have the CloudHub Network Administrator permission.
+
+To add these permissions to:
+
+* A team, see https://docs.mulesoft.com/access-management/teams[Teams^] (Link out from Beta docs).
+* An individual user, see https://docs.mulesoft.com/access-management/users#grant-user-permissions[Grant Permissions and Roles to Users^](Link out from Beta docs).
+
+////
+To deploy applications, you must have the *Exchange Contributor* role associated with your Anypoint Platform account.
+////
+
+== See Also 
+
+* https://docs.mulesoft.com/access-management/[Anypoint Access Management^] (Link out from Beta docs)
