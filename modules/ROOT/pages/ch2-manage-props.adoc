@@ -32,7 +32,7 @@ in the *Properties* tab for the application.
 
 To add properties: 
 
-//SELECT PRIVATE SPACE SHARED
+// SELECT APPS SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
 . Click the app name.
 . In the navigation menu, click *Settings*.
