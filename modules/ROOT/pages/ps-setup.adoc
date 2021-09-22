@@ -5,7 +5,7 @@ endif::[]
 
 == Before You Begin
 
-* xref:ps-assign-roles.adoc[Assign roles and permissions].
+* xref:ps-assign-permissions.adoc[Assign permissions].
 * xref:ps-gather-setup-info.adoc[Gather required setup information].
 
 
