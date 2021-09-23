@@ -3,6 +3,8 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+*Last update* 22-Sep-21
+
 Before you set up your private space, ensure you have the required permissions 
 assigned to your user account or a team to which you belong.
 To assign permissions, you need access to Anypoint access management and Organization Administrator permissions.
