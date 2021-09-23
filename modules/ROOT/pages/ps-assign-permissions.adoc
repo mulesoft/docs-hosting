@@ -7,7 +7,8 @@ Before you set up your private space, ensure you have the required permissions
 assigned to your user account or a team to which you belong.
 To assign permissions, you need access to Anypoint access management and Organization Administrator permissions.
 
-To set up and manage CloudHub 2.0, you must have the CloudHub Network Administrator permission.
+* To set up and manage a private space, you must have the CloudHub Network Administrator permission.
+* To view a private space, you need CloudHub Network Viewer permissions.
 
 To add these permissions to:
 
