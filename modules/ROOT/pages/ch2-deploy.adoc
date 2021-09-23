@@ -9,17 +9,44 @@ include::partial$feature-availability.adoc[tag=featureUnavailable]
 
 *This topic is updated to the Design Spec*
 
-*Last update* 16-Sep-21
+*Last update* 22-Sep-21
 
 // How can we share this content with RTF?
 
-*Question: Do we need two topics - one each for shared and private?*
+You deploy apps to a shared or private space using Runtime Manager.
 
-You deploy apps to a private space using Runtime Manager.
+== Deploy an App to a Shared Space
+
+//SELECT APP SHARED
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. Click *Deploy application*.
+. In the *Deploy Application* page:
+.. Enter the <<app_name_reqs,name>> of the application.
+.. Select an application file:
++
+--
+*** To upload a Mule app JAR file from your system, select *Choose file > Upload file*.
+*** To choose an example app from Anypoint Exchange:
+.... Select *Choose file > Import file from Exchange*.
+.... In the *Get from Exchange* page, enter `hello` in the *Search assets by name*:
++
+image::rtm-get-from-exchange.png[Get from Exchange page]
+.... Click *Hello World* and then click *Select*.
+--
+.. Select *CloudHub 2.0* from the *Deployment Target* list.
+.. Configure options for deployment:
++
+*** <<specify_runtime_options,Specify runtime options>>.
+*** <<configure_public_endpoint,Configure a public endpoint for the app>>. (private space only?)
+*** <<app_properties,Change app behavior with properties>>.
+*** <<forward_logs,Forward logs to other services>>.
+
+. Click *Deploy Application*. 
+
 
 == Deploy an App to a Private or Shared Space
 
-//SELECT PRIVATE SPACE SHARED
+//SELECT APP SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
 . Click *Deploy application*.
 . In the *Deploy Application* page:
@@ -41,7 +68,6 @@ image::rtm-get-from-exchange.png[Get from Exchange page]
 *** <<specify_runtime_options,Specify runtime options>>.
 *** <<configure_public_endpoint,Configure a public endpoint for the app>>.
 *** <<app_properties,Change app behavior with properties>>.
-*** <<enable_tls_v1,Enable TLS v1 and TLS v1.1 with JVM arguments>>.
 *** <<forward_logs,Forward logs to other services>>.
 
 . Click *Deploy Application*. 
@@ -57,7 +83,7 @@ Replicas::
 Specifies the number of replicas, or instances, of the application to deploy
 +
 A minimum of two replicas is required for high availability.
-Run in Runtime Cluster Mode::
+Run in Runtime Cluster Mode (private space only)::
 Enables Mule clustering across each replica of the application
 Enforce deploying replicas across nodes::
 Selecting this option might cause some replicas in the deployment to remain in Pending status if there are unsufficient worker nodes or resources available on the worker nodes needed to deploy each replica.
@@ -89,9 +115,16 @@ Resource allocation::
 
 You can configure the path for one or more endpoints that enable access from the public internet.
 
+*THIS NOTE IS pure supposition*
+
+[NOTE]
+When deploying to a shared space (*CloudHub 2.0* deployment target),
+the domain for the public endpoint is always `*.my-app.cloudhub.io`.
+
+
 Click the *Ingress* tab and specify the following options:
 
-Public endpoint::
+Public endpoint (private space only?)::
 +
 --
 * *Domain*: Select the domain, such as `cloudhub.io`, for the app.
@@ -99,14 +132,14 @@ Public endpoint::
 If you select `cloudhub.io` (the default domain when deploying to a
 private space), you can't select a subdomain or path.
 +
-For private spaces, the administrator configures the domains for the space.
+The administrator configures the domains for the private space.
 See xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to a Private Space].
 +
 After you select the domain, you can view the corresponding TLS context by clicking *View TLS Context*:
 +
 <screenshot>
 +
-For private spaces, the administrator configures the TLS context for the space.
+The administrator configures the TLS context for the private space.
 See xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to a Private Space].
 * *Subdomain*: If the domain includes a wildcard, you can configure the subdomain.
 +
@@ -120,9 +153,11 @@ Paths must start and end with an alphanumeric character and can contain only alp
 +
 The path supports <<placeholder_table,placeholders>>.
 
+<screenshot>
 
 * To add an endpoint, click *Add Endpoint* and specify options.
 * To remove an endpoint, click the *X* in the endpoint row.
+
 --
 
 Path Rewrite::
@@ -130,7 +165,7 @@ Enter the base path expected by the HTTP Listener in your path.
 +
 Requests sent to your app use the path that you specify here.
 
-TLS Settings::
+TLS Settings (different for shared spaces?)::
 * *Last-Mile Security*
 +
 --
@@ -228,6 +263,7 @@ For information about configuring app properties, see:
 * xref:ch2-manage-props.adoc[Change App Behavior with Properties] 
 * xref:ch2-protect-app-props.adoc[Protect App Property Values]
 
+//// 
 
 [[enable_tls_v1]]
 === Enable TLS v1 and TLS v1.1
@@ -246,6 +282,8 @@ If your app requires TLS v1 or TLS v1.1, you can enable them using JVM (Java Vir
 * Enable TLSv1.1:
 +
 `-Drtf.allow.TLSv1.1`
+////
+
 
 [[forward_logs]]
 === Forward Logs to Other Services

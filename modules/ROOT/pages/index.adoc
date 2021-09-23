@@ -24,6 +24,9 @@ Integration with secrets manager ensures that certificates, passwords, and other
 By running each Mule instance and service as a separate container, CloudHub 2.0
 provides a standardized isolation boundary. 
 
+For CloudHub 2.0 pricing information, contact either your account executive or your account development representative.
+
+
 
 ////
 (from CH 1.0 architecture topic)

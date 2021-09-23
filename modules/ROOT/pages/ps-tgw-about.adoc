@@ -13,7 +13,7 @@ On CloudHub, you can take advantage of this network simplification by securely a
 to AWS Transit Gateway in your AWS account.
 
 You can add multiple transit gateways to your Anypoint Platform organization.
-The number of transit gateways you can add depends on the transit gateway entitlements available to your account. 
+The number of transit gateways you can add depends on the network connection entitlements available to your account. 
 Contact your MuleSoft account representative if you don't know how many entitlements are associated with your account. 
 
 To use transit gateway attachments, your private space and AWS Transit Gateway must be in the same region.
