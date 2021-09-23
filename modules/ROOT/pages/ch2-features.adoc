@@ -41,7 +41,9 @@ CloudHub 2.0 provides a secure cloudhub.io endpoint for sending requests to appl
 
 ////
 
-== Feature Comparison: CloudHub 2.0, CloudHub 1.0, and Runtime Fabric Self-Managed Kubernetes
+== CloudHub 2.0 Feature Comparison
+
+This table compares the features and support for CloudHub 2.0, CloudHub 1.0, and Runtime Fabric Self-Managed Kubernetes.
 
 [%header,cols="20a,20a,20a,20a"]
 .Feature Comparison 

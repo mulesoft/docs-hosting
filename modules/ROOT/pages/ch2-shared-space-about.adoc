@@ -6,7 +6,7 @@ endif::[]
 
 A _shared space_ is an elastic cloud of _replicas_ that includes Mule instances running in
 a multi-tenant environment. 
-CloudHub 2.0 provides one shared space in each supported xref:ps-gather-setup-info.adoc#region[region], which you deploy your integration applications to.
+CloudHub 2.0 provides one shared space in each supported xref:ps-gather-setup-info.adoc#region[region], to which you deploy your integration applications.
 
 Deploying to a shared space requires no setup or maintenance of the underlying infrastructure.
 
@@ -18,7 +18,7 @@ You can deploy apps to the shared space in a region if:
 * You don't need to configure custom certificates.
 * You don't need to forward logs to an external services.
 
-Any of the following requires a private space: 
+Any of the following features and functionality requires a private space: 
 
 * Single-tenancy for your apps
 * Network connection (VPN or transit gateway attachment) to a data center

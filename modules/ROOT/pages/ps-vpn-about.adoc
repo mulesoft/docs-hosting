@@ -22,8 +22,8 @@ To create an Anypoint VPN connection to your network, see xref:ps-create-configu
 You can create multiple site-to-site VPNs if required. 
 
 [NOTE]
-The number of VPNs you can create depends on the VPN entitlements available to your account.
-Contact your MuleSoft account representative if you don't know how many VPN entitlements you have on your account. 
+The number of VPNs you can create depends on the network connection entitlements available to your account.
+Contact your MuleSoft account representative if you don't know how many network connection entitlements you have on your account. 
 
 Anypoint VPN supports site-to-site Internet Protocol security (IPsec) connections.
 A physical or software appliance, called a VPN endpoint, is the terminator on your side of the connection.
