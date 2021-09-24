@@ -71,27 +71,26 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 . Click the application name.
 . In the navigation menu, click *Schedules*:
 +
+Runtime Manager lists the Scheduler elements in the order they appear in your application:
++
 <update screenshot>
 +
-image::ch2-scheduler-rtm.png[Logs option, the Last Run column, and the frequency link on the Schedules page]
-+
-Runtime Manager lists the Scheduler elements in the order they appear in your application.
+image::ch2-scheduler-rtm.png[Last Run column, frequency link, and the Logs option on the Schedules page]
 +
 The *Last Run* column shows the date and time each Scheduler element last ran.
+The frequency link in the *Schedule* column shows the schedule for the element.
 You can click *Logs* in the left navigation menu to see more information about when the jobs started and ended scheduled runs.
-
-. Select the elements to manage and then click the frequency link in the *Schedule* column to open the schedule editor:
-+
-image::ch2-scheduler-frequency.png[Switch to advanced mode link in the schedule editor]
+. Select the elements to manage and then click the frequency link to open the schedule editor.
 . In the schedule editor, change the frequency of the schedule or deselect *Enabled* to disable the schedule:
 +
-<screenshot>
-+
+image::ch2-scheduler-frequency.png[Change the frequency in the schedule editor]
 The value for the frequency can be between 1 and 100 seconds.
 The minimum recommended frequency between calls is 10 seconds.
 +
-You can also switch to advanced mode to use cron expressions to create more specific schedules,
-such as every Thursday at 3:00 pm.
+To use cron expressions to create more specific schedules,
+such as every Thursday at 3:00 pm, click *Switch to advanced mode*.
+See <<use_cron>>.
+
 . Click *Update* to save changed settings or click *Cancel* to exit without saving.
 
 == Run the Scheduled Job Immediately
@@ -127,6 +126,7 @@ In the schedule editor, deselect or select *Enabled* to disable or enable the sc
 image::ch2-scheduler-enable.png[Enabled toggle in the schedule editor]
 
 
+[[use_cron]]
 == Use Cron Expressions
 
 With cron expressions, you can create more complex schedule frequencies,
