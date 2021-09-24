@@ -316,7 +316,6 @@ If you don't have a Mule app to test with, you can download an example app from 
 You must be logged into your Anypoint Platform account to see the example assets on Exchange. 
 
 . From Anypoint Platform, select *Exchange*.
-
 . From the *All assets* list, select *Provided by MuleSoft*.
 . From the *All types* menu, select *Examples*.
 . Click an app to download, for example, *Hello World*. 

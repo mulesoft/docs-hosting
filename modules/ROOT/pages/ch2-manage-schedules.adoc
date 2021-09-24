@@ -9,30 +9,32 @@ include::partial$feature-availability.adoc[tag=featureUnavailable]
 *THIS IS CH 1.0 PLACEHOLDER CONTENT UNTIL THE UI IS AVAILABLE* 
 
 
-You can use Runtime Manager to view and control the Scheduler components within the flows in your deployed applications.
-Use the *Schedules* tab in the navigation menu to enable or disable Scheduler elements,
-change the frequency, or run the scheduled job immediately,
-all without changing the running application.
+You can use Runtime Manager to view and control the Scheduler components within the flows in your deployed applications, all without changing the running application.
 
-The *Schedules* tab is useful in the following scenarios:
+From the *Schedules* tab, you can:
 
-* You have a job that runs nightly but you want to debug it now.
-+
-You can trigger the job while it's running without updating the schedule in your application.
-* You want to change the schedules in your application at runtime without redeploying.
-* You want to disable a scheduled job while one of the applications you are connecting to is undergoing maintenance.
-* You want runtime visibility into the schedules in your application.
+* View the schedules in your running application.
+* Change the schedules in your application at runtime without redeploying.
+* Run the scheduled job immediately, without changing the schedule.
+* Disable or enable the schedule for a flow.
 
 The CloudHub 2.0 scheduler reads the job configuration every time it runs.
 When you update the scheduler configuration, the change takes effect the next time the scheduler runs.
 
-////
+[NOTE]
+All schedules are based in the UTC timezone, regardless of the geographic region where you deploy the app.
+
+*Is this applicable for CH2?*
+
+For multi-replica apps, CloudHub 2.0 guarantees that the schedule trigger executes on a single replica.
+However, subsequent triggers might execute on a different replica.
+CloudHub 2.0 distributes multiple concurrent schedules across replicas.
+
 [NOTE]
 You cannot manage CloudHub 2.0 schedules using scripts.
 Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules.
-////
 
-== Considerations and Limitations
+== Schedule Trigger Timing
 
 *Do these still apply with CloudHub 2.0?*
 
@@ -44,64 +46,86 @@ During service updates or security patching, CloudHub 2.0 waits two minutes for 
 After two minutes, CloudHub 2.0 retriggers any incomplete schedules.
 +
 To avoid retriggers with long-running schedules, make sure that the app executes the flow idempotently.
-////
-* For multi-worker apps, CloudHub 2.0 guarantees that the schedule trigger executes on a single worker.
-+
-However, subsequent triggers might execute on a different worker.
-CloudHub 2.0 distributes multiple concurrent schedules across workers. 
-////
-* The minimum recommended frequency between calls is 10 seconds.
 * If a scheduled job is not triggered because the application is not running,
 CloudHub 2.0 triggers the job as soon as it restarts.
 * When a Mule 4.x app uses a schedule to trigger a flow with subflow, the scheduler waits until both main flow and subflow complete before scheduling the next run.
 +
-Flow names can contain only letters (a-zA-Z), numbers (0-9), hyphen (-), underscore (_), and period (.) characters.
-* All schedules are based in the UTC timezone, regardless of the geographic region where you deploy the app.
+Flow names can contain only letters (a-zA-Z), numbers (0-9), hyphen (-), underscore (_ ), and period (.) characters.
 
 
-== View and Manage Application Schedules in Runtime Manager
+== Prerequisites
 
 To use the scheduling feature in Runtime Manager, deploy an application that includes one or more Scheduler elements:
 
-.The arrow shows the *Scheduler* component in the Anypoint Studio canvas.
 image::ch2-scheduler-studio.png[Scheduler component in the Anypoint Studio canvas]
 
 You can download this example app from Exchange.
 For information, see xref:ch2-deploy.adoc#download-a-test-app-from-exchange[Download a Test App from Exchange].
 
-After deploying an app to a private space, view and manage the Scheduler elements in Runtime Manager:
+== View and Manage Application Schedules in Runtime Manager
 
-. Click *Applications* in the left pane, click the app, and then click *Schedules*:
+After deploying an app to CloudHub 2.0, view and manage the Scheduler elements in Runtime Manager:
+
+// SELECT RTM APPS SHARED
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. Click the application name.
+. In the navigation menu, click *Schedules*:
 +
-<replace screenshot>_
+<update screenshot>
 +
-.The screenshot shows (*1*) the *Logs* option, (*2*) the *Last Run* column, and (*3*) the frequency link on the *Schedules* page.
 image::ch2-scheduler-rtm.png[Logs option, the Last Run column, and the frequency link on the Schedules page]
++
+Runtime Manager lists the Scheduler elements in the order they appear in your application.
 +
 The *Last Run* column shows the date and time each Scheduler element last ran.
 You can click *Logs* in the left navigation menu to see more information about when the jobs started and ended scheduled runs.
+
+. Select the elements to manage and then click the frequency link in the *Schedule* column to open the schedule editor:
 +
-Runtime Manager lists the Scheduler elements in the order that they appear in your application.
-. Select the elements to manage and then:
-+
---
-** Click *Run now* to override the schedule and run the job immediately.
-** Click *Disable* to suspend a Scheduler element.
-+
-CloudHub 2.0 does not run the scheduled job until you reenable it.
-** Click the frequency link in the *Schedule* column to open the schedule editor:
-+
-.The arrow shows the *Switch to advanced mode* link in the schedule editor.
 image::ch2-scheduler-frequency.png[Switch to advanced mode link in the schedule editor]
---
+. In the schedule editor, change the frequency of the schedule or deselect *Enabled* to disable the schedule:
 +
-In the schedule editor, change the frequency of the schedule or deselect *Enabled* to disable the schedule.
+<screenshot>
 +
 The value for the frequency can be between 1 and 100 seconds.
+The minimum recommended frequency between calls is 10 seconds.
 +
 You can also switch to advanced mode to use cron expressions to create more specific schedules,
 such as every Thursday at 3:00 pm.
 . Click *Update* to save changed settings or click *Cancel* to exit without saving.
+
+== Run the Scheduled Job Immediately
+
+If a job runs nightly but you want to debug it now, you can trigger the job
+while it's running without updating the schedule in your application.
+
+To override the schedule and run the job immediately:
+
+// SELECT RTM APPS SHARED
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. Click the application name.
+. In the navigation menu, click *Schedules*.
+. Select the elements to manage and then click *Run now*.
+
+== Disable or Enable a Scheduler Element 
+
+You might want to disable a scheduled job an applications
+you are connecting to is undergoing maintenance and reenable it after.
+
+CloudHub 2.0 does not run the scheduled job until you reenable the Scheduler.
+
+To disable the Scheduler element:
+
+// SELECT RTM APPS SHARED
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. Click the application name.
+. In the navigation menu, click *Schedules*.
+. Select the elements to manage and then click the frequency link in the *Schedule* column to open the schedule editor.
++
+In the schedule editor, deselect or select *Enabled* to disable or enable the schedule.
++
+image::ch2-scheduler-enable.png[Enabled toggle in the schedule editor]
+
 
 == Use Cron Expressions
 
@@ -113,14 +137,13 @@ To use cron expressions to specify the schedule frequency:
 . In the schedule editor, click *Switch to advanced mode*.
 . In the advanced mode page, click *Quick reference* to expand or collapse the table that lists required fields and allowed values:
 +
-.The screenshot shows (*1*) the *Quick reference* toggle, (*2*) the *more* link, and the *Switch to basic mode* link on the advanced mode page.
 image::ch2-scheduler-cron.png[Quick reference toggle, the more link, and the Switch to basic mode link on the advanced mode page]
 +
 The cron expression in this example sets the schedule to every 10 seconds.
 +
 On this page:
 
-* Click *more* to view the http://www.quartz-scheduler.org/documentation[Quartz documentation^] for information about building cron triggers.
+* Click *more* to view the http://www.quartz-scheduler.org/documentation[Quartz documentation^] (link out from Beta docs) for information about building cron triggers.
 +
 Select a version, click *Documentation > User's Guide > Tutorial*, and then click the *CronTrigger* lesson.
 +
@@ -131,4 +154,8 @@ Because all schedules are based in the UTC timezone, the timezone configuration 
 
 == See Also
 
-* http://www.quartz-scheduler.org/documentation[Quartz documentation^]
+* xref:ch2-deploy.adoc[Deploy Apps to CloudHub 2.0]
+* https://docs.mulesoft.com/mule-runtime/4.3/scheduler-concept[Scheduler Endpoint (Trigger)^] (link out from Beta docs)
+* http://www.quartz-scheduler.org/documentation[Quartz documentation^] (link out from Beta docs)
+* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (link out from Beta docs)
+
