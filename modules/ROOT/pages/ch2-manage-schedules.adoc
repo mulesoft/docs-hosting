@@ -75,7 +75,7 @@ Runtime Manager lists the Scheduler elements in the order they appear in your ap
 +
 <update screenshot>
 +
-image::ch2-scheduler-rtm.png[Last Run column, frequency link, and the Logs option on the Schedules page]
+image::ch2-scheduler-rtm.png[Schedules page showing the Last Run column, frequency link, and the Logs option]
 +
 The *Last Run* column shows the date and time each Scheduler element last ran.
 The frequency link in the *Schedule* column shows the schedule for the element.

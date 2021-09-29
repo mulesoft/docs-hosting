@@ -37,14 +37,14 @@ image::rtm-get-from-exchange.png[Get from Exchange page]
 .. Configure options for deployment:
 +
 *** <<specify_runtime_options,Specify runtime options>>.
-*** <<configure_public_endpoint,Configure a public endpoint for the app>>. (private space only?)
+*** <<configure_public_endpoint,Configure a public endpoint for the app>>. *(private space only?)*
 *** <<app_properties,Change app behavior with properties>>.
 *** <<forward_logs,Forward logs to other services>>.
 
 . Click *Deploy Application*. 
 
 
-== Deploy an App to a Private or Shared Space
+== Deploy an App to a Private Space
 
 //SELECT APP SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
