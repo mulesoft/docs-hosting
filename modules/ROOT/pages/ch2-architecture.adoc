@@ -10,7 +10,7 @@ CloudHub 2.0 architecture comprises two major components: Anypoint Platform serv
 These two components, along with Anypoint Runtime Manager through which you access them,
 work together to run your integration applications.
 
-image::ch2-architecture.png[CloudHub 2.0 Architecture]
+image::ch2-architecture.png[CloudHub 2.0 Architecture with four callouts]
 
 [cols="8a,25a,65a"]
 |===
