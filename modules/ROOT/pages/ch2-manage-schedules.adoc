@@ -34,6 +34,7 @@ CloudHub 2.0 distributes multiple concurrent schedules across replicas.
 You cannot manage CloudHub 2.0 schedules using scripts.
 Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules.
 
+[[schedule_timing]]
 == Schedule Trigger Timing
 
 *Do these still apply with CloudHub 2.0?*
@@ -93,6 +94,7 @@ See <<use_cron>>.
 
 . Click *Update* to save changed settings or click *Cancel* to exit without saving.
 
+[[run_immediately]]
 == Run the Scheduled Job Immediately
 
 If a job runs nightly but you want to debug it now, you can trigger the job
@@ -106,6 +108,7 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 . In the navigation menu, click *Schedules*.
 . Select the elements to manage and then click *Run now*.
 
+[[disable_enable_scheduler]]
 == Disable or Enable a Scheduler Element 
 
 You might want to disable a scheduled job an applications
