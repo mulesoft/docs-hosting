@@ -49,7 +49,7 @@ This table compares the features and support for CloudHub 2.0, CloudHub 1.0, and
 .Feature Comparison 
 |===
 | Capability | CloudHub 2.0 | CloudHub 1.0 | Runtime Fabric On-Premises
-4+^|*VM Management*
+4+h|VM Management
 | *Provisioning/scaling*|Fully managed | Fully managed | AWS/
 
 Self-managed
@@ -57,7 +57,7 @@ Self-managed
 
 Self-managed
 | *VM self-healing* |Fully managed | Fully managed | Supported (managed nodes)
-4+^|*Load Balancing and Ingress*
+4+h|Load Balancing and Ingress
 | *Default endpoints*|Fully managed | Fully managed | Not supported
 | *URL rewriting* | Supported
 
@@ -78,7 +78,7 @@ Self-managed
 | *Load balancer logs* | Supported
 
 (download) | Not supported | Supported
-4+^|*Network*
+4+h|Network
 | *Deployment regions* | 12 geographical regions | 12 geographical regions | Supported 
 
 (manual)
@@ -114,7 +114,7 @@ Self-managed
 (private space) | Supported
 
 (per app) | ?
-4+^|*App Capabilities*
+4+^h|App Capabilities
 |*Schedule management* | Supported | Supported | Not supported
 |*TLS certificates*
 
@@ -175,7 +175,7 @@ Self-managed
 | *Application isolation* | Supported | Supported | Supported
 |*Self-healing*| Fully managed | Fully managed | Supported
 |*Mule clustering* | Supported | Not supported | Supported
-4+^|*Support*
+4+h|Support
 |*VM management* | MuleSoft | MuleSoft | AWS
 |*Network* | MuleSoft | MuleSoft | AWS
 |*App capabilities* | MuleSoft | MuleSoft | MuleSoft/AWS
@@ -194,13 +194,13 @@ Self-managed
 .Feature Comparison 
 |===
 | Feature/Capability | CloudHub 1.0 | Runtime Fabric On-Premises | CloudHub 2.0 
-4+^|*Customer Administration*
+4+h|Customer Administration
 | Supports cloud of choice (not AWS)| No| Yes| No
 | Cluster separation per environment| No| Yes| No
 |Cluster/VPC separation controls per business group|Yes|Yes|Yes
 |Set quota of resources per business group |Yes|Yes|Yes
 |Cluster/VPC separation controls per environment|Yes|Yes|Yes
-4+^|*Application Deployments*
+4+h|Application Deployments
 |Deploy Mule applications|Yes|Yes|Yes
 |Deploy API gateways (HTTPS, HTTP)|Yes|Yes|Yes
 |Set custom properties|Yes|Yes|Yes
@@ -226,11 +226,11 @@ Self-managed
 |Object Store v2|Yes|No|Yes
 |Mule clustering|No|Yes|Yes
 |Internal network routing for applications|Yes|Yes|Yes
-4+^|*Application Management*
+4+h|Application Management
 |Disable external traffic to Mule application|No|Yes|Yes
 |Notify user when runtime update is available for an application|Yes|Yes|Yes
 |Application Auto-scaling|Yes|No|No
-4+^|*High Availability/Failover*
+4+h|High Availability/Failover
 |Automated failover with unresponsive apps|Yes|Yes|Yes
 |Scale applications to multiple replicas|Yes|Yes|Yes
 |Scale applications across data centers (AZs)|Yes|Yes
@@ -239,39 +239,39 @@ Self-managed
 |Scale applications across regions|Yes|No|Future
 |Zero-downtime application re-deployments|Yes|Yes|Yes
 |Isolation (1 app per runtime)|Yes|Yes|Yes
-4+^|*Load Balancing*
+4+h|Load Balancing
 |Shared load balancing|Yes (default)|N/A|?
 |Dedicated load balancing|Yes (add-on)|Yes|Yes
 |Assign vanity URLs|Yes|Yes|Yes
 |Define/Manage URL Mapping Rules on dedicated load balancer|Yes|No|Yes
-4+^|*Security*
+4+h|Security
 |Enable advanced security policies on dedicated load balancer|No|Yes|Yes
 |Enable tokenization|No|Yes|Yes
-4+^|*Application Alerting*
+4+h|Application Alerting
 |Create, Modify and View Application alerts|Yes|Yes|Yes*
 |CloudHub custom application alerts (CloudHub connector)|Yes|No|No
 |Retrieve application alerts via email|Yes|Yes|Yes
 |Retrieve application alerts via Runtime Manager UI/API|Yes|No|No
-4+^|*Application Monitoring*
+4+h|Application Monitoring
 |View Mule messages / CPU / Memory per application in Runtime Manager|Yes|No|No
 |Insight Metadata|Yes|No|No
 |Insight Replay|Yes|No|No
 |Anypoint Monitoring|Yes|Yes|Yes
 |Anypoint Visualizer|Yes|Yes|Yes
-4+^|*Application Logging*
+4+h|Application Logging
 |View logs in control plane per worker/replica|Yes|No|Yes
 |Download logs per worker/replica|Yes|No|Yes
 |Forward application logs|Yes|Yes|Yes
 |Specify log levels, filtered by Java package|Yes|No|Yes
-4+^|*Flow Scheduling*
+4+h|Flow Scheduling
 |Manage a flow running on a schedule (trigger/enable/disable/control frequency)|Yes|No|No
-4+^|*Connectivity*
+4+h|Connectivity
 |Create a dedicated VPC|Yes|No|Yes
 |Set inbound firewall rules for VPC|Yes|No|Yes
 |Create a VPN tunnel to a dedicated VPC|Yes|No|Yes
 |Create a HA VPN tunnel (using eBGP) to a dedicated VPC|Yes|No|Yes
 |Peer two VPCs within a region|Yes|No|Yes
-4+^|*Support Administration*
+4+h|Support Administration
 |View application deployments|Yes|Yes|Yes
 |View cores used|Yes|No|Yes
 |Restart applications|Yes|No|Yes

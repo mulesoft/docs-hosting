@@ -117,7 +117,7 @@ For details about each requirement, see the sections that follow.
 .Private Space Configuration Form 
 |===
 6+|
-6+|*Private Network Setup*
+6+h|Private Network Setup
 .5+||<<Name>> 4+|
 |<<Region>>     4+|
 |<<CIDR Block>> 4+|
@@ -125,7 +125,7 @@ For details about each requirement, see the sections that follow.
 
 (_optional_) |<<IP Addresses,IP addresses>> 3+|
 |<<Domains>>  3+|
-6+|*VPN Connection Type*
+6+h|VPN Connection Type
 .13+||<<Remote IP Address>> 4+|
 |<<Local ASN>> 4+|
 |*<<Dynamic VPN Connection Requirements,Dynamic Routing Configuration>>* | <<Remote ASN>> 3+|
@@ -139,10 +139,10 @@ For details about each requirement, see the sections that follow.
 .3+|*<<Supported Gateway Devices,Gateway Device>>*|Vendor 3+|
 |Platform  3+|
 |Software  3+|
-6+|*Redundant VPN Setup*
+6+h|Redundant VPN Setup
 ||Blah    4+|
 ||Blah    4+|
-6+|*Transit Gateway Attachment Connection Type*
+6+h|Transit Gateway Attachment Connection Type
 ||<<transit-gateway-name>>    4+|
 ||<<transit-gateway-region>>    4+|
 ||<<transit-gateway-routing>>    4+|
