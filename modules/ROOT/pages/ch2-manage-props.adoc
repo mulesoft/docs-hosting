@@ -100,7 +100,7 @@ You can add properties to an app by including a file in the deployable applicati
 
 * Property placeholder YAML file (Mule 4)
 +
-See https://docs.mulesoft.com/mule-runtime/4.3/configuring-properties[Configuring Properties^] (Mule 4) (Link out from Beta docs).
+See https://docs.mulesoft.com/mule-runtime/4.4/configuring-properties[Configuring Properties^] (Mule 4) (Link out from Beta docs).
 * `mule-app.properties` (Mule 3)
 +
 See https://docs.mulesoft.com/mule-runtime/3.9/configuring-properties[Configuring Properties^] (Mule 3) (Link out from Beta docs).
@@ -186,6 +186,6 @@ Example output:
 
 == See Also
 
-* https://docs.mulesoft.com/mule-runtime/4.3/configuring-properties[Configuring Properties^] (Mule 4) (Link out from Beta docs)
+* https://docs.mulesoft.com/mule-runtime/4.4/configuring-properties[Configuring Properties^] (Mule 4) (Link out from Beta docs)
 * xref:ch2-deploy.adoc[Deploy Apps to CloudHub 2.0]
 * xref:ch2-protect-app-props.adoc[Protect App Property Values]
