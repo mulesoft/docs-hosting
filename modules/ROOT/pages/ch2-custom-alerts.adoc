@@ -221,7 +221,7 @@ For example, use the `<on-error-propagate>` component to send the error message 
 ----
 
 For information about the On-Error components,
-see https://docs.mulesoft.com/mule-runtime/4.3/error-handling#on_error_continue[Using On-Error Components to Handle Messaging Errors^] (Link out from Beta docs).
+see https://docs.mulesoft.com/mule-runtime/4.4/error-handling#on_error_continue[Using On-Error Components to Handle Messaging Errors^] (Link out from Beta docs).
 
 == See Also
 

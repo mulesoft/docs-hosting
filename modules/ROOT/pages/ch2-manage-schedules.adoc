@@ -190,7 +190,7 @@ image::ch2-scheduler-enable.png[Enabled toggle in the schedule editor]
 == See Also
 
 * xref:ch2-deploy.adoc[Deploy Apps to CloudHub 2.0]
-* https://docs.mulesoft.com/mule-runtime/4.3/scheduler-concept[Scheduler Endpoint (Trigger)^] (link out from Beta docs)
+* https://docs.mulesoft.com/mule-runtime/4.4/scheduler-concept[Scheduler Endpoint (Trigger)^] (link out from Beta docs)
 * http://www.quartz-scheduler.org/documentation[Quartz documentation^] (link out from Beta docs)
 * https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (link out from Beta docs)
 * _Link to the API doc for updating schedulers_
