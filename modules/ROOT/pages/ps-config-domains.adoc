@@ -3,19 +3,17 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-*This topic is updated to the Design Spec*
+*This topic is updated to the Design Spec dated 11-Nov-21*
 
-*Last update* 16-Sep-21
-
-*This feature will not be available until GA*
-
-include::partial$feature-availability.adoc[tag=featureUnavailable]
-
+*Last update* 13-Dec-21
 
 CloudHub 2.0 uses Transport Layer Security (TLS) contexts to encrypt 
 inbound traffic to the private space.
+
+The TLS contexts enable your apps to be reached at custom domains and, optionally, enable mutual TLS. 
+ 
 Each private space includes one TLS context by default
-(for traffic to `cloudhub.io`).
+(for traffic to `cloudhub.io`), which can't be removed.
 You can create additional TLS contexts as required.
 
 Each TLS context includes:
@@ -56,12 +54,23 @@ CloudHub 2.0 accepts truststore files in PEM formats.
 When you add the TLS context, you can select the ciphers to use with the TLS context.
 
 
-
 == Before You Begin
 
 . Create DNS records for your domains.
 +
-Click *View the Guide* to display information about the DNS target for the private space and how to create a DNS record for the domain.
+To enable traffic to reach the apps deployed to the private space using a custom domain:
++
+.. Log in to your domain registrar. 
++
+Use https://www.whois.com/[Whois] to look up your registrar.
+.. Click *Copy* to copy the DNS target for the current private space.
+.. Replace the domain's nameserver by pasting the DNS target.
++
+[IMPORTANT]
+If you edit the TLS context, the DNS target value for the current private space changes.
++
+Your registrar might take up to 24 hours to apply the change.
+
 . Verify that your account has CloudHub Network Administrator permission, which is required to modify a private space.
 +
 For information, see https://docs.mulesoft.com/access-management/teams[Teams^] (Link out from Beta docs).
@@ -79,7 +88,7 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 If you don't have CloudHub Network Administrator permission, 
 the *Create TLS Context* button is disabled.
 . Enter a name for the TLS context.
-. Configure the keystore:
+. *Configure the keystore:*
 +
 ** PEM format
 ... Select *Upload PEM files*.
@@ -109,41 +118,42 @@ CloudHub 2.0 validates the password against the keystore.
 +
 Selecting an alias displays a summary of the alias.
 Click *View Details* to display the alias details.
-. Enter the key password used to access the private key within the keystore.
+... Enter the key password used to access the private key within the keystore.
 +
 CloudHub 2.0 validates the password against the key.
-. Configure the truststore.
+. *Configure the truststore:*
 +
 The truststore defines the client certificates to use to enable mutual TLS with the configured keystore.
 +
-.. Click *Add Certificates*. 
-+
 When you upload a PEM file, CloudHub 2.0 displays the client certificates from the truststore file.
 +
-*** Click *View Details* to display the details of an individual client certificate:
-+
-<screenshot>
-*** Click *X* to delete an individual client certificate.
-*** Click *Add Certificates* to add additional certificate files.
-. Configure default ciphers or customize ciphers.
+** Click *Add Certificates* to add additional certificate files.
+** Click the information icon (*View Details*) to display the details of an individual client certificate. 
+** Click the trash can icon (*Delete*) to delete an individual client certificate.
+
+. *Configure advanced options:*
+
+.. Click *Advanced Options* to display the cipher configuration.
+.. Select either *Use Default Ciphers* or *Customize Ciphers*.
 +
 If you choose to customize ciphers, CloudHub 2.0 displays the default (selected)
 ciphers.
-** Click *X* to remove a cipher.
++
+** Click *X* to remove a cipher from the list.
 ** Click *Select a cipher to add* to choose a different cipher.
-. Click *Save Changes*.
+. Click *Create TLS Context* or *Cancel* to discard changes.
 
 == Edit a TLS Context
 
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the *Domains & TLS* and then click *Edit TLS Context*. 
+. Click the *Domains & TLS* tab and then click *Edit TLS Context*. 
 +
 If you don't have CloudHub Network Administrator permission, 
 the *Edit TLS Context* button is disabled.
 
-. Configure the keystore:
+. *Configure the keystore:*
 +
 ** PEM format
 ... Click *Upload PEM files*.
@@ -173,28 +183,35 @@ CloudHub 2.0 validates the password against the keystore.
 +
 Selecting an alias displays a summary of the alias.
 Click *View Details* to display the alias details.
-. Enter the key password used to access the private key within the keystore.
+... Enter the key password used to access the private key within the keystore.
 +
 CloudHub 2.0 validates the password against the key.
-. Click *Add Certificates* to configure the truststore.
+. *Configure the truststore: (Optional)*
 +
 The truststore defines the client certificates to use to enable mutual TLS with the configured keystore.
 +
 When you upload a PEM file, CloudHub 2.0 displays the client certificates from the truststore file.
 +
-** Click *View Details* to display the details of an individual client certificate. 
-** Click *X* to delete an individual client certificate.
 ** Click *Add Certificates* to add additional certificate files.
-. Configure default ciphers or customize ciphers.
+** Click the information icon (*View Details*) to display the details of an individual client certificate. 
+** Click the trash can icon (*Delete*) to delete an individual client certificate.
+. *Configure advanced options:*
+
+.. Click *Advanced Options* to display the cipher configuration.
+.. Select either *Use Default Ciphers* or *Customize Ciphers*.
 +
 If you choose to customize ciphers, CloudHub 2.0 displays the default (selected)
 ciphers.
 +
-** Click *X* to remove a cipher.
+** Click *X* to remove a cipher from the list.
 ** Click *Select a cipher to add* to choose a different cipher.
-. Click *Save Changes*.
+. Click *Create TLS Context* or *Cancel* to discard changes.
 
 // * Create a CNAME record to route queries (if necessary).
+
+
+
+
 ////
 
 
@@ -302,3 +319,4 @@ For example, if you use Runtime Manager to add the
 // * xref:ps-config-log-forwarding.adoc[Configure Log Forwarding for a Private Space]
 * xref:ch2-deploy.adoc[Deploy Apps to CloudHub 2.0]
 * https://docs.mulesoft.com/mule-runtime/latest/tls-configuration[Configure TLS with Keystores and Truststores^] (Link out from Beta docs)
+* https://www.whois.com/[Whois]

@@ -5,7 +5,7 @@ endif::[]
 
 include::partial$feature-availability.adoc[tag=featureUnavailable]
 
-
+//// 
 == Before You Begin
 
 * Update the name servers for your domains.	
@@ -30,29 +30,9 @@ From the *Accept HTTPS requests* list, select one of the following:
 ** *Drop HTTP requests*
 ** *Also accept HTTP requests*
 --
-. Add TLS certificates:
-// Add certificates so that you can use their domains when deploying apps to this private space.
-+
-[NOTE]
-The `cloudhub-cert.pem` certificate is provided by default and can't be removed.
 
-.. Click *Add certificate*.
-.. Upload PEM files:
-+
-... Click *Browse* and upload a public certificate file from your local system.
-... Click *Browse* and upload a private key file from your local system. 
-... Enter the password for your key. 
-+
-Leave this field blank if your key isn't encrypted.
-... Optionally, click *Browse* and upload a CA path certificate.
-... Click *Add certificate*. 
-.. Upload a JKS file:
-+
-... Click *Browse* and upload a keystore (JKS) file.
-... Enter the keystore password and then click *Next*.
-... Select an alias from the keystore to add the domains and then click *Next*. 
-... Click the key password for the alias you selected.
-... Click *Add certificate*.  
+. Add TLS certificates:
+
 .. Import from Secrets Manager:
 +
 ... Select the environment.
@@ -134,23 +114,8 @@ If no data is sent or received in the specified time, the load balancer closes t
 . Click *Save Changes*.
 
 
-== Configure Cipher Suites
 
-// SELECT PRIVATE SPACE SHARED
-include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the *Advanced* tab.
-. Select either:
-+
-** *Use Default Ciphers*
-** *Customize*
-+
-Select the cipher suite to add.
-. Click *Save Changes*.
-
-
-
-
+////
 
 == See Also 
 
