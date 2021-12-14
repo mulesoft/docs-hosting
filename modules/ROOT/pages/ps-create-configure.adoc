@@ -22,7 +22,7 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 
 [IMPORTANT]
 You can't change the private network configuration after it's created.
-To change the configuration, delete the private network and create it again.
+To change the configuration, delete the private space and create it again.
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
@@ -52,7 +52,7 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . In the *Network* tab, click the *Configure* link for *Internal DNS servers*.
 . Enter the (comma-separated) xref:ps-gather-setup-info.adoc#server-ip-addresses[server IP addresses] for your internal DNS servers.
 . Enter the (comma-separated) xref:ps-gather-setup-info.adoc#domains[domain addresses] to be resolved by internal DNS.
-. Click *Create*.
+. Click *Save*.
 
 After you configure internal DNS, the *Network* tab indicates the number of server IP addresses and domains:
 
