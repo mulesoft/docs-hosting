@@ -10,7 +10,7 @@ CloudHub 2.0 supports log forwarding to:
 Forwards only application logs to Anypoint Monitoring and requires a Titanium subscription
 * External services 
 +
-Forwards application and load-balancer logs to the specified service:
+Forwards application and load-balancer logs to the specified service for external analysis:
 +
 ** Azure
 ** Elasticsearch
@@ -25,7 +25,12 @@ Forwards application and load-balancer logs to the specified service:
 To forward to:
 
 * Anypoint Monitoring, ensure you have a Titanium subscription.
-* External services, configure the external service.
+* External services:
++
+.. Configure the external service.
+.. Configure firewall rules to allow outbound traffic for TCP.
++
+See xref:ps-config-fw-rules.adoc[Configure Firewall Rules to Manage Traffic to a Private Space]
 
 === Splunk Prerequisites 
 

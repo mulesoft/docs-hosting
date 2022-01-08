@@ -76,9 +76,9 @@ Your registrar might take up to 24 hours to apply the change.
 For information, see https://docs.mulesoft.com/access-management/teams[Teams^] (Link out from Beta docs).
 
 
-== Create a TLS Context
+== Create a TLS Context to Enable Custom Domains
 
-To create a new TLS context:
+To create a new TLS context, upload a certificate for the domains you want to use:
 
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
