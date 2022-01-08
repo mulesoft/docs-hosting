@@ -1,0 +1,240 @@
+= Deploy an App to a Private Space
+
+
+include::partial$feature-availability.adoc[tag=featureUnavailable]
+
+
+*This topic is updated to the Design Spec dated 11-Nov-21*
+
+
+*Last update* 07-Jan-22
+
+// How can we share this content with RTF?
+
+You deploy apps to a private space using Runtime Manager.
+
+//SELECT APP SHARED
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. Click *Deploy application*.
+. In the *Deploy Application* page:
+.. Enter the <<app_name_reqs,name>> of the application.
+.. Select an application file:
++
+--
+*** To upload a Mule app JAR file from your system, select *Choose file > Upload file*.
+*** To choose an example app from Anypoint Exchange:
+.... Select *Choose file > Import file from Exchange*.
+.... In the *Get from Exchange* page, enter `hello` in the *Search assets by name*:
++
+image::rtm-get-from-exchange.png[Get from Exchange page]
+.... Click *Hello World* and then click *Select*.
+--
+.. Select the name of the private or shared space from the *Deployment Target* list.
+.. Configure options for deployment:
++
+*** <<specify_runtime_options,Specify runtime options>>.
+*** <<configure_public_endpoint,Configure a public endpoint for the app>>.
+*** <<app_properties,Change app behavior with properties>>.
+*** <<forward_logs,Forward logs to other services>>.
+
+. Click *Deploy Application*. 
+
+
+[[specify_runtime_options]]
+== Specify Runtime Options 
+
+Click the *Runtime* tab and specify the following options:
+
+Runtime version::
+Specifies the Mule runtime engine version
+Replicas::
+Specifies the number of replicas, or instances, of the application to deploy
++
+A minimum of two replicas is required for high availability.
+Run in Runtime Cluster Mode (private space only)::
+Enables Mule clustering across each replica of the application
+Enforce deploying replicas across nodes::
+Selecting this option might cause some replicas in the deployment to remain in Pending status if there are unsufficient worker nodes or resources available on the worker nodes needed to deploy each replica.
+The deployment status transitions to Running after all replicas are deployed on different worker nodes.
+
+Deployment model::
++
+--
+* *Rolling update*:
+** Maintains availability by incrementally updating replicas.
+** Requires one additional replica's worth of resources to succeed.
+
+* *Recreate*:
+** Terminates replicas before redeployment.
+** Redeployment is faster and doesn't require additional resources.
+--
+Resource allocation::
++
+--
+* *Reserved CPU*: Specify a value between `0.02` and `3.7` vCPU.
+* *CPU Limit*: Specify a value between `0.02` and `3.7` vCPU.
+* *Memory*: Specify a value between `0.7` and `14.5` GB.
+--
+
+
+
+[[configure_public_endpoint]]
+== Configure a Public Endpoint for the App
+
+You can configure the path for one or more endpoints that enable access from the public internet.
+
+
+[NOTE]
+When deploying to a shared space (*CloudHub 2.0* deployment target),
+the domain for the public endpoint is always `*.my-app.cloudhub.io`.
+*THIS NOTE IS pure supposition*
+
+
+. Click the *Ingress* tab and specify the following options:
++
+Public endpoint::
++
+--
+* *Domain*: Select the domain, such as `cloudhub.io`, for the app.
++
+[NOTE]
+If you select `cloudhub.io` (the default domain when deploying to a
+private space), you can't select a subdomain or path.
++
+The administrator configures the domains for the private space.
+See xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to a Private Space].
++
+After you select the domain for a private space, you can view the corresponding TLS context by clicking *View TLS Context*:
++
+<screenshot>
++
+The administrator configures the TLS context for the private space.
+See xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to a Private Space].
+* *Subdomain* (private space only): If the domain includes a wildcard, you can configure the subdomain.
++
+Subdomains must start and end with an alphanumeric character and can contain only alphanumeric characters (a-z, A-Z, 0-9), hyphens (-), underscores (_), and periods (.).
++
+Subdomains support <<placeholder_table,placeholders>>.
+The default subdomain is `app-name`, which resolves to the name of the app that you specified in the *Application Name* field when you deploy the app.
+* *Path* (private space only): specifies the URL path to the application endpoint.
++
+Paths must start and end with an alphanumeric character and can contain only alphanumeric characters, hyphens, and underscores.
++
+The path supports <<placeholder_table,placeholders>>.
++
+<screenshot>
+
+
+* To add an endpoint, click *Add Endpoint* and specify options.
+* To remove an endpoint, click the *X* in the endpoint row.
+--
+
+Path Rewrite::
+Enter the base path expected by the HTTP Listener in your path.
++
+Requests sent to your app use the path that you specify here.
+
+TLS Settings::
+* *Last-Mile Security*
++
+--
+Specifies that TLS termination and decryption for the forwarded HTTPS connections occurs in the application.
+
+This option requires that the Mule application include an SSL certificate and also requires more CPU resources.
+--
+* *Forward SSL Session*
++
+--
+Enables SSL forwarding during a session.
+
+SSL forwarding is mostly used with client authentication.
+See xref:anypoint-security::enable-client-authentication.adoc[Enable Client Authentication].
+SSL forwarding forwards client certificate details in HTTP request headers so they are available to the application.
+These fields can identify an authenticated client and allow an application to determine and use the identity.
+
+The following headers are available:
+
+[%header,cols="2*a"]
+|===
+| Header Name | Value
+| x-ssl-client-verify | SUCCESS/FAIL
+| x-ssl-issuer | Client certificate issuer
+| x-ssl-client-serial | Client certificate serial number
+| x-ssl-client-dn | Contents of the client certificate DN field
+|===
+--
+. Click *Apply Changes* to create a new configuration for your application.
+
+
+[[view_private_endpoint]]
+=== View the Private Endpoint for an App
+
+A private endpoint is accessible from inside the same private space or through
+the VPN or transit gateway connection for the private space. 
+
+To view or copy the URL for the private endpoint, hover over *private endpoint*:
+
+<screenshot>
+
+[[view_tls_context]]
+=== View TLS Context
+
+To view a summary of the TLS context for the domain, click *View TLS Context*. 
+
+You see the details for the TLS context:
+
+<screenshot> 
+
+// === Application Names
+include::partial$deployment.adoc[tag=appNameReqs,leveloffset=+2]
+
+
+[[placeholder_table]]
+=== Placeholders
+
+The subdomain and path support the following optional lowercase placeholders:
+
+`app-name`::
+Resolves to the name of the app that you specified in the *Application Name* field when you deploy the app.
+`business-group-id`::
+Resolves to the business group ID associated with the app(?)
+`environment-id`::
+Resolves to the environment that you deploy the app to (?)
+
+include::partial$deployment.adoc[tag=changeAppProperties,leveloffset=+1]
+
+include::partial$deployment.adoc[tag=enableTLSv1,leveloffset=+1]
+
+
+
+[[forward_logs]]
+== Forward Logs to Other Services
+
+include::partial$feature-availability.adoc[tag=featureUnavailable]
+
+If log forwarding is not configured for the private space, the options in the *Logs* tab are disabled.
+See xref:ps-config-log-forwarding.adoc[Configure Log Forwarding for a Private Space].
+
+Show logs in Anypoint Monitoring::
+Forwards only application logs to Anypoint Monitoring and requires a Titanium subscription.
+
+Forward logs to _service_::
+Forwards application and load-balancer logs to the specified service:
++
+** Azure
+** Elasticsearch
+** Graylog (GELF)
+** Splunk
+** CloudWatch
+
+For information about viewing logs, see xref:ch2-view-logs.adoc[View Log Data for Deployed Apps].
+
+
+include::partial$deployment.adoc[tag=downloadTestApp,leveloffset=+1]
+
+
+== See Also
+
+* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^]
+* xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to a Private Space]
+

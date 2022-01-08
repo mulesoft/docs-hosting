@@ -22,6 +22,8 @@
 *** xref:ps-manage.adoc[Manage Private Spaces]
 *** xref:ps-troubleshoot.adoc[Troubleshoot Private Spaces]
 ** xref:ch2-deploy.adoc[Deploy Apps to CloudHub 2.0]
+*** xref:ch2-deploy-private-space.adoc[Deploy Apps to a Private Space]
+*** xref:ch2-deploy-shared-space.adoc[Deploy Apps to a Shared Space]
 *** xref:ch2-manage-props.adoc[Change App Behavior with Properties]
 **** xref:ch2-protect-app-props.adoc[Protect App Property Values]
 ** xref:ch2-manage-apps.adoc[Manage Apps Deployed to CloudHub 2.0]
