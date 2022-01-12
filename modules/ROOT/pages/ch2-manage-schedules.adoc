@@ -1,4 +1,4 @@
-= Manage App Schedules
+= Managing App Schedules
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -37,7 +37,7 @@ If you run the scheduled job immediately by clicking *Run*, the scheduler runs o
 You cannot manage CloudHub 2.0 schedules using scripts.
 Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules.
 
-[[schedule_timing]]
+[[schedule-timing]]
 == Schedule Trigger Timing
 
 *Do these still apply with CloudHub 2.0?*
@@ -88,11 +88,11 @@ image::ch2-scheduler-rtm.png[Schedules page showing the Last Run column, frequen
 +
 The schedule editor you see depends on the schedule type:
 +
-* <<change_fixed_frequency_schedule,Fixed frequency>>
-* <<change_cron_schedule,Cron>>
+* <<change-fixed-frequency-schedule,Fixed frequency>>
+* <<change-cron-schedule,Cron>>
 . In the schedule editor, change the schedule or deselect *Enabled* to disable the schedule.
 
-[[change_fixed_frequency_schedule]]
+[[change-fixed-frequency-schedule]]
 === Change a Fixed Frequency Schedule
 
 // SELECT RTM APPS SHARED
@@ -116,7 +116,7 @@ The minimum recommended frequency between calls is 10 seconds.
 . Click *Update* to save changed settings or click *Cancel* to exit without saving.
 
 
-[[change_cron_schedule]]
+[[change-cron-schedule]]
 === Change a Cron Schedule
 
 With cron expressions, you can create more complex schedule frequencies,
@@ -147,7 +147,7 @@ For information about building cron triggers:
 .. Select a version, click *Documentation > User's Guide > Tutorial*, and then click the *CronTrigger* lesson.
 . Click *Update* to save changed cron settings or click *Cancel* to exit without saving.
 
-[[run_immediately]]
+[[run-immediately]]
 == Run a Scheduled Job Immediately
 
 If a job runs nightly but you want to debug it now, you can trigger the job
@@ -165,7 +165,7 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 . In the navigation menu, click *Schedules*.
 . Select the elements to manage and then click *Run*.
 
-[[disable_enable_scheduler]]
+[[disable-enable-scheduler]]
 == Disable or Enable a Scheduler Element 
 
 You might want to disable a scheduled job if an application you are connecting
@@ -189,7 +189,7 @@ image::ch2-scheduler-enable.png[Enabled toggle in the schedule editor]
 
 == See Also
 
-* xref:ch2-deploy.adoc[Deploy Apps to CloudHub 2.0]
+* xref:ch2-deploy.adoc[]
 * https://docs.mulesoft.com/mule-runtime/4.4/scheduler-concept[Scheduler Endpoint (Trigger)^] (link out from Beta docs)
 * http://www.quartz-scheduler.org/documentation[Quartz documentation^] (link out from Beta docs)
 * https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (link out from Beta docs)

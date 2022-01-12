@@ -64,7 +64,7 @@ Requests to the application (domain) URL `+http://appname.cloudhub.io+` are auto
 
 //// 
 Clients can bypass the clustering load balancer by using a replica's direct URL.
-See xref:cloudhub-networking-guide.adoc[CloudHub Networking Guide] for more information in how to access an application in a specific CloudHub 2.0 replica.
+See xref:cloudhub-networking-guide.adoc[CloudHub Networking Guide^] for more information in how to access an application in a specific CloudHub 2.0 replica.
 ////
 
 == Use Cases
@@ -123,5 +123,5 @@ Number of Replicas: 1
 
 == See Also
 
-* xref:ch2-architecture.adoc[CloudHub 2.0 Architecture]
+* xref:ch2-architecture.adoc[]
 

@@ -28,4 +28,4 @@ Any of the following features and functionality requires a private space:
 
 == See Also
 
-* xref:ps-about.adoc[Private Spaces]
+* xref:ps-about.adoc[]

@@ -18,13 +18,13 @@ In each private space, you define:
 * *DNS target and TLS context* _need info here_
 * Firewall rules to allow and block inbound and outbound traffic to your private space.
 +
-See xref:ps-config-fw-rules.adoc[Configure Firewall Rules to Manage Traffic to a Private Space].
+See xref:ps-config-fw-rules.adoc[].
 * The environments and business groups to allow to deploy to the private space.
 +
-See xref:ps-config-env.adoc[Associate Environments and Business Groups with a Private Space].
+See xref:ps-config-env.adoc[].
 * Where to forward logs, either Anypoint Monitoring or an external service such as Splunk.
 +
-See xref:ps-config-log-forwarding.adoc[Configure Log Forwarding for a Private Space].
+See xref:ps-config-log-forwarding.adoc[].
 
 // Utilize Anypoint Security Edge policies
 
@@ -41,8 +41,8 @@ such as QA or staging.
 
 You can connect a private space to your private network using the following methods:
 
-* xref:ps-vpn-about.adoc[Anypoint VPN]
-* xref:ps-tgw-about.adoc[Transit gateway attachment]
+* xref:ps-vpn-about.adoc[]
+* xref:ps-tgw-about.adoc[]
 
 [NOTE]
 Before configuring routing, consolidate networks to the fewest number possible.
@@ -50,7 +50,31 @@ A maximum of 95 route table entries is allowed per private space,
 regardless of the number of connections.
 
 
-== DNS Target and TLS Context 
+== Custom Domains
+
+//// 
+
+You can configure the private space to route traffic  the apps deployed to the private space using a custom domain, configure the DNS target, upload create the TLS context.
+
+A CloudHub dedicated load balancer provides an alternative domain name to route HTTP requests to Mule applications listening on port 8091 and HTTPS requests to Mule applications listening on port 8092. You can also use mapping rules to rename requests to the CloudHub DLB to a different Mule application domain name.
+
+
+Configure HTTP Ingress
+The edge gateway serves as the load balancer for both shared and private spaces. private spaces support the following:
+URL rewriting
+Vanity domains & TLS certificates
+Setting policies on the Edge (DoS, WAF, CAP, etc)
+Whitelist CIDRs that can send requests to load balancer:
+Default: 0.0.0.0/0 for internet access
+
+
+
+You configure the private space to validate requests using your custom SSL certificates and enforce two-way SSL client authentication.
+
+DLBs also enable you to map input URLs to call specific applications within the private space. 
+With proxy rules, you can map your applications to a custom domain and host your apps under a single, vanity domain.
+
+////
 
 == Firewall Rules
 
@@ -58,17 +82,13 @@ You control the traffic to and from your private spaces.
 By default, CloudHub 2.0 blocks all traffic to the private space and provides firewall rules to allow connections through specified ports. 
 You can configure additional firewall rules to control traffic to your private space, expose or block your custom ports, and block requests to your apps. 
 
-The private space includes dedicated load balancers (DLB), which routes traffic to the private space.
-You can configure DLBs to validate requests using your custom SSL certificates and enforce two-way SSL client authentication.
-DLBs also enable you to map input URLs to call specific applications within the private space. 
-With proxy rules, you can map your applications to a custom domain and host your apps under a single, vanity domain.
+The private space provides load balancing to balance inbound traffic to apps  across multiple replicas.
 
-By combining firewall rules and DLB configuration, you can fine-tune how external services reach your applications.
-
+By combining firewall rules and TLS context configuration, you can fine-tune how external services reach your applications.
 
 
 
 == See Also
 
-* xref:ps-create-configure.adoc[Create and Configure Private Spaces]
-* xref:ps-config-fw-rules.adoc[Configure Firewall Rules to Manage Traffic to a Private Space]
+* xref:ps-create-configure.adoc[]
+* xref:ps-config-fw-rules.adoc[]

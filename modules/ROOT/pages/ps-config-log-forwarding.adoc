@@ -1,4 +1,4 @@
-= Configure Log Forwarding for a Private Space 
+= Configuring Log Forwarding for a Private Space 
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -30,7 +30,7 @@ To forward to:
 .. Configure the external service.
 .. Configure firewall rules to allow outbound traffic for TCP.
 +
-See xref:ps-config-fw-rules.adoc[Configure Firewall Rules to Manage Traffic to a Private Space]
+See xref:ps-config-fw-rules.adoc[]
 
 === Splunk Prerequisites 
 
@@ -322,5 +322,5 @@ and then click *Save logging*.
 
 == See Also 
 
-* xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed in a Private Space]
-* xref:ch2-deploy.adoc[Deploy Apps to CloudHub 2.0]
+* xref:ps-config-domains.adoc[]
+* xref:ch2-deploy.adoc[]

@@ -1,4 +1,4 @@
-= View Log Data for Deployed Apps
+= Viewing Log Data for Deployed Apps
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -10,7 +10,7 @@ include::partial$feature-availability.adoc[tag=featureUnavailable]
 
 *Will this just be a button to DOWNLOAD logs?*
 
-*Last update* 16-Sep-21
+*Last update* 11-Jan-22
 
 ////
 FC: replica, levels, time filters
@@ -30,10 +30,6 @@ CloudHub 2.0 stores log data in Universal Time (UTC); however, the console displ
 
 == View Logs
 
-// need to define config 
-
-
-
 To view logs for applications deployed to a private space:
 
 //SELECT PRIVATE SPACE SHARED
@@ -45,6 +41,10 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 The logs page displays all logs for all replicas for the selected config,
 with the latest messages at the bottom.
 The config represents the deployment since the last update.
+
+[NOTE]
+When you update an application, a new configuration is created.
+In this case, the logs page might be empty.
 
 The page streams log messages as they occur, unless the last deployed section is closed.
 Logs from before the last updated time appear in the previous deployments section.
@@ -157,7 +157,7 @@ image::ch2-logs-mule-download.png[Download Mule log output in the Deployments se
 CloudHub downloads the Mule log output to a text file in the format `__appName__-instance-__instanceID__-__workerNumber__-mule_ee.log`.
 Use a text editor to view the log file.
 
-For more information about Mule logs, see xref:mule-runtime::logging-in-mule.adoc#runtime-log[Runtime Log].
+For more information about Mule logs, see xref:mule-runtime::logging-in-mule.adoc#runtime-log[Runtime Log^].
 
 == Deployment History Persistence
 
@@ -200,4 +200,5 @@ You can also search for an exact term in the log message with a few common quant
 
 == See Also
 
-* xref:ch2-view-diag.adoc[View Diagnostic Data for Deployed Apps]
+* xref:ch2-view-diag.adoc[]
+* xref:ch2-update-apps.adoc[]

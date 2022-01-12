@@ -1,16 +1,14 @@
-= Enable Inbound Traffic to Your Apps Deployed to a Private Space	
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
+= Enabling Inbound Traffic to Your Apps Deployed to a Private Space	
+
 
 *This topic is updated to the Design Spec dated 11-Nov-21*
 
-*Last update* 13-Dec-21
+*Last update* 11-Jan-22
 
 CloudHub 2.0 uses Transport Layer Security (TLS) contexts to encrypt 
 inbound traffic to the private space.
 
-The TLS contexts enable your apps to be reached at custom domains and, optionally, enable mutual TLS. 
+TLS contexts enable your apps to be reached at custom domains and, optionally, enable mutual TLS. 
  
 Each private space includes one TLS context by default
 (for traffic to `cloudhub.io`), which can't be removed.
@@ -56,13 +54,15 @@ When you add the TLS context, you can select the ciphers to use with the TLS con
 
 == Before You Begin
 
+. Generate a xref:mule-runtime::tls-configuration.adoc#keystore-generation[keystore^].
+. Generate a xref:mule-runtime::tls-configuration.adoc#truststore-generation[truststore^] (if you want to enable mutual TLS).
 . Create DNS records for your domains.
 +
 To enable traffic to reach the apps deployed to the private space using a custom domain:
 +
 .. Log in to your domain registrar. 
 +
-Use https://www.whois.com/[Whois] to look up your registrar.
+Use https://www.whois.com/[Whois^] to look up your registrar.
 .. Click *Copy* to copy the DNS target for the current private space.
 .. Replace the domain's nameserver by pasting the DNS target.
 +
@@ -76,7 +76,8 @@ Your registrar might take up to 24 hours to apply the change.
 For information, see https://docs.mulesoft.com/access-management/teams[Teams^] (Link out from Beta docs).
 
 
-== Create a TLS Context to Enable Custom Domains
+== Create a TLS Context
+
 
 To create a new TLS context, upload a certificate for the domains you want to use:
 
@@ -211,7 +212,6 @@ ciphers.
 
 
 
-
 ////
 
 
@@ -316,7 +316,7 @@ For example, if you use Runtime Manager to add the
 
 == See Also 
 
-// * xref:ps-config-log-forwarding.adoc[Configure Log Forwarding for a Private Space]
-* xref:ch2-deploy.adoc[Deploy Apps to CloudHub 2.0]
+// * xref:ps-config-log-forwarding.adoc[]
+* xref:ch2-deploy.adoc[]
 * https://docs.mulesoft.com/mule-runtime/latest/tls-configuration[Configure TLS with Keystores and Truststores^] (Link out from Beta docs)
-* https://www.whois.com/[Whois]
+* https://www.whois.com/[Whois^]

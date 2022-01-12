@@ -1,4 +1,4 @@
-= Manage Private Spaces
+= Managing Private Spaces
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -193,5 +193,5 @@ Removing a transit gateway attachment might take several minutes.
 
 == See Also 
 
-* xref:tgw-troubleshoot.adoc[Troubleshoot Transit Gateway Attachments]
+* xref:ps-troubleshoot.adoc#troubleshoot-transit-gateway-attachments[Troubleshoot Transit Gateway Attachments]
 * https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing.html#working-with-sharing-delete[Delete a resource share^] in the AWS documentation

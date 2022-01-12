@@ -1,7 +1,4 @@
-= View Diagnostic Data for Deployed Apps
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
+= Viewing Diagnostic Data for Deployed Apps
 
 include::partial$feature-availability.adoc[tag=featureUnavailable]
 
@@ -59,4 +56,4 @@ Use a text editor to view the diagnostics file.
 
 == See Also
 
-* xref:ch2-view-logs.adoc[View Log Data for Deployed Apps]
+* xref:ch2-view-logs.adoc[]

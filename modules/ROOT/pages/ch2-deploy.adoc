@@ -1,5 +1,7 @@
-= Deploy Apps to CloudHub 2.0
+= Deploying Apps to CloudHub 2.0
+
+(needs an intro)
 
 
-* xref:ch2-deploy-private-space.adoc[Deploy Apps to a Private Space]
-* xref:ch2-deploy-shared-space.adoc[Deploy Apps to a Shared Space]
+* xref:ch2-deploy-private-space.adoc[]
+* xref:ch2-deploy-shared-space.adoc[]

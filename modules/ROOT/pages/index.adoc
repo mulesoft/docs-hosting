@@ -36,7 +36,7 @@ Manage CloudHub with the Anypoint Runtime Manager console in Anypoint Platform. 
 
 [NOTE]
 ====
-See xref:deployment-strategies.adoc[Deployment Options] for a better understanding of the different possible deployment scenarios, including on-premises and Anypoint Platform Private Cloud Edition (Anypoint PCE).
+See xref:deployment-strategies.adoc[Deployment Options^] for a better understanding of the different possible deployment scenarios, including on-premises and Anypoint Platform Private Cloud Edition (Anypoint PCE).
 ====
 ////
 
@@ -50,13 +50,13 @@ http://www.mulesoft.com/cloudhub/ipaas-cloud-based-integration-demand[CloudHub] 
 
 image::logo-app.png[app]
 
-* See xref:deploying-to-cloudhub.adoc[Deploy to CloudHub].
-* See xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service] to include HTTPS support in this application.
+* See xref:deploying-to-cloudhub.adoc[Deploy to CloudHub^].
+* See xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service^] to include HTTPS support in this application.
 
 [TIP]
-For examples of more applications, see xref:exchange::index.adoc[Anypoint Exchange].
+For examples of more applications, see xref:exchange::index.adoc[Anypoint Exchange^].
 
-You can deploy the same Mule applications to CloudHub or to an xref:deploying-to-your-own-servers.adoc[on-premises server]. There are some differences in how features work between the environments, which you need to consider when you plan your deployment strategy. See xref:deployment-strategies.adoc[Deployment Options].
+You can deploy the same Mule applications to CloudHub or to an xref:deploying-to-your-own-servers.adoc[on-premises server]. There are some differences in how features work between the environments, which you need to consider when you plan your deployment strategy. See xref:deployment-strategies.adoc[Deployment Options^].
 
 
 == Deploy your Application to CloudHub
@@ -65,8 +65,8 @@ image::logo-deploy.png[deploy]
 
 Learn how you can deploy your applications to CloudHub:
 
-* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
-* xref:anypoint-platform-cli.adoc[Anypoint Platform Command-Line Interface (CLI)]
+* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub^]
+* xref:anypoint-cli::index.adoc[Anypoint Platform Command-Line Interface (CLI)^]
 
 === Easy Scalability
 
