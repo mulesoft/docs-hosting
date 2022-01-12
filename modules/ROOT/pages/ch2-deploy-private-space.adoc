@@ -1,5 +1,4 @@
-= Deploy an App to a Private Space
-
+= Deploying Apps to a Private Space
 
 include::partial$feature-availability.adoc[tag=featureUnavailable]
 
@@ -17,7 +16,7 @@ You deploy apps to a private space using Runtime Manager.
 include::partial$select-private-space.adoc[tag=selectAppsPage]
 . Click *Deploy application*.
 . In the *Deploy Application* page:
-.. Enter the <<app_name_reqs,name>> of the application.
+.. Enter the <<app-name-reqs,name>> of the application.
 .. Select an application file:
 +
 --
@@ -32,15 +31,15 @@ image::rtm-get-from-exchange.png[Get from Exchange page]
 .. Select the name of the private or shared space from the *Deployment Target* list.
 .. Configure options for deployment:
 +
-*** <<specify_runtime_options,Specify runtime options>>.
-*** <<configure_public_endpoint,Configure a public endpoint for the app>>.
-*** <<app_properties,Change app behavior with properties>>.
-*** <<forward_logs,Forward logs to other services>>.
+*** <<specify-runtime-options,Specify runtime options>>.
+*** <<configure-public-endpoint,Configure a public endpoint for the app>>.
+*** <<app-properties,Change app behavior with properties>>.
+*** <<forward-logs,Forward logs to other services>>.
 
 . Click *Deploy Application*. 
 
 
-[[specify_runtime_options]]
+[[specify-runtime-options]]
 == Specify Runtime Options 
 
 Click the *Runtime* tab and specify the following options:
@@ -78,7 +77,7 @@ Resource allocation::
 
 
 
-[[configure_public_endpoint]]
+[[configure-public-endpoint]]
 == Configure a Public Endpoint for the App
 
 You can configure the path for one or more endpoints that enable access from the public internet.
@@ -102,25 +101,25 @@ If you select `cloudhub.io` (the default domain when deploying to a
 private space), you can't select a subdomain or path.
 +
 The administrator configures the domains for the private space.
-See xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to a Private Space].
+See xref:ps-config-domains.adoc[].
 +
 After you select the domain for a private space, you can view the corresponding TLS context by clicking *View TLS Context*:
 +
 <screenshot>
 +
 The administrator configures the TLS context for the private space.
-See xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to a Private Space].
+See xref:ps-config-domains.adoc[].
 * *Subdomain* (private space only): If the domain includes a wildcard, you can configure the subdomain.
 +
-Subdomains must start and end with an alphanumeric character and can contain only alphanumeric characters (a-z, A-Z, 0-9), hyphens (-), underscores (_), and periods (.).
+Subdomains must start and end with an alphanumeric character and can contain only alphanumeric characters (a-z, A-Z, 0-9), hyphens (-), underscores (-), and periods (.).
 +
-Subdomains support <<placeholder_table,placeholders>>.
+Subdomains support <<placeholder-table,placeholders>>.
 The default subdomain is `app-name`, which resolves to the name of the app that you specified in the *Application Name* field when you deploy the app.
 * *Path* (private space only): specifies the URL path to the application endpoint.
 +
 Paths must start and end with an alphanumeric character and can contain only alphanumeric characters, hyphens, and underscores.
 +
-The path supports <<placeholder_table,placeholders>>.
+The path supports <<placeholder-table,placeholders>>.
 +
 <screenshot>
 
@@ -148,7 +147,7 @@ This option requires that the Mule application include an SSL certificate and al
 Enables SSL forwarding during a session.
 
 SSL forwarding is mostly used with client authentication.
-See xref:anypoint-security::enable-client-authentication.adoc[Enable Client Authentication].
+See xref:anypoint-security::enable-client-authentication.adoc[Enable Client Authentication^].
 SSL forwarding forwards client certificate details in HTTP request headers so they are available to the application.
 These fields can identify an authenticated client and allow an application to determine and use the identity.
 
@@ -166,7 +165,7 @@ The following headers are available:
 . Click *Apply Changes* to create a new configuration for your application.
 
 
-[[view_private_endpoint]]
+[[view-private-endpoint]]
 === View the Private Endpoint for an App
 
 A private endpoint is accessible from inside the same private space or through
@@ -176,7 +175,7 @@ To view or copy the URL for the private endpoint, hover over *private endpoint*:
 
 <screenshot>
 
-[[view_tls_context]]
+[[view-tls-context]]
 === View TLS Context
 
 To view a summary of the TLS context for the domain, click *View TLS Context*. 
@@ -189,7 +188,7 @@ You see the details for the TLS context:
 include::partial$deployment.adoc[tag=appNameReqs,leveloffset=+2]
 
 
-[[placeholder_table]]
+[[placeholder-table]]
 === Placeholders
 
 The subdomain and path support the following optional lowercase placeholders:
@@ -207,13 +206,13 @@ include::partial$deployment.adoc[tag=enableTLSv1,leveloffset=+1]
 
 
 
-[[forward_logs]]
+[[forward-logs]]
 == Forward Logs to Other Services
 
 include::partial$feature-availability.adoc[tag=featureUnavailable]
 
 If log forwarding is not configured for the private space, the options in the *Logs* tab are disabled.
-See xref:ps-config-log-forwarding.adoc[Configure Log Forwarding for a Private Space].
+See xref:ps-config-log-forwarding.adoc[].
 
 Show logs in Anypoint Monitoring::
 Forwards only application logs to Anypoint Monitoring and requires a Titanium subscription.
@@ -227,7 +226,7 @@ Forwards application and load-balancer logs to the specified service:
 ** Splunk
 ** CloudWatch
 
-For information about viewing logs, see xref:ch2-view-logs.adoc[View Log Data for Deployed Apps].
+For information about viewing logs, see xref:ch2-view-logs.adoc[].
 
 
 include::partial$deployment.adoc[tag=downloadTestApp,leveloffset=+1]
@@ -236,5 +235,5 @@ include::partial$deployment.adoc[tag=downloadTestApp,leveloffset=+1]
 == See Also
 
 * https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^]
-* xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to a Private Space]
+* xref:ps-config-domains.adoc[]
 

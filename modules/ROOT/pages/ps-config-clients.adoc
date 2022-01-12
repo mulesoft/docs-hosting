@@ -1,4 +1,4 @@
-= Set Up Authentication for Trusted Clients
+= Setting Up Authentication for Trusted Clients
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

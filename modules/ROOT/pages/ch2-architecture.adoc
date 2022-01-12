@@ -29,7 +29,7 @@ An integration application is any integration that you've built using Anypoint S
 These applications can do everything from synchronizing data from Salesforce to a database, to publishing a SOAP or REST API, to creating complex orchestrations of business processes.
 
 For more about creating and deploying integration applications,
-see xref:index.adoc[CloudHub 2.0] and xref:ch2-deploy.adoc[Deploy Apps to CloudHub 2.0].
+see xref:index.adoc[] and xref:ch2-deploy.adoc[].
 
 == Runtime Manager
 
@@ -44,7 +44,7 @@ For information, see https://docs.mulesoft.com/access-management[Access Manageme
 
 Platform services are responsible for coordinating all aspects of the platform.
 They coordinate deployment of applications, monitor integrations, provide analytics data, store application data, run scheduled jobs, and more.
-Many of these services are also exposed through the xref:ch2-api.adoc[CloudHub 2.0 REST API].
+Many of these services are also exposed through the xref:ch2-api.adoc[].
 
 == CloudHub 2.0 Replicas
 
@@ -139,7 +139,7 @@ Because different levels of security and isolation are needed depending on the s
 These VMs provide the security and isolation needed for your integrations to run custom code without affecting others.
 * If required, you can create single-tenant _private spaces_, which are virtual, private, and isolated areas in CloudHub 2.0 in which to run your apps.
 +
-For information, see xref:ps-about.adoc[Private Spaces].
+For information, see xref:ps-about.adoc[].
 * The management console and platform services have a _shared everything_ architecture; 
 all tenants share the same web UI, monitoring services, and load balancers.
 +
@@ -165,7 +165,7 @@ CloudHub 2.0 monitors the replicas for problems and provides a self-healing mech
 If the underlying hardware experiences a failure, the platform migrates your application to a new replica automatically.
 In the case of an application crash, whether due to a problem with custom code or a bug in the underlying stack, the platform recognizes the crash and can redeploy the replica automatically.
 
-For more information, see xref:ch2-app-monitoring.adoc[Application Monitoring and Automatic Restarts].
+For more information, see xref:ch2-app-monitoring.adoc[].
 
 === Zero-Downtime Updates
 
@@ -210,12 +210,12 @@ For more information about MuleSoft security, see the http://mulesoft.com/downlo
 
 == See Also
 
-* xref:ch2-manage-apps.adoc[Manage Apps Deployed to CloudHub 2.0]
-* xref:ch2-app-monitoring.adoc[Application Monitoring and Automatic Restarts]
+* xref:ch2-manage-apps.adoc[]
+* xref:ch2-app-monitoring.adoc[]
 * http://status.mulesoft.com/[status.mulesoft.com^]
 * http://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^]
 * http://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^]
-* https://docs.mulesoft.com/runtime-manager/deployment-strategies[Deployment Options]
+* https://docs.mulesoft.com/runtime-manager/deployment-strategies[Deployment Options^]
 
 
 ////

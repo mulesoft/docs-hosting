@@ -1,4 +1,4 @@
-= Deploy Apps to a Shared Space
+= Deploying Apps to a Shared Space
 
 
 include::partial$feature-availability.adoc[tag=featureUnavailable]
@@ -17,7 +17,7 @@ To deploy apps to a shared space using Runtime Manager:
 include::partial$select-private-space.adoc[tag=selectAppsPage]
 . Click *Deploy application*.
 . In the *Deploy Application* page:
-.. Enter the <<app_name_reqs,name>> of the application.
+.. Enter the <<app-name-reqs,name>> of the application.
 .. Select an application file:
 +
 --
@@ -32,14 +32,14 @@ image::rtm-get-from-exchange.png[Get from Exchange page]
 .. Select *CloudHub 2.0* from the *Deployment Target* list.
 .. Configure options for deployment:
 +
-*** <<specify_runtime_options,Specify runtime options>>.
-*** <<configure_public_endpoint,Configure a public endpoint for the app>>.
-*** <<app_properties,Change app behavior with properties>>.
+*** <<specify-runtime-options,Specify runtime options>>.
+*** <<configure-public-endpoint,Configure a public endpoint for the app>>.
+*** <<app-properties,Change app behavior with properties>>.
 
 . Click *Deploy Application*. 
 
 
-[[specify_runtime_options]]
+[[specify-runtime-options]]
 == Specify Runtime Options
 
 Click the *Runtime* tab and specify the following options:
@@ -64,7 +64,7 @@ Resource allocation::
 
 
 
-[[configure_public_endpoint]]
+[[configure-public-endpoint]]
 == Configure a Public Endpoint for the App
 
 You can configure the endpoint is accessible from the public internet.
@@ -91,7 +91,7 @@ This option requires that the Mule application include an SSL certificate and al
 Enables SSL forwarding during a session.
 +
 SSL forwarding is mostly used with client authentication.
-See xref:anypoint-security::enable-client-authentication.adoc[Enable Client Authentication].
+See xref:anypoint-security::enable-client-authentication.adoc[].
 SSL forwarding forwards client certificate details in HTTP request headers so they are available to the application.
 These fields can identify an authenticated client and allow an application to determine and use the identity.
 +
@@ -112,7 +112,7 @@ The following headers are available:
 // ==== Application Names
 include::partial$deployment.adoc[tag=appNameReqs,leveloffset=+2]
 
-[[placeholder_table]]
+[[placeholder-table]]
 === Placeholders
 
 The subdomain and path support the following optional lowercase placeholders:
@@ -136,5 +136,5 @@ include::partial$deployment.adoc[tag=downloadTestApp,leveloffset=+1]
 == See Also
 
 * https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^]
-* xref:ps-config-domains.adoc[Enable Inbound Traffic to Your Apps Deployed to a Private Space]
+* xref:ps-config-domains.adoc[]
 

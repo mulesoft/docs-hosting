@@ -1,4 +1,4 @@
-= Configure Custom Notifications and Application Alerts
+= Configuring Custom Notifications and Application Alerts
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -88,15 +88,15 @@ This limit is enforced by a combination of organization, environment, alert (nam
 
 == Custom Notification and Alert Workflow
 
-. <<configure_custom_notification,Configure a custom notification in CloudHub Connector.>>
-. <<configure_custom_app_alerts,Bind the custom notification to an alert in Runtime Manager.>>
-. xref:ch2-deploy.adoc[Deploy the app to CloudHub 2.0].
+. <<configure-custom-notification,Configure a custom notification in CloudHub Connector.>>
+. <<configure-custom-app-alerts,Bind the custom notification to an alert in Runtime Manager.>>
+. xref:ch2-deploy.adoc[].
 
 === Prerequisites
 
 * Ensure that your default environment (defined in your profile) has Read Application permissions.
 
-[[configure_custom_notification]]
+[[configure-custom-notification]]
 == Configure the Custom Notification in CloudHub Connector
 
 In Anypoint Studio, configure CloudHub Connector in your Mule project:
@@ -124,14 +124,14 @@ https://docs.mulesoft.com/cloudhub-connector/1.0/cloudhub-connector-ref#createNo
 --
 . Deploy the app to CloudHub 2.0.
 +
-See xref:ch2-deploy.adoc[Deploy Apps to CloudHub 2.0].
+See xref:ch2-deploy.adoc[].
 +
 When the app triggers the notification, the message appears in a notification on Runtime Manager.
 . Optionally, set up alerts to send email when a notification occurs.
 +
-See <<configure_custom_app_alerts>>.
+See <<configure-custom-app-alerts>>.
 
-[[configure_custom_app_alerts]]
+[[configure-custom-app-alerts]]
 == Create a Custom Alert
 
 To set up an alert to send an email when a notification occurs, bind the custom notification to an alert:

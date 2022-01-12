@@ -1,4 +1,4 @@
-= Extend Your Network to Anypoint Platform
+= Extending Your Network to Anypoint Platform
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -31,6 +31,6 @@ endif::[]
 
 == See Also 
 
-* xref:ps-create-configure.adoc[Create and Configure Private Spaces]
+* xref:ps-create-configure.adoc[]
 
 

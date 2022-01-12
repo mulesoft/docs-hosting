@@ -1,4 +1,4 @@
-= Gather Required Setup Information
+= Gathering Required Setup Information
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -290,7 +290,7 @@ to the other servers.
 ==== Domains
 
 _Domains_ identify the internal domains that must be accessible from the private space.
-The configured internal DNS servers resolve the specified domaina, and the 
+The configured internal DNS servers resolve the specified domains, and the 
 external DNS server resolves all other domains.
 
 To specify an internal domain, use the second-level domain name, such as `mulesoft.com`.
@@ -307,8 +307,8 @@ The total number of characters for all configured domains is 229.
 == VPN Requirements 
 
 * <<Remote IP Address>>
-* <<Dynamic VPN Connection Requirements>>
-* <<Static VPN Connection Requirements>>
+* <<Dynamic VPN Routing (BGP)>>
+* <<Static VPN Routing>>
 * <<Local ASN>>
 * <<Remote ASN>> (dynamic routing only)
 * <<Static IP Prefixes>> (static routing only)
@@ -542,7 +542,7 @@ The *Transit Gateways* page is visible in Runtime Manager to Anypoint organizati
 Attaching one Anypoint VPC to an AWS Transit Gateway uses one Anypoint VPN license.
 * Sign in to an Anypoint Platform account with either the CloudHub 2.0 Network Administrator or the CloudHub 2.0 Network Viewer user permission.
 +
-See xref:access-management::users.adoc#grant-permissions-and-roles-to-users[Grant Permissions and Roles to Users].
+See xref:access-management::users.adoc#grant-permissions-and-roles-to-users[Grant Permissions and Roles to Users^].
 
 * Identify the subnets in your network (in CIDR notation) that you want to make accessible through the transit gateway.
 

@@ -1,4 +1,4 @@
-= Configure Advanced Private Space Settings	
+= Configuring Advanced Private Space Settings	
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -119,4 +119,4 @@ If no data is sent or received in the specified time, the load balancer closes t
 
 == See Also 
 
-* xref:ps-config-log-forwarding.adoc[Configure Log Forwarding for a Private Space]
+* xref:ps-config-log-forwarding.adoc[]

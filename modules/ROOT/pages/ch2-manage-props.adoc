@@ -1,4 +1,4 @@
-= Change App Behavior with Properties
+= Changing App Behavior with Properties
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -19,7 +19,7 @@ In Runtime Manager, you can set these two properties as application properties.
 For sensitive information, you can protect the property values so that,
 after you save them in Runtime Manager, their values aren't visible in the console
 or passed between the console and CloudHub 2.0.
-For information, see xref:ch2-protect-app-props.adoc[Protect App Property Values].
+For information, see xref:ch2-protect-app-props.adoc[].
 
 You can properties in either Anypoint Runtime Manager or a properties file.
 If you set properties both in the properties file in your application and in Runtime Manager, the values set in Runtime Manager always override the values in the properties file when your application deploys.
@@ -55,7 +55,7 @@ To work around this limitation, use Chrome in incognito mode or use another brow
 --
 ** If you want to hide the value in Runtime Manager, click *Protect* and then click *Protect value* to confirm.
 +
-See xref:ch2-protect-app-props.adoc[Protect App Property Values].
+See xref:ch2-protect-app-props.adoc[].
 ** If you want to change a key or value, edit the text in the field.
 ** If you want to delete a property, click *X*.
 ** Click *Apply Changes*.
@@ -187,5 +187,5 @@ Example output:
 == See Also
 
 * https://docs.mulesoft.com/mule-runtime/4.4/configuring-properties[Configuring Properties^] (Mule 4) (Link out from Beta docs)
-* xref:ch2-deploy.adoc[Deploy Apps to CloudHub 2.0]
-* xref:ch2-protect-app-props.adoc[Protect App Property Values]
+* xref:ch2-deploy.adoc[]
+* xref:ch2-protect-app-props.adoc[]

@@ -1,14 +1,14 @@
 
 // tag::changeAppProperties[]
-[[app_properties]]
+[[app-properties]]
 = Change App Behavior with Properties
 
 You can configure property values, such as specifying the environment or setting passwords and usernames, during app deployment.
 
 For information about configuring app properties, see:
 
-* xref:ch2-manage-props.adoc[Change App Behavior with Properties] 
-* xref:ch2-protect-app-props.adoc[Protect App Property Values]
+* xref:ch2-manage-props.adoc[] 
+* xref:ch2-protect-app-props.adoc[]
 // end::changeAppProperties[]
 
 
@@ -34,7 +34,7 @@ Exchange downloads the app JAR file to your local system.
 
 
 // tag::appNameReqs[]
-[[app_name_reqs]]
+[[app-name-reqs]]
 = Application Names
 
 *FROM CLOUDHUB 1.0*
@@ -60,7 +60,7 @@ For example, you might route requests to `myapplication.mycompany.com` to `mycom
 
 
 // tag::enableTLSv1[]
-[[enable_tls_v1]]
+[[enable-tls-v1]]
 = Enable TLS v1 and TLS v1.1
 
 *REMOVE THIS CONTENT FOR GA?*

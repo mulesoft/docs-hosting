@@ -1,0 +1,40 @@
+= Updating Apps Deployed to CloudHub 2.0
+
+Based on https://docs.mulesoft.com/runtime-fabric/1.11/app-versioning[Application Versioning on Runtime Fabric^]. 
+
+To do: tasks
+
+*Last update* 11-Jan-22
+
+
+When you deploy an application to CloudHub 2.0, Runtime Manager automatically versions the application and creates a new _configuration_.
+
+Application configurations enable you to:
+
+* View the configuration change history of the application.
+* Roll back the configurations to an earlier version if the currently applied configuration has issues or is unstable.
+* View the application status.
++
+Possible values are:
++
+Running:: At least one replica is receiving traffic (Started state).
+Not running:: None of the replicas are receiving traffic.
+Unknown:: The target is disconnected.
+* Make updates to a deployed application’s configuration, including:
++
+** Application file
+** Application deployment package version
+** Deployment target settings, such as runtime version, number of replicas, and whether the application is running in cluster mode
+** Public endpoint and TLS settings
+** Resource allocations, including CPU and memory
+** App property values
+* View logs and diagnostics associated with a configuration.
+
+
+== See Also
+
+* xref:ch2-deploy-private-space.adoc[]
+* xref:ch2-manage-props.adoc[]
+* xref:ch2-view-logs.adoc[]
+* xref:ch2-view-diag.adoc[]
+* xref:ch2-manage-schedules.adoc[]

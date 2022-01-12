@@ -33,11 +33,11 @@ CloudHub 2.0 provides auto-scaling groups for fault-tolerance.
 * Custom properties
 +
 For information on setting custom properties, see 
-xref:ch2-manage-props.adoc[Change App Behavior with Properties].
-* xref:ch2-deploy.adoc[Deploy Apps to CloudHub 2.0].
+xref:ch2-manage-props.adoc[].
+* xref:ch2-deploy.adoc[].
 +
 CloudHub 2.0 provides a secure cloudhub.io endpoint for sending requests to applications.
-* xref:ps-config-log-forwarding.adoc[Forward logs to a third-party provider].
+* xref:ps-config-log-forwarding.adoc[].
 
 ////
 

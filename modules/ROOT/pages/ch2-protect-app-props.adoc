@@ -1,4 +1,4 @@
-= Protect App Property Values
+= Protecting App Property Values
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -72,5 +72,5 @@ When moving applications between sandboxes, the property name is copied, but the
 == See Also
 
 * https://docs.mulesoft.com/mule-runtime/4.3/secure-configuration-properties[Secure Configuration Properties^] (link out from Beta docs)
-* xref:ch2-manage-props.adoc[Change App Behavior with Properties]
-* xref:ch2-deploy.adoc[Deploy Apps to CloudHub 2.0]
+* xref:ch2-manage-props.adoc[]
+* xref:ch2-deploy.adoc[]
