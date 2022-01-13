@@ -261,10 +261,10 @@ Leave this field blank if your key isn't encrypted.
 ... Click *Add certificate*.  
 . Click *Advanced settings* to configure the log levels for the load balancer in the private space.
 +
-See <<Load Balancer Log Levels>>.
+See <<load-balancer-log-levels>>.
 . Click *Save Domains*. 
 
-
+[[load-balancer-log-levels]]
 == Load Balancer Log Levels 
 
 CloudHub 2.0 enables you to specify the severity level of messages that are written to the log file.

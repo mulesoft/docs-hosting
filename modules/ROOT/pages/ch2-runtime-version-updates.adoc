@@ -72,15 +72,16 @@ When an automatic update occurs, the audit log for your app contains an entry by
 which shows the date and time an update occurred and whether it was successful.
 +
 If the update is successful, no action is required.
-See <<Zero-Downtime Restart Limitations>>.
+See <<zero-downtime-restart-limitations>>.
 
 If your application does not support zero-downtime updates or requires a manual update,
 you can apply the date patch released in the first full week of the month in week 1 or week 2. 
-See <<Update the Runtime Version Manually>>.
+See <<update-runtime-manually>>.
 
 To update multiple applications, use the CloudHub 2.0 API.
-See <<Update Multiple Apps to the Latest Runtime Release>>.
+See <<bulk-update>>.
 
+[[update-notification]]
 === Update Notification 
 
 When a new runtime version is available:
@@ -100,6 +101,7 @@ image::ch2-app-update-versions.png[Date patch version update and Update availabl
 MuleSoft applies the monthly updates automatically, based on the published schedule. 
 If you want, you can update them manually at your convenience.
 
+[[update-runtime-manually]]
 == Update the Runtime Version Manually 
 
 The *Update Available* tab indicates that one or more apps require a runtime version update.
@@ -107,6 +109,7 @@ You can schedule the update to occur at your convenience.
 
 Before updating apps in the production environment, update them in the sandbox environment and run required tests.
 
+[[update-single-app]]
 === Update a Single App to the Latest Runtime Release 
 
 To update an app to the latest date patch:
@@ -139,6 +142,7 @@ If the app update was successful, the app no longer appears in the *Update Avail
 If the app update was unsuccessful, the app remains in the *Update Available* tab.
 In this case, the app continues to run correctly on the previous runtime version and no action is required.
 
+[[bulk-update]]
 === Update Multiple Apps to the Latest Runtime Release 
 
 *Is there a CH2.0 API for the bulk update?*
@@ -147,7 +151,7 @@ Although the Runtime Manager UI doesn't support updating multiple apps to the la
 you can use the CloudHub 2.0 API to perform a bulk update. 
 See https://help.mulesoft.com/s/article/How-to-Perform-a-Bulk-CloudHub-Application-Update-to-the-Latest-Runtime-Releases[How to Perform a Bulk CloudHub Application Update to the Latest Runtime Releases^] (KB article).
 
-
+[[zero-downtime-restart-limitations]]
 == Zero-Downtime Restart Limitations
 
 *Do these apply to CH 2.0?*

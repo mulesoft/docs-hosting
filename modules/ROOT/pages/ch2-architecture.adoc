@@ -14,15 +14,16 @@ image::ch2-architecture.png[CloudHub 2.0 Architecture with four callouts]
 
 [cols="8a,25a,65a"]
 |===
-|image:blue-1.png[1 Integration Applications,width=50%] |<<Integration Applications>> |Applications that you create and deploy to CloudHub 2.0 to perform integration logic for your business
-|image:blue-2.png[2 Runtime Manager,width=50%] |<<Runtime Manager>> |User interface that enables you to deploy and monitor integrations, and configure your account
-|image:blue-3.png[3 Platform Services,width=50%] |<<Platform Services>> |Shared CloudHub 2.0 platform services and APIs, which include Anypoint Monitoring, alerting, logging, account management, private spaces/secure data gateway, and load balancing
-|image:blue-4.png[4 CloudHub 2.0,width=50%] |<<CloudHub 2.0 Replicas,CloudHub 2.0>> |An elastic cloud of _replicas_, Mule instances that run integration applications
+|image:blue-1.png[1 Integration Applications,width=50%] |<<integrations-apps>> |Applications that you create and deploy to CloudHub 2.0 to perform integration logic for your business
+|image:blue-2.png[2 Runtime Manager,width=50%] |<<runtime-manager>> |User interface that enables you to deploy and monitor integrations, and configure your account
+|image:blue-3.png[3 Platform Services,width=50%] |<<platform-services>> |Shared CloudHub 2.0 platform services and APIs, which include Anypoint Monitoring, alerting, logging, account management, private spaces/secure data gateway, and load balancing
+|image:blue-4.png[4 CloudHub 2.0,width=50%] |<<cloudhub-2-replicas,CloudHub 2.0>> |An elastic cloud of _replicas_, Mule instances that run integration applications
 |===
 
 [NOTE]
 You can view the live status and detailed service history for Runtime Manager, platform services, and CloudHub 2.0 on https://status.mulesoft.com/[status.mulesoft.com] for the default (US hosted) Control Plane and https://eu1-status.mulesoft.com/[eu1-status.mulesoft.com] for the EU Control Plane.
 
+[[integrations-apps]]
 == Integration Applications
 
 An integration application is any integration that you've built using Anypoint Studio.
@@ -31,6 +32,7 @@ These applications can do everything from synchronizing data from Salesforce to 
 For more about creating and deploying integration applications,
 see xref:index.adoc[] and xref:ch2-deploy.adoc[].
 
+[[runtime-manager]]
 == Runtime Manager
 
 Runtime Manager is integrated into the https://anypoint.mulesoft.com[Anypoint Platform].
@@ -40,12 +42,14 @@ The console provides monitoring information from the platform services and also 
 Administrator account holders can use the Anypoint Platform to add and manage other users in the organization, define user roles, and create and manage sandbox environments.
 For information, see https://docs.mulesoft.com/access-management[Access Management^] (Link out from Beta docs).
 
+[[platform-services]]
 == Platform Services
 
 Platform services are responsible for coordinating all aspects of the platform.
 They coordinate deployment of applications, monitor integrations, provide analytics data, store application data, run scheduled jobs, and more.
 Many of these services are also exposed through the xref:ch2-api.adoc[].
 
+[[cloudhub-2-replicas]]
 == CloudHub 2.0 Replicas
 
 _Replicas_ are dedicated instances of Mule runtime engine that run your integration applications on CloudHub 2.0.
