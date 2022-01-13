@@ -154,9 +154,10 @@ Here is an example of data received in JSON format in response to a request to g
 The CloudHub 2.0 management API enforces global usage limits, with some exceptions.
 
 
+[[global-rate-limits]]
 === Global Rate Limits for the CloudHub 2.0 Management API
 
-The following table lists the rate limits for the CloudHub 2.0 management API endpoints except those listed in <<Exceptions to the Global Rate Limits>>.
+The following table lists the rate limits for the CloudHub 2.0 management API endpoints except those listed in <<global-rate-limit-exceptions>>.
 
 When the app reaches the rate limit, CloudHub 2.0 returns a 503 status code.
 
@@ -168,10 +169,10 @@ When the app reaches the rate limit, CloudHub 2.0 returns a 503 status code.
 |Government Cloud
 |===
 
-
+[[global-rate-limit-exceptions]]
 === Exceptions to the Global Rate Limits
 
-The following table lists the exceptions to the <<Global Rate Limits for the CloudHub 2.0 Management API>>.
+The following table lists the exceptions to the <<global-rate-limits>>.
 
 When the app reaches the rate limit, CloudHub 2.0 returns the status codes shown here.
 

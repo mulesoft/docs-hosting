@@ -50,11 +50,11 @@ A maximum of 95 route table entries is allowed per private space,
 regardless of the number of connections.
 
 
-== Custom Domains
+== Custom Domains and URL Rewriting
 
 //// 
 
-You can configure the private space to route traffic  the apps deployed to the private space using a custom domain, configure the DNS target, upload create the TLS context.
+You can configure the private space to route traffic the apps deployed to the private space using a custom domain, configure the DNS target, upload create the TLS context.
 
 A CloudHub dedicated load balancer provides an alternative domain name to route HTTP requests to Mule applications listening on port 8091 and HTTPS requests to Mule applications listening on port 8092. You can also use mapping rules to rename requests to the CloudHub DLB to a different Mule application domain name.
 
@@ -82,7 +82,7 @@ You control the traffic to and from your private spaces.
 By default, CloudHub 2.0 blocks all traffic to the private space and provides firewall rules to allow connections through specified ports. 
 You can configure additional firewall rules to control traffic to your private space, expose or block your custom ports, and block requests to your apps. 
 
-The private space provides load balancing to balance inbound traffic to apps  across multiple replicas.
+The private space provides load balancing to balance inbound traffic to apps across multiple replicas.
 
 By combining firewall rules and TLS context configuration, you can fine-tune how external services reach your applications.
 

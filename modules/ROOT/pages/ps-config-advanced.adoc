@@ -40,12 +40,12 @@ From the *Accept HTTPS requests* list, select one of the following:
 ... Click *Add certificate*.  
 . Click *Load Balanceer Log Level* to configure the log levels for the load balancer in the private space.
 +
-See <<Configure Load Balancer Log Levels>>.
+See <<configure-load-balancer-log-levels>>.
 . Click *Save Domains*. 
 
 === Validate: Verify Inbound Traffic Configuration
 
-
+[[configure-load-balancer-log-levels]]
 == Configure Load Balancer Log Levels 
 
 CloudHub 2.0 enables you to specify the severity level of messages that are written to the log file.
