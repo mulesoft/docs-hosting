@@ -1,13 +1,9 @@
 = Deploying Apps to a Shared Space
 
 
-include::partial$feature-availability.adoc[tag=featureUnavailable]
-
-
 *This topic is updated to the Design Spec dated 11-Nov-21*
 
-
-*Last update* 07-Jan-22
+*Last update* 14-Jan-22
 
 // How can we share this content with RTF?
 
@@ -35,6 +31,7 @@ image::rtm-get-from-exchange.png[Get from Exchange page]
 *** <<specify-runtime-options,Specify runtime options>>.
 *** <<configure-public-endpoint,Configure a public endpoint for the app>>.
 *** <<app-properties,Change app behavior with properties>>.
+*** <<enable-tls-v1,Enable TLS v1 and TLS v1.1>>.
 
 . Click *Deploy Application*. 
 
@@ -67,18 +64,17 @@ Resource allocation::
 [[configure-public-endpoint]]
 == Configure a Public Endpoint for the App
 
-You can configure the endpoint is accessible from the public internet.
-
-[NOTE]
-When deploying to the*CloudHub 2.0* deployment target),
-the domain for the public endpoint is always `*.my-app.cloudhub.io`.
-*THIS NOTE IS pure supposition*
-
+To configure the public endpoint for the app to enable access from the internet:
 
 . Click the *Ingress* tab and specify the following options:
 +
 Public endpoint::
 * *Domain*: Select the domain, such as `cloudhub.io`, for the app.
++
+[NOTE]
+*THIS NOTE IS pure supposition*
+When deploying to the *CloudHub 2.0* deployment target,
+the domain for the public endpoint is always `.my-app.cloudhub.io`.
 
 TLS Settings::
 * *Last-Mile Security*
@@ -91,7 +87,7 @@ This option requires that the Mule application include an SSL certificate and al
 Enables SSL forwarding during a session.
 +
 SSL forwarding is mostly used with client authentication.
-See xref:anypoint-security::enable-client-authentication.adoc[].
+See https://docs.mulesoft.com/anypoint-security/enable-client-authentication[Enable Client Authentication^] (Link out from Beta docs).
 SSL forwarding forwards client certificate details in HTTP request headers so they are available to the application.
 These fields can identify an authenticated client and allow an application to determine and use the identity.
 +
@@ -112,29 +108,17 @@ The following headers are available:
 // ==== Application Names
 include::partial$deployment.adoc[tag=appNameReqs,leveloffset=+2]
 
-[[placeholder-table]]
-=== Placeholders
-
-The subdomain and path support the following optional lowercase placeholders:
-
-`app-name`::
-Resolves to the name of the app that you specified in the *Application Name* field when you deploy the app.
-`business-group-id`::
-Resolves to the business group ID associated with the app(?)
-`environment-id`::
-Resolves to the environment that you deploy the app to (?)
-
-
+// == Change App Behavior with Properties
 include::partial$deployment.adoc[tag=changeAppProperties,leveloffset=+1]
 
+// == Enable TLS v1 and TLS v1.1
 include::partial$deployment.adoc[tag=enableTLSv1,leveloffset=+1]
 
-
+// == Download a Test App from Exchange
 include::partial$deployment.adoc[tag=downloadTestApp,leveloffset=+1]
 
 
 == See Also
 
-* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^]
+* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (Link out from Beta docs)
 * xref:ps-config-domains.adoc[]
-
