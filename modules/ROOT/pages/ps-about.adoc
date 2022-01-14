@@ -52,7 +52,36 @@ regardless of the number of connections.
 
 == Custom Domains and URL Rewriting
 
+
 //// 
+
+Custom domain
+Create certificate for the domains you want to use.
+Add Domains by creating TLS context
+Keystore (PEM or JKS): public cert, private key, key password
+Optional: CA path cert and Truststore
+Ciphers, 
+
+custom domains configured in the private space and ready to be used when deploying apps.
+
+Use domains in deployed apps.
+
+App deployed using default domain (under public endpoint)
+Use the domains from the TLS context created for the private space
+    Select domain from Host (all domains configured in the certificate uploaded in the TLS context appear in dropdown)
+    Configure subdomain (* is default - uses the app name as the subdomain)
+    App listening on the path
+    Click on URL to see that the app is reachable on the configured path
+
+    Configure multiple endpoints using other domains defined in the certificate - Add Endpoint
+
+    App can be reached using multiple URIs
+
+    Different public URL endpoint and different path for the app itself - path rewrite
+    Customers reach the app at one URI but app listening at a different path.
+        Enter the path to use for the customer in the Path (/api) and then enter the base path where the app listens in the Path Rewrite (/v1/api)
+
+
 
 You can configure the private space to route traffic the apps deployed to the private space using a custom domain, configure the DNS target, upload create the TLS context.
 

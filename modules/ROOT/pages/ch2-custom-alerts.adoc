@@ -233,8 +233,8 @@ see https://docs.mulesoft.com/mule-runtime/4.4/error-handling#on_error_continue[
 ////
 * xref:alerts-on-runtime-manager.adoc[Alerts]
 * xref:connectors::introduction/intro-config-use-studio.adoc#install[Add the Connector to Your Mule Project]
-* https://www.mulesoft.com/exchange/com.mulesoft.connectors/mule-cloudhub-connector/[CloudHub Connector] on Exchange
-* xref:cloudhub-connector::index.adoc#create-the-cloudhub-configuration[Create the CloudHub Configuration]
-* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
+* https://www.mulesoft.com/exchange/com.mulesoft.connectors/mule-cloudhub-connector/[CloudHub Connector^] on Exchange
+* xref:cloudhub-connector::index.adoc#create-the-cloudhub-configuration[Create the CloudHub Configuration^]
+* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub^]
 * xref:mule-runtime::intro-error-handlers.adoc[Introduction to Mule 4: Error Handlers]
 ////

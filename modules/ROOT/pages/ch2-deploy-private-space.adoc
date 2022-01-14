@@ -6,7 +6,7 @@ include::partial$feature-availability.adoc[tag=featureUnavailable]
 *This topic is updated to the Design Spec dated 11-Nov-21*
 
 
-*Last update* 07-Jan-22
+*Last update* 14-Jan-22
 
 // How can we share this content with RTF?
 
@@ -32,8 +32,9 @@ image::rtm-get-from-exchange.png[Get from Exchange page]
 .. Configure options for deployment:
 +
 *** <<specify-runtime-options,Specify runtime options>>.
-*** <<configure-public-endpoint,Configure a public endpoint for the app>>.
+*** <<configure-endpoint-path,Configure endpoints and paths for the app>>.
 *** <<app-properties,Change app behavior with properties>>.
+*** <<enable-tls-v1,Enable TLS v1 and TLS v1.1>>.
 *** <<forward-logs,Forward logs to other services>>.
 
 . Click *Deploy Application*. 
@@ -77,17 +78,10 @@ Resource allocation::
 
 
 
-[[configure-public-endpoint]]
-== Configure a Public Endpoint for the App
+[[configure-endpoint-path]]
+== Configure Endpoints and Paths for the App
 
-You can configure the path for one or more endpoints that enable access from the public internet.
-
-
-[NOTE]
-When deploying to a shared space (*CloudHub 2.0* deployment target),
-the domain for the public endpoint is always `*.my-app.cloudhub.io`.
-*THIS NOTE IS pure supposition*
-
+To configure endpoints for the app to enable access from the internet:
 
 . Click the *Ingress* tab and specify the following options:
 +
@@ -100,16 +94,13 @@ Public endpoint::
 If you select `cloudhub.io` (the default domain when deploying to a
 private space), you can't select a subdomain or path.
 +
-The administrator configures the domains for the private space.
+The administrator configures the domains and certificates (TLS context) for the private space.
 See xref:ps-config-domains.adoc[].
 +
 After you select the domain for a private space, you can view the corresponding TLS context by clicking *View TLS Context*:
 +
 <screenshot>
-+
-The administrator configures the TLS context for the private space.
-See xref:ps-config-domains.adoc[].
-* *Subdomain* (private space only): If the domain includes a wildcard, you can configure the subdomain.
+* *Subdomain*: If the domain includes a wildcard, you can configure the subdomain.
 +
 Subdomains must start and end with an alphanumeric character and can contain only alphanumeric characters (a-z, A-Z, 0-9), hyphens (-), underscores (-), and periods (.).
 +
@@ -119,7 +110,7 @@ The default subdomain is `app-name`, which resolves to the name of the app that 
 +
 Paths must start and end with an alphanumeric character and can contain only alphanumeric characters, hyphens, and underscores.
 +
-The path supports <<placeholder-table,placeholders>>.
+Paths support <<placeholder-table,placeholders>>.
 +
 <screenshot>
 
@@ -147,7 +138,7 @@ This option requires that the Mule application include an SSL certificate and al
 Enables SSL forwarding during a session.
 
 SSL forwarding is mostly used with client authentication.
-See xref:anypoint-security::enable-client-authentication.adoc[Enable Client Authentication^].
+See https://docs.mulesoft.com/anypoint-security/enable-client-authentication.html[Enable Client Authentication^] (Link out from Beta docs).
 SSL forwarding forwards client certificate details in HTTP request headers so they are available to the application.
 These fields can identify an authenticated client and allow an application to determine and use the identity.
 
@@ -200,11 +191,11 @@ Resolves to the business group ID associated with the app(?)
 `environment-id`::
 Resolves to the environment that you deploy the app to (?)
 
+// == Change App Behavior with Properties
 include::partial$deployment.adoc[tag=changeAppProperties,leveloffset=+1]
 
+// == Enable TLS v1 and TLS v1.1
 include::partial$deployment.adoc[tag=enableTLSv1,leveloffset=+1]
-
-
 
 [[forward-logs]]
 == Forward Logs to Other Services
@@ -228,12 +219,12 @@ Forwards application and load-balancer logs to the specified service:
 
 For information about viewing logs, see xref:ch2-view-logs.adoc[].
 
-
+// == Download a Test App from Exchange
 include::partial$deployment.adoc[tag=downloadTestApp,leveloffset=+1]
 
 
 == See Also
 
-* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^]
+* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (Link out from Beta docs)
 * xref:ps-config-domains.adoc[]
 

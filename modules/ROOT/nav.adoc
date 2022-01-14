@@ -13,7 +13,7 @@
 *** xref:ps-assign-permissions.adoc[Assigning Permissions]
 *** xref:ps-gather-setup-info.adoc[Gathering Required Setup Information]
 *** xref:ps-create-configure.adoc[Creating and Configuring Private Spaces]
-*** xref:ps-config-domains.adoc[Enabling Inbound Traffic to Your Apps Deployed to a Private Space]
+*** xref:ps-config-domains.adoc[Configuring Domains and Certificates for a Private Space]
 *** xref:ps-config-clients.adoc[Setting Up Authentication for Trusted Clients]
 *** xref:ps-config-fw-rules.adoc[Configuring Firewall Rules to Manage Traffic to a Private Space]
 *** xref:ps-config-env.adoc[Associating Environments and Business Groups with a Private Space]

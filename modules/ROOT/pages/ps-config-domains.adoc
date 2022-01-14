@@ -1,9 +1,9 @@
-= Enabling Inbound Traffic to Your Apps Deployed to a Private Space	
+= Configuring Domains and Certificates (TLS Context) for a Private Space	
 
 
 *This topic is updated to the Design Spec dated 11-Nov-21*
 
-*Last update* 11-Jan-22
+*Last update* 14-Jan-22
 
 CloudHub 2.0 uses Transport Layer Security (TLS) contexts to encrypt 
 inbound traffic to the private space.
@@ -14,14 +14,29 @@ Each private space includes one TLS context by default
 (for traffic to `cloudhub.io`), which can't be removed.
 You can create additional TLS contexts as required.
 
-Each TLS context includes:
+The TLS contexts that you configure for the private space define the domains that are available 
+when deploying apps to the private spaces. 
+See xref:ch2-deploy-private-space.adoc#configure-endpoint-path[Configure Endpoints and Paths for the App].
 
-* *Keystore*, which allows communication to your app using custom domains.
-+
-A keystore is a repository of security certificates (either authorization certificates or public key certificates), along with their corresponding private keys used, for example, in SSL encryption.
-+
+== TLS Contexts
+
+Each TLS context includes a keystore and an optional truststore.
+
+To <<create-tls-context,create a TLS context>>:
+
+. Upload the keystore.
+. Upload the truststore (optional).
+. Accept the default ciphers or select ciphers to add or remove.
+
+
+=== Keystore
+
+A _keystore_ is a repository of security certificates (either authorization certificates or public key certificates), along with their corresponding private keys used, for example, in SSL encryption.
+
+The keystore allows communication to your app using custom domains.
+
 CloudHub 2.0 supports the following keystore types:
-+
+
 PEM (Privacy-Enhanced Mail)::
 +
 A PEM file is a Base64-encoded ASCII file with a `.cer`, `.crt`, or `.pem` extension.
@@ -42,12 +57,15 @@ A JKS file is a repository for authorization or public key certificates and does
 Use this option to upload a JKS file and use TLS default values.
 With this option, you can't change the default values for TLS versions, ciphers, and other TLS configuration options. 
 
-* *Truststore* (optional), which enables mutual TLS by identifying trusted external clients or private certificate authorities (CAs).
-+
+=== Truststore
+
 A truststore is a repository of security certificates from other parties that you expect to communicate with, or from Certificate Authorities that you trust to identify other parties.
-+
+
+The optional truststore enables mutual TLS by identifying trusted external clients or private certificate authorities (CAs).
+
 CloudHub 2.0 accepts truststore files in PEM formats.
 
+=== Ciphers
 
 When you add the TLS context, you can select the ciphers to use with the TLS context.
 
@@ -76,10 +94,10 @@ Your registrar might take up to 24 hours to apply the change.
 For information, see https://docs.mulesoft.com/access-management/teams[Teams^] (Link out from Beta docs).
 
 
+[[create-tls-context]]
 == Create a TLS Context
 
-
-To create a new TLS context, upload a certificate for the domains you want to use:
+To create a new TLS context:
 
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
@@ -91,7 +109,7 @@ the *Create TLS Context* button is disabled.
 . Enter a name for the TLS context.
 . *Configure the keystore:*
 +
-** PEM format
+** *PEM format*
 ... Select *Upload PEM files*.
 ... Choose a public certificate to upload.
 +
@@ -156,7 +174,7 @@ the *Edit TLS Context* button is disabled.
 
 . *Configure the keystore:*
 +
-** PEM format
+** *PEM format*
 ... Click *Upload PEM files*.
 ... Click *X* to remove the current public certificate, 
 and then choose a new public certificate to upload.
@@ -231,38 +249,6 @@ From the *Accept HTTPS requests* list, select one of the following:
 ** *Also accept HTTP requests*
 --
 
-. Add TLS certificates:
-// Add certificates so that you can use their domains when deploying apps to this private space.
-+
-[NOTE]
-The `cloudhub-cert.pem` certificate is provided by default and can't be removed.
-
-.. Click *Add certificate*.
-.. Upload PEM files:
-+
-... Click *Browse* and upload a public certificate file from your local system.
-... Click *Browse* and upload a private key file from your local system. 
-... Enter the password for your key. 
-+
-Leave this field blank if your key isn't encrypted.
-... Optionally, click *Browse* and upload a CA path certificate.
-... Click *Add certificate*. 
-.. Upload a JKS file:
-+
-... Click *Browse* and upload a keystore (JKS) file.
-... Enter the keystore password and then click *Next*.
-... Select an alias from the keystore to add the domains and then click *Next*. 
-... Click the key password for the alias you selected.
-... Click *Add certificate*.  
-.. Import from Secrets Manager:
-+
-... Select the environment.
-... Select the secret group.
-... Click *Add certificate*.  
-. Click *Advanced settings* to configure the log levels for the load balancer in the private space.
-+
-See <<load-balancer-log-levels>>.
-. Click *Save Domains*. 
 
 [[load-balancer-log-levels]]
 == Load Balancer Log Levels 
