@@ -54,8 +54,8 @@ When you add the TLS context, you can select the ciphers to use with the TLS con
 
 == Before You Begin
 
-. Generate a xref:mule-runtime::tls-configuration.adoc#keystore-generation[keystore^].
-. Generate a xref:mule-runtime::tls-configuration.adoc#truststore-generation[truststore^] (if you want to enable mutual TLS).
+. Generate a https://docs.mulesoft.com/mule-runtime/4.4/tls-configuration#generate-a-keystore[keystore^] (Link out from Beta docs).
+. Generate a https://docs.mulesoft.com/mule-runtime/4.4/tls-configuration#truststore-generation[truststore^] (Link out from Beta docs) (if you want to enable mutual TLS).
 . Create DNS records for your domains.
 +
 To enable traffic to reach the apps deployed to the private space using a custom domain:
@@ -122,7 +122,7 @@ Click *View Details* to display the alias details.
 ... Enter the key password used to access the private key within the keystore.
 +
 CloudHub 2.0 validates the password against the key.
-. *Configure the truststore:*
+. *Configure the truststore (optional):*
 +
 The truststore defines the client certificates to use to enable mutual TLS with the configured keystore.
 +
@@ -187,7 +187,7 @@ Click *View Details* to display the alias details.
 ... Enter the key password used to access the private key within the keystore.
 +
 CloudHub 2.0 validates the password against the key.
-. *Configure the truststore: (Optional)*
+. *Configure the truststore (optional):*
 +
 The truststore defines the client certificates to use to enable mutual TLS with the configured keystore.
 +

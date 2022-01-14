@@ -1,7 +1,5 @@
 = Gathering Required Setup Information
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
+
 
 Use the following sections to gather the information you'll need to set up your private space.
 For information about private spaces, see xref:index.adoc#what-is-a-private-space[What is a Private Space?].
@@ -14,7 +12,7 @@ to the private space for <<CIDR Block,CIDR block>> configuration.
 // (*View the checklist* link from *Network* tab)
 // Should this page include other network admin requests - Domains tab?
 
-////
+
 
 [NOTE]
 ====
@@ -22,8 +20,10 @@ The following two sections provide the same information in different formats:
 
 * <<setup-info-private-space>>
 * <<setup-info-private-space-table>>
+
+Which do you prefer?
 ====
-////
+
 
 [[setup-info-private-space]]
 == Information Required to Set Up a Private Space
@@ -109,7 +109,6 @@ For details about each requirement, see the sections that follow.
 * <<mulesoft-aws-account-id,MuleSoft AWS account ID>> 
 * <<resource-share-id-owner,Resource share ID>>
 * <<resource-share-id-owner,Resource share owner>>
-* <<anypoint-vpc-name,Anypoint VPC name>>
 --
 
 [[setup-info-private-space-table]]
@@ -163,7 +162,6 @@ For details about each requirement, see the sections that follow.
 ||<<mulesoft-aws-account-id,MuleSoft AWS account ID>>    4+|
 ||Resource share | <<resource-share-id-owner,ID>> 3+|
 ||| <<resource-share-id-owner,Owner>> 3+|
-||<<anypoint-vpc-name,Anypoint VPC name>> | 3+|
 6+|
 |===
 
@@ -570,7 +568,7 @@ The *Transit Gateways* page is visible in Runtime Manager to Anypoint organizati
 Attaching one Anypoint VPC to an AWS Transit Gateway uses one Anypoint VPN license.
 * Sign in to an Anypoint Platform account with either the CloudHub 2.0 Network Administrator or the CloudHub 2.0 Network Viewer user permission.
 +
-See xref:access-management::users.adoc#grant-permissions-and-roles-to-users[Grant Permissions and Roles to Users^].
+See https://docs.mulesoft.com/access-management/users#grant-user-permissions[Grant Permissions and Roles to Users^] (Link out from Beta docs).
 
 * Identify the subnets in your network (in CIDR notation) that you want to make accessible through the transit gateway.
 
@@ -599,11 +597,19 @@ Consolidate networks to the fewest number possible to avoid exceeding the limit.
 [[mulesoft-aws-account-id]]
 === MuleSoft AWS Account ID
 
+The MuleSoft AWS account ID varies depending on your control plane, for example, US Cloud or EU Cloud, 
+and appears in *Add transit gateway* page when you select to create the transit gateway connection.
+
+When you create a resource share in AWS, you specify this ID to allow Anypoint Platform to access the resource share.
+
+If another team performs AWS configuration, share this MuleSoft AWS account ID with them.
+
 [[resource-share-id-owner]]
 === Resource Share ID and Owner
 
-[[anypoint-vpc-name]]
-=== Anypoint VPC Name
+After you create a resource share in AWS, the resource share ID and owner values appear in the resource share page.
+
+You provide these values to connect the AWS transit gateway to Anypoint Platform.
 
 
 == See Also 

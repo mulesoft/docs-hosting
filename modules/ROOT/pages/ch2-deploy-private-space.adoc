@@ -50,7 +50,7 @@ Replicas::
 Specifies the number of replicas, or instances, of the application to deploy
 +
 A minimum of two replicas is required for high availability.
-Run in Runtime Cluster Mode (private space only)::
+Run in Runtime Cluster Mode::
 Enables Mule clustering across each replica of the application
 Enforce deploying replicas across nodes::
 Selecting this option might cause some replicas in the deployment to remain in Pending status if there are unsufficient worker nodes or resources available on the worker nodes needed to deploy each replica.
@@ -97,8 +97,7 @@ Public endpoint::
 * *Domain*: Select the domain, such as `cloudhub.io`, for the app.
 +
 [NOTE]
-If you select `cloudhub.io` (the default domain when deploying to a
-private space), you can't select a subdomain or path.
+If you select `cloudhub.io` (the default domain), you can't select a subdomain or path.
 +
 The administrator configures the domains for the private space.
 See xref:ps-config-domains.adoc[].
@@ -109,13 +108,13 @@ After you select the domain for a private space, you can view the corresponding 
 +
 The administrator configures the TLS context for the private space.
 See xref:ps-config-domains.adoc[].
-* *Subdomain* (private space only): If the domain includes a wildcard, you can configure the subdomain.
+* *Subdomain*: If the domain includes a wildcard, you can configure the subdomain.
 +
 Subdomains must start and end with an alphanumeric character and can contain only alphanumeric characters (a-z, A-Z, 0-9), hyphens (-), underscores (-), and periods (.).
 +
 Subdomains support <<placeholder-table,placeholders>>.
 The default subdomain is `app-name`, which resolves to the name of the app that you specified in the *Application Name* field when you deploy the app.
-* *Path* (private space only): specifies the URL path to the application endpoint.
+* *Path*: specifies the URL path to the application endpoint.
 +
 Paths must start and end with an alphanumeric character and can contain only alphanumeric characters, hyphens, and underscores.
 +
