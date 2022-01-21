@@ -23,6 +23,7 @@
 *** xref:ps-troubleshoot.adoc[Troubleshooting Private Spaces]
 ** xref:ch2-deploy.adoc[Deploying Apps to CloudHub 2.0]
 *** xref:ch2-deploy-private-space.adoc[Deploying Apps to a Private Space]
+**** xref:ch2-config-endpoints-paths.adoc[Configuring Public Endpoints and Paths]
 *** xref:ch2-deploy-shared-space.adoc[Deploying Apps to a Shared Space]
 *** xref:ch2-manage-props.adoc[Changing App Behavior with Properties]
 **** xref:ch2-protect-app-props.adoc[Protecting App Property Values]

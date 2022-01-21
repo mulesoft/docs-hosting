@@ -6,7 +6,7 @@ include::partial$feature-availability.adoc[tag=featureUnavailable]
 *This topic is updated to the Design Spec dated 11-Nov-21*
 
 
-*Last update* 14-Jan-22
+*Last update* 20-Jan-22
 
 // How can we share this content with RTF?
 
@@ -81,6 +81,8 @@ Resource allocation::
 [[configure-endpoint-path]]
 == Configure Endpoints and Paths for the App
 
+For more information, see ch2-config-endpoints-paths.adoc[].
+
 To configure endpoints for the app to enable access from the internet:
 
 . Click the *Ingress* tab and specify the following options:
@@ -88,7 +90,7 @@ To configure endpoints for the app to enable access from the internet:
 Public endpoint::
 +
 --
-* *Domain*: Select the domain, such as `cloudhub.io`, for the app.
+* *Domain*: Select the domain, such as `cloudhub.io`, for the app from the dropdown.
 +
 [NOTE]
 If you select `cloudhub.io` (the default domain when deploying to a
@@ -100,15 +102,15 @@ See xref:ps-config-domains.adoc[].
 After you select the domain for a private space, you can view the corresponding TLS context by clicking *View TLS Context*:
 +
 <screenshot>
-* *Subdomain*: If the domain includes a wildcard, you can configure the subdomain.
+* *Subdomain*: If the domain you selected includes a wildcard, you can configure the subdomain.
 +
-Subdomains must start and end with an alphanumeric character and can contain only alphanumeric characters (a-z, A-Z, 0-9), hyphens (-), underscores (-), and periods (.).
+include::partial$deployment.adoc[tag=subdomain-name-reqs]
 +
 Subdomains support <<placeholder-table,placeholders>>.
 The default subdomain is `app-name`, which resolves to the name of the app that you specified in the *Application Name* field when you deploy the app.
 * *Path* (private space only): specifies the URL path to the application endpoint.
 +
-Paths must start and end with an alphanumeric character and can contain only alphanumeric characters, hyphens, and underscores.
+include::partial$deployment.adoc[tag=path-name-reqs]
 +
 Paths support <<placeholder-table,placeholders>>.
 +
@@ -156,40 +158,12 @@ The following headers are available:
 . Click *Apply Changes* to create a new configuration for your application.
 
 
-[[view-private-endpoint]]
-=== View the Private Endpoint for an App
-
-A private endpoint is accessible from inside the same private space or through
-the VPN or transit gateway connection for the private space. 
-
-To view or copy the URL for the private endpoint, hover over *private endpoint*:
-
-<screenshot>
-
-[[view-tls-context]]
-=== View TLS Context
-
-To view a summary of the TLS context for the domain, click *View TLS Context*. 
-
-You see the details for the TLS context:
-
-<screenshot> 
-
 // === Application Names
 include::partial$deployment.adoc[tag=appNameReqs,leveloffset=+2]
 
+// === Placeholders
+include::partial$deployment.adoc[tag=placeholders,leveloffset=+2]
 
-[[placeholder-table]]
-=== Placeholders
-
-The subdomain and path support the following optional lowercase placeholders:
-
-`app-name`::
-Resolves to the name of the app that you specified in the *Application Name* field when you deploy the app.
-`business-group-id`::
-Resolves to the business group ID associated with the app(?)
-`environment-id`::
-Resolves to the environment that you deploy the app to (?)
 
 // == Change App Behavior with Properties
 include::partial$deployment.adoc[tag=changeAppProperties,leveloffset=+1]
