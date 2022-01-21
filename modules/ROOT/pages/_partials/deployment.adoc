@@ -32,6 +32,27 @@ image::exchange-app-download.png[Download button in Exchange]
 Exchange downloads the app JAR file to your local system.
 // end::downloadTestApp[]
 
+// tag::placeholders[]
+[[placeholder-table]]
+= Placeholders
+
+The subdomain and path support the following optional lowercase placeholders:
+
+`app-name`::
+Resolves to the name of the app that you specified in the *Application Name* field when you deploy the app.
+`business-group-id`::
+Resolves to the business group ID associated with the app.
+`environment-id`::
+Resolves to the environment that you deploy the app to.
+// end::placeholders[]
+
+// tag::path-name-reqs[]
+Paths must start and end with an alphanumeric character and can contain only alphanumeric characters, hyphens, and underscores.
+// end::path-name-reqs[]
+
+// tag::subdomain-name-reqs[]
+Subdomains must start and end with an alphanumeric character and can contain only alphanumeric characters (a-z, A-Z, 0-9), hyphens (-), underscores (-), and periods (.).
+// end::subdomain-name-reqs[]
 
 // tag::appNameReqs[]
 [[app-name-reqs]]

@@ -3,7 +3,7 @@
 
 *This topic is updated to the Design Spec dated 11-Nov-21*
 
-*Last update* 14-Jan-22
+*Last update* 20-Jan-22
 
 CloudHub 2.0 uses Transport Layer Security (TLS) contexts to encrypt 
 inbound traffic to the private space.
@@ -72,7 +72,10 @@ When you add the TLS context, you can select the ciphers to use with the TLS con
 
 == Before You Begin
 
-. Generate a https://docs.mulesoft.com/mule-runtime/4.4/tls-configuration#generate-a-keystore[keystore^] (Link out from Beta docs).
+. Generate a keystore:
++
+** https://docs.mulesoft.com/runtime-manager/lb-ssl-endpoints#create-a-certificate-file-and-private-key-with-the-openssl-command[PEM^] (Link out from Beta docs)
+** https://docs.mulesoft.com/mule-runtime/4.4/tls-configuration#generate-a-keystore[JKS^] (Link out from Beta docs)
 . Generate a https://docs.mulesoft.com/mule-runtime/4.4/tls-configuration#truststore-generation[truststore^] (Link out from Beta docs) (if you want to enable mutual TLS).
 . Create DNS records for your domains.
 +
@@ -303,6 +306,6 @@ For example, if you use Runtime Manager to add the
 == See Also 
 
 // * xref:ps-config-log-forwarding.adoc[]
-* xref:ch2-deploy.adoc[]
+* xref:ch2-deploy-private-space.adoc[]
 * https://docs.mulesoft.com/mule-runtime/latest/tls-configuration[Configure TLS with Keystores and Truststores^] (Link out from Beta docs)
 * https://www.whois.com/[Whois^]
