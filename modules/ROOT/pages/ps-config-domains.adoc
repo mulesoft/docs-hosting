@@ -16,7 +16,7 @@ You can create additional TLS contexts as required.
 
 The TLS contexts that you configure for the private space define the domains that are available 
 when deploying apps to the private spaces. 
-See xref:ch2-config-endpoints-paths[].
+See xref:ch2-config-endpoints-paths.adoc[].
 
 == TLS Contexts
 
