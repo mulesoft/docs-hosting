@@ -16,7 +16,7 @@ You can create additional TLS contexts as required.
 
 The TLS contexts that you configure for the private space define the domains that are available 
 when deploying apps to the private spaces. 
-See xref:ch2-deploy-private-space.adoc#configure-endpoint-path[Configure Endpoints and Paths for the App].
+See xref:ch2-config-endpoints-paths[].
 
 == TLS Contexts
 
@@ -307,5 +307,6 @@ For example, if you use Runtime Manager to add the
 
 // * xref:ps-config-log-forwarding.adoc[]
 * xref:ch2-deploy-private-space.adoc[]
+* xref:ch2-config-endpoints-paths[]
 * https://docs.mulesoft.com/mule-runtime/latest/tls-configuration[Configure TLS with Keystores and Truststores^] (Link out from Beta docs)
 * https://www.whois.com/[Whois^]
