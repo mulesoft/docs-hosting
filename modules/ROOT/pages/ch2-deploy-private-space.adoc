@@ -81,7 +81,7 @@ Resource allocation::
 [[configure-endpoint-path]]
 == Configure Endpoints and Paths for the App
 
-For more information, see ch2-config-endpoints-paths.adoc[].
+For more information, see xref:ch2-config-endpoints-paths.adoc[].
 
 To configure endpoints for the app to enable access from the internet:
 
