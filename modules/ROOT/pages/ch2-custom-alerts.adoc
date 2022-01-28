@@ -1,8 +1,4 @@
 = Configuring Custom Notifications and Application Alerts
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
-:keywords: cloudhub, monitoring, api, runtime manager, alerts, notifications 
 
 *THIS IS BASED ON CH 1.0 CONTENT*
 

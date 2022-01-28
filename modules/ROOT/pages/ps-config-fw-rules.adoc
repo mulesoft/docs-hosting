@@ -1,7 +1,5 @@
 = Configuring Firewall Rules to Manage Traffic to a Private Space
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
+
 
 By default, all traffic to your private space is blocked unless it is explicitly allowed in a firewall rule.
 
@@ -35,10 +33,10 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 +
 --
 Type::
-Protocol type (inbound and outbound):
+Protocol type:
 
-* *HTTPS*
-* *HTTP*
+* *HTTPS Port*
+* *HTTP Port*
 
 Source::
 Source IP address:
@@ -57,7 +55,7 @@ Inbound traffic limitations:
 
 * HTTP: Only port 80 is supported.
 * HTTPS: Only port 443 is supported.
-* TCP and UDP: Only ports 1024 and above are supported.
+// * TCP and UDP: Only ports 1024 and above are supported.
 
 --
 . Configure default rules for outbound traffic by selecting the *Type*, *Source*, and *Port Range* from the dropdown lists:
@@ -65,7 +63,7 @@ Inbound traffic limitations:
 --
 
 Type::
-Protocol type (inbound and outbound):
+Protocol type:
 +
 * *All*
 * *TCP*
@@ -90,6 +88,13 @@ Ports in addition to 8081 (http.port) and 8082 (https.port) through which you wa
 * *All (0-65535)*
 * *Custom Range*
 ////
+
+Outbound traffic limitations:
+
+* HTTP: Only port 80 is supported.
+* HTTPS: Only port 443 is supported.
+* TCP and UDP: Only ports 1024 and above are supported.
+
 --
 
 . Click *Add rule* to add more rules.

@@ -1,7 +1,4 @@
 = Transit Gateway Attachments
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
 
 
 AWS Transit Gateway acts as a cloud router in AWS, simplifying network access between VPCs,

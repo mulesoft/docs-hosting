@@ -1,7 +1,4 @@
 = Gathering Required Setup Information
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
 
 Use the following sections to gather the information you'll need to set up your private space.
 For information about private spaces, see xref:index.adoc#what-is-a-private-space[What is a Private Space?].

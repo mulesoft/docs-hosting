@@ -1,7 +1,5 @@
 = Configuring Log Forwarding for a Private Space 
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
+
 
 CloudHub 2.0 supports log forwarding to:
 
@@ -62,7 +60,7 @@ For more information about setting up data inputs, see the https://docs.splunk.c
 
 //	Specify Load Balancer Log Level		
 //	Specify RTFC Log Level		
-// Configure Internal DNS to Resolve Private Domains			
+//  Configure Internal DNS to Resolve Private Domains			
 // 	Update DNS Server with Private Domains		
 
 == Configure Log Forwarding 
@@ -79,25 +77,28 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 +
 This option is available only if you have a Titanium subscription.
 ** *Forward logs to an external service*
-. To forward logs to an external service, select the service and enter the configuration information for the service:
++
+.. Select the service and enter the configuration information for the service:
 +
 *** <<azure-parameters>> 
 *** <<elasticsearch-parameters>>
 *** <<gelf-parameters>> 
 *** <<splunk-parameters>>
 *** <<cloudwatch-parameters>>
---
-. Select to forward logs from:
 
-** *Mule applications*
+.. Select to forward logs from:
+
+*** *Mule Applications*
 +
 You can disable log forwarding for an app during deployment.
-** *CloudHub 2.0 components and Ingress load balancer*
+*** *CloudHub 2.0 components and Ingress load balancer*
++
+*_Where are log levels configured?_*
 +
 Configure load balancer log levels in the *Domains* tab.
 See xref:ps-config-domains.adoc#load-balancer-log-levels[Load Balancer Log Levels].
-** *Monitoring and appliance services*
-
+*** *Monitoring and appliance services*
+--
 . Click *Save logging* or *Discard changes*.
 +
 The *Logging* page displays a message indicating that the 

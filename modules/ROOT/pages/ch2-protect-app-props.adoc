@@ -1,8 +1,4 @@
 = Protecting App Property Values
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
-:keywords: cloudhub, jdbc, security
 
 *This content is based on the new, unreleased RTF feature*
 

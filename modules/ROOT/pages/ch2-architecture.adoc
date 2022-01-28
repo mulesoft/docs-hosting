@@ -1,8 +1,4 @@
 = CloudHub 2.0 Architecture
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
-:keywords: cloudhub, cloud, manage, api, replica, runtime manager, arm
 
 To understand CloudHub 2.0 security and availability, you should understand the architecture behind CloudHub.
 

@@ -1,7 +1,4 @@
 = Anypoint Virtual Private Network 
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
 
 
 Anypoint VPN (virtual private network) creates a secure connection between your private space and your on-premises network.
