@@ -1,7 +1,5 @@
 = Configuring Advanced Private Space Settings	
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
+
 
 include::partial$feature-availability.adoc[tag=featureUnavailable]
 

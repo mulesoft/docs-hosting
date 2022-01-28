@@ -117,7 +117,7 @@ the *Create TLS Context* button is disabled.
 ... Choose a public certificate to upload.
 +
 Uploading the public certificate displays a summary of the certificate.
-Click *View Details* to display the keystore details:
+Click *... > View Details* to display the keystore details:
 +
 <screenshot> 
 ... Choose a private key to upload.

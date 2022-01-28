@@ -50,7 +50,8 @@ Specifies the Mule runtime engine version
 Replicas::
 Specifies the number of replicas, or instances, of the application to deploy
 +
-A minimum of two replicas is required for high availability.
+For high availability, specify a minimum of two replicas.
+CloudHub 2.0 limits the number of replicas per deployment to eight.
 Run in Runtime Cluster Mode::
 Enables Mule clustering across each replica of the application
 Enforce deploying replicas across nodes::

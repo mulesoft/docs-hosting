@@ -1,7 +1,5 @@
 = Assigning Permissions 
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
+
 
 *Last update* 22-Sep-21
 

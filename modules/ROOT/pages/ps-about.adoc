@@ -1,7 +1,5 @@
 = Private Spaces
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
+
 
 // (*Learn more* link from *Private Spaces* page)
 

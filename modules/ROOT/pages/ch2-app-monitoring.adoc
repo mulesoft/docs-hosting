@@ -1,8 +1,4 @@
 = Application Monitoring and Automatic Restarts
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
-:keywords: cloudhub, monitoring, restarts
 
 *THIS IS CH 1.0 PLACEHOLDER CONTENT* 
 

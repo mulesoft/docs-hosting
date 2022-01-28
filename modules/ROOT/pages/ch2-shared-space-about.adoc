@@ -1,8 +1,4 @@
 = Shared Spaces
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
-
 
 A _shared space_ is an elastic cloud of _replicas_ that includes Mule instances running in
 a multi-tenant environment. 

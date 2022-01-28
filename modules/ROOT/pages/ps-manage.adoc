@@ -1,7 +1,4 @@
 = Managing Private Spaces
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
 
 Use Anypoint Runtime Manager to manage private spaces,
 such as adding and removing a route from the route table or
