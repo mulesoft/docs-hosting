@@ -35,3 +35,4 @@
 *** xref:ch2-custom-alerts.adoc[Configuring Custom Notifications and Application Alerts]
 ** xref:ch2-cli.adoc[CloudHub 2.0 Command-Line Interface]
 ** xref:ch2-api.adoc[CloudHub 2.0 REST API]
+** xref:ch2-upgrade-vpc-to-ps.adoc[]
