@@ -1,0 +1,51 @@
+= Upgrading CloudHub 1.0 to CloudHub 2.0
+
+CloudHub 2.0 provides the ability to upgrade your existing VPCs in CloudHub 1.0 to private spaces.
+
+When you upgrade a VPC to a private space, CloudHub 2.0 creates the new private space using all the settings from the VPC except the TLS contexts.
+
+You can create one private space per VPC.
+
+
+== Upgrade a VPC to a Private Space
+
+To upgrade a CloudHub 1.0 VPC to a private space:
+
+. From Anypoint Platform, select *Runtime Manager* > *VPCs*.
+. Click in the *Region* column for the VPC to upgrade.
+. In the details pane, click *Upgrade to Private Space*.
+. Enter the name for the private space and click *Upgrade Now*.
++
+CloudHub 2.0 creates the new private space and adds it to the *Private Spaces* page.
+The networking configuration can take up to 30 minutes to complete.
++
+After the private space is created, you can continue to manage the VPC that you upgraded. 
+However, the *Delete VPC* option is no longer available for the VPC.
+. After the private space is created, create the TLS context.
++
+For information, see xref:ps-config-domains.adoc[].
+
+
+== Troubleshoot Upgrades to Private Space
+
+Unable to upgrade to private space:
+
+* Not enough IPs 
++
+To work around this issue.... do what?
+* Infrastructure deprecated
+* Legacy VPN:
+** TLS 1.0
+** VPC Peering
+** DLB static IPs
+
+
+== Delete an Upgraded Private Space
+
+If necessary, you can delete the private space created by upgrading a VPC without disrupting the source VPC.
+
+
+== See Also
+
+* xref:ps-about.adoc[]
+* xref:ps-config-domains.adoc[]

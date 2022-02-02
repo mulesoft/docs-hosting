@@ -1,0 +1,124 @@
+= Deploying Apps to a Shared Space
+
+
+*This topic is updated to the Design Spec dated 11-Nov-21*
+
+*Last update* 20-Jan-22
+
+// How can we share this content with RTF?
+
+To deploy apps to a shared space using Runtime Manager:
+
+//SELECT APP SHARED
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. Click *Deploy application*.
+. In the *Deploy Application* page:
+.. Enter the <<app-name-reqs,name>> of the application.
+.. Select an application file:
++
+--
+*** To upload a Mule app JAR file from your system, select *Choose file > Upload file*.
+*** To choose an example app from Anypoint Exchange:
+.... Select *Choose file > Import file from Exchange*.
+.... In the *Get from Exchange* page, enter `hello` in the *Search assets by name*:
++
+image::rtm-get-from-exchange.png[Get from Exchange page]
+.... Click *Hello World* and then click *Select*.
+--
+.. Select *CloudHub 2.0* from the *Deployment Target* list.
+.. Configure options for deployment:
++
+*** <<specify-runtime-options,Specify runtime options>>.
+*** <<configure-public-endpoint,Configure a public endpoint for the app>>.
+*** <<app-properties,Change app behavior with properties>>.
+*** <<enable-tls-v1,Enable TLS v1 and TLS v1.1>>.
+
+. Click *Deploy Application*. 
+
+
+[[specify-runtime-options]]
+== Specify Runtime Options
+
+Click the *Runtime* tab and specify the following options:
+
+Runtime version::
+Specifies the Mule runtime engine version
+Replicas::
+Specifies the number of replicas, or instances, of the application to deploy
++
+A minimum of two replicas is required for high availability.
+Enforce deploying replicas across nodes::
+Selecting this option might cause some replicas in the deployment to remain in Pending status if there are unsufficient worker nodes or resources available on the worker nodes needed to deploy each replica.
+The deployment status transitions to Running after all replicas are deployed on different worker nodes.
+
+Resource allocation::
++
+--
+* *Reserved CPU*: Specify a value between `0.02` and `3.7` vCPU.
+* *CPU Limit*: Specify a value between `0.02` and `3.7` vCPU.
+* *Memory*: Specify a value between `0.7` and `14.5` GB.
+--
+
+
+
+[[configure-public-endpoint]]
+== Configure a Public Endpoint for the App
+
+To configure the public endpoint for the app to enable access from the internet:
+
+. Click the *Ingress* tab and specify the following options:
++
+Public endpoint::
+* *Domain*: Select the domain, such as `cloudhub.io`, for the app from the dropdown.
++
+[NOTE]
+*THIS NOTE IS pure supposition*
+When deploying to the *CloudHub 2.0* deployment target,
+the domain for the public endpoint is always `._app-name_.cloudhub.io`.
+
+TLS Settings::
+* *Last-Mile Security*
++
+Specifies that TLS termination and decryption for the forwarded HTTPS connections occurs in the application.
++
+This option requires that the Mule application include an SSL certificate and also requires more CPU resources.
+* *Forward SSL Session*
++
+Enables SSL forwarding during a session.
++
+SSL forwarding is mostly used with client authentication.
+See https://docs.mulesoft.com/anypoint-security/enable-client-authentication[Enable Client Authentication^] (Link out from Beta docs).
+SSL forwarding forwards client certificate details in HTTP request headers so they are available to the application.
+These fields can identify an authenticated client and allow an application to determine and use the identity.
++
+The following headers are available:
++
+[%header,cols="2*a"]
+|===
+| Header Name | Value
+| x-ssl-client-verify | SUCCESS/FAIL
+| x-ssl-issuer | Client certificate issuer
+| x-ssl-client-serial | Client certificate serial number
+| x-ssl-client-dn | Contents of the client certificate DN field
+|===
+
+. Click *Apply Changes* to create a new configuration for your application.
+
+
+// ==== Application Names
+include::partial$deployment.adoc[tag=appNameReqs,leveloffset=+2]
+
+// == Change App Behavior with Properties
+include::partial$deployment.adoc[tag=changeAppProperties,leveloffset=+1]
+
+// == Enable TLS v1 and TLS v1.1
+include::partial$deployment.adoc[tag=enableTLSv1,leveloffset=+1]
+
+// == Download a Test App from Exchange
+include::partial$deployment.adoc[tag=downloadTestApp,leveloffset=+1]
+
+
+== See Also
+
+* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (Link out from Beta docs)
+* xref:ps-config-domains.adoc[]

@@ -1,0 +1,124 @@
+= Clustering
+
+*THIS IS CH 1.0 PLACEHOLDER CONTENT* 
+
+*Removed persistent queues; point to Anypoint MQ instead.*
+
+Clustering provides scalability, workload distribution, and added reliability to your applications on CloudHub 2.0.
+This functionality is powered by CloudHub's scalable load-balancing service, replica scale-out, and Anypoint MQ features.
+
+You can enable clustering features on a per-application basis using the Anypoint Runtime Manager console when either deploying a new application or redeploying an existing application.
+
+== Prerequisites
+
+Clustering requires:
+
+* A CloudHub Enterprise or Partner account type that enables you to use this feature.
+* Familiarity with deploying applications using Runtime Manager.
+
+== Replica Scale-out
+
+CloudHub 2.0 enables you to select vCore options for your application, providing horizontal scalability.
+This fine-grained control over computing capacity provisioning gives you the flexibility to scale up your application to handle higher loads (or scale down during low-load periods) at any time.
+
+
+
+Depending on your subscription, you can deploy your application with up to 8 replicas, up to a maximum of ?? vCores per application.
+To ensure that you have sufficient resources, see xref:ch2-architecture.adoc#cloudhub-2-0-replicas[CloudHub 2.0 Replicas].
+
+Replica scale-out also adds additional reliability.
+Mule runtime engine (Mule) automatically distributes multiple replicas for the same application across two or more data centers for maximum reliability.
+
+When deploying your application to two or more replicas, you can distribute workloads across these instances of Mule.
+CloudHub provides the following:
+
+. The HTTP load balancing service automatically distributes HTTP requests among your assigned replicas.
+. https://docs.mulesoft.com/mq/[Anypoint MQ^] (Link out from Beta docs)
+
+Batch jobs only run on a single replica at a time, and cannot be distributed across multiple replicas.
+If Mule restarts in the same deployment, the status persists and the batch continues processing.
+If the entire application is updated or redeploying while the batch is running, the rest of the batch job doesn't continue.
+The main solution for persistent batch jobs in CloudHub 2.0 is to use 
+https://docs.mulesoft.com/object-store/[Object Store v2^] (Link out from Beta docs).
+
+== Enable Clustering Features
+
+You can enable and disable either or both features of clustering in one of two ways:
+
+* When you deploy an application to CloudHub 2.0 for the first time using Runtime Manager
+* In the *Deployment Target* tab in Runtime Manager for a previously deployed application
+
+Use the drop-down menus on the *Deployment Target* tab to select the vCore options for your application and to configure the computing power that you need.
+
+See xref:ch2-architecture.adoc#cloudhub-2-0-replicas[CloudHub 2.0 Replicas] for more information about deploying to multiple replicas.
+
+If your application is already deployed, you must redeploy it for your new settings to take effect.
+
+== How Clustering is Implemented
+
+HTTP load balancing is implemented by an internal reverse proxy server.
+Requests to the application (domain) URL `+http://appname.cloudhub.io+` are automatically load balanced between all the application's replica URLs.
+
+//// 
+Clients can bypass the clustering load balancer by using a replica's direct URL.
+See xref:cloudhub-networking-guide.adoc[CloudHub Networking Guide^] for more information in how to access an application in a specific CloudHub 2.0 replica.
+////
+
+== Use Cases
+
+*Is this table useful?*
+
+You can use either, both, or neither clustering features in a single application.
+
+* To use Anypoint MQ, configure your Mule application to support this feature. See https://docs.mulesoft.com/mq/[Anypoint MQ^] (Link out from Beta docs) for information.
+* Adding additional replicas increases the cost of service.
+
+[%header,cols="3*a"]
+|===
+|Use Case |Suggested Clustering Configuration |Implications
+|You want to scale out your application, but you are satisfied with the existing highly available CloudHub 2.0 architecture in terms of preventing service interruption or message loss. |
+Anypoint MQ is not required.
+
+Number of Replicas: 2 or more
+
+|
+* Application performance is not affected by queue latency.
+* No need to configure your application to support queues.
+* If one data center experiences an outage, your replicas are available in a different data center.
+
+|You have a high-stakes process for which you need to protect against message loss, but you are not experiencing issues with handling processing load and are OK with some service interruption in the case of a data center outage. |
+Anypoint MQ is required.
+
+Number of Replicas: 1
+
+|
+* Application might experience some queue latency.
+* You need to configure your application to support queues before deploying.
+* If the data center in which your replica operates experiences an outage, CloudHub 2.0 automatically migrates your application to another availability zone. You might experience downtime during the migration; however, your queues ensure zero message loss.
+
+|You have a high-stakes process for which you need to protect against message loss, avoid any chance of service interruption, and handle large processing loads. |
+Anypoint MQ is required.
+
+Number of Replicas: 2 or more
+
+|
+* Application might experience some queue latency.
+* You need to configure your application to support queues before deploying.
+* If one data center experiences an outage, your replicas are automatically distributed to ensure redundancy.
+
+|You have an application that does not have any special requirements regarding either processing load or message loss. |
+Anypoint MQ is not required.
+
+Number of Replicas: 1
+
+|
+* Application performance is not affected by queue latency.
+* No need to configure your application to support queues.
+* If the data center in which your replica operates experiences an outage, CloudHub 2.0 automatically migrates your application to another availability zone, but you might experience some downtime and message loss during the migration.
+
+|===
+
+== See Also
+
+* xref:ch2-architecture.adoc[]
+

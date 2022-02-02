@@ -1,0 +1,7 @@
+
+// Functionality not available
+// tag::featureUnavailable[]
+[NOTE]
+This functionality is not yet available.
+// end::featureUnavailable[]
+

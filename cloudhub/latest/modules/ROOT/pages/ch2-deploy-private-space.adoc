@@ -1,0 +1,205 @@
+= Deploying Apps to a Private Space
+
+include::partial$feature-availability.adoc[tag=featureUnavailable]
+
+
+*This topic is updated to the Design Spec dated 11-Nov-21*
+
+
+*Last update* 20-Jan-22
+
+// How can we share this content with RTF?
+
+You deploy apps to a private space using Runtime Manager.
+
+//SELECT APP SHARED
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. Click *Deploy application*.
+. In the *Deploy Application* page:
+.. Enter the <<app-name-reqs,name>> of the application.
+.. Select an application file:
++
+--
+*** To upload a Mule app JAR file from your system, select *Choose file > Upload file*.
+*** To choose an example app from Anypoint Exchange:
+.... Select *Choose file > Import file from Exchange*.
+.... In the *Get from Exchange* page, enter `hello` in the *Search assets by name*:
++
+image::rtm-get-from-exchange.png[Get from Exchange page]
+.... Click *Hello World* and then click *Select*.
+--
+.. Select the name of the private or shared space from the *Deployment Target* list.
+.. Configure options for deployment:
++
+*** <<specify-runtime-options,Specify runtime options>>.
+*** <<configure-endpoint-path,Configure endpoints and paths for the app>>.
+*** <<app-properties,Change app behavior with properties>>.
+*** <<enable-tls-v1,Enable TLS v1 and TLS v1.1>>.
+*** <<forward-logs,Forward logs to other services>>.
+
+. Click *Deploy Application*. 
+
+
+[[specify-runtime-options]]
+== Specify Runtime Options 
+
+Click the *Runtime* tab and specify the following options:
+
+Runtime version::
+Specifies the Mule runtime engine version
+Replicas::
+Specifies the number of replicas, or instances, of the application to deploy
++
+For high availability, specify a minimum of two replicas.
+CloudHub 2.0 limits the number of replicas per deployment to eight.
+Run in Runtime Cluster Mode::
+Enables Mule clustering across each replica of the application
+Enforce deploying replicas across nodes::
+Selecting this option might cause some replicas in the deployment to remain in Pending status if there are unsufficient worker nodes or resources available on the worker nodes needed to deploy each replica.
+The deployment status transitions to Running after all replicas are deployed on different worker nodes.
+
+Deployment model::
++
+--
+* *Rolling update*:
+** Maintains availability by incrementally updating replicas.
+** Requires one additional replica's worth of resources to succeed.
+
+* *Recreate*:
+** Terminates replicas before redeployment.
+** Redeployment is faster and doesn't require additional resources.
+--
+Resource allocation::
++
+--
+* *Reserved CPU*: Specify a value between `0.02` and `3.7` vCPU.
+* *CPU Limit*: Specify a value between `0.02` and `3.7` vCPU.
+* *Memory*: Specify a value between `0.7` and `14.5` GB.
+--
+
+
+
+[[configure-endpoint-path]]
+== Configure Endpoints and Paths for the App
+
+For more information, see xref:ch2-config-endpoints-paths.adoc[].
+
+To configure endpoints for the app to enable access from the internet:
+
+. Click the *Ingress* tab and specify the following options:
++
+Public endpoint::
++
+--
+* *Domain*: Select the domain, such as `cloudhub.io`, for the app from the dropdown.
++
+[NOTE]
+If you select `cloudhub.io` (the default domain when deploying to a
+private space), you can't select a subdomain or path.
++
+The administrator configures the domains and certificates (TLS context) for the private space.
+See xref:ps-config-domains.adoc[].
++
+After you select the domain for a private space, you can view the corresponding TLS context by clicking *View TLS Context*:
++
+<screenshot>
+* *Subdomain*: If the domain you selected includes a wildcard, you can configure the subdomain.
++
+include::partial$deployment.adoc[tag=subdomain-name-reqs]
++
+Subdomains support <<placeholder-table,placeholders>>.
+The default subdomain is `app-name`, which resolves to the name of the app that you specified in the *Application Name* field when you deploy the app.
+* *Path* (private space only): specifies the URL path to the application endpoint.
++
+include::partial$deployment.adoc[tag=path-name-reqs]
++
+Paths support <<placeholder-table,placeholders>>.
++
+<screenshot>
+
+
+* To add an endpoint, click *Add Endpoint* and specify options.
+* To remove an endpoint, click the *X* in the endpoint row.
+--
+
+Path Rewrite::
+Enter the base path expected by the HTTP Listener in your path.
++
+Requests sent to your app use the path that you specify here.
+
+TLS Settings::
+* *Last-Mile Security*
++
+--
+Specifies that TLS termination and decryption for the forwarded HTTPS connections occurs in the application.
+
+This option requires that the Mule application include an SSL certificate and also requires more CPU resources.
+--
+* *Forward SSL Session*
++
+--
+Enables SSL forwarding during a session.
+
+SSL forwarding is mostly used with client authentication.
+See https://docs.mulesoft.com/anypoint-security/enable-client-authentication.html[Enable Client Authentication^] (Link out from Beta docs).
+SSL forwarding forwards client certificate details in HTTP request headers so they are available to the application.
+These fields can identify an authenticated client and allow an application to determine and use the identity.
+
+The following headers are available:
+
+[%header,cols="2*a"]
+|===
+| Header Name | Value
+| x-ssl-client-verify | SUCCESS/FAIL
+| x-ssl-issuer | Client certificate issuer
+| x-ssl-client-serial | Client certificate serial number
+| x-ssl-client-dn | Contents of the client certificate DN field
+|===
+--
+. Click *Apply Changes* to create a new configuration for your application.
+
+
+// === Application Names
+include::partial$deployment.adoc[tag=appNameReqs,leveloffset=+2]
+
+// === Placeholders
+include::partial$deployment.adoc[tag=placeholders,leveloffset=+2]
+
+
+// == Change App Behavior with Properties
+include::partial$deployment.adoc[tag=changeAppProperties,leveloffset=+1]
+
+// == Enable TLS v1 and TLS v1.1
+include::partial$deployment.adoc[tag=enableTLSv1,leveloffset=+1]
+
+[[forward-logs]]
+== Forward Logs to Other Services
+
+include::partial$feature-availability.adoc[tag=featureUnavailable]
+
+If log forwarding is not configured for the private space, the options in the *Logs* tab are disabled.
+See xref:ps-config-log-forwarding.adoc[].
+
+Show logs in Anypoint Monitoring::
+Forwards only application logs to Anypoint Monitoring and requires a Titanium subscription.
+
+Forward logs to _service_::
+Forwards application and load-balancer logs to the specified service:
++
+** Azure
+** Elasticsearch
+** Graylog (GELF)
+** Splunk
+** CloudWatch
+
+For information about viewing logs, see xref:ch2-view-logs.adoc[].
+
+// == Download a Test App from Exchange
+include::partial$deployment.adoc[tag=downloadTestApp,leveloffset=+1]
+
+
+== See Also
+
+* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (Link out from Beta docs)
+* xref:ps-config-domains.adoc[]
+

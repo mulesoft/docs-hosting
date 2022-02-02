@@ -1,0 +1,33 @@
+= Troubleshoot Private Spaces  
+
+== Troubleshoot VPN Connections
+
+=== VPN Tunnel Down
+
+=== Tunnels in a VPN Advertising Different Numbers of Routes
+
+=== VPNs in a Connection Advertising Different Numbers of Routes
+
+=== VPN not Connected to Your External Network
+
+== Troubleshoot Transit Gateway Attachments
+
+=== Resource Share Attachments
+
+If you get the following messages when attaching a resource share,
+verify that you entered the correct resource share ID and owner:
+
+* `We couldn’t find a matching resource share. Please review the ID and Owner and try again.`
+* `This resource share is already in use by this organization or a different organization.`
+
+=== Transit Gateway State is Unknown
+
+If the Transit Gateway state is unknown, the resource share has probably 
+been disabled or deleted.
+
+In this case, resolve this issue on AWS.
+
+
+
+== See Also 
+

@@ -1,14 +1,18 @@
-= Configure Firewall Rules to Allow Traffic to a Private Space
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
+= Configuring Firewall Rules to Manage Traffic to a Private Space
+
 
 By default, all traffic to your private space is blocked unless it is explicitly allowed in a firewall rule.
 
 Creating a private space automatically creates these firewall rules:
 
-* Two rules to allow outbound connections from within your private space through ports 8091 and 8092.
-* Two rules to allow inbound connections from any host through ports 8081 and 8082.
+* Two rules to allow inbound connections from any host:
+** HTTPS: port 443
+** HTTP: port 80
+* Three rules to allow outbound connections from within your private space to any host:
+** HTTPS: port 443 (can't be deleted)
+** HTTPS: All ports
+** HTTP: All ports
+
 
 [NOTE]
 You cannot configure firewall rules for ports below 1024.
@@ -25,40 +29,77 @@ To configure firewall rules:
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the *Firewall rules* tab.
-. Configure rules for inbound traffic:
+. Configure default rules for inbound traffic by selecting the *Type*, *Source*, and *Port Range* from the dropdown lists:
 +
 --
-.. Select the *Type*, *Source*, and *Port Range* from the dropdown lists.
-
 Type::
 Protocol type:
 
-* *http.port* (8081)
-* *https.port* (8082)
-* *http.private.port*
-* *https.private.port*
-* *TCP*
-* *All TCP*
-* *All UDP*
-* *UDP*
-* *All*
+* *HTTPS Port*
+* *HTTP Port*
 
 Source::
 Source IP address:
 
 * *Anywhere (0.0.0.0/0)*
 * *Local private network*
+// (10.0.0.0/24)
++
+This option is available only if a private network exists in the private space. 
+* *Custom CIDR*
 
 Port Range::
-Ports in addition to 8081 (http.port) and 8082 (https.port) through which you want to allow external traffic 
-.. Click *Add rule* to add another rule.
-.. To remove a firewall rule, click the *X* to the right of the entry.
---
+Ports in addition to 8081 (http.port) and 8082 (https.port) through which you want to allow external traffic.
 
-. Click *Save firewall rules* or *Discard changes*.
-. Configure rules for outbound traffic:
+Inbound traffic limitations:
+
+* HTTP: Only port 80 is supported.
+* HTTPS: Only port 443 is supported.
+// * TCP and UDP: Only ports 1024 and above are supported.
+
+--
+. Configure default rules for outbound traffic by selecting the *Type*, *Source*, and *Port Range* from the dropdown lists:
 +
 --
-.. Select the *Type*, *Source*, and *Port Range* from the dropdown lists.
-.. Click *Add rule* to add another rule.
+
+Type::
+Protocol type:
++
+* *All*
+* *TCP*
+* *UDP*
+* *HTTP Port*
+* *HTTPS Port*
+
+Source::
+Source IP address:
+
+* *Anywhere (0.0.0.0/0)*
+* *Local private network*
+// (10.0.0.0/24)
++
+This option is available only if a private network exists in the private space. 
+* *Custom CIDR*
+
+Port Range::
+Ports in addition to 8081 (http.port) and 8082 (https.port) through which you want to allow external traffic.
+////
++
+* *All (0-65535)*
+* *Custom Range*
+////
+
+Outbound traffic limitations:
+
+* HTTP: Only port 80 is supported.
+* HTTPS: Only port 443 is supported.
+* TCP and UDP: Only ports 1024 and above are supported.
+
 --
+
+. Click *Add rule* to add more rules.
+. To remove a firewall rule, click the *X* icon for the entry:
++
+image::fw-rule-delete.png[Delete icon in the Firewall rules tab]
+
+. Click *Save firewall rules* or *Discard changes*.
