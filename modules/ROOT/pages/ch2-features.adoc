@@ -1,0 +1,281 @@
+= Features of CloudHub 2.0
+
+*This topic will be replaced with an updated version of https://docs.mulesoft.com/general/intro-platform-hosting#support-matrix-for-runtime-plane-hosting-options[Support Matrix for Runtime Plane Hosting Options].*
+
+CloudHub 2.0 includes many of the features from CloudHub 1.0 and Runtime Fabric on-premises.
+
+//// 
+== Features Included in the Internal Validation Release
+
+This internal validation release enables users to create a single-tenant instance, deploy and manage applications, monitor application metrics via Anypoint Monitoring, and forward logs to an external logging service.
+
+[IMPORTANT]
+This release is targeted to internal engineering and support teams only.
+
+This release includes these features:
+
+* xref:ps-create-configure.adoc#create-a-private-space[Create a private space]:
++
+** Infrastructure provisioning
+** Private space support per customer
+
+* *Internal* operational monitoring and alerting
++
+CloudHub 2.0 alerts you when when applications become unresponsive.
+* Load-based cluster-level autoscaling
++
+CloudHub 2.0 provides auto-scaling groups for fault-tolerance.
+* Bursting and CPU oversubscription for application deployments
+* Application administration and supportability
+* Custom properties
++
+For information on setting custom properties, see 
+xref:ch2-manage-props.adoc[].
+* xref:ch2-deploy.adoc[].
++
+CloudHub 2.0 provides a secure cloudhub.io endpoint for sending requests to applications.
+* xref:ps-config-log-forwarding.adoc[].
+
+////
+
+== CloudHub 2.0 Feature Comparison
+
+This table compares the features and support for CloudHub 2.0, CloudHub 1.0, and Runtime Fabric Self-Managed Kubernetes.
+
+[%header,cols="20a,20a,20a,20a"]
+.Feature Comparison 
+|===
+| Capability | CloudHub 2.0 | CloudHub 1.0 | Runtime Fabric On-Premises
+4+h|VM Management
+| *Provisioning/scaling*|Fully managed | Fully managed | AWS/
+
+Self-managed
+| *OS patching* | Fully managed | Fully managed | AWS/
+
+Self-managed
+| *VM self-healing* |Fully managed | Fully managed | Supported (managed nodes)
+4+h|Load Balancing and Ingress
+| *Default endpoints*|Fully managed | Fully managed | Not supported
+| *URL rewriting* | Supported
+
+(app-level) | Supported
+
+(DLB) | Supported
+|*Provisioning/updating* |Fully-managed|Fully-managed| Supported
+|*Certificate management*|Supported|Supported|Supported
+|*Multiple Trust Stores* 
+
+*(client certs)* | Supported | Not supported |Supported
+| *Custom endpoints* | Supported | Supported | Supported
+| *Multiple custom endpoints*
+
+*per app* | Supported| Partially supported | ?
+| *TLS 1.0* | Not supported | Supported| Supported
+| *Internal endpoints* | Supported |Supported | Supported
+| *Load balancer logs* | Supported
+
+(download) | Not supported | Supported
+4+h|Network
+| *Deployment regions* | 12 geographical regions | 12 geographical regions | Supported 
+
+(manual)
+|*Virtual Private Cloud* | Fully managed
+
+(private space) | Fully managed (Anypoint VPC) | Supported 
+
+(manual)
+|*Virtual Private Network* | Fully managed
+
+(private space) | Fully managed
+
+(Anypoint VPN) | Supported 
+
+(manual)
+| *AWS Transit Gateway* | Supported
+
+(private space) | Supported | Supported
+| *Direct Connect* | Not supported | Supported
+
+(not self-serve) | Supported
+|*VPC Peering* | Not supported | Supported 
+
+(not self-serve) | Supported
+
+| *DNS* | Fully managed | Fully managed | Supported
+| *Inbound firewall rules*| Supported | Supported| Supported
+| *Outbound firewall rules*| Supported
+
+(private space) | Not supported| Supported
+|*Static IP addresses* | Supported
+
+(private space) | Supported
+
+(per app) | ?
+4+^h|App Capabilities
+|*Schedule management* | Supported | Supported | Not supported
+|*TLS certificates*
+
+*for API Gateway deployments*| Not supported | Supported | Not supported
+| *DataGraph* | Not supported | Supported | Not supported
+|*Mule patch updates* | Automated | Automated | Requires redeployment
+|*Orchestration*
+
+*management* | Fully managed | Fully managed | AWS/
+
+Self-managed
+| *Persistent object store* | Fully managed
+
+(Object Store v2)| Fully managed
+
+(Object Store v2)| Supported
+| *High availability*
+
+*across AZs* | Fully managed
+
+(with two or more replicas)|Fully managed
+
+(with two or more workers)|Supported
+
+(with two or more replicas)
+|*Secure properties* | Supported | Supported | Partially supported
+|*Log tailing*| Fully managed | Fully managed | Supported outside Anypoint Platform
+|*Continuous integration deployments*|Supported
+
+(via API and Maven plugin)| Supported
+
+(via API, Maven plugin, Anypoint CLI) |Supported 
+
+(via API and Maven plugin)
+|*Built-in notifications* | Supported | Supported |Supported
+|*Custom notifications* 
+
+*CloudHub Connector*| Supported | Supported | Not supported
+|*Log forwarding* | Supported
+
+(private space) | Supported
+
+(per app) | Manual
+|*Message broker*|Fully managed 
+
+(Anypoint MQ) | Fully managed
+
+(Anypoint MQ) | Fully managed
+
+(Anypoint MQ)
+|*App monitoring*|Fully managed
+
+(Anypoint Monitoring) | Fully managed
+
+(Anypoint Monitoring) | Fully managed
+
+(Anypoint Monitoring)
+| *Application isolation* | Supported | Supported | Supported
+|*Self-healing*| Fully managed | Fully managed | Supported
+|*Mule clustering* | Supported | Not supported | Supported
+4+h|Support
+|*VM management* | MuleSoft | MuleSoft | AWS
+|*Network* | MuleSoft | MuleSoft | AWS
+|*App capabilities* | MuleSoft | MuleSoft | MuleSoft/AWS
+|*Load balancing and Ingress* | MuleSoft | MuleSoft | AWS
+|*Backup and Restore* | Fully managed | Fully managed | AWS/
+
+Self-managed
+|===
+
+
+
+//// 
+
+
+[%header,cols="30a,20a,20a,20a"]
+.Feature Comparison 
+|===
+| Feature/Capability | CloudHub 1.0 | Runtime Fabric On-Premises | CloudHub 2.0 
+4+h|Customer Administration
+| Supports cloud of choice (not AWS)| No| Yes| No
+| Cluster separation per environment| No| Yes| No
+|Cluster/VPC separation controls per business group|Yes|Yes|Yes
+|Set quota of resources per business group |Yes|Yes|Yes
+|Cluster/VPC separation controls per environment|Yes|Yes|Yes
+4+h|Application Deployments
+|Deploy Mule applications|Yes|Yes|Yes
+|Deploy API gateways (HTTPS, HTTP)|Yes|Yes|Yes
+|Set custom properties|Yes|Yes|Yes
+|Set secure custom properties|Yes|Yes|Yes
+|Deploy to different regions|Yes|No|Yes
+|Deploy/promote from sandbox environment|Yes|No|No
+|Specify amount of CPU to allocate for application deployments|Rigid 
+
+(0.1; 0.2, 1, 2+)|Flexible 
+
+(0.07, 0.08, 0.09, 0.1..1, 1.1, etc.)| Flexible 
+
+(0.07, 0.08, 0.09, 0.1..1, 1.1, etc.)
+|Specify amount of Memory to allocate for application deployments|No 
+
+(tied to vcore)|Yes|No
+
+(tied to vcore)
+|Specify amount of Disk to allocate for application deployments|No|No|No
+|Deploy application from Exchange|Yes|Yes |Yes
+|Use persistent queues|Yes|No|No
+|Assign Static IP|Yes|No|No
+|Object Store v2|Yes|No|Yes
+|Mule clustering|No|Yes|Yes
+|Internal network routing for applications|Yes|Yes|Yes
+4+h|Application Management
+|Disable external traffic to Mule application|No|Yes|Yes
+|Notify user when runtime update is available for an application|Yes|Yes|Yes
+|Application Auto-scaling|Yes|No|No
+4+h|High Availability/Failover
+|Automated failover with unresponsive apps|Yes|Yes|Yes
+|Scale applications to multiple replicas|Yes|Yes|Yes
+|Scale applications across data centers (AZs)|Yes|Yes
+
+(across VMs)|Yes
+|Scale applications across regions|Yes|No|Future
+|Zero-downtime application re-deployments|Yes|Yes|Yes
+|Isolation (1 app per runtime)|Yes|Yes|Yes
+4+h|Load Balancing
+|Shared load balancing|Yes (default)|N/A|?
+|Dedicated load balancing|Yes (add-on)|Yes|Yes
+|Assign vanity URLs|Yes|Yes|Yes
+|Define/Manage URL Mapping Rules on dedicated load balancer|Yes|No|Yes
+4+h|Security
+|Enable advanced security policies on dedicated load balancer|No|Yes|Yes
+|Enable tokenization|No|Yes|Yes
+4+h|Application Alerting
+|Create, Modify and View Application alerts|Yes|Yes|Yes*
+|CloudHub custom application alerts (CloudHub connector)|Yes|No|No
+|Retrieve application alerts via email|Yes|Yes|Yes
+|Retrieve application alerts via Runtime Manager UI/API|Yes|No|No
+4+h|Application Monitoring
+|View Mule messages / CPU / Memory per application in Runtime Manager|Yes|No|No
+|Insight Metadata|Yes|No|No
+|Insight Replay|Yes|No|No
+|Anypoint Monitoring|Yes|Yes|Yes
+|Anypoint Visualizer|Yes|Yes|Yes
+4+h|Application Logging
+|View logs in control plane per worker/replica|Yes|No|Yes
+|Download logs per worker/replica|Yes|No|Yes
+|Forward application logs|Yes|Yes|Yes
+|Specify log levels, filtered by Java package|Yes|No|Yes
+4+h|Flow Scheduling
+|Manage a flow running on a schedule (trigger/enable/disable/control frequency)|Yes|No|No
+4+h|Connectivity
+|Create a dedicated VPC|Yes|No|Yes
+|Set inbound firewall rules for VPC|Yes|No|Yes
+|Create a VPN tunnel to a dedicated VPC|Yes|No|Yes
+|Create a HA VPN tunnel (using eBGP) to a dedicated VPC|Yes|No|Yes
+|Peer two VPCs within a region|Yes|No|Yes
+4+h|Support Administration
+|View application deployments|Yes|Yes|Yes
+|View cores used|Yes|No|Yes
+|Restart applications|Yes|No|Yes
+|Download application logs|Yes|No|Yes
+|Enable application properties|Yes|No|Yes
+|Override log levels|Yes|No|Yes
+|Override custom properties|Yes|No|Yes
+|===
+
+////

@@ -1,0 +1,141 @@
+= Configuring Public Endpoints and Paths for Apps Deployed to a Private Space
+
+*Added* 20-Jan-22
+
+CloudHub 2.0 routes requests from clients to apps deployed to the private space.
+
+You can customize how these requests reach the app by configuring:
+
+* Multiple custom public endpoints 
++
+An _endpoint_ is the URL used to reach the app deployed to the private space,
+for example `\https://my-app.example.com/`.
++
+The administrator specifies the domains that you can use for the public endpoints 
+by configuring the TLS context in the private space settings. 
+For information, see xref:ps-config-domains.adoc[].
+
+* Different paths for the app and the public URL endpoint
++
+The _path_ is the base path expected by the HTTP Listener in your app, for example `my-app.example.com/v1/api`.
++
+For information, see https://docs.mulesoft.com/http-connector/1.6/http-listener-ref[HTTP Listener Reference - Mule 4^]. (Link out from Beta docs)
+
+
+[[configure-multiple-endpoints]]
+== Configure Multiple Public Endpoints
+
+You can enable your app to be reached via multiple public endpoints, for example,
+`my-app.example.com` and `my-old-app.oldname.com`.
+
+[TIP]
+To ensure that each endpoint name is unique, use the `app-name` placeholder in the subdomain, 
+or the path if the domain doesn't include a wildcard.
+
+To configure two public endpoints:
+
+. xref:ch-deploy-private-space.adoc[Deploy the app to a private space].
+. Click the *Ingress* tab.
+. Configure the first endpoint:
+.. Select the first domain from the *Domain* dropdown, for example `&#x2a;.example.com`.
++
+If the domain includes a wildcard, the *Subdomain* field becomes available.
+.. Enter the subdomain, or enter the `my-app` placeholder in the *Subdomain* field to use the name of the app that you specified in the *Application Name* field as the subdomain.
++
+For information, see <<placeholder-table,placeholders>>.
+.. Enter the path where the HTTP Listener in the app is listening, for example `vi/api`.
+. Configure the second endpoint:
+.. Click *Add Endpoint*.
+.. Select the second domain from the *Domain* dropdown, for example `&#x2a;.oldname.com`.
++
+If the domain includes a wildcard, the *Subdomain* field becomes available.
+.. Enter the subdomain for the second endpoint in the *Subdomain* field, for example, `my-old-app` to specify the alternative name of the app.
++
+.. Enter the path where the HTTP Listener in the app is listening, for example, `v1/api`.
+
+. Click *Apply Changes* to create a new configuration for your application.
+. Verify that the app can be reached by the each endpoint by clicking the public endpoint link and viewing the XML.
+
+// === Placeholders
+include::partial$deployment.adoc[tag=placeholders,leveloffset=+2]
+
+[[configure-different-paths]]
+== Configure a Different Path for the App and the Public URL Endpoint
+
+You can configure different paths for the app and the public URL endpoint.
+For example, if the app is listening on `my-app.example.com/v1/api` and you
+want the app to be reachable from the internet using `my-app.example.com/api`.
+
+
+To configure different paths:
+
+. xref:ch-deploy-private-space.adoc[Deploy the app to a private space].
+. Click the *Ingress* tab.
+. In the *Path* field, enter the path where you want the app to be reachable, for example, `/api`.
+. In the *Path Rewrite* field, enter the base path expected by the HTTP Listener in your app, for example,  `/v1/api`.
+
+. Click *Apply Changes* to create a new configuration for your application.
+. Verify the path rewrite by clicking the public endpoint link and viewing the XML.
++
+The API shows `/v1/api`, but URI is `/api`.
+
+[[path-rewrite-examples]]
+=== Path Rewrite Examples
+
+*_Can we get some real-world examples here?_*
+
+[%header%autowidth.spread]
+|===
+|HTTP Listener Path|Public Endpoint Path |Path Rewrite
+| /v1/api | /api | /v1/api
+|===
+
+
+
+[[remove-public-endpoint]]
+== Remove a Public Endpoint 
+
+To remove a public endpoint:
+
+//SELECT APP SHARED
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. Click the *Ingress* tab.
+. In the endpoint link row, click *X*.
+
+
+[[view-public-endpoint]]
+== View a Public Endpoint for an App
+
+A public endpoint is accessible from the public internet. 
+
+To view the URL for the private endpoint, click the public endpoint link:
+
+<screenshot of XML>
+
+[[view-private-endpoint]]
+== View the Private Endpoint for an App
+
+A private endpoint is accessible from inside the same private space or through
+the VPN or transit gateway connection for the private space. 
+
+To view or copy the URL for the private endpoint, hover over *private endpoint*:
+
+<screenshot>
+
+[[view-tls-context]]
+== View the TLS Context for a Domain
+
+To view a summary of the TLS context for the domain, click *View TLS Context*. 
+
+You see the details for the TLS context:
+
+<screenshot> 
+
+
+== See Also
+
+* xref:ch2-deploy-private-space.adoc[]
+* xref:ps-config-domains.adoc[]
+* https://docs.mulesoft.com/http-connector/1.6/http-listener-ref[HTTP Listener Reference - Mule 4^]. (Link out from Beta docs)
+
+

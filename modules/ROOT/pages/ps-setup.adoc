@@ -1,0 +1,33 @@
+= Extending Your Network to Anypoint Platform
+
+== Before You Begin
+
+* xref:ps-assign-permissions.adoc[Assign permissions].
+* xref:ps-gather-setup-info.adoc[Gather required setup information].
+
+
+== Workflow
+
+. xref:ps-create-configure.adoc[Create the private space]. 
+. xref:ps-create-configure.adoc#create-a-private-network[Create the private network].
+.. xref:ch2-deploy.adoc[Test the private network by deploying an app].
+.. xref:ps-create-configure.adoc#resolve-private-domains-in-your-internal-network[Configure internal DNS servers, if necessary]. 
+. xref:ps-create-configure.adoc#create-a-connection-to-an-external-network[Create a Connection to an External Network]. 
+** xref:ps-create-configure.adoc#create-a-vpn[Create a VPN].
+** xref:ps-create-configure.adoc#create-a-transit-gateway-attachment[Create a transit gateway attachment].
+. Customize the private space:
++
+--
+.. xref:ps-config-domains.adoc[Enable inbound traffic to your apps deployed to the private space].
+.. xref:ps-config-clients.adoc[Set up authentication for trusted clients].
+.. xref:ps-config-fw-rules.adoc[Configure firewall rules to manage traffic to a private space].
+.. xref:ps-config-env.adoc[Associate environments and business groups with the private space].
+.. xref:ps-config-log-forwarding.adoc[Configure log forwarding for the private space].
+.. xref:ps-config-advanced.adoc[Configure advanced settings].
+--
+
+== See Also 
+
+* xref:ps-create-configure.adoc[]
+
+

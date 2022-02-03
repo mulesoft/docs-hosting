@@ -1,0 +1,55 @@
+= Setting Up Authentication for Trusted Clients
+
+
+include::partial$feature-availability.adoc[tag=featureUnavailable]
+
+
+== Authenticate Trusted Clients (2-Way SSL)
+
+// SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click the *Clients* tab.
+. Configure client validation:
+// how to manage requests from untrusted external clients
++
+--
+.. Select *Authenticate external clients*.
+.. Specify to block or allow untrusted clients.
+--
+. Add truststores that contain public certificates for trusted clients:
++
+.. Click *Add truststore*.
+.. Browse and select the truststore to upload.
+. (Optional) Add certificate revocation lists (CRL) to revoke certificates.
++
+If the CRL is not in the certificate, add it:
++
+.. Click *Add revocation list*.
+.. Browse and select the CRL to upload.
+. Configure limits for inbound traffic to the private space:
++
+--
+.. Click *Show* to display the advanced settings.
+.. Specify the limits for inbound traffic to the private space:
+
+Max simultaneous connections::
+The maximum number of simultaneous connections, by default 512.
+Max requests per connections::
+The maximum number of requests between 1 and 1000.
+Connection idle timeout::
+The connection timeout, by default 10 seconds.
+Read request timeout::
+The maximum number of seconds spent reading a request before it terminates, by default 10 seconds.
+Read response timeout::
+The maximum number of seconds spent initiating a response before the connection terminates, by default 300 seconds.
+Write response timeout::
+The maximum number of seconds spent writing a response before the connection terminates, by default 10 seconds.
+Max pipeline depth::
+The maximum number of requests allowed from the same client, by default 1000. 
+--
+. Click *Save clients* or *Discard changes*.
+
+=== Delete Certificate and CRL Files
+
+To delete a certificate or CRL file, click *...* to the right of the certificate details and select *Delete*.

@@ -1,0 +1,227 @@
+= CloudHub 2.0 Architecture
+
+To understand CloudHub 2.0 security and availability, you should understand the architecture behind CloudHub.
+
+CloudHub 2.0 architecture comprises two major components: Anypoint Platform services and shared global regions.
+These two components, along with Anypoint Runtime Manager through which you access them,
+work together to run your integration applications.
+
+image::ch2-architecture.png[CloudHub 2.0 Architecture with four callouts]
+
+[cols="8a,25a,65a"]
+|===
+|image:blue-1.png[1 Integration Applications,width=50%] |<<integrations-apps>> |Applications that you create and deploy to CloudHub 2.0 to perform integration logic for your business
+|image:blue-2.png[2 Runtime Manager,width=50%] |<<runtime-manager>> |User interface that enables you to deploy and monitor integrations, and configure your account
+|image:blue-3.png[3 Platform Services,width=50%] |<<platform-services>> |Shared CloudHub 2.0 platform services and APIs, which include Anypoint Monitoring, alerting, logging, account management, private spaces/secure data gateway, and load balancing
+|image:blue-4.png[4 CloudHub 2.0,width=50%] |<<cloudhub-2-replicas,CloudHub 2.0>> |An elastic cloud of _replicas_, Mule instances that run integration applications
+|===
+
+[NOTE]
+You can view the live status and detailed service history for Runtime Manager, platform services, and CloudHub 2.0 on https://status.mulesoft.com/[status.mulesoft.com] for the default (US hosted) Control Plane and https://eu1-status.mulesoft.com/[eu1-status.mulesoft.com] for the EU Control Plane.
+
+[[integrations-apps]]
+== Integration Applications
+
+An integration application is any integration that you've built using Anypoint Studio.
+These applications can do everything from synchronizing data from Salesforce to a database, to publishing a SOAP or REST API, to creating complex orchestrations of business processes.
+
+For more about creating and deploying integration applications,
+see xref:index.adoc[] and xref:ch2-deploy.adoc[].
+
+[[runtime-manager]]
+== Runtime Manager
+
+Runtime Manager is integrated into the https://anypoint.mulesoft.com[Anypoint Platform].
+Sign in with your Anypoint Platform credentials to deploy and manage your integration applications at runtime.
+The console provides monitoring information from the platform services and also functions as a comprehensive dashboard for both application-level and account-level management.
+
+Administrator account holders can use the Anypoint Platform to add and manage other users in the organization, define user roles, and create and manage sandbox environments.
+For information, see https://docs.mulesoft.com/access-management[Access Management^] (Link out from Beta docs).
+
+[[platform-services]]
+== Platform Services
+
+Platform services are responsible for coordinating all aspects of the platform.
+They coordinate deployment of applications, monitor integrations, provide analytics data, store application data, run scheduled jobs, and more.
+Many of these services are also exposed through the xref:ch2-api.adoc[].
+
+[[cloudhub-2-replicas]]
+== CloudHub 2.0 Replicas
+
+_Replicas_ are dedicated instances of Mule runtime engine that run your integration applications on CloudHub 2.0.
+
+Replicas have the following characteristics:
+
+*Capacity*::
+Each replica has a specific amount of capacity to process data.
+Select the size of your replicas when configuring an application.
+*Isolation*::
+Each replica runs in a separate container from every other application.
+*Manageability*::
+Each replica is deployed and monitored independently.
+*Locality*::
+Each replica runs in a specific global region, such as the US, EU, or Asia-Pacific.
+
+The memory capacity and processing power of a replica depends on how you configure it at the application level.
+
+Replica sizes have different compute, memory, and storage capacities.
+
+*THIS IS ALL TBD for CloudHub 2.0*::
++
+--
+You can scale replicas vertically by selecting one of the available vCore sizes:
+
+[%header,cols="3*a"]
+|===
+|vCore Size |Heap Memory | Storage
+|0.1 vCores |500 MB | 8 GB
+|0.2 vCores |1 GB | 8 GB
+|1 vCore |1.5 GB | 12 GB
+|2 vCores |3.5 GB | 40 GB
+|4 vCores |7.5 GB | 88 GB
+|8 vCores |15 GB | 168 GB
+|16 vCores |32 GB | 328 GB
+|===
+
+Replicas with 0.1 vCores and 0.2 vCores:
+
+* Provide limited CPU and I/O for apps with smaller workloads
+* Can burst to higher CPU speeds for a short time
++
+This ability helps to improve application startup times and to process infrequent, large workloads.
+If you need consistent performance, use replicas with more vCores.
+
+Replicas with 1 or more vCores:
+
+* Provide performance consistency
+* Are available only for Mule version 3.6.2 or later, or API gateway version 2.0.2 or later
+
+Each replica has a minimum of 8 GB of storage, which is used for both system and application storage.
+If your application requires more storage (for example, verbose logging), use a replica with two or more vCores, enabling the application to access additional storage in `/tmp`.
+
+Only running applications count toward replica usage.
+
+If your applications require more vCores than are available, CloudHub 2.0 allows you to create the application, but you cannot start it until the additional vCores become available.
+To increase vCore allocation, stop another application or contact your account manager to increase your subscription's vCore allocation.
+
+The metaspace limit for apps deployed to CloudHub 2.0 is currently 256 MB, regardless of the replica size.
+The initial metaspace size is 128 MB; metaspace garbage collection begins after the metaspace reaches that threshold.
+
+You can scale your applications horizontally by adding multiple replicas(?)s and using Anypoint MQ for persistent queues.
+See xref:ch2-clustering.adoc#replica-scale-out[Replica Scaleout] and 
+https://docs.mulesoft.com/mq/[Anypoint MQ^] (Link out from Beta docs).
+
+CloudHub 2.0 monitors replicas to verify that they are operating correctly.
+If you enable automatic restarts, CloudHub 2.0 also automatically restarts applications, if necessary.
+--
+
+== Shared Global Regions
+
+CloudHub 2.0 provides the ability to deploy apps in different regions of the world: North America, South America, the European Union, and Asia-Pacific.
+For the complete list of supported regions, see
+xref:ps-gather-setup-info.adoc#region[Regions].
+
+This global distribution enables you to host your integration in the location closest to your services, thus reducing latency.
+It can also provide for adherence to local laws, such as the EU Data Protection Directive.
+For the US Cloud and MuleSoft Government Cloud control planes, MuleSoft hosts the management console and platform services in the United States.
+For the EU Cloud control plane, MuleSoft hosts these services in Europe.
+
+The region that you deploy your application to determines the domain provided for your application.
+For example, if you deploy an application named `myapp` to Canada (Central), the domain used to access the application is `myapp.ca-c1.cloudhub.io`.
+The load balancer used to route requests resides in the same region as your application.
+
+== Multitenancy
+
+Because different levels of security and isolation are needed depending on the service, the platform provides three different levels of multitenancy.
+
+* The shared global region is a multitenant cloud of virtual machines (VMs).
++
+These VMs provide the security and isolation needed for your integrations to run custom code without affecting others.
+* If required, you can create single-tenant _private spaces_, which are virtual, private, and isolated areas in CloudHub 2.0 in which to run your apps.
++
+For information, see xref:ps-about.adoc[].
+* The management console and platform services have a _shared everything_ architecture; 
+all tenants share the same web UI, monitoring services, and load balancers.
++
+These services do not process or transmit your data.
+
+== Availability and Scalability
+
+CloudHub 2.0 is designed to be highly available and scalable through redundancy,
+intelligent healing, and zero-downtime updates.
+It also enables you to scale and benefit from added reliability using
+xref:ch2-clustering.adoc[clustering].
+
+=== Redundant Platform
+
+All CloudHub 2.0 platform services, from load balancing to the API layer, have at least one built-in layer of redundancy and are available in at least two data centers at all times.
+All data centers are at least 60 miles apart.
+This redundancy ensures that even if there is a data center outage,
+the platform remains available.
+
+=== Intelligent Healing
+
+CloudHub 2.0 monitors the replicas for problems and provides a self-healing mechanism to recover from them.
+If the underlying hardware experiences a failure, the platform migrates your application to a new replica automatically.
+In the case of an application crash, whether due to a problem with custom code or a bug in the underlying stack, the platform recognizes the crash and can redeploy the replica automatically.
+
+For more information, see xref:ch2-app-monitoring.adoc[].
+
+=== Zero-Downtime Updates
+
+CloudHub 2.0 supports updating your applications at runtime so end users of your HTTP APIs experience zero downtime.
+While your application update is deploying, CloudHub 2.0 keeps the old version of your application running.
+Your domain points to the old version of your application until the newly uploaded version is fully started.
+This allows you to keep servicing requests from your old application while the new version of your application is starting.
+
+=== Clustering
+
+Clustering provides scalability, workload distribution, and added reliability to applications on CloudHub.
+These capabilities are powered by the scalable load-balancing service and
+xref:ch2-clustering.adoc#replica-scaleout[replica scaleout] features.
+
+==== Scale Out and Data Center Redundancy
+
+With xref:ch2-clustering.adoc[clustering], you can add multiple replicas to your application to make it horizontally scale.
+CloudHub automatically distributes multiple replicas for the same application across two or more data centers for maximum reliability.
+
+When deploying your application to two or more replicas, the HTTP load balancing service distributes requests across these replicas, enabling you to scale your services horizontally.
+CloudHub distributes requests on a round-robin basis.
+
+== Security
+
+*Evaluate for CloudHub 2.0*
+
+CloudHub 2.0 architecture provides a secure platform for your integrations.
+
+CloudHub 2.0 does not inspect, store, or otherwise interact directly with payload data.
+CloudHub replicas provide a secure facility for transmitting and processing data by giving each application its own container.
+This ensures complete isolation between tenants for payload security, and isolation from other tenants’ code.
+
+CloudHub 2.0 collects monitoring, analytics, and log data from CloudHub replicas and might perform actions on behalf of the user.
+All communication between platform services and CloudHub is secured using SSL with client certificate authentication, ensuring that unauthorized parties cannot read data or initiate unauthorized actions.
+
+You can also xref:ch2-protect-app-props.adoc[protect application property values].
+Protected property values are not viewable or retrievable by any user.
+These protected application values are encrypted and stored in the Anypoint Security secrets manager, which, in turn, is encrypted per user organization.
+
+For more information about MuleSoft security, see the http://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^].
+
+
+== See Also
+
+* xref:ch2-manage-apps.adoc[]
+* xref:ch2-app-monitoring.adoc[]
+* http://status.mulesoft.com/[status.mulesoft.com^]
+* http://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^]
+* http://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^]
+* https://docs.mulesoft.com/runtime-manager/deployment-strategies[Deployment Options^]
+
+
+////
+* xref:cloudhub-networking-guide.adoc[CloudHub Networking Guide]
+* xref:cloudhub-faq.adoc[CloudHub FAQ]
+* xref:maintenance-and-upgrade-policy.adoc[Maintenance and Upgrade Policy]
+* xref:ch2-clustering.adoc[Clustering]
+* https://aws.amazon.com/ec2/instance-types/[Amazon EC2 Instance Types]
+//// 

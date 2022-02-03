@@ -1,0 +1,72 @@
+= Protecting App Property Values
+
+*This content is based on the new, unreleased RTF feature*
+
+CloudHub 2.0 enables you to protect application property values by displaying the property name but not its value, in Anypoint Runtime Manager, 
+
+Additionally, the value is not viewable or retrievable by any user.
+CloudHub 2.0 resolves the property internally at runtime.
+These protected application values are encrypted and stored in the Anypoint Security secrets manager, which, in turn, is encrypted per user organization.
+
+[IMPORTANT]
+Protected property values are separate from the encrypted Mule application properties stored in secure configuration files. 
+See https://docs.mulesoft.com/mule-runtime/4.3/secure-configuration-properties[Secure Configuration Properties^] (link out from Beta docs).
+
+== Protect Property Values in Runtime Manager
+
+Set protected properties via the table view for granular control over each property and value. 
+
+Although you can attempt to protect a single property more than once, Runtime Manager issues a warning and protects only the final instance of that property.
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. Click the app name and then click *Settings*.
+. On the *Settings* page, click the *Properties* tab.
+. Depending on how many properties you want to protect, choose either:
+** To protect properties one at a time, click *Table view*.
+** To protect multiple properties, use *Text view* to add the key-value pairs, switch to *Table view*, and continue to Step 8 to protect the properties. 
+. In the *New Key* field, add a property to protect. 
+. In the *New Value* field, add a value.
+. In the value field, click *Protect* and then click *Protect value* to confirm.
++
+<replace screenshot>
++
+image::rtm-hide-props.png[Properties tab and key-value properties on the application Settings page]
+. Depending on the deployment status, choose either:
+** If this application is deployed, click *Apply changes*.
+** If you’re ready to deploy the application, click *Deploy Application*.
+
+In the *Properties* tab, the values for properties that you just protected are now no longer visible to you or any other user.
+
+In the following example, the values for `birthdate` and `password` are protected, but the value for `username` is not:
+
+<replace screenshot>
+
+image::rtm-hidden-props.png[Protected values in the Properties tab on the application Settings page]
+
+After you commit the values and deploy the app, the protected property values
+don't appear in the console and aren't sent and received between the console and CloudHub.
+
+== Replace a Protected Property Value
+
+After you set the property value, you can't retrieve it.
+However, you can replace the protected property value with a new protected value:
+
+. In the table view, click the icon next to the protected value that you want to replace. 
+. Click the menu icon next to the value and then click *Replace protected value*.
+. Enter a new value in the field:
++
+<screenshot>
+. Click *Apply*. 
+. Click *Apply changes*. 
+
+// is this still valid?
+== Copy Protected Property Values between Sandboxes
+
+When moving applications between sandboxes, the property name is copied, but the value is left blank.
+
+== See Also
+
+* https://docs.mulesoft.com/mule-runtime/4.3/secure-configuration-properties[Secure Configuration Properties^] (link out from Beta docs)
+* xref:ch2-manage-props.adoc[]
+* xref:ch2-deploy.adoc[]

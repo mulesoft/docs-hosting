@@ -1,0 +1,312 @@
+= Configuring Domains and Certificates (TLS Context) for a Private Space	
+
+
+*This topic is updated to the Design Spec dated 11-Nov-21*
+
+*Last update* 20-Jan-22
+
+CloudHub 2.0 uses Transport Layer Security (TLS) contexts to encrypt 
+inbound traffic to the private space.
+
+TLS contexts enable your apps to be reached at custom domains and, optionally, enable mutual TLS. 
+ 
+Each private space includes one TLS context by default
+(for traffic to `cloudhub.io`), which can't be removed.
+You can create additional TLS contexts as required.
+
+The TLS contexts that you configure for the private space define the domains that are available 
+when deploying apps to the private spaces. 
+See xref:ch2-config-endpoints-paths.adoc[].
+
+== TLS Contexts
+
+Each TLS context includes a keystore and an optional truststore.
+
+To <<create-tls-context,create a TLS context>>:
+
+. Upload the keystore.
+. Upload the truststore (optional).
+. Accept the default ciphers or select ciphers to add or remove.
+
+
+=== Keystore
+
+A _keystore_ is a repository of security certificates (either authorization certificates or public key certificates), along with their corresponding private keys used, for example, in SSL encryption.
+
+The keystore allows communication to your app using custom domains.
+
+CloudHub 2.0 supports the following keystore types:
+
+PEM (Privacy-Enhanced Mail)::
++
+A PEM file is a Base64-encoded ASCII file with a `.cer`, `.crt`, or `.pem` extension.
++
+For PEM, the keystore consists of:
++
+--
+*** Public certificate 
+*** Private key
+*** Certificate Authority (CA) path file (optional)
+
+The keystore in PEM format uses TLS default values. 
+--
+JKS (Java Keystore)::
++
+A JKS file is a repository for authorization or public key certificates and does not store secret keys.
++
+Use this option to upload a JKS file and use TLS default values.
+With this option, you can't change the default values for TLS versions, ciphers, and other TLS configuration options. 
+
+=== Truststore
+
+A truststore is a repository of security certificates from other parties that you expect to communicate with, or from Certificate Authorities that you trust to identify other parties.
+
+The optional truststore enables mutual TLS by identifying trusted external clients or private certificate authorities (CAs).
+
+CloudHub 2.0 accepts truststore files in PEM formats.
+
+=== Ciphers
+
+When you add the TLS context, you can select the ciphers to use with the TLS context.
+
+
+== Before You Begin
+
+. Generate a keystore:
++
+** https://docs.mulesoft.com/runtime-manager/lb-ssl-endpoints#create-a-certificate-file-and-private-key-with-the-openssl-command[PEM^] (Link out from Beta docs)
+** https://docs.mulesoft.com/mule-runtime/4.4/tls-configuration#generate-a-keystore[JKS^] (Link out from Beta docs)
+. Generate a https://docs.mulesoft.com/mule-runtime/4.4/tls-configuration#truststore-generation[truststore^] (Link out from Beta docs) (if you want to enable mutual TLS).
+. Create DNS records for your domains.
++
+To enable traffic to reach the apps deployed to the private space using a custom domain:
++
+.. Log in to your domain registrar. 
++
+Use https://www.whois.com/[Whois^] to look up your registrar.
+.. Click *Copy* to copy the DNS target for the current private space.
+.. Replace the domain's nameserver by pasting the DNS target.
++
+[IMPORTANT]
+If you edit the TLS context, the DNS target value for the current private space changes.
++
+Your registrar might take up to 24 hours to apply the change.
+
+. Verify that your account has CloudHub Network Administrator permission, which is required to modify a private space.
++
+For information, see https://docs.mulesoft.com/access-management/teams[Teams^] (Link out from Beta docs).
+
+
+[[create-tls-context]]
+== Create a TLS Context
+
+To create a new TLS context:
+
+// SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click the *Domains & TLS* and then click *Create TLS Context*. 
++
+If you don't have CloudHub Network Administrator permission, 
+the *Create TLS Context* button is disabled.
+. Enter a name for the TLS context.
+. *Configure the keystore:*
++
+** *PEM format*
+... Select *Upload PEM files*.
+... Choose a public certificate to upload.
++
+Uploading the public certificate displays a summary of the certificate.
+Click *... > View Details* to display the keystore details:
++
+<screenshot> 
+... Choose a private key to upload.
+... Enter the password used to access the private key within the keystore.
++
+If the key password is unencrypted (plain text), which is not recommended,
+leave the *Key Password* field blank.
++
+CloudHub 2.0 validates the password against the keystore.
++
+... (Optional) choose a Certificate Authority (CA) path certificate file to upload.
+
+** *JKS format*
+... Select *Upload JKS file*.
+... Choose a keystore file to upload.
+... Enter the password used to access the keystore file.
++
+CloudHub 2.0 validates the password against the keystore.
+... Select an alias from the dropdown.
++
+Selecting an alias displays a summary of the alias.
+Click *View Details* to display the alias details.
+... Enter the key password used to access the private key within the keystore.
++
+CloudHub 2.0 validates the password against the key.
+. *Configure the truststore:*
++
+The truststore defines the client certificates to use to enable mutual TLS with the configured keystore.
++
+When you upload a PEM file, CloudHub 2.0 displays the client certificates from the truststore file.
++
+** Click *Add Certificates* to add additional certificate files.
+** Click the information icon (*View Details*) to display the details of an individual client certificate. 
+** Click the trash can icon (*Delete*) to delete an individual client certificate.
+
+. *Configure advanced options:*
+
+.. Click *Advanced Options* to display the cipher configuration.
+.. Select either *Use Default Ciphers* or *Customize Ciphers*.
++
+If you choose to customize ciphers, CloudHub 2.0 displays the default (selected)
+ciphers.
++
+** Click *X* to remove a cipher from the list.
+** Click *Select a cipher to add* to choose a different cipher.
+. Click *Create TLS Context* or *Cancel* to discard changes.
+
+== Edit a TLS Context
+
+// SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click the *Domains & TLS* tab and then click *Edit TLS Context*. 
++
+If you don't have CloudHub Network Administrator permission, 
+the *Edit TLS Context* button is disabled.
+
+. *Configure the keystore:*
++
+** *PEM format*
+... Click *Upload PEM files*.
+... Click *X* to remove the current public certificate, 
+and then choose a new public certificate to upload.
++
+Uploading the public certificate displays a summary of the certificate.
+Click *View Details* to display the keystore details. 
+... Choose a private key to upload.
+... Enter the password used to access the private key within the keystore.
++
+If the key password is unencrypted (plain text), which is not recommended,
+leave the *Key Password* field blank.
++
+CloudHub 2.0 validates the password against the keystore.
++
+... (Optional) choose a Certificate Authority (CA) path certificate file to upload.
+
+** *JKS format*
+... Select *Upload JKS file*.
+... Click *X* to remove the current keystore file, 
+and then choose a new keystore file to upload.
+... Enter the password used to access the keystore file.
++
+CloudHub 2.0 validates the password against the keystore.
+... Select an alias from the dropdown.
++
+Selecting an alias displays a summary of the alias.
+Click *View Details* to display the alias details.
+... Enter the key password used to access the private key within the keystore.
++
+CloudHub 2.0 validates the password against the key.
+. *Configure the truststore: (Optional)*
++
+The truststore defines the client certificates to use to enable mutual TLS with the configured keystore.
++
+When you upload a PEM file, CloudHub 2.0 displays the client certificates from the truststore file.
++
+** Click *Add Certificates* to add additional certificate files.
+** Click the information icon (*View Details*) to display the details of an individual client certificate. 
+** Click the trash can icon (*Delete*) to delete an individual client certificate.
+. *Configure advanced options:*
+
+.. Click *Advanced Options* to display the cipher configuration.
+.. Select either *Use Default Ciphers* or *Customize Ciphers*.
++
+If you choose to customize ciphers, CloudHub 2.0 displays the default (selected)
+ciphers.
++
+** Click *X* to remove a cipher from the list.
+** Click *Select a cipher to add* to choose a different cipher.
+. Click *Create TLS Context* or *Cancel* to discard changes.
+
+// * Create a CNAME record to route queries (if necessary).
+
+
+
+////
+
+
+== Configure DNS for Inbound Traffic Server
+
+=== Configure Secure Domains for HTTPS Traffic
+
+. Configure how the load balancer accepts inbound traffic:
++
+--
+CloudHub 2.0 doesn't allow you to accept only insecure HTTP requests.
+
+From the *Accept HTTPS requests* list, select one of the following:
+
+** *Redirect HTTP to HTTPS*
+** *Drop HTTP requests*
+** *Also accept HTTP requests*
+--
+
+
+[[load-balancer-log-levels]]
+== Load Balancer Log Levels 
+
+CloudHub 2.0 enables you to specify the severity level of messages that are written to the log file.
+
+[%header,cols="2*a"]
+.CloudHub 2.0 Log Levels
+|===
+| Level 
+| Description
+
+| All Priorities
+| All messages
+
+| ERROR
+| Only error messages, such when an exception occurs
+
+| FATAL
+| Only fatal messages when an application fails
+
+| INFO
+| Informative messages
+
+| SYSTEM
+| Messages about application and worker startup
+
+| CONSOLE
+| Messages about console events, such as setting the object store
+
+| WARN
+| Warning messages
+
+| DEBUG
+| Debugging messages
+|===
+
+You can specify log levels for a Mule application or API proxy during deployment.
+
+
+You can use Anypoint Runtime Manager to change the application log level by configuring the following property:
+```
+logging.level.<PACKAGE>=LEVEL
+``` 
+For example, if you use Runtime Manager to add the 
+`logging.level.org.mule.service.http.impl.service.HttpMessageLogger=DEBUG` property, `DEBUG` level log information is emitted from `HttpMessageLogger`.
+
+
+== Validate: Verify Inbound Traffic Configuration
+////
+
+== See Also 
+
+// * xref:ps-config-log-forwarding.adoc[]
+* xref:ch2-deploy-private-space.adoc[]
+* xref:ch2-config-endpoints-paths[]
+* https://docs.mulesoft.com/mule-runtime/latest/tls-configuration[Configure TLS with Keystores and Truststores^] (Link out from Beta docs)
+* https://www.whois.com/[Whois^]

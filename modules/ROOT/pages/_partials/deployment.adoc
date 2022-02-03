@@ -1,0 +1,101 @@
+
+// tag::changeAppProperties[]
+[[app-properties]]
+= Change App Behavior with Properties
+
+You can configure property values, such as specifying the environment or setting passwords and usernames, during app deployment.
+
+For information about configuring app properties, see:
+
+* xref:ch2-manage-props.adoc[] 
+* xref:ch2-protect-app-props.adoc[]
+// end::changeAppProperties[]
+
+
+
+// tag::downloadTestApp[]
+= Download a Test App from Exchange
+
+If you don't have a Mule app to test with, you can download an example app from Anypoint Exchange.
+
+[NOTE]
+You must be logged into your Anypoint Platform account to see the example assets on Exchange. 
+
+. From Anypoint Platform, select *Exchange*.
+. From the *All assets* list, select *Provided by MuleSoft*.
+. From the *All types* menu, select *Examples*.
+. Click an app to download, for example, *Hello World*. 
+. Click *Download*:
++
+image::exchange-app-download.png[Download button in Exchange]
++
+Exchange downloads the app JAR file to your local system.
+// end::downloadTestApp[]
+
+// tag::placeholders[]
+[[placeholder-table]]
+= Placeholders
+
+The subdomain and path support the following optional lowercase placeholders:
+
+`app-name`::
+Resolves to the name of the app that you specified in the *Application Name* field when you deploy the app.
+`business-group-id`::
+Resolves to the business group ID associated with the app.
+`environment-id`::
+Resolves to the environment that you deploy the app to.
+// end::placeholders[]
+
+// tag::path-name-reqs[]
+Paths must start and end with an alphanumeric character and can contain only alphanumeric characters, hyphens, and underscores.
+// end::path-name-reqs[]
+
+// tag::subdomain-name-reqs[]
+Subdomains must start and end with an alphanumeric character and can contain only alphanumeric characters (a-z, A-Z, 0-9), hyphens (-), underscores (-), and periods (.).
+// end::subdomain-name-reqs[]
+
+// tag::appNameReqs[]
+[[app-name-reqs]]
+= Application Names
+
+*FROM CLOUDHUB 1.0*
+
+The application name can contain between 3 and 42 alphanumeric characters (a-z, A-Z, 0-9) and dashes (-).
+They cannot contain spaces or other characters.
+
+// NO RENAME SHARED
+[IMPORTANT]
+include::partial$caveats.adoc[tag=noRenameApp]
+
+The application name identifies your application not only in Runtime Manager but also in the public `cloudhub.io` domain.
+For example, an application named `myapplication` is accessible at `+http://myapplication.cloudhub.io+`.
+
+
+To avoid domain conflicts, the application name must be globally unique across CloudHub 2.0.
+For this reason, create a naming convention to ensure unique application names.
+For example, you could prepend your company name and department to all application names,
+such as `mycompany-mydept-myapplication`.
+You can then add DNS records to hide the complex application name.
+For example, you might route requests to `myapplication.mycompany.com` to `mycompany-mydept-myapplication.cloudhub.io`.
+// end::appNameReqs[]
+
+
+// tag::enableTLSv1[]
+[[enable-tls-v1]]
+= Enable TLS v1 and TLS v1.1
+
+*REMOVE THIS CONTENT FOR GA?*
+
+Starting with the https://docs.mulesoft.com/release-notes/cloudhub/cloudhub-runtimes-release-notes#august-3-2021[August 3, 2021 patch releases^], Mule runtime engine disables TLS v1 and TLS v1.1 by default for all runtime versions.
+
+If your app requires TLS v1 or TLS v1.1, you can enable them using JVM (Java Virtual Machine) arguments when you deploy to CloudHub 2.0:
+
+. Click the *JVM* tab. 
+. In the *Java Virtual Machine arguments* field, add one of the following arguments:
+* Enable TLSv1.0 and TLSv1.1:
++
+`-Drtf.allow.TLSv1.0+`
+* Enable TLSv1.1:
++
+`-Drtf.allow.TLSv1.1`
+// end::enableTLSv1[]

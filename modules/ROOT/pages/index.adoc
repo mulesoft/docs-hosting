@@ -1,1 +1,123 @@
-= Runtime Fabric Cloud
+= CloudHub 2.0
+
+// reliability, performance, and security.
+
+
+CloudHub 2.0 is a fully managed, containerized integration platform as a service (iPaaS)
+where you can deploy APIs and integrations.
+
+Built on Anypoint Runtime Fabric, which leverages Docker and Kubernetes,
+CloudHub 2.0 provides 99.99% availability for deployments across 12 regions globally.
+
+CloudHub 2.0 proactively scales each layer of infrastructure and services to support increasing transaction volumes, enabling performance adjustments for applications handling any type of workload. 
+CloudHub 2.0 allocates the right amount of CPU and memory and, leveraging the benefits of containerization and the sidecar architecture, allows Mule instances to perform consistently under sustained load.
+
+CloudHub 2.0 includes built-in load balancing and support for deploying 20 applications per CPU core, enabling you to grow your application network.
+
+CloudHub 2.0 provides native support for Anypoint Security, protecting services and sensitive data with a powerful set of policies.
+Integration with secrets manager ensures that certificates, passwords, and other sensitive configuration data are encrypted at rest and in transit, while providing centralized secrets management within Anypoint Platform.
+By running each Mule instance and service as a separate container, CloudHub 2.0
+provides a standardized isolation boundary. 
+
+For CloudHub 2.0 pricing information, contact either your account executive or your account development representative.
+
+
+
+////
+(from CH 1.0 architecture topic)
+xref:cloudhub.adoc[CloudHub] is designed to provide enterprises with a multitenant, secure, elastic, and highly available integration platform as a service (iPaaS). To maximize your use of CloudHub, you should understand how the underlying mechanisms of the CloudHub platform work to achieve these goals.
+
+Manage CloudHub with the Anypoint Runtime Manager console in Anypoint Platform. You can also xref:deploying-to-cloudhub.adoc[deploy] to it directly from Anypoint Studio, via the xref:cloudhub-api.adoc[CloudHub REST API] or via the xref:anypoint-platform-cli.adoc[Anypoint Platform command-line interface].
+
+[NOTE]
+====
+See xref:deployment-strategies.adoc[Deployment Options^] for a better understanding of the different possible deployment scenarios, including on-premises and Anypoint Platform Private Cloud Edition (Anypoint PCE).
+====
+////
+
+//// 
+
+(from CH 1.0 "cloudhub" topic)
+
+http://www.mulesoft.com/cloudhub/ipaas-cloud-based-integration-demand[CloudHub] is an integration platform as a service (iPaaS) where you can deploy sophisticated cross-cloud integration applications in the cloud, create new APIs on top of existing data sources, integrate on-premises applications with cloud services, and much more.
+
+== Create an Application for CloudHub
+
+image::logo-app.png[app]
+
+* See xref:deploying-to-cloudhub.adoc[Deploy to CloudHub^].
+* See xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service^] to include HTTPS support in this application.
+
+[TIP]
+For examples of more applications, see xref:exchange::index.adoc[Anypoint Exchange^].
+
+You can deploy the same Mule applications to CloudHub or to an xref:deploying-to-your-own-servers.adoc[on-premises server]. There are some differences in how features work between the environments, which you need to consider when you plan your deployment strategy. See xref:deployment-strategies.adoc[Deployment Options^].
+
+
+== Deploy your Application to CloudHub
+
+image::logo-deploy.png[deploy]
+
+Learn how you can deploy your applications to CloudHub:
+
+* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub^]
+* xref:anypoint-cli::index.adoc[Anypoint Platform Command-Line Interface (CLI)^]
+
+=== Easy Scalability
+
+CloudHub is an elastic cloud, meaning it scales on demand. You can start small and scale up as your needs grow, without changing your applications or experiencing downtime. CloudHub provides a scalable architecture – one on which you can build integration applications, publish REST APIs, or Web services, and much more.
+
+
+=== Integration with Anypoint Studio
+
+Using xref:studio::index.adoc[Anypoint Studio (Studio)], you can build integration applications and deploy them to CloudHub with just a few clicks.
+You can then access them like any other application deployed through the platform, by
+http://anypoint.mulesoft.com[signing in to] Anypoint Platform and then navigating to Runtime Manager.
+See xref:deploying-to-cloudhub.adoc#from-anypoint-platform[Deploy an Application from Studio].
+
+
+=== Integrate Cloud and Enterprise Applications
+
+The CloudHub xref:virtual-private-cloud.adoc[Anypoint Virtual Private Cloud (Anypoint VPC)] enables you to construct a secure pipe to on-premises applications through an IPsec VPN tunnel, Anypoint VPC peering, transit gateway, or AWS Direct Connect.
+
+=== CloudHub API
+
+To automate tasks or automatically deploy to CloudHub, use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-api[CloudHub API]. This enables you to perform tasks such as manage and monitor your applications, and scale your applications.
+
+== Manage your Application
+
+image::logo-manage.png[manage]
+
+Learn how you can manage an application that is currently running in CloudHub:
+
+* xref:managing-deployed-applications.adoc[Manage Deployed Applications] has information about settings that are general to all applications&#8212;both those deployed to CloudHub and to on-premises servers.
+* xref:managing-applications-on-cloudhub.adoc[Manage Applications on CloudHub] has information about settings that are specific to applications on CloudHub.
+
+=== Manage Applications in Runtime Manager
+
+Maintain your applications on CloudHub through the xref:index.adoc[Runtime Manager], an intuitive cloud console where you can xref:managing-deployed-applications.adoc[manage] and xref:monitoring.adoc[monitor] every aspect of your applications in a centralized location.
+
+[NOTE]
+You can view the live status and detailed service history for the Runtime Manager console, platform services, and the CloudHub worker cloud on https://status.mulesoft.com/[`status.mulesoft.com`] for the US platform.
+For the EU platform, visit https://eu1-status.mulesoft.com/[`eu1-status.mulesoft.com`].
+
+
+== Monitor your Applications
+
+image::logo-monitor.png[monitor]
+
+Through various tools, Runtime Manager enables you to triage problems, view logs, set up alerts, view dashboards, and more. See xref:monitoring.adoc[Monitor Applications] for an overview on the different ways that Runtime Manager enables you to monitor your running applications.
+
+== Limitations
+
+When deploying to CloudHub, keep in mind the following limitations:
+
+* CloudHub blocks outbound SMTP traffic when more than 20 emails are sent in one hour.
+* CloudHub deployment from Flow Designer fails when the external identity is set up.
+////
+
+== See Also
+
+* xref:ch2-features.adoc[Features of CloudHub 2.0]
+* xref:ps-create-configure.adoc[Create and Configure Private Spaces]
+* xref:ps-gather-setup-info.adoc#region[Region]

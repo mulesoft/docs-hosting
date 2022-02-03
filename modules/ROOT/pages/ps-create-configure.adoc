@@ -1,0 +1,369 @@
+= Creating and Configuring Private Spaces
+
+
+To extend your network to Anypoint Platform, create a _private space_, 
+a virtual, private, and isolated network hosted in CloudHub 2.0,
+to deploy your apps to.
+
+[[create-private-space]]
+== Create a Private Space 
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+. Click *Create private space*.
+. Enter a xref:ps-gather-setup-info.adoc#name[name] for your private space and click *Create*.
+
+[[create-private-network]]
+== Create a Private Network
+
+[IMPORTANT]
+You can't change the private network configuration after it's created.
+To change the configuration, delete the private space and create it again.
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. In the *Network* tab, click *Create Private Network*. 
+. In the *Create Private Network* page:
+.. Select the xref:ps-gather-setup-info.adoc#region[region] where you want your apps to run.
+.. Enter the xref:ps-gather-setup-info.adoc#cidr-block[CIDR block], which is the range of IP addresses that your apps can use.
+.. Click *Create*.
++
+The private network can take up to 30 minutes to create.
++
+While the network is created, you can 
+<<create-connection-to-external-network,create a connection to an external network>>.
+. After the network creation succeeds, xref:ch2-deploy.adoc[deploy an application] to test the private network.
+
+If the private network creation fails, delete it and click *Create Private Network* to try again.
+
+[[resolve-private-domains]]
+=== Resolve Private Domains in Your Internal Network
+
+If your corporate network uses internal DNS servers to resolve requests to custom domains, configure the private space with these IP addresses and domain names.
+The private space uses your internal DNS to resolve internal host names of your private network (make sure your applications call the backend resources by FQDN).
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. In the *Network* tab, click the *Configure* link for *Internal DNS servers*.
+. Enter the (comma-separated) xref:ps-gather-setup-info.adoc#server-ip-addresses[server IP addresses] for your internal DNS servers.
+. Enter the (comma-separated) xref:ps-gather-setup-info.adoc#domains[domain addresses] to be resolved by internal DNS.
+. Click *Save*.
+
+After you configure internal DNS, the *Network* tab indicates the number of server IP addresses and domains:
+
+image::internal-dns.png[Internal DNS configuration in the Private Network section]
+
+[[create-connection-to-external-network]]
+== Create a Connection to an External Network
+
+After you create your private network, connect it to an external network using a 
+VPN or transit gateway attachment.
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. In the *Network* tab, click *Create Connection*. 
+. In the *Create Connection* page:
++
+--
+.. Select the *Connection Type*, click *Next*, and then, depending on the connection type you selected:
++
+*** *VPN*: Follow the steps in <<create-a-vpn>>.
+*** *Transit Gateway*: Follow the steps in <<connect-to-a-transit-gateway>>.
+
+--
+
+[[create-vpn]]
+== Create a VPN
+
+[NOTE]
+After you create a VPN, you can't change any of the VPN settings,
+except the static IP prefixes for static routing.
+
+. On the *Create Connection* page, enter a name for your connection, and then click *Next*.
++
+// Shared Connection Name
+include::partial$create-config.adoc[tag=connectionNameReqs]
+. On the *Create VPN* page, enter the 
+xref:ps-gather-setup-info.adoc#remote-ip-address[remote IP address] (a single, static IP address) for your VPN endpoint.
+. Select the routing type:
++
+xref:ps-gather-setup-info.adoc#dynamic-vpn-routing-bgp[Dynamic (BGP)]::
+Select this option if your device supports Border Gateway Protocol (BGP).
+BGP supports automatic failover for redundant connections.
++
+.. In the *Local ASN* field, enter a xref:ps-gather-setup-info.adoc#local-asn[local private ASN] that isn't already assigned to your network.
+
+.. In the *Remote ASN* field, enter a xref:ps-gather-setup-info.adoc#remote-asn[private ASN].
++
+Click *Show Existing Routes for this Network* to view the existing routes for the private network.
+
+xref:ps-gather-setup-info.adoc#static-vpn-routing[Static]::
+Select this option if your device doesn't support BGP.
++
+.. In the *Local ASN* field, enter a xref:ps-gather-setup-info.adoc#local-asn[local private ASN] that isn't already assigned to your network.
++
+include::partial$caveats.adoc[tag=localAsnNote]
++
+If you have already created a VPN in this private space, the *Create VPN* page doesn't display the *Local ASN* field.
++
+.. In the *Static Routes* field, specify the (comma-separated) xref:ps-gather-setup-info.adoc#static-ip-prefixes[static IP prefixes] in CIDR notation.
++
+Click *Show Existing Routes for this Network* to view the existing routes for the private network.
+
+. Select the tunnel configuration:
++
+Automatic::
+This option requires no further configuration.
+All values are auto-generated.
+xref:ps-gather-setup-info.adoc#custom-tunnel-configuration-optional[Custom]::
+Any values that you don't specify are autogenerated.
++
+.. Specify the xref:ps-gather-setup-info.adoc#inside-ip-cidrs[IP ranges] (in CIDR format) for the internal address of each VPN tunnel.
+.. Specify the xref:ps-gather-setup-info.adoc#pre-shared-keys[pre-shared keys] (PSKs) for each VPN tunnel.
+
+. Click *Create VPN*. 
++
+The VPN can take up to 15 minutes to create.
++
+While the VPN is created, you can <<create-redundant-vpn,create a redundant VPN>>.
+
+After the VPN creation completes successfully,
+the tunnel status is *Down* until you 
+<<connect-vpn,connect the VPN
+to your corporate network>>:
+
+image::vpn-down.png[Tunnel status in the VPN section]
+
+Connecting the VPN involves configuring your gateway device. 
+
+If the VPN creation fails, click *Create VPN* to try again.
+
+[[create-redundant-vpn]]
+=== Create a Redundant VPN
+
+Redundant VPNs inherit some settings from the intial VPN configuration automatically.
+
+[NOTE]
+After you create a redundant VPN, you can't change any of the settings.
+
+. In the *Network* tab, click *Create Redundant VPN*.
+. In the *Create Redundant VPN* page, complete the fields, based on the routing type of the initial VPN:
++
+Dynamic (BGP)::
++
+.. In the *Remote IP* field, Enter the public IP address 
+(a single, static IP address that isn't used by other VPNs) of your VPN endpoint.
+.. In the *Remote ASN* field, enter a private ASN.
++
+By default, *Remote ASN* contains the value from the first VPN, but you can change this value.
+Static::
++
+In the *Remote IP* field, enter the public IP address 
+(a single, static IP address that isn't used by other VPNs) of your VPN endpoint.
++
+Because you have already created a VPN in this private space, the *Create VPN* page doesn't display the *Local ASN* field.
+. Select the tunnel configuration:
++
+Automatic::
+This option requires no further configuration.
+All values are auto-generated.
+Custom::
++
+.. Specify the IP ranges (in CIDR format) for the internal address of each VPN tunnel.
+.. Specify the PSKs for each VPN tunnel.
+. Click *Create Redundant VPN*. 
+
+The redundant VPN can take up to 15 minutes to create.
+
+If the redundant VPN creation fails, click *Create Redundant VPN* to try again.
+
+[[connect-vpn]]
+=== Connect a VPN to Your Corporate Network 
+
+To connect the VPN to your corporate network, you or your network administrator must configure
+your gateway device outside of Anypoint Platform.
+
+To facilitate this configuration, you provide information about your gateway device, which
+Anypoint Platform uses to generate a connection guide to use to configure your device. 
+
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. In the *Network* tab, click *View Connection Guide*.
+. In the *VPN Connection Guide* page, select the *Device vendor*, *Device platform*, and *Device software* from the drop-down lists.
+. Click *Download Guide*.
++
+The connection guide, in `.txt` format, downloads to your local system.
+. Give the connection guide to your network administrator to use to configure your gateway device.
++
+For information, see https://docs.aws.amazon.com/vpc/latest/adminguide/Welcome.html[Your customer gateway device^] in the AWS VPN documentation.
+
+[[test-vpn]]
+=== Test a VPN Connection 
+
+// (Link from *Network* tab?)
+
+To test the VPN connection, use the Network Tools Application. 
+
+For download and usage information about the Network Tools Application, see https://help.mulesoft.com/s/article/How-To-Use-Network-Tools-Application[How To Use Network Tools Application^] (KB article).
+
+[[connect-tgw]]
+== Connect to a Transit Gateway
+
+// figure out how to share this entire bit with CH 1.0.
+
+include::partial$feature-availability.adoc[tag=featureUnavailable]
+
+*THIS IS PLACEHOLDER CONTENT BASED ON THE DESIGN SPEC* 
+
+*Last update* 09-Sep-21
+
+For information about limitations when attaching a VPC to a transit gateway, 
+see 
+https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html[Transit gateway attachments to a VPC^] in the AWS documentation.
+
+To connect to a transit gateway:
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+. Click the name of the private space that you want to attach to a transit gateway.
+. On the *Network* tab, in the *Connections* section, *Create Connection*.
+* On the *Create Connection* page, select *Transit Gateway* and enter the transit gateway xref:ps-gather-setup-info.adoc#transit-gateway-name[name] in the *Connection Name* field.
++
+Use the same name for your transit gateway in AWS.
+You can change this name later.
++
+// Shared Connection Name
+include::partial$create-config.adoc[tag=connectionNameReqs]
+. Click *Next*.
+
+The *Add Transit Gateway* page lists the steps to create a resource share in AWS:
+
+. <<configure-tgw-routes,Configure routes>>.
+. <<create-resource-share,Create a resource share>>.
+. <<verify-resource-share,Verify the resource share>>.
+. <<accept-tgw-attachment,Accept the attachment>>.
+
+[[configure-tgw-routes]]
+=== Configure Routes
+
+. In *Static Routes*, enter the IP prefixes of the external networks to connect through the transit gateway, and then click *Next*.
++
+After you attach the transit gateway, the private space includes the routes you specify here.
++
+To display the existing routes for the network, click *Show Existing Routes for this Network*.
++
+You can add or remove routes later. 
+For information, see 
+xref:ps-manage.adoc#add-or-remove-a-route-in-the-route-table[Add or Remove a Route in the Route Table].
+
+[[create-resource-share]]
+=== Create a Resource Share
+
+. In another browser window, sign in to your AWS corporate account.
+. In Anypoint Platform, click the *Create Resource Share* link on the *Add Transit Gateway* page. 
++
+The link opens the AWS RAM console to the page for creating a resource share in the region you specified for your private space.
+. Take the following actions on the AWS *Create resource share* page:
++
+--
+.. Under *Description*, enter a descriptive name for the resource share in the *Name* field.
+.. Under *Resources - _optional_*, select *Transit Gateways* from the *Select resource type* menu and select the transit gateway resource to share.
++
+The transit gateway ID appears in the *Selected resources* field.
+.. Under *Principals - _optional_*, ensure that *Allow external accounts* is selected, 
+enter the MuleSoft AWS account ID that appears on the *Add Transit Gateway* page, and click *Add*.
++
+The AWS account number appears in the *Selected principals* field.
+.. Under *Tags*, add a tag if you want.
+.. Click *Create resource share*.
+.. Copy the *ID* and *Owner* values for the resource share you just created. 
+.. Click *Next*.
+--
+
+[[verify-resource-share]]
+=== Verify the Resource Share
+
+. In the Anypoint Platform *Add Transit Gateway* page, paste the values you copied from AWS in the *ID* and *Owner* fields:
++
+<screenshot>
++
+--
+*** The resource share *ID* field contains alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-).
+*** The resource share *Owner* field contains only numbers.
+.. Click *Next*.
+--
+
+CloudHub 2.0 use the resource share owner and ID you provide to attach
+the associated transit gateway on AWS to the private space.
+
+When the attachment succeeds, you see the `Attachment Created` message and 
+you return to the *Add Transit Gateway* page.
+
+If the resource share validation fails, see xref:ps-troubleshoot.adoc#troubleshoot-transit-gateway-attachments[Troubleshoot Transit Gateway Attachments].
+
+[[accept-tgw-attachment]]
+=== Accept the Attachment 
+
+. In the *Add Transit Gateway* page, click the *Transit Gateway Attachments* link. 
++
+The link opens the AWS RAM console to the page for accepting the transit gateway attachments in the region you specified.
+. On the *Transit Gateway Attachments* page, select the attachment that shows *pending acceptance* in the *State* column.
++
+The attachment might take a few minutes to appear.
++
+To verify that the attachment is correct, select the transit gateway attachment ID and, in the *Details* tab, ensure that the *Resource owner account ID* is the MuleSoft AWS account ID from the *Add Transit Gateway* page.
+. From the *Actions* menu, select *Accept*.
+. When the attachment state changes to *available*, return to the *Add Transit Gateway* page and click *Done*.
+
+You return to the *Network* tab for the private space.
+The *Connections* section shows the transit gateway ID and owner from AWS and indicates that the transit gateway state is *Available* and the attachment state is *Attached to Private Network*:
+
+<screenshot>
+// image::tgw-resource-share-available.png[Transit gateway attached]
+
+If the VPC attachment state is *Not Attached to VPC*, the transit gateway is not attached.
+Click *Accept the attachment* link and follow the steps again.
+
+// If the VPC attachment state is `Rejected`, see xref:tgw-troubleshoot.adoc[].
+
+[[configure-tgw-routing]]
+=== Configure Transit Gateway Routing
+
+CloudHub 2.0 supports static routing for transit gateways.
+
+Configure the network routes (subnets) that you want to be accessible through the transit gateway:
+
+* On Anypoint Platform, <<enable-outbound-traffic-from-ps,configure routes for outbound traffic from the private space>> to an external destination.
+* On AWS, <<enable-inbound-traffic-on-aws,enable inbound traffic>> through your transit gateway. 
+
+[[enable-outbound-traffic-from-ps]]
+==== Configure Routes for Outbound Traffic from the Private Space
+
+After the *Private space attached* message appears, the private spaces adds the routes that you 
+<<connect-tgw,specified>>
+so that apps deployed to the private space can access the transit gateway.
+
+To add routes to the transit gateway route table, see
+xref:ps-manage.adoc#add-or-remove-a-route-in-the-route-table[Add or Remove a Route in the Route Table].
+
+[[enable-inbound-traffic-on-aws]]
+==== Enable Inbound Traffic Through the Transit Gateway
+
+After successfully adding routes to the transit gateway route table in Anypoint Platform, enable inbound traffic through your transit gateway on AWS. 
+
+You might need to coordinate with your network administrator to enable inbound traffic.
+
+
+== See Also 
+
+* xref:ps-gather-setup-info.adoc[]
+* xref:ps-manage.adoc[]
+* xref:ps-config-domains.adoc[]
+* xref:ps-config-clients.adoc[]
+* xref:ps-config-fw-rules.adoc[]
+* xref:ps-config-env.adoc[]
+* xref:ps-config-log-forwarding.adoc[]
