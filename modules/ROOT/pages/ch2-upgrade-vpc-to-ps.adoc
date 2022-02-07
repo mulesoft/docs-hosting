@@ -1,15 +1,15 @@
 = Upgrading CloudHub 1.0 to CloudHub 2.0
 
-CloudHub 2.0 provides the ability to upgrade your existing VPCs in CloudHub 1.0 to private spaces.
+CloudHub 2.0 provides the ability to upgrade your existing Anypoint VPC in CloudHub 1.0 to a private space.
 
-When you upgrade a VPC to a private space, CloudHub 2.0 creates the new private space using all the settings from the VPC except the TLS contexts.
+When you upgrade Anypoint VPC to a private space, CloudHub 2.0 creates the new private space using all the settings from the VPC except the TLS contexts.
 
-You can create one private space per VPC.
+You can create one private space per Anypoint VPC.
 
 
-== Upgrade a VPC to a Private Space
+== Upgrade Anypoint VPC to a Private Space
 
-To upgrade a CloudHub 1.0 VPC to a private space:
+To upgrade a CloudHub 1.0 Anypoint VPC to a CloudHub 2.0 private space:
 
 . From Anypoint Platform, select *Runtime Manager* > *VPCs*.
 . Click in the *Region* column for the VPC to upgrade.
@@ -34,7 +34,7 @@ Unable to upgrade to private space:
 +
 To work around this issue.... do what?
 * Infrastructure deprecated
-* Legacy VPN:
+* Legacy Anypoint VPN:
 ** TLS 1.0
 ** VPC Peering
 ** DLB static IPs
@@ -42,7 +42,7 @@ To work around this issue.... do what?
 
 == Delete an Upgraded Private Space
 
-If necessary, you can delete the private space created by upgrading a VPC without disrupting the source VPC.
+If necessary, you can delete the private space created by upgrading a VPC without disrupting the source Anypoint VPC.
 
 
 == See Also
