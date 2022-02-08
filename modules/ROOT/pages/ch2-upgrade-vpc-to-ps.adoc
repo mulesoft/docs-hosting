@@ -1,13 +1,54 @@
 = Upgrading CloudHub 1.0 to CloudHub 2.0
 
+*Last update* 07-Feb-22
+
 CloudHub 2.0 provides the ability to upgrade your existing Anypoint VPC in CloudHub 1.0 to a private space.
 
-When you upgrade Anypoint VPC to a private space, CloudHub 2.0 creates the new private space using all the settings from the VPC except the TLS contexts.
+When you upgrade Anypoint VPC to a private space, CloudHub 2.0 creates the new private space using the following settings from the VPC:
+
+* Name
+* CIDR and subnet ranges
+* Geographical region
+* Business group and environment association
+* Inbound firewall rules
+
+[IMPORTANT]
+The upgrade does not apply the domain and certificate (TLS Context) configuration to the new private space.
+
+All existing continuous (time series-based) and discrete (events-based) alerts on CloudHub 1.0 deployments automatically carry over to their respective CloudHub 2.0 deployments.
 
 You can create one private space per Anypoint VPC.
 
+== Upgrade Overview
+
+The steps to upgrade to CloudHub 2.0 are:
+
+. Educate
++
+Learn about the upgrade process, and when you can upgrade.
+. Prepare
++
+Take steps prior to initiating the upgrade.
+. Initiate
++
+Start the upgrade. This creates a new set of deployments on CloudHub 2.0, while preserving the existing deployments on CloudHub 1.0. 
+. Verify
++
+Test the CloudHub 2.0 deployments and configuration.
+. Complete
++
+Confirm that the upgrade completed successfully and remove the CloudHub 1.0 deployments, experience, and entitlements.
+. Pause or roll back
++
+If the upgrade fails the Verify step, any granted upgrade-related entitlements are paused and the Support team is notified.
+
+== Prerequisites
+
+
 
 == Upgrade Anypoint VPC to a Private Space
+
+We recommend that you upgrade and verify your non-production (Sandbox) environments before upgrading your production environment.
 
 To upgrade a CloudHub 1.0 Anypoint VPC to a CloudHub 2.0 private space:
 
@@ -19,25 +60,99 @@ To upgrade a CloudHub 1.0 Anypoint VPC to a CloudHub 2.0 private space:
 CloudHub 2.0 creates the new private space and adds it to the *Private Spaces* page.
 The networking configuration can take up to 30 minutes to complete.
 +
-After the private space is created, you can continue to manage the VPC that you upgraded. 
+After the private space is created:
++
+* The new private space is available in the same business group as the VPC.
+* Both the private space and VPC have access to the Anypoint VPN and transit gateway connections. 
+* You can continue to manage the upgraded Anypoint VPC.
+* Any apps deployed to CloudHub 1.0 continue running unaffected.
 However, the *Delete VPC* option is no longer available for the VPC.
 . After the private space is created, create the TLS context.
 +
 For information, see xref:ps-config-domains.adoc[].
 
 
+== Upgrade Apps
+
+CloudHub 2.0 supports Mule runtime engine versions 4.x and above.
+Mule 3.x is not supported.
+To upgrade an app to CloudHub 2.0, deploy it to the new private space.
+See xref:ch2-deploy-private-space.adoc[].
+
+A copy of the app is deployed to a private space.
+All traffic continues to go to the CloudHub 1.0 version of the app.
+
+You can test the app in CloudHub 2.0 using its own endpoints.
+When you are ready to switch to CloudHub 2.0, you can direct all traffic to the app in CloudHub 2.0.
+At this point, all endpoints that used to reach CloudHub 1.0 now belong to the CloudHub 2.0 app.
+They can keep the CH1 app around and revert this action if issues arise.
+
+
 == Troubleshoot Upgrades to Private Space
 
-Unable to upgrade to private space:
+The following Anypoint VPCs are not be eligible to upgrade to a private space:
 
-* Not enough IPs 
+* Network connectivity:
+* * Anypoint VPC doesn't have enough IPs available.
+** Anypoint VPC uses deprecated availability zones (AZ).
+** Infrastructure deprecated
 +
-To work around this issue.... do what?
-* Infrastructure deprecated
-* Legacy Anypoint VPN:
-** TLS 1.0
-** VPC Peering
-** DLB static IPs
+Is this the same as deprecated AZs?
+** Anypoint VPC uses legacy VPN connections:
+*** Legacy VPN
+*** VPC peering
+*** AWS Direct Connect
+* Dedicated Load Balancer (DLB)
+** Anypoint VPC dedicated load balancer (DLB) uses static IPs
+** Anypoint VPC DLB uses TLS 1.0.
++
+Does this mean that the CH 1.0 DLB uses TLS 1.0?
+
+
+
+=== VPC Has Too Few IPs
+
+The upgrade process requires at least 10(?) IP addresses to provision a private space.
+If a VPC doesn't have enough IP addresses to convert into a private space, undeploy applications temporarily to provide sufficient IP addresses beforehand.
+
+=== VPC Uses Deprecated AZs
+
+If the VPC is composed of AZs that are not supported by Amazon Elastic Kubernetes Service (EKS), you should create a new private space 
+rather than upgrading an existing Anypoint VPC.
+
+=== VPC Uses Legacy VPN
+
+If the VPC uses legacy VPNs (provisioned manually by MuleSoft Support), 
+you must migrate to Anypoint VPN before upgrading to CloudHub 2.0.
+
+
+=== VPC uses VPC Peering
+
+If the VPC uses the VPC peering connectivity method (provisioned manually by MuleSoft Support), we recommend that you switch to use transit gateway connections before upgrading to CloudHub 2.0.
+
+For information, see https://docs.mulesoft.com/runtime-manager/tgw-about[Transit Gateway Attachments^].
+
+=== VPC uses AWS Direct Connect
+
+If the VPC uses the AWS Direct Connect connectivity method (provisioned manually by MuleSoft Support), *then what?*
+
+
+=== DLB Uses Static IPs
+
+If your apps use static IPs in CloudHub 1.0, for example to support IP addresses in a client allowlist if URLs are not accepted,
+you must update those allowlists to include the new static IPs for inbound and outbound requests to and from the private space.
+
+
+=== DLB Uses TLS 1.0
+
+If a DLB uses TLS 1.0, you must switch to TLS 1.2 before upgrading the VPC to a private space.
+
+To do so:
+
+. Deselect TLS 1.0.
+. Change the default cipher suite back to `NewDefault`.
+
+See https://docs.mulesoft.com/runtime-manager/lb-create-arm#enable-tls-1-0-on-a-dlb-using-runtime-manager[Enable TLS 1.0 on a DLB Using Runtime Manager^].
 
 
 == Delete an Upgraded Private Space
