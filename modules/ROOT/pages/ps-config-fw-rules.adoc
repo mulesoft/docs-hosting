@@ -1,5 +1,8 @@
 = Configuring Firewall Rules to Manage Traffic to a Private Space
 
+*This topic is updated to the Design Spec dated 09-Nov-21*
+
+*Last update* 07-Feb-22
 
 By default, all traffic to your private space is blocked unless it is explicitly allowed in a firewall rule.
 
