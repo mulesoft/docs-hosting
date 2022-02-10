@@ -1,5 +1,30 @@
-= Configuring Log Forwarding for a Private Space 
+= Configuring Logging for a Private Space 
 
+*This topic is updated to the Design Spec dated 24-Nov-21*
+
+*Last update* 10-Feb-22
+
+// How can we share this content with RTF?
+
+Use options on the *Logging* tab to:
+
+* Configure log forwarding for the private space.
++
+CloudHub 2.0 supports forwarding logs to Anypoint Monitoring and several external services.
++
+The log forwarding that you configure for the private space define the options that are available 
+when deploying apps to the private spaces.
+See xref:ch2-config-endpoints-paths.adoc[].
++
+You can also select to forward ingress load balancer logs to the configured external service.
+* Specify the default log level for ingress load balancer logs and configure custom log levels.
++
+You can configure a custom log level for a specific IP address to help troubleshoot issues.
+
+
+
+[[configure-log-forwarding]]
+== Configure Log Forwarding
 
 CloudHub 2.0 supports log forwarding to:
 
@@ -16,11 +41,10 @@ Forwards application and load-balancer logs to the specified service for externa
 ** Splunk
 ** CloudWatch
 
-// How can we share this content with RTF?
 
 == Before You Begin 
 
-To forward to:
+To forward logs to:
 
 * Anypoint Monitoring, ensure you have a Titanium subscription.
 * External services:
@@ -326,6 +350,87 @@ Example output plugin configuration:
 
 To delete the configuration, deselect *Forward logs to an external service*
 and then click *Save logging*. 
+
+
+[[configure-ingress-load-balancer-log-levels]]
+== Configure Ingress Load Balancer Log Levels 
+
+CloudHub 2.0 enables you to specify the default severity level of messages that are written to the log file for all apps deployed to the private space.
+
+[IMPORTANT]
+More verbose log levels might affect performance.
+
+// SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click the *Advanced* tab.
+. Select to forward ingress load balancer logs to the configured external service.
++
+This option is available only if a destination service is configured in *Application Log Forwarding*.
+. Select the default log level from the dropdown list: 
++
+--
+[%header,cols="20a,60a"]
+.Ingress Load Balancer Log Levels
+|===
+| Level 
+| Description
+
+| All Priorities
+| All messages
+
+| ERROR (Recommended)
+| Only error messages, such when an exception occurs
+
+| FATAL
+| Only fatal messages when an application fails
+
+| INFO
+| Informative messages
+
+| SYSTEM
+| Messages about application and worker startup
+
+| CONSOLE
+| Messages about console events, such as setting the object store
+
+| WARN
+| Warning messages
+
+| DEBUG
+| Debugging messages
+|===
+--
+. Configure custom log levels.
++
+.. Enter the IP address and select the log level.
+.. Click *Add IP Address* to enter additional custom log levels.
+.. To remove a custom log level, click trash can icon (*Delete*) for the entry.
+// +
+// image::fw-rule-delete.png[Delete icon in the Firewall rules tab]
+
+. Click *Save Changes* or *Discard Changes*.
+
+=== Download Ingress Load Balancer Logs
+
+To download ingress load balancer logs:
+
+// SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click the *Advanced* tab.
+. Click *Download Logs*.
+
+
+////
+You can use Anypoint Runtime Manager to change the application log level by configuring the following property:
+```
+logging.level.<PACKAGE>=LEVEL
+``` 
+For example, if you use Runtime Manager to add the 
+`logging.level.org.mule.service.http.impl.service.HttpMessageLogger=DEBUG` property, `DEBUG` level log information is emitted from `HttpMessageLogger`.
+////
+
 
 == See Also 
 

@@ -105,7 +105,7 @@ To create a new TLS context:
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the *Domains & TLS* and then click *Create TLS Context*. 
+. Click the *Domains & TLS* tab and then click *Create TLS Context*. 
 +
 If you don't have CloudHub Network Administrator permission, 
 the *Create TLS Context* button is disabled.
