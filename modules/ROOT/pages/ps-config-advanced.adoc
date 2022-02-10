@@ -43,8 +43,3 @@ Accepts the inbound request on the default SSL endpoint using the HTTP protocol.
 The default timeout is 300 seconds.
 +
 . Click *Save Changes* or *Discard Changes*.
-
-
-== See Also 
-
-* xref:ps-config-log-forwarding.adoc[]
