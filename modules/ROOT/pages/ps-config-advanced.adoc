@@ -1,119 +1,49 @@
-= Configuring Advanced Private Space Settings	
-
+= Configuring Advanced Private Space Settings
 
 include::partial$feature-availability.adoc[tag=featureUnavailable]
 
-//// 
-== Before You Begin
+*This topic is updated to the Design Spec dated 24-Nov-21*
 
-* Update the name servers for your domains.	
-* Create a CNAME record to route queries (if necessary).
+*Last update* 10-Feb-22
 
-== Configure DNS for Inbound Traffic Server
 
-// === Configure Secure Domains for HTTPS Traffic
+Use options on the *Advanced* tab to:
+
+* Configure how the private space handles HTTP requests.
+* Specify the read-response timeout.
++
+This value is the amount of time CloudHub 2.0 waits for a response from the Mule application.
+If no data is sent or received in the specified time, CloudHub 2.0 closes the client and private space connections.
+
+To configure advanced settings:
 
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the *Advanced* tab.
-. Configure how the load balancer accepts inbound traffic:
+. Click the *Advanced* tab  
+. Configure how the private accepts inbound traffic:
 +
 --
 CloudHub 2.0 doesn't allow you to accept only insecure HTTP requests.
 
-From the *Accept HTTPS requests* list, select one of the following:
+From the *HTTP Requests* list, select one of the following:
 
-** *Redirect HTTP to HTTPS*
+** *Redirect to HTTPS*
++
+Redirects HTTP requests to the same URL using the HTTPS protocol.
 ** *Drop HTTP requests*
++
+Silently drops HTTP requests.
 ** *Also accept HTTP requests*
---
-
-. Add TLS certificates:
-
-.. Import from Secrets Manager:
 +
-... Select the environment.
-... Select the secret group.
-... Click *Add certificate*.  
-. Click *Load Balanceer Log Level* to configure the log levels for the load balancer in the private space.
-+
-See <<configure-load-balancer-log-levels>>.
-. Click *Save Domains*. 
-
-=== Validate: Verify Inbound Traffic Configuration
-
-[[configure-load-balancer-log-levels]]
-== Configure Load Balancer Log Levels 
-
-CloudHub 2.0 enables you to specify the severity level of messages that are written to the log file.
-
-// SELECT PRIVATE SPACE SHARED
-include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the *Advanced* tab.
-. Select the log level from the dropdown list: 
-+
+Accepts the inbound request on the default SSL endpoint using the HTTP protocol.
 --
-[%header,cols="2*a"]
-.CloudHub 2.0 Log Levels
-|===
-| Level 
-| Description
-
-| All Priorities
-| All messages
-
-| ERROR
-| Only error messages, such when an exception occurs
-
-| FATAL
-| Only fatal messages when an application fails
-
-| INFO
-| Informative messages
-
-| SYSTEM
-| Messages about application and worker startup
-
-| CONSOLE
-| Messages about console events, such as setting the object store
-
-| WARN
-| Warning messages
-
-| DEBUG
-| Debugging messages
-|===
---
-
-You can specify log levels for a Mule application or API proxy during deployment.
-
-////
-You can use Anypoint Runtime Manager to change the application log level by configuring the following property:
-```
-logging.level.<PACKAGE>=LEVEL
-``` 
-For example, if you use Runtime Manager to add the 
-`logging.level.org.mule.service.http.impl.service.HttpMessageLogger=DEBUG` property, `DEBUG` level log information is emitted from `HttpMessageLogger`.
-////
-
-== Specify the Read Response Timeout
-
-// SELECT PRIVATE SPACE SHARED
-include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the *Advanced* tab.
-. Enter the read-response timeout value.
+. Specify the read response timeout value.
 +
 The default timeout is 300 seconds.
 +
-If no data is sent or received in the specified time, the load balancer closes the client and private space connections.
-. Click *Save Changes*.
+. Click *Save Changes* or *Discard Changes*.
 
-
-
-////
 
 == See Also 
 

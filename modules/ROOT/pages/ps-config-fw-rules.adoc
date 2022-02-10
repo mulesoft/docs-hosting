@@ -114,7 +114,7 @@ All ports are allowed for all protocols.
 --
 
 . Click *Add Rule* to add more rules.
-. To remove a firewall rule, click trash can icon (*Delete*) for the entry:
+. To remove a firewall rule, click trash can icon (*Delete*) for the entry.
 // +
 // image::fw-rule-delete.png[Delete icon in the Firewall rules tab]
 
