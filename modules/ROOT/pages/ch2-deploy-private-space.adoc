@@ -1,16 +1,17 @@
-= Deploying Apps to a Private Space
+= Deploying Apps to Private Spaces
 
 include::partial$feature-availability.adoc[tag=featureUnavailable]
 
 
 *This topic is updated to the Design Spec dated 11-Nov-21*
 
-
 *Last update* 20-Jan-22
 
 // How can we share this content with RTF?
 
 You deploy apps to a private space using Runtime Manager.
+
+== Deploy an App to a Private Space
 
 //SELECT APP SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
