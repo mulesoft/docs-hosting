@@ -1,4 +1,4 @@
-= Deploying Apps to a Shared Space
+= Deploying Apps to Shared Spaces
 
 
 *This topic is updated to the Design Spec dated 11-Nov-21*
@@ -6,6 +6,8 @@
 *Last update* 20-Jan-22
 
 // How can we share this content with RTF?
+
+== Deploy an App to a Shared Space
 
 To deploy apps to a shared space using Runtime Manager:
 
