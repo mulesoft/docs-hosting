@@ -33,12 +33,12 @@ For details about each requirement, see the sections that follow.
 *Private Network Setup*::
 +
 --
-* <<private-network-name,Private network name>>
+* <<private-space-name,Private space name>>
 * <<private-network-region,Private network region>>
 * <<cidr-block,CIDR block>>
-* <<internal-dns-servererver,Internal DNS servers>> (optional)
+* <<internal-dns-server,Internal DNS servers>> (optional)
 
-** <<ip-addresses,IP addresses>>
+** <<server-ip-addresses,IP addresses>>
 ** <<domains>>
 --
 
@@ -119,7 +119,7 @@ For details about each requirement, see the sections that follow.
 |===
 6+|
 6+h|Private Network Setup
-.5+||<<private-network-name>> 4+|
+.5+||<<private-space-name>> 4+|
 |<<private-network-region>>     4+|
 |<<cidr-block>> 4+|
 .2+|<<Internal DNS Server,Internal DNS server>>
@@ -169,14 +169,14 @@ For details about each requirement, see the sections that follow.
 [[private-network-requirements]]
 == Private Network Requirements 
 
-* <<private-network-name>>
+* <<private-space-name>>
 * <<private-network-region>>
 * <<cidr-block>>
 * <<connection-type>>
 * <<internal-dns-server>>
 
-[[private-network-name]]
-=== Private Network Name
+[[private-space-name]]
+=== Private Space Name
 
 Private space names can contain up to 60 alphanumeric characters (a-z, A-Z, 0-9), spaces, and hyphens (-).
 Runtime Manager supports Unicode characters in private space names.
@@ -613,4 +613,4 @@ You provide these values to connect the AWS transit gateway to Anypoint Platform
 
 == See Also 
 
-* xref:index.adoc#what-is-a-private-space[What is a Private Space?]
+* xref:ps-about.adoc[]

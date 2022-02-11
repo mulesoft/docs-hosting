@@ -11,6 +11,7 @@ include::partial$feature-availability.adoc[tag=featureUnavailable]
 
 You deploy apps to a private space using Runtime Manager.
 
+[[deploy-app-private-space]]
 == Deploy an App to a Private Space
 
 //SELECT APP SHARED
@@ -194,12 +195,10 @@ Forwards application and load-balancer logs to the specified service:
 
 For information about viewing logs, see xref:ch2-view-logs.adoc[].
 
-// == Download a Test App from Exchange
-include::partial$deployment.adoc[tag=downloadTestApp,leveloffset=+1]
-
 
 == See Also
 
+* xref:ch2-download-test-app.adoc[]
 * https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (Link out from Beta docs)
 * xref:ps-config-domains.adoc[]
 

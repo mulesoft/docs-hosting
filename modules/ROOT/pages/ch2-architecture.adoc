@@ -108,7 +108,7 @@ The metaspace limit for apps deployed to CloudHub 2.0 is currently 256 MB, regar
 The initial metaspace size is 128 MB; metaspace garbage collection begins after the metaspace reaches that threshold.
 
 You can scale your applications horizontally by adding multiple replicas(?)s and using Anypoint MQ for persistent queues.
-See xref:ch2-clustering.adoc#replica-scale-out[Replica Scaleout] and 
+See xref:ch2-clustering.adoc#replica-scale-out[Replica Scale-out] and 
 https://docs.mulesoft.com/mq/[Anypoint MQ^] (Link out from Beta docs).
 
 CloudHub 2.0 monitors replicas to verify that they are operating correctly.
@@ -119,7 +119,7 @@ If you enable automatic restarts, CloudHub 2.0 also automatically restarts appli
 
 CloudHub 2.0 provides the ability to deploy apps in different regions of the world: North America, South America, the European Union, and Asia-Pacific.
 For the complete list of supported regions, see
-xref:ps-gather-setup-info.adoc#region[Regions].
+xref:ps-gather-setup-info.adoc#private-network-region[Regions].
 
 This global distribution enables you to host your integration in the location closest to your services, thus reducing latency.
 It can also provide for adherence to local laws, such as the EU Data Protection Directive.
@@ -205,17 +205,17 @@ You can also xref:ch2-protect-app-props.adoc[protect application property values
 Protected property values are not viewable or retrievable by any user.
 These protected application values are encrypted and stored in the Anypoint Security secrets manager, which, in turn, is encrypted per user organization.
 
-For more information about MuleSoft security, see the http://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^].
+For more information about MuleSoft security, see the http://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^] (Link out from Beta docs) .
 
 
 == See Also
 
 * xref:ch2-manage-apps.adoc[]
 * xref:ch2-app-monitoring.adoc[]
-* http://status.mulesoft.com/[status.mulesoft.com^]
-* http://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^]
-* http://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^]
-* https://docs.mulesoft.com/runtime-manager/deployment-strategies[Deployment Options^]
+* http://status.mulesoft.com/[status.mulesoft.com^] (Link out from Beta docs) 
+* http://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^] (Link out from Beta docs) 
+* http://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^] (Link out from Beta docs) 
+* https://docs.mulesoft.com/runtime-manager/deployment-strategies[Deployment Options^] (Link out from Beta docs) 
 
 
 ////

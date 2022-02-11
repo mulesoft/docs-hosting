@@ -80,7 +80,7 @@ image::splunk-config-tcp.png[Add new option for TCP in the Splunk Data Inputs pa
 
 ////
 
-For more information about setting up data inputs, see the https://docs.splunk.com/Documentation/Splunk/8.0.2/Data/WhatSplunkcanmonitor[Splunk documentation^].
+For more information about setting up data inputs, see the https://docs.splunk.com/Documentation/Splunk/8.0.2/Data/WhatSplunkcanmonitor[Splunk documentation^]. (Link out from Beta docs) 
 
 //	Specify Load Balancer Log Level		
 //	Specify RTFC Log Level		
@@ -116,11 +116,6 @@ This option is available only if you have a Titanium subscription.
 +
 You can disable log forwarding for an app during deployment.
 *** *CloudHub 2.0 components and Ingress load balancer*
-+
-*_Where are log levels configured?_*
-+
-Configure load balancer log levels in the *Domains* tab.
-See xref:ps-config-domains.adoc#load-balancer-log-levels[Load Balancer Log Levels].
 *** *Monitoring and appliance services*
 --
 . Click *Save logging* or *Discard changes*.

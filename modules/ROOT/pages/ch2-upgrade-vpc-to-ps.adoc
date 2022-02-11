@@ -130,7 +130,7 @@ you must migrate to Anypoint VPN before upgrading to CloudHub 2.0.
 
 If the VPC uses the VPC peering connectivity method (provisioned manually by MuleSoft Support), we recommend that you switch to use transit gateway connections before upgrading to CloudHub 2.0.
 
-For information, see https://docs.mulesoft.com/runtime-manager/tgw-about[Transit Gateway Attachments^].
+For information, see https://docs.mulesoft.com/runtime-manager/tgw-about[Transit Gateway Attachments^] (Link out from Beta docs) .
 
 === VPC uses AWS Direct Connect
 

@@ -83,7 +83,7 @@ To enable traffic to reach the apps deployed to the private space using a custom
 +
 .. Log in to your domain registrar. 
 +
-Use https://www.whois.com/[Whois^] to look up your registrar.
+Use https://www.whois.com/[Whois^] (Link out from Beta docs) to look up your registrar.
 .. Click *Copy* to copy the DNS target for the current private space.
 .. Replace the domain's nameserver by pasting the DNS target.
 +
@@ -229,84 +229,11 @@ ciphers.
 ** Click *Select a cipher to add* to choose a different cipher.
 . Click *Create TLS Context* or *Cancel* to discard changes.
 
-// * Create a CNAME record to route queries (if necessary).
-
-
-
-////
-
-
-== Configure DNS for Inbound Traffic Server
-
-=== Configure Secure Domains for HTTPS Traffic
-
-. Configure how the load balancer accepts inbound traffic:
-+
---
-CloudHub 2.0 doesn't allow you to accept only insecure HTTP requests.
-
-From the *Accept HTTPS requests* list, select one of the following:
-
-** *Redirect HTTP to HTTPS*
-** *Drop HTTP requests*
-** *Also accept HTTP requests*
---
-
-
-[[load-balancer-log-levels]]
-== Load Balancer Log Levels 
-
-CloudHub 2.0 enables you to specify the severity level of messages that are written to the log file.
-
-[%header,cols="2*a"]
-.CloudHub 2.0 Log Levels
-|===
-| Level 
-| Description
-
-| All Priorities
-| All messages
-
-| ERROR
-| Only error messages, such when an exception occurs
-
-| FATAL
-| Only fatal messages when an application fails
-
-| INFO
-| Informative messages
-
-| SYSTEM
-| Messages about application and worker startup
-
-| CONSOLE
-| Messages about console events, such as setting the object store
-
-| WARN
-| Warning messages
-
-| DEBUG
-| Debugging messages
-|===
-
-You can specify log levels for a Mule application or API proxy during deployment.
-
-
-You can use Anypoint Runtime Manager to change the application log level by configuring the following property:
-```
-logging.level.<PACKAGE>=LEVEL
-``` 
-For example, if you use Runtime Manager to add the 
-`logging.level.org.mule.service.http.impl.service.HttpMessageLogger=DEBUG` property, `DEBUG` level log information is emitted from `HttpMessageLogger`.
-
-
-== Validate: Verify Inbound Traffic Configuration
-////
 
 == See Also 
 
 // * xref:ps-config-log-forwarding.adoc[]
 * xref:ch2-deploy-private-space.adoc[]
-* xref:ch2-config-endpoints-paths[]
+* xref:ch2-config-endpoints-paths.adoc[]
 * https://docs.mulesoft.com/mule-runtime/latest/tls-configuration[Configure TLS with Keystores and Truststores^] (Link out from Beta docs)
-* https://www.whois.com/[Whois^]
+* https://www.whois.com/[Whois^] (Link out from Beta docs) 

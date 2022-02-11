@@ -45,13 +45,13 @@ http://www.mulesoft.com/cloudhub/ipaas-cloud-based-integration-demand[CloudHub] 
 
 image::logo-app.png[app]
 
-* See xref:deploying-to-cloudhub.adoc[Deploy to CloudHub^].
-* See xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service^] to include HTTPS support in this application.
+* See xref:deploying-to-cloudhub.adoc[Deploy to CloudHub^]. (Link out from Beta docs) 
+* See xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service^] (Link out from Beta docs) to include HTTPS support in this application.
 
 [TIP]
-For examples of more applications, see xref:exchange::index.adoc[Anypoint Exchange^].
+For examples of more applications, see xref:exchange::index.adoc[Anypoint Exchange^]. (Link out from Beta docs) 
 
-You can deploy the same Mule applications to CloudHub or to an xref:deploying-to-your-own-servers.adoc[on-premises server]. There are some differences in how features work between the environments, which you need to consider when you plan your deployment strategy. See xref:deployment-strategies.adoc[Deployment Options^].
+You can deploy the same Mule applications to CloudHub or to an xref:deploying-to-your-own-servers.adoc[on-premises server]. There are some differences in how features work between the environments, which you need to consider when you plan your deployment strategy. See xref:deployment-strategies.adoc[Deployment Options^]. (Link out from Beta docs) 
 
 
 == Deploy your Application to CloudHub
@@ -60,8 +60,8 @@ image::logo-deploy.png[deploy]
 
 Learn how you can deploy your applications to CloudHub:
 
-* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub^]
-* xref:anypoint-cli::index.adoc[Anypoint Platform Command-Line Interface (CLI)^]
+* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub^] (Link out from Beta docs) 
+* xref:anypoint-cli::index.adoc[Anypoint Platform Command-Line Interface (CLI)^] (Link out from Beta docs) 
 
 === Easy Scalability
 
@@ -120,4 +120,4 @@ When deploying to CloudHub, keep in mind the following limitations:
 
 * xref:ch2-features.adoc[Features of CloudHub 2.0]
 * xref:ps-create-configure.adoc[Create and Configure Private Spaces]
-* xref:ps-gather-setup-info.adoc#region[Region]
+* xref:ps-gather-setup-info.adoc#private-network-region[Private Network Region]

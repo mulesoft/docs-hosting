@@ -1,0 +1,22 @@
+= Downloading Test Apps from Exchange
+
+
+If you don't have a Mule app to test with, you can download an example app from Anypoint Exchange.
+
+[NOTE]
+You must be logged into your Anypoint Platform account to see the example assets on Exchange. 
+
+. From Anypoint Platform, select *Exchange*.
+. From the *All assets* list, select *Provided by MuleSoft*.
+. From the *All types* menu, select *Examples*.
+. Click an app to download, for example, *Hello World*. 
+. Click *Download*:
++
+image::exchange-app-download.png[Download button in Exchange]
++
+Exchange downloads the app JAR file to your local system.
+
+== See Also
+
+* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (Link out from Beta docs)
+

@@ -1,4 +1,4 @@
-= Extending Your Network to Anypoint Platform
+= Extending Your Network to Anypoint Platform with Private Spaces
 
 == Before You Begin
 
@@ -9,12 +9,12 @@
 == Workflow
 
 . xref:ps-create-configure.adoc[Create the private space]. 
-. xref:ps-create-configure.adoc#create-a-private-network[Create the private network].
-.. xref:ch2-deploy.adoc[Test the private network by deploying an app].
-.. xref:ps-create-configure.adoc#resolve-private-domains-in-your-internal-network[Configure internal DNS servers, if necessary]. 
-. xref:ps-create-configure.adoc#create-a-connection-to-an-external-network[Create a Connection to an External Network]. 
-** xref:ps-create-configure.adoc#create-a-vpn[Create a VPN].
-** xref:ps-create-configure.adoc#create-a-transit-gateway-attachment[Create a transit gateway attachment].
+. xref:ps-create-configure.adoc#create-private-network[Create the private network].
+.. xref:ch2-deploy-private-space.adoc[Test the private network by deploying an app].
+.. xref:ps-create-configure.adoc#resolve-private-domains[Configure internal DNS servers, if necessary]. 
+. xref:ps-create-configure.adoc#create-connection-to-external-network[Create a connection to an external network]. 
+** xref:ps-create-configure.adoc#create-vpn[Create a VPN].
+** xref:ps-create-configure.adoc#connect-tgw[Connect to a transit gateway].
 . Customize the private space:
 +
 --

@@ -1,6 +1,6 @@
 = Updating Apps Deployed to CloudHub 2.0
 
-Based on https://docs.mulesoft.com/runtime-fabric/1.11/app-versioning[Application Versioning on Runtime Fabric^]. 
+Based on https://docs.mulesoft.com/runtime-fabric/1.11/app-versioning[Application Versioning on Runtime Fabric^] (Link out from Beta docs) . 
 
 To do: tasks
 

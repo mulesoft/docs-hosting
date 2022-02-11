@@ -116,7 +116,7 @@ image::alerts-custom-ch-connector-notification.png[Message field in the Create N
 
 For more information about creating a notification with CloudHub Connector, see
 https://docs.mulesoft.com/cloudhub-connector/1.0/#creating-notifications[Creating a Notification^] and
-https://docs.mulesoft.com/cloudhub-connector/1.0/cloudhub-connector-ref#createNotification[Create Notification^] in the connector reference.
+https://docs.mulesoft.com/cloudhub-connector/1.0/cloudhub-connector-ref#createNotification[Create Notification^] (Links out from Beta docs) in the connector reference.
 --
 . Deploy the app to CloudHub 2.0.
 +
