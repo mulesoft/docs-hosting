@@ -116,11 +116,9 @@ include::partial$deployment.adoc[tag=changeAppProperties,leveloffset=+1]
 // == Enable TLS v1 and TLS v1.1
 include::partial$deployment.adoc[tag=enableTLSv1,leveloffset=+1]
 
-// == Download a Test App from Exchange
-include::partial$deployment.adoc[tag=downloadTestApp,leveloffset=+1]
-
 
 == See Also
 
+* xref:ch2-download-test-app.adoc[]
 * https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (Link out from Beta docs)
 * xref:ps-config-domains.adoc[]

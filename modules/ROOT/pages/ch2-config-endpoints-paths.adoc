@@ -33,8 +33,7 @@ To ensure that each endpoint name is unique, use the `app-name` placeholder in t
 or the path if the domain doesn't include a wildcard.
 
 To configure two public endpoints:
-
-. xref:ch-deploy-private-space.adoc[Deploy the app to a private space].
+. xref:ch2-deploy-private-space.adoc[Deploy the app to a private space].
 . Click the *Ingress* tab.
 . Configure the first endpoint:
 .. Select the first domain from the *Domain* dropdown, for example `&#x2a;.example.com`.
@@ -69,7 +68,7 @@ want the app to be reachable from the internet using `my-app.example.com/api`.
 
 To configure different paths:
 
-. xref:ch-deploy-private-space.adoc[Deploy the app to a private space].
+. xref:ch2-deploy-private-space.adoc[Deploy the app to a private space].
 . Click the *Ingress* tab.
 . In the *Path* field, enter the path where you want the app to be reachable, for example, `/api`.
 . In the *Path Rewrite* field, enter the base path expected by the HTTP Listener in your app, for example,  `/v1/api`.

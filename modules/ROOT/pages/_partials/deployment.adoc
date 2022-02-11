@@ -13,25 +13,6 @@ For information about configuring app properties, see:
 
 
 
-// tag::downloadTestApp[]
-= Download a Test App from Exchange
-
-If you don't have a Mule app to test with, you can download an example app from Anypoint Exchange.
-
-[NOTE]
-You must be logged into your Anypoint Platform account to see the example assets on Exchange. 
-
-. From Anypoint Platform, select *Exchange*.
-. From the *All assets* list, select *Provided by MuleSoft*.
-. From the *All types* menu, select *Examples*.
-. Click an app to download, for example, *Hello World*. 
-. Click *Download*:
-+
-image::exchange-app-download.png[Download button in Exchange]
-+
-Exchange downloads the app JAR file to your local system.
-// end::downloadTestApp[]
-
 // tag::placeholders[]
 [[placeholder-table]]
 = Placeholders
@@ -86,7 +67,7 @@ For example, you might route requests to `myapplication.mycompany.com` to `mycom
 
 *REMOVE THIS CONTENT FOR GA?*
 
-Starting with the https://docs.mulesoft.com/release-notes/cloudhub/cloudhub-runtimes-release-notes#august-3-2021[August 3, 2021 patch releases^], Mule runtime engine disables TLS v1 and TLS v1.1 by default for all runtime versions.
+Starting with the https://docs.mulesoft.com/release-notes/cloudhub/cloudhub-runtimes-release-notes#august-3-2021[August 3, 2021 patch releases^] (Link out from Beta docs), Mule runtime engine disables TLS v1 and TLS v1.1 by default for all runtime versions.
 
 If your app requires TLS v1 or TLS v1.1, you can enable them using JVM (Java Virtual Machine) arguments when you deploy to CloudHub 2.0:
 

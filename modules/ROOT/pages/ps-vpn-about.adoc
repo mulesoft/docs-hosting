@@ -14,7 +14,7 @@ This method also integrates well with existing IT infrastructure such as routers
 
 image::ps-overview-ipsec.png[IPsec Tunnel Overview]
 
-To create an Anypoint VPN connection to your network, see xref:ps-create-configure.adoc#create-a-connection-to-an-external-network[Create a Connection to an External Network].
+To create an Anypoint VPN connection to your network, see xref:ps-create-configure.adoc#create-connection-to-external-network[Create a Connection to an External Network].
 
 You can create multiple site-to-site VPNs if required. 
 
@@ -126,8 +126,8 @@ Delete the VPN and try again. If this failure recurs, contact MuleSoft Support.
 == See Also
 
 * xref:ps-create-configure.adoc[]
-* xref:ps-gather-setup-info.adoc#region[Region]
+* xref:ps-gather-setup-info.adoc#private-network-region[Private Network Region]
 * xref:ps-config-fw-rules.adoc[]
-* xref:ps-gather-setup-info.adoc#requirements-for-dynamic-vpn-connections[Dynamic VPN Connection Requirements]
-* xref:ps-gather-setup-info.adoc#requirements-for-static-vpn-connections[Static VPN Connection Requirements]
+* xref:ps-gather-setup-info.adoc#dynamic-vpn-routing[Dynamic VPN Connection Requirements]
+* xref:ps-gather-setup-info.adoc#static-vpn-routing[Static VPN Connection Requirements]
 * xref:ps-gather-setup-info.adoc#supported-gateway-devices[Supported Gateway Devices]

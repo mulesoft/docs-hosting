@@ -44,10 +44,10 @@ The CloudHub 2.0 management API (CloudHub 2.0 API) enables you to programmatical
 
 
 
-For an interactive reference that includes supported resources, methods, required properties, and expected responses, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-api/[CloudHub 2.0 API^].
+For an interactive reference that includes supported resources, methods, required properties, and expected responses, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-api/[CloudHub 2.0 API^] (Link out from Beta docs).
 
 The CloudHub 2.0 API manages only applications deployed to CloudHub 2.0.
-To manage on-premises applications using the API, see https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/arm-rest-services[Runtime Manager REST Services^].
+To manage on-premises applications using the API, see https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/arm-rest-services[Runtime Manager REST Services^] (Link out from Beta docs).
 
 
 == Use the CloudHub 2.0 API
@@ -55,7 +55,7 @@ To manage on-premises applications using the API, see https://anypoint.mulesoft.
 Before getting started, familiarize yourself with operations for applications.
 
 You can use any HTTP client with the CloudHub 2.0 API.
-With Java, use the https://jersey.github.io/[Jersey client^] or http://hc.apache.org/httpclient-3.x/index.html[HttpClient^] with https://github.com/codehaus/jackson[Jackson^] for JSON support.
+With Java, use the https://jersey.github.io/[Jersey client^] or http://hc.apache.org/httpclient-3.x/index.html[HttpClient^] with https://github.com/codehaus/jackson[Jackson^] for JSON support. (Links out from Beta docs)
 
 
 === Authenticate with the CloudHub 2.0 APIs
@@ -229,8 +229,8 @@ Date: Mon, 10 Aug 2015 00:12:55 GMT
 
 == See Also
 
-* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-api/[CloudHub 2.0 API^]
-* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Access Management API^]
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-api/[CloudHub 2.0 API^] (Link out from Beta docs)
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Access Management API^] (Link out from Beta docs)
 * https://docs.mulesoft.com/runtime-manager/deployment-strategies.html[Deployment Options^] (Link out from Beta docs)
 * xref:index.adoc[]
 * xref:ch2-deploy.adoc[]

@@ -16,6 +16,7 @@ Clustering requires:
 * A CloudHub Enterprise or Partner account type that enables you to use this feature.
 * Familiarity with deploying applications using Runtime Manager.
 
+[[replica-scale-out]]
 == Replica Scale-out
 
 CloudHub 2.0 enables you to select vCore options for your application, providing horizontal scalability.
@@ -24,7 +25,7 @@ This fine-grained control over computing capacity provisioning gives you the fle
 
 
 Depending on your subscription, you can deploy your application with up to 8 replicas, up to a maximum of ?? vCores per application.
-To ensure that you have sufficient resources, see xref:ch2-architecture.adoc#cloudhub-2-0-replicas[CloudHub 2.0 Replicas].
+To ensure that you have sufficient resources, see xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas].
 
 Replica scale-out also adds additional reliability.
 Mule runtime engine (Mule) automatically distributes multiple replicas for the same application across two or more data centers for maximum reliability.
@@ -48,9 +49,9 @@ You can enable and disable either or both features of clustering in one of two w
 * When you deploy an application to CloudHub 2.0 for the first time using Runtime Manager
 * In the *Deployment Target* tab in Runtime Manager for a previously deployed application
 
-Use the drop-down menus on the *Deployment Target* tab to select the vCore options for your application and to configure the computing power that you need.
+Use the dropdown menus on the *Deployment Target* tab to select the vCore options for your application and to configure the computing power that you need.
 
-See xref:ch2-architecture.adoc#cloudhub-2-0-replicas[CloudHub 2.0 Replicas] for more information about deploying to multiple replicas.
+See xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas] for more information about deploying to multiple replicas.
 
 If your application is already deployed, you must redeploy it for your new settings to take effect.
 

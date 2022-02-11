@@ -17,7 +17,7 @@ To use transit gateway attachments, your private space and AWS Transit Gateway m
 
 image::ps-overview-tgw.png[Transit Gateway Overview]
 
-To attach your private space to your transit gateway, see xref:ps-create-configure.adoc#create-a-connection-to-an-external-network[Create a Connection to an External Network].
+To attach your private space to your transit gateway, see xref:ps-create-configure.adoc#create-connection-to-external-network[Create a Connection to an External Network].
 
 == Limitations
 
