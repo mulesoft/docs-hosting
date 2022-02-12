@@ -3,11 +3,11 @@
 include::partial$feature-availability.adoc[tag=featureUnavailable]
 
 
-*THIS IS PLACEHOLDER CONTENT BASED ON THE DESIGN SPEC UNTIL THE UI IS AVAILABLE* 
-
 *Will this just be a button to DOWNLOAD logs?*
 
+*This topic is updated to Design Spec dated 17-Nov-21*
 *Last update* 11-Jan-22
+
 
 ////
 FC: replica, levels, time filters

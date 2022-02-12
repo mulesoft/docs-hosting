@@ -1,7 +1,7 @@
 = Deploying Apps to Shared Spaces
 
 
-*This topic is updated to the Design Spec dated 11-Nov-21*
+*This topic is updated to the UI*
 
 *Last update* 20-Jan-22
 
