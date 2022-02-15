@@ -13,13 +13,13 @@
 .. xref:ch2-deploy-private-space.adoc[Test the private network by deploying an app].
 .. xref:ps-create-configure.adoc#resolve-private-domains[Configure internal DNS servers, if necessary]. 
 . xref:ps-create-configure.adoc#create-connection-to-external-network[Create a connection to an external network]. 
-** xref:ps-create-configure.adoc#create-vpn[Create a VPN].
-** xref:ps-create-configure.adoc#connect-tgw[Connect to a transit gateway].
+** xref:ps-create-configure-vpn.adoc[Create a VPN].
+** xref:ps-create-configure-tgw.adoc[Connect to a transit gateway].
 . Customize the private space:
 +
 --
 .. xref:ps-config-domains.adoc[Enable inbound traffic to your apps deployed to the private space].
-.. xref:ps-config-clients.adoc[Set up authentication for trusted clients].
+// .. xref:ps-config-clients.adoc[Set up authentication for trusted clients].
 .. xref:ps-config-fw-rules.adoc[Configure firewall rules to manage traffic to a private space].
 .. xref:ps-config-env.adoc[Associate environments and business groups with the private space].
 .. xref:ps-config-log-forwarding.adoc[Configure log forwarding for the private space].

@@ -1,5 +1,7 @@
 = Gathering Required Setup Information
 
+*Last update* 14-Feb-22
+
 Use the following sections to gather the information you'll need to set up your private space.
 For information about private spaces, see xref:index.adoc#what-is-a-private-space[What is a Private Space?].
 
@@ -106,7 +108,6 @@ For details about each requirement, see the sections that follow.
 * <<mulesoft-aws-account-id,MuleSoft AWS account ID>> 
 * <<resource-share-id-owner,Resource share ID>>
 * <<resource-share-id-owner,Resource share owner>>
-* <<anypoint-vpc-name,Anypoint VPC name>>
 --
 
 [[setup-info-private-space-table]]
@@ -247,6 +248,8 @@ set the CIDR block to `10.111.0.0/24`.
 When you create a private space, you must specify the CIDR block.
 You can't resize or change the CIDR block after you create the private space.
 For this reason, ensure that you correctly anticipate your requirements before configuring this parameter.
+
+We recommend a `/22` block.
 
 Because some addresses are reserved for fault tolerance, infrastructure, and zero-downtime,
 the allowed block size that you can assign for your Anypoint VPC is between `/16` and `/28`.
@@ -583,7 +586,7 @@ You can change this name later.
 [[transit-gateway-region]]
 === Transit Gateway Region
 
-The region corresponds to the location your AWS Transit Gateway.
+The region corresponds to the location of your AWS Transit Gateway.
 
 Your private space and AWS Transit Gateway must be in the same region.
 
@@ -596,11 +599,19 @@ Consolidate networks to the fewest number possible to avoid exceeding the limit.
 [[mulesoft-aws-account-id]]
 === MuleSoft AWS Account ID
 
+The MuleSoft AWS account ID to use with your private space appears on the *Add Transit Gateway* page in Anypoint Platform.
+
+This ID depends on the control plane (for example, US Cloud or EU Cloud) associated with your account.
+For this reason, always use the account ID that appears in the user interface.
+
 [[resource-share-id-owner]]
 === Resource Share ID and Owner
 
-[[anypoint-vpc-name]]
-=== Anypoint VPC Name
+The resource share ID and owner appear in the *Create a resource share* page on AWS.
+You use these values to verify the resource share in Anypoint Platform.
+
+* The resource share *ID* field contains alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-).
+* The resource share *Owner* field contains only numbers.
 
 
 == See Also 

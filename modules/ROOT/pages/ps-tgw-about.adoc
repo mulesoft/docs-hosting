@@ -1,12 +1,12 @@
 = Transit Gateway Attachments
 
 
-AWS Transit Gateway acts as a cloud router in AWS, simplifying network access between VPCs,
+AWS Transit Gateway acts as a cloud router in AWS, simplifying network access between private spaces,
 on-premises data centers, and third-party software, while providing increased visibility and control over the network.
 Transit gateways effectively merge your organization’s cloud resources and on-premises datacenters
 into one network topology.
 
-On CloudHub, you can take advantage of this network simplification by securely attaching Anypoint Virtual Private Cloud (VPC)
+On CloudHub 2.0, you can take advantage of this network simplification by securely attaching your private space 
 to AWS Transit Gateway in your AWS account.
 
 You can add multiple transit gateways to your Anypoint Platform organization.
