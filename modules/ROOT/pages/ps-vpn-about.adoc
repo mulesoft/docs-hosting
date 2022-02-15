@@ -59,10 +59,21 @@ Dynamic routing::
 Your device uses Border Gateway Protocol (BGP) to advertise routes to Anypoint VPN. Use BGP routing if your device supports this protocol.
 Static routing::
 Requires you to specify the routes (subnets) in your network that are accessible through Anypoint VPN.
++
+You can remove routes for static VPN connections. 
 
 [NOTE]
 A maximum of 95 route table entries is permitted per private space, regardless of the number of VPN connections.
 Consolidate networks to the fewest number possible to avoid exceeding the limit.  
+
+You can't add a route that matches a priority route (a route that's used by your private network).
+
+Routes can be used by only one connection at a time.
+If you enter a non-local/Internet Gateway (IGW) route to a route table, CloudHub 2.0 warns that the route is being used by another connection.
+
+Routes should not overlap with existing routes.
+CloudHub 2.0 warns if you enter a route that overlaps with another route in the route table.
+
 
 
 == Anypoint VPN Limitations

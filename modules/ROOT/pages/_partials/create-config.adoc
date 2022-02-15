@@ -3,3 +3,41 @@
 Connection names can contain up to 60 alphanumeric characters (a-z, A-Z, 0-9), spaces, and hyphens (-).
 Runtime Manager supports Unicode characters in connection names.
 // end::connectionNameReqs[]
+
+// Shared CIDR Block
+// tag::cidrBlock[]
+= CIDR Block 
+
+The _CIDR block_ is the range of IPv4 addresses, in CIDR (Classless Inter-Domain Routing) notation
+that the apps deployed in your private space use.
+The CIDR block defines the size of the private space.
+For example, to grant your private network 256 IP addresses between `10.111.0.0` and `10.111.0.255`, 
+set the CIDR block to `10.111.0.0/24`.
+
+When you create a private space, you must specify the CIDR block.
+You can't resize or change the CIDR block after you create the private space.
+For this reason, ensure that you correctly anticipate your requirements before configuring this parameter.
+
+We recommend a `/22` block.
+
+Because some addresses are reserved for fault tolerance, infrastructure, and zero-downtime,
+the allowed block size that you can assign for your Anypoint VPC is between `/16` and `/28`.
+
+[%header]
+.CIDR Block Sizing 
+|===
+| Netmask | Number of IP Addresses
+| `/16`| 65,536
+| `/28`| 16
+|===
+
+To estimate the size required for the CIDR block, multiply by 10 the number apps expected to deploy
+in the private space.
+For more specific estimations, use an internet tool for calculating CIDR ranges.
+
+When specifying CIDR blocks, ensure that the CIDR blocks:
+
+* Are from a private IP space
+* Don't overlap with any other CIDR blocks assigned to your other private spaces
+* Don't overlap with any CIDR blocks in use in your corporate network
+// end::cidrBlock[]
