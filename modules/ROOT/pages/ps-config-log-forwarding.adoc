@@ -430,4 +430,4 @@ For example, if you use Runtime Manager to add the
 == See Also 
 
 * xref:ps-config-domains.adoc[]
-* xref:ch2-deploy.adoc[]
+* xref:ch2-deploy-private-space.adoc[]

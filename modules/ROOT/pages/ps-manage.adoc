@@ -1,5 +1,9 @@
 = Managing Private Spaces
 
+*This topic is updated to the Private Network Design Specs dated 09-Nov-21*
+
+*Last update* 15-Feb-22
+
 Use Anypoint Runtime Manager to manage private spaces,
 such as adding and removing a route from the route table or
 detaching a transit gateway from the private space.
@@ -40,7 +44,7 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 image::private-network-delete.png[Delete option in the Private Network menu]
 . Click *Delete* to confirm the deletion.
 
-== Add or Remove a Route in the Route Table
+== Add or Remove a Route from the Route Table
 
 Routes determine how to direct traffic from your private space, for example,
 to the public internet or through a transit gateway.
@@ -62,12 +66,24 @@ and clicking *Add Route*:
 +
 <screenshot>
 // image::ps-edit-route.png[Route Table window]
-** Remove a route by clicking the *X* icon for a row in the table:
++
+You can't add a route that matches a priority route (a route that's used by your private network).
++
+Routes can be used by only one connection at a time.
+If you enter a non-local/Internet Gateway (IGW) route, CloudHub 2.0 warns that the route is being used by another connection.
++
+Routes should not overlap with existing routes.
+CloudHub 2.0 warns if you enter a route that overlaps with another route in the route table.
+** Remove a route by clicking the *X* icon for a row in the table and then clicking *Delete* to confirm.
 +
 <screenshot>
 // image::ps-edit-route.png[Route Table window]
++
+If the *X* icon doesn't appear for a route, you can't remove it.
++
+You can remove routes for static VPN connections. 
 --
-. Click *Save*.
+. Click *Done*.
 
 Anypoint Platform submits the new route to AWS.
 

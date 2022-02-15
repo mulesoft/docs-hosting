@@ -1,6 +1,6 @@
 = Creating Private Spaces
 
-*This topic is updated to the TGW and VPN Design Specs dated 08-Nov-21*
+*This topic is updated to the Private Network Design Specs dated 09-Nov-21*
 
 *Last update* 14-Feb-22
 
@@ -28,15 +28,17 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . In the *Network* tab, click *Create Private Network*. 
 . In the *Create Private Network* page:
++
+--
 .. Select the xref:ps-gather-setup-info.adoc#private-networkregion[region] where you want your apps to run.
 .. Enter the xref:ps-gather-setup-info.adoc#cidr-block[CIDR block], which is the range of IP addresses that your apps can use.
 .. Click *Create*.
-+
+--
 The private network can take up to 30 minutes to create.
 +
 While the network is created, you can 
 <<create-connection-to-external-network,create a connection to an external network>>.
-. After the network creation succeeds, xref:ch2-deploy.adoc[deploy an application] to test the private network.
+. After the network creation succeeds, you can xref:ch2-deploy-private-space.adoc[deploy an application] to test the private network connection.
 
 If the private network creation fails, delete it and click *Create Private Network* to try again.
 
@@ -49,7 +51,7 @@ The private space uses your internal DNS to resolve internal host names of your 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. In the *Network* tab, click the *Configure* link for *Internal DNS servers*.
+. In the *Network* tab, click the *Configure* link for *Internal DNS Servers*.
 . Enter the (comma-separated) xref:ps-gather-setup-info.adoc#server-ip-addresses[server IP addresses] for your internal DNS servers.
 . Enter the (comma-separated) xref:ps-gather-setup-info.adoc#domains[domain addresses] to be resolved by internal DNS.
 . Click *Save*.

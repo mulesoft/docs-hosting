@@ -11,6 +11,14 @@ For Documentation: “View the guide” should link to a doc targeted at network
 * Setting up the selected connection type
 
 
+////
+For Documentation: The “Learn more” link (under CIDR Block) should link to detailed guidance on defining a CIDR block for their private network. It may be helpful for this to be a specific section in the network admin guide.
+////
+// CIDR Block Shared
+[[cidr-block]]
+include::partial$create-config.adoc[tag=cidrBlock,leveloffset=+1]
+
+
 == See Also 
 
 * xref:ps-gather-setup-info.adoc[]
