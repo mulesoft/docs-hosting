@@ -1,5 +1,10 @@
 = Troubleshoot Private Spaces  
 
+*Last update* 14-Feb-22
+
+*NEED INPUT ON THIS TOPIC* 
+
+
 == Troubleshoot VPN Connections
 
 === VPN Tunnel Down
@@ -8,9 +13,17 @@
 
 === VPNs in a Connection Advertising Different Numbers of Routes
 
-=== VPN not Connected to Your External Network
+=== VPN Not Connected to Your External Network
 
 == Troubleshoot Transit Gateway Attachments
+
+=== MuleSoft Account Deleted from Resource Share
+
+If the MuleSoft account is deleted from a resource share,
+the transit gateway state is unknown.
+The existing attachments remain available and traffic continues to flow.
+
+To resolve this issue, on AWS, add the MuleSoft account back to the resource share.
 
 === Resource Share Attachments
 
@@ -27,6 +40,13 @@ been disabled or deleted.
 
 In this case, resolve this issue on AWS.
 
+=== Transit Gateway Attachment Deleted
+
+If the transit gateway attachment is deleted from the AWS account,
+the state is deleted.
+
+To resolve this issue, remove the transit gateway from the private space and
+recreate it.
 
 
 == See Also 
