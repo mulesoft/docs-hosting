@@ -4,6 +4,10 @@
 
 *Last update* 14-Feb-22
 
+Multiple private spaces can connect to an internal VPC.
+You can reuse the transit gateway attachment by connecting another private space to it and accepting the attachment. 
+You don't need to create the resource share again.
+
 
 [[connect-tgw]]
 == Connect to a Transit Gateway
@@ -14,7 +18,7 @@ include::partial$feature-availability.adoc[tag=featureUnavailable]
 
 *THIS IS PLACEHOLDER CONTENT BASED ON THE DESIGN SPEC dated 08-Nov-21* 
 
-*Last update* 10-Feb-22
+*Last update* 15-Feb-22
 
 For information about limitations when attaching a VPC to a transit gateway, 
 see 
@@ -46,6 +50,8 @@ The *Add Transit Gateway* page lists the steps to create a resource share in AWS
 == Configure Routes
 
 In *Static Routes*, enter the IP prefixes of the external networks to connect through the transit gateway, and then click *Next*.
+
+The routes should match VPC CIDR range so traffic can flow between the private VPC in AWS and the private space in CloudHub 2.0. (???)
 
 After you attach the transit gateway, the private space includes the routes you specify here.
 
