@@ -178,7 +178,7 @@ include::partial$deployment.adoc[tag=enableTLSv1,leveloffset=+1]
 
 include::partial$feature-availability.adoc[tag=featureUnavailable]
 
-If log forwarding is not configured for the private space, the options in the *Logs* tab are disabled.
+If log forwarding is not configured for the private space, the options on the *Logs* tab are disabled.
 See xref:ps-config-log-forwarding.adoc[].
 
 Show logs in Anypoint Monitoring::

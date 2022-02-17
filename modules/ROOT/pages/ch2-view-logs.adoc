@@ -31,7 +31,7 @@ To view logs for applications deployed to a private space:
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
-. Click the application name.
+include::partial$select-private-space.adoc[tag=clickAppName]
 . In the navigation menu, click *Logs*.
 +
 --

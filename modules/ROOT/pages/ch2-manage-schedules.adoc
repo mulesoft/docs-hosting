@@ -5,7 +5,7 @@ include::partial$feature-availability.adoc[tag=featureUnavailable]
 
 You can use Runtime Manager to view and control the Scheduler components within the flows in your deployed applications, all without changing the running application.
 
-From the *Schedules* tab, you can:
+On the *Schedules* tab, you can:
 
 * View the schedules in your running application.
 * Change the schedules in your application at runtime without redeploying.
@@ -69,7 +69,7 @@ After deploying an app to CloudHub 2.0, view and manage the Scheduler elements i
 
 // SELECT RTM APPS SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
-. Click the application name.
+include::partial$select-private-space.adoc[tag=clickAppName]
 . In the navigation menu, click *Schedules*:
 +
 Runtime Manager lists the Scheduler elements in the order they appear in your app:
@@ -94,7 +94,7 @@ The schedule editor you see depends on the schedule type:
 
 // SELECT RTM APPS SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
-. Click the application name.
+include::partial$select-private-space.adoc[tag=clickAppName]
 . In the navigation menu, click *Schedules*.
 +
 The frequency link in the *Schedule* column shows the schedule for the element.
@@ -123,7 +123,7 @@ To change the frequency of a cron schedule type:
 
 // SELECT RTM APPS SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
-. Click the application name.
+include::partial$select-private-space.adoc[tag=clickAppName]
 . In the navigation menu, click *Schedules*.
 +
 The frequency link in the *Schedule* column shows the schedule for the element.
@@ -158,7 +158,7 @@ To override the schedule and run the job immediately:
 
 // SELECT RTM APPS SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
-. Click the application name.
+include::partial$select-private-space.adoc[tag=clickAppName]
 . In the navigation menu, click *Schedules*.
 . Select the elements to manage and then click *Run*.
 
@@ -174,7 +174,7 @@ To disable the Scheduler element:
 
 // SELECT RTM APPS SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
-. Click the application name.
+include::partial$select-private-space.adoc[tag=clickAppName]
 . In the navigation menu, click *Schedules*.
 . Select the elements to manage and then click *Disable*.
 +

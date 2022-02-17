@@ -3,7 +3,7 @@
 *Last update* 14-Feb-22
 
 Use the following sections to gather the information you'll need to set up your private space.
-For information about private spaces, see xref:index.adoc#what-is-a-private-space[What is a Private Space?].
+For information about private spaces, see xref:ps-about.adoc[].
 
 You might need to collaborate with your network administrator if you don't have access to this information.
 In this case, share this setup checklist with them and provide an estimate of the number of apps you expect to deploy
@@ -47,6 +47,7 @@ For details about each requirement, see the sections that follow.
 *VPN Connection Type*::
 +
 --
+* <<vpn-name, VPN name>>
 * <<remote-ip-address,Remote IP>>
 * *<<dynamic-vpn-routing,Dynamic Routing Type>>*
 
@@ -124,7 +125,7 @@ For details about each requirement, see the sections that follow.
 .5+||<<private-space-name>> 4+|
 |<<private-network-region>>     4+|
 |<<cidr-block>> 4+|
-.2+|<<Internal DNS Server,Internal DNS server>>
+.2+|<<internal-dns-server,Internal DNS server>>
 
 (_optional_) |<<server-ip-addresses,Server IP addresses>> 3+|
 |<<domains>>  3+|
@@ -298,6 +299,7 @@ The total number of characters for all configured domains is 229.
 [[vpn-requirements]]
 == VPN Requirements 
 
+* <<vpn-name>>
 * <<remote-ip-address>>
 * <<dynamic-vpn-routing>>
 * <<static-vpn-routing>>
@@ -307,6 +309,12 @@ The total number of characters for all configured domains is 229.
 * <<inside-ip-cidrs>> (custom tunnel configuration only)
 * <<preshared-keys>> (custom tunnel configuration only)
 * <<supported-gateway-devices>>
+
+[[vpn-name]]
+=== VPN Name 
+
+The _VPN name_ is the name of the VPN connection.
+
 
 [[remote-ip-address]]
 === Remote IP Address 

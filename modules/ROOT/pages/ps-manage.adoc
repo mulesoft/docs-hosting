@@ -8,6 +8,7 @@ Use Anypoint Runtime Manager to manage private spaces,
 such as adding and removing a route from the route table or
 detaching a transit gateway from the private space.
 
+[[rename-private-space]]
 == Rename a Private Space
 
 //SELECT PRIVATE SPACE SHARED
@@ -16,6 +17,7 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the Private Space menu (*...*) and select *Rename*.
 include::partial$select-private-space.adoc[tag=renameItem]
 
+[[delete-private-space]]
 == Delete a Private Space
 
 Deleting a private space also deletes any related private networks, VPNs, and files.
@@ -25,10 +27,12 @@ You can't undo this action.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the Private Space menu (*...*) and select *Delete*:
++
 image::ps-delete.png[Delete option in the Private Space menu]
 
 . Click *Delete* to confirm the deletion.
 
+[[delete-private-network]]
 == Delete a Private Network 
 
 Deleting a private network also deletes its VPN.
@@ -44,6 +48,7 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 image::private-network-delete.png[Delete option in the Private Network menu]
 . Click *Delete* to confirm the deletion.
 
+[[add-remove-routes]]
 == Add or Remove a Route from the Route Table
 
 Routes determine how to direct traffic from your private space, for example,
@@ -92,7 +97,7 @@ In the route table, added routes show *Transit Gateway* as the value in the *Nex
 image::tgw-route-added.png[Transit Gateway in the Next Hop column of the route table]
 //// 
 
-
+[[rename-connection]]
 == Rename a Connection
 
 //SELECT PRIVATE SPACE SHARED
@@ -103,7 +108,7 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 image::connection-rename.png[Rename option in the Connections menu]
 include::partial$select-private-space.adoc[tag=renameItem]
 
-
+[[rename-vpn]]
 == Rename a VPN
 
 //SELECT PRIVATE SPACE SHARED
@@ -114,7 +119,7 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 image::vpn-rename.png[Rename option in the VPN menu]
 include::partial$select-private-space.adoc[tag=renameItem]
 
-
+[[view-vpn-status]]
 == View VPN Status
 
 //SELECT PRIVATE SPACE SHARED
@@ -125,6 +130,7 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 image::vpn-view-details.png[View Details option in the VPN menu]
 . Click *X* to close the *VPN Details* window.
 
+[[delete-vpn]]
 == Delete a VPN  
 
 You can't undo this action.
@@ -137,6 +143,7 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 image::vpn-delete.png[Delete option in the VPN menu]
 . Click *Delete* to confirm the deletion.
 
+[[rename-tgw]]
 == Rename a Transit Gateway Attachment 
 
 You might want to rename a transit gateway attachment to match the attachment name in AWS. 
@@ -153,7 +160,7 @@ that you want to rename.
 // image::tgw-rename.png[Rename option in the transit gateway menu]
 include::partial$select-private-space.adoc[tag=renameItem]
 
-
+[[detach-tgw]]
 == Detach a Transit Gateway from the Private Space
 
 You might need to detach a transit gateway so that you can reattach it.
@@ -176,6 +183,7 @@ that you want to detach.
 +
 Detaching a transit gateway might take several minutes.
 
+[[remove-tgw]]
 == Remove a Transit Gateway Attachment
 
 You might want to remove a transit gateway attachment for the following reasons:

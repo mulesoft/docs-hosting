@@ -23,7 +23,7 @@
 **** xref:ps-config-env.adoc[]
 **** xref:ps-config-log-forwarding.adoc[]
 **** xref:ps-config-advanced.adoc[Configuring Advanced Private Space Settings]
-*** xref:ps-manage.adoc[Managing Private Spaces]
+*** xref:ps-manage.adoc[]
 *** xref:ps-troubleshoot.adoc[Troubleshooting Private Spaces]
 ** xref:ch2-deploy.adoc[Deploying Apps to CloudHub 2.0]
 *** xref:ch2-deploy-private-space.adoc[]

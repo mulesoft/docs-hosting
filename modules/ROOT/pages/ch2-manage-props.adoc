@@ -8,7 +8,7 @@ include::partial$feature-availability.adoc[tag=featureUnavailable]
 You can change the behavior of the app while it's running using _properties_.
 
 Application properties are variables that act as placeholders in your Mule application and are set at runtime.
-When you deploy an application or update an existing application in Runtime Manager, Mule runtime engine supplies the values for the property variables using the information you configure in the *Properties* tab.
+When you deploy an application or update an existing application in Runtime Manager, Mule runtime engine supplies the values for the property variables using the information you configure on the *Properties* tab.
 
 For example, you can configure a JDBC connector in which the username is set to `${dbUsername}` and the password is set to `${dbPassword}`.
 In Runtime Manager, you can set these two properties as application properties.
@@ -24,14 +24,14 @@ If you set properties both in the properties file in your application and in Run
 == Add Application Properties in Runtime Manager 
 
 The easiest way to load properties to applications deployed to a private space is to define them
-in the *Properties* tab for the application.
+on the *Properties* tab for the application.
 
 
 To add properties: 
 
 // SELECT APPS SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
-. Click the app name.
+include::partial$select-private-space.adoc[tag=clickAppName]
 . In the navigation menu, click *Settings*.
 . On the *Settings* page, click the *Properties* tab:
 +
@@ -73,7 +73,7 @@ To set an environment variable using an application property:
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
-. Click the app name.
+include::partial$select-private-space.adoc[tag=clickAppName]
 . In the navigation menu, click *Settings*.
 . On the *Settings* page, click the *Properties* tab. 
 . Define the variable by entering it in the *Text view*, in `key=value` format:

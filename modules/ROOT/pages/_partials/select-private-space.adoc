@@ -9,6 +9,10 @@
 . Click the name of the private space to manage.
 // end::clickPrivateSpaceName[]
 
+// CLICK APP NAME SHARED
+// tag::clickAppName[]
+. Click the app name.
+// end::clickAppName[]
 
 // SELECT RTM APPS SHARED
 // tag::selectAppsPage[]

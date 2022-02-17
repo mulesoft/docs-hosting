@@ -20,7 +20,8 @@ Although you can attempt to protect a single property more than once, Runtime Ma
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
-. Click the app name and then click *Settings*.
+include::partial$select-private-space.adoc[tag=clickAppName]
+. In the navigation menu, click *Settings*:
 . On the *Settings* page, click the *Properties* tab.
 . Depending on how many properties you want to protect, choose either:
 ** To protect properties one at a time, click *Table view*.
@@ -36,13 +37,13 @@ image::rtm-hide-props.png[Properties tab and key-value properties on the applica
 ** If this application is deployed, click *Apply changes*.
 ** If you’re ready to deploy the application, click *Deploy Application*.
 
-In the *Properties* tab, the values for properties that you just protected are now no longer visible to you or any other user.
+On the *Properties* tab, the values for properties that you just protected are now no longer visible to you or any other user.
 
 In the following example, the values for `birthdate` and `password` are protected, but the value for `username` is not:
 
 <replace screenshot>
 
-image::rtm-hidden-props.png[Protected values in the Properties tab on the application Settings page]
+image::rtm-hidden-props.png[Protected values on the Properties tab on the application Settings page]
 
 After you commit the values and deploy the app, the protected property values
 don't appear in the console and aren't sent and received between the console and CloudHub.
