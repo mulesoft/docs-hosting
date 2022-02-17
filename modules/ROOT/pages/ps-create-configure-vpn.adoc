@@ -11,7 +11,11 @@ except the static IP prefixes for static routing.
 [[create-vpn]]
 == Create a VPN
 
-. On the *Create Connection* page, enter a name for your connection, and then click *Next*.
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. On the *Network* tab, in the *Connections* section, *Create Connection*.
+. On the *Create Connection* page, select *VPN* and enter the xref:ps-gather-setup-info.adoc#vpn-name[name] in the *Connection Name* field.
 +
 // Shared Connection Name
 include::partial$create-config.adoc[tag=connectionNameReqs]
@@ -79,7 +83,7 @@ Redundant VPNs inherit some settings from the intial VPN configuration automatic
 [NOTE]
 After you create a redundant VPN, you can't change any of the settings.
 
-. In the *Network* tab, click *Create Redundant VPN*.
+. On the *Network* tab, click *Create Redundant VPN*.
 . In the *Create Redundant VPN* page, complete the fields, based on the routing type of the initial VPN:
 +
 Dynamic (BGP)::
@@ -123,7 +127,7 @@ Anypoint Platform uses to generate a connection guide to use to configure your d
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. In the *Network* tab, click *View Connection Guide*.
+. On the *Network* tab, click *View Connection Guide*.
 . In the *VPN Connection Guide* page, select the *Device vendor*, *Device platform*, and *Device software* from the drop-down lists.
 . Click *Download Guide*.
 +

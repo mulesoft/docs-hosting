@@ -22,7 +22,7 @@ To run a thread dump:
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
-. Click the application name.
+include::partial$select-private-space.adoc[tag=clickAppName]
 . In the navigation menu, click *Diagnostics*.
 . Click *Run Thread Dump* and select the active replica to trigger the thread dump from the dropdown.
 +
@@ -40,7 +40,7 @@ To view past thread dumps:
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
-. Click the application name.
+include::partial$select-private-space.adoc[tag=clickAppName]
 . In the navigation menu, click *Diagnostics*.
 +
 The page displays any past thread dumps:

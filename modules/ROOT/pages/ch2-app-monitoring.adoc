@@ -43,21 +43,23 @@ If you configure email alerts, the unresponsive worker also triggers an email al
 You can enable automatic restarts when you deploy a new application or redeploy an existing application.
 
 * Deploy a new app
-.. In Runtime Manager, click *Applications* in the menu on the left.
-.. Click *Deploy Application* and select *CloudHub* from *Deployment Target*.
-.. Select the *Automatically restart application when not responding* option:
++
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. Click *Deploy Application* and select *CloudHub* from *Deployment Target*.
+. Select the *Automatically restart application when not responding* option:
 +
 image::ch2-app-autorestart.png[Automatically restart application when not responding option]
-.. Click *Deploy Application*.
+. Click *Deploy Application*.
 
 * Redeploy an existing app
-.. In Runtime Manager, click *Applications* in the menu on the left.
-.. Click the app status to display the details pane on the right
-.. Click the *Manage Application* button to display the *Settings* page for the app.
-.. Select the *Automatically restart application when not responding* option:
++
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. Click the app status to display the details pane on the right.
+. Click the *Manage Application* button to display the *Settings* page for the app.
+. Select the *Automatically restart application when not responding* option:
 +
 image::ch2-app-autorestart.png[Automatically restart application when not responding option]
-.. Click *Apply Changes*.
+. Click *Apply Changes*.
 
 
 == How Automatic Restarts Work

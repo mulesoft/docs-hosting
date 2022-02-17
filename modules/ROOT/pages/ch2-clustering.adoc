@@ -47,7 +47,7 @@ https://docs.mulesoft.com/object-store/[Object Store v2^] (Link out from Beta do
 You can enable and disable either or both features of clustering in one of two ways:
 
 * When you deploy an application to CloudHub 2.0 for the first time using Runtime Manager
-* In the *Deployment Target* tab in Runtime Manager for a previously deployed application
+* On the *Deployment Target* tab in Runtime Manager for a previously deployed application
 
 Use the dropdown menus on the *Deployment Target* tab to select the vCore options for your application and to configure the computing power that you need.
 

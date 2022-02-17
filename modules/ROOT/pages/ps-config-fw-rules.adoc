@@ -41,7 +41,7 @@ To configure firewall rules:
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the *Firewall rules* tab.
+. Click the *Firewall Rules* tab.
 . Configure default rules for inbound traffic by selecting the *Protocol*, *Source*, and *Ports* from the dropdown lists:
 +
 --
@@ -116,6 +116,6 @@ All ports are allowed for all protocols.
 . Click *Add Rule* to add more rules.
 . To remove a firewall rule, click trash can icon (*Delete*) for the entry.
 // +
-// image::fw-rule-delete.png[Delete icon in the Firewall rules tab]
+// image::fw-rule-delete.png[Delete icon on the Firewall rules tab]
 
 . Click *Save Changes* or *Discard Changes*.

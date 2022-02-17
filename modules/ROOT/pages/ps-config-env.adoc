@@ -47,7 +47,7 @@ The list includes the business group and its child business groups to which the 
 --
 . To remove a business group, click the *X* for the entry:
 +
-image::bg-delete.png[Delete icon in the Environments tab]
+image::bg-delete.png[Delete icon on the Environments tab]
 
 . Click *Save environments* or *Discard changes*.
 

@@ -59,9 +59,11 @@ With this option, you can't change the default values for TLS versions, ciphers,
 
 === Truststore
 
-A truststore is a repository of security certificates from other parties that you expect to communicate with, or from Certificate Authorities that you trust to identify other parties.
+A truststore is a set of client certificates that the server checks against to enforce mutual TLS.
+The optional truststore identifies trusted external clients or private certificate authorities (CAs).
 
-The optional truststore enables mutual TLS by identifying trusted external clients or private certificate authorities (CAs).
+To enable mutual TLS, configure a truststore.
+If a truststore is not configured, mutual TLS is disabled.
 
 CloudHub 2.0 accepts truststore files in PEM formats.
 

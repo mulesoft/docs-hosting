@@ -134,7 +134,7 @@ To set up an alert to send an email when a notification occurs, bind the custom 
 
 // SELECT APPS SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
-. Click the app name.
+include::partial$select-private-space.adoc[tag=clickAppName]
 . In the navigation menu, click *Alerts*.
 . On the *Alerts* page, click the blue plus icon (*+*).
 . In the *Create an Alert* page, configure your custom alert and click *Submit*:

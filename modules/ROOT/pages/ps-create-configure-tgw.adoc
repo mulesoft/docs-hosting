@@ -28,9 +28,9 @@ To connect to a transit gateway:
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-. Click the name of the private space that you want to attach to a transit gateway.
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, *Create Connection*.
-* On the *Create Connection* page, select *Transit Gateway* and enter the transit gateway xref:ps-gather-setup-info.adoc#transit-gateway-name[name] in the *Connection Name* field.
+. On the *Create Connection* page, select *Transit Gateway* and enter the xref:ps-gather-setup-info.adoc#transit-gateway-name[name] in the *Connection Name* field.
 +
 Use the same name for your transit gateway in AWS.
 You can change this name later.
@@ -59,7 +59,7 @@ To display the existing routes for the network, click *Show Existing Routes for 
 
 You can add or remove routes later. 
 For information, see 
-xref:ps-manage.adoc#add-or-remove-a-route-in-the-route-table[Add or Remove a Route in the Route Table].
+xref:ps-manage.adoc#add-remove-routes[Add or Remove a Route from the Route Table].
 
 [[create-resource-share]]
 == Create a Resource Share
@@ -95,7 +95,7 @@ The AWS account number appears in the *Selected principals* field.
 --
 *** The resource share *ID* field contains alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-).
 *** The resource share *Owner* field contains only numbers.
-.. Click *Next*.
+. Click *Next*.
 --
 
 CloudHub 2.0 use the resource share owner and ID you provide to attach
@@ -116,7 +116,7 @@ The link opens the AWS RAM console to the page for accepting the transit gateway
 +
 The attachment might take a few minutes to appear.
 +
-To verify that the attachment is correct, select the transit gateway attachment ID and, in the *Details* tab, ensure that the *Resource owner account ID* is the MuleSoft AWS account ID from the *Add Transit Gateway* page.
+To verify that the attachment is correct, select the transit gateway attachment ID and, on the *Details* tab, ensure that the *Resource owner account ID* is the MuleSoft AWS account ID from the *Add Transit Gateway* page.
 . From the *Actions* menu, select *Accept*.
 . When the attachment state changes to *available*, return to the *Add Transit Gateway* page and click *Done*.
 +
@@ -151,7 +151,7 @@ After the *Private space attached* message appears, the private spaces adds the 
 so that apps deployed to the private space can access the transit gateway.
 
 To add routes to the transit gateway route table, see
-xref:ps-manage.adoc#add-or-remove-a-route-in-the-route-table[Add or Remove a Route in the Route Table].
+xref:ps-manage.adoc#add-remove-routes[Add or Remove a Route from the Route Table].
 
 [[enable-inbound-traffic-on-aws]]
 === Enable Inbound Traffic Through the Transit Gateway

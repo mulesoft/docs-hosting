@@ -20,7 +20,7 @@ To configure advanced settings:
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the *Advanced* tab  
+. Click the *Advanced* tab.
 . Configure how the private accepts inbound traffic:
 +
 --

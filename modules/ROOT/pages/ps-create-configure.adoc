@@ -26,11 +26,11 @@ To change the configuration, delete the private space and create it again.
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. In the *Network* tab, click *Create Private Network*. 
+. On the *Network* tab, click *Create Private Network*. 
 . In the *Create Private Network* page:
 +
 --
-.. Select the xref:ps-gather-setup-info.adoc#private-networkregion[region] where you want your apps to run.
+.. Select the xref:ps-gather-setup-info.adoc#private-network-region[region] where you want your apps to run.
 .. Enter the xref:ps-gather-setup-info.adoc#cidr-block[CIDR block], which is the range of IP addresses that your apps can use.
 .. Click *Create*.
 --
@@ -51,7 +51,7 @@ The private space uses your internal DNS to resolve internal host names of your 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. In the *Network* tab, click the *Configure* link for *Internal DNS Servers*.
+. On the *Network* tab, click the *Configure* link for *Internal DNS Servers*.
 . Enter the (comma-separated) xref:ps-gather-setup-info.adoc#server-ip-addresses[server IP addresses] for your internal DNS servers.
 . Enter the (comma-separated) xref:ps-gather-setup-info.adoc#domains[domain addresses] to be resolved by internal DNS.
 . Click *Save*.
@@ -67,16 +67,13 @@ After you create your private network, connect it to an external network using a
 VPN or transit gateway attachment.
 
 //SELECT PRIVATE SPACE SHARED
-include::partial$select-private-space.adoc[tag=selectAppsPage]
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . In the *Network* tab, click *Create Connection*. 
-. In the *Create Connection* page:
+. In the *Create Connection* page, select the *Connection Type*, click *Next*, and then, depending on the connection type you selected:
 +
---
-.. Select the *Connection Type*, click *Next*, and then, depending on the connection type you selected:
-+
-*** *VPN*: Follow the steps in xref:ps-create-configure-vpn.adoc[].
-*** *Transit Gateway*: Follow the steps in xref:ps-create-configure-tgw.adoc[].
---
+** *VPN*: Follow the steps in xref:ps-create-configure-vpn.adoc[].
+** *Transit Gateway*: Follow the steps in xref:ps-create-configure-tgw.adoc[].
 
 
 == See Also 

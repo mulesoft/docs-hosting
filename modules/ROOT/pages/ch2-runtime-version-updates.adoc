@@ -133,9 +133,9 @@ image::ch2-app-update-available-versions.png[Version update date in the Runtime 
 
 CloudHub 2.0 updates the app with the version you selected and displays a message indicating success or failure.
 
-If the app update was successful, the app no longer appears in the *Update Available* tab on the *Applications* page.
+If the app update was successful, the app no longer appears on the *Update Available* tab on the *Applications* page.
 
-If the app update was unsuccessful, the app remains in the *Update Available* tab.
+If the app update was unsuccessful, the app remains on the *Update Available* tab.
 In this case, the app continues to run correctly on the previous runtime version and no action is required.
 
 [[bulk-update]]
