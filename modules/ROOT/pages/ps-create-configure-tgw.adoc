@@ -2,7 +2,7 @@
 
 *This topic is updated to the TGW Design Specs dated 08-Nov-21*
 
-*Last update* 14-Feb-22
+*Last update* 17-Feb-22
 
 Multiple private spaces can connect to an internal VPC.
 You can reuse the transit gateway attachment by connecting another private space to it and accepting the attachment. 
@@ -95,8 +95,9 @@ The AWS account number appears in the *Selected principals* field.
 --
 *** The resource share *ID* field contains alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-).
 *** The resource share *Owner* field contains only numbers.
-. Click *Next*.
 --
+. Click *Next*.
+
 
 CloudHub 2.0 use the resource share owner and ID you provide to attach
 the associated transit gateway on AWS to the private space.
