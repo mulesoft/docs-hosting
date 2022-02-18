@@ -130,7 +130,8 @@ For details about each requirement, see the sections that follow.
 (_optional_) |<<server-ip-addresses,Server IP addresses>> 3+|
 |<<domains>>  3+|
 6+h|VPN Connection Type
-.13+||<<remote-ip-address>> 4+|
+.14+|| <<vpn-name, VPN name>> 4+|
+| <<remote-ip-address>> 4+|
 |<<local-asn>> 4+|
 |*<<dynamic-vpn-routing,Dynamic Routing Type>>* | <<remote-asn>> 3+|
 ^.^|*_OR_* 4+|
@@ -144,7 +145,8 @@ For details about each requirement, see the sections that follow.
 |Platform  3+|
 |Software  3+|
 6+h|Redundant VPN Setup
-.13+||<<remote-ip-address>> 4+|
+.14+|| <<vpn-name, VPN name>> 4+|
+| <<remote-ip-address>> 4+|
 |<<local-asn>> 4+|
 |*<<dynamic-vpn-routing,Dynamic Routing Type>>* | <<remote-asn>> 3+|
 ^.^|*_OR_* 4+|
