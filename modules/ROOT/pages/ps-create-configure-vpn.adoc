@@ -2,7 +2,7 @@
 
 *This topic is updated to the VPN Design Specs dated 08-Nov-21*
 
-*Last update* 14-Feb-22
+*Last update* 17-Feb-22
 
 [NOTE]
 After you create a VPN, you can't change any of the VPN settings,

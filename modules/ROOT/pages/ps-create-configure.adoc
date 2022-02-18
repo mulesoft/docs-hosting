@@ -2,7 +2,7 @@
 
 *This topic is updated to the Private Network Design Specs dated 09-Nov-21*
 
-*Last update* 14-Feb-22
+*Last update* 17-Feb-22
 
 To extend your network to Anypoint Platform, create a _private space_, 
 a virtual, private, and isolated network hosted in CloudHub 2.0,
