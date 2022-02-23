@@ -28,3 +28,13 @@
 // tag::clickSchedules[]
 . In the navigation menu, click *Schedules*.
 // end::clickSchedules[]
+
+// CLICK SETTINGS SHARED
+// tag::clickSettings[]
+. In the navigation menu, click *Settings*.
+// end::clickSettings[]
+
+// CLICK SETTINGS SHARED
+// tag::clickPropsOnSettings[]
+. On the *Settings* page, click the *Properties* tab.
+// end::clickPropsOnSettings[]

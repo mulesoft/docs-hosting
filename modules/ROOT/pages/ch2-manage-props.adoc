@@ -1,9 +1,6 @@
 = Changing App Behavior with Properties
 
-include::partial$feature-availability.adoc[tag=featureUnavailable]
-
-
-*THIS IS CH 1.0 PLACEHOLDER CONTENT UNTIL THE UI IS AVAILABLE* 
+*Last update* 22-Feb-22
 
 You can change the behavior of the app while it's running using _properties_.
 
@@ -32,8 +29,8 @@ To add properties:
 // SELECT APPS SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
-. In the navigation menu, click *Settings*.
-. On the *Settings* page, click the *Properties* tab:
+include::partial$select-private-space.adoc[tag=clickSettings]
+include::partial$select-private-space.adoc[tag=clickPropsOnSettings]
 +
 <replace screenshot>
 +
@@ -42,21 +39,25 @@ image::ch2-app-props.png[*Properties* tab, key and value fields, and *X* icon on
 . Click *Table view*.
 +
 Alternatively, you can click *Text view* and enter the key-value pair in the text field in this format: `key=value`.
-. Enter the property name in the key field.
-. Enter the property value in the value field.
+. In the *New Key* field, enter the property name. 
+. In the *New Value* field, enter the property value.
 +
 [NOTE]
 If the save password feature of Chrome is enabled and includes a username for `anypoint.mulesoft.com` that matches the contents of the key field, Chrome overwrites the value field with the stored password associated with that username. 
 To work around this limitation, use Chrome in incognito mode or use another browser.
 +
 --
-** If you want to hide the value in Runtime Manager, click *Protect* and then click *Protect value* to confirm.
+If you want to:
+
+** Hide the value in Runtime Manager, click *Protect* and then click *Protect value* to confirm.
++
+*The UI on QAX does not have this option.*
 +
 See xref:ch2-protect-app-props.adoc[].
-** If you want to change a key or value, edit the text in the field.
-** If you want to delete a property, click *X*.
-** Click *Apply Changes*.
+** Change a key or value, edit the text in the field.
+** Delete a property, click *...* > *Delete property*.
 --
+. Click *Apply Changes*.
 . Select *Restart* from the menu in the top right to restart the application.
 
 
@@ -74,8 +75,8 @@ To set an environment variable using an application property:
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
-. In the navigation menu, click *Settings*.
-. On the *Settings* page, click the *Properties* tab. 
+include::partial$select-private-space.adoc[tag=clickSettings]
+include::partial$select-private-space.adoc[tag=clickPropsOnSettings]
 . Define the variable by entering it in the *Text view*, in `key=value` format:
 +
 <replace screenshot>

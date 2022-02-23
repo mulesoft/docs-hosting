@@ -2,6 +2,6 @@
 // Functionality not available
 // tag::featureUnavailable[]
 [NOTE]
-This functionality is not yet available.
+This functionality is not yet available on QAX.
 // end::featureUnavailable[]
 
