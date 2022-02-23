@@ -1,13 +1,8 @@
 = Viewing Log Data for Deployed Apps
 
-include::partial$feature-availability.adoc[tag=featureUnavailable]
-
+*Last update* 22-Feb-22
 
 *Will this just be a button to DOWNLOAD logs?*
-
-*This topic is updated to Design Spec dated 17-Nov-21*
-*Last update* 11-Jan-22
-
 
 ////
 FC: replica, levels, time filters
@@ -49,7 +44,11 @@ Logs from before the last updated time appear in the previous deployments sectio
 Each message includes the severity, time (relative and absolute), and replica name.
 
 * To open the currently selected deployment in Anypoint Monitoring, click *View in Monitoring*.
++
+*The UI on QAX does not have this option.*
 * To view logs for past deployments, click the *Past deployments* dropdown and select the deployment.
++
+*The UI on QAX does not have this option.*
 * To view logs for a different config, click the *Config* dropdown and select the config.
 
 The config label indicates the relative time of deployment, such as 10 hours ago.
@@ -69,11 +68,15 @@ To search within the currently displayed config:
 The results display includes the currently selected config, replica,
 and log levels.
 +
-To change any of these elements, click *<- Search Results* to exit the search results.
+To change any of these elements, click *X* in the *Search* field to exit the search results and enter a new term.
 . Click the next <icon> and previous <icon> buttons to navigate the search results:
++
+*The UI on QAX does not have this option.*
 +
 <screenshot>
 . Click a log message to view it in context.
++
+*The UI on QAX does not have this functionality.*
 +
 Click *Search Results* to return to the search results.
 
@@ -93,15 +96,23 @@ Click the *Config* dropdown and select the config to view:
 +
 Hover over a log message and select *Hide Others*:
 +
+*The UI on QAX does not have this option.*
++
 <screenshot>
 +
-To clear the replica filter, click the *x* for the selected replica.
+Click a replica name to filter by replica?
++
+To clear the replica filter, click the *X* button for the selected replica.
 
 * *Filter logs by time date and time range*
 +
 Click *Time Range*, select the date range, and optionally time, and click *Apply*.
 +
+*The UI on QAX does not have this option.*
++
 Alternatively, click *Show Latest Messages*:
++
+*The UI on QAX does not have this option.*
 +
 <screenshot>
 +
@@ -112,11 +123,11 @@ The button label changes to show the selected date and time range.
 Click *Log Levels* and check the log levels to display:
 +
 --
-** *Fatal*: Fatal messages for when an application fails
-** *Error*: Error messages, such as when an exception occurs
-** *Warn*: Warning messages
-** *Info*: Informative messages
-** *Debug*: Debugging messages
+** *FATAL*: Fatal messages for when an application fails
+** *ERROR*: Error messages, such as when an exception occurs
+** *WARN*: Warning messages
+** *INFO*: Informative messages
+** *DEBUG*: Debugging messages
 --
 +
 [NOTE]
@@ -134,7 +145,10 @@ To download logs based on the current filters, click the download (<icon>) butto
 // .The arrow shows the Download icon to download log output.
 // image::ch2-logs-download.png[Download log output]
 
-CloudHub 2.0 downloads the log output, using the current filters, to a text file in the format `__configID__.-__Replica__.log`.
+CloudHub 2.0 downloads the log output, using the current filters, to a text file in the format `__configID__.-__Date__Replica__.log`.
+
+*PLEASE CONFIRM FILE NAMING*
+
 Use a text editor to view the log file.
 
 //// 

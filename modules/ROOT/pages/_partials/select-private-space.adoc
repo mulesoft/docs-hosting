@@ -38,3 +38,8 @@
 // tag::clickPropsOnSettings[]
 . On the *Settings* page, click the *Properties* tab.
 // end::clickPropsOnSettings[]
+
+// CLICK SETTINGS SHARED
+// tag::clickDiagnostics[]
+. In the navigation menu, click *Diagnostics*.
+// end::clickDiagnostics[]
