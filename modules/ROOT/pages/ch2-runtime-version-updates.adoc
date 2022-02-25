@@ -89,7 +89,7 @@ image::ch2-app-update-req-page.png[Applications page with banner and Update Avai
 +
 If no apps require updates, no banner appears and the *Update Available* tab is empty.
 
-*  *Update available* and the new date patch appear in the *Runtime version* menu in the *Settings* page for the application:
+*  *Update available* and the new date patch appear in the *Runtime version* menu on the *Settings* page for the application:
 +
 // Update screenshot 
 image::ch2-app-update-versions.png[Date patch version update and Update available in the Runtime version menu.]

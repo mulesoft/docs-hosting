@@ -2,7 +2,9 @@
 
 *This topic is updated to the Private Network Design Specs dated 09-Nov-21*
 
-*Last update* 17-Feb-22
+*The Design Spec shows the tab as Network; the UI says Private network.*
+
+*Last update* 24-Feb-22
 
 To extend your network to Anypoint Platform, create a _private space_, 
 a virtual, private, and isolated network hosted in CloudHub 2.0,
@@ -27,7 +29,7 @@ To change the configuration, delete the private space and create it again.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, click *Create Private Network*. 
-. In the *Create Private Network* page:
+. On the *Create Private Network* page:
 +
 --
 .. Select the xref:ps-gather-setup-info.adoc#private-network-region[region] where you want your apps to run.
@@ -56,7 +58,7 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Enter the (comma-separated) xref:ps-gather-setup-info.adoc#domains[domain addresses] to be resolved by internal DNS.
 . Click *Save*.
 
-After you configure internal DNS, the *Network* tab indicates the number of server IP addresses and domains:
+After you configure internal DNS, the *Network* tab indicates the number of configured server IP addresses and domains:
 
 image::internal-dns.png[Internal DNS configuration in the Private Network section]
 
@@ -70,7 +72,9 @@ VPN or transit gateway attachment.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . In the *Network* tab, click *Create Connection*. 
-. In the *Create Connection* page, select the *Connection Type*, click *Next*, and then, depending on the connection type you selected:
+. On the *Create Connection* page, select the connection type, enter the xref:ps-gather-setup-info.adoc#vpn-name[name], and click *Next*.
++
+Depending on the connection type you selected:
 +
 ** *VPN*: Follow the steps in xref:ps-create-configure-vpn.adoc[].
 ** *Transit Gateway*: Follow the steps in xref:ps-create-configure-tgw.adoc[].

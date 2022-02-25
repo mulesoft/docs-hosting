@@ -62,8 +62,8 @@ To send data to Splunk using the HTTP Event Collector, you must first set up the
 . Navigate to *Settings* > *Data Inputs*.
 . For the *HTTP Event Collector* type, click *Add new*.
 +
-.The arrow shows the *Add new* option for the HTTP Event Collector in the Splunk Data Inputs page.
-image::splunk-config-http-collector.png[Add new option for the HTTP Event Collector in the Splunk Data Inputs page]
+.The arrow shows the *Add new* option for the HTTP Event Collector on the Splunk Data Inputs page.
+image::splunk-config-http-collector.png[Add new option for the HTTP Event Collector on the Splunk Data Inputs page]
 
 . Follow the steps to set up the data input and obtain the token.
 
@@ -74,8 +74,8 @@ To send data to Splunk over TCP, you must first enable the input source in Splun
 . Navigate to *Settings* > *Data Inputs*.
 . For the *TCP* type, click *Add new*.
 +
-.The arrow shows the *Add new* option for TCP in the Splunk Data Inputs page.
-image::splunk-config-tcp.png[Add new option for TCP in the Splunk Data Inputs page]
+.The arrow shows the *Add new* option for TCP on the Splunk Data Inputs page.
+image::splunk-config-tcp.png[Add new option for TCP on the Splunk Data Inputs page]
 . Follow the steps to set up the data input.
 
 ////

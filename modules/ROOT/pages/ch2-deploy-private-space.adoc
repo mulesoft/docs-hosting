@@ -17,7 +17,7 @@ You deploy apps to a private space using Runtime Manager.
 //SELECT APP SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
 . Click *Deploy application*.
-. In the *Deploy Application* page:
+. On the *Deploy Application* page:
 .. Enter the <<app-name-reqs,name>> of the application.
 .. Select an application file:
 +
@@ -25,7 +25,7 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 *** To upload a Mule app JAR file from your system, select *Choose file > Upload file*.
 *** To choose an example app from Anypoint Exchange:
 .... Select *Choose file > Import file from Exchange*.
-.... In the *Get from Exchange* page, enter `hello` in the *Search assets by name*:
+.... On the *Get from Exchange* page, enter `hello` in the *Search assets by name*:
 +
 image::rtm-get-from-exchange.png[Get from Exchange page]
 .... Click *Hello World* and then click *Select*.

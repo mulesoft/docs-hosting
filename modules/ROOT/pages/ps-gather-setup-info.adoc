@@ -589,7 +589,7 @@ If another team performs AWS configuration, share this MuleSoft AWS account ID w
 [[resource-share-id-owner]]
 === Resource Share ID and Owner
 
-The resource share ID and owner appear in the *Create a resource share* page on AWS.
+The resource share ID and owner appear on the *Create a resource share* page on AWS.
 You use these values to verify the resource share in Anypoint Platform.
 
 * The resource share *ID* field contains alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-).
