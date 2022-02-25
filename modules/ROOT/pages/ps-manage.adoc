@@ -1,8 +1,8 @@
 = Managing Private Spaces
 
-*This topic is updated to the Private Network Design Specs dated 09-Nov-21*
+*This topic is updated to the Private Network Design Specs/UI dated 09-Nov-21*
 
-*Last update* 15-Feb-22
+*Last update* 24-Feb-22
 
 Use Anypoint Runtime Manager to manage private spaces,
 such as adding and removing a route from the route table or
@@ -20,7 +20,7 @@ include::partial$select-private-space.adoc[tag=renameItem]
 [[delete-private-space]]
 == Delete a Private Space
 
-Deleting a private space also deletes any related private networks, VPNs, and files.
+You can't delete a private space if it has any related private network, VPNs, or transit gateway attachments.
 You can't undo this action.
 
 //SELECT PRIVATE SPACE SHARED
@@ -35,15 +35,17 @@ image::ps-delete.png[Delete option in the Private Space menu]
 [[delete-private-network]]
 == Delete a Private Network 
 
-Deleting a private network also deletes its VPN.
+Deleting a private network also deletes its external network connection (VPN or transit gateway attachment).
 You can't undo this action.
 
 You can't delete a network if it is currently in use.
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-. Click the name of the private space that includes the private network you want to delete.
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, click the Private Network menu (*...*) and select *Delete*:
++
+*The UI on QAX does not have this option.*
 +
 image::private-network-delete.png[Delete option in the Private Network menu]
 . Click *Delete* to confirm the deletion.
@@ -58,9 +60,8 @@ You might want to add a route to enable a new subnet to be accessible or remove 
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-. Click the name of the private space that includes the transit gateway attachment
-to add routes to.
-. On the *Network* tab, in the *Connections* section, click the transit gateway or VPN menu (*...*) and select *Edit Routes*:
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. On the *Network* tab, in the *Private network* section, click *Edit Routes*:
 +
 <screenshot>
 // image::tgw-add-vpc-route.png[Add VPC route]
@@ -102,7 +103,7 @@ image::tgw-route-added.png[Transit Gateway in the Next Hop column of the route t
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-. Click the name of the private space that includes the connection you want to rename.
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the Connections menu (*...*) and select *Rename*:
 +
 image::connection-rename.png[Rename option in the Connections menu]
@@ -113,7 +114,7 @@ include::partial$select-private-space.adoc[tag=renameItem]
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-. Click the name of the private space that includes the VPN you want to rename.
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Rename*:
 +
 image::vpn-rename.png[Rename option in the VPN menu]
@@ -124,7 +125,7 @@ include::partial$select-private-space.adoc[tag=renameItem]
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-. Click the name of the private space that includes the VPN you want to view.
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *View Details*:
 +
 image::vpn-view-details.png[View Details option in the VPN menu]
@@ -137,7 +138,7 @@ You can't undo this action.
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-. Click the name of the private space that includes the VPN you want to delete.
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Delete*:
 +
 image::vpn-delete.png[Delete option in the VPN menu]
@@ -152,8 +153,7 @@ To rename a transit gateway attachment:
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-. Click the name of the private space that includes the transit gateway attachment
-that you want to rename.
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the transit gateway menu (*...*) and select *Rename*:
 +
 <screenshot>
@@ -173,8 +173,7 @@ To detach the transit gateway:
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-. Click the name of the private space that includes the transit gateway
-that you want to detach.
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the transit gateway menu (*...*) and select *Detach*:
 +
 <screenshot>
@@ -203,8 +202,7 @@ To remove a transit gateway attachment:
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-. Click the name of the private space that includes the transit gateway
-that you want to detach.
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the transit gateway menu (*...*) and select *Remove*:
 +
 // image::tgw-remove-vpc.png[Remove transit gateway attachment option in the transit gateway menu]

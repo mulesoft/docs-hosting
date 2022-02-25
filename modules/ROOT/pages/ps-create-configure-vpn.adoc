@@ -2,7 +2,16 @@
 
 *This topic is updated to the VPN Design Specs dated 08-Nov-21*
 
-*Last update* 17-Feb-22
+*The Design Spec shows the tab as Network; the UI says Private network.*
+
+*Last update* 24-Feb-22
+
+
+== Prerequisites
+
+Before creating a VPN connection,
+xref:ps-create-configure.adoc#create-private-network[create the private network].
+
 
 [NOTE]
 After you create a VPN, you can't change any of the VPN settings,
@@ -17,6 +26,8 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, *Create Connection*.
 . On the *Create Connection* page, select *VPN* and enter the xref:ps-gather-setup-info.adoc#vpn-name[name] in the *Connection Name* field.
 +
+*The UI on QAX is different because TGW is not implemented yet.*
++
 // Shared Connection Name
 include::partial$create-config.adoc[tag=connectionNameReqs]
 . On the *Create VPN* page, enter the 
@@ -28,7 +39,6 @@ Select this option if your device supports Border Gateway Protocol (BGP).
 BGP supports automatic failover for redundant connections.
 +
 .. In the *Local ASN* field, enter a xref:ps-gather-setup-info.adoc#local-asn[local private ASN] that isn't already assigned to your network.
-
 .. In the *Remote ASN* field, enter a xref:ps-gather-setup-info.adoc#remote-asn[private ASN].
 +
 Click *Show Existing Routes for this Network* to view the existing routes for the private network.
@@ -83,12 +93,15 @@ Redundant VPNs inherit some settings from the intial VPN configuration automatic
 [NOTE]
 After you create a redundant VPN, you can't change any of the settings.
 
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, click *Create Redundant VPN*.
-. In the *Create Redundant VPN* page, complete the fields, based on the routing type of the initial VPN:
+. On the *Create Redundant VPN* page, complete the fields, based on the routing type of the initial VPN:
 +
 Dynamic (BGP)::
 +
-.. In the *Remote IP* field, Enter the public IP address 
+.. In the *Remote IP* field, enter the public IP address 
 (a single, static IP address that isn't used by other VPNs) of your VPN endpoint.
 .. In the *Remote ASN* field, enter a private ASN.
 +
@@ -108,7 +121,7 @@ Custom::
 +
 .. Specify the IP ranges (in CIDR format) for the internal address of each VPN tunnel.
 .. Specify the PSKs for each VPN tunnel.
-. Click *Create Redundant VPN*. 
+. Click *Create Redundant VPN*.
 
 The redundant VPN can take up to 15 minutes to create.
 
@@ -127,8 +140,8 @@ Anypoint Platform uses to generate a connection guide to use to configure your d
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. On the *Network* tab, click *View Connection Guide*.
-. In the *VPN Connection Guide* page, select the *Device vendor*, *Device platform*, and *Device software* from the drop-down lists.
+. On the *Network* tab, click the VPN menu (*...*) and select *View Connection Guide*.
+. On the *VPN Connection Guide* page, select the *Device vendor*, *Device platform*, and *Device software* from the drop-down lists.
 . Click *Download Guide*.
 +
 The connection guide, in `.txt` format, downloads to your local system.

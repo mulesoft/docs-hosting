@@ -137,7 +137,7 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 . In the navigation menu, click *Alerts*.
 . On the *Alerts* page, click the blue plus icon (*+*).
-. In the *Create an Alert* page, configure your custom alert and click *Submit*:
+. On the *Create an Alert* page, configure your custom alert and click *Submit*:
 +
 image::alerts-custom-rtm-create.png[Applications field in the Create an Alert window]
 +
@@ -188,7 +188,7 @@ To trigger a notification for an app deployed to CloudHub 2.0:
 `+http://myApp.us-w1.cloudhub.io/store+`
 +
 The page displays an error message and sends a new notification to Runtime Manager.
-. In the Runtime Manager *Applications* page, click the red bell icon to display the notification.
+. On the Runtime Manager *Applications* page, click the red bell icon to display the notification.
 +
 image::alerts-custom-rtm-notification-error.png[Error in the notifications dropdown]
 

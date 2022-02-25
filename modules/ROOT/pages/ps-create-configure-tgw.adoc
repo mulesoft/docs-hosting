@@ -1,8 +1,12 @@
 = Creating Transit Gateway Attachments
 
+include::partial$feature-availability.adoc[tag=featureUnavailable]
+
 *This topic is updated to the TGW Design Specs dated 08-Nov-21*
 
-*Last update* 17-Feb-22
+*The Design Spec shows the tab as Network; the UI says Private network.*
+
+*Last update* 24-Feb-22
 
 Multiple private spaces can connect to an internal VPC.
 You can reuse the transit gateway attachment by connecting another private space to it and accepting the attachment. 
@@ -13,12 +17,6 @@ You don't need to create the resource share again.
 == Connect to a Transit Gateway
 
 // figure out how to share this entire bit with CH 1.0.
-
-include::partial$feature-availability.adoc[tag=featureUnavailable]
-
-*THIS IS PLACEHOLDER CONTENT BASED ON THE DESIGN SPEC dated 08-Nov-21* 
-
-*Last update* 15-Feb-22
 
 For information about limitations when attaching a VPC to a transit gateway, 
 see 
@@ -88,7 +86,7 @@ The AWS account number appears in the *Selected principals* field.
 [[verify-resource-share]]
 == Verify the Resource Share
 
-. In the Anypoint Platform *Add Transit Gateway* page, paste the values you copied from AWS in the *ID* and *Owner* fields:
+. On the Anypoint Platform *Add Transit Gateway* page, paste the values you copied from AWS in the *ID* and *Owner* fields:
 +
 <screenshot>
 +
@@ -110,7 +108,7 @@ If the resource share validation fails, see xref:ps-troubleshoot.adoc#troublesho
 [[accept-tgw-attachment]]
 == Accept the Attachment 
 
-. In the *Add Transit Gateway* page, click the *Transit Gateway Attachments* link. 
+. On the *Add Transit Gateway* page, click the *Transit Gateway Attachments* link. 
 +
 The link opens the AWS RAM console to the page for accepting the transit gateway attachments in the region you specified.
 . On the *Transit Gateway Attachments* page, select the attachment that shows *pending acceptance* in the *State* column.
