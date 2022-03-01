@@ -1,8 +1,5 @@
 = Deploying Apps to Private Spaces
 
-include::partial$feature-availability.adoc[tag=featureUnavailable]
-
-
 *This topic is updated to the UI*
 
 *Last update* 20-Jan-22
