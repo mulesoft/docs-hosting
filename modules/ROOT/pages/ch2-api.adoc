@@ -1,5 +1,72 @@
 = CloudHub 2.0 REST API
 
+* Private Spaces
+** Get the list of Private Spaces in the organization.
+** Create a Private Space
+** Delete the Private Space
+** Get the Private Space - what does this mean?
+** Update existing Private Space
+
+* Connections
+** Get the list of Connections inside the private space.
+** Create a Private Space Connection
+** Delete the Private Space Connection
+** Get the Private Space Connection
+** Update existing Private Space Connection
+
+* VPN
+** Add a VPN to an existing connection.
+** Delete a VPN from a connection.
+** Update a vpn connection.
+** Get supported VPN configs
+
+* Connection Guide
+** Download connection guide for vpn.
+
+* TGW
+** Get list of TGW connections associated with a private space.
+** Create a private space TGW connection.
+** Delete the Private Space TGW Connection
+** Patch the Private Space TGW Connection
+** Patch routes for a TGW connection.
+** Get TGW routes configured to tgw connection.
+** Get TGW routes configured to private space.
+** Get list of TGW connections assocated with an organization.
+** Remove private space TGW Connection
+** Get TGW routes configured for a gateway
+* Log Forwarding
+** Get the Log forwarding config information.
+** Update the Log forwarding config
+** Send test message to validate the end-to-end connectivity.
+** Get the supported external log forwarding schemas
+** Get the specific configuration of a supported external log forwarding schema
+** Get the Log forwarding config information.
+** Update the Anypoint Log forwarding config
+** Deletes the External and Anypoint Monitoring log forwarding.
+** Configure the External log forwarding
+** Deletes the External log forwarding configuration
+* TLS Contexts
+** Get the list of TLS contexts inside the private space.
+** Create a TLS context
+** Delete the TLS context
+** Get the TLS context
+** Update an existing TLS context
+* Runtime Fabrics
+** Get the list of Runtime Fabrics in the organization.
+** Runtime Fabric register endpoint
+** Get capacity information about the runtime fabric for an environment
+** Update existing fabric
+* Mule runtimes
+** Retrieve all supported Mule versions. The first version returned is the most recent, recommended version, and the last version returned is the oldest supported version
+** Retrieve a single name
+** Retrieves tags for a name
+** Retrieve a single name for a name
+* Downloads
+** List the available downloads
+
+
+== CloudHub 1.0 
+
 *THIS IS THEORETICAL, BASED ON CH 1.0* 
 
 
