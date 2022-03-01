@@ -1,5 +1,7 @@
 = Extending Your Network to Anypoint Platform with Private Spaces
 
+*Last update* 28-Feb-22
+
 == Before You Begin
 
 * xref:ps-assign-permissions.adoc[Assign permissions].

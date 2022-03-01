@@ -3,6 +3,7 @@
 
 // (*Learn more* link from *Private Spaces* page)
 
+*Last update* 01-Mar-22
 
 A _private space_ is a virtual, private, and isolated area in CloudHub 2.0 in which to run your apps.
 You can create multiple private spaces, either in the same or different regions.
@@ -12,23 +13,11 @@ You connect your private intranet to your private space to function as a single,
 In each private space, you define:
 
 * A _private network_, which is a virtual cloud where apps deployed to this private space run.
-+
-See xref:ps-create-configure.adoc[].
 * A connection from the private network to your external network, either via Anypoint VPN or a transit gateway connection.
-+
-See xref:ps-create-configure-vpn.adoc[] and xref:ps-create-configure-tgw.adoc[].
 * TLS contexts, which define the domains that are available when deploying apps to the private spaces, and optionally enable mutual TLS.
-+
-See xref:ps-config-domains.adoc[].
 * Firewall rules to allow and block inbound and outbound traffic to your private space.
-+
-See xref:ps-config-fw-rules.adoc[].
 * The environments and business groups to allow to deploy to the private space.
-+
-See xref:ps-config-env.adoc[].
 * Where to forward logs, either Anypoint Monitoring or an external service such as Splunk.
-+
-See xref:ps-config-log-forwarding.adoc[].
 
 // Utilize Anypoint Security Edge policies
 
@@ -87,6 +76,12 @@ By combining firewall rules and TLS context configuration, you can fine-tune how
 == See Also
 
 * xref:ps-create-configure.adoc[]
+* xref:ps-create-configure-vpn.adoc[]
+* xref:ps-create-configure-tgw.adoc[]
 * xref:ps-configure.adoc[]
-* xref:ch2-config-endpoints-paths.adoc[]
+* xref:ps-config-domains.adoc[]
 * xref:ps-config-fw-rules.adoc[]
+* xref:ps-config-env.adoc[]
+* xref:ps-config-log-forwarding.adoc[]
+* xref:ch2-config-endpoints-paths.adoc[]
+
