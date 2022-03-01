@@ -12,8 +12,14 @@ You connect your private intranet to your private space to function as a single,
 In each private space, you define:
 
 * A _private network_, which is a virtual cloud where apps deployed to this private space run.
++
+See xref:ps-create-configure.adoc[].
 * A connection from the private network to your external network, either via Anypoint VPN or a transit gateway connection.
-* *DNS target and TLS context* _need info here_
++
+See xref:ps-create-configure-vpn.adoc[] and xref:ps-create-configure-tgw.adoc[].
+* TLS contexts, which define the domains that are available when deploying apps to the private spaces, and optionally enable mutual TLS.
++
+See xref:ps-config-domains.adoc[].
 * Firewall rules to allow and block inbound and outbound traffic to your private space.
 +
 See xref:ps-config-fw-rules.adoc[].
@@ -48,7 +54,7 @@ A maximum of 95 route table entries is allowed per private space,
 regardless of the number of connections.
 
 
-== Custom Domains and Paths
+== TLS Contexts
 
 Using Transport Layer Security (TLS) contexts, CloudHub 2.0 enables clients to 
 use custom domains and paths to reach apps deployed to private spaces.
@@ -81,5 +87,6 @@ By combining firewall rules and TLS context configuration, you can fine-tune how
 == See Also
 
 * xref:ps-create-configure.adoc[]
+* xref:ps-configure.adoc[]
 * xref:ch2-config-endpoints-paths.adoc[]
 * xref:ps-config-fw-rules.adoc[]

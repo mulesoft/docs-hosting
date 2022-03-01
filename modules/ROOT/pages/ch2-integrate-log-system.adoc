@@ -2,7 +2,7 @@
 
 *THIS IS BASED ON CH 1.0 CONTENT* 
 
-*Last update* 25-Feb-22
+*Last update* 28-Feb-22
 
 You can disable CloudHub 2.0 logs and integrate your CloudHub 2.0 application with your logging system by using the Log4j configuration.
 After you configure logs to flow to both your log system and CloudHub 2.0, disable the default CloudHub 2.0 application logs.
@@ -112,13 +112,14 @@ You must include the appenders in your custom configurations in the `log4j2.xml`
 
 After you configure the Log4j appender, deploy the application to CloudHub 2.0 and follow these steps to disable CloudHub 2.0 logs:
 
-. From Anypoint Platform, select *Runtime Manager*.
-. Click *Applications* in the left menu.
-. Click the *Type* column to display the details pane for the application.
-. Click *Manage Application*.
-. In the *Settings* page, click *Disable CloudHub 2.0 logs*:
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+include::partial$select-private-space.adoc[tag=clickAppName]
+include::partial$select-private-space.adoc[tag=clickSettings]
+. On the *Settings* page, click *Disable CloudHub 2.0 logs*:
 +
 <update screenshot>
++
+*Where will this option appear?*
 +
 // image::cloudhub-disable-logs.png[Disable CloudHub 2.0 logs option in the Applications Settings page]
 . In the *Disabling CloudHub 2.0 logs* confirmation window, select the checkboxes to verify that you want to disable CloudHub 2.0 logs:
@@ -126,10 +127,8 @@ After you configure the Log4j appender, deploy the application to CloudHub 2.0 a
 <update screenshot>
 +
 // image::cloudhub-disable-logs-verify.png[Disabling CloudHub 2.0 logs confirmation window]
-+
-. Click *Apply Changes*.
-. Review your application settings to ensure they are correct.
-. Click *Apply Changes* to restart your application.
+
+. Click *Apply Changes* to create a new configuration for application.
 
 After your application starts, logs start flowing to your custom Log4j appender and are viewable on your target logging system.
 

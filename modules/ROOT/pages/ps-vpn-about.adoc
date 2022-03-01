@@ -99,14 +99,33 @@ Packets might carry a Don't Fragment (`DF`) flag, indicating that the packet mus
 
 == VPN High Availability
 
+Set up a redundant VPN connection to prevent losing connectivity if another 
+VPN or connection device is not available and to allow for maintenance downtime.
+
+The redundant VPN inherits some settings from the initial VPN configuration automatically.
+For example, if the routing type for the initial VPN is dynamic (BGP), the redundant
+VPN is also dynamic.
+
+Other settings, such as the remote ASN for dynamic routing, for the redundant VPN include the values from the initial VPN,
+but you can change the values.
+
 ////
 
 https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-redundant-connection.html
 
 risks of having a VPN that’s not highly available, potential causes, and recommendations on how to address it. We can assume in this case that their VPN uses static routing, so it’s possible that this is intended behavior.
 
-
 ////
+
+=== How VPN Failover Works
+
+*NEED SOME INFORMATION FOR THIS SECTION*
+
+Failover to a redundant VPN depends on the routing type:
+
+* Dynamic (BGP)
+* Static
+
 
 === VPN and Tunnel Status
 
