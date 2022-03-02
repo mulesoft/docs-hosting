@@ -57,7 +57,6 @@ The config label indicates the relative time of deployment, such as 10 hours ago
 
 <screenshot>
 // +
-// .The arrow shows the dropdown to filter log output by deployment.
 // image::ch2-logs-deploy.png[Filter log output by deployment]
 -- 
 
@@ -91,7 +90,6 @@ Click the *Config* dropdown and select the config to view:
 +
 <screenshot>
 // +
-// .The arrow shows the dropdown to filter log output by deployment.
 // image::ch2-logs-deploy.png[Filter log output by deployment]
 
 * *Filter log by replica*
@@ -143,8 +141,6 @@ The *Log Levels* button changes to show the selected number of log levels.
 To download logs based on the current filters, click the download (<icon>) button:
 
 <screenshot>
-
-// .The arrow shows the Download icon to download log output.
 // image::ch2-logs-download.png[Download log output]
 
 CloudHub 2.0 downloads the log output, using the current filters, to a text file in the format `__configID__.-__Date__Replica__.log`.
@@ -186,7 +182,6 @@ To search logs:
 . Enter a value in the search box, or click *Advanced* to search for logs for a specified time, day, date range, and message priority.
 . Click *Apply*.
 +
-.The screenshot shows (*1*) *Advanced* search and (*2*) *Priority* on the *Logs* page.
 image::ch2-logs-search-adv.png[Display Advanced search and Priority on the Logs page]
 
 === Search by Date and Time

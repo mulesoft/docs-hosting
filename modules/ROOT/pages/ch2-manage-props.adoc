@@ -32,9 +32,8 @@ include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSettings]
 include::partial$select-private-space.adoc[tag=clickPropsOnSettings]
 +
-<replace screenshot>
+<update screenshot>
 +
-.The screenshot shows (*1*) the *Properties* tab, (*2*) the *List* button, (*3*) the key and value fields, and (*4*) the *X* icon on the application *Settings* page.
 image::ch2-app-props.png[*Properties* tab, key and value fields, and *X* icon on the application *Settings* page]
 . Click *Table view*.
 +
@@ -79,9 +78,8 @@ include::partial$select-private-space.adoc[tag=clickSettings]
 include::partial$select-private-space.adoc[tag=clickPropsOnSettings]
 . Define the variable by entering it in the *Text view*, in `key=value` format:
 +
-<replace screenshot>
+<update screenshot>
 +
-.The arrow shows the variable on the *Properties* tab of the application *Settings* page.
 image::rtm-env-variables.png[*Properties* tab on the *Settings* page]
 +
 [NOTE]
