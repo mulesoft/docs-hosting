@@ -2,7 +2,7 @@
 
 *This topic is updated to the Private Network Design Specs/UI dated 09-Nov-21*
 
-*Last update* 24-Feb-22
+*Last update* 01-Mar-22
 
 Use Anypoint Runtime Manager to manage private spaces,
 such as adding and removing a route from the route table or
@@ -120,6 +120,32 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 image::vpn-rename.png[Rename option in the VPN menu]
 include::partial$select-private-space.adoc[tag=renameItem]
 
+
+[[change-vpn-connection]]
+== Change VPN Connection Settings
+
+You can change the tunnel initiation behavior after configuring the VPN connection.
+
+This setting applies to all VPNs in this connection and is enabled by default.
+
+[IMPORTANT]
+Modifying the tunnel initiation after VPN creation causes all VPNs in this connection to restart.
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Rename & Options*:
++
+<update screenshot>
++
+image::vpn-view-details.png[View Details option in the VPN menu]
+. Select *Automatic Tunnel Initiation* to specify that VPN starts up automatically.
++
+If you deselect this option, you must generate traffic from the customer gateway
+to establish VPN tunnels.
+. Click *Save & Restart* or *Cancel* to close the *Connection Settings* window.
+
+
 [[view-vpn-status]]
 == View VPN Status
 
@@ -128,6 +154,7 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *View Details*:
 +
+<update screenshot>
 image::vpn-view-details.png[View Details option in the VPN menu]
 . Click *X* to close the *VPN Details* window.
 

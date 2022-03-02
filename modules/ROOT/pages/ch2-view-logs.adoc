@@ -4,6 +4,8 @@
 
 *Will this just be a button to DOWNLOAD logs?*
 
+*This will change based on the updates to the log forwarding capabilities*
+
 ////
 FC: replica, levels, time filters
 GA: thread dumps: trigger, view, prev/next message nav, config menu sort
