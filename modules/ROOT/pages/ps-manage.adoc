@@ -155,6 +155,7 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *View Details*:
 +
 <update screenshot>
++
 image::vpn-view-details.png[View Details option in the VPN menu]
 . Click *X* to close the *VPN Details* window.
 

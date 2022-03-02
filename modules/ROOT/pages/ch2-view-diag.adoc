@@ -36,7 +36,6 @@ include::partial$select-private-space.adoc[tag=clickAppName]
 The page displays any past thread dumps:
 +
 <screenshot>
-+
 * To view logs for a deployment and replica associated with the thread dump, click the *View Logs* link.
 +
 Note that currently on QAX, this link goes to the Applications page, not Logs.
