@@ -8,6 +8,7 @@ include::partial$feature-availability.adoc[tag=featureUnavailable]
 *This topic is updated to Design Spec dated 17-Nov-21*
 *Last update* 11-Jan-22
 
+*This will change based on the updates to the log forwarding capabilities*
 
 ////
 FC: replica, levels, time filters

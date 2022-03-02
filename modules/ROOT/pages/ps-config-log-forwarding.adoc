@@ -4,6 +4,8 @@
 
 *Last update* 10-Feb-22
 
+*This will change based on the updates to the log forwarding capabilities*
+
 // How can we share this content with RTF?
 
 Use options on the *Logging* tab to:

@@ -117,6 +117,27 @@ https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-redundant-connection.html
 
 risks of having a VPN that’s not highly available, potential causes, and recommendations on how to address it. We can assume in this case that their VPN uses static routing, so it’s possible that this is intended behavior.
 
+
+Q: Why would someone choose custom tunnel configuration instead of automatic?
+A: BGP is recommended but not supported by all customer gateways.
+A: Mainly to provide their own secrets (Xuan), but also set the PTP CIDRs for network interfaces for their own router (less common) (Henry)
+Q: If the customer only has one VPN gateway, is there a reason to allow creating two VPNs? What do people do in CloudHub today?
+A: Each customer gateway will only support a single VPN.
+Q: Today in CloudHub, there are cases where we want to update VPNs to a new version, but there’s not a way in the UI for the customer to initiate an update. Do we want to add this functionality for private spaces? Why can’t we update VPNs automatically?
+A: Waiting for responses from AWS to check the frequency of the VPN upgrade. We don’t have to do it for GA. But eventually, we need to have a button/API to upgrade VPN. (Xuan)
+Q: Is it possible for static routes inputted by the user to somehow conflict with existing routes for the VPC?
+A: Yes, it’s possible. I can create two VPNs with conflicting static routes. They can coexists. How it works? It’s the responsibility on the customer’s configuration. (Xuan)
+Q: How should the guidance in these knowledge base articles inform our UI?
+How to Configure High Availability with Anypoint VPN
+This doc recommends configuring customer VPN Gateways to prefer VPN-1 Tunnel-1, then VPN-1 Tunnel-2, then VPN-2 Tunnel-1, then VPN-2 Tunnel-2, using BGP routing.
+Anypoint VPN Path Selection Using BGP Routing
+This doc explains the BGP best path selection algorithm.
+A: This is information for Network Engineers mostly, so they will know how the Anypoint VPN behaves (meaning how the AWS VPN behaves) (Henry)
+Q: Considering the above, since our downloadable guides (see example) aren’t aware of whether the VPN is part of a redundant system, how do we direct network admins to configure gateways/tunnels properly?
+A: Whether a VPN is redundant doesn’t affect the connection process, so we don’t need to change the contents of the connection guides.
+
+
+
 ////
 
 === How VPN Failover Works

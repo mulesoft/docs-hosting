@@ -18,7 +18,6 @@
 **** xref:network-admin-guide.adoc[]
 *** xref:ps-configure.adoc[]
 **** xref:ps-config-domains.adoc[Configuring Domains and Certificates for a Private Space]
-// *** xref:ps-config-clients.adoc[]
 **** xref:ps-config-fw-rules.adoc[]
 **** xref:ps-config-env.adoc[]
 **** xref:ps-config-log-forwarding.adoc[]
