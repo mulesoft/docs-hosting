@@ -150,7 +150,7 @@ Self-managed
 |*Custom notifications* 
 
 *CloudHub Connector*| Supported | Supported | Not supported
-|*Log forwarding* | Supported
+|*Log forwarding* | Not supported
 
 (private space) | Supported
 

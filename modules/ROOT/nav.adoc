@@ -20,7 +20,7 @@
 **** xref:ps-config-domains.adoc[Configuring Domains and Certificates for a Private Space]
 **** xref:ps-config-fw-rules.adoc[]
 **** xref:ps-config-env.adoc[]
-**** xref:ps-config-log-forwarding.adoc[]
+// **** xref:ps-config-log-forwarding.adoc[]
 **** xref:ps-config-advanced.adoc[Configuring Advanced Private Space Settings]
 *** xref:ps-manage.adoc[]
 // *** xref:ps-troubleshoot.adoc[Troubleshooting Private Spaces]

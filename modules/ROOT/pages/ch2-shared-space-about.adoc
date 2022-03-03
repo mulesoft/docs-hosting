@@ -20,7 +20,7 @@ Any of the following features and functionality requires a private space:
 * Network connection (VPN or transit gateway attachment) to a data center
 * Vanity domain names
 * Custom certificates
-* Log forwarding
+// * Log forwarding
 
 == See Also
 

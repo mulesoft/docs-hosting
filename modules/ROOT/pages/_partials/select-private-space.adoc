@@ -43,3 +43,8 @@
 // tag::clickDiagnostics[]
 . In the navigation menu, click *Diagnostics*.
 // end::clickDiagnostics[]
+
+// CLICK ADVANCED
+// tag::clickAdvanced[]
+. Click the *Advanced* tab.
+// end::clickAdvanced[]
