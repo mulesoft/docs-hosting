@@ -2,11 +2,14 @@
 
 *This topic is updated to the UI*
 
-*Last update* 20-Jan-22
+*Last update* 03-Mar-22
 
 // How can we share this content with RTF?
 
 You deploy apps to a private space using Runtime Manager.
+
+[IMPORTANT]
+include::partial$caveats.adoc[tag=supportedMule]
 
 [[deploy-app-private-space]]
 == Deploy an App to a Private Space
