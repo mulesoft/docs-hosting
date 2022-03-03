@@ -258,7 +258,7 @@ Self-managed
 4+h|Application Logging
 |View logs in control plane per worker/replica|Yes|No|Yes
 |Download logs per worker/replica|Yes|No|Yes
-|Forward application logs|Yes|Yes|Yes
+|Forward application logs|Yes|Yes|No
 |Specify log levels, filtered by Java package|Yes|No|Yes
 4+h|Flow Scheduling
 |Manage a flow running on a schedule (trigger/enable/disable/control frequency)|Yes|No|No
