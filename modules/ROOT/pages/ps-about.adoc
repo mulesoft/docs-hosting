@@ -17,7 +17,7 @@ In each private space, you define:
 * TLS contexts, which define the domains that are available when deploying apps to the private spaces, and optionally enable mutual TLS.
 * Firewall rules to allow and block inbound and outbound traffic to your private space.
 * The environments and business groups to allow to deploy to the private space.
-* Where to forward logs, either Anypoint Monitoring or an external service such as Splunk.
+// * Where to forward logs, either Anypoint Monitoring or an external service such as Splunk.
 
 // Utilize Anypoint Security Edge policies
 
