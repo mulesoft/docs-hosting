@@ -1,6 +1,6 @@
 = Gathering Required Setup Information
 
-*Last update* 14-Feb-22
+*Last update* 02-Mar-22
 
 Use the following sections to gather the information you'll need to set up your private space.
 For information about private spaces, see xref:ps-about.adoc[].
@@ -25,7 +25,7 @@ The following two sections provide the same information in different formats:
 ////
 
 [[setup-info-private-space]]
-== Information Required to Set Up a Private Space
+== Information Required to Set Up a Private Space (List)
 
 The following list summarizes the information required to set up a private space.
 For details about each requirement, see the sections that follow.
@@ -54,21 +54,21 @@ For details about each requirement, see the sections that follow.
 * *<<static-vpn-routing,Static Routing Type>>*
 ** <<Local ASN>> (_first VPN only_)
 ** <<static-ip-prefixes,Static IP prefixes>> 
-* *Automatic Tunnel Configuration* (_no configuration required_)
-* *<<custom-tunnel-configuration,Custom Tunnel Configuration>>* (_optional_)
+* *<<advanced-tunnel-configuration,Advanced Tunnel Configuration>>* (_optional_)
 
 ** Tunnel 1
 
-*** <<inside-ip-cidrs,Inside IP CIDR>>
-*** <<preshared-keys,Pre-shared key>>
+*** <<inside-ip-cidrs,Inside IP CIDRs>>
+*** <<preshared-keys,Pre-shared keys>>
 ** Tunnel 2
-*** <<inside-ip-cidrs,Inside IP CIDR>>
-*** <<preshared-keys,Pre-shared key>>
+*** <<inside-ip-cidrs,Inside IP CIDRs>>
+*** <<preshared-keys,Pre-shared keys>>
+** <<auto-tunnel-initiation,Automatic Tunnel Initiation>> (_first VPN only_)
 
-** *Supported Gateway Devices*
-*** <<supported-gateway-devices,Device vendor>>
-*** <<supported-gateway-devices,Device platform>>
-*** <<supported-gateway-devices,Device software>>
+* <<supported-gateway-devices,*Supported Gateway Devices*>>
+** Device vendor
+** Device platform
+** Device software
 --
 
 
@@ -83,21 +83,20 @@ For details about each requirement, see the sections that follow.
 * *<<static-vpn-routing,Static Routing Type>>*
 
 ** <<static-ip-prefixes,Static IP prefixes>> 
-* *Automatic Tunnel Configuration* (_no configuration required_)
-* *<<custom-tunnel-configuration,Custom Tunnel Configuration>>* (_optional_)
+* *<<advanced-tunnel-configuration,Advanced Tunnel Configuration>>* (_optional_)
 
 ** Tunnel 1
 
-*** <<inside-ip-cidrs,Inside IP CIDR>>
-*** <<preshared-keys,Pre-shared key>>
+*** <<inside-ip-cidrs,Inside IP CIDRs>>
+*** <<preshared-keys,Pre-shared keys>>
 ** Tunnel 2
-*** <<inside-ip-cidrs,Inside IP CIDR>>
-*** <<preshared-keys,Pre-shared key>>
+*** <<inside-ip-cidrs,Inside IP CIDRs>>
+*** <<preshared-keys,Pre-shared keys>>
 
-** *Supported Gateway Devices*
-*** <<supported-gateway-devices,Device vendor>>
-*** <<supported-gateway-devices,Device platform>>
-*** <<supported-gateway-devices,Device software>>
+* <<supported-gateway-devices,*Supported Gateway Devices*>>
+** Device vendor
+** Device platform
+** Device software
 --
 
 *Transit Gateway Attachment Connection Type*::
@@ -134,23 +133,22 @@ For details about each requirement, see the sections that follow.
 |*<<dynamic-vpn-routing,Dynamic Routing Type>>* | <<remote-asn>> 3+|
 ^.^|*_OR_* 4+|
 |*<<static-vpn-routing,Static Routing Type>>* | <<static-ip-prefixes>> 3+|
-|*Automatic Tunnel Configuration* 4+| (_no configuration required_)
- .4+|*<<custom-tunnel-configuration,Custom Tunnel Configuration>>* (_optional_)   .2+| Tunnel 1 | <<inside-ip-cidrs,Inside IP CIDR>> 2+|
+.5+|*<<advanced-tunnel-configuration,Advanced Tunnel Configuration>>* (_optional_) .2+| Tunnel 1 | <<inside-ip-cidrs,Inside IP CIDR>> 2+|
                                                 | <<preshared-keys>> 2+|
               .2+| Tunnel 2 | <<inside-ip-cidrs,Inside IP CIDR>> 2+|
                                                  | <<preshared-keys>> 2+|
+    |<<auto-tunnel-initiation,Automatic Tunnel Initiation>> (_first VPN only_) 3+|
 .3+|*<<supported-gateway-devices,Gateway Device>>*|Vendor 3+|
 |Platform  3+|
 |Software  3+|
 6+h|Redundant VPN Setup
-.14+|| <<vpn-name, VPN name>> 4+|
-| <<remote-ip-address>> 4+|
+.13+|| <<vpn-name, VPN name>> 4+|
+|<<remote-ip-address>> 4+|
 |<<local-asn>> 4+|
 |*<<dynamic-vpn-routing,Dynamic Routing Type>>* | <<remote-asn>> 3+|
 ^.^|*_OR_* 4+|
 |*<<static-vpn-routing,Static Routing Type>>* | <<static-ip-prefixes>> 3+|
-|*Automatic Tunnel Configuration* 4+| (_no configuration required_)
- .4+|*<<custom-tunnel-configuration,Custom Tunnel Configuration>>* (_optional_)   .2+| Tunnel 1 | <<inside-ip-cidrs,Inside IP CIDR>> 2+|
+ .4+|*<<advanced-tunnel-configuration,Advanced Tunnel Configuration>>* (_optional_)   .2+| Tunnel 1 | <<inside-ip-cidrs,Inside IP CIDR>> 2+|
                                                 | <<preshared-keys>> 2+|
               .2+| Tunnel 2 | <<inside-ip-cidrs,Inside IP CIDR>> 2+|
                                                  | <<preshared-keys>> 2+|
@@ -306,8 +304,9 @@ The total number of characters for all configured domains is 229.
 * <<local-asn>>
 * <<remote-asn>> (dynamic routing only)
 * <<static-ip-prefixes>> (static routing only)
-* <<inside-ip-cidrs>> (custom tunnel configuration only)
-* <<preshared-keys>> (custom tunnel configuration only)
+* <<inside-ip-cidrs>> (advanced tunnel configuration only)
+* <<preshared-keys>> (advanced tunnel configuration only)
+* <<auto-tunnel-initiation>> (advanced tunnel configuration only)
 * <<supported-gateway-devices>>
 
 [[vpn-name]]
@@ -417,15 +416,14 @@ A maximum of 95 route table entries is allowed per private network,
 regardless of the number of VPN connections.
 To avoid exceeding the limit, consolidate networks to the fewest number possible.
 
-[[custom-tunnel-configuration]]
-=== Custom Tunnel Configuration (Optional)
+[[advanced-tunnel-configuration]]
+=== Advanced Tunnel Configuration (Optional)
 
-Select custom tunnel configuration if you want to specify custom values for
-inside IP CIDRs and pre-shared keys.
+You can customize the tunnel configuration if you want to specify
+custom values for inside IP CIDRs and pre-shared keys, or if you want to
+disable automatic tunnel initiation.
 
-Any values that you don't specify are autogenerated.
-
-If you select automatic tunnel configuration, all values are auto-generated.
+Any values that you don't specify are set to the default.
 
 [[inside-ip-cidrs]]
 ==== Inside IP CIDRs
@@ -469,6 +467,18 @@ For each tunnel, enter a value of between 8-64 characters that does not begin wi
 Use only alphanumeric characters, periods (.), and underscores (&#95;). 
 
 
+[[auto-tunnel-initiation]]
+==== Automatic Tunnel Initiation
+
+By default, VPN tunnels are initiated automatically. 
+
+If you deselect this option, you must generate traffic from the customer gateway
+to establish VPN tunnels.
+
+This setting applies to all VPNs in the connection and the option isn't available for subsequent redundant VPNs.
+
+[NOTE]
+Modifying the tunnel initiation after VPN creation causes all VPNs in this connection to restart.
 
 [[supported-gateway-devices]]
 === Supported Gateway Devices
