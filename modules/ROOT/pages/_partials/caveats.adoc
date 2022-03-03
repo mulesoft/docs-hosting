@@ -9,3 +9,8 @@ required for future VPN connections using BGP for this private space.
 //tag::noRenameApp[]
 You cannot change the name of an app after you deploy it. To change the name, you must delete and redeploy the app using the new name.
 // end::noRenameApp[]
+
+//tag::supportedMule[]
+CloudHub 2.0 supports Mule runtime engine versions 4.x and above.
+Mule 3.x is not supported.
+// end::supportedMule[]

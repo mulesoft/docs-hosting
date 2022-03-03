@@ -1,56 +1,42 @@
-= Upgrading CloudHub 1.0 to CloudHub 2.0
+= Upgrading from CloudHub 1.0 to CloudHub 2.0
 
 include::partial$feature-availability.adoc[tag=featureUnavailableBeta]
 
-*Last update* 07-Feb-22
+*Last update* 03-Mar-22
 
 CloudHub 2.0 provides the ability to upgrade your existing Anypoint VPC in CloudHub 1.0 to a private space.
 
-When you upgrade Anypoint VPC to a private space, CloudHub 2.0 creates the new private space using the following settings from the VPC:
+When you upgrade Anypoint VPC to a private space, CloudHub 2.0 creates the new private space
+preserving the following settings from the VPC:
 
 * Name
 * CIDR and subnet ranges
 * Geographical region
+* Transit gateway attachments
+* VPN connections
 * Business group and environment association
 * Inbound firewall rules
 
-[IMPORTANT]
-The upgrade does not apply the domain and certificate (TLS Context) configuration to the new private space.
-
 All existing continuous (time series-based) and discrete (events-based) alerts on CloudHub 1.0 deployments automatically carry over to their respective CloudHub 2.0 deployments.
+
+The upgrade does not preserve:
+
+* Domain and certificate (TLS context) configuration from the dedicated load balancer (DLB).
+* *Anything else?*
 
 You can create one private space per Anypoint VPC.
 
 == Upgrade Overview
 
-The steps to upgrade to CloudHub 2.0 are:
+. <<upgrade-vpc,Upgrade Anypoint VPC to a private space.>>
+. <<create-tls-context,Create the TLS context>> (if you use the DLB in CloudHub 2.0).
+. <<deploy-apps,Deploy apps to the new private space.>>
 
-. Educate
-+
-Learn about the upgrade process, and when you can upgrade.
-. Prepare
-+
-Take steps prior to initiating the upgrade.
-. Initiate
-+
-Start the upgrade. This creates a new set of deployments on CloudHub 2.0, while preserving the existing deployments on CloudHub 1.0. 
-. Verify
-+
-Test the CloudHub 2.0 deployments and configuration.
-. Complete
-+
-Confirm that the upgrade completed successfully and remove the CloudHub 1.0 deployments, experience, and entitlements.
-. Pause or roll back
-+
-If the upgrade fails the Verify step, any granted upgrade-related entitlements are paused and the Support team is notified.
-
-== Prerequisites
-
-
-
+[[upgrade-vpc]]
 == Upgrade Anypoint VPC to a Private Space
 
-We recommend that you upgrade and verify your non-production (Sandbox) environments before upgrading your production environment.
+We recommend that you upgrade and verify your non-production (Sandbox) environments 
+before upgrading your production environment.
 
 To upgrade a CloudHub 1.0 Anypoint VPC to a CloudHub 2.0 private space:
 
@@ -59,25 +45,39 @@ To upgrade a CloudHub 1.0 Anypoint VPC to a CloudHub 2.0 private space:
 . In the details pane, click *Upgrade to Private Space*.
 . Enter the name for the private space and click *Upgrade Now*.
 +
-CloudHub 2.0 creates the new private space and adds it to the *Private Spaces* page.
+CloudHub 2.0 verifies the upgrade eligibility for the VPC.
+For information, see <<vpc-upgrade-requirements>>.
++
+If the VPC is eligible, CloudHub 2.0 creates the new private space and adds it to the *Private Spaces* page.
++
+<screenshot>
++
 The networking configuration can take up to 30 minutes to complete.
-+
+
 After the private space is created:
-+
+
 * The new private space is available in the same business group as the VPC.
 * Both the private space and VPC have access to the Anypoint VPN and transit gateway connections. 
 * You can continue to manage the upgraded Anypoint VPC.
 * Any apps deployed to CloudHub 1.0 continue running unaffected.
-However, the *Delete VPC* option is no longer available for the VPC.
-. After the private space is created, create the TLS context.
-+
+* The *Delete VPC* option is no longer available for the VPC.
+
+[[create-tls-context]]
+== Create the TLS Context
+
+If you configured a DLB in CloudHub 1.0,
+create the TLS context.
+
 For information, see xref:ps-config-domains.adoc[].
 
 
-== Upgrade Apps
+[[deploy-apps]]
+== Deploy Apps to CloudHub 2.0
 
-CloudHub 2.0 supports Mule runtime engine versions 4.x and above.
-Mule 3.x is not supported.
+[IMPORTANT]
+include::partial$caveats.adoc[tag=supportedMule]
+
+
 To upgrade an app to CloudHub 2.0, deploy it to the new private space.
 See xref:ch2-deploy-private-space.adoc[].
 
@@ -85,31 +85,45 @@ A copy of the app is deployed to a private space.
 All traffic continues to go to the CloudHub 1.0 version of the app.
 
 You can test the app in CloudHub 2.0 using its own endpoints.
-When you are ready to switch to CloudHub 2.0, you can direct all traffic to the app in CloudHub 2.0.
+When you are ready to switch to CloudHub 2.0, direct all traffic to the app in CloudHub 2.0.
 At this point, all endpoints that used to reach CloudHub 1.0 now belong to the CloudHub 2.0 app.
-They can keep the CH1 app around and revert this action if issues arise.
+If issues arise, you can revert this action.
 
-
-== Troubleshoot Upgrades to Private Space
+[[vpc-upgrade-requirements]]
+== VPC Upgrade Requirements
 
 The following Anypoint VPCs are not be eligible to upgrade to a private space:
 
 * Network connectivity:
-* * Anypoint VPC doesn't have enough IPs available.
+** Anypoint VPC doesn't have enough IPs available. *How many is enough?*
 ** Anypoint VPC uses deprecated availability zones (AZ).
-** Infrastructure deprecated
-+
-Is this the same as deprecated AZs?
+** Infrastructure deprecated *Is this the same as deprecated AZs?*
+** Anypoint VPC uses legacy VPN connections:
+*** Legacy VPN
+*** VPC peering
+*** AWS Direct Connect
+* DLB
+** Anypoint VPC DLB uses static IPs
+** Anypoint VPC DLB uses TLS 1.0. *Does this mean that the CH 1.0 DLB uses TLS 1.0?*
+
+
+== Troubleshoot Upgrades to Private Space
+
+*REMOVE THIS SECTION AS THERE IS NOTHING THE CUSTOMER CAN DO TO MITIGATE THESE ISSUES(?)*
+
+The following Anypoint VPCs are not be eligible to upgrade to a private space:
+
+* Network connectivity:
+** Anypoint VPC doesn't have enough IPs available. *How many is enough?*
+** Anypoint VPC uses deprecated availability zones (AZ).
+** Infrastructure deprecated *Is this the same as deprecated AZs?*
 ** Anypoint VPC uses legacy VPN connections:
 *** Legacy VPN
 *** VPC peering
 *** AWS Direct Connect
 * Dedicated Load Balancer (DLB)
 ** Anypoint VPC dedicated load balancer (DLB) uses static IPs
-** Anypoint VPC DLB uses TLS 1.0.
-+
-Does this mean that the CH 1.0 DLB uses TLS 1.0?
-
+** Anypoint VPC DLB uses TLS 1.0. *Does this mean that the CH 1.0 DLB uses TLS 1.0?*
 
 
 === VPC Has Too Few IPs
@@ -126,7 +140,6 @@ rather than upgrading an existing Anypoint VPC.
 
 If the VPC uses legacy VPNs (provisioned manually by MuleSoft Support), 
 you must migrate to Anypoint VPN before upgrading to CloudHub 2.0.
-
 
 === VPC uses VPC Peering
 

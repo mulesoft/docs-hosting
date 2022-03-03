@@ -9,7 +9,9 @@ You must be logged into your Anypoint Platform account to see the example assets
 . From Anypoint Platform, select *Exchange*.
 . From the *All assets* list, select *Provided by MuleSoft*.
 . From the *All types* menu, select *Examples*.
-. Click an app to download, for example, *Hello World*. 
+. Click an app to download, for example, *Hello World*.
++
+include::partial$caveats.adoc[tag=supportedMule]
 . Click *Download*:
 +
 image::exchange-app-download.png[Download button in Exchange]

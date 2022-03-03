@@ -1,6 +1,6 @@
 = Features of CloudHub 2.0
 
-*This topic will be replaced with an updated version of https://docs.mulesoft.com/general/intro-platform-hosting#support-matrix-for-runtime-plane-hosting-options[Support Matrix for Runtime Plane Hosting Options].*
+*This topic will (eventually) be replaced with an updated version of https://docs.mulesoft.com/general/intro-platform-hosting#support-matrix-for-runtime-plane-hosting-options[Support Matrix for Runtime Plane Hosting Options].*
 
 CloudHub 2.0 includes many of the features from CloudHub 1.0 and Runtime Fabric on-premises.
 
@@ -150,7 +150,7 @@ Self-managed
 |*Custom notifications* 
 
 *CloudHub Connector*| Supported | Supported | Not supported
-|*Log forwarding* | Not supported
+|*Log forwarding* | Manual
 
 | Supported
 

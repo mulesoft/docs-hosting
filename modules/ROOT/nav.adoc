@@ -38,3 +38,4 @@
 *** xref:ch2-view-diag.adoc[Viewing Diagnostic Data for Deployed Apps]
 *** xref:ch2-custom-alerts.adoc[Configuring Custom Notifications and Application Alerts]
 ** xref:ch2-api.adoc[CloudHub 2.0 REST API]
+** xref:ch2-upgrade-vpc-to-ps.adoc[]
