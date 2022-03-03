@@ -152,7 +152,7 @@ Self-managed
 *CloudHub Connector*| Supported | Supported | Not supported
 |*Log forwarding* | Not supported
 
-(private space) | Supported
+| Supported
 
 (per app) | Manual
 |*Message broker*|Fully managed 
