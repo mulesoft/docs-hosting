@@ -1,31 +1,32 @@
 = CloudHub 2.0 REST API
 
-*Last update* 01-Mar-22
+*Last update* 02-Mar-22
 
-* Private Spaces
+Added all the endpoints from https://github.com/mulesoft/rtf-management-service/blob/master/assets/raml/public/api.raml[GitHub].
+
+* *Private Spaces*
 ** Get the list of private spaces in the organization.
 ** Create a private space.
 ** Delete the private space.
 ** Get the private space. *What does this mean?*
 ** Update an existing private space.
 
-* Connections
+* *Connections*
 ** Get the list of connections inside the private space.
 ** Create a private space connection. *What is this?*
 ** Delete the private space connection. 
 ** Get the private space connection.
 ** Update an existing private space connection.
+** Download the connection guide for a VPN connection.
 
-* VPN
+* *VPN*
 ** Add a VPN to an existing connection.
 ** Delete a VPN from a connection.
 ** Update a VPN connection.
 ** Get supported VPN configurations.
 
-* Connection Guide
-** Download the connection guide for a VPN connection.
 
-* TGW
+* *Transit Gateway Attachments*
 ** Get list of TGW connections associated with a private space.
 ** Create a private space TGW connection.
 ** Delete the private space TGW connection.
@@ -37,7 +38,7 @@
 ** Remove private space TGW connection.
 ** Get TGW routes configured for a gateway.
 
-* Log Forwarding
+* *Log Forwarding*
 ** Get the log forwarding configuration information.
 ** Update the log forwarding configuration.
 ** Send test message to validate the end-to-end connectivity.
@@ -45,29 +46,52 @@
 ** Get the specific configuration of a supported external log forwarding schema.
 ** Get the log forwarding config information.
 ** Update the Anypoint log forwarding config.
-** Deletes the external and Anypoint Monitoring log forwarding.
-** Configure the external log forwarding.
+** Deletes external and Anypoint Monitoring log forwarding configuration.
+** Configure external log forwarding.
 ** Deletes the external log forwarding configuration.
-* TLS Contexts
+
+* *TLS Contexts*
 ** Get the list of TLS contexts inside the private space.
 ** Create a TLS context.
 ** Delete the TLS context.
 ** Get the TLS context.
 ** Update an existing TLS context.
-* Runtime Fabrics
+
+* *Runtime Fabrics*
 ** Get the list of Runtime Fabrics in the organization.
 ** Runtime Fabric register endpoint.
+** Delete associated apps.
 ** Get capacity information about the runtime fabric for an environment.
 ** Update existing fabric.
-* Mule Runtime 
+** Get a detailed health check for the Runtime Fabric.
+** Get the list of Runtime Fabric Groups.
+** Get the list of environment associations.
+** Create a new environment association.
+** Update an existing environment association.
+** Retrieve short-lived credential to allow pulling Runtime Fabric Docker images.
+** Retrieve properties related to image registry.
+
+* *Upgrade Compatibility* 
+** Get pre-upgrade compatibility check status and optionally limit the scope of the pre-check operation.
+** Run the pre-upgrade compatibility checks.
+
+* *Mule Runtime*
 ** Retrieve all supported Mule versions.
 +
 The first version returned is the most recent, recommended version, and the last version returned is the oldest supported version
 ** Retrieve a single name. *what?*
 ** Retrieves tags for a name. *what?*
 ** Retrieve a single name for a name. *what?*
-* Downloads
+
+* *Downloads*
 ** List the available downloads.
+** Download the latest installer scripts.
+** Download the latest installer package
+** Get the pre-signed URL of the latest installer package.
+** Download the latest Runtime Fabric agent helm chart.
+** Download the latest rtfctl binary.
+
+////
 
 
 == CloudHub 1.0 
@@ -114,7 +138,9 @@ The CloudHub 2.0 management API (CloudHub 2.0 API) enables you to programmatical
 ** Users, including permissions
 ** Available domain names
 
+////
 
+<update link>
 
 For an interactive reference that includes supported resources, methods, required properties, and expected responses, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-api/[CloudHub 2.0 API^] (Link out from Beta docs).
 
@@ -137,16 +163,45 @@ To access operations in the CloudHub 2.0 API, you must:
 include::partial$ch2-api-authenticate.adoc[]
 
 
-
 === Deploy an App
 
-Martin?
+To deploy an app to CloudHub 2.0, run the following `curl` command:
+
+----
+curl -X GET \
+
+Need example code here
+
+----
+
+*Martin?*
 
 === Modify an Attribute in a Private Space
 
-Xuan?
+
+To modify an attribute in a private space, run the following `curl` command:
+
+----
+curl -X GET \
+Need example code here
+
+----
+
+*Xuan?*
+
 
 === Add a Firewall Rule 
+
+
+To add a firewall rule to a private space, run the following `curl` command:
+
+----
+curl -X GET \
+Need example code here
+
+----
+
+
 
 === Get a List of Applications
 
@@ -165,9 +220,11 @@ curl -X GET \
 
 == Data Format
 
-Resources and methods that return or accept a type use the JSON data format.
+*CH 1 Content* 
 
-*CH 1.0 example*
+*DO THESE APPLY TO CH2?*
+
+Resources and methods that return or accept a type use the JSON data format.
 
 Here is an example of data received in JSON format in response to a request to get an application:
 
@@ -219,6 +276,10 @@ Here is an example of data received in JSON format in response to a request to g
 
 == Rate Limits
 
+*CH 1 Content* 
+
+*DO THESE APPLY TO CH2?*
+
 The CloudHub 2.0 management API enforces global usage limits, with some exceptions.
 
 
@@ -262,6 +323,10 @@ When the app reaches the rate limit, CloudHub 2.0 returns the status codes shown
 
 == Status Codes and Error Handling
 
+*CH 1 Content* 
+
+*DO THESE APPLY TO CH2?*
+
 When you call the CloudHub 2.0 API, the following status codes are returned:
 
 [%header,cols="10a,50a"]
@@ -295,8 +360,6 @@ Date: Mon, 10 Aug 2015 00:12:55 GMT
   message : "Some error message."
 }
 ----
-
-
 
 
 == See Also

@@ -1,5 +1,7 @@
 = Transit Gateway Attachments
 
+include::partial$feature-availability.adoc[tag=featureUnavailable]
+
 
 AWS Transit Gateway acts as a cloud router in AWS, simplifying network access between private spaces,
 on-premises data centers, and third-party software, while providing increased visibility and control over the network.

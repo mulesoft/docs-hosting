@@ -1,5 +1,7 @@
 = Upgrading CloudHub 1.0 to CloudHub 2.0
 
+include::partial$feature-availability.adoc[tag=featureUnavailableBeta]
+
 *Last update* 07-Feb-22
 
 CloudHub 2.0 provides the ability to upgrade your existing Anypoint VPC in CloudHub 1.0 to a private space.
