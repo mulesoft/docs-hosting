@@ -13,8 +13,6 @@ You connect your private intranet to your private space to function as a single,
 In each private space, you define:
 
 * A _private network_, which is a virtual cloud where apps deployed to this private space run.
-+
-See xref:ps-create-configure.adoc[].
 * A connection from the private network to your external network, either via Anypoint VPN or a transit gateway connection.
 * TLS contexts, which define the domains that are available when deploying apps to the private spaces, and optionally enable mutual TLS.
 * Firewall rules to allow and block inbound and outbound traffic to your private space.
