@@ -11,3 +11,8 @@ This functionality is not yet available on QAX.
 This feature won't be available for internal validation.
 // end::featureUnavailableBeta[]
 
+// Functionality not available for GA
+// tag::featureUnavailableGA[]
+[NOTE]
+This feature won't be available for GA.
+// end::featureUnavailableGA[]

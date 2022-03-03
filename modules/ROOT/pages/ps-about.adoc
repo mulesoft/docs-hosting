@@ -82,6 +82,6 @@ By combining firewall rules and TLS context configuration, you can fine-tune how
 * xref:ps-config-domains.adoc[]
 * xref:ps-config-fw-rules.adoc[]
 * xref:ps-config-env.adoc[]
-* xref:ps-config-log-forwarding.adoc[]
+// * xref:ps-config-log-forwarding.adoc[]
 * xref:ch2-config-endpoints-paths.adoc[]
 

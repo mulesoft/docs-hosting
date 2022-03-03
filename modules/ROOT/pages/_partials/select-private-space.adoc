@@ -38,3 +38,9 @@
 // tag::clickPropsOnSettings[]
 . On the *Settings* page, click the *Properties* tab.
 // end::clickPropsOnSettings[]
+
+
+// CLICK ADVANCED
+// tag::clickAdvanced[]
+. Click the *Advanced* tab.
+// end::clickAdvanced[]
