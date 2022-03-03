@@ -45,7 +45,7 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, click the Private Network menu (*...*) and select *Delete*:
 +
-*The UI on QAX does not have this option.*
+<update screenshot>
 +
 image::private-network-delete.png[Delete option in the Private Network menu]
 . Click *Delete* to confirm the deletion.

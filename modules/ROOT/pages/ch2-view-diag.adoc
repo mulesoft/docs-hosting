@@ -37,8 +37,6 @@ The page displays any past thread dumps:
 +
 <screenshot>
 * To view logs for a deployment and replica associated with the thread dump, click the *View Logs* link.
-+
-Note that currently on QAX, this link goes to the Applications page, not Logs.
 * To download a thread dump, click the *Download* button.
 
 CloudHub 2.0 saves the diagnostic output to a text file in the format `__appName__-instance-__instanceID__-__replicaNumber__Date__-diag.txt`. 
