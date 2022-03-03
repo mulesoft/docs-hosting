@@ -46,11 +46,7 @@ Logs from before the last updated time appear in the previous deployments sectio
 Each message includes the severity, time (relative and absolute), and replica name.
 
 * To open the currently selected deployment in Anypoint Monitoring, click *View in Monitoring*.
-+
-*The UI on QAX does not have this option.*
 * To view logs for past deployments, click the *Past deployments* dropdown and select the deployment.
-+
-*The UI on QAX does not have this option.*
 * To view logs for a different config, click the *Config* dropdown and select the config.
 
 The config label indicates the relative time of deployment, such as 10 hours ago.
@@ -72,12 +68,8 @@ and log levels.
 To change any of these elements, click *X* in the *Search* field to exit the search results and enter a new term.
 . Click the next <icon> and previous <icon> buttons to navigate the search results:
 +
-*The UI on QAX does not have this option.*
-+
 <screenshot>
 . Click a log message to view it in context.
-+
-*The UI on QAX does not have this functionality.*
 +
 Click *Search Results* to return to the search results.
 
@@ -96,8 +88,6 @@ Click the *Config* dropdown and select the config to view:
 +
 Hover over a log message and select *Hide Others*:
 +
-*The UI on QAX does not have this option.*
-+
 <screenshot>
 +
 Click a replica name to filter by replica?
@@ -108,11 +98,7 @@ To clear the replica filter, click the *X* button for the selected replica.
 +
 Click *Time Range*, select the date range, and optionally time, and click *Apply*.
 +
-*The UI on QAX does not have this option.*
-+
 Alternatively, click *Show Latest Messages*:
-+
-*The UI on QAX does not have this option.*
 +
 <screenshot>
 +

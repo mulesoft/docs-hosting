@@ -50,8 +50,6 @@ If you want to:
 
 ** Hide the value in Runtime Manager, click *Protect* and then click *Protect value* to confirm.
 +
-*The UI on QAX does not have this option.*
-+
 See xref:ch2-protect-app-props.adoc[].
 ** Change a key or value, edit the text in the field.
 ** Delete a property, click *...* > *Delete property*.

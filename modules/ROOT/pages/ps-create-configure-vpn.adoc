@@ -2,8 +2,6 @@
 
 *This topic is updated to the VPN Design Specs dated 08-Nov-21*
 
-*The Design Spec shows the tab as Network; the UI says Private network.*
-
 *Last update* 01-Mar-22
 
 
@@ -19,9 +17,6 @@ except the static IP prefixes for static routing.
 
 [[create-vpn]]
 == Create a VPN
-
-*The UI on QAX is different because TGW is not implemented yet.*
-
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
