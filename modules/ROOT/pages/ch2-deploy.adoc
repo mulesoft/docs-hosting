@@ -2,7 +2,6 @@
 
 (needs an intro)
 
-
-* xref:ch2-deploy-private-space.adoc[]
 * xref:ch2-deploy-shared-space.adoc[]
+* xref:ch2-deploy-private-space.adoc[]
 * xref:ch2-download-test-app.adoc[]
