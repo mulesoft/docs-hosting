@@ -37,6 +37,7 @@ image::rtm-get-from-exchange.png[Get from Exchange page]
 *** <<configure-endpoint-path,Configure endpoints and paths for the app>>.
 *** <<app-properties,Change app behavior with properties>>.
 *** <<enable-tls-v1,Enable TLS v1 and TLS v1.1>>.
+*** <<disable-logging,Disable app logs and metrics>>..
 // *** <<forward-logs,Forward logs to other services>>.
 
 . Click *Deploy Application*. 
@@ -174,10 +175,22 @@ include::partial$deployment.adoc[tag=changeAppProperties,leveloffset=+1]
 // == Enable TLS v1 and TLS v1.1
 include::partial$deployment.adoc[tag=enableTLSv1,leveloffset=+1]
 
+
+[[disable-logging]]
+=== Disable Logging for the App
+
+Logging is enabled by default for apps deployed to private space.
+
+To disable logging and metrics for the app, click the *Logging* tab and deselect 
+the logging option:
+
+* Titanium subscribers: *Enable application logs and metrics*
+* Non-Titanium subscribers: *Enable application logs*
+
+
 ////
 
 include::partial$feature-availability.adoc[tag=featureUnavailableGA]
-
 [[forward-logs]]
 == Forward Logs to Other Services
 
