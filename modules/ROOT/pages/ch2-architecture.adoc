@@ -69,7 +69,7 @@ Replica sizes have different compute, memory, and storage capacities.
 --
 You can scale replicas vertically by selecting one of the available vCore sizes:
 
-[%header,cols="3*a"]
+[%header,cols="5*a"]
 |===
 |vCores |vCPU | vCPU Burst | Heap Memory | Storage
 |0.05 |0.05 | 2 |500 MB  | 8 GB

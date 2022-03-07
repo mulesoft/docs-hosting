@@ -33,6 +33,7 @@ To ensure that each endpoint name is unique, use the `app-name` placeholder in t
 or the path if the domain doesn't include a wildcard.
 
 To configure two public endpoints:
+
 . xref:ch2-deploy-private-space.adoc[Deploy the app to a private space].
 . Click the *Ingress* tab.
 . Configure the first endpoint:
