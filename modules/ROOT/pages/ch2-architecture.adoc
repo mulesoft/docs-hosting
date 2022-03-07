@@ -66,24 +66,27 @@ The memory capacity and processing power of a replica depends on how you configu
 
 Replica sizes have different compute, memory, and storage capacities.
 
-*THIS IS ALL TBD for CloudHub 2.0*::
-+
 --
 You can scale replicas vertically by selecting one of the available vCore sizes:
 
 [%header,cols="3*a"]
 |===
-|vCore Size |Heap Memory | Storage
-|0.1 vCores |500 MB | 8 GB
-|0.2 vCores |1 GB | 8 GB
-|1 vCore |1.5 GB | 12 GB
-|2 vCores |3.5 GB | 40 GB
-|4 vCores |7.5 GB | 88 GB
-|8 vCores |15 GB | 168 GB
-|16 vCores |32 GB | 328 GB
+|vCores |vCPU | vCPU Burst | Heap Memory | Storage
+|0.05 |0.05 | 2 |500 MB  | 8 GB
+|0.07 |0.07 | 2 |650 MB  | 8 GB
+|0.1  |0.1  | 2 |800 MB  | 8 GB
+|0.2  |0.2  | 2 |1 GB    | 8 GB
+|0.5  |0.5  | 2 |1.25 GB | 10 GB
+|1.0  |1    | 2 |1.5 GB  | 12 GB
+|1.5  |1.5  | 2 | GB     | 24 GB
+|2.0  |2    |   |3.5 GB  | 40 GB
+|2.5  |2.5  |   |4 GB    | 50 GB
+|3.0  |3    |   |4.5 GB  | 60 GB
+|3.5  |3.5  |   |5 GB    | 70 GB
+|4.0  |4    |   |7.5 GB  | 88 GB
 |===
 
-Replicas with 0.1 vCores and 0.2 vCores:
+Replicas with less than 1.0 vCores:
 
 * Provide limited CPU and I/O for apps with smaller workloads
 * Can burst to higher CPU speeds for a short time
@@ -91,23 +94,22 @@ Replicas with 0.1 vCores and 0.2 vCores:
 This ability helps to improve application startup times and to process infrequent, large workloads.
 If you need consistent performance, use replicas with more vCores.
 
-Replicas with 1 or more vCores:
-
-* Provide performance consistency
-* Are available only for Mule version 3.6.2 or later, or API gateway version 2.0.2 or later
+Replicas with 1 or more vCores provide performance consistency.
 
 Each replica has a minimum of 8 GB of storage, which is used for both system and application storage.
 If your application requires more storage (for example, verbose logging), use a replica with two or more vCores, enabling the application to access additional storage in `/tmp`.
 
 Only running applications count toward replica usage.
 
-If your applications require more vCores than are available, CloudHub 2.0 allows you to create the application, but you cannot start it until the additional vCores become available.
+If your applications require more vCores than are available,
+CloudHub 2.0 allows you to create the application, but you cannot start it until the additional vCores become available.
 To increase vCore allocation, stop another application or contact your account manager to increase your subscription's vCore allocation.
 
-The metaspace limit for apps deployed to CloudHub 2.0 is currently 256 MB, regardless of the replica size.
+The metaspace limit for apps deployed to CloudHub 2.0 is currently 256 MB,
+regardless of the replica size.
 The initial metaspace size is 128 MB; metaspace garbage collection begins after the metaspace reaches that threshold.
 
-You can scale your applications horizontally by adding multiple replicas(?)s and using Anypoint MQ for persistent queues.
+You can scale your applications horizontally by adding multiple replicass and using Anypoint MQ for persistent queues.
 See xref:ch2-clustering.adoc#replica-scale-out[Replica Scale-out] and 
 https://docs.mulesoft.com/mq/[Anypoint MQ^] (Link out from Beta docs).
 

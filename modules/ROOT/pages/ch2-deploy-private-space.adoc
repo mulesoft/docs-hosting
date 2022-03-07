@@ -37,7 +37,7 @@ image::rtm-get-from-exchange.png[Get from Exchange page]
 *** <<configure-endpoint-path,Configure endpoints and paths for the app>>.
 *** <<app-properties,Change app behavior with properties>>.
 *** <<enable-tls-v1,Enable TLS v1 and TLS v1.1>>.
-*** <<disable-logging,Disable app logs and metrics>>..
+*** <<disable-logging,Disable app logs and metrics>>.
 // *** <<forward-logs,Forward logs to other services>>.
 
 . Click *Deploy Application*. 
