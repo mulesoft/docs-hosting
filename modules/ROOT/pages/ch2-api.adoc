@@ -140,12 +140,15 @@ The CloudHub 2.0 management API (CloudHub 2.0 API) enables you to programmatical
 
 ////
 
-<update link>
 
 For an interactive reference that includes supported resources, methods, required properties, and expected responses, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-api/[CloudHub 2.0 API^] (Link out from Beta docs).
 
+<update link>
+
+
 The CloudHub 2.0 API manages only applications deployed to CloudHub 2.0.
 To manage on-premises applications using the API, see https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/arm-rest-services[Runtime Manager REST Services^] (Link out from Beta docs).
+
 
 
 == Use the CloudHub 2.0 API
@@ -271,8 +274,6 @@ Here is an example of data received in JSON format in response to a request to g
   ...
 }
 ----
- ////
-
 
 == Rate Limits
 

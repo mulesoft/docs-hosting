@@ -1,7 +1,7 @@
 = Deploying Apps to Shared Spaces
 
 
-*This topic is updated to the UI*
+*This topic is updated to the UI on QAX*
 
 *Last update* 03-Mar-22
 
