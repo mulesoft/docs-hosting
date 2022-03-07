@@ -1,6 +1,6 @@
 = Deploying Apps to Private Spaces
 
-*This topic is updated to the UI*
+*This topic is updated to the UI on QAX*
 
 *Last update* 03-Mar-22
 
@@ -79,7 +79,6 @@ Resource allocation::
 * *CPU Limit*: Specify a value between `0.02` and `3.7` vCPU.
 * *Memory*: Specify a value between `0.7` and `14.5` GB.
 --
-
 
 
 [[configure-endpoint-path]]

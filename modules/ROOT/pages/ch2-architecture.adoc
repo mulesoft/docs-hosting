@@ -86,7 +86,7 @@ You can scale replicas vertically by selecting one of the available vCore sizes:
 |4.0    |4    |   |7.5 GB  | 88 GB
 |===
 
-Replicas with less than 1.0 vCores:
+Replicas with fewer than 1.0 vCores:
 
 * Provide limited CPU and I/O for apps with smaller workloads
 * Can burst to higher CPU speeds for a short time

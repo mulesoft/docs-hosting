@@ -2,7 +2,7 @@
 
 *This topic is updated to the Private Network Design Specs/UI dated 09-Nov-21*
 
-*Last update* 01-Mar-22
+*Last update* 07-Mar-22
 
 Use Anypoint Runtime Manager to manage private spaces,
 such as adding and removing a route from the route table or
@@ -27,9 +27,8 @@ You can't undo this action.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the Private Space menu (*...*) and select *Delete*:
-+
-image::ps-delete.png[Delete option in the Private Space menu]
-
+// +
+// image::ps-delete.png[Delete option in the Private Space menu]
 . Click *Delete* to confirm the deletion.
 
 [[delete-private-network]]
@@ -46,8 +45,8 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, click the Private Network menu (*...*) and select *Delete*:
 +
 <update screenshot>
-+
-image::private-network-delete.png[Delete option in the Private Network menu]
+// +
+// image::private-network-delete.png[Delete option in the Private Network menu]
 . Click *Delete* to confirm the deletion.
 
 [[add-remove-routes]]
