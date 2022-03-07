@@ -72,18 +72,18 @@ You can scale replicas vertically by selecting one of the available vCore sizes:
 [%header,cols="5*a"]
 |===
 |vCores |vCPU | vCPU Burst | Heap Memory | Storage
-|0.05 |0.05 | 2 |500 MB  | 8 GB
-|0.07 |0.07 | 2 |650 MB  | 8 GB
-|0.1  |0.1  | 2 |800 MB  | 8 GB
-|0.2  |0.2  | 2 |1 GB    | 8 GB
-|0.5  |0.5  | 2 |1.25 GB | 10 GB
-|1.0  |1    | 2 |1.5 GB  | 12 GB
-|1.5  |1.5  | 2 | GB     | 24 GB
-|2.0  |2    |   |3.5 GB  | 40 GB
-|2.5  |2.5  |   |4 GB    | 50 GB
-|3.0  |3    |   |4.5 GB  | 60 GB
-|3.5  |3.5  |   |5 GB    | 70 GB
-|4.0  |4    |   |7.5 GB  | 88 GB
+|0.05   |0.05 | 2 |500 MB  | 8 GB
+|0.07   |0.07 | 2 |650 MB  | 8 GB
+|0.1    |0.1  | 2 |800 MB  | 8 GB
+|0.2    |0.2  | 2 |1 GB    | 8 GB
+|0.5    |0.5  | 2 |1.25 GB | 10 GB
+|1.0    |1    | 2 |1.5 GB  | 12 GB
+|1.5    |1.5  | 2 |2 GB    | 24 GB
+|2.0    |2    |   |3.5 GB  | 40 GB
+|2.5    |2.5  |   |4 GB    | 50 GB
+|3.0    |3    |   |4.5 GB  | 60 GB
+|3.5    |3.5  |   |5 GB    | 70 GB
+|4.0    |4    |   |7.5 GB  | 88 GB
 |===
 
 Replicas with less than 1.0 vCores:
