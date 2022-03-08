@@ -21,6 +21,7 @@ include::partial$select-private-space.adoc[tag=renameItem]
 == Delete a Private Space
 
 You can't delete a private space if it has any related private network, VPNs, or transit gateway attachments.
+
 You can't undo this action.
 
 //SELECT PRIVATE SPACE SHARED
@@ -34,10 +35,10 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 [[delete-private-network]]
 == Delete a Private Network 
 
-Deleting a private network also deletes its external network connection (VPN or transit gateway attachment).
-You can't undo this action.
+You can't delete a private network if any apps are deployed to it or if any
+connections exist.
 
-You can't delete a network if it is currently in use.
+You can't undo this action.
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
@@ -53,17 +54,19 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 == Add or Remove a Route from the Route Table
 
 Routes determine how to direct traffic from your private space, for example,
-to the public internet or through a transit gateway.
+to the public internet or through a connection (VPN or transit gateway).
 
 You might want to add a route to enable a new subnet to be accessible or remove a route if you no longer want a subnet to be accessible through the transit gateway.
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. On the *Network* tab, in the *Private network* section, click *Edit Routes*:
+. On the *Network* tab, in the *Private Network* section, click *Route Table*:
 +
 <screenshot>
 // image::tgw-add-vpc-route.png[Add VPC route]
++
+The route table shows all routes for the private space.
 +
 --
 ** Add a route by entering the subnet in CIDR notation, selecting the connection,
@@ -88,7 +91,7 @@ If the *X* icon doesn't appear for a route, you can't remove it.
 +
 You can remove routes for static VPN connections. 
 --
-. Click *Done*.
+. Click *Done* to close the route table.
 
 Anypoint Platform submits the new route to AWS.
 
