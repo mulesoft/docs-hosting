@@ -1,6 +1,6 @@
 = Creating Private Spaces
 
-*This topic is updated to the Private Network Design Specs dated 09-Nov-21*
+*This topic is updated to the Private Space (03-Nov) and Private Network (08-Nov) Design Specs*
 
 *Last update* 07-Mar-22
 
@@ -24,6 +24,7 @@ The page shows any private spaces associated with the selected business group.
 [IMPORTANT]
 You can't change the private network configuration after it's created.
 To change the configuration, delete the private space and create it again.
+See xref:ps-manage.adoc[].
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]

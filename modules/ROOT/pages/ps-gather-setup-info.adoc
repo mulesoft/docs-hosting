@@ -1,6 +1,6 @@
 = Gathering Required Setup Information
 
-*Last update* 02-Mar-22
+*Last update* 07-Mar-22
 
 Use the following sections to gather the information you'll need to set up your private space.
 For information about private spaces, see xref:ps-about.adoc[].
@@ -243,14 +243,16 @@ include::partial$create-config.adoc[tag=cidrBlock,leveloffset=+2]
 
 
 [[internal-dns-server]]
-=== Internal DNS Server (Optional)
+=== Internal DNS Servers (Optional)
 
-To enable apps deployed to a private space to access
-internal resources that are not reachable from the public internet, 
-configure domain resolution for your internal networks.
+If your corporate network uses internal DNS servers to resolve requests to
+custom domains, you must configure those servers to enable apps deployed
+to a private space to access internal resources that are not reachable 
+from the public internet.
 
-To configure the internal DNS server, specify the IP address for your internal 
-domain server and the internal domains that you want to access from the private space.
+To configure internal DNS servers, specify the IP addresses for your internal 
+domain servers and the domains that you want to be resolved by internal DNS.
+
 The private space resolves the domains using the specified DNS server, 
 enabling you to use internal host names in your private network
 as long as your applications use the FQDN to request back-end resources. 
@@ -258,7 +260,8 @@ as long as your applications use the FQDN to request back-end resources.
 [[server-ip-addresses]]
 ==== Server IP Addresses
 
-The _Server IP addresses_ identify the internal name servers that respond to DNS queries for the specified internal domains.
+The _Server IP addresses_ identify the internal DNS servers that resolve requests
+to custom domains.
 
 To provide redundancy, you can configure multiple internal DNS servers.
 
@@ -283,7 +286,9 @@ _Domains_ identify the internal domains that must be accessible from the private
 The configured internal DNS servers resolve the specified domains, and the 
 external DNS server resolves all other domains.
 
-To specify an internal domain, use the second-level domain name, such as `mulesoft.com`.
+To configure an internal domain, specify the IP address.
+
+// To specify an internal domain, use the second-level domain name, such as `mulesoft.com`.
 
 [NOTE]
 The total number of characters for all configured domains is 229.
