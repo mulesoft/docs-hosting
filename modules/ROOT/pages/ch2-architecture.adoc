@@ -1,5 +1,7 @@
 = CloudHub 2.0 Architecture
 
+*Last update* 07-Mar-22
+
 To understand CloudHub 2.0 security and availability, you should understand the architecture behind CloudHub.
 
 CloudHub 2.0 architecture comprises two major components: Anypoint Platform services and shared global regions.
