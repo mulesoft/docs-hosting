@@ -1,6 +1,6 @@
 = Managing Private Spaces
 
-*This topic is updated to the Private Network Design Specs/UI dated 09-Nov-21*
+*This topic is updated to the Private Network (09-Nov)/VPN Connections (08-Nov) Design Specs/UI*
 
 *Last update* 07-Mar-22
 
@@ -15,6 +15,9 @@ detaching a transit gateway from the private space.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the Private Space menu (*...*) and select *Rename*.
++
+<screenshot>
+
 include::partial$select-private-space.adoc[tag=renameItem]
 
 [[delete-private-space]]
@@ -28,6 +31,8 @@ You can't undo this action.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the Private Space menu (*...*) and select *Delete*:
++
+<screenshot>
 // +
 // image::ps-delete.png[Delete option in the Private Space menu]
 . Click *Delete* to confirm the deletion.
@@ -45,7 +50,7 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, click the Private Network menu (*...*) and select *Delete*:
 +
-<update screenshot>
+<screenshot>
 // +
 // image::private-network-delete.png[Delete option in the Private Network menu]
 . Click *Delete* to confirm the deletion.
@@ -108,7 +113,8 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the Connections menu (*...*) and select *Rename*:
 +
-image::connection-rename.png[Rename option in the Connections menu]
+<screenshot>
+// image::connection-rename.png[Rename option in the Connections menu]
 include::partial$select-private-space.adoc[tag=renameItem]
 
 [[rename-vpn]]
@@ -119,7 +125,8 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Rename*:
 +
-image::vpn-rename.png[Rename option in the VPN menu]
+<screenshot>
+// image::vpn-rename.png[Rename option in the VPN menu]
 include::partial$select-private-space.adoc[tag=renameItem]
 
 
@@ -138,14 +145,19 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Rename & Options*:
 +
-<update screenshot>
+<screenshot>
+// +
+// image::vpn-view-details.png[View Details option in the VPN menu]
+. On the *Connection Settings* page, you can:
 +
-image::vpn-view-details.png[View Details option in the VPN menu]
-. Select *Automatic Tunnel Initiation* to specify that VPN starts up automatically.
+* Enter a new name for the VPN connection.
+* Expand *Advanced Options* to change the *Automatic Tunnel Initiation* option.
++
+Enable this option to specify that VPN starts up automatically.
 +
 If you deselect this option, you must generate traffic from the customer gateway
 to establish VPN tunnels.
-. Click *Save & Restart* or *Cancel* to close the *Connection Settings* window.
+. Click *Save* (or *Save & Restart* if you modified the *Automatic Tunnel Initiation* option) or *Cancel* to close the *Connection Settings* window.
 
 
 [[view-vpn-status]]
@@ -156,13 +168,28 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *View Details*:
 +
-<update screenshot>
-+
-image::vpn-view-details.png[View Details option in the VPN menu]
+<screenshot>
+// +
+// image::vpn-view-details.png[View Details option in the VPN menu]
 . Click *X* to close the *VPN Details* window.
 
+[[create-redundant-vpn]]
+== Create Redundant VPN
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Create Redundanct VPN*:
++
+<screenshot>
+// +
+// image::vpn-view-details.png[View Details option in the VPN menu]
+. Follow the steps in xref:ps-create-configure-vpn.adoc#create-redundant-vpn[Create a Redundant VPN].
+
 [[delete-vpn]]
-== Delete a VPN  
+== Delete a VPN
+
+Deleting the last VPN in a connection removes the entire connection.
 
 You can't undo this action.
 
@@ -171,7 +198,8 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Delete*:
 +
-image::vpn-delete.png[Delete option in the VPN menu]
+<screenshot>
+// image::vpn-delete.png[Delete option in the VPN menu]
 . Click *Delete* to confirm the deletion.
 
 [[rename-tgw]]
