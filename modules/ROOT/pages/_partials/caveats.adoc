@@ -2,8 +2,8 @@
 // Local ASN
 // tag::localAsnNote[]
 Although the local ASN isn't used for static routing, 
-you must specify this value when you create the first VPN because it's
-required for future VPN connections using BGP for this private space.
+you must specify this value when you create the first VPN because it is
+required for any future VPN connections using BGP for this private space.
 // end::localAsnNote[]
 
 //tag::noRenameApp[]

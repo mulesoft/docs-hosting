@@ -2,7 +2,7 @@
 
 *This topic is updated to the VPN Design Specs dated 08-Nov-21*
 
-*Last update* 01-Mar-22
+*Last update* 07-Mar-22
 
 
 == Prerequisites
@@ -22,11 +22,11 @@ except the static IP prefixes for static routing.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, *Create Connection*.
-. On the *Create Connection* page, select *VPN* and enter the xref:ps-gather-setup-info.adoc#vpn-name[name] in the *Connection Name* field.
+. On the *Create Connection* page, select *VPN*, enter the xref:ps-gather-setup-info.adoc#vpn-name[name] in the *Connection Name* field, and click *Next*.
 +
 // Shared Connection Name
 include::partial$create-config.adoc[tag=connectionNameReqs]
-. On the *Create VPN* page, enter the 
+. On the *Create VPN Connection* page, enter the 
 xref:ps-gather-setup-info.adoc#remote-ip-address[remote IP address] (a single, static IP address) for your VPN endpoint.
 . Select the routing type:
 +
@@ -35,6 +35,8 @@ Select this option if your device supports Border Gateway Protocol (BGP).
 BGP supports automatic failover for redundant connections.
 +
 .. In the *Local ASN* field, enter a xref:ps-gather-setup-info.adoc#local-asn[local private ASN] that isn't already assigned to your network.
++
+If you have already created a VPN in this private space, the *Create VPN Connection* page doesn't display the *Local ASN* field.
 .. In the *Remote ASN* field, enter a xref:ps-gather-setup-info.adoc#remote-asn[private ASN].
 +
 xref:ps-gather-setup-info.adoc#static-vpn-routing[Static]::
@@ -44,26 +46,27 @@ Select this option if your device doesn't support BGP.
 +
 include::partial$caveats.adoc[tag=localAsnNote]
 +
-If you have already created a VPN in this private space, the *Create VPN* page doesn't display the *Local ASN* field.
-+
 .. In the *Static Routes* field, specify the (comma-separated) xref:ps-gather-setup-info.adoc#static-ip-prefixes[static IP prefixes] in CIDR notation.
 +
 Click *Show Existing Routes for this Network* to view the existing routes for the private network.
++
+<screenshot>
 . If you want to customize the tunnel configuration:
 +
 --
 .. Expand *Advanced Options* and specify:
 
-*** The xref:ps-gather-setup-info.adoc#inside-ip-cidrs[IP ranges] (in CIDR format) for the internal address of each VPN tunnel.
-*** The xref:ps-gather-setup-info.adoc#preshared-keys[pre-shared keys] (PSKs) for each VPN tunnel.
+*** xref:ps-gather-setup-info.adoc#inside-ip-cidrs[IP ranges] (in CIDR format) for the internal address of each VPN tunnel.
+*** xref:ps-gather-setup-info.adoc#preshared-keys[Pre-shared keys] (PSKs) for each VPN tunnel.
 
-.. Select xref:ps-gather-setup-info.adoc#auto-tunnel-initiation[*Automatic Tunnel Initiation*] to specify that VPN starts up automatically.
+.. Select xref:ps-gather-setup-info.adoc#auto-tunnel-initiation[*Automatic Tunnel Initiation*] to specify that the VPN starts up automatically.
++
+If you deselect this option, you must generate traffic from the customer gateway to establish VPN tunnels.
 +
 If you have already created a VPN in this private space, this option isn't available.
 --
 +
 Any tunnel configuration values that you don't customize are set to the default.
-
 . Click *Create VPN*. 
 +
 The VPN can take up to 15 minutes to create.
@@ -74,16 +77,55 @@ After the VPN creation completes successfully, the tunnel status is *Down* until
 <<connect-vpn,connect the VPN to your corporate network>>:
 +
 <update screenshot>
-+
-image::vpn-down.png[Tunnel status in the VPN section]
+// +
+// image::vpn-down.png[Tunnel status in the VPN section]
 +
 Connecting the VPN involves configuring your gateway device. 
 +
 If the VPN creation fails, click *Create VPN* to try again.
 . <<test-connection,Test the connection>> from your private space to the VPN.
 
+
+[[connect-vpn]]
+== Connect a VPN to Your Corporate Network 
+
+To connect the VPN to your corporate network, you or your network administrator must configure
+your gateway device outside of Anypoint Platform.
+
+To facilitate this configuration, you provide information about your gateway device, which
+Anypoint Platform uses to generate a connection guide to use to configure your device. 
+
+After the VPN connection creation completes, the *Create VPN Connection* window
+displays the *Connect VPN* step:
+
+<screenshot>
+
+You can also display this page from the *Network* tab by clicking the VPN menu (*...*) and selecting *View Connection Guide*.
+
+. Select options from the drop-down lists:
++
+** *Device Vendor*
+** *Device Platform*
+** *Device Software*
+
++
+See xref:ps-gather-setup-info.adoc#supported-gateway-devices[Supported Gateway Devices].
+. Click *Download Connection Guide*.
++
+The connection guide, in `.txt` format, downloads to your local system.
+. Give the connection guide to your network administrator to use to configure your gateway device.
++
+For information, see https://docs.aws.amazon.com/vpc/latest/adminguide/Welcome.html[Your customer gateway device^] in the AWS VPN documentation.
+
 [[create-redundant-vpn]]
 == Create a Redundant VPN
+
+If only one VPN has been configured, the *Network* tab displays an option 
+to create a redundant VPN. 
+
+MuleSoft strongly recommends that you create a redundant VPN. 
+For information,
+see xref:ps-vpn-about.adoc#vpn-ha[VPN High Availability].
 
 Redundant VPNs inherit some settings from the intial VPN configuration automatically.
 
@@ -94,7 +136,7 @@ After you create a redundant VPN, you can't change any of the settings.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, click *Create Redundant VPN*.
-. On the *Create Redundant VPN* page, complete the fields, based on the routing type of the initial VPN:
+. On the *Create Redundant VPN Connection* page, complete the fields, based on the routing type of the initial VPN:
 +
 Dynamic (BGP)::
 +
@@ -108,7 +150,7 @@ Static::
 In the *Remote IP* field, enter the public IP address 
 (a single, static IP address that isn't used by other VPNs) of your VPN endpoint.
 +
-Because you have already created a VPN in this private space, the *Create VPN* page doesn't display the *Local ASN* field.
+Because you have already created a VPN in this private space, the *Create Redundant VPN Connection* page doesn't display the *Local ASN* field.
 
 . If you want to customize the tunnel configuration, expand *Advanced Options* and specify:
 +
@@ -126,31 +168,7 @@ Any tunnel configuration values that you don't customize are set to the default.
 
 The redundant VPN can take up to 15 minutes to create.
 
-If the redundant VPN creation fails, click *Create VPN* to try again.
-
-[[connect-vpn]]
-== Connect a VPN to Your Corporate Network 
-
-To connect the VPN to your corporate network, you or your network administrator must configure
-your gateway device outside of Anypoint Platform.
-
-To facilitate this configuration, you provide information about your gateway device, which
-Anypoint Platform uses to generate a connection guide to use to configure your device. 
-
-
-//SELECT PRIVATE SPACE SHARED
-include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. On the *Network* tab, click the VPN menu (*...*) and select *View Connection Guide*.
-. On the *VPN Connection Guide* page, select the *Device vendor*, *Device platform*, and *Device software* from the drop-down lists.
-. Click *Download Guide*.
-+
-The connection guide, in `.txt` format, downloads to your local system.
-. Give the connection guide to your network administrator to use to configure your gateway device.
-+
-For information, see https://docs.aws.amazon.com/vpc/latest/adminguide/Welcome.html[Your customer gateway device^] in the AWS VPN documentation.
-
-
+If the redundant VPN creation fails, click *Create Redundant VPN* to try again.
 
 [[test-connection]]
 == Test the Connection to Your Private Space
@@ -164,3 +182,4 @@ For download and usage information about the Network Tools application, see http
 == See Also 
 
 * xref:ps-gather-setup-info.adoc[]
+* xref:ps-vpn-about.adoc[]
