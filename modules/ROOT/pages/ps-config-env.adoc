@@ -2,7 +2,7 @@
 
 *This topic is updated to the Design Spec dated 09-Nov-21*
 
-*Last update* 10-Feb-22
+*Last update* 09-Mar-22
 
 Before you can deploy to a private space, you must specify the environments and at least one business group to associate with it.
 This association specifies in which environments the private space appears as 
@@ -47,9 +47,10 @@ The list includes the business group and its child business groups to which the 
 --
 . To remove a business group, click the *X* for the entry:
 +
-image::bg-delete.png[Delete icon on the Environments tab]
+<screenshot>
+// image::bg-delete.png[Delete icon on the Environments tab]
 
-. Click *Save environments* or *Discard changes*.
+. Click *Save Changes* or *Discard Changes*.
 
 == Manage Resources for a Business Group
 
@@ -58,8 +59,7 @@ To view or manage resources associated with a business group:
 . From Anypoint Platform, select *Access Management* > *Business Groups*, and then click the business group.
 . Click the *Settings* tab.
 . In the *Resources* section, view or modify the allocation for a resource, such as *Production vCores*.
-. Click *Save Changes*.
-
+. Click *Save Changes* or *Discard Changes*.
 
 
 == See Also 
