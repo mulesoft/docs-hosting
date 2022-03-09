@@ -49,7 +49,7 @@ You can enable and disable either or both features of clustering in one of two w
 * When you deploy an application to CloudHub 2.0 for the first time using Runtime Manager
 * On the *Deployment Target* tab in Runtime Manager for a previously deployed application
 
-Use the dropdown menus on the *Deployment Target* tab to select the vCore options for your application and to configure the computing power that you need.
+Use the drop-down menus on the *Deployment Target* tab to select the vCore options for your application and to configure the computing power that you need.
 
 See xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas] for more information about deploying to multiple replicas.
 

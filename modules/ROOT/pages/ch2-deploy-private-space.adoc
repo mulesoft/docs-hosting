@@ -93,7 +93,7 @@ To configure endpoints for the app to enable access from the internet:
 Public endpoint::
 +
 --
-* *Domain*: Select the domain, such as `cloudhub.io`, for the app from the dropdown.
+* *Domain*: Select the domain, such as `cloudhub.io`, for the app from the drop-down list.
 +
 [NOTE]
 If you select `cloudhub.io` (the default domain), you can't select a subdomain or path.

@@ -22,7 +22,7 @@ To associate environments in the business group or groups with the private space
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the *Environments* tab.
-. Select the environments from the dropdown list:
+. Select the environments from the drop-down list:
 +
 --
 ** *All environments*
@@ -35,7 +35,7 @@ Associates the private space with only sandbox environments in the business grou
 +
 Associates the private space with only production environments in the business group and its children.
 --
-. Select the business groups from the dropdown list:
+. Select the business groups from the drop-down list:
 +
 --
 ** *This business group and its children*

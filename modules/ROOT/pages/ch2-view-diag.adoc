@@ -17,8 +17,8 @@ To run a thread dump:
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
-. In the navigation menu, click *Diagnostics*.
-. Click *Run Thread Dump* and select the active replica to trigger the thread dump from the dropdown.
+include::partial$select-private-space.adoc[tag=clickDiagnostics]
+. Click *Run Thread Dump* and select the active replica to trigger the thread dump from the drop-down list.
 +
 <screenshot>
 CloudHub 2.0 runs the thread dump and displays the latest thread dump at the top of the list.

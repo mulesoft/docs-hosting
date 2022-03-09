@@ -58,7 +58,7 @@ More verbose log levels might affect performance.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 include::partial$select-private-space.adoc[tag=clickAdvanced]
-. Select the default <<ingress-load-balancer-log-levels,log level>> from the dropdown list.
+. Select the default <<ingress-load-balancer-log-levels,log level>> from the drop-down list.
 . Click *Save Changes* or *Discard Changes*.
 
 [[configure-custom-ingress-load-balancer-log-levels]]
@@ -75,7 +75,7 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 include::partial$select-private-space.adoc[tag=clickAdvanced]
 . Configure custom log levels.
 +
-.. Enter the IP address and select the <<ingress-load-balancer-log-levels,log level>> from the dropdown list.
+.. Enter the IP address and select the <<ingress-load-balancer-log-levels,log level>> from the drop-down list.
 .. Click *Add IP Address* to enter additional custom log levels.
 .. To remove a custom log level, click trash can icon (*Delete*) for the entry.
 // +

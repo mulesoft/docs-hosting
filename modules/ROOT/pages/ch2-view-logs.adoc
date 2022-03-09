@@ -50,8 +50,8 @@ Logs from before the last updated time appear in the previous deployments sectio
 Each message includes the severity, time (relative and absolute), and replica name.
 
 * To open the currently selected deployment in Anypoint Monitoring, click *View in Monitoring*.
-* To view logs for past deployments, click the *Past deployments* dropdown and select the deployment.
-* To view logs for a different config, click the *Config* dropdown and select the config.
+* To view logs for past deployments, click the *Past deployments* drop-down list and select the deployment.
+* To view logs for a different config, click the *Config* drop-down list and select the config.
 
 The config label indicates the relative time of deployment, such as 10 hours ago.
 
@@ -82,7 +82,7 @@ Click *Search Results* to return to the search results.
 
 * Filter logs by config ID
 +
-Click the *Config* dropdown and select the config to view:
+Click the *Config* drop-down menu and select the config to view:
 +
 <screenshot>
 // +
