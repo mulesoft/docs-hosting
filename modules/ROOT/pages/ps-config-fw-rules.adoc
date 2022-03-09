@@ -29,7 +29,7 @@ You can't delete this rule.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the *Firewall Rules* tab.
-. Configure default rules for inbound traffic by selecting the *Protocol* and *Source* from the dropdown lists:
+. Configure default rules for inbound traffic by selecting the *Protocol* and *Source* from the drop-down lists:
 +
 --
 Protocol::
@@ -49,7 +49,7 @@ This option is available only if a private network exists in the private space.
 Enter a custom CIDR in the field.
 
 --
-. Configure default rules for outbound traffic by selecting the *Protocol* and *Destination* from the dropdown lists:
+. Configure default rules for outbound traffic by selecting the *Protocol* and *Destination* from the drop-down lists:
 +
 --
 

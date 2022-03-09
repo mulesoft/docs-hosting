@@ -74,7 +74,7 @@ To configure the public endpoint for the app to enable access from the internet:
 . Click the *Ingress* tab and specify the following options:
 +
 Public endpoint::
-* *Domain*: Select the domain, such as `cloudhub.io`, for the app from the dropdown.
+* *Domain*: Select the domain, such as `cloudhub.io`, for the app from the drop-down list.
 +
 [NOTE]
 *THIS NOTE IS pure supposition*

@@ -190,7 +190,7 @@ To trigger a notification for an app deployed to CloudHub 2.0:
 The page displays an error message and sends a new notification to Runtime Manager.
 . On the Runtime Manager *Applications* page, click the red bell icon to display the notification.
 +
-image::alerts-custom-rtm-notification-error.png[Error in the notifications dropdown]
+image::alerts-custom-rtm-notification-error.png[Error in the notifications drop-down menu]
 
 If the notification is sent after an exception, it includes `exception.message` and `exception.stacktrace` as custom properties of the notification,
 accessible from Runtime Manager.

@@ -145,7 +145,7 @@ JKS format::
 . Enter the password used to access the keystore file.
 +
 CloudHub 2.0 validates the password against the keystore.
-. Select an alias from the dropdown.
+. Select an alias from the drop-down list.
 +
 Selecting an alias displays a summary of the alias.
 +
@@ -250,7 +250,7 @@ and then choose a new keystore file to upload.
 . Enter the password used to access the keystore file.
 +
 CloudHub 2.0 validates the password against the keystore.
-. Select an alias from the dropdown.
+. Select an alias from the drop-down list.
 +
 You can select a different alias without replacing the keystore file.
 + 
