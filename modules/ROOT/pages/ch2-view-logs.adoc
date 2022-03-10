@@ -1,14 +1,6 @@
 = Viewing Log Data for Deployed Apps
 
-include::partial$feature-availability.adoc[tag=featureUnavailable]
-
-
-*Will this just be a button to DOWNLOAD logs?*
-
-*This topic is updated to Design Spec dated 17-Nov-21*
-*Last update* 11-Jan-22
-
-*This will change based on the updates to the log forwarding capabilities*
+*Last update* 09-Mar-22
 
 ////
 FC: replica, levels, time filters
@@ -131,7 +123,11 @@ To download logs based on the current filters, click the download (<icon>) butto
 <screenshot>
 // image::ch2-logs-download.png[Download log output]
 
-CloudHub 2.0 downloads the log output, using the current filters, to a text file in the format `__configID__.-__Replica__.log`.
+CloudHub 2.0 downloads the log output, using the current filters, to a text file in the format *_TBD_*.
+
+// `__configID__.-__Date__Replica__.log`.
+// *PLEASE CONFIRM FILE NAMING*
+
 Use a text editor to view the log file.
 
 //// 
