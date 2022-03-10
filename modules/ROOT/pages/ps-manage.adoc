@@ -2,7 +2,9 @@
 
 *This topic is updated to the Private Network (09-Nov)/VPN Connections (08-Nov) Design Specs/UI*
 
-*Last update* 07-Mar-22
+*To do: final TGW spec updates*
+
+*Last update* 09-Mar-22
 
 Use Anypoint Runtime Manager to manage private spaces,
 such as adding and removing a route from the route table or
@@ -242,6 +244,8 @@ Detaching a transit gateway might take several minutes.
 
 [[remove-tgw]]
 == Remove a Transit Gateway Attachment
+
+*Is this option no longer available?*
 
 You might want to remove a transit gateway attachment for the following reasons:
 
