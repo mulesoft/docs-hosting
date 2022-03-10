@@ -1,6 +1,6 @@
 = CloudHub 2.0 Architecture
 
-*Last update* 07-Mar-22
+*Last update* 09-Mar-22
 
 To understand CloudHub 2.0 security and availability, you should understand the architecture behind CloudHub.
 
@@ -68,24 +68,23 @@ The memory capacity and processing power of a replica depends on how you configu
 
 Replica sizes have different compute, memory, and storage capacities.
 
---
 You can scale replicas vertically by selecting one of the available vCore sizes:
 
 [%header,cols="5*a"]
 |===
-|vCores |vCPU | vCPU Burst | Heap Memory | Storage
-|0.05   |0.05 | 2 |500 MB  | 8 GB
-|0.07   |0.07 | 2 |650 MB  | 8 GB
-|0.1    |0.1  | 2 |800 MB  | 8 GB
-|0.2    |0.2  | 2 |1 GB    | 8 GB
-|0.5    |0.5  | 2 |1.25 GB | 10 GB
-|1.0    |1    | 2 |1.5 GB  | 12 GB
-|1.5    |1.5  | 2 |2 GB    | 24 GB
-|2.0    |2    |   |3.5 GB  | 40 GB
-|2.5    |2.5  |   |4 GB    | 50 GB
-|3.0    |3    |   |4.5 GB  | 60 GB
-|3.5    |3.5  |   |5 GB    | 70 GB
-|4.0    |4    |   |7.5 GB  | 88 GB
+|vCore Size |vCPU | vCPU Burst | Heap Memory | Storage
+|0.05       |0.05 | 2          | 500 MB      | 8 GB
+|0.07       |0.07 | 2          |650 MB       | 8 GB
+|0.1        |0.1  | 2          |800 MB       | 8 GB
+|0.2        |0.2  | 2          |1 GB         | 8 GB
+|0.5        |0.5  | 2          |1.25 GB      | 10 GB
+|1.0        |1    | 2          |1.5 GB       | 12 GB
+|1.5        |1.5  | 2          |2 GB         | 24 GB
+|2.0        |2    |            |3.5 GB       | 40 GB
+|2.5        |2.5  |            |4 GB         | 50 GB
+|3.0        |3    |            |4.5 GB       | 60 GB
+|3.5        |3.5  |            |5 GB         | 70 GB
+|4.0        |4    |            |7.5 GB       | 88 GB
 |===
 
 Replicas with fewer than 1.0 vCores:
@@ -117,7 +116,6 @@ https://docs.mulesoft.com/mq/[Anypoint MQ^] (Link out from Beta docs).
 
 CloudHub 2.0 monitors replicas to verify that they are operating correctly.
 If you enable automatic restarts, CloudHub 2.0 also automatically restarts applications, if necessary.
---
 
 == Shared Global Regions
 
@@ -166,7 +164,7 @@ The following table summarizes what DNS records are available for your applicati
 Note that DNS records are unique to each control plane. Though the EU control plane
 supports some of the same regions that the U.S. control plane supports, the DNS records
 are different. For more on the EU control plane, see
-xref:eu-control-plane::index.adoc[About the EU Control Plane^] (Link out from Beta docs).
+https://docs.mulesoft.com/eu-control-plane/[About the EU Control Plane^] (Link out from Beta docs).
 
 *Is this true?* 
 
