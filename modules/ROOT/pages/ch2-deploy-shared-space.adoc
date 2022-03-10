@@ -79,7 +79,7 @@ Public endpoint::
 [NOTE]
 *THIS NOTE IS pure supposition*
 When deploying to the *CloudHub 2.0* deployment target,
-the domain for the public endpoint is always `._app-name_.cloudhub.io`.
+the domain for the public endpoint is always `app-name._uniq-id_._partition_._region_.cloudhub.io`.
 
 TLS Settings::
 * *Last-Mile Security*

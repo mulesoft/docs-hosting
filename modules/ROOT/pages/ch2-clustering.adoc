@@ -58,7 +58,7 @@ If your application is already deployed, you must redeploy it for your new setti
 == How Clustering is Implemented
 
 HTTP load balancing is implemented by an internal reverse proxy server.
-Requests to the application (domain) URL `+http://appname.cloudhub.io+` are automatically load balanced between all the application's replica URLs.
+Requests to the application (domain) URL are automatically load balanced between all the application's replica URLs.
 
 //// 
 Clients can bypass the clustering load balancer by using a replica's direct URL.
