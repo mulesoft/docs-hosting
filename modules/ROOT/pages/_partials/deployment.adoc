@@ -39,19 +39,16 @@ Subdomains must start and end with an alphanumeric character and can contain onl
 [[app-name-reqs]]
 = Application Names
 
-*FROM CLOUDHUB 1.0*
-
-The application name can contain between 3 and 42 alphanumeric characters (a-z, A-Z, 0-9) and dashes (-).
+The application name you specify can contain between three and 59 alphanumeric characters
+(a-z, A-Z, 0-9) and dashes (-).
 They cannot contain spaces or other characters.
 
-// NO RENAME SHARED
-[IMPORTANT]
-include::partial$caveats.adoc[tag=noRenameApp]
+To ensure that names are unique and avoid domain conflicts, CloudHub 2.0 adds
+a six-character `_uniq-id_` to the application name that you specify in the public endpoint URL.
 
 The application name identifies your application not only in Runtime Manager but also in the public `cloudhub.io` domain.
-For example, an application named `myapp` is accessible at `+http://myapp._uniq-id_._partition_.us-w2.cloudhub.io+`.
+For example, an application named `myapp` is accessible at `\http://myapp._uniq-id_._partition_.us-w2.cloudhub.io`.
 
-To avoid domain conflicts, CloudHub 2.0 adds the `_uniq-id_` to the public endpoint URL.
 To further customize your app names, you can create a naming convention.
 For example, you could prepend your company name and department to all application names,
 such as `mycompany-mydept-myapp`.

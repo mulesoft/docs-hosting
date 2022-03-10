@@ -19,6 +19,10 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 . Click *Deploy application*.
 . On the *Deploy Application* page:
 .. Enter the <<app-name-reqs,name>> of the application.
++
+// NO RENAME SHARED
+[IMPORTANT]
+include::partial$caveats.adoc[tag=noRenameApp]
 .. Select an application file:
 +
 --
