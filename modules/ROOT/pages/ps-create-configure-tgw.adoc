@@ -4,9 +4,7 @@ include::partial$feature-availability.adoc[tag=featureUnavailable]
 
 *This topic is updated to the TGW Design Specs dated 08-Nov-21*
 
-*The Design Spec shows the tab as Network; the UI says Private network.*
-
-*Last update* 24-Feb-22
+*Last update* 09-Mar-22
 
 Multiple private spaces can connect to an internal VPC.
 You can reuse the transit gateway attachment by connecting another private space to it and accepting the attachment. 
@@ -145,7 +143,7 @@ Configure the network routes (subnets) that you want to be accessible through th
 [[enable-outbound-traffic-from-ps]]
 === Configure Routes for Outbound Traffic from the Private Space
 
-After the *Private space attached* message appears, the private spaces adds the routes that you 
+After the *Attached to Private Network* message appears, the private spaces adds the routes that you 
 <<connect-tgw,specified>>
 so that apps deployed to the private space can access the transit gateway.
 
