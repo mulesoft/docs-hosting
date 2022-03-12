@@ -217,7 +217,7 @@ This allows you to keep servicing requests from your old application while the n
 
 === Clustering
 
-Clustering provides scalability, workload distribution, and added reliability to applications on CloudHub.
+Clustering provides scalability, workload distribution, and added reliability to applications on CloudHub 2.0.
 These capabilities are powered by the scalable load-balancing service and
 xref:ch2-clustering.adoc#replica-scaleout[replica scaleout] features.
 
@@ -228,6 +228,24 @@ CloudHub automatically distributes multiple replicas for the same application ac
 
 When deploying your application to two or more replicas, the HTTP load balancing service distributes requests across these replicas, enabling you to scale your services horizontally.
 CloudHub distributes requests on a round-robin basis.
+
+== Application Monitoring and Automatic Restarts
+
+CloudHub 2.0 monitors all applications and restarts them automatically if necessary
+so that your applications recover without your intervention.
+
+CloudHub 2.0 displays a notification that the app is restarting and another to report the success or failure of the restart.
+
+////
+* If the restart succeeds, the ping script is reinitialized so that monitoring continues.
+* If the restart fails, CloudHub continues to attempt restarting the app up to a total of five times.
+
+After the maximum number of restart attempts is exceeded, CloudHub takes no further action.
+The monitoring script exits and the application is left unchanged until you manually intervene.
+////
+
+The logs report the details of the restart procedure.
+You can also receive notifications and diagnostic information if your application becomes unresponsive.
 
 == Security
 
