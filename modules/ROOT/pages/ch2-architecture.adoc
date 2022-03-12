@@ -1,6 +1,6 @@
 = CloudHub 2.0 Architecture
 
-*Last update* 09-Mar-22
+*Last update* 11-Mar-22
 
 To understand CloudHub 2.0 security and availability, you should understand the architecture behind CloudHub.
 
