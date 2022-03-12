@@ -1,19 +1,19 @@
 = CloudHub 2.0 REST API
 
-*Last update* 02-Mar-22
+*Last update* 11-Mar-22
 
-Added all the endpoints from https://github.com/mulesoft/rtf-management-service/blob/master/assets/raml/public/api.raml[GitHub].
+== CloudHub 2.0 Functions
 
 * *Private Spaces*
 ** Get the list of private spaces in the organization.
 ** Create a private space.
 ** Delete the private space.
-** Get the private space. *What does this mean?*
+** Get the details of a single private space.
 ** Update an existing private space.
 
 * *Connections*
 ** Get the list of connections inside the private space.
-** Create a private space connection. *What is this?*
+** Create a private space connection that includes one or more VPNs.
 ** Delete the private space connection. 
 ** Get the private space connection.
 ** Update an existing private space connection.
@@ -26,29 +26,19 @@ Added all the endpoints from https://github.com/mulesoft/rtf-management-service/
 ** Get supported VPN configurations.
 
 
-* *Transit Gateway Attachments*
-** Get list of TGW connections associated with a private space.
-** Create a private space TGW connection.
-** Delete the private space TGW connection.
-** Update the private space TGW connection.
-** Update routes for a TGW connection.
-** Get the routes configured for the TGW connection.
-** Get the TGW routes configured for a private space.
-** Get list of TGW connections assocated with an organization.
-** Remove private space TGW connection.
-** Get TGW routes configured for a gateway.
+* *Transit Gateways*
+** Get a list of transit gateways associated with a private space.
+** Update a transit gateway.
+** Remove a transit gateway.
 
-* *Log Forwarding*
-** Get the log forwarding configuration information.
-** Update the log forwarding configuration.
-** Send test message to validate the end-to-end connectivity.
-** Get the supported external log forwarding schemas.
-** Get the specific configuration of a supported external log forwarding schema.
-** Get the log forwarding config information.
-** Update the Anypoint log forwarding config.
-** Deletes external and Anypoint Monitoring log forwarding configuration.
-** Configure external log forwarding.
-** Deletes the external log forwarding configuration.
+* *Transit Gateway Attachments*
+
+** Create and attach a new transit gateway to a private space.
+** Get a list of all transit gateway attachments in a private space.
+** Get the details of a single transit gateway attachment.
+** Attach an existing transit gateway to a private space.
+** Remove a transit gateway attachment from a private space.
+** Update routes in a transit gateway attachment
 
 * *TLS Contexts*
 ** Get the list of TLS contexts inside the private space.
@@ -57,47 +47,9 @@ Added all the endpoints from https://github.com/mulesoft/rtf-management-service/
 ** Get the TLS context.
 ** Update an existing TLS context.
 
-* *Runtime Fabrics*
-** Get the list of Runtime Fabrics in the organization.
-** Runtime Fabric register endpoint.
-** Delete associated apps.
-** Get capacity information about the runtime fabric for an environment.
-** Update existing fabric.
-** Get a detailed health check for the Runtime Fabric.
-** Get the list of Runtime Fabric Groups.
-** Get the list of environment associations.
-** Create a new environment association.
-** Update an existing environment association.
-** Retrieve short-lived credential to allow pulling Runtime Fabric Docker images.
-** Retrieve properties related to image registry.
+== Anypoint Runtime Manager Functions
 
-* *Upgrade Compatibility* 
-** Get pre-upgrade compatibility check status and optionally limit the scope of the pre-check operation.
-** Run the pre-upgrade compatibility checks.
-
-* *Mule Runtime*
-** Retrieve all supported Mule versions.
-+
-The first version returned is the most recent, recommended version, and the last version returned is the oldest supported version
-** Retrieve a single name. *what?*
-** Retrieves tags for a name. *what?*
-** Retrieve a single name for a name. *what?*
-
-* *Downloads*
-** List the available downloads.
-** Download the latest installer scripts.
-** Download the latest installer package
-** Get the pre-signed URL of the latest installer package.
-** Download the latest Runtime Fabric agent helm chart.
-** Download the latest rtfctl binary.
-
-////
-
-
-== CloudHub 1.0 
-
-*THIS IS THEORETICAL, BASED ON CH 1.0* 
-
+*THIS SECTION NEEDS REVIEW BY APP MANAGER TEAM*
 
 The CloudHub 2.0 management API (CloudHub 2.0 API) enables you to programmatically access the functions of Anypoint Runtime Manager, such as:
 
@@ -120,25 +72,12 @@ The CloudHub 2.0 management API (CloudHub 2.0 API) enables you to programmatical
 ** Create, update, or delete an alert triggered by an application.
 ** Retrieve an alert and alert history.
 
-* Manage load balancers:
-** Create, update, or delete a load balancer.
-** List load balancers in an organization.
-** Test load balancer rules and return the number of the rule applied to the input.
-
-* Manage private spaces, VPNs, and transit gateway attachments:
-** Create, update, list, and remove a VPC.
-** Create or delete a VPN connection.
-** Create or delete a transit gateway attachment.
-
-
 * Retrieve additional information about:
 ** Supported Mule versions
 ** The current organization, including usage statistics
 ** Replicas, including thread dumps and regions
 ** Users, including permissions
 ** Available domain names
-
-////
 
 
 For an interactive reference that includes supported resources, methods, required properties, and expected responses, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-api/[CloudHub 2.0 API^] (Link out from Beta docs).
@@ -148,7 +87,6 @@ For an interactive reference that includes supported resources, methods, require
 
 The CloudHub 2.0 API manages only applications deployed to CloudHub 2.0.
 To manage on-premises applications using the API, see https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/arm-rest-services[Runtime Manager REST Services^] (Link out from Beta docs).
-
 
 
 == Use the CloudHub 2.0 API
@@ -185,39 +123,52 @@ Need example code here
 To modify an attribute in a private space, run the following `curl` command:
 
 ----
-curl -X GET \
-Need example code here
-
+curl --request PATCH 'https://anypoint.mulesoft.com/runtimefabric/api/organizations/<org-id>/privatespaces/<private-space-id>' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: <bearer token>' \
+--data-raw '{
+    "environments": {
+        "type": "all",
+        "businessGroups": []
+    }
+}'
 ----
-
-*Xuan?*
-
 
 === Add a Firewall Rule 
 
 
+[IMPORTANT]
+When you add a firewall rule, you must provide the complete list of rules
+(existing and new rules) in the `managedFirewallRules` property.
+
 To add a firewall rule to a private space, run the following `curl` command:
 
 ----
-curl -X GET \
-Need example code here
-
+curl --request PATCH 'https://anypoint.mulesoft.com/runtimefabric/api/organizations/<org-id>/privatespaces/<private-space-id>' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: <bearer token>' \
+--data-raw '{
+"managedFirewallRules": [
+        {
+            "cidrBlock": "0.0.0.0/0",
+            "protocol": "tcp",
+            "fromPort": 443,
+            "toPort": 443,
+            "type": "inbound"
+        }
+}'
 ----
-
 
 
 === Get a List of Applications
 
 To get a list of apps deployed to CloudHub 2.0, run the following `curl` command:
 
-*CH 1.0 example*
-
 ----
 curl -X GET \
-  --url https://anypoint.mulesoft.com/cloudhub/api/applications \
-  -H 'authorization: Bearer AUTH_BEARER_TOKEN' \
-  -H 'X-ANYPNT-ENV-ID: ENV_ID' \
-  -H 'X-ANYPNT-ORG-ID: ORG_ID'
+
+Need example code here
+
 ----
 
 
@@ -321,12 +272,7 @@ When the app reaches the rate limit, CloudHub 2.0 returns the status codes shown
 |===
 
 
-
 == Status Codes and Error Handling
-
-*CH 1 Content* 
-
-*DO THESE APPLY TO CH2?*
 
 When you call the CloudHub 2.0 API, the following status codes are returned:
 
@@ -355,7 +301,7 @@ When errors occur, such as a 500 status code, the HTTP response contains a JSON 
 500
 Content-Type: application/json
 Server: Apache-Coyote/1.1
-Date: Mon, 10 Aug 2015 00:12:55 GMT
+Date: Mon, 10 Aug 2021 00:12:55 GMT
 
 {
   message : "Some error message."
