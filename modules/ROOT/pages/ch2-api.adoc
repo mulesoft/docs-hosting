@@ -1,6 +1,6 @@
 = CloudHub 2.0 REST API
 
-*Last update* 11-Mar-22
+*Last update* 15-Mar-22
 
 == CloudHub 2.0 Functions
 
@@ -115,7 +115,7 @@ Need example code here
 
 ----
 
-*Martin?*
+*Pablo?*
 
 === Modify an Attribute in a Private Space
 
@@ -171,12 +171,9 @@ Need example code here
 
 ----
 
+*Pablo?*
 
 == Data Format
-
-*CH 1 Content* 
-
-*DO THESE APPLY TO CH2?*
 
 Resources and methods that return or accept a type use the JSON data format.
 
@@ -228,9 +225,6 @@ Here is an example of data received in JSON format in response to a request to g
 
 == Rate Limits
 
-*CH 1 Content* 
-
-*DO THESE APPLY TO CH2?*
 
 The CloudHub 2.0 management API enforces global usage limits, with some exceptions.
 
@@ -319,4 +313,3 @@ Date: Mon, 10 Aug 2021 00:12:55 GMT
 * xref:ch2-manage-apps.adoc[]
 * https://docs.mulesoft.com/monitoring/[Anypoint Monitoring^] (Link out from Beta docs)
 // * xref:developing-applications-for-cloudhub.adoc[]
-// * xref:monitoring.adoc[]
