@@ -1,3 +1,5 @@
+// this document contains the unchanged Notifications feature; since it was pulled from the initial GA, the Alerts information changed as of mid-March 2020 will need to be appended in here.
+
 = Configuring Custom Notifications and Application Alerts
 
 *THIS IS BASED ON CH 1.0 CONTENT*
@@ -7,9 +9,9 @@
 _Notifications_ are messages that appear in Anypoint Runtime Manager to provide status about your apps.
 _Alerts_ enable you to send emails based on your application's notifications.
 
-== Notifications 
+== Notifications
 
-You access notifications from the bell icon on the applications pages in Runtime Manager. 
+You access notifications from the bell icon on the applications pages in Runtime Manager.
 When you have new notifications, the bell turns red:
 
 image::alerts-notification-icon.png[Bell notification icon on the Applications page]
@@ -57,7 +59,10 @@ Each notification can contain up to 10,000 characters.
 You can create standard alerts in Runtime Manager for applications deployed to CloudHub 2.0.
 See https://docs.mulesoft.com/runtime-manager/alerts-on-runtime-manager[Alerts^] (Link out from Beta docs).
 
-== Rate Limits on Alerts
+If you create custom notifications, you can create custom alerts to send emails when
+those notifications occur.
+
+=== Rate Limits on Alerts
 
 Anypoint Platform enforces rate limits that determine how often an alert is triggered and prevent excessive emails from being sent.
 The following factors determine the rate limit:
@@ -76,7 +81,16 @@ Custom notifications that trigger emails are also subject to the rate limit on e
 For both standard and custom alerts, the rate limit is one alert notification email sent every 2.5 seconds per organization.
 This limit is enforced by a combination of organization, environment, alert (name or ID), and application.
 
-== Before You Begin
+
+
+
+== Custom Notification and Alert Workflow
+
+. <<configure-custom-notification,Configure a custom notification in CloudHub Connector.>>
+. <<configure-custom-app-alerts,Bind the custom notification to an alert in Runtime Manager.>>
+. xref:ch2-deploy.adoc[].
+
+=== Before You Begin
 
 * Ensure that your default environment (defined in your profile) has Read Application permissions.
 
