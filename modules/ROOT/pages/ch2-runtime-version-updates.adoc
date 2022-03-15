@@ -1,15 +1,12 @@
 = CloudHub 2.0 Runtime and Operating System Patch Updates
 
-*THIS IS BASED ON CH 1.0 CONTENT* 
-
-*Last update* 22-Sep-21
+*Last update* 15-Mar-22
 
 Because CloudHub 2.0 is an integration platform as a service (iPaaS), 
 it manages operating system and Mule runtime engine patching for you,
 enabling you to focus on developing and updating your applications.
 
-CloudHub 2.0 applies security patches as needed to ensure that your application is secure and,
-once per month, it updates Mule to maintain the stability of your application.
+CloudHub 2.0 applies security patches as needed to ensure that your application is secure and updates Mule to maintain the stability of your application.
 
 Patch updates use blue-green deployment, which ensures zero downtime.
 
@@ -31,7 +28,7 @@ and the underlying operating system, and then automatically applies security pat
 |P1 | High | 30 days
 |===
 
-
+////
 == Monthly Date-Patch Updates 
 
 Once per month, MuleSoft releases a _date-patch update_, 
@@ -170,9 +167,11 @@ In this case, CloudHub 2.0 waits up to three minutes for the application to conn
 If either case applies to your application, contact Support and your CSM account representative for information about updating the application to be cloud-ready.
 
 
+
 == See Also 
 
 *NEED NEW LINKS TO APIs*
 
 * https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-api/[CloudHub 2.0 API Portal^] (Link out from Beta docs) 
 
+////
