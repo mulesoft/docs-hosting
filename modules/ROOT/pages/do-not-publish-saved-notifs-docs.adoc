@@ -90,7 +90,7 @@ This limit is enforced by a combination of organization, environment, alert (nam
 . <<configure-custom-app-alerts,Bind the custom notification to an alert in Runtime Manager.>>
 . xref:ch2-deploy.adoc[].
 
-=== Prerequisites
+=== Before You Begin
 
 * Ensure that your default environment (defined in your profile) has Read Application permissions.
 

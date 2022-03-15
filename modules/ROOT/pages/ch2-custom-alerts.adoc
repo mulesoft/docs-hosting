@@ -7,13 +7,13 @@
 _Alerts_ indicate whether an app is behaving as expected. You can create alerts in Runtime Manager for applications deployed to CloudHub 2.0.
 See https://docs.mulesoft.com/runtime-manager/alerts-on-runtime-manager[Alerts^] (Link out from Beta docs).
 
-=== Rate Limits on Alerts
+== Rate Limits on Alerts
 
 Anypoint Platform enforces rate limits that determine how often an alert is triggered and prevent excessive emails from being sent. The rate limit is one alert notification email sent every 2.5 seconds per organization.
 
 This limit is enforced by a combination of organization, environment, alert (name or ID), and application.
 
-=== Prerequisites
+== Before You Begin
 
 * Ensure that your default environment (defined in your profile) has Read Application permissions.
 
