@@ -1,7 +1,5 @@
 = Configuring Application Alerts
 
-*THIS IS BASED ON CH 1.0 CONTENT*
-
 *Last update* 11-Mar-22
 
 _Alerts_ indicate whether an app is behaving as expected. You can create alerts in Runtime Manager for applications deployed to CloudHub 2.0.
