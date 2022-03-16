@@ -3,7 +3,7 @@
 *Last update* 07-Mar-22
 
 Use the following sections to gather the information you'll need to set up your private space.
-For information about private spaces, see xref:ps-about.adoc[].
+For information about private spaces, see xref:ch2-private-space-about.adoc[].
 
 You might need to collaborate with your network administrator if you don't have access to this information.
 In this case, share this setup checklist with them and provide an estimate of the number of apps you expect to deploy
@@ -580,4 +580,4 @@ You use these values to verify the resource share in Anypoint Platform.
 
 == See Also 
 
-* xref:ps-about.adoc[]
+* xref:ch2-private-space-about.adoc[]

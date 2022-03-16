@@ -1,8 +1,8 @@
 = CloudHub 2.0 Architecture
 
-*Last update* 11-Mar-22
+*Last update* 15-Mar-22
 
-To understand CloudHub 2.0 security and availability, you should understand the architecture behind CloudHub.
+To understand CloudHub 2.0 security and availability, you should understand the architecture behind CloudHub 2.0.
 
 CloudHub 2.0 architecture comprises two major components: Anypoint Platform services and shared global regions.
 These two components, along with Anypoint Runtime Manager through which you access them,
@@ -180,7 +180,7 @@ Because different levels of security and isolation are needed depending on the s
 These VMs provide the security and isolation needed for your integrations to run custom code without affecting others.
 * If required, you can create single-tenant _private spaces_, which are virtual, private, and isolated areas in CloudHub 2.0 in which to run your apps.
 +
-For information, see xref:ps-about.adoc[].
+For information, see xref:ch2-private-space-about.adoc[].
 * The management console and platform services have a _shared everything_ architecture; 
 all tenants share the same web UI, monitoring services, and load balancers.
 +
@@ -245,7 +245,8 @@ The monitoring script exits and the application is left unchanged until you manu
 ////
 
 The logs report the details of the restart procedure.
-You can also receive notifications and diagnostic information if your application becomes unresponsive.
+You can also receive alerts and diagnostic information if your application becomes unresponsive.
+
 
 == Security
 
@@ -271,6 +272,8 @@ For more information about MuleSoft security, see the http://mulesoft.com/downlo
 
 * xref:ch2-manage-apps.adoc[]
 * xref:ch2-app-monitoring.adoc[]
+* xref:ch2-protect-app-props.adoc[]
+* xref:ch2-config-app-alerts.adoc[]
 * http://status.mulesoft.com/[status.mulesoft.com^] (Link out from Beta docs) 
 * http://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^] (Link out from Beta docs) 
 * http://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^] (Link out from Beta docs) 
