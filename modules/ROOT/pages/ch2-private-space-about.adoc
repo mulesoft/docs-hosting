@@ -1,11 +1,10 @@
 = Private Spaces
 
-
 // (*Learn more* link from *Private Spaces* page)
 
-*Last update* 01-Mar-22
+*Last update* 16-Mar-22
 
-A _private space_ is a virtual, private, and isolated area in CloudHub 2.0 in which to run your apps.
+A _private space_ is a virtual, private, and isolated logical space in CloudHub 2.0 in which to run your apps.
 You can create multiple private spaces, either in the same or different regions.
 
 You connect your private intranet to your private space to function as a single, private network. 
@@ -13,7 +12,7 @@ You connect your private intranet to your private space to function as a single,
 In each private space, you define:
 
 * A _private network_, which is a virtual cloud where apps deployed to this private space run.
-* A connection from the private network to your external network, either via Anypoint VPN or a transit gateway connection.
+* One or more connections from the private network to your external network, either via Anypoint VPN or a transit gateway.
 * TLS contexts, which define the domains that are available when deploying apps to the private spaces, and optionally enable mutual TLS.
 * Firewall rules to allow and block inbound and outbound traffic to your private space.
 * The environments and business groups to allow to deploy to the private space.
@@ -24,11 +23,11 @@ In each private space, you define:
 
 == Private Network
 
-When you create the private network, you associate a range of IP addresses for the apps in your private space to use, the region in which they run, and optionally, any internal DNS servers to resolve requests to custom domain.
+When you create the private network, you associate a range of IP addresses for the apps in your private space to use, the region in which they run, and optionally, any internal DNS servers to resolve requests to custom domains.
 
 Private spaces support Amazon regions.
 You can configure multiple private spaces in a single Amazon region, enabling you to set up separate isolated networks for your production and non-production environments, 
-such as QA or staging.
+such as dev or staging.
 
 == Private Network Connections
 
@@ -36,11 +35,6 @@ You can connect a private space to your private network using the following meth
 
 * xref:ps-vpn-about.adoc[]
 * xref:ps-tgw-about.adoc[]
-
-[NOTE]
-Before configuring routing, consolidate networks to the fewest number possible.
-A maximum of 95 route table entries is allowed per private space,
-regardless of the number of connections.
 
 
 == TLS Contexts
@@ -52,25 +46,31 @@ When setting up a private space, you configure Transport Layer Security (TLS) co
 that define the domains that are available when deploying apps to the private spaces, 
 and optionally enable mutual TLS. 
 
-When deploying an app to the private space, you use the domains from the TLS contexts
+When deploying an app to the private space, you can use the domains from the TLS contexts
 to configure multiple public endpoints, which clients use to reach the app from the internet.
 If the domains in the TLS context include a wildcard, you can configure an optional subdomain, 
 such as the app name or an organization.
 You can create as many endpoints as you need.
 
-In addition to custom domains, you can configure the app to be accessible from
+== Path Rewriting
+
+You can configure the app to be accessible from
 a different path from the base path where the app is listening.
 
 == Firewall Rules
 
-You control the traffic to and from your private spaces. 
-By default, CloudHub 2.0 blocks all traffic to the private space and provides firewall rules to allow connections through specified ports. 
-You can configure additional firewall rules to control traffic to your private space and block requests to your apps. 
+You control the traffic to and from your private spaces.
 
+Inbound::
+By default, CloudHub 2.0 blocks all traffic to the private space and provides firewall rules to allow connections through specified ports. 
+You can configure additional firewall rules to control traffic to your private space. 
++
 The private space provides load balancing to balance inbound traffic to apps across multiple replicas.
+Outbound::
+By default, CloudHub 2.0 allows HTTPS traffic on port 443 from the private space.
+You can configure additional firewall rules to configure additional HTTPS and HTTP connections on port 80.
 
 By combining firewall rules and TLS context configuration, you can fine-tune how external services reach your applications.
-
 
 
 == See Also
