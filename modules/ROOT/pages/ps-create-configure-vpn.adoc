@@ -76,7 +76,7 @@ While the VPN is created, you can <<create-redundant-vpn,create a redundant VPN>
 After the VPN creation completes successfully, the tunnel status is *Down* until you 
 <<connect-vpn,connect the VPN to your corporate network>>:
 +
-<update screenshot>
+<screenshot>
 // +
 // image::vpn-down.png[Tunnel status in the VPN section]
 +

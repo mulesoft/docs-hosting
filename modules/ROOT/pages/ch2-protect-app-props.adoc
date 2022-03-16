@@ -35,9 +35,9 @@ include::partial$select-private-space.adoc[tag=clickPropsOnSettings]
 . In the *New Value* field, enter the property value.
 . In the value field, click *Protect* and then click *Protect value* to confirm.
 +
-<replace screenshot>
-+
-image::rtm-hide-props.png[Properties tab and key-value properties on the application Settings page]
+<screenshot>
+// +
+// image::rtm-hide-props.png[Properties tab and key-value properties on the application Settings page]
 . Depending on the deployment status, choose either:
 ** If this application is deployed, click *Apply Changes*.
 ** If you're ready to deploy the application, click *Deploy Application*.
@@ -46,9 +46,9 @@ On the *Properties* tab, the values for properties that you just protected are n
 
 In the following example, the values for `birthdate` and `password` are protected, but the value for `username` is not:
 
-<replace screenshot>
+<screenshot>
 
-image::rtm-hidden-props.png[Protected values on the Properties tab on the application Settings page]
+// image::rtm-hidden-props.png[Protected values on the Properties tab on the application Settings page]
 
 After you commit the values and deploy the app, the protected property values
 don't appear in the console and aren't sent and received between the console and CloudHub.

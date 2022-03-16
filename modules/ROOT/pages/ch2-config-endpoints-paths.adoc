@@ -136,6 +136,6 @@ You see the details for the TLS context:
 
 * xref:ch2-deploy-private-space.adoc[]
 * xref:ps-config-domains.adoc[]
-* https://docs.mulesoft.com/http-connector/1.6/http-listener-ref[HTTP Listener Reference - Mule 4^]. (Link out from Beta docs)
+* https://docs.mulesoft.com/http-connector/1.6/http-listener-ref[HTTP Listener Reference - Mule 4^] (Link out from Beta docs)
 
 

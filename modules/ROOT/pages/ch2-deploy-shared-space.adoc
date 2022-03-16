@@ -81,7 +81,6 @@ Public endpoint::
 * *Domain*: Select the domain, such as `cloudhub.io`, for the app from the drop-down list.
 +
 [NOTE]
-*THIS NOTE IS pure supposition*
 When deploying to the *CloudHub 2.0* deployment target,
 the domain for the public endpoint is always `app-name._uniq-id_._partition_._region_.cloudhub.io`.
 
