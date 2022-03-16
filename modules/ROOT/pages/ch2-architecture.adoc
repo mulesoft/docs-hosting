@@ -271,7 +271,7 @@ For more information about MuleSoft security, see the http://mulesoft.com/downlo
 == See Also
 
 * xref:ch2-manage-apps.adoc[]
-* xref:ch2-app-monitoring.adoc[]
+* xref:ch2-monitor-apps.adoc[]
 * xref:ch2-protect-app-props.adoc[]
 * xref:ch2-config-app-alerts.adoc[]
 * http://status.mulesoft.com/[status.mulesoft.com^] (Link out from Beta docs) 
