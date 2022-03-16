@@ -78,6 +78,10 @@ Deployment model::
 --
 Resource allocation::
 +
+*This will probably be replaced with just vCores?*
++
+See xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas].
++
 --
 * *Reserved CPU*: Specify a value between `0.02` and `3.7` vCPU.
 * *CPU Limit*: Specify a value between `0.02` and `3.7` vCPU.
@@ -115,7 +119,7 @@ include::partial$deployment.adoc[tag=subdomain-name-reqs]
 +
 Subdomains support <<placeholder-table,placeholders>>.
 The default subdomain is `app-name`, which resolves to the name of the app that you specified in the *Application Name* field when you deploy the app.
-* *Path* (private space only): specifies the URL path to the application endpoint.
+* *Path*: specifies the URL path to the application endpoint.
 +
 include::partial$deployment.adoc[tag=path-name-reqs]
 +
@@ -221,5 +225,6 @@ For information about viewing logs, see xref:ch2-view-logs.adoc[].
 
 * xref:ch2-download-test-app.adoc[]
 * https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (Link out from Beta docs)
+* xref:ch2-config-endpoints-paths.adoc[]
 * xref:ps-config-domains.adoc[]
 

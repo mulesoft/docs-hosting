@@ -143,8 +143,9 @@ For example, the log records an entry when a Mule service or app starts, deploys
  . In the *Deployments* section, select the date and worker for which you want to download Mule logs.
  . Click the download icon for the worker and select *Mule Logs*:
 +
-.The arrow shows the icon to download Mule log output by deployment in the *Deployments* section.
-image::ch2-logs-mule-download.png[Download Mule log output in the Deployments section]
+<screenshot>
++
+// image::ch2-logs-mule-download.png[Download Mule log output in the Deployments section]
 
 CloudHub downloads the Mule log output to a text file in the format `__appName__-instance-__instanceID__-__workerNumber__-mule_ee.log`.
 Use a text editor to view the log file.
@@ -165,7 +166,9 @@ To search logs:
 . Enter a value in the search box, or click *Advanced* to search for logs for a specified time, day, date range, and message priority.
 . Click *Apply*.
 +
-image::ch2-logs-search-adv.png[Display Advanced search and Priority on the Logs page]
+<screenshot>
+// +
+// image::ch2-logs-search-adv.png[Display Advanced search and Priority on the Logs page]
 
 === Search by Date and Time
 

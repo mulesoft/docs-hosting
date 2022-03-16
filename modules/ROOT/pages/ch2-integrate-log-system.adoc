@@ -117,15 +117,15 @@ include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSettings]
 . On the *Settings* page, click *Disable CloudHub 2.0 logs*:
 +
-<update screenshot>
-+
 *Where will this option appear?*
++
+<screenshot>
 +
 // image::cloudhub-disable-logs.png[Disable CloudHub 2.0 logs option in the Applications Settings page]
 . In the *Disabling CloudHub 2.0 logs* confirmation window, select the checkboxes to verify that you want to disable CloudHub 2.0 logs:
 +
-<update screenshot>
-+
+<screenshot>
+// +
 // image::cloudhub-disable-logs-verify.png[Disabling CloudHub 2.0 logs confirmation window]
 
 . Click *Apply Changes* to create a new configuration for application.

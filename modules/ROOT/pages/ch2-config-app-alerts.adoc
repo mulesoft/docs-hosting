@@ -27,7 +27,9 @@ include::partial$select-private-space.adoc[tag=clickAppName]
 . On the *Alerts* page, click the blue plus icon (*+*).
 . On the *Create an Alert* page, configure your custom alert and click *Submit*:
 +
-image::alerts-custom-rtm-create.png[Applications field in the Create an Alert window]
+<screenshot>
+// +
+// image::alerts-custom-rtm-create.png[Applications field in the Create an Alert window]
 +
 Name::
 Enter a meaningful name for the custom alert.
