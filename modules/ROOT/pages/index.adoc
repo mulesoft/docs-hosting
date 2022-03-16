@@ -2,22 +2,22 @@
 
 // reliability, performance, and security.
 
+*Last update* 16-Mar-22
 
-CloudHub 2.0 is a fully managed, containerized integration platform as a service (iPaaS)
+
+CloudHub 2.0 is a fully managed, containerized, integration platform as a service (iPaaS)
 where you can deploy APIs and integrations.
 
-Built on Anypoint Runtime Fabric, which leverages Docker and Kubernetes,
-CloudHub 2.0 provides 99.99% availability for deployments across 12 regions globally.
+CloudHub 2.0:
 
-CloudHub 2.0 proactively scales each layer of infrastructure and services to support increasing transaction volumes, enabling performance adjustments for applications handling any type of workload. 
-CloudHub 2.0 allocates the right amount of CPU and memory and, leveraging the benefits of containerization and the sidecar architecture, allows Mule instances to perform consistently under sustained load.
-
-CloudHub 2.0 includes built-in load balancing and support for deploying 20 applications per CPU core, enabling you to grow your application network.
-
-CloudHub 2.0 provides native support for Anypoint Security, protecting services and sensitive data with a powerful set of policies.
-Integration with secrets manager ensures that certificates, passwords, and other sensitive configuration data are encrypted at rest and in transit, while providing centralized secrets management within Anypoint Platform.
-By running each Mule instance and service as a separate container, CloudHub 2.0
-provides a standardized isolation boundary. 
+* Is built on Anypoint Runtime Fabric, which leverages Docker and Kubernetes.
+* Provides 99.99% availability for deployments across 12 regions globally.
+* Proactively scales each layer of infrastructure and services to support increasing transaction volumes.
+* Allocates CPU and memory to handle performance for applications with varying workloads. 
+* Includes built-in load balancing and support for deploying 20 applications per CPU core.
+* Builds in security, protecting your services and sensitive data with a set of policies.
+* Encrypts certificates, passwords, and other sensitive configuration data at rest and in transit within Anypoint Platform.
+* Provides a standardized isolation boundary by running each Mule instance and service as a separate container.
 
 For CloudHub 2.0 pricing information, contact either your account executive or your account development representative.
 

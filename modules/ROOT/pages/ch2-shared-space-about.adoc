@@ -1,6 +1,8 @@
 = Shared Spaces
 
-A _shared space_ is an elastic cloud of _replicas_ that includes Mule instances running in
+*Last update* 16-Mar-22
+
+A _shared space_ is an elastic cloud of resources that includes Mule instances running in
 a multi-tenant environment. 
 CloudHub 2.0 provides one shared space in each supported xref:ps-gather-setup-info.adoc#private-network-region[region], to which you deploy your integration applications.
 

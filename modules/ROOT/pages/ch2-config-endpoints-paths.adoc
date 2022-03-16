@@ -1,8 +1,12 @@
 = Configuring Public Endpoints and Paths for Apps Deployed to a Private Space
 
-*Added* 20-Jan-22
+*Last update* 16-Mar-22
 
-CloudHub 2.0 routes requests from clients to apps deployed to the private space.
+[IMPORTANT]
+CloudHub 2.0 supports customizing public endpoints only for apps that are deployed to private spaces, not shared spaces.
+
+
+A private space routes requests from clients to apps deployed to the private space.
 
 You can customize how these requests reach the app by configuring:
 
@@ -22,6 +26,15 @@ The _path_ is the base path expected by the HTTP Listener in your app, for examp
 For information, see https://docs.mulesoft.com/http-connector/1.6/http-listener-ref[HTTP Listener Reference - Mule 4^]. (Link out from Beta docs)
 
 
+
+[[before-you-begin]]
+== Before You Begin
+
+* The administrator must set up the TLS contexts for the private space before you can configure the endpoints and paths for the app.
++
+For information, see xref:ps-config-domains.adoc[].
+
+
 [[configure-multiple-endpoints]]
 == Configure Multiple Public Endpoints
 
@@ -32,10 +45,11 @@ You can enable your app to be reached via multiple public endpoints, for example
 To ensure that each endpoint name is unique, use the `app-name` placeholder in the subdomain, 
 or the path if the domain doesn't include a wildcard.
 
-To configure two public endpoints:
+To configure multiple public endpoints:
 
-. xref:ch2-deploy-private-space.adoc[Deploy the app to a private space].
-. Click the *Ingress* tab.
+. When deploying an app to a private space, click the *Ingress* tab.
++
+See xref:ch2-deploy-private-space.adoc[].
 . Configure the first endpoint:
 .. Select the first domain from the *Domain* drop-down list, for example `&#x2a;.example.com`.
 +
@@ -43,18 +57,10 @@ If the domain includes a wildcard, the *Subdomain* field becomes available.
 .. Enter the subdomain, or enter the `my-app` placeholder in the *Subdomain* field to use the name of the app that you specified in the *Application Name* field as the subdomain.
 +
 For information, see <<placeholder-table,placeholders>>.
-.. Enter the path where the HTTP Listener in the app is listening, for example `vi/api`.
-. Configure the second endpoint:
-.. Click *Add Endpoint*.
-.. Select the second domain from the *Domain* drop-down list, for example `&#x2a;.oldname.com`.
-+
-If the domain includes a wildcard, the *Subdomain* field becomes available.
-.. Enter the subdomain for the second endpoint in the *Subdomain* field, for example, `my-old-app` to specify the alternative name of the app.
-+
-.. Enter the path where the HTTP Listener in the app is listening, for example, `v1/api`.
-
+.. Enter the path where the HTTP Listener in the app is listening, for example `v1/api`.
+. If you want to configure additional endpoints, click *Add Endpoint* and repeat steps 3.1 through 3.3. 
 . Click *Apply Changes* to create a new configuration for your application.
-. Verify that the app can be reached by the each endpoint by clicking the public endpoint link and viewing the XML.
+. Verify that the app can be reached at each configured endpoint.
 
 // === Placeholders
 include::partial$deployment.adoc[tag=placeholders,leveloffset=+2]
@@ -69,8 +75,9 @@ want the app to be reachable from the internet using `my-app.example.com/api`.
 
 To configure different paths:
 
-. xref:ch2-deploy-private-space.adoc[Deploy the app to a private space].
-. Click the *Ingress* tab.
+. When deploying an app to a private space, click the *Ingress* tab.
++
+See xref:ch2-deploy-private-space.adoc[].
 . In the *Path* field, enter the path where you want the app to be reachable, for example, `/api`.
 . In the *Path Rewrite* field, enter the base path expected by the HTTP Listener in your app, for example,  `/v1/api`.
 
@@ -103,15 +110,6 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 . In the endpoint link row, click *X*.
 
 
-[[view-public-endpoint]]
-== View a Public Endpoint for an App
-
-A public endpoint is accessible from the public internet. 
-
-To view the URL for the private endpoint, click the public endpoint link:
-
-<screenshot of XML>
-
 [[view-private-endpoint]]
 == View the Private Endpoint for an App
 
@@ -121,16 +119,6 @@ the VPN or transit gateway connection for the private space.
 To view or copy the URL for the private endpoint, hover over *private endpoint*:
 
 <screenshot>
-
-[[view-tls-context]]
-== View the TLS Context for a Domain
-
-To view a summary of the TLS context for the domain, click *View TLS Context*. 
-
-You see the details for the TLS context:
-
-<screenshot> 
-
 
 == See Also
 

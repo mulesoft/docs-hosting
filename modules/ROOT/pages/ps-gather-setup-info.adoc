@@ -1,6 +1,6 @@
 = Gathering Required Setup Information
 
-*Last update* 07-Mar-22
+*Last update* 16-Mar-22
 
 Use the following sections to gather the information you'll need to set up your private space.
 For information about private spaces, see xref:ch2-private-space-about.adoc[].
@@ -287,6 +287,10 @@ The total number of characters for all configured domains is 229.
 * <<auto-tunnel-initiation>> (advanced tunnel configuration only)
 * <<supported-gateway-devices>>
 
+[NOTE]
+include::partial$create-config.adoc[tag=consolidateNetworks]
+
+
 [[vpn-name]]
 === VPN Name 
 
@@ -515,10 +519,12 @@ Benefits of a redundant VPN
 [[tgw-requirements]]
 == Transit Gateway Attachment Requirements
 
-
 * <<transit-gateway-name>>
 * <<transit-gateway-region>>
 * <<transit-gateway-routing>>
+
+[NOTE]
+include::partial$create-config.adoc[tag=consolidateNetworks]
 
 === Prerequisites
 

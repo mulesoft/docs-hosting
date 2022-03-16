@@ -7,7 +7,7 @@
 **** xref:ps-tgw-about.adoc[Transit Gateway Attachments]
 ** xref:ch2-architecture.adoc[CloudHub 2.0 Architecture]
 *** xref:ch2-clustering.adoc[Clustering]
-*** xref:ch2-runtime-version-updates.adoc[CloudHub 2.0 Runtime and Operating System Patch Updates]
+*** xref:ch2-patch-updates.adoc[CloudHub 2.0 Operating System Patch Updates]
 ** xref:ps-setup.adoc[Extending Your Network to Anypoint Platform]
 *** xref:ps-assign-permissions.adoc[Assigning Permissions]
 *** xref:ps-gather-setup-info.adoc[Gathering Required Setup Information]
