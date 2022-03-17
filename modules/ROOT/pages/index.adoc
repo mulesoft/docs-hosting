@@ -5,14 +5,13 @@
 *Last update* 16-Mar-22
 
 
-CloudHub 2.0 is a fully managed, containerized, integration platform as a service (iPaaS)
-where you can deploy APIs and integrations.
+CloudHub 2.0 is a fully managed, containerized integration platform as a service (iPaaS),
+built on Anypoint Fabric, where you can deploy APIs and integrations.
 
 CloudHub 2.0:
 
-* Is built on Anypoint Runtime Fabric, which leverages Docker and Kubernetes.
 * Provides 99.99% availability for deployments across 12 regions globally.
-* Proactively scales each layer of infrastructure and services to support increasing transaction volumes.
+* Proactively scales infrastructure and built-in services to support increasing transaction volumes.
 * Allocates CPU and memory to handle performance for applications with varying workloads. 
 * Includes built-in load balancing and support for deploying 20 applications per CPU core.
 * Builds in security, protecting your services and sensitive data with a set of policies.
