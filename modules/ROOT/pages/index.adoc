@@ -12,7 +12,7 @@ CloudHub 2.0:
 
 * Provides 99.99% availability for deployments across 12 regions globally.
 * Proactively scales infrastructure and built-in services to support increasing transaction volumes.
-* Allocates CPU and memory to handle performance for applications with varying workloads. 
+* Allocates CPU and memory based on vCore size to handle performance for applications with varying workloads. 
 * Includes built-in load balancing and support for deploying 20 applications per CPU core.
 * Builds in security, protecting your services and sensitive data with a set of policies.
 * Encrypts certificates, passwords, and other sensitive configuration data at rest and in transit within Anypoint Platform.

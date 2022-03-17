@@ -1,6 +1,8 @@
 = CloudHub 2.0 REST API
 
-*Last update* 15-Mar-22
+*Last update* 17-Mar-22
+
+*We will need to look at the IDs in the code examples before GA.*
 
 == CloudHub 2.0 Functions
 
@@ -109,13 +111,86 @@ include::partial$ch2-api-authenticate.adoc[]
 To deploy an app to CloudHub 2.0, run the following `curl` command:
 
 ----
-curl -X GET \
+// POST Deploy an application:
 
-Need example code here
-
+curl --request POST 'https://anypoint.mulesoft.com/hybrid/api/v2/organizations/<org-id>/environments/<env-id>/deployments' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: <bearer token>' \
+--data-raw '{
+    "name":"example",
+    "target":{
+       "provider":"MC",
+       "targetId":"composer-space-shared",
+       "deploymentSettings":{
+          "clustered":false,
+          "enforceDeployingReplicasAcrossNodes":false,
+          "http":{
+             "inbound":{
+                "publicUrl":null,
+                "pathRewrite":null
+             }
+          },
+          "jvm":{
+             "args":"-XX:MaxRAMPercentage=70.0 -XX:+PrintFlagsFinal"
+          },
+          "runtimeVersion":"4.5.0:20220221-1",
+          "lastMileSecurity":false,
+          "forwardSslSession":false,
+          "updateStrategy":"rolling"
+       },
+       "replicas":1
+    },
+    "application":{
+       "ref":{
+          "groupId":"66310c16-bce5-43c4-b978-5945ed2f99c5",
+          "artifactId":"app-scheduler-metadata-test",
+          "version":"0.0.25",
+          "packaging":"jar"
+       },
+       "integrations": {
+         "services": {
+            "objectStoreV2": {
+                "enabled": true
+            }
+         }
+       },
+       "vCores": 0.1,
+       "desiredState":"STARTED",
+       "configuration":{
+          "mule.agent.logging.service": {
+            "applicationLogLevels": [
+              {
+                "artifactName": "app-with-2-schedulers",
+                "scopeLoggingConfigurations": [
+                  {
+                    "logLevel": "INFO",
+                    "scope": "com.food.hamburger"
+                  },
+                  {
+                    "logLevel": "INFO",
+                    "scope": "com.food.pizza"
+                  },
+                  {
+                    "logLevel": "INFO",
+                    "scope": "com.food.nuggets"
+                  }
+                ]
+              }
+            ]
+          },
+          "mule.agent.application.properties.service":{
+             "applicationName":"example",
+             "properties":{
+                "test":"123"
+             },
+             "secureProperties":{
+                
+             }
+          }
+       }
+    }
+ }'
 ----
-
-*Pablo?*
 
 === Modify an Attribute in a Private Space
 
@@ -165,13 +240,26 @@ curl --request PATCH 'https://anypoint.mulesoft.com/runtimefabric/api/organizati
 To get a list of apps deployed to CloudHub 2.0, run the following `curl` command:
 
 ----
-curl -X GET \
+// GET Application list:
 
-Need example code here
+curl --request GET 'https://anypoint.mulesoft.com/hybrid/api/v2/organizations/<org-id>/environments/<env-id>/deployments' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: <bearer token>'
 
 ----
 
-*Pablo?*
+=== Get a Single Application
+
+To get a single application deployed to CloudHub 2.0, run the following `curl` command:
+
+----
+
+curl --request GET 'https://anypoint.mulesoft.com/hybrid/api/v2/organizations/<org-id>/environments/<env-id>/deployments/<deployment-id>' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: <bearer token>'
+
+----
+
 
 == Data Format
 
