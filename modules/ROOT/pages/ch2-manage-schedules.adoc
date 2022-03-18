@@ -77,6 +77,8 @@ Runtime Manager lists the name of each Scheduler component as `polling://{flow_n
 
 . If you want to see more information about when the jobs started and ended,
 click *Logs* in the left navigation menu.
++
+<screenshot>
 . Select the checkbox for an element to open the schedule editor in the details pane.
 +
 The schedule editor you see depends on the schedule type:

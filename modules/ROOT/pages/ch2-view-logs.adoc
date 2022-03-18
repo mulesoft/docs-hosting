@@ -1,6 +1,6 @@
 = Viewing Log Data for Deployed Apps
 
-*Last update* 09-Mar-22
+*Last update* 17-Mar-22
 
 ////
 FC: replica, levels, time filters
@@ -13,6 +13,8 @@ For more advanced searching and log management, you can use Anypoint Monitoring 
 See https://docs.mulesoft.com/monitoring/[Anypoint Monitoring Overview^] (Link out from Beta docs).
 
 CloudHub 2.0 stores up to 150 MB of log data per config, or up to 30 days, whichever limit is reached first.
+// We’re considering an additional limit for how many configs/deployments we keep track of.
+
 
 
 [NOTE]
@@ -25,7 +27,7 @@ To view logs for applications deployed to a private space:
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
-. In the navigation menu, click *Logs*.
+include::partial$select-private-space.adoc[tag=clickLogs]
 +
 --
 The logs page displays all logs for all replicas for the selected config,
@@ -56,6 +58,9 @@ The config label indicates the relative time of deployment, such as 10 hours ago
 
 To search within the currently displayed config:
 
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+include::partial$select-private-space.adoc[tag=clickAppName]
+include::partial$select-private-space.adoc[tag=clickLogs]
 . Enter the search term in the *Search* field and press Enter.
 +
 The results display includes the currently selected config, replica,
@@ -72,7 +77,14 @@ Click *Search Results* to return to the search results.
 
 == Filter Logs
 
-* Filter logs by config ID
+To filter the log results:
+
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+include::partial$select-private-space.adoc[tag=clickAppName]
+include::partial$select-private-space.adoc[tag=clickLogs]
+. Select filter options:
++
+** Filter logs by config ID
 +
 Click the *Config* drop-down menu and select the config to view:
 +
@@ -80,15 +92,17 @@ Click the *Config* drop-down menu and select the config to view:
 // +
 // image::ch2-logs-deploy.png[Filter log output by deployment]
 
-* *Filter log by replica*
+** *Filter log by replica*
 +
 Hover over a log message and select *Hide Others*:
 +
 <screenshot>
 +
-To clear the replica filter, click the *x* for the selected replica.
+Only the logs for the selected replica appear.
++
+To clear the replica filter and display logs for all replicas, click the *X* button for the selected replica.
 
-* *Filter logs by time date and time range*
+** *Filter logs by time date and time range*
 +
 Click *Time Range*, select the date range, and optionally time, and click *Apply*.
 +
@@ -96,9 +110,9 @@ Alternatively, click *Show Latest Messages*:
 +
 <screenshot>
 +
-The button label changes to show the selected date and time range.
+The *Time Range* button label changes to show the selected date and time range.
 
-* *Filter logs by log level*
+** *Filter logs by log level*
 +
 Click *Log Levels* and check the log levels to display:
 +
@@ -113,13 +127,18 @@ Click *Log Levels* and check the log levels to display:
 [NOTE]
 Some log levels might not be available depending on the dynamic log level setting for the deployment.
 +
-The *Log Levels* button changes to show the selected number of log levels.
+The *Log Levels* button label changes to show the selected number of log levels.
 
 
 == Download Logs
 
-To download logs based on the current filters, click the download (<icon>) button:
+To download logs based on the current filters:
 
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+include::partial$select-private-space.adoc[tag=clickAppName]
+include::partial$select-private-space.adoc[tag=clickLogs]
+. Click the download (<icon>) button.
++
 <screenshot>
 // image::ch2-logs-download.png[Download log output]
 
@@ -150,32 +169,6 @@ Use a text editor to view the log file.
 
 For more information about Mule logs, see xref:mule-runtime::logging-in-mule.adoc#runtime-log[Runtime Log^] (Link out from Beta docs).
 
-== Deployment History Persistence
-
-CloudHub stores up to 30 days of inactive deployments history based on the last modified time of the deployment.
-
-== Search Logs
-
-Search for logs that contain specified values or search for logs by date and priority.
-
-
-To search logs:
-
-. Enter a value in the search box, or click *Advanced* to search for logs for a specified time, day, date range, and message priority.
-. Click *Apply*.
-+
-<screenshot>
-// +
-// image::ch2-logs-search-adv.png[Display Advanced search and Priority on the Logs page]
-
-=== Search by Date and Time
-
-The *Date & Time* filter lets you search the log by specifying a date range. Possible values are:
-
-* *Last hour*
-* *Last 24 hours*
-* *Last week*
-* *Last month*
 
 
 === Wildcard Searching
