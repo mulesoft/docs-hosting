@@ -19,7 +19,7 @@ The administrator specifies the domains that you can use for the public endpoint
 by configuring the TLS context in the private space settings. 
 For information, see xref:ps-config-domains.adoc[].
 
-* Different paths for the app and the public URL endpoint
+* Different paths for the app and the public endpoint URL
 +
 The _path_ is the base path expected by the HTTP Listener in your app, for example `my-app.example.com/v1/api`.
 +
@@ -66,11 +66,11 @@ For information, see <<placeholder-table,placeholders>>.
 include::partial$deployment.adoc[tag=placeholders,leveloffset=+2]
 
 [[configure-different-paths]]
-== Configure a Different Path for the App and the Public URL Endpoint
+== Configure a Different Path for the App and the Public Endpoint URL
 
-You can configure different paths for the app and the public URL endpoint.
+You can configure different paths for the app and the public endpoint URL.
 For example, if the app is listening on `my-app.example.com/v1/api` and you
-want the app to be reachable from the internet using `my-app.example.com/api`.
+want the app to be reachable from the internet using `my-app.example.com`.
 
 
 To configure different paths:
@@ -78,13 +78,12 @@ To configure different paths:
 . When deploying an app to a private space, click the *Ingress* tab.
 +
 See xref:ch2-deploy-private-space.adoc[].
-. In the *Path* field, enter the path where you want the app to be reachable, for example, `/api`.
-. In the *Path Rewrite* field, enter the base path expected by the HTTP Listener in your app, for example,  `/v1/api`.
+. In the *Path* field, enter the path where you want the app to be reachable, for example, `/`.
+. In the *Path Rewrite* field, enter the base path expected by the HTTP Listener in your app, for example,  `v1/api`.
 
 . Click *Apply Changes* to create a new configuration for your application.
-. Verify the path rewrite by clicking the public endpoint link and viewing the XML.
-+
-The API shows `/v1/api`, but URI is `/api`.
+. Verify that the app can be reached at the new path.
+
 
 [[path-rewrite-examples]]
 === Path Rewrite Examples
@@ -93,8 +92,8 @@ The API shows `/v1/api`, but URI is `/api`.
 
 [%header%autowidth.spread]
 |===
-|HTTP Listener Path|Public Endpoint Path |Path Rewrite
-| /v1/api | /api | /v1/api
+|Target Path Value|Requests to... |Reach the App at...
+| v1/api | my-app.example.com | my-app.example.com/v1/api
 |===
 
 
