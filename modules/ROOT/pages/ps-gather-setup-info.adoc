@@ -304,7 +304,7 @@ The _remote IP address_ is the public (single, static) IP address of your VPN en
 === Dynamic VPN Routing (BGP)
 
 For dynamic routing, your device uses Border Gateway Protocol (BGP) to advertise routes to Anypoint VPN.
-If your device supports BGP, select dynamic routing. 
+If your device supports BGP, you can select dynamic routing; otherwise, select static routing.
 
 To create a dynamic VPN connection, in addition to the static VPN connection requirements, 
 your VPN device must be able to:
@@ -318,6 +318,10 @@ Dynamic (BGP) Routing Type option should link to an explanation of the differenc
 
 [[static-vpn-routing]]
 === Static VPN Routing
+
+If your gateway device doesn't support BGP, you must use static routing. 
+You might also want to use static routing if you want to provide your own secrets.
+// or set the PTP (Precision Time Protocol) CIDRs for the network interfaces on your router.
 
 Static routing requires you to specify the routes (subnets) in your network that are accessible through Anypoint VPN.
 
