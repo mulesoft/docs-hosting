@@ -2,7 +2,7 @@
 
 *Updated to align more with https://docs.mulesoft.com/runtime-manager/hybrid-schedule-mgmt[hybrid scheduler] per Martin.*
 
-*Last update* 10-Mar-22
+*Last update* 30-Mar-22
 
 You can use Runtime Manager to view and control the Scheduler components within the flows in your deployed applications, all without changing the running application.
 For example, you might want to disable a scheduled job while one of the applications is undergoing maintenance.
@@ -13,7 +13,7 @@ On the *Schedules* tab, you can:
 * Change the schedules in your application at runtime without redeploying.
 * Run the scheduled job immediately, without changing the schedule.
 * Disable or enable the schedule for a flow.
-* Specify the timezone for a cron scheduler.
+// * Specify the timezone for a cron scheduler.
 
 You configure Scheduler component types as either _fixed frequency_ to trigger at a regular interval or _cron_ to trigger at a date and time based on a specified cron expression.
 
@@ -39,9 +39,10 @@ If you run the scheduled job immediately by clicking *Run*, the scheduler runs o
 +
 CloudHub 2.0 distributes multiple concurrent schedulers across replicas.
 * You cannot manage CloudHub 2.0 schedules using scripts.
++
 Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules.
 
-== Prerequisites
+== Before You Begin
 
 To use the scheduling feature in Runtime Manager, deploy an application that includes one or more Scheduler elements:
 
@@ -69,23 +70,26 @@ Runtime Manager lists the Scheduler elements in the order they appear in your ap
 // image::ch2-scheduler-rtm.png[The screenshot shows (1) the Schedulers option and (2) the checkbox on the Schedulers page.]
 // The screenshot shows (1) the checkbox, (2) the Disable button, and (3) the schedule in the details pane.
 +
+*Is this true?*
++
 Runtime Manager lists the name of each Scheduler component as `polling://{flow_name}`.
 +
 ** The *Name* column shows the name of the flow that contains the Scheduler element.
-** The *Status* column shows the status of the schedule.
-** The *Schedule* column shows the schedule for the element.
+// ** The *Status* column shows the status of the schedule.
+** The frequency link in the *Schedule* column shows the schedule for the element.
 
 . If you want to see more information about when the jobs started and ended,
 click *Logs* in the left navigation menu.
 +
 <screenshot>
-. Select the checkbox for an element to open the schedule editor in the details pane.
+. Click the frequency link for an element to open the schedule editor.
 +
 The schedule editor you see depends on the schedule type:
 +
 * <<change-fixed-frequency-schedule,Fixed frequency>>
 * <<change-cron-schedule,Cron>>
 . In the schedule editor, change the schedule or deselect *Enabled* to disable the schedule.
+. Click *Update* to save changed settings or click *Cancel* to exit without saving.
 
 [[change-fixed-frequency-schedule]]
 === Change a Fixed Frequency Schedule
@@ -100,12 +104,12 @@ The *Schedule* column shows the schedule for the element.
 <screenshot>
 +
 // image::ch2-scheduler-rtm.png[Schedules page showing a fixed frequency schedule type]
-. Select the element to open the schedule editor in the details pane.
+. Click the frequency link for an element to open the schedule editor.
 . In the schedule editor, change the schedule or deselect *Enabled* to disable the schedule.
 +
 <screenshot>
 // +
-// image::ch2-scheduler-frequency.png[The arrow shows the fixed-frequency schedule configuration in the details pane.]
+// image::ch2-scheduler-frequency.png[The arrow shows the fixed-frequency schedule configuration.]
 +
 The value for the frequency can be between 1 and 100 seconds.
 The minimum recommended frequency between calls is 10 seconds.
@@ -129,26 +133,27 @@ The *Schedule* column shows the schedule for the element.
 +
 <screenshot>
 // +
-// image::ch2-scheduler-rtm.png[The arrow shows the cron schedule configuration in the details pane.]
-. Select the element to open the schedule editor in the details pane.
+// image::ch2-scheduler-rtm.png[The arrow shows Schedule column.]
+. Click the frequency link for an element to open the schedule editor.
 . In the schedule editor, change the schedule or deselect *Enabled* to disable the schedule.
 +
 <screenshot>
 // +
-// image::ch2-scheduler-cron.png[The arrow shows the cron schedule configuration in the details pane.]
-// . In the schedule editor, click *Quick Reference* to expand or collapse the table that lists required fields and allowed values:
+// image::ch2-scheduler-cron.png[The arrow shows the cron schedule configuration.]
+. In the schedule editor, click *Quick Reference* to expand or collapse the table that lists required fields and allowed values:
 // +
 // <screenshot>
 // +
-// image::ch2-scheduler-cron.png[Quick Reference toggle and the more link on the cron type page]
+// image::ch2-scheduler-cron.png[Quick Reference toggle on the cron schedule editor]
 +
 The cron expression in this example sets the schedule to every 10 seconds.
 +
 For information about building cron triggers:
 +
-.. Click *more* to view the http://www.quartz-scheduler.org/documentation[Quartz documentation^] (link out from Beta docs). 
+// .. Click *more* to view the http://www.quartz-scheduler.org/documentation[Quartz documentation^] (link out from Beta docs). 
+.. View the http://www.quartz-scheduler.org/documentation[Quartz documentation^] (link out from Beta docs). 
 .. Select a version, click *Documentation > User's Guide > Tutorial*, and then click the *CronTrigger* lesson.
-. Click *Update* to save changed cron settings or click *Cancel* to exit without saving.
+. Click *Update* to save changed settings or click *Cancel* to exit without saving.
 
 [[run-immediately]]
 == Run a Scheduled Job Immediately
@@ -185,7 +190,7 @@ include::partial$select-private-space.adoc[tag=clickSchedules]
 . Select the elements to manage and then click *Disable*.
 +
 You can also disable or enable the schedule by deselecting or 
-selecting *Enabled* in the schedule editor in the details pane.
+selecting *Enabled* in the schedule editor.
 +
 <screenshot>
 // +
@@ -198,5 +203,5 @@ selecting *Enabled* in the schedule editor in the details pane.
 * https://docs.mulesoft.com/mule-runtime/4.4/scheduler-concept[Scheduler Endpoint (Trigger)^] (link out from Beta docs)
 * http://www.quartz-scheduler.org/documentation[Quartz documentation^] (link out from Beta docs)
 * https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (link out from Beta docs)
-* _Link to the API doc for updating schedulers_
+// * _Link to the API doc for updating schedulers_
 
