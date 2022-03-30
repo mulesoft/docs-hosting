@@ -1,6 +1,6 @@
 = Managing App Schedules
 
-*Updated to align more with https://docs.mulesoft.com/runtime-manager/hybrid-schedule-mgmt[hybrid scheduler] per Martin.*
+*Updated to the UI and to align more with https://docs.mulesoft.com/runtime-manager/hybrid-schedule-mgmt[hybrid scheduler] per Martin.*
 
 *Last update* 30-Mar-22
 
