@@ -528,7 +528,7 @@ Benefits of a redundant VPN
 [NOTE]
 include::partial$create-config.adoc[tag=consolidateNetworks]
 
-=== Prerequisites
+=== Before You Begin
 
 Before you can add a transit gateway to CloudHub:
 

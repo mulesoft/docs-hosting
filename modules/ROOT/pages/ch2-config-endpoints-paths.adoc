@@ -1,6 +1,6 @@
 = Configuring Public Endpoints and Paths for Apps Deployed to a Private Space
 
-*Last update* 16-Mar-22
+*Last update* 30-Mar-22
 
 [IMPORTANT]
 CloudHub 2.0 supports customizing public endpoints only for apps that are deployed to private spaces, not shared spaces.
@@ -30,8 +30,8 @@ For information, see https://docs.mulesoft.com/http-connector/1.6/http-listener-
 [[before-you-begin]]
 == Before You Begin
 
-* The administrator must set up the TLS contexts for the private space before you can configure the endpoints and paths for the app.
-+
+The administrator must set up the TLS contexts for the private space before you can configure the endpoints and paths for the app.
+
 For information, see xref:ps-config-domains.adoc[].
 
 
@@ -58,8 +58,8 @@ If the domain includes a wildcard, the *Subdomain* field becomes available.
 +
 For information, see <<placeholder-table,placeholders>>.
 .. Enter the path where the HTTP Listener in the app is listening, for example `v1/api`.
-. If you want to configure additional endpoints, click *Add Endpoint* and repeat steps 3.1 through 3.3. 
-. Click *Apply Changes* to create a new configuration for your application.
+. If you want to configure additional endpoints, click *Add Endpoint* and repeat steps 2.1 through 2.3. 
+. Click *Deploy*.
 . Verify that the app can be reached at each configured endpoint.
 
 // === Placeholders
@@ -69,9 +69,8 @@ include::partial$deployment.adoc[tag=placeholders,leveloffset=+2]
 == Configure a Different Path for the App and the Public Endpoint URL
 
 You can configure different paths for the app and the public endpoint URL.
-For example, if the app is listening on `my-app.example.com/v1/api` and you
+For example, the HTTP Listener in the app is listening on `my-app.example.com/v1/api` and you
 want the app to be reachable from the internet using `my-app.example.com`.
-
 
 To configure different paths:
 
@@ -79,9 +78,8 @@ To configure different paths:
 +
 See xref:ch2-deploy-private-space.adoc[].
 . In the *Path* field, enter the path where you want the app to be reachable, for example, `/`.
-. In the *Path Rewrite* field, enter the base path expected by the HTTP Listener in your app, for example,  `v1/api`.
-
-. Click *Apply Changes* to create a new configuration for your application.
+. Enable *Rewrite Request Paths* and enter the target path expected by the app, for example,  `v1/api`.
+. Click *Deploy*.
 . Verify that the app can be reached at the new path.
 
 
@@ -93,7 +91,7 @@ See xref:ch2-deploy-private-space.adoc[].
 [%header%autowidth.spread]
 |===
 |Target Path Value|Requests to... |Reach the App at...
-| v1/api | my-app.example.com | my-app.example.com/v1/api
+| api | my-app.example.com | my-app.example.com/api
 |===
 
 

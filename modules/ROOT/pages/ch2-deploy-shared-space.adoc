@@ -1,9 +1,9 @@
 = Deploying Apps to Shared Spaces
 
 
-*This topic is updated to the UI on QAX*
+*This topic is updated to the Domains & TLS UX Project Brief dated 25-Mar-22*
 
-*Last update* 09-Mar-22
+*Last update* 30-Mar-22
 
 // How can we share this content with RTF?
 
@@ -28,13 +28,16 @@ include::partial$caveats.adoc[tag=noRenameApp]
 --
 *** To upload a Mule app JAR file from your system, select *Choose file > Upload file*.
 *** To choose an example app from Anypoint Exchange:
-.... Select *Choose file > Import file from Exchange*.
+.... Select *Choose File > Import file from Exchange*.
 .... In the *Get from Exchange* page, enter `hello` in the *Search assets by name*:
 +
 image::rtm-get-from-exchange.png[Get from Exchange page]
 .... Click *Hello World* and then click *Select*.
 --
-.. Select *CloudHub 2.0* from the *Deployment Target* list.
+.. Select *CloudHub 2.0 Shared Space* from the *Deployment Target* list.
+.. Select the region to which to deploy the app. 
++
+For the list of regions, see xref:ch2-architecture.adoc#shared-global-regions[Shared Global Regions].
 .. Configure options for deployment:
 +
 *** <<specify-runtime-options,Specify runtime options>>.
@@ -77,19 +80,27 @@ To configure the public endpoint for the app to enable access from the internet:
 
 . Click the *Ingress* tab and specify the following options:
 +
+--
 Public endpoint::
 * *Domain*: Select the domain, such as `cloudhub.io`, for the app from the drop-down list.
 +
 [NOTE]
 When deploying to the *CloudHub 2.0* deployment target,
 the domain for the public endpoint is always `app-name._uniq-id_._partition_._region_.cloudhub.io`.
+* *Subdomain*: If the domain you selected includes a wildcard, you can configure the subdomain.
++
+include::partial$deployment.adoc[tag=subdomain-name-reqs]
++
+Subdomains support <<placeholder-table,placeholders>>.
+The default subdomain is `app-name`, which resolves to the name of the app that you specified in the *Application Name* field when you deploy the app.
 
-TLS Settings::
+TLS Options::
 * *Last-Mile Security*
 +
 Specifies that TLS termination and decryption for the forwarded HTTPS connections occurs in the application.
 +
 This option requires that the Mule application include an SSL certificate and also requires more CPU resources.
+////
 * *Forward SSL Session*
 +
 Enables SSL forwarding during a session.
@@ -109,7 +120,8 @@ The following headers are available:
 | x-ssl-client-serial | Client certificate serial number
 | x-ssl-client-dn | Contents of the client certificate DN field
 |===
-
+////
+--
 . Click *Apply Changes* to create a new configuration for your application.
 
 
