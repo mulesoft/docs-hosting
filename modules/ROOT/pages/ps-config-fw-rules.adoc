@@ -71,7 +71,7 @@ This option is available only if a private network exists in the private space.
 Enter a custom CIDR in the field.
 --
 . Click *Add Rule* to add more rules.
-. To remove a firewall rule, click trash can icon (*Delete*) for the entry.
+. To remove a firewall rule, click the trash can icon (*Delete*) for the entry.
 +
 <screenshot>
 // +

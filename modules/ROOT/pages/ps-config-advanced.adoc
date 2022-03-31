@@ -77,7 +77,7 @@ include::partial$select-private-space.adoc[tag=clickAdvanced]
 +
 .. Enter the IP address and select the <<ingress-load-balancer-log-levels,log level>> from the drop-down list.
 .. Click *Add IP Address* to enter additional custom log levels.
-.. To remove a custom log level, click trash can icon (*Delete*) for the entry.
+.. To remove a custom log level, click the trash can icon (*Delete*) for the entry.
 // +
 // image::fw-rule-delete.png[Delete icon on the Firewall Rules tab]
 . Click *Save Changes* or *Discard Changes*.

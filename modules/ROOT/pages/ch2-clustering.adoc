@@ -9,7 +9,7 @@ This functionality is powered by CloudHub's scalable load-balancing service, rep
 
 You can enable clustering features on a per-application basis using the Anypoint Runtime Manager console when either deploying a new application or redeploying an existing application.
 
-== Prerequisites
+== Before You Begin
 
 Clustering requires:
 

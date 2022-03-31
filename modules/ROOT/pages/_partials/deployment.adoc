@@ -19,12 +19,13 @@ For information about configuring app properties, see:
 
 The subdomain and path support the following optional lowercase placeholders:
 
-`app-name`::
-Resolves to the name of the app that you specified in the *Application Name* field when you deploy the app.
-`business-group-id`::
-Resolves to the business group ID associated with the app.
-`environment-id`::
-Resolves to the environment that you deploy the app to.
+[%header,cols="1,2"]
+|===
+| Placeholder | Resolves to
+| `app-name` | Name of the app that you specified in the *Application Name* field when you deploy the app
+| `business-group-id` | Business group ID associated with the app
+| `environment-id` | Environment that you deploy the app to
+|===
 // end::placeholders[]
 
 // tag::path-name-reqs[]
