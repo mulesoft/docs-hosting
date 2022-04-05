@@ -172,6 +172,7 @@ The following headers are available:
 | x-ssl-issuer | Client certificate issuer
 | x-ssl-client-serial | Client certificate serial number
 | x-ssl-client-dn | Contents of the client certificate DN field
+| x-ssl-client-cert | Contents of the client certificate
 |===
 --
 . Click *Apply Changes* to create a new configuration for your application.
