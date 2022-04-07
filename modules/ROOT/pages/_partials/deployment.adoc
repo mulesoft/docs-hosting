@@ -77,3 +77,16 @@ If your app requires TLS v1 or TLS v1.1, you can enable them using JVM (Java Vir
 +
 `-Drtf.allow.TLSv1.1`
 // end::enableTLSv1[]
+
+// tag::disableLogging[]
+[[disable-logging]]
+= Disable Logging for the App
+
+Logging is enabled by default for apps deployed to CloudHub 2.0.
+
+To disable logging and metrics for the app, click the *Logging* tab and deselect 
+the logging option:
+
+* Titanium subscribers: *Enable application logs and metrics*
+* Non-Titanium subscribers: *Enable application logs*
+// end::disableLogging[]

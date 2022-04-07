@@ -2,6 +2,8 @@
 
 Based on https://docs.mulesoft.com/runtime-fabric/1.12/app-versioning[Reviewing Application Versioning on Runtime Fabric^] (Link out from Beta docs) . 
 
+*PLEASE REVIEW FOR ACCURACY IN CH2*
+
 *Last update* 15-Mar-22
 
 
