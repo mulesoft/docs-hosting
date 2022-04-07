@@ -50,6 +50,15 @@ To configure multiple public endpoints:
 . When deploying an app to a private space, click the *Ingress* tab.
 +
 See xref:ch2-deploy-private-space.adoc[].
++
+If the app is already deployed:
++
+--
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+include::partial$select-private-space.adoc[tag=clickAppName]
+include::partial$select-private-space.adoc[tag=clickSettings]
+. Click the *Ingress* tab.
+--
 . Configure the first endpoint:
 .. Select the first domain from the *Domain* drop-down list, for example `&#x2a;.example.com`.
 +
@@ -59,7 +68,9 @@ If the domain includes a wildcard, the *Subdomain* field becomes available.
 For information, see <<placeholder-table,placeholders>>.
 .. Enter the path where the HTTP Listener in the app is listening, for example `v1/api`.
 . If you want to configure additional endpoints, click *Add Endpoint* and repeat steps 2.1 through 2.3. 
-. Click *Deploy*.
+. Depending on the deployment status, choose either:
+** If you're ready to deploy the application, click *Deploy*.
+** If this application is deployed, click *Apply Changes*.
 . Verify that the app can be reached at each configured endpoint.
 
 // === Placeholders
@@ -77,9 +88,20 @@ To configure different paths:
 . When deploying an app to a private space, click the *Ingress* tab.
 +
 See xref:ch2-deploy-private-space.adoc[].
++
+If the app is already deployed:
++
+--
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+include::partial$select-private-space.adoc[tag=clickAppName]
+include::partial$select-private-space.adoc[tag=clickSettings]
+. Click the *Ingress* tab.
+--
 . In the *Path* field, enter the path where you want the app to be reachable, for example, `/`.
 . Enable *Rewrite Request Paths* and enter the target path expected by the app, for example,  `v1/api`.
-. Click *Deploy*.
+. Depending on the deployment status, choose either:
+** If you're ready to deploy the application, click *Deploy*.
+** If this application is deployed, click *Apply Changes*.
 . Verify that the app can be reached at the new path.
 
 
@@ -103,8 +125,10 @@ To remove a public endpoint:
 
 //SELECT APP SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
+include::partial$select-private-space.adoc[tag=clickAppName]
+include::partial$select-private-space.adoc[tag=clickSettings]
 . Click the *Ingress* tab.
-. In the endpoint link row, click *X*.
+. In the endpoint link row, click the trash can icon (*Delete*).
 
 
 [[view-private-endpoint]]
@@ -113,8 +137,14 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 A private endpoint is accessible from inside the same private space or through
 the VPN or transit gateway connection for the private space. 
 
-To view or copy the URL for the private endpoint, hover over *private endpoint*:
+To view or copy the URL for the private endpoint:
 
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+include::partial$select-private-space.adoc[tag=clickAppName]
+include::partial$select-private-space.adoc[tag=clickSettings]
+. Click the *Ingress* tab.
+. Hover over *private endpoint*:
++
 <screenshot>
 
 == See Also

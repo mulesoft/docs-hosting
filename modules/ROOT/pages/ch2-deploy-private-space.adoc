@@ -2,7 +2,7 @@
 
 *This topic is updated to the UI on QAX*
 
-*Last update* 30-Mar-22
+*Last update* 07-Apr-22
 
 // How can we share this content with RTF?
 
@@ -190,18 +190,8 @@ include::partial$deployment.adoc[tag=changeAppProperties,leveloffset=+1]
 // == Enable TLS v1 and TLS v1.1
 include::partial$deployment.adoc[tag=enableTLSv1,leveloffset=+1]
 
-
-[[disable-logging]]
-=== Disable Logging for the App
-
-Logging is enabled by default for apps deployed to private space.
-
-To disable logging and metrics for the app, click the *Logging* tab and deselect 
-the logging option:
-
-* Titanium subscribers: *Enable application logs and metrics*
-* Non-Titanium subscribers: *Enable application logs*
-
+// == Disable logging
+include::partial$deployment.adoc[tag=disableLogging,leveloffset=+1]
 
 ////
 
@@ -235,4 +225,5 @@ For information about viewing logs, see xref:ch2-view-logs.adoc[].
 * https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (Link out from Beta docs)
 * xref:ch2-config-endpoints-paths.adoc[]
 * xref:ps-config-domains.adoc[]
+* xref:ch2-integrate-log-system.adoc[]
 

@@ -2,6 +2,8 @@
 
 *Updated to the UI and to align more with https://docs.mulesoft.com/runtime-manager/hybrid-schedule-mgmt[hybrid scheduler] per Martin.*
 
+*PLEASE REVIEW FOR ACCURACY IN CH2*
+
 *Last update* 30-Mar-22
 
 You can use Runtime Manager to view and control the Scheduler components within the flows in your deployed applications, all without changing the running application.
