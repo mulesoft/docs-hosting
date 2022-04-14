@@ -70,7 +70,7 @@ Outbound::
 By default, CloudHub 2.0 allows HTTPS traffic on port 443 from the private space.
 You can configure additional firewall rules to configure additional HTTPS and HTTP connections on port 80.
 
-By combining firewall rules and TLS context configuration, you can fine-tune how external services reach your applications.
+By combining firewall rules and TLS context configuration, you can fine-tune the ingress and egress of your application traffic.
 
 
 == See Also
