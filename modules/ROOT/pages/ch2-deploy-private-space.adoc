@@ -47,46 +47,8 @@ image::rtm-get-from-exchange.png[Get from Exchange page]
 . Click *Deploy Application*. 
 
 
-[[specify-runtime-options]]
-== Specify Runtime Options 
-
-Click the *Runtime* tab and specify the following options:
-
-Runtime version::
-Specifies the Mule runtime engine version
-Replicas::
-Specifies the number of replicas, or instances, of the application to deploy
-+
-For high availability, specify a minimum of two replicas.
-CloudHub 2.0 limits the number of replicas per deployment to eight.
-Run in Runtime Cluster Mode::
-Enables Mule clustering across each replica of the application
-Enforce deploying replicas across nodes::
-Selecting this option might cause some replicas in the deployment to remain in Pending status if there are unsufficient worker nodes or resources available on the worker nodes needed to deploy each replica.
-The deployment status transitions to Running after all replicas are deployed on different worker nodes.
-
-Deployment model::
-+
---
-* *Rolling update*:
-** Maintains availability by incrementally updating replicas.
-** Requires one additional replica's worth of resources to succeed.
-
-* *Recreate*:
-** Terminates replicas before redeployment.
-** Redeployment is faster and doesn't require additional resources.
---
-Resource allocation::
-+
-*This will probably be replaced with just vCores?*
-+
-See xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas].
-+
---
-* *Reserved CPU*: Specify a value between `0.02` and `3.7` vCPU.
-* *CPU Limit*: Specify a value between `0.02` and `3.7` vCPU.
-* *Memory*: Specify a value between `0.7` and `14.5` GB.
---
+// == Specify Runtime Options 
+include::partial$deployment.adoc[tag=specifyRuntimeOpts,leveloffset=+1]
 
 
 [[configure-endpoint-path]]
