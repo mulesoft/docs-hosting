@@ -71,7 +71,7 @@ Self-managed
 
 *per app* | Supported| Partially supported | Supported
 | *TLS 1.0* | Not supported | Supported| Supported
-| *Internal endpoints* | Supported |Supported | Supported
+| *Private endpoints* | Supported |Supported | Supported
 | *Load balancer logs* | Supported
 
 (download) | Not supported | Supported
@@ -123,7 +123,7 @@ Self-managed
 *management* | Fully managed | Fully managed | AWS/
 
 Self-managed
-| *Persistent object store* | Fully managed
+| *Object store* | Fully managed
 
 (Object Store v2)| Fully managed
 
