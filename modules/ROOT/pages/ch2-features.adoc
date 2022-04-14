@@ -178,7 +178,7 @@ Self-managed
 |*VM management* | MuleSoft | MuleSoft | AWS
 |*Network* | MuleSoft | MuleSoft | AWS
 |*App capabilities* | MuleSoft | MuleSoft | MuleSoft/AWS
-|*Load balancing and Ingress* | MuleSoft | MuleSoft | AWS
+|*Load balancing and Ingress* | MuleSoft | MuleSoft | Self-managed
 |*Backup and Restore* | Fully managed | Fully managed | AWS/
 
 Self-managed
