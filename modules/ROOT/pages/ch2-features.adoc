@@ -118,7 +118,7 @@ Self-managed
 *for API Gateway deployments*| Not supported | Supported | Not supported
 | *DataGraph* | Not supported | Supported | Not supported
 |*Mule patch updates* | Automated | Automated | Requires redeployment
-|*Orchestration*
+|*Cluster*
 
 *management* | Fully managed | Fully managed | AWS/
 
