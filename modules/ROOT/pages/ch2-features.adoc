@@ -110,7 +110,7 @@ Self-managed
 
 (private space) | Supported
 
-(per app) | ?
+(per app) | Supported 
 4+^h|App Capabilities
 |*Schedule management* | Supported | Supported | Not supported
 |*TLS certificates*
