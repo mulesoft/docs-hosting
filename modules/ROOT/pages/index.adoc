@@ -8,12 +8,12 @@
 CloudHub 2.0 is a fully managed, containerized integration platform as a service (iPaaS),
 built on Anypoint Fabric, where you can deploy APIs and integrations.
 
+== Why Deploy on CloudHub 2.0?
+
 CloudHub 2.0:
 
-* Provides 99.99% availability for deployments across 12 regions globally.
-* Proactively scales infrastructure and built-in services to support increasing transaction volumes.
-* Allocates CPU and memory based on vCore size to handle performance for applications with varying workloads. 
-* Includes built-in load balancing and support for deploying 20 applications per CPU core.
+* Provides for deployments across 12 regions globally.
+* Dynamically scales infrastructure and built-in services up or down to support elastic transaction volumes.
 * Builds in security, protecting your services and sensitive data with a set of policies.
 * Encrypts certificates, passwords, and other sensitive configuration data at rest and in transit within Anypoint Platform.
 * Provides a standardized isolation boundary by running each Mule instance and service as a separate container.
