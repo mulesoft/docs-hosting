@@ -71,7 +71,7 @@ Self-managed
 | *Custom endpoints* | Supported | Supported | Supported
 | *Multiple custom endpoints*
 
-*per app* | Supported| Partially supported | ?
+*per app* | Supported| Partially supported | Supported
 | *TLS 1.0* | Not supported | Supported| Supported
 | *Private endpoints* | Supported |Supported | Supported
 | *Load balancer logs* | Supported
