@@ -69,7 +69,7 @@ Self-managed
 | *Custom endpoints* | Supported | Supported | Supported
 | *Multiple custom endpoints*
 
-*per app* | Supported| Partially supported | ?
+*per app* | Supported| Partially supported | Supported
 | *TLS 1.0* | Not supported | Supported| Supported
 | *Internal endpoints* | Supported |Supported | Supported
 | *Load balancer logs* | Supported
@@ -110,15 +110,15 @@ Self-managed
 
 (private space) | Supported
 
-(per app) | ?
+(per app) | Supported 
 4+^h|App Capabilities
 |*Schedule management* | Supported | Supported | Not supported
 |*TLS certificates*
 
-*for API Gateway deployments*| Not supported | Supported | Not supported
+*for API Gateway deployments*| Supported | Supported | Not supported
 | *DataGraph* | Not supported | Supported | Not supported
 |*Mule patch updates* | Automated | Automated | Requires redeployment
-|*Orchestration*
+|*Cluster*
 
 *management* | Fully managed | Fully managed | AWS/
 
@@ -176,7 +176,7 @@ Self-managed
 |*VM management* | MuleSoft | MuleSoft | AWS
 |*Network* | MuleSoft | MuleSoft | AWS
 |*App capabilities* | MuleSoft | MuleSoft | MuleSoft/AWS
-|*Load balancing and Ingress* | MuleSoft | MuleSoft | AWS
+|*Load balancing and Ingress* | MuleSoft | MuleSoft | Self-managed
 |*Backup and Restore* | Fully managed | Fully managed | AWS/
 
 Self-managed
