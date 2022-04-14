@@ -78,6 +78,8 @@ If your app requires TLS v1 or TLS v1.1, you can enable them using JVM (Java Vir
 `-Drtf.allow.TLSv1.1`
 // end::enableTLSv1[]
 
+
+
 // tag::disableLogging[]
 [[disable-logging]]
 = Disable Logging for the App
@@ -90,3 +92,41 @@ the logging option:
 * Titanium subscribers: *Enable application logs and metrics*
 * Non-Titanium subscribers: *Enable application logs*
 // end::disableLogging[]
+
+
+// tag::specifyRuntimeOpts[]
+[[specify-runtime-options]]
+== Specify Runtime Options 
+
+Click the *Runtime* tab and specify the following options:
+
+Runtime version::
+Specifies the Mule runtime engine version.
+Replica size::
+Specifies the number of vCores in the replica to run your application.
++
+For information on replica sizes, memory, and storage, see
+xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas].
+CloudHub 2.0 limits the replica size per deployment to four vCores.
+Replicas::
+Specifies the number of replicas, or instances, of the application to deploy.
++
+A minimum of two replicas is required for high availability.
+Run in Runtime Cluster Mode::
+Enables Mule clustering across each replica of the application.
+Enforce deploying replicas across nodes::
+Selecting this option might cause some replicas in the deployment to remain in Pending status if there are unsufficient worker nodes or resources available on the worker nodes needed to deploy each replica.
+The deployment status transitions to Running after all replicas are deployed on different worker nodes.
+
+Deployment model::
++
+--
+* *Rolling update*:
+** Maintains availability by incrementally updating replicas.
+** Requires one additional replica's worth of resources to succeed.
+
+* *Recreate*:
+** Terminates replicas before redeployment.
+** Redeployment is faster and doesn't require additional resources.
+--
+// end::specifyRuntimeOpts[]
