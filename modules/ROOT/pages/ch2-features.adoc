@@ -115,7 +115,7 @@ Self-managed
 |*Schedule management* | Supported | Supported | Not supported
 |*TLS certificates*
 
-*for API Gateway deployments*| Not supported | Supported | Not supported
+*for API Gateway deployments*| Supported | Supported | Not supported
 | *DataGraph* | Not supported | Supported | Not supported
 |*Mule patch updates* | Automated | Automated | Requires redeployment
 |*Cluster*
