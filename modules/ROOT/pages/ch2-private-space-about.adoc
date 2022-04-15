@@ -2,7 +2,7 @@
 
 // (*Learn more* link from *Private Spaces* page)
 
-*Last update* 16-Mar-22
+*Last update* 14-Apr-22
 
 A _private space_ is a virtual, private, and isolated logical space in CloudHub 2.0 in which to run your apps.
 You can create multiple private spaces, either in the same or different regions.

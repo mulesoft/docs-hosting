@@ -2,7 +2,7 @@
 
 // reliability, performance, and security.
 
-*Last update* 16-Mar-22
+*Last update* 14-Apr-22
 
 
 CloudHub 2.0 is a fully managed, containerized integration platform as a service (iPaaS),
