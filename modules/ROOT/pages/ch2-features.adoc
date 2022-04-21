@@ -1,6 +1,6 @@
 = Features of CloudHub 2.0
 
-*Last update* 14-Apr-22
+*Last update* 21-Apr-22
 
 *This topic will (eventually) be replaced with an updated version of https://docs.mulesoft.com/general/intro-platform-hosting#support-matrix-for-runtime-plane-hosting-options[Support Matrix for Runtime Plane Hosting Options].*
 

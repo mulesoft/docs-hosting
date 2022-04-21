@@ -119,9 +119,9 @@ but you can change the values.
 
 To configure a redundant VPN connection, you must:
 
-* Have sufficient entitlements, one for each VPN connection.
+* Have sufficient entitlements. 
 +
-See https://help.mulesoft.com/s/article/How-to-Calculate-VPC-and-VPN-License-Requirements[How to Calculate VPC and VPN License Requirements].
+Each private space includes two VPN connection entitlements.
 * Have two VPN endpoints available in your network that use different public IP addresses.
 +
 Each gateway device supports a single VPN. 

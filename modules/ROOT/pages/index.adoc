@@ -2,7 +2,7 @@
 
 // reliability, performance, and security.
 
-*Last update* 14-Apr-22
+*Last update* 21-Apr-22
 
 
 CloudHub 2.0 is a fully managed, containerized integration platform as a service (iPaaS),
@@ -14,7 +14,7 @@ CloudHub 2.0:
 
 * Provides for deployments across 12 regions globally.
 * Dynamically scales infrastructure and built-in services up or down to support elastic transaction volumes.
-* Builds in security, protecting your services and sensitive data with a set of policies.
+* Builds in security policies, protecting your services and sensitive data with encrypted secrets, firewall controls, and restricted shell access.
 * Encrypts certificates, passwords, and other sensitive configuration data at rest and in transit within Anypoint Platform.
 * Provides a standardized isolation boundary by running each Mule instance and service as a separate container.
 
