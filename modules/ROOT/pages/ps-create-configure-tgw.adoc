@@ -4,12 +4,16 @@ include::partial$feature-availability.adoc[tag=featureUnavailable]
 
 *This topic is updated to the TGW Design Specs dated 08-Nov-21*
 
-*Last update* 09-Mar-22
+*Last update* 26-Apr-22
 
 Multiple private spaces can connect to an internal VPC.
 You can reuse the transit gateway attachment by connecting another private space to it and accepting the attachment. 
 You don't need to create the resource share again.
 
+== Prerequisites
+
+Before creating a transit gateway attachment,
+xref:ps-create-configure.adoc#create-private-network[create the private network].
 
 [[connect-tgw]]
 == Connect to a Transit Gateway
