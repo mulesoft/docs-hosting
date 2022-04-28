@@ -272,7 +272,7 @@ Here is an example of data received in JSON format in response to a request to g
 {
   "versionId": "xxxxxxxx",
   "domain": "hello",
-  "fullDomain": "hello.us-e1.cloudhub.io",
+  "fullDomain": "hello.usa-e1.cloudhub.io",
   "properties": {
     "foo":"bar"
   },
@@ -295,7 +295,7 @@ Here is an example of data received in JSON format in response to a request to g
       "host": "xxx.xxx.xxx.xxx",
       "port": 0,
       "status": "STARTED",
-      "deployedRegion": "us-east-1",
+      "deployedRegion": "usa-e1",
       "staticIPEnabled": false
     }
   ],

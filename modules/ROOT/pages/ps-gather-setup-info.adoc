@@ -191,7 +191,7 @@ You can rename a private space, if necessary.
 [[private-network-region]]
 === Private Network Region
 
-The _region_ is the Amazon region to deploy your apps to, such as `us-east-1`.
+The _region_ is the Amazon region to deploy your apps to, such as `usa-e1`.
 
 The complete list of supported regions is:
 

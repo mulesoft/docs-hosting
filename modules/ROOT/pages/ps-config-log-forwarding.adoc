@@ -282,7 +282,7 @@ Example output plugin configuration:
 ```
 [OUTPUT]
     Name                   cloudwatch_logs
-    region                 us-east-1
+    region                 usa-e1
     aws_access_key_id      <your_AWS_access_key_ID>
     aws_secret_access_key  <your_AWS_secret_access_key>
     log_group_name         runtime_fabric_cloudwatch
