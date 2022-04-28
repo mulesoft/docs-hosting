@@ -90,14 +90,9 @@ To use `\` in a key or value, use `\\` in the syntax.
 
 == Add Application Properties Using a Properties File
 
-You can add properties to an app by including a file in the deployable application archive file:
+You can add properties to an app by including a file in the property placeholder YAML file deployable application archive file.
 
-* Property placeholder YAML file (Mule 4)
-+
-See https://docs.mulesoft.com/mule-runtime/4.4/configuring-properties[Configuring Properties^] (Mule 4) (Link out from Beta docs).
-* `mule-app.properties` (Mule 3)
-+
-See https://docs.mulesoft.com/mule-runtime/3.9/configuring-properties[Configuring Properties^] (Mule 3) (Link out from Beta docs).
+See https://docs.mulesoft.com/mule-runtime/4.4/configuring-properties[Configuring Properties^]  (Link out from Beta docs).
 
 CloudHub 2.0 then loads these properties into the application when the application starts. 
 
