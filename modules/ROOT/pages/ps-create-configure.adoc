@@ -1,0 +1,93 @@
+= Creating Private Spaces
+
+*This topic is updated to the Private Space (03-Nov) and Private Network (08-Nov) Design Specs*
+
+*Last update* 07-Mar-22
+
+To extend your network to Anypoint Platform, create a _private space_, 
+a virtual, private, and isolated network hosted in CloudHub 2.0,
+to deploy your apps to.
+
+[[create-private-space]]
+== Create a Private Space 
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
++
+The page shows any private spaces associated with the selected business group.
+. Click *Create Private Space*.
+. Enter a xref:ps-gather-setup-info.adoc#private-space-name[name] for your private space and click *Create*.
+
+[[create-private-network]]
+== Create a Private Network
+
+[IMPORTANT]
+You can't change the private network configuration after it's created.
+To change the configuration, delete the private space and create it again.
+See xref:ps-manage.adoc[].
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
++
+The page shows any private spaces associated with the selected business group.
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. On the *Network* tab, click *Create Private Network*. 
+. On the *Create Private Network* page:
++
+--
+.. Select the xref:ps-gather-setup-info.adoc#private-network-region[region] where you want your apps to run.
+.. Enter the xref:ps-gather-setup-info.adoc#cidr-block[CIDR block], which is the range of IP addresses that your apps can use.
+.. Click *Create*.
+--
+The private network can take up to 30 minutes to create.
++
+While the network is created, you can 
+<<create-connection-to-external-network,create a connection to an external network>>.
+. After the network creation succeeds, you can xref:ch2-deploy-private-space.adoc[deploy an application] to test the private network connection.
+
+If the private network creation fails, delete it and click *Create Private Network* to try again.
+
+[[resolve-private-domains]]
+=== Resolve Private Domains in Your Internal Network
+
+If your corporate network uses internal DNS servers to resolve requests to custom domains, configure the private space with these IP addresses and domain names.
+The private space uses your internal DNS to resolve internal host names of your private network (make sure your applications call the backend resources by FQDN).
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. On the *Network* tab, click the *Configure* link for *Internal DNS Servers*.
+. Enter the (comma-separated) xref:ps-gather-setup-info.adoc#server-ip-addresses[server IP addresses] for your internal DNS servers.
+. Enter the (comma-separated) xref:ps-gather-setup-info.adoc#domains[domain addresses] to be resolved by internal DNS.
+. Click *Save*.
+
+After you configure internal DNS, the *Network* tab indicates the number of configured server IP addresses and domains:
+
+image::internal-dns.png[Internal DNS configuration in the Private Network section]
+
+[[create-connection-to-external-network]]
+== Create a Connection to an External Network
+
+After you create your private network, connect it to an external network using a 
+VPN or transit gateway attachment.
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. In the *Network* tab, click *Create Connection*. 
+. On the *Create Connection* page, select the connection type, enter the xref:ps-gather-setup-info.adoc#vpn-name[name], and click *Next*.
++
+Depending on the connection type you selected:
++
+** *VPN*: Follow the steps in xref:ps-create-configure-vpn.adoc[].
+** *Transit Gateway*: Follow the steps in xref:ps-create-configure-tgw.adoc[].
+
+
+== See Also 
+
+* xref:ps-gather-setup-info.adoc[]
+* xref:ps-create-configure-vpn.adoc[]
+* xref:ps-create-configure-tgw.adoc[]
+* xref:ps-configure.adoc[]
+* xref:ps-manage.adoc[]
+

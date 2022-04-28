@@ -1,0 +1,39 @@
+= Transit Gateway Attachments
+
+include::partial$feature-availability.adoc[tag=featureUnavailable]
+
+
+AWS Transit Gateway acts as a cloud router in AWS, simplifying network access between private spaces,
+on-premises data centers, and third-party software, while providing increased visibility and control over the network.
+Transit gateways effectively merge your organization’s cloud resources and on-premises datacenters
+into one network topology.
+
+On CloudHub 2.0, you can take advantage of this network simplification by securely attaching your private space 
+to AWS Transit Gateway in your AWS account.
+
+You can add multiple transit gateways to your Anypoint Platform organization.
+The number of transit gateways you can add depends on the network connection entitlements available to your account. 
+Contact your MuleSoft account representative if you don't know how many entitlements are associated with your account. 
+
+To use transit gateway attachments, your private space and AWS Transit Gateway must be in the same region.
+
+image::ps-overview-tgw.png[Transit Gateway Overview]
+
+To attach your private space to your transit gateway, see xref:ps-create-configure.adoc#create-connection-to-external-network[Create a Connection to an External Network].
+
+== Limitations
+
+The following limits are governed by AWS limits:
+
+* Maximum number of transit gateways per VPC
+* Maximum number of VPCs that you can attach to a transit gateway
+
+For information about limitations when attaching a VPC to a transit gateway, 
+see 
+https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html[Transit gateway attachments to a VPC^] in the AWS documentation.
+
+
+== See Also
+
+* https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html[What is a transit gateway?^] in the AWS documentation
+* https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html[Transit gateway route tables^] in the AWS documentation

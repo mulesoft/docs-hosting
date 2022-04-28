@@ -1,0 +1,22 @@
+= Configuring Private Spaces
+
+*Last update* 14-Feb-22
+
+After creating the private space, private network, and connections to external networks, you can configure the private space by:
+
+* xref:ps-config-domains.adoc[]
+// * xref:ps-config-clients.adoc[]
+* xref:ps-config-fw-rules.adoc[]
+* xref:ps-config-env.adoc[]
+// * xref:ps-config-log-forwarding.adoc[]
+* xref:ps-config-advanced.adoc[]
+
+
+== See Also 
+
+* xref:ps-gather-setup-info.adoc[]
+* xref:ps-create-configure.adoc[]
+* xref:ps-create-configure-vpn.adoc[]
+* xref:ps-create-configure-tgw.adoc[]
+* xref:ps-manage.adoc[]
+

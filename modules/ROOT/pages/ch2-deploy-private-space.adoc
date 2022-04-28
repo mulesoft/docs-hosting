@@ -1,0 +1,191 @@
+= Deploying Apps to Private Spaces
+
+*This topic is updated to the UI on QAX*
+
+*Last update* 14-Apr-22
+
+// How can we share this content with RTF?
+
+You deploy apps to a private space using Runtime Manager.
+
+[IMPORTANT]
+include::partial$caveats.adoc[tag=supportedMule]
+
+[[deploy-app-private-space]]
+== Deploy an App to a Private Space
+
+//SELECT APP SHARED
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. Click *Deploy application*.
+. On the *Deploy Application* page:
+.. Enter the <<app-name-reqs,name>> of the application.
++
+// NO RENAME SHARED
+[IMPORTANT]
+include::partial$caveats.adoc[tag=noRenameApp]
+.. Select an application file:
++
+--
+*** To upload a Mule app JAR file from your system, select *Choose file > Upload file*.
+*** To choose an example app from Anypoint Exchange:
+.... Select *Choose file > Import file from Exchange*.
+.... On the *Get from Exchange* page, enter `hello` in the *Search assets by name*:
++
+image::rtm-get-from-exchange.png[Get from Exchange page]
+.... Click *Hello World* and then click *Select*.
+--
+.. Select the name of the private or shared space from the *Deployment Target* list.
+.. Configure options for deployment:
++
+*** <<specify-runtime-options,Specify runtime options>>.
+*** <<configure-endpoint-path,Configure endpoints and paths for the app>>.
+*** <<app-properties,Change app behavior with properties>>.
+*** <<enable-tls-v1,Enable TLS v1 and TLS v1.1>>.
+*** <<disable-logging,Disable app logs and metrics>>.
+// *** <<forward-logs,Forward logs to other services>>.
+
+. Click *Deploy Application*. 
+
+
+// == Specify Runtime Options 
+include::partial$deployment.adoc[tag=specifyRuntimeOpts,leveloffset=+1]
+
+
+[[configure-endpoint-path]]
+== Configure Endpoints and Paths for the App
+
+For more information, see xref:ch2-config-endpoints-paths.adoc[].
+
+To configure endpoints for the app to enable access from the internet:
+
+. Click the *Ingress* tab and specify the following options:
++
+Public endpoint::
++
+--
+* *Domain*: Select the domain, such as `cloudhub.io`, for the app from the drop-down list.
++
+[NOTE]
+If you select `cloudhub.io` (the default domain), you can't select a subdomain or path.
++
+The administrator configures the domains and certificates (TLS context) for the private space.
+See xref:ps-config-domains.adoc[].
++
+After you select the domain for a private space, you can view the corresponding TLS context by clicking *View TLS Context*:
++
+<screenshot>
+* *Subdomain*: If the domain you selected includes a wildcard, you can configure the subdomain.
++
+include::partial$deployment.adoc[tag=subdomain-name-reqs]
++
+Subdomains support <<placeholder-table,placeholders>>.
+The default subdomain is `app-name`, which resolves to the name of the app that you specified in the *Application Name* field when you deploy the app.
+* *Path*: specifies the URL path to the application endpoint.
++
+include::partial$deployment.adoc[tag=path-name-reqs]
++
+Paths support <<placeholder-table,placeholders>>.
++
+<screenshot>
+
+
+* To add an endpoint, click *Add Endpoint* and specify options.
+* To remove an endpoint, click the trash can icon (*Delete*) in the endpoint row.
+* To copy an endpoint, click the copy icon (*Copy*) in the endpoint row.
+
+--
+
+Path Rewrite::
++
+--
+If the HTTP Listener in your app listens on a different path than the path defined in *Public Endpoints*:
+
+. Enable the *Rewrite Request Paths* option.
+. Enter the target path expected by your app.
++
+Requests sent to your app use the path that you specify here.
+. Click *Show Example* to see how the private space rewrites the path.
+--
+TLS Options::
+* *Last-Mile Security*
++
+--
+Specifies that TLS termination and decryption for the forwarded HTTPS connections occurs in the application.
+
+This option requires that the Mule application include an SSL certificate and also requires more CPU resources.
+--
+* *Forward SSL Session*
++
+--
+Enables SSL forwarding during a session.
+
+SSL forwarding is mostly used with client authentication.
+See https://docs.mulesoft.com/anypoint-security/enable-client-authentication.html[Enable Client Authentication^] (Link out from Beta docs).
+SSL forwarding forwards client certificate details in HTTP request headers so they are available to the application.
+These fields can identify an authenticated client and allow an application to determine and use the identity.
+
+The following headers are available:
+
+[%header,cols="2*a"]
+|===
+| Header Name | Value
+| x-ssl-client-verify | SUCCESS/FAIL
+| x-ssl-issuer | Client certificate issuer
+| x-ssl-client-serial | Client certificate serial number
+| x-ssl-client-dn | Contents of the client certificate DN field
+| x-ssl-client-cert | Contents of the client certificate
+|===
+--
+. Click *Apply Changes* to create a new configuration for your application.
+
+
+// === Application Names
+include::partial$deployment.adoc[tag=appNameReqs,leveloffset=+2]
+
+// === Placeholders
+include::partial$deployment.adoc[tag=placeholders,leveloffset=+2]
+
+
+// == Change App Behavior with Properties
+include::partial$deployment.adoc[tag=changeAppProperties,leveloffset=+1]
+
+// == Enable TLS v1 and TLS v1.1
+include::partial$deployment.adoc[tag=enableTLSv1,leveloffset=+1]
+
+// == Configure Log Level
+include::partial$deployment.adoc[tag=configureLogLevels,leveloffset=+1]
+
+////
+
+include::partial$feature-availability.adoc[tag=featureUnavailableGA]
+[[forward-logs]]
+== Forward Logs to Other Services
+
+include::partial$feature-availability.adoc[tag=featureUnavailable]
+
+If log forwarding is not configured for the private space, the options on the *Logs* tab are disabled.
+See xref:ps-config-log-forwarding.adoc[].
+
+Show logs in Anypoint Monitoring::
+Forwards only application logs to Anypoint Monitoring and requires a Titanium subscription.
+
+Forward logs to _service_::
+Forwards application and load-balancer logs to the specified service:
++
+** Azure
+** Elasticsearch
+** Graylog (GELF)
+** Splunk
+** CloudWatch
+
+For information about viewing logs, see xref:ch2-view-logs.adoc[].
+////
+
+== See Also
+
+* xref:ch2-download-test-app.adoc[]
+* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (Link out from Beta docs)
+* xref:ch2-config-endpoints-paths.adoc[]
+* xref:ps-config-domains.adoc[]
+* xref:ch2-integrate-log-system.adoc[]
+

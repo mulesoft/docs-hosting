@@ -1,0 +1,34 @@
+= Extending Your Network to Anypoint Platform with Private Spaces
+
+*Last update* 28-Feb-22
+
+== Before You Begin
+
+* xref:ps-assign-permissions.adoc[Assign permissions].
+* xref:ps-gather-setup-info.adoc[Gather required setup information].
+
+
+== Workflow
+
+. xref:ps-create-configure.adoc[Create the private space]. 
+. xref:ps-create-configure.adoc#create-private-network[Create the private network].
+.. xref:ch2-deploy-private-space.adoc[Test the private network by deploying an app].
+.. xref:ps-create-configure.adoc#resolve-private-domains[Configure internal DNS servers, if necessary]. 
+. xref:ps-create-configure.adoc#create-connection-to-external-network[Create a connection to an external network]. 
+** xref:ps-create-configure-vpn.adoc[Create a VPN connection].
+** xref:ps-create-configure-tgw.adoc[Connect to a transit gateway].
+. xref:ps-configure.adoc[Customize the private space]:
++
+--
+.. xref:ps-config-domains.adoc[Configure domains and certificates (TLS context) for the private space].
+// .. xref:ps-config-clients.adoc[Set up authentication for trusted clients].
+.. xref:ps-config-fw-rules.adoc[Configure firewall rules to manage traffic to the private space].
+.. xref:ps-config-env.adoc[Associate environments and business groups with the private space].
+// .. xref:ps-config-log-forwarding.adoc[Configure log forwarding for the private space].
+.. xref:ps-config-advanced.adoc[Configure advanced settings], including HTTP request handling and ingress load balancer log levels.
+--
+
+== See Also 
+
+* xref:ps-create-configure.adoc[]
+* xref:ps-configure.adoc[]

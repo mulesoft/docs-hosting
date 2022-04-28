@@ -1,0 +1,80 @@
+= Configuring Firewall Rules to Manage Traffic to a Private Space
+
+*This topic is updated to the Design Spec dated 09-Nov-21 and discussions*
+
+*Last update* 08-Mar-22
+
+By default, all traffic to your private space is blocked unless it is explicitly allowed in a firewall rule.
+
+Creating a private space automatically creates these firewall rules:
+
+* Two rules to allow inbound connections from any host:
+** HTTP: port 80
+** HTTPS: port 443
+
+* Two rules to allow outbound connections from within your private space to any host:
+** HTTP: All ports
+** HTTPS: port 443
++
+You can't delete this rule.
+
+// Configure Anypoint Security for Edge Policies	
+// Specify IP Addresses to Allow	
+// Control Inbound Traffic with Firewall Rules	
+// Apply Edge Security Policies to the Private Space	
+
+== Configure Firewall Rules
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click the *Firewall Rules* tab.
+. Configure default rules for inbound traffic by selecting the *Protocol* and *Source* from the drop-down lists:
++
+--
+Protocol::
+Protocol type:
+* *HTTP*
+* *HTTPS*
+
+Source::
+Source IP address:
+
+* *Anywhere (0.0.0.0/0)*
+* *Local Network (10.0.0.0/24)*
++
+This option is available only if a private network exists in the private space. 
+* *Custom CIDR*
++
+Enter a custom CIDR in the field.
+
+--
+. Configure default rules for outbound traffic by selecting the *Protocol* and *Destination* from the drop-down lists:
++
+--
+
+Protocol::
+Protocol type:
++
+* *HTTP*
+* *HTTPS*
+
+Destination::
+Destination IP address:
+
+* *Anywhere (0.0.0.0/0)*
+* *Local Network (10.0.0.0/24)*
++
+This option is available only if a private network exists in the private space. 
+* *Custom CIDR*
++
+Enter a custom CIDR in the field.
+--
+. Click *Add Rule* to add more rules.
+. To remove a firewall rule, click the trash can icon (*Delete*) for the entry.
++
+<screenshot>
+// +
+// image::fw-rule-delete.png[Delete icon on the Firewall rules tab]
+
+. Click *Save Changes* or *Discard Changes*.
