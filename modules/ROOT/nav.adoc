@@ -36,4 +36,3 @@
 *** xref:ch2-view-logs.adoc[Viewing Log Data for Deployed Apps]
 *** xref:ch2-view-diag.adoc[Viewing Diagnostic Data for Deployed Apps]
 *** xref:ch2-config-app-alerts.adoc[Configuring Application Alerts]
-** xref:ch2-api.adoc[CloudHub 2.0 REST API]
