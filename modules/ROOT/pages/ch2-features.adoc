@@ -1,6 +1,6 @@
 = Features of CloudHub 2.0
 
-*Last update* 21-Apr-22
+*Last update* 28-Apr-22
 
 *This topic will (eventually) be replaced with an updated version of https://docs.mulesoft.com/general/intro-platform-hosting#support-matrix-for-runtime-plane-hosting-options[Support Matrix for Runtime Plane Hosting Options].*
 
@@ -151,7 +151,7 @@ Self-managed
 |*Built-in notifications* | Supported | Supported |Supported
 |*Custom notifications* 
 
-*CloudHub Connector*| Supported | Supported | Not supported
+*CloudHub Connector*| Not supported | Supported | Not supported
 |*Log forwarding* | Manual
 
 | Supported
@@ -248,7 +248,7 @@ Self-managed
 |Enable tokenization|No|Yes|Yes
 4+h|Application Alerting
 |Create, Modify and View Application alerts|Yes|Yes|Yes*
-|CloudHub custom application alerts (CloudHub connector)|Yes|No|No
+|CloudHub custom application alerts (CloudHub Connector)|Yes|No|No
 |Retrieve application alerts via email|Yes|Yes|Yes
 |Retrieve application alerts via Runtime Manager UI/API|Yes|No|No
 4+h|Application Monitoring
