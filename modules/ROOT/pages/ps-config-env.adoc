@@ -1,0 +1,68 @@
+= Associating Environments and Business Groups with a Private Space
+
+*This topic is updated to the Design Spec dated 09-Nov-21*
+
+*Last update* 09-Mar-22
+
+Before you can deploy to a private space, you must specify the environments and at least one business group to associate with it.
+This association specifies in which environments the private space appears as 
+a target deployment in the *Deployment Target* list when deploying an app. 
+For information, see xref:ch2-deploy-private-space.adoc[].
+
+You can associate a private space with the production and sandbox environments
+in the business group, and its child business groups, that it's registered with or with a subset of business groups.
+
+By default, a private space is associated with all sandbox environments in its business groups.
+
+== Associate Environments and Business Groups
+
+To associate environments in the business group or groups with the private space:
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click the *Environments* tab.
+. Select the environments from the drop-down list:
++
+--
+** *All environments*
++
+Associates the private space with all sandbox and production environments in the business group and its children.
+** *Sandbox environments*
++
+Associates the private space with only sandbox environments in the business group and its children.
+** *Production environments*
++
+Associates the private space with only production environments in the business group and its children.
+--
+. Select the business groups from the drop-down list:
++
+--
+** *This business group and its children*
+** *Selected business group*
++
+Enter the business group name in the *Add business group* field and select it from the list.
++
+The list includes the business group and its child business groups to which the private space is registered and that have not yet been added.
+--
+. To remove a business group, click the *X* for the entry:
++
+<screenshot>
+// image::bg-delete.png[Delete icon on the Environments tab]
+
+. Click *Save Changes* or *Discard Changes*.
+
+== Manage Resources for a Business Group
+
+To view or manage resources associated with a business group:
+
+. From Anypoint Platform, select *Access Management* > *Business Groups*, and then click the business group.
+. Click the *Settings* tab.
+. In the *Resources* section, view or modify the allocation for a resource, such as *Production vCores*.
+. Click *Save Changes* or *Discard Changes*.
+
+
+== See Also 
+
+* xref:ch2-deploy-private-space.adoc[]
+* https://docs.mulesoft.com/access-management/[Anypoint Access Management^] (Link out from Beta docs)
