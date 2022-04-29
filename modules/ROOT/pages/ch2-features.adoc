@@ -68,9 +68,9 @@ Self-managed
 (DLB) | Supported
 |*Provisioning/updating* |Fully-managed|Fully-managed| Supported
 |*Certificate management*|Supported|Supported|Supported
-|*Multiple Trust Stores* 
+|*Multiple truststores* 
 
-*(client certs)* | Supported | Not supported |Supported
+*(client certificates for mutual TLS)* | Supported | Not supported |Supported
 | *Custom endpoints* | Supported | Supported | Supported
 | *Multiple custom endpoints*
 
@@ -156,7 +156,7 @@ Self-managed
 |*Built-in notifications* | Supported | Supported |Supported
 |*Custom notifications* 
 
-*CloudHub Connector*| Not supported | Supported | Not supported
+(*CloudHub Connector*)| Not supported | Supported | Not supported
 |*Log forwarding* | Manual
 
 | Supported
@@ -185,8 +185,8 @@ Self-managed
 |*VM management* | MuleSoft | MuleSoft | AWS
 |*Network* | MuleSoft | MuleSoft | AWS
 |*App capabilities* | MuleSoft | MuleSoft | MuleSoft/AWS
-|*Load balancing and Ingress* | MuleSoft | MuleSoft | Self-managed
-|*Backup and Restore* | Fully managed | Fully managed | AWS/
+|*Load balancing and ingress* | MuleSoft | MuleSoft | Self-managed
+|*Backup and restore* | Fully managed | Fully managed | AWS/
 
 Self-managed
 |===
