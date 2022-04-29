@@ -1,6 +1,6 @@
 = CloudHub 2.0 Architecture
 
-*Last update* 15-Mar-22
+*Last update* 28-Apr-22
 
 To understand CloudHub 2.0 security and availability, you should understand the architecture behind CloudHub 2.0.
 
@@ -127,7 +127,7 @@ For the US Cloud and MuleSoft Government Cloud control planes, MuleSoft hosts th
 For the EU Cloud control plane, MuleSoft hosts these services in Europe.
 
 The region that you deploy your application to determines the domain provided for your application.
-For example, if you deploy an application named `myapp` to Canada (Central), the domain used to access the application is `myapp-_uniq-id_._shard_.ca-c1.cloudhub.io`.
+For example, if you deploy an application named `myapp` to Canada (Central), the domain used to access the application is `myapp-_uniq-id_._shard_.can-c1.cloudhub.io`.
 CloudHub 2.0 backend services determine the values of _uniq-id_ and
 _shard_.  
 
@@ -157,8 +157,8 @@ The following table summarizes what DNS records are available for your applicati
 3+h|MuleSoft Government Cloud Region
 | US Gov West |usg-w1.gov| `myapp._uniq-id_._shard_.usg-w1.gov.cloudhub.io`
 3+h| EU Control Plane Regions 
-| EU (Ireland) |ir-e1.eu1| `myapp._uniq-id_._shard_.ir-e1.eu1.cloudhub.io`
-| EU (Frankfurt) |de-c1.eu1 | `myapp._uniq-id_._shard_.de-c1.eu1.cloudhub.io`
+| EU (Ireland) |irl-e1.eu1| `myapp._uniq-id_._shard_.irl-e1.eu1.cloudhub.io`
+| EU (Frankfurt) |deu-c1.eu1 | `myapp._uniq-id_._shard_.deu-c1.eu1.cloudhub.io`
 |===
 
 Note that DNS records are unique to each control plane. Though the EU control plane
@@ -166,9 +166,7 @@ supports some of the same regions that the U.S. control plane supports, the DNS 
 are different. For more on the EU control plane, see
 https://docs.mulesoft.com/eu-control-plane/[About the EU Control Plane^] (Link out from Beta docs).
 
-*Is this true?* 
-
-Deploying to a region also affects your internal and external worker DNS address. For example, if you are using the US control plane and deploy to the Ireland region, the DNS records for internal and external IP addresses are `mule-worker-myapp._uniq-id_._shard_.ir-e1.cloudhub.io` and `mule-worker-internal-myapp._uniq-id_._shard_.ir-e1.cloudhub.io`.
+Deploying to a region also affects your internal and external worker DNS address. For example, if you are using the US control plane and deploy to the Ireland region, the DNS records for internal and external IP addresses are `mule-worker-myapp._uniq-id_._shard_.irl-e1.cloudhub.io` and `mule-worker-internal-myapp._uniq-id_._shard_.irl-e1.cloudhub.io`.
 
 
 == Multitenancy

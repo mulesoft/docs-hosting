@@ -1,6 +1,6 @@
 = CloudHub 2.0 REST API
 
-*Last update* 17-Mar-22
+*Last update* 28-Apr-22
 
 *We will need to look at the IDs in the code examples before GA.*
 
