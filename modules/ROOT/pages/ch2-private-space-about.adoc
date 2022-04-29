@@ -25,9 +25,10 @@ In each private space, you define:
 
 When you create the private network, you associate a range of IP addresses for the apps in your private space to use, the region in which they run, and optionally, any internal DNS servers to resolve requests to custom domains.
 
-Private spaces support Amazon regions.
-You can configure multiple private spaces in a single Amazon region, enabling you to set up separate isolated networks for your production and non-production environments, 
+You can configure multiple private spaces in a single region, enabling you to set up separate isolated networks for your production and non-production environments, 
 such as dev or staging.
+
+For information about regions, see xref:ps-gather-setup-info.adoc#private-network-region[Private Network Region].
 
 == Private Network Connections
 
