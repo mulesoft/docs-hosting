@@ -56,6 +56,9 @@ Self-managed
 
 Self-managed
 | *VM self-healing* |Fully managed | Fully managed | Supported (managed nodes)
+
+
+4+h|
 4+h|Load Balancing and Ingress
 | *Default endpoints*|Fully managed | Fully managed | Not supported
 | *URL rewriting* | Supported
@@ -77,6 +80,7 @@ Self-managed
 | *Load balancer logs* | Supported
 
 (download) | Not supported | Supported
+4+h|
 4+h|Network
 | *Deployment regions* | 12 geographical regions | 12 geographical regions | Supported 
 
@@ -113,7 +117,8 @@ Self-managed
 (private space) | Supported
 
 (per app) | Supported 
-4+^h|App Capabilities
+4+h|
+4+h|App Capabilities
 |*Schedule management* | Supported | Supported | Not supported
 |*TLS certificates*
 
@@ -174,6 +179,8 @@ Self-managed
 | *Application isolation* | Supported | Supported | Supported
 |*Auto-recovery*| Fully managed | Fully managed | Supported
 |*Mule clustering* | Supported | Not supported | Supported
+
+4+h|
 4+h|Support
 |*VM management* | MuleSoft | MuleSoft | AWS
 |*Network* | MuleSoft | MuleSoft | AWS
