@@ -2,7 +2,7 @@
 
 *This topic is updated to the Domains & TLS UX Project Brief dated 25-Mar-22*
 
-*Last update* 28-Apr-22
+*Last update* 29-Apr-22
 
 // How can we share this content with RTF?
 
@@ -90,7 +90,7 @@ Public endpoint::
 +
 [NOTE]
 When deploying to the *CloudHub 2.0* deployment target,
-the domain for the public endpoint is always `app-name._uniq-id_._shard_._region_.cloudhub.io`.
+the domain for the public endpoint is always `app-name-_uniq-id_._shard_._region_.cloudhub.io`.
 * *Subdomain*: If the domain you selected includes a wildcard, you can configure the subdomain.
 +
 include::partial$deployment.adoc[tag=subdomain-name-reqs]
