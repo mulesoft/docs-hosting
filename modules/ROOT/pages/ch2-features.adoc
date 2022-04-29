@@ -4,50 +4,17 @@
 
 *This topic will (eventually) be replaced with an updated version of https://docs.mulesoft.com/general/intro-platform-hosting#support-matrix-for-runtime-plane-hosting-options[Support Matrix for Runtime Plane Hosting Options].*
 
-CloudHub 2.0 includes many of the features from CloudHub 1.0 and Runtime Fabric on-premises.
+CloudHub 2.0 includes many of the features from CloudHub 1.0 and Anypoint Runtime Fabric on Self-Managed Kubernetes.
 
-//// 
-== Features Included in the Internal Validation Release
-
-This internal validation release enables users to create a single-tenant instance, deploy and manage applications, monitor application metrics via Anypoint Monitoring, and forward logs to an external logging service.
-
-[IMPORTANT]
-This release is targeted to internal engineering and support teams only.
-
-This release includes these features:
-
-* xref:ps-create-configure.adoc#create-a-private-space[Create a private space]:
-+
-** Infrastructure provisioning
-** Private space support per customer
-
-* *Internal* operational monitoring and alerting
-+
-CloudHub 2.0 alerts you when when applications become unresponsive.
-* Load-based cluster-level autoscaling
-+
-CloudHub 2.0 provides auto-scaling groups for fault-tolerance.
-* Bursting and CPU oversubscription for application deployments
-* Application administration and supportability
-* Custom properties
-+
-For information on setting custom properties, see 
-xref:ch2-manage-props.adoc[].
-* xref:ch2-deploy.adoc[].
-+
-CloudHub 2.0 provides a secure cloudhub.io endpoint for sending requests to applications.
-* xref:ps-config-log-forwarding.adoc[].
-
-////
 
 == CloudHub 2.0 Feature Comparison
 
-This table compares the features and support for CloudHub 2.0, CloudHub 1.0, and Runtime Fabric Self-Managed Kubernetes.
+This table compares the features and support for CloudHub 2.0, CloudHub 1.0, and Anypoint Runtime Fabric on Self-Managed Kubernetes.
 
 [%header,cols="20a,20a,20a,20a"]
 .Feature Comparison 
 |===
-| Capability | CloudHub 2.0 | CloudHub 1.0 | Runtime Fabric On-Premises Self-Managed Kubernetes
+| Capability | CloudHub 2.0 | CloudHub 1.0 | Runtime Fabric 
 4+h|VM Management
 | *Provisioning/scaling*|Fully managed | Fully managed | AWS/
 
@@ -191,6 +158,41 @@ Self-managed
 Self-managed
 |===
 
+
+
+//// 
+== Features Included in the Internal Validation Release
+
+This internal validation release enables users to create a single-tenant instance, deploy and manage applications, monitor application metrics via Anypoint Monitoring, and forward logs to an external logging service.
+
+[IMPORTANT]
+This release is targeted to internal engineering and support teams only.
+
+This release includes these features:
+
+* xref:ps-create-configure.adoc#create-a-private-space[Create a private space]:
++
+** Infrastructure provisioning
+** Private space support per customer
+
+* *Internal* operational monitoring and alerting
++
+CloudHub 2.0 alerts you when when applications become unresponsive.
+* Load-based cluster-level autoscaling
++
+CloudHub 2.0 provides auto-scaling groups for fault-tolerance.
+* Bursting and CPU oversubscription for application deployments
+* Application administration and supportability
+* Custom properties
++
+For information on setting custom properties, see 
+xref:ch2-manage-props.adoc[].
+* xref:ch2-deploy.adoc[].
++
+CloudHub 2.0 provides a secure cloudhub.io endpoint for sending requests to applications.
+* xref:ps-config-log-forwarding.adoc[].
+
+////
 
 
 //// 
