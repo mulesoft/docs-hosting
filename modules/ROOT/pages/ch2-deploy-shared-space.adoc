@@ -2,7 +2,7 @@
 
 *This topic is updated to the Domains & TLS UX Project Brief dated 25-Mar-22*
 
-*Last update* 29-Apr-22
+*Last update* 02-May-22
 
 // How can we share this content with RTF?
 
@@ -43,7 +43,8 @@ For the list of regions, see xref:ch2-architecture.adoc#shared-global-regions[Sh
 *** <<configure-public-endpoint,Configure a public endpoint for the app>>.
 *** <<app-properties,Change app behavior with properties>>.
 *** <<enable-tls-v1,Enable TLS v1 and TLS v1.1>>.
-*** <<disable-logging,Disable app logs and metrics>>.
+*** <<configure-logging,Configure logging for the app>>.
+// *** <<disable-logging,Disable app logs and metrics>>.
 
 . Click *Deploy Application*. 
 
@@ -139,7 +140,7 @@ include::partial$deployment.adoc[tag=changeAppProperties,leveloffset=+1]
 include::partial$deployment.adoc[tag=enableTLSv1,leveloffset=+1]
 
 // == Configure Log Level
-include::partial$deployment.adoc[tag=configureLogLevels,leveloffset=+1]
+include::partial$deployment.adoc[tag=configureLogging,leveloffset=+1]
 
 == See Also
 

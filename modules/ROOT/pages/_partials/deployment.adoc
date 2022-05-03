@@ -79,40 +79,30 @@ If your app requires TLS v1 or TLS v1.1, you can enable them using JVM (Java Vir
 // end::enableTLSv1[]
 
 
-// THIS ONE IS NOT USED - 
-// tag::disableLogging[]
-[[disable-logging]]
-= Disable Logging for the App
+// tag::configureLogging[]
+[[configure-logging]]
+= Configure Logging for the App
 
 Logging is enabled by default for apps deployed to CloudHub 2.0.
 
-To disable logging and metrics for the app, click the *Logging* tab and deselect 
-the logging option:
+To disable logging and metrics for the app or configure additional log levels and categories to include in logs:
 
-* Titanium subscribers: *Enable application logs and metrics*
-* Non-Titanium subscribers: *Enable application logs*
-// end::disableLogging[]
-
-
-// tag::configureLogLevels[]
-[[configure-log-levels]]
-= Configure Log Levels for the App
-
-Logging is enabled by default for apps deployed to CloudHub 2.0.
-You can configure additional log levels and categories to include in logs.
-
-To configure log levels for the app:
-
-. Click the *Logging* tab and select the log level:
+. Click the *Logging* tab.
+. Deselect the logging option:
 +
-* *Fatal*: Fatal messages for when an application fails
-* *Error*: Error messages, such as when an exception occurs
-* *Warn*: Warning messages
-* *Info*: Informative messages
-* *Debug*: Debugging messages
+** Titanium subscribers: *Enable application logs and metrics*
+** Non-Titanium subscribers: *Enable application logs*
+. Select the log level:
++
+** *Fatal*: Fatal messages for when an application fails
+** *Error*: Error messages, such as when an exception occurs
+** *Warn*: Warning messages
+** *Info*: Informative messages
+** *Debug*: Debugging messages
 
-. Optionally, enter the name of the Java package to set the log level for.
-// end::configureLogLevels[]
+. Optionally, set the log level for specific a Java package class by
+clicking *Add Class*, entering the class name, and selecting the log level.
+// end::configureLogging[]
 
 
 
