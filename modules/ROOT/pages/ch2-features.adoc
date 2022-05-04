@@ -1,6 +1,6 @@
 = Features of CloudHub 2.0
 
-*Last update* 29-Apr-22
+*Last update* 04-May-22
 
 *This topic will (eventually) be replaced with an updated version of https://docs.mulesoft.com/general/intro-platform-hosting#support-matrix-for-runtime-plane-hosting-options[Support Matrix for Runtime Plane Hosting Options].*
 
@@ -269,7 +269,7 @@ CloudHub 2.0 provides a secure cloudhub.io endpoint for sending requests to appl
 4+h|Application Logging
 |View logs in control plane per worker/replica|Yes|No|Yes
 |Download logs per worker/replica|Yes|No|Yes
-|Forward application logs|Yes|Yes|No
+|Forward application logs|Yes|Yes|Yes
 |Specify log levels, filtered by Java package|Yes|No|Yes
 4+h|Flow Scheduling
 |Manage a flow running on a schedule (trigger/enable/disable/control frequency)|Yes|No|No

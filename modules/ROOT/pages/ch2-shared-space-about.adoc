@@ -14,7 +14,6 @@ You can deploy apps to the shared space in a region if:
 * Your apps don't need to connect to an on-premises data center.
 * Your apps can use the `cloudhub.io` domain name (rather than a vanity domain name).
 * You don't need to configure custom certificates.
-// * You don't need to forward logs to an external services.
 
 Any of the following features and functionality requires a private space: 
 
