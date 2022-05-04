@@ -1,6 +1,6 @@
 = Gathering Required Setup Information
 
-*Last update* 28-Apr-22
+*Last update* 03-May-22
 
 Use the following sections to gather the information you'll need to set up your private space.
 For information about private spaces, see xref:ch2-private-space-about.adoc[].
@@ -275,6 +275,8 @@ The total number of characters for all configured domains is 229.
 [[vpn-requirements]]
 == VPN Requirements 
 
+Review the recommendations and limitations in xref:ps-vpn-about.adoc[].
+
 * <<vpn-name>>
 * <<remote-ip-address>>
 * <<dynamic-vpn-routing>>
@@ -308,11 +310,11 @@ The _remote IP address_ is the public (single, static) IP address of your VPN en
 For dynamic routing, your device uses Border Gateway Protocol (BGP) to advertise routes to Anypoint VPN.
 If your device supports BGP, you can select dynamic routing; otherwise, select static routing.
 
-To create a dynamic VPN connection, in addition to the static VPN connection requirements, 
-your VPN device must be able to:
+To create a dynamic VPN connection, in addition to the static VPN connection requirements, your VPN device must be able to:
 
 * Establish BGP peering
 * Support route-based VPNs (bind tunnels to logical interfaces)
+* For IPsec, enable perfect forward secrecy (PFS) with the Diffie-Hellman Phase 2 groups 2, 5, 14-24.
 
 ////
 Dynamic (BGP) Routing Type option should link to an explanation of the difference between routing types, especially related to how they handle failover when a redundant VPN exists.
@@ -348,10 +350,10 @@ DPD allows devices to rapidly identify when network conditions change.
 You can enable DPD on the Anypoint Platform endpoint using `DPD Interval: 10` and `DPD Retries: 3`.
 * Allow asymmetric routing 
 +
-Asymmetric routing occurs when routing policies send traffic from your network to the VPC through one tunnel and traffic returns from the VPC through the other tunnel.
+Asymmetric routing occurs when routing policies send traffic from your network to the private space through one tunnel and traffic returns from the private space through the other tunnel.
 The Anypoint Platform VPN endpoint selects the tunnel using an internal algorithm, making the return path dynamic.
 If your device uses an active/active tunnel configuration, you must allow asymmetric routing for each Anypoint VPN connection.
-
+* For IPsec, enable perfect forward secrecy (PFS) with the Diffie-Hellman Phase 2 groups 2, 5, 14-24.
 
 [[local-asn]]
 === Local ASN 
@@ -476,6 +478,7 @@ Your network administrator must configure the device to work with the Anypoint V
 The following gateway network devices are known to work with Anypoint VPN.
 If your device does not appear in the list of tested devices,
 check the requirements to verify that your device is suitable for use with Anypoint VPN.
+See <<dynamic-vpn-routing>> and <<static-vpn-routing>>.
 
 [%header%autowidth.spread]
 .Supported Gateway Devices 
@@ -595,3 +598,5 @@ You use these values to verify the resource share in Anypoint Platform.
 == See Also 
 
 * xref:ch2-private-space-about.adoc[]
+* xref:ps-vpn-about.adoc[]
+
