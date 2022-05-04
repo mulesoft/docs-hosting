@@ -1,6 +1,6 @@
 = Deploying Apps to CloudHub 2.0
 
-*Last update* 15-Mar-22
+*Last update* 04-May-22
 
 You can deploy Mule apps to either a shared or private space in CloudHub 2.0.
 

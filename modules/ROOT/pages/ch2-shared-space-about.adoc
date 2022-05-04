@@ -1,6 +1,6 @@
 = Shared Spaces
 
-*Last update* 16-Mar-22
+*Last update* 04-May-22
 
 A _shared space_ is an elastic cloud of resources that includes Mule instances running in
 a multi-tenant environment. 

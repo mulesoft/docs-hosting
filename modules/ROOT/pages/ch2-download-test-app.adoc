@@ -1,5 +1,6 @@
 = Downloading Test Apps from Exchange
 
+*Last update* 04-May-22
 
 If you don't have a Mule app to test with, you can download an example app from Anypoint Exchange.
 
