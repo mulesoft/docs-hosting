@@ -1,10 +1,8 @@
 = Creating Private Spaces
 
-*This topic is updated to the Private Network Design Specs dated 09-Nov-21*
+*This topic is updated to the Private Space (03-Nov) and Private Network (08-Nov) Design Specs*
 
-*The Design Spec shows the tab as Network; the UI says Private network.*
-
-*Last update* 24-Feb-22
+*Last update* 07-Mar-22
 
 To extend your network to Anypoint Platform, create a _private space_, 
 a virtual, private, and isolated network hosted in CloudHub 2.0,
@@ -15,7 +13,9 @@ to deploy your apps to.
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-. Click *Create private space*.
++
+The page shows any private spaces associated with the selected business group.
+. Click *Create Private Space*.
 . Enter a xref:ps-gather-setup-info.adoc#private-space-name[name] for your private space and click *Create*.
 
 [[create-private-network]]
@@ -24,9 +24,12 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 [IMPORTANT]
 You can't change the private network configuration after it's created.
 To change the configuration, delete the private space and create it again.
+See xref:ps-manage.adoc[].
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
++
+The page shows any private spaces associated with the selected business group.
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, click *Create Private Network*. 
 . On the *Create Private Network* page:

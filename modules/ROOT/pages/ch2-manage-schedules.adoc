@@ -1,8 +1,13 @@
 = Managing App Schedules
 
-*Last update* 22-Feb-22
+*Updated to the UI and to align more with https://docs.mulesoft.com/runtime-manager/hybrid-schedule-mgmt[hybrid scheduler] per Martin.*
+
+*PLEASE REVIEW FOR ACCURACY IN CH2*
+
+*Last update* 30-Mar-22
 
 You can use Runtime Manager to view and control the Scheduler components within the flows in your deployed applications, all without changing the running application.
+For example, you might want to disable a scheduled job while one of the applications is undergoing maintenance.
 
 On the *Schedules* tab, you can:
 
@@ -10,6 +15,7 @@ On the *Schedules* tab, you can:
 * Change the schedules in your application at runtime without redeploying.
 * Run the scheduled job immediately, without changing the schedule.
 * Disable or enable the schedule for a flow.
+// * Specify the timezone for a cron scheduler.
 
 You configure Scheduler component types as either _fixed frequency_ to trigger at a regular interval or _cron_ to trigger at a date and time based on a specified cron expression.
 
@@ -18,38 +24,27 @@ To change a schedule type (between fixed frequency and cron or vice versa),
 you must update and redeploy the app.
 You can't change the schedule type on a deployed application.
 
-The CloudHub 2.0 scheduler reads the job configuration every time it runs.
-When you update the scheduler configuration, the change takes effect the next time the scheduler runs.
-
-Schedules are based in the timezone of the geographic region where you deploy the app.
-
-For multi-replica apps, CloudHub 2.0 runs scheduled jobs on all replicas.
-If you run the scheduled job immediately by clicking *Run*, the scheduler runs on a single replica.
-
-CloudHub 2.0 distributes multiple concurrent schedulers across replicas.
-
-[NOTE]
-You cannot manage CloudHub 2.0 schedules using scripts.
-Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules.
-
-[[schedule-timing]]
-== Schedule Trigger Timing
-
-*Do these still apply with CloudHub 2.0?*
+[[design-schedule]]
+== Schedule Design Considerations
 
 When designing the schedule, consider the following:
 
-* Plan for high availability during network failures, infrastructure restarts due to hardware issues or scheduled maintenance, and security updates.
+* The CloudHub 2.0 scheduler reads the job configuration every time it runs.
 +
-During service updates or security patching, CloudHub 2.0 waits two minutes for existing schedules to complete.
-After two minutes, CloudHub 2.0 retriggers any incomplete schedules.
-+
-To avoid retriggers with long-running schedules, make sure that the app executes the flow idempotently.
+When you update the scheduler configuration, the change takes effect the next time the scheduler runs.
 * If a scheduled job is not triggered because the application is not running,
 CloudHub 2.0 triggers the job as soon as the app restarts.
-* When a Mule 4.x app uses a schedule to trigger a flow with subflow, the scheduler waits until both main flow and subflow complete before scheduling the next run.
+* Schedules are based in the timezone of the geographic region where you deploy the app.
+* For multi-replica apps, CloudHub 2.0 runs scheduled jobs on all replicas.
++
+If you run the scheduled job immediately by clicking *Run*, the scheduler runs on a single replica.
++
+CloudHub 2.0 distributes multiple concurrent schedulers across replicas.
+* You cannot manage CloudHub 2.0 schedules using scripts.
++
+Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules.
 
-== Prerequisites
+== Before You Begin
 
 To use the scheduling feature in Runtime Manager, deploy an application that includes one or more Scheduler elements:
 
@@ -72,15 +67,23 @@ include::partial$select-private-space.adoc[tag=clickSchedules]
 +
 Runtime Manager lists the Scheduler elements in the order they appear in your app:
 +
-<update screenshot>
+<screenshot>
 +
-image::ch2-scheduler-rtm.png[Schedules page showing the Last Run column, frequency link, and the Logs option]
+// image::ch2-scheduler-rtm.png[The screenshot shows (1) the Schedulers option and (2) the checkbox on the Schedulers page.]
+// The screenshot shows (1) the checkbox, (2) the Disable button, and (3) the schedule in the details pane.
 +
-.. The *Last Run* column shows the date and time each Scheduler element last ran.
+*Is this true?*
 +
-*The UI on QAX does not have *Last Run*.*
-.. The frequency link in the *Schedule* column shows the schedule for the element.
-.. You can click *Logs* in the left navigation menu to see more information about when the jobs started and ended scheduled runs.
+Runtime Manager lists the name of each Scheduler component as `polling://{flow_name}`.
++
+** The *Name* column shows the name of the flow that contains the Scheduler element.
+// ** The *Status* column shows the status of the schedule.
+** The frequency link in the *Schedule* column shows the schedule for the element.
+
+. If you want to see more information about when the jobs started and ended,
+click *Logs* in the left navigation menu.
++
+<screenshot>
 . Click the frequency link for an element to open the schedule editor.
 +
 The schedule editor you see depends on the schedule type:
@@ -88,6 +91,7 @@ The schedule editor you see depends on the schedule type:
 * <<change-fixed-frequency-schedule,Fixed frequency>>
 * <<change-cron-schedule,Cron>>
 . In the schedule editor, change the schedule or deselect *Enabled* to disable the schedule.
+. Click *Update* to save changed settings or click *Cancel* to exit without saving.
 
 [[change-fixed-frequency-schedule]]
 === Change a Fixed Frequency Schedule
@@ -97,17 +101,18 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSchedules]
 +
-The frequency link in the *Schedule* column shows the schedule for the element.
+The *Schedule* column shows the schedule for the element.
 +
-<update screenshot>
+<screenshot>
 +
-image::ch2-scheduler-rtm.png[Schedules page showing a fixed frequency schedule type]
+// image::ch2-scheduler-rtm.png[Schedules page showing a fixed frequency schedule type]
 . Click the frequency link for an element to open the schedule editor.
 . In the schedule editor, change the schedule or deselect *Enabled* to disable the schedule.
 +
-<update screenshot>
+<screenshot>
+// +
+// image::ch2-scheduler-frequency.png[The arrow shows the fixed-frequency schedule configuration.]
 +
-image::ch2-scheduler-frequency.png[Change the frequency in the schedule editor]
 The value for the frequency can be between 1 and 100 seconds.
 The minimum recommended frequency between calls is 10 seconds.
 . Click *Update* to save changed settings or click *Cancel* to exit without saving.
@@ -126,27 +131,31 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSchedules]
 +
-The frequency link in the *Schedule* column shows the schedule for the element.
+The *Schedule* column shows the schedule for the element.
 +
-<update screenshot>
-+
-image::ch2-scheduler-rtm.png[Schedules page showing a cron schedule type]
+<screenshot>
+// +
+// image::ch2-scheduler-rtm.png[The arrow shows Schedule column.]
 . Click the frequency link for an element to open the schedule editor.
+. In the schedule editor, change the schedule or deselect *Enabled* to disable the schedule.
++
+<screenshot>
+// +
+// image::ch2-scheduler-cron.png[The arrow shows the cron schedule configuration.]
 . In the schedule editor, click *Quick Reference* to expand or collapse the table that lists required fields and allowed values:
-+
-<update screenshot>
-+
-image::ch2-scheduler-cron.png[Quick Reference toggle and the more link on the cron type page]
+// +
+// <screenshot>
+// +
+// image::ch2-scheduler-cron.png[Quick Reference toggle on the cron schedule editor]
 +
 The cron expression in this example sets the schedule to every 10 seconds.
 +
 For information about building cron triggers:
 +
-.. Click *more* to view the http://www.quartz-scheduler.org/documentation[Quartz documentation^] (link out from Beta docs). 
-+
-*The UI on QAX does not have the *more* link.*
+// .. Click *more* to view the http://www.quartz-scheduler.org/documentation[Quartz documentation^] (link out from Beta docs). 
+.. View the http://www.quartz-scheduler.org/documentation[Quartz documentation^] (link out from Beta docs). 
 .. Select a version, click *Documentation > User's Guide > Tutorial*, and then click the *CronTrigger* lesson.
-. Click *Update* to save changed cron settings or click *Cancel* to exit without saving.
+. Click *Update* to save changed settings or click *Cancel* to exit without saving.
 
 [[run-immediately]]
 == Run a Scheduled Job Immediately
@@ -185,9 +194,9 @@ include::partial$select-private-space.adoc[tag=clickSchedules]
 You can also disable or enable the schedule by deselecting or 
 selecting *Enabled* in the schedule editor.
 +
-<update screenshot>
-+
-image::ch2-scheduler-enable.png[Enabled toggle in the schedule editor]
+<screenshot>
+// +
+// image::ch2-scheduler-enable.png[Enabled toggle in the schedule editor]
 
 
 == See Also
@@ -196,5 +205,5 @@ image::ch2-scheduler-enable.png[Enabled toggle in the schedule editor]
 * https://docs.mulesoft.com/mule-runtime/4.4/scheduler-concept[Scheduler Endpoint (Trigger)^] (link out from Beta docs)
 * http://www.quartz-scheduler.org/documentation[Quartz documentation^] (link out from Beta docs)
 * https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (link out from Beta docs)
-* _Link to the API doc for updating schedulers_
+// * _Link to the API doc for updating schedulers_
 

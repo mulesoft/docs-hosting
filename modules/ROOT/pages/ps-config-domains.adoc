@@ -1,9 +1,9 @@
 = Configuring Domains and Certificates (TLS Context) for a Private Space	
 
 
-*This topic is updated to the Design Spec dated 11-Nov-21*
+*This topic is updated to the Design Spec dated 09-Nov-21*
 
-*Last update* 20-Jan-22
+*Last update* 08-Mar-22
 
 CloudHub 2.0 uses Transport Layer Security (TLS) contexts to encrypt 
 inbound traffic to the private space.
@@ -110,53 +110,70 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the *Domains & TLS* tab and then click *Create TLS Context*. 
 +
 If you don't have CloudHub Network Administrator permission, 
-the *Create TLS Context* button is disabled.
+the *Create TLS Context* button is not available.
 . Enter a name for the TLS context.
++
+The TLS context name can contain letters, numbers, spaces, and hyphens.
 . *Configure the keystore:*
 +
-** *PEM format*
-... Select *Upload PEM files*.
-... Choose a public certificate to upload.
+--
+PEM format::
+. Select *Upload PEM files*.
+. Choose a public certificate to upload.
 +
 Uploading the public certificate displays a summary of the certificate.
-Click *... > View Details* to display the keystore details:
++
+* Click the information (*i*) icon to display the keystore details:
 +
 <screenshot> 
-... Choose a private key to upload.
-... Enter the password used to access the private key within the keystore.
+* Click *X* to delete the public certificate.
+
+. Choose a private key to upload.
+. Enter the key password used to access the private key within the keystore.
 +
 If the key password is unencrypted (plain text), which is not recommended,
 leave the *Key Password* field blank.
 +
 CloudHub 2.0 validates the password against the keystore.
 +
-... (Optional) choose a Certificate Authority (CA) path certificate file to upload.
-
-** *JKS format*
-... Select *Upload JKS file*.
-... Choose a keystore file to upload.
-... Enter the password used to access the keystore file.
+. If you have a Certificate Authority (CA) path certificate file, 
+click *Choose File* to upload it.
++
+JKS format::
+. Select *Upload JKS file*.
+. Choose a keystore file to upload.
+. Enter the password used to access the keystore file.
 +
 CloudHub 2.0 validates the password against the keystore.
-... Select an alias from the dropdown.
+. Select an alias from the drop-down list.
 +
 Selecting an alias displays a summary of the alias.
-Click *View Details* to display the alias details.
-... Enter the key password used to access the private key within the keystore.
++
+Click the information (*i*) icon to display the keystore details:
++
+<screenshot>
+. Enter the key password used to access the private key within the keystore.
 +
 CloudHub 2.0 validates the password against the key.
-. *Configure the truststore:*
+--
+. *Configure the truststore (optional):*
 +
+If you want to use mutual TLS, configure a truststore.
 The truststore defines the client certificates to use to enable mutual TLS with the configured keystore.
++
+Click *Add Certificates* to upload a certificate file (in PEM format).
 +
 When you upload a PEM file, CloudHub 2.0 displays the client certificates from the truststore file.
 +
-** Click *Add Certificates* to add additional certificate files.
-** Click the information icon (*View Details*) to display the details of an individual client certificate. 
+** Click *Add Certificates* to upload additional certificate files.
+** Click the information icon (*i*) to display the details of an individual client certificate. 
 ** Click the trash can icon (*Delete*) to delete an individual client certificate.
+** If more than four certificates are uploaded, click *Show all x Certificates* to expand the link. 
 
-. *Configure advanced options:*
-
+. *Configure advanced options: (Optional)*
++
+If you want to customize ciphers, configure advanced options.
++
 .. Click *Advanced Options* to display the cipher configuration.
 .. Select either *Use Default Ciphers* or *Customize Ciphers*.
 +
@@ -164,63 +181,103 @@ If you choose to customize ciphers, CloudHub 2.0 displays the default (selected)
 ciphers.
 +
 ** Click *X* to remove a cipher from the list.
-** Click *Select a cipher to add* to choose a different cipher.
+** Click *Select a cipher to add* to choose a different cipher from the drop-down list.
 . Click *Create TLS Context* or *Cancel* to discard changes.
+
+
+== View TLS Context Details
+
+// SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. On the *Domains & TLS* tab, in a custom TLS section, click the TLS context menu (*...*) and select *View Details*:
++
+<screenshot>
+
+== Delete a TLS Context
+
+// SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. On the *Domains & TLS* tab, in a custom TLS section, click the TLS context menu (*...*) and select *Delete*:
++
+<screenshot>
++
+The *Delete* option appears only if you have CloudHub Network Administrator permission.
 
 == Edit a TLS Context
 
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the *Domains & TLS* tab and then click *Edit TLS Context*. 
+. Click the *Domains & TLS* tab and then click *Edit*. 
 +
-If you don't have CloudHub Network Administrator permission, 
-the *Edit TLS Context* button is disabled.
+The *Edit* button appears only if you have CloudHub Network Administrator permission.
 
 . *Configure the keystore:*
 +
-** *PEM format*
-... Click *Upload PEM files*.
-... Click *X* to remove the current public certificate, 
+--
+PEM format::
+. Click *Upload PEM files*.
+. Click *X* to remove the current public certificate, 
 and then choose a new public certificate to upload.
 +
+You can't change the private key or password unless you replace
+the public certificate.
++
 Uploading the public certificate displays a summary of the certificate.
-Click *View Details* to display the keystore details. 
-... Choose a private key to upload.
-... Enter the password used to access the private key within the keystore.
++
+Click the information (*i*) icon to display the keystore details:
++
+<screenshot> 
+. Choose a private key to upload.
+. Enter the password used to access the private key within the keystore.
 +
 If the key password is unencrypted (plain text), which is not recommended,
 leave the *Key Password* field blank.
 +
 CloudHub 2.0 validates the password against the keystore.
 +
-... (Optional) choose a Certificate Authority (CA) path certificate file to upload.
-
-** *JKS format*
-... Select *Upload JKS file*.
-... Click *X* to remove the current keystore file, 
+. If you have a Certificate Authority (CA) path certificate file, 
+click *Choose File* to upload it.
++
+You can remove and add a CA path certificate without replacing the public certificate.
++
+JKS format::
+. Select *Upload JKS file*.
+. Click *X* to remove the current keystore file, 
 and then choose a new keystore file to upload.
-... Enter the password used to access the keystore file.
+. Enter the password used to access the keystore file.
 +
 CloudHub 2.0 validates the password against the keystore.
-... Select an alias from the dropdown.
+. Select an alias from the drop-down list.
 +
+You can select a different alias without replacing the keystore file.
++ 
 Selecting an alias displays a summary of the alias.
++
 Click *View Details* to display the alias details.
-... Enter the key password used to access the private key within the keystore.
+. Enter the key password used to access the private key within the keystore.
 +
 CloudHub 2.0 validates the password against the key.
+--
+
 . *Configure the truststore: (Optional)*
 +
+If you want to use mutual TLS, configure a truststore.
 The truststore defines the client certificates to use to enable mutual TLS with the configured keystore.
++
+Click *Add Certificates* to upload a certificate file (in PEM format).
 +
 When you upload a PEM file, CloudHub 2.0 displays the client certificates from the truststore file.
 +
-** Click *Add Certificates* to add additional certificate files.
+** Click *Add Certificates* to upload additional certificate files.
 ** Click the information icon (*View Details*) to display the details of an individual client certificate. 
 ** Click the trash can icon (*Delete*) to delete an individual client certificate.
-. *Configure advanced options:*
-
+. *Configure advanced options: (Optional)*
++
+If you want to customize ciphers, configure advanced options.
++
 .. Click *Advanced Options* to display the cipher configuration.
 .. Select either *Use Default Ciphers* or *Customize Ciphers*.
 +

@@ -1,57 +1,41 @@
 = Configuring Firewall Rules to Manage Traffic to a Private Space
 
-*This topic is updated to the Design Spec dated 09-Nov-21*
+*This topic is updated to the Design Spec dated 09-Nov-21 and discussions*
 
-*Last update* 07-Feb-22
+*Last update* 08-Mar-22
 
 By default, all traffic to your private space is blocked unless it is explicitly allowed in a firewall rule.
 
 Creating a private space automatically creates these firewall rules:
 
-* Two rules to allow inbound connections from any host :
-+
---
-** HTTPS: port 443
+* Two rules to allow inbound connections from any host:
 ** HTTP: port 80
---
-+
-Limitations:
-+
-** Ports 443 and 80 are reserved and can't be changed.
-** Ports below 1024 are not allowed
-* Three rules to allow outbound connections from within your private space to any host:
+** HTTPS: port 443
+
+* Two rules to allow outbound connections from within your private space to any host:
+** HTTP: All ports
 ** HTTPS: port 443
 +
 You can't delete this rule.
-** HTTPS: All ports
-** HTTP: All ports
-
-+
-Limitations:
-** You cannot configure firewall rules for ports below 1024.
 
 // Configure Anypoint Security for Edge Policies	
 // Specify IP Addresses to Allow	
 // Control Inbound Traffic with Firewall Rules	
 // Apply Edge Security Policies to the Private Space	
 
-
-To configure firewall rules: 
+== Configure Firewall Rules
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the *Firewall Rules* tab.
-. Configure default rules for inbound traffic by selecting the *Protocol*, *Source*, and *Ports* from the dropdown lists:
+. Configure default rules for inbound traffic by selecting the *Protocol* and *Source* from the drop-down lists:
 +
 --
 Protocol::
 Protocol type:
-
-* *HTTPS*
 * *HTTP*
-* *TCP*
-* *UDP*
+* *HTTPS*
 
 Source::
 Source IP address:
@@ -64,33 +48,16 @@ This option is available only if a private network exists in the private space.
 +
 Enter a custom CIDR in the field.
 
-Ports::
-Ports in addition to 443 (http.port) and 80 (https.port) through which you want to allow inbound traffic.
-
-* *All (1024-65535)*
-* *Custom Range*
-+
-Enter a custom range in the field.
-
-Inbound traffic limitations:
-
-* HTTP: Only port 80 is supported.
-* HTTPS: Only port 443 is supported.
-* TCP: Only ports 1024 and above are supported.
-* UDP: Only ports 1024 and above are supported.
-
 --
-. Configure default rules for outbound traffic by selecting the *Protocol*, *Destination*, and *Ports* from the dropdown lists:
+. Configure default rules for outbound traffic by selecting the *Protocol* and *Destination* from the drop-down lists:
 +
 --
 
 Protocol::
 Protocol type:
 +
-* *TCP*
-* *UDP*
-* *HTTP Port*
-* *HTTPS Port*
+* *HTTP*
+* *HTTPS*
 
 Destination::
 Destination IP address:
@@ -102,19 +69,11 @@ This option is available only if a private network exists in the private space.
 * *Custom CIDR*
 +
 Enter a custom CIDR in the field.
-
-
-Ports::
-Ports in addition to 443 (https.port) through which you want to allow outbound traffic.
-+
-All ports are allowed for all protocols.
-+
-* *All (0-65535)*
-* *Custom Range*
 --
-
 . Click *Add Rule* to add more rules.
-. To remove a firewall rule, click trash can icon (*Delete*) for the entry.
+. To remove a firewall rule, click the trash can icon (*Delete*) for the entry.
++
+<screenshot>
 // +
 // image::fw-rule-delete.png[Delete icon on the Firewall rules tab]
 

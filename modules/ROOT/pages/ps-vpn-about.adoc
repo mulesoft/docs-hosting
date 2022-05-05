@@ -1,22 +1,11 @@
 = Anypoint Virtual Private Network 
 
-*Last update* 28-Feb-22
+*Last update* 03-May-22
 
 
 Anypoint VPN (virtual private network) creates a secure connection between your private space and your on-premises network.
-
-Anypoint VPN enables apps running in the private space
-to access resources in your on-premises data centers behind your corporate firewall.
-The VPN connection comprises two VPN tunnels between the private space in Anypoint Platform and a _gateway device_, a physical or software appliance located in your network.
-
-You use an IPsec tunnel with network-to-network configuration to connect your on-premises data centers to your private space.
-
-An IPsec VPN tunnel is generally the recommended solution for private space to on-premises connectivity, as it provides a standardized, secure way to connect.
-This method also integrates well with existing IT infrastructure such as routers and appliances. 
-
-image::ps-overview-ipsec.png[IPsec Tunnel Overview]
-
-To create an Anypoint VPN connection to your network, see xref:ps-create-configure.adoc#create-connection-to-external-network[Create a Connection to an External Network].
+Anypoint VPN enables apps running in the private space to access resources
+in your on-premises data centers behind your corporate firewall.
 
 You can create multiple site-to-site VPNs if required. 
 
@@ -24,60 +13,88 @@ You can create multiple site-to-site VPNs if required.
 The number of VPNs you can create depends on the network connection entitlements available to your account.
 Contact your MuleSoft account representative if you don't know how many network connection entitlements you have on your account. 
 
-Anypoint VPN supports site-to-site Internet Protocol security (IPsec) connections.
-A physical or software appliance, called a VPN endpoint, is the terminator on your side of the connection.
-The Anypoint side of the connection is an implementation of a virtual private gateway (VGW).
-The MuleSoft VGW is associated with a single private space but can support up to 10 VPN connections. 
+Anypoint VPN supports site-to-site Internet Protocol security (IPsec) connections
+between the private space and the VPN endpoint, a _gateway device_, a physical or software appliance located in your network.
 
+The MuleSoft side of the connection is an implementation of a virtual private gateway (VGW).
+The MuleSoft VGW is associated with a single private space but can support up to 10 VPN connections.
+
+[NOTE]
+MuleSoft implementation capabilities might vary from other VGW offerings.
+
+image::ps-overview-ipsec.png[IPsec Tunnel Overview]
+
+To create an Anypoint VPN connection to your network, see xref:ps-create-configure.adoc#create-connection-to-external-network[Create a Connection to an External Network].
+
+[[vpn-features]]
 == Anypoint VPN Features
 
-Each Anypoint VPN connection consists of two tunnels that enable you to connect to a single public IP address at a remote location. To configure connectivity to an additional public IP address at a remote location, you must create two VPN connections.
+Each Anypoint VPN connection consists of two tunnels that enable you to connect to a single public IP address at a remote location.
+To configure connectivity to an additional public IP address at a remote location, you must create two VPN connections.
 
-A single VPN provides increased availability for your private space. Routine maintenance can briefly disable one of the two tunnels of your VPN connection. During this time, your VPN connection automatically fails over to the second tunnel so access is not interrupted. For this reason, both tunnels must be configured on your endpoint. Tunnel selection depends on your VPN endpoint capabilities and the routing type selection. 
+A single VPN provides increased availability for your private space.
+Routine maintenance can briefly disable one of the two tunnels of your VPN connection.
+Your VPN connection automatically fails over to the second tunnel during this time, so access is not interrupted.
+For this reason, you must configure both tunnels on your endpoint.
+Tunnel selection depends on your VPN endpoint capabilities and the routing type selection. 
  
-The MuleSoft VGW implementation supports a maximum throughput of 1.25 Gbps. Multiple VPN connections to the same private space share the throughput capabilities of a single VGW. The VPN connection throughput depends on several factors, such as the capability of your VPN endpoint, the capacity of the connection, the average packet size, the protocol, and network latency between the gateways.
+The MuleSoft VGW implementation supports a maximum throughput of 1.25 Gbps. Multiple VPN connections to the same private space share the throughput capabilities of a single VGW.
+The VPN connection throughput depends on several factors, such as the capability of your VPN endpoint, the capacity of the connection, the average packet size, the protocol, and network latency between the gateways.
 
+[[vpn-ipsec]]
 == IPsec Settings
 
 Anypoint VPN supports any combination of the following IPsec settings:
 
 * IKE version 1
 * IKE version 2 for route-based VPNs only
-* AES 128 or 256-bit encryption operating in the Chain Block Cipher (CBC) mode
-* SHA or SHA-2 (256) hashing
-* Diffie-Hellman Phase1 groups 2, 14-18, 22, 23, 24
-* Diffie-Hellman Phase2 groups 2, 5, 14-18, 22, 23, 24
-* IKE (Phase 1) Lifetime: 28000 seconds (7 hours and 50 minutes)
-* IPsec (Phase 2) Lifetime: 3000 seconds (50 minutes)
+* AES 128 or 256-bit encryption operating in the CBC and GCM
+* SHA or SHA-2 (256, 384, 512) hashing
+* Diffie-Hellman Phase 1 groups 2, 14-24
+* Diffie-Hellman Phase 2 groups 2, 5, 14-24
+* Timeouts for IKEv1:
++
+** IKE (Phase 1) Lifetime: 28800 seconds (8 hours)
+** IPsec (Phase 2) Lifetime: 3600 seconds (1 hour)
+* Timeouts for IKEv2:
++
+** IKE (Phase 1) Lifetime: 28000 seconds (7 hours and 50 minutes)
+** IPsec (Phase 2) Lifetime: 3000 seconds (50 minutes)
 
 [NOTE]
 Your endpoint must initiate traffic to establish and maintain the connection because the Anypoint VPN endpoint acts only as a responder.
 
+[[vpn-routing]]
 == Anypoint VPN Routing
 
 Anypoint VPN supports dynamic or static routing for VPN connections.
 
 Dynamic routing::
-Your device uses Border Gateway Protocol (BGP) to advertise routes to Anypoint VPN. Use BGP routing if your device supports this protocol.
+Your device uses Border Gateway Protocol (BGP) to advertise routes to Anypoint VPN.
++
+Use BGP routing if your device supports this protocol.
 Static routing::
-Requires you to specify the routes (subnets) in your network that are accessible through Anypoint VPN.
+You must specify the routes (subnets) in your network accessible through Anypoint VPN.
 +
 You can remove routes for static VPN connections. 
 
-[NOTE]
-A maximum of 95 route table entries is permitted per private space, regardless of the number of VPN connections.
-Consolidate networks to the fewest number possible to avoid exceeding the limit.  
 
-You can't add a route that matches a priority route (a route that's used by your private network).
+[[vpn-routing-limitations]]
+=== Anypoint VPN Routing Limitations
 
-Routes can be used by only one connection at a time.
-If you enter a non-local/Internet Gateway (IGW) route to a route table, CloudHub 2.0 warns that the route is being used by another connection.
-
-Routes should not overlap with existing routes.
+* A maximum of 95 route table entries is permitted per private space, regardless of the number of VPN connections.
++
+To avoid exceeding the limit, consolidate networks to the fewest number possible.
+* You can't add a route that matches a priority route (a route that your private network uses).
+* Only one connection can use a route at a time.
++
+If you enter a non-local/Internet Gateway (IGW) route to a route table, CloudHub 2.0 warns that another connection uses the route.
+* Routes should not overlap with existing routes.
++
 CloudHub 2.0 warns if you enter a route that overlaps with another route in the route table.
 
 
-
+[[vpn-limitations]]
 == Anypoint VPN Limitations
 
 Anypoint VPN does not support these features and configurations:
@@ -85,9 +102,10 @@ Anypoint VPN does not support these features and configurations:
 * Network Address Translation (NAT)
 * IPv6
 * IKEv2 with policy-based VPNs
-* A single private space with both Direct Connect and Anypoint VPN connections
+* A single private space with both AWS Direct Connect and Anypoint VPN connections
 * Advertising a default route (0.0.0.0/0) over BGP or static routing
 
+[[vpn-recommendations]]
 == Anypoint VPN Recommendations
 
 * Adjust the maximum segment size of TCP packets entering the VPN tunnel.
@@ -97,19 +115,36 @@ VPN headers require additional space, which reduces the amount of space availabl
 To limit the impact of this behavior, configure your endpoint with TCP MSS Adjustment: 1387 bytes.
 * Reset the `DF` flag on packets.
 +
-Packets might carry a Don't Fragment (`DF`) flag, indicating that the packet must not be fragmented. Some VPN devices can override the `DF` flag and fragment packets unconditionally when required. If available, enable the setting `Clear Don't Fragment (DF) Bit`.
+Packets might carry a Don't Fragment (`DF`) flag, indicating that the packet must not be fragmented.
+Some VPN devices can override the `DF` flag and fragment packets unconditionally when required.
+If available, enable the setting `Clear Don't Fragment (DF) Bit`.
 
+[[vpn-ha]]
 == VPN High Availability
 
 Set up a redundant VPN connection to prevent losing connectivity if another 
-VPN or connection device is not available and to allow for maintenance downtime.
+VPN or connection device is unavailable and allow for maintenance downtime.
 
 The redundant VPN inherits some settings from the initial VPN configuration automatically.
 For example, if the routing type for the initial VPN is dynamic (BGP), the redundant
 VPN is also dynamic.
 
-Other settings, such as the remote ASN for dynamic routing, for the redundant VPN include the values from the initial VPN,
-but you can change the values.
+Other settings for the redundant VPN, such as the remote ASN for dynamic routing, include the values from the initial VPN, but you can change the values.
+
+
+To configure a redundant VPN connection, you must:
+
+* Have sufficient entitlements. 
++
+Each private space includes two VPN connection entitlements.
+* Have two VPN endpoints available in your network that use different public IP addresses.
++
+Each gateway device supports a single VPN. 
+
+* Create two VPN connections in your private space.
+
+For information, see
+https://help.mulesoft.com/s/article/How-to-Configure-High-Availability-with-Anypoint-VPN[How to Configure High Availability with Anypoint VPN].
 
 ////
 
@@ -118,15 +153,12 @@ https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-redundant-connection.html
 risks of having a VPN that’s not highly available, potential causes, and recommendations on how to address it. We can assume in this case that their VPN uses static routing, so it’s possible that this is intended behavior.
 
 
-Q: Why would someone choose custom tunnel configuration instead of automatic?
-A: BGP is recommended but not supported by all customer gateways.
-A: Mainly to provide their own secrets (Xuan), but also set the PTP CIDRs for network interfaces for their own router (less common) (Henry)
-Q: If the customer only has one VPN gateway, is there a reason to allow creating two VPNs? What do people do in CloudHub today?
-A: Each customer gateway will only support a single VPN.
 Q: Today in CloudHub, there are cases where we want to update VPNs to a new version, but there’s not a way in the UI for the customer to initiate an update. Do we want to add this functionality for private spaces? Why can’t we update VPNs automatically?
 A: Waiting for responses from AWS to check the frequency of the VPN upgrade. We don’t have to do it for GA. But eventually, we need to have a button/API to upgrade VPN. (Xuan)
+
 Q: Is it possible for static routes inputted by the user to somehow conflict with existing routes for the VPC?
 A: Yes, it’s possible. I can create two VPNs with conflicting static routes. They can coexists. How it works? It’s the responsibility on the customer’s configuration. (Xuan)
+
 Q: How should the guidance in these knowledge base articles inform our UI?
 How to Configure High Availability with Anypoint VPN
 This doc recommends configuring customer VPN Gateways to prefer VPN-1 Tunnel-1, then VPN-1 Tunnel-2, then VPN-2 Tunnel-1, then VPN-2 Tunnel-2, using BGP routing.

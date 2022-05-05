@@ -1,9 +1,9 @@
 = Gathering Required Setup Information
 
-*Last update* 02-Mar-22
+*Last update* 03-May-22
 
 Use the following sections to gather the information you'll need to set up your private space.
-For information about private spaces, see xref:ps-about.adoc[].
+For information about private spaces, see xref:ch2-private-space-about.adoc[].
 
 You might need to collaborate with your network administrator if you don't have access to this information.
 In this case, share this setup checklist with them and provide an estimate of the number of apps you expect to deploy
@@ -13,7 +13,7 @@ to the private space for <<CIDR Block,CIDR block>> configuration.
 // (*View the checklist* link from *Network* tab)
 // Should this page include other network admin requests - Domains tab?
 
-////
+
 
 [NOTE]
 ====
@@ -21,8 +21,10 @@ The following two sections provide the same information in different formats:
 
 * <<setup-info-private-space>>
 * <<setup-info-private-space-table>>
+
+Which do you prefer?
 ====
-////
+
 
 [[setup-info-private-space]]
 == Information Required to Set Up a Private Space (List)
@@ -189,7 +191,7 @@ You can rename a private space, if necessary.
 [[private-network-region]]
 === Private Network Region
 
-The _region_ is the Amazon region to deploy your apps to, such as `us-east-1`.
+The _region_ is the Amazon region to deploy your apps to, such as `usa-e1`.
 
 The complete list of supported regions is:
 
@@ -208,49 +210,22 @@ Asia Pacific (Sydney)
 Asia Pacific (Tokyo)
 ----
 
-
-////
-
-The region to which you deploy your application determines the DNS record for your integration.
-For example, if you deploy an application named `myapp` to Canada (Central),
-the domain used to access the application is `myapp.ca-c1.cloudhub.io`. 
-
-The complete list of supported regions is:
-
-[%header]
-.Supported Regions 
-|===
-|Region|DNS Record
-|US East (Northern Virginia)| `us-e1.cloudhub.io`
-|US East (Ohio)| `us-e2.cloudhub.io`
-|US West (Northern California)| `us-w1.cloudhub.io`
-|US West (Oregon)| `us-w2.cloudhub.io`
-|Canada (Central)| `ca-c1.cloudhub.io`
-|South America (Sao Paulo)| `br-s1.cloudhub.io`
-|Europe (Ireland)| `ir-e1.cloudhub.io`
-|Europe (Frankfurt)| `de-c1.cloudhub.io`
-|Europe (London)| `uk-e1.cloudhub.io`
-|Asia Pacific (Singapore)| `sg-s1.cloudhub.io`
-|Asia Pacific (Sydney)| `au-s1.cloudhub.io`
-|Asia Pacific (Tokyo)| `jp-e1.cloudhub.io`
-|===
-////
-
-
 // CIDR Block Shared
 [[cidr-block]]
 include::partial$create-config.adoc[tag=cidrBlock,leveloffset=+2]
 
 
 [[internal-dns-server]]
-=== Internal DNS Server (Optional)
+=== Internal DNS Servers (Optional)
 
-To enable apps deployed to a private space to access
-internal resources that are not reachable from the public internet, 
-configure domain resolution for your internal networks.
+If your corporate network uses internal DNS servers to resolve requests to
+custom domains, you must configure those servers to enable apps deployed
+to a private space to access internal resources that are not reachable 
+from the public internet.
 
-To configure the internal DNS server, specify the IP address for your internal 
-domain server and the internal domains that you want to access from the private space.
+To configure internal DNS servers, specify the IP addresses for your internal 
+domain servers and the domains that you want to be resolved by internal DNS.
+
 The private space resolves the domains using the specified DNS server, 
 enabling you to use internal host names in your private network
 as long as your applications use the FQDN to request back-end resources. 
@@ -258,7 +233,8 @@ as long as your applications use the FQDN to request back-end resources.
 [[server-ip-addresses]]
 ==== Server IP Addresses
 
-The _Server IP addresses_ identify the internal name servers that respond to DNS queries for the specified internal domains.
+The _Server IP addresses_ identify the internal DNS servers that resolve requests
+to custom domains.
 
 To provide redundancy, you can configure multiple internal DNS servers.
 
@@ -283,7 +259,9 @@ _Domains_ identify the internal domains that must be accessible from the private
 The configured internal DNS servers resolve the specified domains, and the 
 external DNS server resolves all other domains.
 
-To specify an internal domain, use the second-level domain name, such as `mulesoft.com`.
+To configure an internal domain, specify the IP address.
+
+// To specify an internal domain, use the second-level domain name, such as `mulesoft.com`.
 
 [NOTE]
 The total number of characters for all configured domains is 229.
@@ -297,6 +275,8 @@ The total number of characters for all configured domains is 229.
 [[vpn-requirements]]
 == VPN Requirements 
 
+Review the recommendations and limitations in xref:ps-vpn-about.adoc[].
+
 * <<vpn-name>>
 * <<remote-ip-address>>
 * <<dynamic-vpn-routing>>
@@ -308,6 +288,10 @@ The total number of characters for all configured domains is 229.
 * <<preshared-keys>> (advanced tunnel configuration only)
 * <<auto-tunnel-initiation>> (advanced tunnel configuration only)
 * <<supported-gateway-devices>>
+
+[NOTE]
+include::partial$create-config.adoc[tag=consolidateNetworks]
+
 
 [[vpn-name]]
 === VPN Name 
@@ -324,13 +308,13 @@ The _remote IP address_ is the public (single, static) IP address of your VPN en
 === Dynamic VPN Routing (BGP)
 
 For dynamic routing, your device uses Border Gateway Protocol (BGP) to advertise routes to Anypoint VPN.
-If your device supports BGP, select dynamic routing. 
+If your device supports BGP, you can select dynamic routing; otherwise, select static routing.
 
-To create a dynamic VPN connection, in addition to the static VPN connection requirements, 
-your VPN device must be able to:
+To create a dynamic VPN connection, in addition to the static VPN connection requirements, your VPN device must be able to:
 
 * Establish BGP peering
 * Support route-based VPNs (bind tunnels to logical interfaces)
+* For IPsec, enable perfect forward secrecy (PFS) with the Diffie-Hellman Phase 2 groups 2, 5, 14-24.
 
 ////
 Dynamic (BGP) Routing Type option should link to an explanation of the difference between routing types, especially related to how they handle failover when a redundant VPN exists.
@@ -338,6 +322,10 @@ Dynamic (BGP) Routing Type option should link to an explanation of the differenc
 
 [[static-vpn-routing]]
 === Static VPN Routing
+
+If your gateway device doesn't support BGP, you must use static routing. 
+You might also want to use static routing if you want to provide your own secrets.
+// or set the PTP (Precision Time Protocol) CIDRs for the network interfaces on your router.
 
 Static routing requires you to specify the routes (subnets) in your network that are accessible through Anypoint VPN.
 
@@ -362,10 +350,10 @@ DPD allows devices to rapidly identify when network conditions change.
 You can enable DPD on the Anypoint Platform endpoint using `DPD Interval: 10` and `DPD Retries: 3`.
 * Allow asymmetric routing 
 +
-Asymmetric routing occurs when routing policies send traffic from your network to the VPC through one tunnel and traffic returns from the VPC through the other tunnel.
+Asymmetric routing occurs when routing policies send traffic from your network to the private space through one tunnel and traffic returns from the private space through the other tunnel.
 The Anypoint Platform VPN endpoint selects the tunnel using an internal algorithm, making the return path dynamic.
 If your device uses an active/active tunnel configuration, you must allow asymmetric routing for each Anypoint VPN connection.
-
+* For IPsec, enable perfect forward secrecy (PFS) with the Diffie-Hellman Phase 2 groups 2, 5, 14-24.
 
 [[local-asn]]
 === Local ASN 
@@ -490,6 +478,7 @@ Your network administrator must configure the device to work with the Anypoint V
 The following gateway network devices are known to work with Anypoint VPN.
 If your device does not appear in the list of tested devices,
 check the requirements to verify that your device is suitable for use with Anypoint VPN.
+See <<dynamic-vpn-routing>> and <<static-vpn-routing>>.
 
 [%header%autowidth.spread]
 .Supported Gateway Devices 
@@ -537,12 +526,14 @@ Benefits of a redundant VPN
 [[tgw-requirements]]
 == Transit Gateway Attachment Requirements
 
-
 * <<transit-gateway-name>>
 * <<transit-gateway-region>>
 * <<transit-gateway-routing>>
 
-=== Prerequisites
+[NOTE]
+include::partial$create-config.adoc[tag=consolidateNetworks]
+
+=== Before You Begin
 
 Before you can add a transit gateway to CloudHub:
 
@@ -587,10 +578,12 @@ Consolidate networks to the fewest number possible to avoid exceeding the limit.
 [[mulesoft-aws-account-id]]
 === MuleSoft AWS Account ID
 
-The MuleSoft AWS account ID to use with your private space appears on the *Add Transit Gateway* page in Anypoint Platform.
+The MuleSoft AWS account ID varies depending on your control plane, for example, US Cloud or EU Cloud, 
+and appears in *Add transit gateway* page when you select to create the transit gateway connection.
 
-This ID depends on the control plane (for example, US Cloud or EU Cloud) associated with your account.
-For this reason, always use the account ID that appears in the user interface.
+When you create a resource share in AWS, you specify this ID to allow Anypoint Platform to access the resource share.
+
+If another team performs AWS configuration, share this MuleSoft AWS account ID with them.
 
 [[resource-share-id-owner]]
 === Resource Share ID and Owner
@@ -604,4 +597,6 @@ You use these values to verify the resource share in Anypoint Platform.
 
 == See Also 
 
-* xref:ps-about.adoc[]
+* xref:ch2-private-space-about.adoc[]
+* xref:ps-vpn-about.adoc[]
+

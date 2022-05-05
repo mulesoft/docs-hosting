@@ -1,51 +1,20 @@
 = Features of CloudHub 2.0
 
-*This topic will be replaced with an updated version of https://docs.mulesoft.com/general/intro-platform-hosting#support-matrix-for-runtime-plane-hosting-options[Support Matrix for Runtime Plane Hosting Options].*
+*Last update* 04-May-22
 
-CloudHub 2.0 includes many of the features from CloudHub 1.0 and Runtime Fabric on-premises.
+*This topic will (eventually) be replaced with an updated version of https://docs.mulesoft.com/general/intro-platform-hosting#support-matrix-for-runtime-plane-hosting-options[Support Matrix for Runtime Plane Hosting Options].*
 
-//// 
-== Features Included in the Internal Validation Release
+CloudHub 2.0 includes many of the features from CloudHub 1.0 and Anypoint Runtime Fabric on Self-Managed Kubernetes.
 
-This internal validation release enables users to create a single-tenant instance, deploy and manage applications, monitor application metrics via Anypoint Monitoring, and forward logs to an external logging service.
-
-[IMPORTANT]
-This release is targeted to internal engineering and support teams only.
-
-This release includes these features:
-
-* xref:ps-create-configure.adoc#create-a-private-space[Create a private space]:
-+
-** Infrastructure provisioning
-** Private space support per customer
-
-* *Internal* operational monitoring and alerting
-+
-CloudHub 2.0 alerts you when when applications become unresponsive.
-* Load-based cluster-level autoscaling
-+
-CloudHub 2.0 provides auto-scaling groups for fault-tolerance.
-* Bursting and CPU oversubscription for application deployments
-* Application administration and supportability
-* Custom properties
-+
-For information on setting custom properties, see 
-xref:ch2-manage-props.adoc[].
-* xref:ch2-deploy.adoc[].
-+
-CloudHub 2.0 provides a secure cloudhub.io endpoint for sending requests to applications.
-* xref:ps-config-log-forwarding.adoc[].
-
-////
 
 == CloudHub 2.0 Feature Comparison
 
-This table compares the features and support for CloudHub 2.0, CloudHub 1.0, and Runtime Fabric Self-Managed Kubernetes.
+This table compares the features and support for CloudHub 2.0, CloudHub 1.0, and Anypoint Runtime Fabric on Self-Managed Kubernetes.
 
 [%header,cols="20a,20a,20a,20a"]
 .Feature Comparison 
 |===
-| Capability | CloudHub 2.0 | CloudHub 1.0 | Runtime Fabric On-Premises
+| Capability | CloudHub 2.0 | CloudHub 1.0 | Runtime Fabric 
 4+h|VM Management
 | *Provisioning/scaling*|Fully managed | Fully managed | AWS/
 
@@ -54,6 +23,9 @@ Self-managed
 
 Self-managed
 | *VM self-healing* |Fully managed | Fully managed | Supported (managed nodes)
+
+
+4+h|
 4+h|Load Balancing and Ingress
 | *Default endpoints*|Fully managed | Fully managed | Not supported
 | *URL rewriting* | Supported
@@ -63,18 +35,19 @@ Self-managed
 (DLB) | Supported
 |*Provisioning/updating* |Fully-managed|Fully-managed| Supported
 |*Certificate management*|Supported|Supported|Supported
-|*Multiple Trust Stores* 
+|*Multiple truststores* 
 
-*(client certs)* | Supported | Not supported |Supported
+*(client certificates for mutual TLS)* | Supported | Not supported |Supported
 | *Custom endpoints* | Supported | Supported | Supported
 | *Multiple custom endpoints*
 
-*per app* | Supported| Partially supported | ?
+*per app* | Supported| Partially supported | Supported
 | *TLS 1.0* | Not supported | Supported| Supported
-| *Internal endpoints* | Supported |Supported | Supported
+| *Private endpoints* | Supported |Supported | Supported
 | *Load balancer logs* | Supported
 
 (download) | Not supported | Supported
+4+h|
 4+h|Network
 | *Deployment regions* | 12 geographical regions | 12 geographical regions | Supported 
 
@@ -110,20 +83,21 @@ Self-managed
 
 (private space) | Supported
 
-(per app) | ?
-4+^h|App Capabilities
+(per app) | Supported 
+4+h|
+4+h|App Capabilities
 |*Schedule management* | Supported | Supported | Not supported
 |*TLS certificates*
 
-*for API Gateway deployments*| Not supported | Supported | Not supported
+*for API Gateway deployments*| Supported | Supported | Not supported
 | *DataGraph* | Not supported | Supported | Not supported
 |*Mule patch updates* | Automated | Automated | Requires redeployment
-|*Orchestration*
+|*Cluster*
 
 *management* | Fully managed | Fully managed | AWS/
 
 Self-managed
-| *Persistent object store* | Fully managed
+| *Object store* | Fully managed
 
 (Object Store v2)| Fully managed
 
@@ -149,10 +123,10 @@ Self-managed
 |*Built-in notifications* | Supported | Supported |Supported
 |*Custom notifications* 
 
-*CloudHub Connector*| Supported | Supported | Not supported
-|*Log forwarding* | Supported
+(*CloudHub Connector*)| Not supported | Supported | Not supported
+|*Log forwarding* | Manual
 
-(private space) | Supported
+| Supported
 
 (per app) | Manual
 |*Message broker*|Fully managed 
@@ -170,18 +144,55 @@ Self-managed
 
 (Anypoint Monitoring)
 | *Application isolation* | Supported | Supported | Supported
-|*Self-healing*| Fully managed | Fully managed | Supported
+|*Auto-recovery*| Fully managed | Fully managed | Supported
 |*Mule clustering* | Supported | Not supported | Supported
+
+4+h|
 4+h|Support
 |*VM management* | MuleSoft | MuleSoft | AWS
 |*Network* | MuleSoft | MuleSoft | AWS
 |*App capabilities* | MuleSoft | MuleSoft | MuleSoft/AWS
-|*Load balancing and Ingress* | MuleSoft | MuleSoft | AWS
-|*Backup and Restore* | Fully managed | Fully managed | AWS/
+|*Load balancing and ingress* | MuleSoft | MuleSoft | Self-managed
+|*Backup and restore* | Fully managed | Fully managed | AWS/
 
 Self-managed
 |===
 
+
+
+//// 
+== Features Included in the Internal Validation Release
+
+This internal validation release enables users to create a single-tenant instance, deploy and manage applications, monitor application metrics via Anypoint Monitoring, and forward logs to an external logging service.
+
+[IMPORTANT]
+This release is targeted to internal engineering and support teams only.
+
+This release includes these features:
+
+* xref:ps-create-configure.adoc#create-a-private-space[Create a private space]:
++
+** Infrastructure provisioning
+** Private space support per customer
+
+* *Internal* operational monitoring and alerting
++
+CloudHub 2.0 alerts you when when applications become unresponsive.
+* Load-based cluster-level autoscaling
++
+CloudHub 2.0 provides auto-scaling groups for fault-tolerance.
+* Bursting and CPU oversubscription for application deployments
+* Application administration and supportability
+* Custom properties
++
+For information on setting custom properties, see 
+xref:ch2-manage-props.adoc[].
+* xref:ch2-deploy.adoc[].
++
+CloudHub 2.0 provides a secure cloudhub.io endpoint for sending requests to applications.
+* xref:ps-config-log-forwarding.adoc[].
+
+////
 
 
 //// 
@@ -246,7 +257,7 @@ Self-managed
 |Enable tokenization|No|Yes|Yes
 4+h|Application Alerting
 |Create, Modify and View Application alerts|Yes|Yes|Yes*
-|CloudHub custom application alerts (CloudHub connector)|Yes|No|No
+|CloudHub custom application alerts (CloudHub Connector)|Yes|No|No
 |Retrieve application alerts via email|Yes|Yes|Yes
 |Retrieve application alerts via Runtime Manager UI/API|Yes|No|No
 4+h|Application Monitoring

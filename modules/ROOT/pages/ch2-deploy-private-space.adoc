@@ -1,12 +1,15 @@
 = Deploying Apps to Private Spaces
 
-*This topic is updated to the UI*
+*This topic is updated to the UI on QAX*
 
-*Last update* 20-Jan-22
+*Last update* 04-May-22
 
 // How can we share this content with RTF?
 
 You deploy apps to a private space using Runtime Manager.
+
+[IMPORTANT]
+include::partial$caveats.adoc[tag=supportedMule]
 
 [[deploy-app-private-space]]
 == Deploy an App to a Private Space
@@ -16,6 +19,10 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 . Click *Deploy application*.
 . On the *Deploy Application* page:
 .. Enter the <<app-name-reqs,name>> of the application.
++
+// NO RENAME SHARED
+[IMPORTANT]
+include::partial$caveats.adoc[tag=noRenameApp]
 .. Select an application file:
 +
 --
@@ -34,48 +41,15 @@ image::rtm-get-from-exchange.png[Get from Exchange page]
 *** <<configure-endpoint-path,Configure endpoints and paths for the app>>.
 *** <<app-properties,Change app behavior with properties>>.
 *** <<enable-tls-v1,Enable TLS v1 and TLS v1.1>>.
-*** <<forward-logs,Forward logs to other services>>.
+*** <<configure-logging,Configure logging for the app>>.
+// *** <<disable-logging,Disable app logs and metrics>>.
+// *** <<forward-logs,Forward logs to other services>>.
 
 . Click *Deploy Application*. 
 
 
-[[specify-runtime-options]]
-== Specify Runtime Options 
-
-Click the *Runtime* tab and specify the following options:
-
-Runtime version::
-Specifies the Mule runtime engine version
-Replicas::
-Specifies the number of replicas, or instances, of the application to deploy
-+
-For high availability, specify a minimum of two replicas.
-CloudHub 2.0 limits the number of replicas per deployment to eight.
-Run in Runtime Cluster Mode::
-Enables Mule clustering across each replica of the application
-Enforce deploying replicas across nodes::
-Selecting this option might cause some replicas in the deployment to remain in Pending status if there are unsufficient worker nodes or resources available on the worker nodes needed to deploy each replica.
-The deployment status transitions to Running after all replicas are deployed on different worker nodes.
-
-Deployment model::
-+
---
-* *Rolling update*:
-** Maintains availability by incrementally updating replicas.
-** Requires one additional replica's worth of resources to succeed.
-
-* *Recreate*:
-** Terminates replicas before redeployment.
-** Redeployment is faster and doesn't require additional resources.
---
-Resource allocation::
-+
---
-* *Reserved CPU*: Specify a value between `0.02` and `3.7` vCPU.
-* *CPU Limit*: Specify a value between `0.02` and `3.7` vCPU.
-* *Memory*: Specify a value between `0.7` and `14.5` GB.
---
-
+// == Specify Runtime Options 
+include::partial$deployment.adoc[tag=specifyRuntimeOpts,leveloffset=+1]
 
 
 [[configure-endpoint-path]]
@@ -90,11 +64,10 @@ To configure endpoints for the app to enable access from the internet:
 Public endpoint::
 +
 --
-* *Domain*: Select the domain, such as `cloudhub.io`, for the app from the dropdown.
+* *Domain*: Select the domain, such as `cloudhub.io`, for the app from the drop-down list.
 +
 [NOTE]
-If you select `cloudhub.io` (the default domain when deploying to a
-private space), you can't select a subdomain or path.
+If you select `cloudhub.io` (the default domain), you can't select a subdomain or path.
 +
 The administrator configures the domains and certificates (TLS context) for the private space.
 See xref:ps-config-domains.adoc[].
@@ -108,7 +81,7 @@ include::partial$deployment.adoc[tag=subdomain-name-reqs]
 +
 Subdomains support <<placeholder-table,placeholders>>.
 The default subdomain is `app-name`, which resolves to the name of the app that you specified in the *Application Name* field when you deploy the app.
-* *Path* (private space only): specifies the URL path to the application endpoint.
+* *Path*: specifies the URL path to the application endpoint.
 +
 include::partial$deployment.adoc[tag=path-name-reqs]
 +
@@ -118,15 +91,23 @@ Paths support <<placeholder-table,placeholders>>.
 
 
 * To add an endpoint, click *Add Endpoint* and specify options.
-* To remove an endpoint, click the *X* in the endpoint row.
+* To remove an endpoint, click the trash can icon (*Delete*) in the endpoint row.
+* To copy an endpoint, click the copy icon (*Copy*) in the endpoint row.
+
 --
 
 Path Rewrite::
-Enter the base path expected by the HTTP Listener in your path.
++
+--
+If the HTTP Listener in your app listens on a different path than the path defined in *Public Endpoints*:
+
+. Enable the *Rewrite Request Paths* option.
+. Enter the target path expected by your app.
 +
 Requests sent to your app use the path that you specify here.
-
-TLS Settings::
+. Click *Show Example* to see how the private space rewrites the path.
+--
+TLS Options::
 * *Last-Mile Security*
 +
 --
@@ -153,6 +134,7 @@ The following headers are available:
 | x-ssl-issuer | Client certificate issuer
 | x-ssl-client-serial | Client certificate serial number
 | x-ssl-client-dn | Contents of the client certificate DN field
+| x-ssl-client-cert | Contents of the client certificate
 |===
 --
 . Click *Apply Changes* to create a new configuration for your application.
@@ -171,6 +153,12 @@ include::partial$deployment.adoc[tag=changeAppProperties,leveloffset=+1]
 // == Enable TLS v1 and TLS v1.1
 include::partial$deployment.adoc[tag=enableTLSv1,leveloffset=+1]
 
+// == Configure Log Level
+include::partial$deployment.adoc[tag=configureLogging,leveloffset=+1]
+
+////
+
+include::partial$feature-availability.adoc[tag=featureUnavailableGA]
 [[forward-logs]]
 == Forward Logs to Other Services
 
@@ -192,11 +180,13 @@ Forwards application and load-balancer logs to the specified service:
 ** CloudWatch
 
 For information about viewing logs, see xref:ch2-view-logs.adoc[].
-
+////
 
 == See Also
 
 * xref:ch2-download-test-app.adoc[]
 * https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (Link out from Beta docs)
+* xref:ch2-config-endpoints-paths.adoc[]
 * xref:ps-config-domains.adoc[]
+* xref:ch2-integrate-log-system.adoc[]
 

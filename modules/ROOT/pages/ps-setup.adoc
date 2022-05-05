@@ -24,12 +24,11 @@
 // .. xref:ps-config-clients.adoc[Set up authentication for trusted clients].
 .. xref:ps-config-fw-rules.adoc[Configure firewall rules to manage traffic to the private space].
 .. xref:ps-config-env.adoc[Associate environments and business groups with the private space].
-.. xref:ps-config-log-forwarding.adoc[Configure log forwarding for the private space].
-.. xref:ps-config-advanced.adoc[Configure advanced settings].
+// .. xref:ps-config-log-forwarding.adoc[Configure log forwarding for the private space].
+.. xref:ps-config-advanced.adoc[Configure advanced settings], including HTTP request handling and ingress load balancer log levels.
 --
 
 == See Also 
 
 * xref:ps-create-configure.adoc[]
 * xref:ps-configure.adoc[]
-

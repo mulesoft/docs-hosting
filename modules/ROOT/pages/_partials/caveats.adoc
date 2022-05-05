@@ -2,10 +2,15 @@
 // Local ASN
 // tag::localAsnNote[]
 Although the local ASN isn't used for static routing, 
-you must specify this value when you create the first VPN because it's
-required for future VPN connections using BGP for this private space.
+you must specify this value when you create the first VPN because it is
+required for any future VPN connections using BGP for this private space.
 // end::localAsnNote[]
 
 //tag::noRenameApp[]
 You cannot change the name of an app after you deploy it. To change the name, you must delete and redeploy the app using the new name.
 // end::noRenameApp[]
+
+//tag::supportedMule[]
+CloudHub 2.0 supports Mule runtime engine versions 4.3 and above.
+Mule 3.x is not supported.
+// end::supportedMule[]
