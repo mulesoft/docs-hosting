@@ -16,7 +16,7 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 +
 The page shows any private spaces associated with the selected business group.
 . Click *Create Private Space*.
-. Enter a xref:ps-gather-setup-info.adoc#private-space-name[name] for your private space and click *Create*.
+. Enter a xref:ps-gather-setup-info.adoc#private-space-name[name] for your private space and click *Create*. Note that you cannot rename your private space after you create it.
 
 [[create-private-network]]
 == Create a Private Network

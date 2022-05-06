@@ -10,18 +10,6 @@ Use Anypoint Runtime Manager to manage private spaces,
 such as adding and removing a route from the route table or
 detaching a transit gateway from the private space.
 
-[[rename-private-space]]
-== Rename a Private Space
-
-//SELECT PRIVATE SPACE SHARED
-include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the Private Space menu (*...*) and select *Rename*.
-+
-<screenshot>
-
-include::partial$select-private-space.adoc[tag=renameItem]
-
 [[delete-private-space]]
 == Delete a Private Space
 
