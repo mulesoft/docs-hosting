@@ -1,10 +1,8 @@
 = Protecting App Property Values
 
-include::partial$feature-availability.adoc[tag=featureUnavailable]
-
 *This content is based on the new, unreleased RTF feature*
 
-*Last update* 22-Feb-22
+*Last update* 06-May-22
 
 
 CloudHub 2.0 enables you to protect application property values by displaying the property name but not its value, in Anypoint Runtime Manager, 

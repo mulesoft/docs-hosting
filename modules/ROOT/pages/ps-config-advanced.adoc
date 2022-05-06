@@ -1,10 +1,8 @@
 = Configuring Advanced Private Space Settings
 
-include::partial$feature-availability.adoc[tag=featureUnavailable]
-
 *This topic is updated to the Design Spec dated 02-Mar-22*
 
-*Last update* 03-Mar-22
+*Last update* 06-Mar-22
 
 
 Use options on the *Advanced* tab to:
