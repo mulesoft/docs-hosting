@@ -12,7 +12,7 @@ CloudHub 2.0 provides access to log data that includes deployment messages and e
 For more advanced searching and log management, you can use Anypoint Monitoring (requires Titanium subscription).
 See https://docs.mulesoft.com/monitoring/[Anypoint Monitoring Overview^] (Link out from Beta docs).
 
-CloudHub 2.0 stores up to 150 MB of log data per config, or up to 30 days, whichever limit is reached first.
+CloudHub 2.0 stores up to 100 MB of log data per config, or up to 30 days, whichever limit is reached first.
 // We’re considering an additional limit for how many configs/deployments we keep track of.
 
 
