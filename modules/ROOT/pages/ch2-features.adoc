@@ -94,9 +94,7 @@ Self-managed
 |*Mule patch updates* | Automated | Automated | Requires redeployment
 |*Cluster*
 
-*management* | Fully managed | Fully managed | AWS/
-
-Self-managed
+*management* | Fully managed | Fully managed | Self-managed
 | *Object store* | Fully managed
 
 (Object Store v2)| Fully managed
@@ -149,13 +147,19 @@ Self-managed
 
 4+h|
 4+h|Support
-|*VM management* | MuleSoft | MuleSoft | AWS
-|*Network* | MuleSoft | MuleSoft | AWS
-|*App capabilities* | MuleSoft | MuleSoft | MuleSoft/AWS
-|*Load balancing and ingress* | MuleSoft | MuleSoft | Self-managed
-|*Backup and restore* | Fully managed | Fully managed | AWS/
+|*VM management* | MuleSoft | MuleSoft | Infrastructure provider/ 
 
-Self-managed
+public cloud
+|*Network* | MuleSoft | MuleSoft | Infrastructure provider/ 
+
+public cloud
+|*App capabilities* | MuleSoft | MuleSoft | MuleSoft/ 
+
+infrastructure provider/ 
+
+public cloud
+|*Load balancing and ingress* | MuleSoft | MuleSoft | Self-managed
+|*Backup and restore* | Fully managed | Fully managed | Self-managed
 |===
 
 
