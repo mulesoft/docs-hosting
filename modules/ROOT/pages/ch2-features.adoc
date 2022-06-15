@@ -1,6 +1,6 @@
 = Features of CloudHub 2.0
 
-*Last update* 04-May-22
+*Last update* 10-June-22
 
 *This topic will (eventually) be replaced with an updated version of https://docs.mulesoft.com/general/intro-platform-hosting#support-matrix-for-runtime-plane-hosting-options[Support Matrix for Runtime Plane Hosting Options].*
 
@@ -12,9 +12,9 @@ CloudHub 2.0 includes many of the features from CloudHub 1.0 and Anypoint Runtim
 This table compares the features and support for CloudHub 2.0, CloudHub 1.0, and Anypoint Runtime Fabric on Self-Managed Kubernetes.
 
 [%header,cols="20a,20a,20a,20a"]
-.Feature Comparison 
+.Feature Comparison
 |===
-| Capability | CloudHub 2.0 | CloudHub 1.0 | Runtime Fabric 
+| Capability | CloudHub 2.0 | CloudHub 1.0 | Runtime Fabric
 4+h|VM Management
 | *Provisioning/scaling*|Fully managed | Fully managed | AWS/
 
@@ -35,7 +35,7 @@ Self-managed
 (DLB) | Supported
 |*Provisioning/updating* |Fully-managed|Fully-managed| Supported
 |*Certificate management*|Supported|Supported|Supported
-|*Multiple truststores* 
+|*Multiple truststores*
 
 *(client certificates for mutual TLS)* | Supported | Not supported |Supported
 | *Custom endpoints* | Supported | Supported | Supported
@@ -49,19 +49,19 @@ Self-managed
 (download) | Not supported | Supported
 4+h|
 4+h|Network
-| *Deployment regions* | 12 geographical regions | 12 geographical regions | Supported 
+| *Deployment regions* | 12 geographical regions | 12 geographical regions | Supported
 
 (manual)
 |*Virtual Private Cloud* | Fully managed
 
-(private space) | Fully managed (Anypoint VPC) | Supported 
+(private space) | Fully managed (Anypoint VPC) | Supported
 
 (manual)
 |*Virtual Private Network* | Fully managed
 
 (private space) | Fully managed
 
-(Anypoint VPN) | Supported 
+(Anypoint VPN) | Supported
 
 (manual)
 | *AWS Transit Gateway* | Supported
@@ -70,7 +70,7 @@ Self-managed
 | *Direct Connect* | Not supported | Supported
 
 (not self-serve) | Supported
-|*VPC Peering* | Not supported | Supported 
+|*VPC Peering* | Not supported | Supported
 
 (not self-serve) | Supported
 
@@ -83,7 +83,7 @@ Self-managed
 
 (private space) | Supported
 
-(per app) | Supported 
+(per app) | Supported
 4+h|
 4+h|App Capabilities
 |*Schedule management* | Supported | Supported | Not supported
@@ -117,11 +117,11 @@ Self-managed
 
 (via API and Maven plugin)| Supported
 
-(via API, Maven plugin, Anypoint CLI) |Supported 
+(via API, Maven plugin, Anypoint CLI) |Supported
 
 (via API and Maven plugin)
 |*Built-in notifications* | Supported | Supported |Supported
-|*Custom notifications* 
+|*Custom notifications*
 
 (*CloudHub Connector*)| Not supported | Supported | Not supported
 |*Log forwarding* | Manual
@@ -129,7 +129,7 @@ Self-managed
 | Supported
 
 (per app) | Manual
-|*Message broker*|Fully managed 
+|*Message broker*|Fully managed
 
 (Anypoint MQ) | Fully managed
 
@@ -160,7 +160,7 @@ Self-managed
 
 
 
-//// 
+////
 == Features Included in the Internal Validation Release
 
 This internal validation release enables users to create a single-tenant instance, deploy and manage applications, monitor application metrics via Anypoint Monitoring, and forward logs to an external logging service.
@@ -185,7 +185,7 @@ CloudHub 2.0 provides auto-scaling groups for fault-tolerance.
 * Application administration and supportability
 * Custom properties
 +
-For information on setting custom properties, see 
+For information on setting custom properties, see
 xref:ch2-manage-props.adoc[].
 * xref:ch2-deploy.adoc[].
 +
@@ -195,13 +195,13 @@ CloudHub 2.0 provides a secure cloudhub.io endpoint for sending requests to appl
 ////
 
 
-//// 
+////
 
 
 [%header,cols="30a,20a,20a,20a"]
-.Feature Comparison 
+.Feature Comparison
 |===
-| Feature/Capability | CloudHub 1.0 | Runtime Fabric On-Premises | CloudHub 2.0 
+| Feature/Capability | CloudHub 1.0 | Runtime Fabric On-Premises | CloudHub 2.0
 4+h|Customer Administration
 | Supports cloud of choice (not AWS)| No| Yes| No
 | Cluster separation per environment| No| Yes| No
@@ -215,14 +215,14 @@ CloudHub 2.0 provides a secure cloudhub.io endpoint for sending requests to appl
 |Set secure custom properties|Yes|Yes|Yes
 |Deploy to different regions|Yes|No|Yes
 |Deploy/promote from sandbox environment|Yes|No|No
-|Specify amount of CPU to allocate for application deployments|Rigid 
+|Specify amount of CPU to allocate for application deployments|Rigid
 
-(0.1; 0.2, 1, 2+)|Flexible 
+(0.1; 0.2, 1, 2+)|Flexible
 
-(0.07, 0.08, 0.09, 0.1..1, 1.1, etc.)| Flexible 
+(0.07, 0.08, 0.09, 0.1..1, 1.1, etc.)| Flexible
 
 (0.07, 0.08, 0.09, 0.1..1, 1.1, etc.)
-|Specify amount of Memory to allocate for application deployments|No 
+|Specify amount of Memory to allocate for application deployments|No
 
 (tied to vcore)|Yes|No
 
