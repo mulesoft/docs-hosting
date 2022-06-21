@@ -290,3 +290,23 @@ CloudHub 2.0 provides a secure cloudhub.io endpoint for sending requests to appl
 |===
 
 ////
+
+== Feature Limits
+
+CloudHub 2.0 imposes the following limits on features:
+
+Number of private spaces:: (need number)
+
+Connections per private space:: Five per space, ten if the connections are not redudant
+
+Number of TLS contexts:: 10
+
+Network CIDR:: Minimum is /16 and maximum is /24
+
+Firewall rules allowed:: (need number)
+
+Internal DNS allowed:: (need number)
+
+VPN related limitation on routes:: (need number - what does this mean?)
+
+Internal domains:: (need number)
