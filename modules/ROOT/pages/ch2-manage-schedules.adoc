@@ -72,9 +72,6 @@ Runtime Manager lists the Scheduler elements in the order they appear in your ap
 // image::ch2-scheduler-rtm.png[The screenshot shows (1) the Schedulers option and (2) the checkbox on the Schedulers page.]
 // The screenshot shows (1) the checkbox, (2) the Disable button, and (3) the schedule in the details pane.
 +
-*Is this true?*
-+
-Runtime Manager lists the name of each Scheduler component as `polling://{flow_name}`.
 +
 ** The *Name* column shows the name of the flow that contains the Scheduler element.
 // ** The *Status* column shows the status of the schedule.
