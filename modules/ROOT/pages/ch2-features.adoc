@@ -299,7 +299,7 @@ Number of private spaces:: (need number)
 
 Connections per private space:: Five per space, ten if the connections are not redudant
 
-Number of TLS contexts:: 10
+Number of TLS contexts:: ten
 
 Network CIDR:: Minimum is /16 and maximum is /24
 
