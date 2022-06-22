@@ -2,7 +2,7 @@
 
 *This topic is updated to the Domains & TLS UX Project Brief dated 25-Mar-22*
 
-*Last update* 04-May-22
+*Last update* 22-Jun-22
 
 // How can we share this content with RTF?
 
@@ -40,7 +40,6 @@ For the list of regions, see xref:ch2-architecture.adoc#shared-global-regions[Sh
 .. Configure options for deployment:
 +
 *** <<specify-runtime-options,Specify runtime options>>.
-*** <<configure-public-endpoint,Configure a public endpoint for the app>>.
 *** <<app-properties,Change app behavior with properties>>.
 *** <<enable-tls-v1,Enable TLS v1 and TLS v1.1>>.
 *** <<configure-logging,Configure logging for the app>>.
@@ -76,59 +75,6 @@ Resource allocation::
 * *Memory*: Specify a value between `0.7` and `14.5` GB.
 --
 ////
-
-
-[[configure-public-endpoint]]
-== Configure a Public Endpoint for the App
-
-To configure the public endpoint for the app to enable access from the internet:
-
-. Click the *Ingress* tab and specify the following options:
-+
---
-Public endpoint::
-* *Domain*: Select the domain, such as `cloudhub.io`, for the app from the drop-down list.
-+
-[NOTE]
-When deploying to the *CloudHub 2.0* deployment target,
-the domain for the public endpoint is always `app-name-_uniq-id_._shard_._region_.cloudhub.io`.
-* *Subdomain*: If the domain you selected includes a wildcard, you can configure the subdomain.
-+
-include::partial$deployment.adoc[tag=subdomain-name-reqs]
-+
-Subdomains support <<placeholder-table,placeholders>>.
-The default subdomain is `app-name`, which resolves to the name of the app that you specified in the *Application Name* field when you deploy the app.
-
-TLS Options::
-* *Last-Mile Security*
-+
-Specifies that TLS termination and decryption for the forwarded HTTPS connections occurs in the application.
-+
-This option requires that the Mule application include an SSL certificate and also requires more CPU resources.
-////
-* *Forward SSL Session*
-+
-Enables SSL forwarding during a session.
-+
-SSL forwarding is mostly used with client authentication.
-See https://docs.mulesoft.com/anypoint-security/enable-client-authentication[Enable Client Authentication^] (Link out from Beta docs).
-SSL forwarding forwards client certificate details in HTTP request headers so they are available to the application.
-These fields can identify an authenticated client and allow an application to determine and use the identity.
-+
-The following headers are available:
-+
-[%header,cols="2*a"]
-|===
-| Header Name | Value
-| x-ssl-client-verify | SUCCESS/FAIL
-| x-ssl-issuer | Client certificate issuer
-| x-ssl-client-serial | Client certificate serial number
-| x-ssl-client-dn | Contents of the client certificate DN field
-|===
-////
---
-. Click *Apply Changes* to create a new configuration for your application.
-
 
 // ==== Application Names
 include::partial$deployment.adoc[tag=appNameReqs,leveloffset=+2]
