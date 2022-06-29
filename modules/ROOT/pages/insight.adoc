@@ -326,9 +326,9 @@ To do this, use a Mule expression to configure your Mule application to return m
 == See Also
 
 * xref:monitoring.adoc[Monitor Applications]
-* xref:developing-applications-for-cloudhub.adoc[Develop Applications for CloudHub]
-* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
+* xref:developing-applications-for-index.adoc[Develop Applications for CloudHub]
+* xref:deploying-to-index.adoc[Deploy to CloudHub]
 * xref:managing-deployed-applications.adoc[Manage Deployed Applications]
-* xref:managing-applications-on-cloudhub.adoc[Manage Applications on CloudHub]
+* xref:managing-applications-on-index.adoc[Manage Applications on CloudHub]
 * https://blogs.mulesoft.com/dev/anypoint-platform-dev/announcing-cloudhub-insight-real-time-visibility-message-replay-and-root-cause-analysis/[CloudHub Insight on the MuleSoft Blog]
 * xref:mule-runtime::business-events.adoc[Business Events]

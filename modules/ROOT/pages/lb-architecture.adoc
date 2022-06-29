@@ -73,5 +73,5 @@ You can configure the DLB to pass request URIs unchanged or decoded:
 == See Also
 
 * xref:virtual-private-cloud.adoc[Virtual Private Cloud]
-* xref:cloudhub.adoc[CloudHub]
+* xref:index.adoc[CloudHub]
 * xref:lb-mapping-rules.adoc[Mapping Rules]

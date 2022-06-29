@@ -25,7 +25,7 @@ For applications deployed to xref:managing-applications-on-your-own-servers.adoc
 * xref:sending-data-from-arm-to-external-analytics-software.adoc[Send data from Runtime Manager to external analytics software]
 * xref:flow-management.adoc[Manage individual flows]
 
-On applications deployed to xref:managing-applications-on-cloudhub.adoc[CloudHub], you can also:
+On applications deployed to xref:managing-applications-on-index.adoc[CloudHub], you can also:
 
 * xref:notifications-on-runtime-manager.adoc[Manage notifications]
 * xref:insight.adoc[Use Insight to troubleshoot business transactions and events on your Mule apps]
@@ -298,7 +298,7 @@ If you select any of the applications on the *Applications* tab, a panel opens o
 
 image::dashboard-ch.png[dashboard]
 
-What the management panel displays depends on whether your application is deployed on xref:managing-applications-on-cloudhub.adoc[CloudHub] or on xref:managing-applications-on-your-own-servers.adoc[your servers]:
+What the management panel displays depends on whether your application is deployed on xref:managing-applications-on-index.adoc[CloudHub] or on xref:managing-applications-on-your-own-servers.adoc[your servers]:
 
 * Applications on CloudHub display information about the CloudHub worker on which they run.
 * Applications deployed on clusters and server groups display the list of servers and the status of each.
@@ -353,7 +353,7 @@ Switching an alert off from this view switches it off for the current (signed in
 
 == See Also
 
-* xref:managing-applications-on-cloudhub.adoc[Manage Applications on CloudHub]
+* xref:managing-applications-on-index.adoc[Manage Applications on CloudHub]
 * xref:managing-servers.adoc[Servers, Server Groups, and Clusters]
 * xref:sending-data-from-arm-to-external-analytics-software.adoc[Send Data from Runtime Manager to External Analytics Software]
 * xref:deployment-strategies.adoc[Deployment Options]

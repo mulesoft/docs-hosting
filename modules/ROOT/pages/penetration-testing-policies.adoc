@@ -45,7 +45,7 @@ Before initiating penetration testing:
 * Enable static IPs for the app.
 +
 By default, CloudHub workers do not use static IP addresses, so you can't test them because their IP addresses might change.
-For information about how to enable static IPs, see xref:deploying-to-cloudhub.adoc#static-ips-tab-settings[Static IPs Tab Settings].
+For information about how to enable static IPs, see xref:deploying-to-index.adoc#static-ips-tab-settings[Static IPs Tab Settings].
 * Assign a security resource at your company to review and validate findings from the tests.
 
 === Steps
@@ -94,7 +94,7 @@ Salesforce does not address any security vulnerabilities in the following catego
 == See Also
 
 * https://help.salesforce.com/articleView?id=000336416&type=1&mode=1[Salesforce Security vulnerability assessment and penetration test]
-* xref:managing-applications-on-cloudhub.adoc[Manage Applications on CloudHub]
-* xref:cloudhub.adoc[CloudHub]
-* xref:developing-applications-for-cloudhub.adoc[Develop Applications for CloudHub]
+* xref:managing-applications-on-index.adoc[Manage Applications on CloudHub]
+* xref:index.adoc[CloudHub]
+* xref:developing-applications-for-index.adoc[Develop Applications for CloudHub]
 * xref:deployment-strategies.adoc[Deployment Options]

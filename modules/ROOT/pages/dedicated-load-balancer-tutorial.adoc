@@ -49,6 +49,6 @@ Load balancers do not currently support HTTP streaming. When a call is made dire
 == See Also
 
 * https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-api/[CloudHub API]
-* xref:cloudhub.adoc[CloudHub]
+* xref:index.adoc[CloudHub]
 * xref:virtual-private-cloud.adoc[Virtual Private Cloud]
 * xref:lb-architecture.adoc[Dedicated Load Balancer Architecture]

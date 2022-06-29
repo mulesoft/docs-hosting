@@ -128,8 +128,8 @@ Because all schedules are based in the UTC timezone, the timezone configuration 
 
 == See Also
 
-* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
-* xref:managing-applications-on-cloudhub.adoc[Manage Applications on CloudHub]
+* xref:deploying-to-index.adoc[Deploy to CloudHub]
+* xref:managing-applications-on-index.adoc[Manage Applications on CloudHub]
 * xref:monitoring.adoc[Monitor Applications]
 * xref:mule-runtime::scheduler-concept.adoc[Scheduler Endpoint (Trigger)]
 * xref:mule-runtime::migration-core-poll.adoc[Migrating the Poll Component]

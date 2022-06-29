@@ -13,12 +13,12 @@ image:logo-rtf-disabled.png[xref="deployment-strategies.adoc#anypoint-runtime-fa
 You can deploy Mule applications to CloudHub using:
 
 
-* xref:deploying-to-cloudhub.adoc#deploy-an-application-from-runtime-manager[Anypoint Runtime Manager]
-* xref:deploying-to-cloudhub.adoc#deploy-an-application-from-studio[Anypoint Studio]
-* xref:deploying-to-cloudhub.adoc#deploy-an-application-from-the-command-line[CloudHub CLI]
+* xref:deploying-to-index.adoc#deploy-an-application-from-runtime-manager[Anypoint Runtime Manager]
+* xref:deploying-to-index.adoc#deploy-an-application-from-studio[Anypoint Studio]
+* xref:deploying-to-index.adoc#deploy-an-application-from-the-command-line[CloudHub CLI]
 * xref:design-center::promote-app-prod-env-design-center.adoc[Flow Designer in Anypoint Design Center]
 * https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-api/[CloudHub API]
-* xref:mule-runtime::deploy-to-cloudhub.adoc[Mule Maven plugin]
+* xref:mule-runtime::deploy-to-index.adoc[Mule Maven plugin]
 
 You can also deploy an API proxy directly from API Manager to CloudHub.
 See xref:api-manager::getting-started-proxy.adoc#configure_and_deploy_to_cloudhub[Configure a Proxy and Deploy to CloudHub].
@@ -308,7 +308,7 @@ See xref:monitoring::index.adoc[Anypoint Monitoring] and xref:visualizer::index.
 Autoscaling enables you to define policies that respond to CPU or memory usage thresholds by scaling up or down the processing resources used by an application.
 
 This tab doesn't appear by default.
-See xref:autoscaling-in-cloudhub.adoc[Autoscaling in CloudHub] for information.
+See xref:autoscaling-in-index.adoc[Autoscaling in CloudHub] for information.
 
 
 === Properties Tab Settings
@@ -410,9 +410,9 @@ The *Logs* tab includes details on the application deployment errors.
 == See Also
 
 * xref:managing-cloudhub-specific-settings.adoc[Manage CloudHub-Specific Settings]
-* xref:managing-applications-on-cloudhub.adoc[Manage Applications on CloudHub]
+* xref:managing-applications-on-index.adoc[Manage Applications on CloudHub]
 * xref:managing-deployed-applications.adoc#application_status_states[Application Status States]
 * xref:monitoring.adoc[Monitor Applications]
-* xref:developing-applications-for-cloudhub.adoc[Develop Applications for CloudHub]
+* xref:developing-applications-for-index.adoc[Develop Applications for CloudHub]
 * xref:anypoint-cli::index.adoc[Anypoint Platform Command-Line Interface]
 * xref:cloudhub-api.adoc[CloudHub REST API]
