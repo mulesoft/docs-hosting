@@ -2,7 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: cloudhub, cloud, manage, mmc, api, worker, runtime manager, arm
+:page-aliases: runtime-manager::cloudhub-architecture.adoc
 
 
 image:logo-cloud-active.png[xref="deployment-strategies.adoc#cloudhub-deployments", title="CloudHub"]

@@ -2,7 +2,8 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:page-aliases: vpc-configure-private-domain-task.adoc
+:page-aliases: runtime-manager::vpc-configure-private-domain-task.adoc, runtime-manager::resolve-private-domains-vpc-task.adoc,
+
 
 
 image:logo-cloud-active.png[xref="deployment-strategies.adoc#cloudhub-deployments", title="CloudHub"]

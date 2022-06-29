@@ -2,7 +2,8 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:page-aliases: cloudhub::virtual-private-cloud.adoc
+:page-aliases: cloudhub::virtual-private-cloud.adoc, runtime-manager::virtual-private-cloud.adoc,
+
 
 
 image:logo-cloud-active.png[xref="deployment-strategies.adoc#cloudhub-deployments", title="CloudHub"]

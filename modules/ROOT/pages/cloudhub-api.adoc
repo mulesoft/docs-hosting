@@ -2,8 +2,8 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: cloudhub, cloudhub api, manage, api, rest
-:page-aliases: working-with-applications.adoc, create-application.adoc, delete-application.adoc, deploy-application.adoc, get-application.adoc, list-all-applications.adoc, update-application-metadata.adoc, logs.adoc, notifications.adoc, create-notification.adoc, list-notifications.adoc, update-notification.adoc, update-all-notifications.adoc, working-with-alerts.adoc
+:page-aliases: runtime-manager::working-with-applications.adoc, runtime-manager::create-application.adoc, runtime-manager::delete-application.adoc, runtime-manager::deploy-application.adoc, runtime-manager::get-application.adoc, runtime-manager::list-all-applications.adoc, runtime-manager::update-application-metadata.adoc, runtime-manager::logs.adoc, runtime-manager::notifications.adoc, runtime-manager::create-notification.adoc, runtime-manager::list-notifications.adoc, runtime-manager::update-notification.adoc, runtime-manager::update-all-notifications.adoc, runtime-manager::working-with-alerts.adoc, runtime-manager::cloudhub-api.adoc
+
 
 image:logo-cloud-active.png[xref="deployment-strategies.adoc#cloudhub-deployments", title="CloudHub"]
 image:logo-hybrid-disabled.png[xref="deployment-strategies.adoc#hybrid-deployments", title="Hybrid"]
