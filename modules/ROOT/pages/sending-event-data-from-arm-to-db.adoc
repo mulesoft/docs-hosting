@@ -1,0 +1,315 @@
+= Send Event Data from Runtime Manager to an External Database
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+:keywords: analytics, monitoring, logs, mule events, logging, apy analytics, metrics, traceability, arm, anypoint runtime manager, db, sql, mysql, oracle, jdbc
+
+image:logo-cloud-disabled.png[xref="deployment-strategies.adoc#cloudhub-deployments", title="CloudHub"]
+image:logo-hybrid-active.png[xref="deployment-strategies.adoc#hybrid-deployments", title="Hybrid"]
+image:logo-server-active.png[xref="deployment-strategies.adoc#anypoint-platform-pce-deployments", title="Anypoint Platform PCE"]
+image:logo-rtf-disabled.png[xref="deployment-strategies.adoc#anypoint-runtime-fabric-deployments", title="Runtime Fabric"]
+
+
+You can configure the Runtime Manager agent to store the event notifications from Mule apps in a database.
+
+Sending data to third-party software is available only for applications deployed to local servers.
+It is not supported for applications deployed to CloudHub.
+
+
+== Prerequisites
+
+Ensure that the following software is installed:
+
+* Mule version 3.6 or later
+* API gateway standalone version 2.1.0 or later
+* Runtime Manager agent version 1.3.0 or later
++
+For information about updating the agent, see xref:installing-and-configuring-runtime-manager-agent.adoc[Install or Update the Runtime Manager Agent].
+
+
+== Install Event-Tracking Database Internal Handlers
+
+Depending on your version of the Runtime Manager agent, you might need to install the Event-Tracking Database Internal Handlers ZIP file.
+
+For the following agent versions, you don't need to install the ZIP file because the required JAR files are included in the agent plugin:
+
+* 1.14.3 and later
+* 2.4.5 and later
+
+For the following agent versions, you must download and install the ZIP file manually:
+
+* 1.14.2 and earlier
+* 2.4.4 and earlier
+
+To install the ZIP file:
+
+. Request the Event-Tracking Database Internal Handlers ZIP file (`mule-agent-internal-handlers-db-1.5.1.zip`) from Support.
+. Extract the ZIP file to the `{MULE_HOME}/plugins/mule-agent-plugin/lib/modules` folder.
+
+
+== Agent Configurable Fields
+
+After you have the latest Runtime Manager agent and the event-tracking database internal handlers installed on your API gateway, enable the internal handler by modifying your `{MULE_HOME}/conf/mule-agent.yml` configuration file.
+
+In the following example configurations for MySQL Server, Oracle, and Microsoft SQL Server, the required fields are `driver`, `jdbcUrl`, `user`, and `pass`.
+You can also configure the `eventsTable`, `annotationsTable`, and `businessTable` fields to specify where the event data is stored.
+
+|===
+|Field|Data Type|Description|Type|Default Value
+
+|`driver`
+|String
+|The JDBC driver to use to communicate with the database server
+|Required
+|
+
+|`jdbcUrl`
+|String
+|The JDBC URL for the database server
+|Required
+|
+
+|`user`
+|String
+|The username to use to connect to the database server
+|Required
+|
+
+|`pass`
+|String
+|The password to connect to the database server
+|Required
+|
+
+|`eventsTable`
+|String
+|The name of the table in which the agent stores the events
+|Optional
+|`MULE_EVENTS`
+
+|`annotationsTable`
+|String
+|The name of the table in which the agent stores the annotations associated with the main event
+|Optional
+|`MULE_EVENTS_ANNOTATIONS`
+
+|`businessTable`
+|String
+|The name of the table in which the agent stores the custom business events associated with the main event
+|Optional
+|`MULE_EVENTS_BUSINESS`
+
+|===
+
+== MySQL Example Configuration
+
+The following example shows how to set up the Runtime Manager agent to work with MySQL databases.
+
+=== Schema
+
+[source,sql,linenums]
+----
+CREATE TABLE MULE_EVENTS (
+  id                  CHAR(36)     NOT NULL,
+  action              VARCHAR(500) NULL,
+  application         VARCHAR(500) NULL,
+  mule_message        LONGTEXT     NULL,
+  mule_message_id     VARCHAR(36)  NULL,
+  notification_type   VARCHAR(500) NULL,
+  path                VARCHAR(500) NULL,
+  resource_identifier VARCHAR(500) NULL,
+  timestamp           BIGINT       NOT NULL,
+  source              TEXT         NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE MULE_EVENTS_ANNOTATIONS (
+  id               CHAR(36)     NOT NULL,
+  event_id         CHAR(36)     NOT NULL,
+  annotation_type  VARCHAR(100) NULL,
+  annotation_value VARCHAR(255) NULL,
+  PRIMARY KEY (id),
+  KEY FK_MULE_EVENTS_ANNOTATIONS_MULE_EVENTS_IDX (event_id),
+  CONSTRAINT FK_MULE_EVENTS_ANNOTATIONS_MULE_EVENTS
+  FOREIGN KEY (event_id) REFERENCES MULE_EVENTS (id)
+    ON DELETE CASCADE
+);
+
+CREATE TABLE MULE_EVENTS_BUSINESS (
+  id             CHAR(36)     NOT NULL,
+  event_id       CHAR(36)     NOT NULL,
+  business_key   VARCHAR(30)  NOT NULL,
+  business_value VARCHAR(255) NULL,
+  PRIMARY KEY (id),
+  KEY FK_MULE_EVENTS_BUSINESS_IDX (event_id),
+  CONSTRAINT FK_MULE_EVENTS_BUSINESS_MULE_EVENTS
+  FOREIGN KEY (event_id) REFERENCES MULE_EVENTS (id)
+    ON DELETE CASCADE
+);
+----
+
+=== Internal Handler Configuration
+
+. Download the MySQL JDBC driver from:
++
+`http://dev.mysql.com/downloads/connector/j/`
+. Extract the ZIP file.
+. Copy the `mysql-connector-java-{VERSION}.jar` file to `{MULE_HOME}/plugins/mule-agent-plugin/lib/modules`.
+. Modify the file `{MULE_HOME}/conf/mule-agent.yml` to include the following:
++
+[source,yaml,linenums]
+----
+  mule.agent.tracking.handler.database:
+    enabled: true
+    driver: com.mysql.jdbc.Driver
+    jdbcUrl: jdbc:mysql://192.168.61.128/mule
+    user: root
+    pass: test
+----
+
+== Oracle Example Configuration
+
+The following example shows how to set up the Runtime Manager agent to work with Oracle databases.
+
+=== Schema
+
+[source,sql,linenums]
+----
+CREATE TABLE MULE_EVENTS (
+  id                  CHAR(36)     NOT NULL,
+  action              VARCHAR(500) NULL,
+  application         VARCHAR(500) NULL,
+  mule_message        CLOB         NULL,
+  mule_message_id     VARCHAR(36)  NULL,
+  notification_type   VARCHAR(500) NULL,
+  path                VARCHAR(500) NULL,
+  resource_identifier VARCHAR(500) NULL,
+  timestamp           NUMBER       NOT NULL,
+  source              CLOB         NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE MULE_EVENTS_ANNOTATIONS (
+  id               CHAR(36)     NOT NULL,
+  event_id         CHAR(36)     NOT NULL,
+  annotation_type  VARCHAR(100) NULL,
+  annotation_value VARCHAR(255) NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT FK_MEA_ME
+  FOREIGN KEY (event_id) REFERENCES MULE_EVENTS (id) ON DELETE CASCADE
+);
+
+CREATE INDEX FK_MAE_IDX ON MULE_EVENTS_ANNOTATIONS (event_id);
+
+CREATE TABLE MULE_EVENTS_BUSINESS (
+  id             CHAR(36)     NOT NULL,
+  event_id       CHAR(36)     NOT NULL,
+  business_key   VARCHAR(30)  NOT NULL,
+  business_value VARCHAR(255) NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT FK_MEB_ME
+  FOREIGN KEY (event_id) REFERENCES MULE_EVENTS (id) ON DELETE CASCADE
+);
+
+CREATE INDEX FK_MEB_IDX ON MULE_EVENTS_BUSINESS (event_id);
+----
+
+=== Internal Handler Configuration
+
+. Download the Oracle JDBC driver from:
++
+`https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html`
+. Extract the GZ file.
+. Copy the JAR file to `{MULE_HOME}/plugins/mule-agent-plugin/lib/modules`.
+. Modify the file `{MULE_HOME}/conf/mule-agent.yml` to include the following:
++
+[source,yaml,linenums]
+----
+  mule.agent.tracking.handler.database:
+    enabled: true
+    driver: oracle.jdbc.OracleDriver
+    jdbcUrl: jdbc:oracle:thin:@192.168.61.128/XE
+    user: root
+    pass: test
+----
+
+
+== Microsoft SQL Server Example Configuration
+
+The following example shows how to set up the Runtime Manager agent to work with Microsoft SQL Server databases.
+
+
+=== Schema
+
+[source,sql,linenums]
+----
+CREATE TABLE MULE_EVENTS (
+  id                  CHAR(36)     NOT NULL,
+  action              VARCHAR(500) NULL,
+  application         VARCHAR(500) NULL,
+  mule_message        VARCHAR(MAX) NULL,
+  mule_message_id     VARCHAR(36)  NULL,
+  notification_type   VARCHAR(500) NULL,
+  path                VARCHAR(500) NULL,
+  resource_identifier VARCHAR(500) NULL,
+  timestamp           BIGINT       NOT NULL,
+  source              VARCHAR(MAX) NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE MULE_EVENTS_ANNOTATIONS (
+  id               CHAR(36)     NOT NULL,
+  event_id         CHAR(36)     NOT NULL,
+  annotation_type  VARCHAR(100) NULL,
+  annotation_value VARCHAR(255) NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT FK_MULE_EVENTS_ANNOTATIONS_MULE_EVENTS
+  FOREIGN KEY (event_id) REFERENCES MULE_EVENTS (id)
+    ON DELETE CASCADE
+);
+
+CREATE INDEX FK_MULE_EVENTS_ANNOTATIONS_MULE_EVENTS_IDX ON MULE_EVENTS_ANNOTATIONS (event_id);
+
+CREATE TABLE MULE_EVENTS_BUSINESS (
+  id             CHAR(36)     NOT NULL,
+  event_id       CHAR(36)     NOT NULL,
+  business_key   VARCHAR(30)  NOT NULL,
+  business_value VARCHAR(255) NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT FK_MULE_EVENTS_BUSINESS_MULE_EVENTS
+  FOREIGN KEY (event_id) REFERENCES MULE_EVENTS (id)
+    ON DELETE CASCADE
+);
+
+CREATE INDEX FK_MULE_EVENTS_BUSINESS_IDX ON MULE_EVENTS_BUSINESS (event_id);
+----
+
+=== Internal Handler Configuration
+
+. Download the Microsoft JDBC driver for SQL Server from:
++
+`https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774`
+. Extract the `sqljdbc%version%.tar.gz` file.
+. Copy the appropriate `sqljdbc%version%.jar` file to `{MULE_HOME}/plugins/mule-agent-plugin/lib/modules`.
+. Modify the file `{MULE_HOME}/conf/mule-agent.yml` to include the following:
++
+--
+[source,yaml,linenums]
+----
+  mule.agent.tracking.handler.database:
+    enabled: true
+    driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    jdbcUrl: jdbc:sqlserver://192.168.61.128:1433;databaseName=Mule;
+    user: root
+    pass: test
+----
+--
+
+== See Also
+
+* xref:sending-data-from-arm-to-external-analytics-software.adoc[Export Data to External Analytics Tools]
+* xref:managing-servers.adoc[Servers, Server Groups, and Clusters]
+* xref:deploying-to-your-own-servers.adoc[Deploy to Your Servers]
+* xref:managing-applications-on-your-own-servers.adoc[Manage Applications on Your Servers]
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/arm-rest-services[Runtime Manager REST API]

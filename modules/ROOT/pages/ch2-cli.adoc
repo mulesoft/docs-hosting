@@ -1,5 +1,0 @@
-= CloudHub 2.0 Command-Line Interface
-
-include::partial$feature-availability.adoc[tag=featureUnavailableBeta]
-
-== See Also
