@@ -42,7 +42,8 @@ Subdomains must start and end with an alphanumeric character and can contain onl
 
 The application name you specify can contain between three and 59 alphanumeric characters
 (a-z, A-Z, 0-9) and dashes (-).
-They cannot contain spaces or other characters.
+They cannot contain spaces or other characters. 
+The application name must start with a letter (a-z or A-Z). It cannot start with a number or dash.
 
 To ensure that names are unique and avoid domain conflicts, CloudHub 2.0 adds
 a six-character `_uniq-id_` to the application name that you specify in the public endpoint URL.
