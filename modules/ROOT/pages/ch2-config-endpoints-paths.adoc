@@ -1,6 +1,6 @@
-= Configuring Public Endpoints and Paths for Apps Deployed to a Private Space
+= Configuring Endpoints and Paths for Apps Deployed to a Private Space
 
-*Last update* 30-Mar-22
+*Last update* 15-June-22
 
 [IMPORTANT]
 CloudHub 2.0 supports customizing public endpoints only for apps that are deployed to private spaces, not shared spaces.
@@ -8,15 +8,16 @@ CloudHub 2.0 supports customizing public endpoints only for apps that are deploy
 
 A private space routes requests from clients to apps deployed to the private space.
 
-You can customize how these requests reach the app by configuring:
-
-* Multiple custom public endpoints 
-+
+When you deploy an app to a private space, both _public_ and _private endpoints_ are created, but you can modify only the public endpoint.
 An _endpoint_ is the URL used to reach the app deployed to the private space,
-for example `\https://my-app.example.com/`.
+for example `\https://my-app.example.com/`. Public endpoints enable clients outside of the network to reach the app. Private endpoints ensure the app is accessible only within the private network.
+
+You can customize how requests from clients reach the app by configuring:
+
+* Multiple custom public endpoints
 +
-The administrator specifies the domains that you can use for the public endpoints 
-by configuring the TLS context in the private space settings. 
+The administrator specifies the domains that you can use for the public endpoints
+by configuring the TLS context in the private space settings.
 For information, see xref:ps-config-domains.adoc[].
 
 * Different paths for the app and the public endpoint URL
@@ -25,6 +26,7 @@ The _path_ is the base path expected by the HTTP Listener in your app, for examp
 +
 For information, see https://docs.mulesoft.com/http-connector/1.6/http-listener-ref[HTTP Listener Reference - Mule 4^]. (Link out from Beta docs)
 
+You can also remove the public endpoint to ensure clients outside of the private network cannot make requests to the app.
 
 
 [[before-you-begin]]
@@ -42,7 +44,7 @@ You can enable your app to be reached via multiple public endpoints, for example
 `my-app.example.com` and `my-old-app.oldname.com`.
 
 [TIP]
-To ensure that each endpoint name is unique, use the `app-name` placeholder in the subdomain, 
+To ensure that each endpoint name is unique, use the `app-name` placeholder in the subdomain,
 or the path if the domain doesn't include a wildcard.
 
 To configure multiple public endpoints:
@@ -67,7 +69,7 @@ If the domain includes a wildcard, the *Subdomain* field becomes available.
 +
 For information, see <<placeholder-table,placeholders>>.
 .. Enter the path where the HTTP Listener in the app is listening, for example `v1/api`.
-. If you want to configure additional endpoints, click *Add Endpoint* and repeat steps 2.1 through 2.3. 
+. If you want to configure additional endpoints, click *Add Endpoint* and repeat steps 2.1 through 2.3.
 . Depending on the deployment status, choose either:
 ** If you're ready to deploy the application, click *Deploy*.
 ** If this application is deployed, click *Apply Changes*.
@@ -119,7 +121,7 @@ include::partial$select-private-space.adoc[tag=clickSettings]
 
 
 [[remove-public-endpoint]]
-== Remove a Public Endpoint 
+== Remove a Public Endpoint
 
 To remove a public endpoint:
 
@@ -135,7 +137,7 @@ include::partial$select-private-space.adoc[tag=clickSettings]
 == View the Private Endpoint for an App
 
 A private endpoint is accessible from inside the same private space or through
-the VPN or transit gateway connection for the private space. 
+the VPN or transit gateway connection for the private space. You cannot make changes to the path or domain for a private endpoint.
 
 To view or copy the URL for the private endpoint:
 
@@ -152,5 +154,3 @@ include::partial$select-private-space.adoc[tag=clickSettings]
 * xref:ch2-deploy-private-space.adoc[]
 * xref:ps-config-domains.adoc[]
 * https://docs.mulesoft.com/http-connector/1.6/http-listener-ref[HTTP Listener Reference - Mule 4^] (Link out from Beta docs)
-
-
