@@ -59,27 +59,6 @@ For example, you might route requests to `myapp.mycompany.com` to `mycompany-myd
 // end::appNameReqs[]
 
 
-// tag::enableTLSv1[]
-[[enable-tls-v1]]
-= Enable TLS v1 and TLS v1.1
-
-*REMOVE THIS CONTENT FOR GA?*
-
-Starting with the https://docs.mulesoft.com/release-notes/cloudhub/cloudhub-runtimes-release-notes#august-3-2021[August 3, 2021 patch releases^] (Link out from Beta docs), Mule runtime engine disables TLS v1 and TLS v1.1 by default for all runtime versions.
-
-If your app requires TLS v1 or TLS v1.1, you can enable them using JVM (Java Virtual Machine) arguments when you deploy to CloudHub 2.0:
-
-. Click the *JVM* tab. 
-. In the *Java Virtual Machine arguments* field, add one of the following arguments:
-* Enable TLSv1.0 and TLSv1.1:
-+
-`-Drtf.allow.TLSv1.0+`
-* Enable TLSv1.1:
-+
-`-Drtf.allow.TLSv1.1`
-// end::enableTLSv1[]
-
-
 // tag::configureLogging[]
 [[configure-logging]]
 = Configure Logging for the App
