@@ -105,7 +105,7 @@ Specifies the number of replicas, or instances, of the application to deploy.
 +
 A minimum of two replicas is required for high availability.
 Run in Runtime Cluster Mode::
-Enables xref:docs-rft-cloud::ch2-clustering.adoc[Mule clustering] across each replica of the application.
+Enables xref:ch2-clustering.adoc[Mule clustering] across each replica of the application.
 Enforce deploying replicas across nodes::
 Selecting this option might cause some replicas in the deployment to remain in Pending status if there are unsufficient worker nodes or resources available on the worker nodes needed to deploy each replica.
 The deployment status transitions to Running after all replicas are deployed on different worker nodes.
