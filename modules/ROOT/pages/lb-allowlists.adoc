@@ -60,8 +60,8 @@ cloudhub load-balancer allowlist remove myLB_name myCIDRblock
 
 == See Also
 
-* xref:anypoint-cli::cloudhub-dlb.adoc#cloudhub-load-balancer-allowlist-add[cloudhub load-balancer allowlist add]
-* xref:anypoint-cli::cloudhub-dlb.adoc#cloudhub-load-balancer-allowlist-remove[cloudhub load-balancer allowlist remove]
+* xref:cloudhub-cli.adoc#cloudhub-load-balancer-allowlist-add[cloudhub load-balancer allowlist add]
+* xref:cloudhub-cli.adoc#cloudhub-load-balancer-allowlist-remove[cloudhub load-balancer allowlist remove]
 * https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks[IPv4 CIDR blocks]
 * xref:index.adoc[Create a Load Balancer with Runtime Manager]
 * xref:lb-create-cli.adoc[Create a Load Balancer with the Anypoint Platform CLI]
