@@ -2,7 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:page-aliases: runtime-manager::managing-cloudhub-applications.adoc,runtime-manager::managing-applications-on-cloudhub.adoc
+:page-aliases: runtime-manager::managing-applications-on-cloudhub.adoc, runtime-manager::managing-cloudhub-applications.adoc,
 
 
 After you deploy an application to xref:deploying-to-cloudhub.adoc[CloudHub], you can use the Runtime Manager to manage your application at runtime.

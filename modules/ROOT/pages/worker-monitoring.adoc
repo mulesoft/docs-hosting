@@ -2,9 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:page-aliases: runtime-manager::vpc-worker-monitoring.adoc,
-
-
+:page-aliases: runtime-manager::worker-monitoring.adoc
 
 CloudHub monitors all applications and enables you to receive notifications and diagnostic information if your application becomes unresponsive.
 
