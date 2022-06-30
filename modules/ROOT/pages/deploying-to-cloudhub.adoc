@@ -179,7 +179,7 @@ To move an application from sandbox to production:
 . Sign in to Anypoint Platform.
 . Select *Runtime Manager* and switch to your production environment.
 +
-See xref:runtime-manager-switch-env.adoc##switch-environments-using-runtime-manager[Switch Environments Using Runtime Manager].
+See xref:runtime-manager::runtime-manager-switch-env.adoc#switch-environments-using-runtime-manager[Switch Environments Using Runtime Manager].
 . In the *Applications* page, click *Deploy application*.
 +
 You see the *Deploy Application* page:
@@ -322,7 +322,7 @@ and xref:secure-application-properties.adoc[Safely Hide Application Properties].
 === Insight Tab Settings
 
 You can enable the Insight analytics feature and specify metadata options on the *Insight* tab.
-For information about using this tool, see xref:insight.adoc[Insight].
+For information about using this tool, see xref:runtime-manager::insight.adoc[Insight].
 
 
 === Logging Tab Settings

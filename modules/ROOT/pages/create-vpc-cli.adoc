@@ -100,10 +100,9 @@ This command returns:
 Rule `0` allows inbound connections from your local Anypoint VPC from ports 8091 and 8092, while rule `1` allows traffic from any host to reach your workers through ports 8081 and 8082.
 --
 
-You can use the xref:anypoint-cli::cloudhub-vpc.adoc#cloudhub-vpc-delete[`vpc firewall-rules delete`] command to remove any of the default rules or you  can add new ones using the xref:anypoint-cli::cloudhub-vpc.adoc#cloudhub-vpc-firewall-rules-add[`vpc firewall-rules add`] command.
+You can use the xref:anypoint-cli::cloudhub-vpc.adoc#cloudhub-vpc-firewall-rules-remove[`vpc firewall-rules remove`] command to remove any of the default rules or you  can add new ones using the xref:anypoint-cli::cloudhub-vpc.adoc#cloudhub-vpc-firewall-rules-add[`vpc firewall-rules add`] command.
 
 Assume you want to enable TCP traffic through port 8090 inside your Anypoint VPC. You need to run the following:
-
 ----
 cloudhub vpc firewall-rules add
 // <1>

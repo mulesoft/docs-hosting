@@ -16,7 +16,7 @@ image::logo-app.png[app]
 [TIP]
 For examples of more applications, see xref:exchange::index.adoc[Anypoint Exchange].
 
-You can deploy the same Mule applications to CloudHub or to an xref:deploying-to-your-own-servers.adoc[on-premises server]. There are some differences in how features work between the environments, which you need to consider when you plan your deployment strategy. See xref:runtime-manager::deployment-strategies.adoc[Deployment Options].
+You can deploy the same Mule applications to CloudHub or to an xref:runtime-manager::deploying-to-your-own-servers.adoc[on-premises server]. There are some differences in how features work between the environments, which you need to consider when you plan your deployment strategy. See xref:runtime-manager::deployment-strategies.adoc[Deployment Options].
 
 
 == Deploy your Application to CloudHub

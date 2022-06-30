@@ -10,7 +10,7 @@ CloudHub provides access to log data that includes deployment messages and event
 
 Logs and diagnostics are currently available only for applications deployed to CloudHub workers.
 For applications deployed to a local server, you can send data to external analytics software.
-See xref:sending-data-from-arm-to-external-analytics-software.adoc[Export Data to External Analytics Tools].
+See xref:runtime-manager::sending-data-from-arm-to-external-analytics-software.adoc[Export Data to External Analytics Tools].
 
 For more advanced searching and log management, you can:
 
@@ -187,7 +187,7 @@ You can also search for an exact term in the log message with a few common quant
 == See Also
 
 * xref:runtime-manager::deployment-strategies.adoc[Deployment Options]
-* xref:sending-data-from-arm-to-external-analytics-software.adoc[Export Data to External Analytics Tools]
+* xref:runtime-manager::sending-data-from-arm-to-external-analytics-software.adoc[Export Data to External Analytics Tools]
 * xref:custom-log-appender.adoc[Integrate with Your Logging System Using Log4j]
 * xref:runtime-manager::monitoring.adoc[Monitor Applications and Servers]
 * xref:mule-runtime::logging-in-mule.adoc[Configuring Logging]

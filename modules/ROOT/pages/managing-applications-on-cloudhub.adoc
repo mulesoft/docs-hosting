@@ -7,7 +7,7 @@ endif::[]
 
 After you deploy an application to xref:deploying-to-cloudhub.adoc[CloudHub], you can use the Runtime Manager to manage your application at runtime.
 
-Depending on if your application is deployed to xref:deploying-to-cloudhub.adoc[CloudHub] or to xref:deploying-to-your-own-servers.adoc[your own servers], there is a different set of possible actions you can perform.
+Depending on if your application is deployed to xref:deploying-to-cloudhub.adoc[CloudHub] or to xref:runtime-manager::deploying-to-your-own-servers.adoc[your own servers], there is a different set of possible actions you can perform.
 
 [NOTE]
 This document refers to applications that are deployed through the Runtime Manager console to xref:index.adoc[CloudHub]. To view the basic management tools that are common to all types of deployments, see xref:runtime-manager::managing-deployed-applications.adoc[Manage Deployed Applications]. See xref:runtime-manager::deployment-strategies.adoc[Deployment Options] to understand the different deployment scenarios that the platform offers.
@@ -28,7 +28,7 @@ If you select any of the applications on the *Applications* tab, a panel opens o
 
 image::dashboard-ch.png[dashboard]
 
-What this dashboard displays depends on if your application is deployed on xref:index.adoc[CloudHub] or on xref:managing-applications-on-your-own-servers.adoc[Mule].
+What this dashboard displays depends on if your application is deployed on xref:index.adoc[CloudHub] or on xref:runtime-manager::managing-applications-on-your-own-servers.adoc[Mule].
 
 Applications deployed to CloudHub display the status, the time of the last modification, and the deployed application ZIP file, which you can change from this menu through the *Choose File* button.
 

@@ -43,7 +43,7 @@ For more about creating and deploying integration applications, see xref:index.a
 
 The Runtime Manager console is integrated into the https://anypoint.mulesoft.com[Anypoint Platform]. Sign in with your Anypoint Platform credentials to upload and manage your integration applications at runtime. The console surfaces useful monitoring information from the platform services and also works as a comprehensive dashboard for both application-level and account-level management.
 
-Through this same console you can xref:deploying-to-cloudhub.adoc[deploy to CloudHub] as well as to xref:deploying-to-your-own-servers.adoc[other registered servers]. You can also xref:runtime-manager::managing-deployed-applications.adoc[manage deployed applications].
+Through this same console you can xref:deploying-to-cloudhub.adoc[deploy to CloudHub] as well as to xref:runtime-manager::deploying-to-your-own-servers.adoc[other registered servers]. You can also xref:runtime-manager::managing-deployed-applications.adoc[manage deployed applications].
 
 Administrator account holders can use the Anypoint Platform to xref:access-management::managing-permissions.adoc[add and manage other users in the organization, define user roles], and create and manage sandbox environments.
 
