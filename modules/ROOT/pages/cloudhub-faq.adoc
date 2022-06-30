@@ -158,7 +158,7 @@ Our load balancers time out after 300 seconds if no data is read.
 
 == Can I get a static IP for my application?
 
-You can assign a static IP to your application by using the *Static IPs* application settings tab. For details, see xref:deploying-to-index.adoc#static-ips-tab-settings[Static IPs Tab Settings]. By default, you are allocated a number of static IPs equal to twice the number of production vCores in your subscription. To raise this limit, contact MuleSoft Support.
+You can assign a static IP to your application by using the *Static IPs* application settings tab. For details, see xref:deploying-to-cloudhub.adoc#static-ips-tab-settings[Static IPs Tab Settings]. By default, you are allocated a number of static IPs equal to twice the number of production vCores in your subscription. To raise this limit, contact MuleSoft Support.
 
 == How do I know what my static IP is?
 
@@ -204,10 +204,10 @@ The CloudHub platform is monitored 24 hours a day, 7 days a week, by automated s
 == See Also
 
 * xref:managing-deployed-applications.adoc[Manage Deployed Applications]
-* xref:managing-applications-on-index.adoc[Manage Applications on CloudHub]
-* xref:deploying-to-index.adoc[Deploy to CloudHub]
+* xref:managing-applications-on-cloudhub.adoc[Manage Applications on CloudHub]
+* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
 * xref:index.adoc[CloudHub]
-* xref:developing-applications-for-index.adoc[Develop Applications for CloudHub]
+* xref:developing-applications-for-cloudhub.adoc[Develop Applications for CloudHub]
 * xref:deployment-strategies.adoc[Deployment Options]
 * xref:cloudhub-architecture.adoc[CloudHub Architecture]
 * xref:monitoring.adoc[Monitor Applications]

@@ -86,7 +86,7 @@ image::alerts-history-autoscale.png[history]
 
 * xref:alerts-on-runtime-manager.adoc[Alerts on Runtime Manager]
 * xref:managing-deployed-applications.adoc[Manage Deployed Applications]
-* xref:deploying-to-index.adoc[Deploy to CloudHub]
+* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
 * xref:index.adoc[CloudHub]
 * xref:deployment-strategies.adoc[Deployment Options]
 * xref:cloudhub-fabric.adoc[Clustering]

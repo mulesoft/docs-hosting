@@ -98,7 +98,7 @@ For information, see xref:secure-application-properties.adoc[Secure Application 
 
 * xref:connectors::http/http-connector.adoc[HTTP Connectors]
 * xref:deployment-strategies.adoc[Deployment Options]
-* xref:deploying-to-index.adoc[Deploy to CloudHub]
+* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
 * xref:studio::index.adoc[Anypoint Studio]
 * xref:managing-deployed-applications.adoc[Manage Deployed Applications]
 * xref:anypoint-cli::index.adoc[Anypoint Platform Command-Line Interface]

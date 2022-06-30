@@ -75,9 +75,9 @@ Notifications are retained by Anypoint Platform within the bounds of the followi
 
 * xref:custom-application-alerts.adoc[Custom Application Alerts] tutorial.
 * xref:managing-deployed-applications.adoc[Manage Deployed Applications]
-* xref:deploying-to-index.adoc[Deploy to CloudHub]
+* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
 * xref:index.adoc[CloudHub Overview]
-* xref:developing-applications-for-index.adoc[Develop Applications for CloudHub]
+* xref:developing-applications-for-cloudhub.adoc[Develop Applications for CloudHub]
 * xref:deployment-strategies.adoc[Deployment Options]
 * xref:cloudhub-fabric.adoc[Clustering]
 * xref:monitoring.adoc[Monitor Applications]

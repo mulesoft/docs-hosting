@@ -25,7 +25,7 @@ See xref:deployment-strategies.adoc[Deployment Options] for more information abo
 
 * Deploy your application to CloudHub.
 +
-See xref:deploying-to-index.adoc[Deploy to CloudHub]
+See xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
 * For Anypoint Studio 6.x and earlier, enable Maven support for your Mule project.
 +
 See xref:6@studio::enabling-maven-support-for-a-studio-project.adoc[Enabling Maven Support for a Studio Project].
@@ -183,5 +183,5 @@ xref:mule-runtime::error-handling.adoc#on_error_continue[Using On-Error Componen
 * xref:connectors::introduction/intro-config-use-studio.adoc#install[Add the Connector to Your Mule Project]
 * https://www.mulesoft.com/exchange/com.mulesoft.connectors/mule-cloudhub-connector/[CloudHub Connector] on Exchange
 * xref:cloudhub-connector::index.adoc#create-the-cloudhub-configuration[Create the CloudHub Configuration]
-* xref:deploying-to-index.adoc[Deploy to CloudHub]
+* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
 * xref:mule-runtime::intro-error-handlers.adoc[Introduction to Mule 4: Error Handlers]

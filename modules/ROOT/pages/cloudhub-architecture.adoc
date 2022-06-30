@@ -13,7 +13,7 @@ image:logo-rtf-disabled.png[xref="deployment-strategies.adoc#anypoint-runtime-fa
 
 xref:index.adoc[CloudHub] is designed to provide enterprises with a multitenant, secure, elastic, and highly available integration platform as a service (iPaaS). To maximize your use of CloudHub, you should understand how the underlying mechanisms of the CloudHub platform work to achieve these goals.
 
-Manage CloudHub with the Anypoint Runtime Manager console in Anypoint Platform. You can also xref:deploying-to-index.adoc[deploy] to it directly from Anypoint Studio, via the xref:cloudhub-api.adoc[CloudHub REST API] or via the xref:anypoint-cli::index.adoc[Anypoint Platform command-line interface].
+Manage CloudHub with the Anypoint Runtime Manager console in Anypoint Platform. You can also xref:deploying-to-cloudhub.adoc[deploy] to it directly from Anypoint Studio, via the xref:cloudhub-api.adoc[CloudHub REST API] or via the xref:anypoint-cli::index.adoc[Anypoint Platform command-line interface].
 
 [NOTE]
 ====
@@ -42,13 +42,13 @@ You can view the live status and detailed service history for the Runtime Manage
 
 An integration application is any integration that you've built using Anypoint Studio. These applications can do everything from synchronizing data from Salesforce to a database, to publishing a SOAP or REST API, to creating complex orchestrations of business processes.
 
-For more about creating and deploying integration applications, see xref:index.adoc[CloudHub] and xref:deploying-to-index.adoc[Deploy to CloudHub].
+For more about creating and deploying integration applications, see xref:index.adoc[CloudHub] and xref:deploying-to-cloudhub.adoc[Deploy to CloudHub].
 
 == Runtime Management Console
 
 The Runtime Manager console is integrated into the https://anypoint.mulesoft.com[Anypoint Platform]. Sign in with your Anypoint Platform credentials to upload and manage your integration applications at runtime. The console surfaces useful monitoring information from the platform services and also works as a comprehensive dashboard for both application-level and account-level management.
 
-Through this same console you can xref:deploying-to-index.adoc[deploy to CloudHub] as well as to xref:deploying-to-your-own-servers.adoc[other registered servers]. You can also xref:managing-deployed-applications.adoc[manage deployed applications].
+Through this same console you can xref:deploying-to-cloudhub.adoc[deploy to CloudHub] as well as to xref:deploying-to-your-own-servers.adoc[other registered servers]. You can also xref:managing-deployed-applications.adoc[manage deployed applications].
 
 Administrator account holders can use the Anypoint Platform to xref:access-management::managing-permissions.adoc[add and manage other users in the organization, define user roles], and create and manage sandbox environments.
 
@@ -135,7 +135,7 @@ For the EU control plane, MuleSoft hosts these services in Europe.
 The region that you deploy your application to determines the domain provided for your application.
 For example, if you deploy an application named `myapp` to Canada (Central), the domain used to access the application is `myapp.ca-c1.cloudhub.io`. The load balancer used to route requests resides in the same region as your application.
 
-For more information about deploying applications to different regions, refer to xref:deploying-to-index.adoc[Deploy to CloudHub].
+For more information about deploying applications to different regions, refer to xref:deploying-to-cloudhub.adoc[Deploy to CloudHub].
 For more information about CloudHub security and compliance, download the https://www.mulesoft.com/lp/whitepaper/saas/cloud-security[Anypoint Cloud Security & Compliance] whitepaper.
 
 == Workers and Multitenancy

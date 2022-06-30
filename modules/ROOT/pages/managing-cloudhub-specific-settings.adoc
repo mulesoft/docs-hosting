@@ -57,5 +57,5 @@ To change your plan, you can contact your account representative or your Custome
 == See Also
 
 * xref:access-management::environments.adoc[Environments]
-* xref:deploying-to-index.adoc[Deploy to CloudHub]
+* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
 * http://www.mulesoft.com/cloudhub/pricing[CloudHub Plans and Pricing]
