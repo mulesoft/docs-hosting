@@ -18,7 +18,7 @@ so that they can fix the underlying problems.
 [NOTE]
 Custom alerts and notifications are available only for apps deployed to CloudHub workers.
 They are not available for apps deployed to on-premises servers.
-See xref:deployment-strategies.adoc[Deployment Options] for more information about CloudHub features.
+See xref:runtime-manager::deployment-strategies.adoc[Deployment Options] for more information about CloudHub features.
 
 
 == Prerequisites
@@ -38,7 +38,7 @@ All projects in Studio 7.x and later support Maven by default.
 
 Alerts enable you to send emails based on your application's notifications.
 You can create standard alerts in Runtime Manager for servers and applications deployed to either CloudHub or on-premises servers.
-See xref:alerts-on-runtime-manager.adoc[Alerts].
+See xref:runtime-manager::alerts-on-runtime-manager.adoc[Alerts].
 
 
 You can also create _custom alerts_ for applications deployed to CloudHub.
@@ -113,7 +113,7 @@ Enter the email addresses for notification recipients.
 
 +
 You can use variables in the alert *Subject* and *Message* fields.
-For information about using variables in alerts, see xref:alerts-on-runtime-manager.adoc#alert-variables[Alert Variables].
+For information about using variables in alerts, see xref:runtime-manager::alerts-on-runtime-manager.adoc#alert-variables[Alert Variables].
 
 When you trigger the alert, the specified recipients receive an email with the custom message you added to the app.
 
@@ -179,7 +179,7 @@ xref:mule-runtime::error-handling.adoc#on_error_continue[Using On-Error Componen
 
 == See Also
 
-* xref:alerts-on-runtime-manager.adoc[Alerts]
+* xref:runtime-manager::alerts-on-runtime-manager.adoc[Alerts]
 * xref:connectors::introduction/intro-config-use-studio.adoc#install[Add the Connector to Your Mule Project]
 * https://www.mulesoft.com/exchange/com.mulesoft.connectors/mule-cloudhub-connector/[CloudHub Connector] on Exchange
 * xref:cloudhub-connector::index.adoc#create-the-cloudhub-configuration[Create the CloudHub Configuration]

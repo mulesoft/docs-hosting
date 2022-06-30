@@ -191,8 +191,8 @@ You can also search for an exact term in the log message with a few common quant
 
 == See Also
 
-* xref:deployment-strategies.adoc[Deployment Options]
+* xref:runtime-manager::deployment-strategies.adoc[Deployment Options]
 * xref:sending-data-from-arm-to-external-analytics-software.adoc[Export Data to External Analytics Tools]
 * xref:custom-log-appender.adoc[Integrate with Your Logging System Using Log4j]
-* xref:monitoring.adoc[Monitor Applications and Servers]
+* xref:runtime-manager::monitoring.adoc[Monitor Applications and Servers]
 * xref:mule-runtime::logging-in-mule.adoc[Configuring Logging]

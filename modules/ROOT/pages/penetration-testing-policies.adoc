@@ -97,4 +97,4 @@ Salesforce does not address any security vulnerabilities in the following catego
 * xref:managing-applications-on-cloudhub.adoc[Manage Applications on CloudHub]
 * xref:index.adoc[CloudHub]
 * xref:developing-applications-for-cloudhub.adoc[Develop Applications for CloudHub]
-* xref:deployment-strategies.adoc[Deployment Options]
+* xref:runtime-manager::deployment-strategies.adoc[Deployment Options]

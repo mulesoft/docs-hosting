@@ -15,7 +15,7 @@ image:logo-rtf-disabled.png[xref="deployment-strategies.adoc#anypoint-runtime-fa
 
 
 [TIP]
-You can also set up email xref:alerts-on-runtime-manager.adoc[alerts] that can be sent to any email address to warn whenever a certain event has occurred. Notifications are currently only produced by applications deployed to CloudHub, for applications deployed on-premises, you should use Alerts.
+You can also set up email xref:runtime-manager::alerts-on-runtime-manager.adoc[alerts] that can be sent to any email address to warn whenever a certain event has occurred. Notifications are currently only produced by applications deployed to CloudHub, for applications deployed on-premises, you should use Alerts.
 
 
 == Manage Notifications
@@ -58,7 +58,7 @@ image::cloudhub-connector.png[]
 +
 You should now be receiving notifications.
 
-. Optionally, set up email alerts to inform you when one of these custom events occurs. To set up email alerts, see xref:alerts-on-runtime-manager.adoc[Alerts on Runtime Manager]. You must create an alert of type *Custom Notification Alert* that matches your custom notification.
+. Optionally, set up email alerts to inform you when one of these custom events occurs. To set up email alerts, see xref:runtime-manager::alerts-on-runtime-manager.adoc[Alerts on Runtime Manager]. You must create an alert of type *Custom Notification Alert* that matches your custom notification.
 
 See the  tutorial.
 
@@ -74,13 +74,13 @@ Notifications are retained by Anypoint Platform within the bounds of the followi
 == See Also
 
 * xref:custom-application-alerts.adoc[Custom Application Alerts] tutorial.
-* xref:managing-deployed-applications.adoc[Manage Deployed Applications]
+* xref:runtime-manager::managing-deployed-applications.adoc[Manage Deployed Applications]
 * xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
 * xref:index.adoc[CloudHub Overview]
 * xref:developing-applications-for-cloudhub.adoc[Develop Applications for CloudHub]
-* xref:deployment-strategies.adoc[Deployment Options]
+* xref:runtime-manager::deployment-strategies.adoc[Deployment Options]
 * xref:cloudhub-fabric.adoc[Clustering]
-* xref:monitoring.adoc[Monitor Applications]
+* xref:runtime-manager::monitoring.adoc[Monitor Applications]
 * xref:managing-queues.adoc[Manage Queues]
 * xref:managing-schedules.adoc[Manage Schedules]
 * xref:managing-application-data-with-object-stores.adoc[Manage Application Data with Object Stores]

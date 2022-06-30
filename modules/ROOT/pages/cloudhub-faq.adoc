@@ -203,14 +203,14 @@ The CloudHub platform is monitored 24 hours a day, 7 days a week, by automated s
 
 == See Also
 
-* xref:managing-deployed-applications.adoc[Manage Deployed Applications]
+* xref:runtime-manager::managing-deployed-applications.adoc[Manage Deployed Applications]
 * xref:managing-applications-on-cloudhub.adoc[Manage Applications on CloudHub]
 * xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
 * xref:index.adoc[CloudHub]
 * xref:developing-applications-for-cloudhub.adoc[Develop Applications for CloudHub]
-* xref:deployment-strategies.adoc[Deployment Options]
+* xref:runtime-manager::deployment-strategies.adoc[Deployment Options]
 * xref:cloudhub-architecture.adoc[CloudHub Architecture]
-* xref:monitoring.adoc[Monitor Applications]
+* xref:runtime-manager::monitoring.adoc[Monitor Applications]
 * xref:cloudhub-fabric.adoc[High Availability]
 * xref:managing-queues.adoc[Manage Queues]
 * xref:managing-schedules.adoc[Manage Schedules]

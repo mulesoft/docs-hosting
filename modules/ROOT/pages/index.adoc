@@ -21,7 +21,7 @@ image::logo-app.png[app]
 [TIP]
 For examples of more applications, see xref:exchange::index.adoc[Anypoint Exchange].
 
-You can deploy the same Mule applications to CloudHub or to an xref:deploying-to-your-own-servers.adoc[on-premises server]. There are some differences in how features work between the environments, which you need to consider when you plan your deployment strategy. See xref:deployment-strategies.adoc[Deployment Options].
+You can deploy the same Mule applications to CloudHub or to an xref:deploying-to-your-own-servers.adoc[on-premises server]. There are some differences in how features work between the environments, which you need to consider when you plan your deployment strategy. See xref:runtime-manager::deployment-strategies.adoc[Deployment Options].
 
 
 == Deploy your Application to CloudHub
@@ -60,12 +60,12 @@ image::logo-manage.png[manage]
 
 Learn how you can manage an application that is currently running in CloudHub:
 
-* xref:managing-deployed-applications.adoc[Manage Deployed Applications] has information about settings that are general to all applications&#8212;both those deployed to CloudHub and to on-premises servers.
+* xref:runtime-manager::managing-deployed-applications.adoc[Manage Deployed Applications] has information about settings that are general to all applications&#8212;both those deployed to CloudHub and to on-premises servers.
 * xref:managing-applications-on-cloudhub.adoc[Manage Applications on CloudHub] has information about settings that are specific to applications on CloudHub.
 
 === Manage Applications in Runtime Manager
 
-Maintain your applications on CloudHub through the xref:index.adoc[Runtime Manager], an intuitive cloud console where you can xref:managing-deployed-applications.adoc[manage] and xref:monitoring.adoc[monitor] every aspect of your applications in a centralized location.
+Maintain your applications on CloudHub through the xref:runtime-manager::index.adoc[Runtime Manager], an intuitive cloud console where you can xref:runtime-manager::managing-deployed-applications.adoc[manage] and xref:runtime-manager::monitoring.adoc[monitor] every aspect of your applications in a centralized location.
 
 [NOTE]
 You can view the live status and detailed service history for the Runtime Manager console, platform services, and the CloudHub worker cloud on https://status.mulesoft.com/[`status.mulesoft.com`] for the US platform.
@@ -76,7 +76,7 @@ For the EU platform, visit https://eu1-status.mulesoft.com/[`eu1-status.mulesoft
 
 image::logo-monitor.png[monitor]
 
-Through various tools, Runtime Manager enables you to triage problems, view logs, set up alerts, view dashboards, and more. See xref:monitoring.adoc[Monitor Applications] for an overview on the different ways that Runtime Manager enables you to monitor your running applications.
+Through various tools, Runtime Manager enables you to triage problems, view logs, set up alerts, view dashboards, and more. See xref:runtime-manager::monitoring.adoc[Monitor Applications] for an overview on the different ways that Runtime Manager enables you to monitor your running applications.
 
 == Limitations
 
@@ -88,13 +88,13 @@ When deploying to CloudHub, keep in mind the following limitations:
 == See Also
 
 * xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
-* xref:deployment-strategies.adoc[Deployment Options]
+* xref:runtime-manager::deployment-strategies.adoc[Deployment Options]
 * xref:developing-applications-for-cloudhub.adoc[Develop Applications for CloudHub]
 * xref:cloudhub-faq.adoc[CloudHub FAQ]
 * xref:cloudhub-architecture.adoc[CloudHub Architecture]
 * xref:cloudhub-fabric.adoc[High Availability]
 * xref:cloudhub-networking-guide.adoc[CloudHub Networking Guide]
-* xref:managing-deployed-applications.adoc[Manage Deployed Applications]
+* xref:runtime-manager::managing-deployed-applications.adoc[Manage Deployed Applications]
 * xref:managing-applications-on-cloudhub.adoc[Manage Applications on CloudHub]
 * xref:penetration-testing-policies.adoc[Penetration Testing Policies]
 * https://www.mulesoft.com/lp/whitepaper/saas/cloud-security[Cloud Security and Compliance Whitepaper]

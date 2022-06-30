@@ -15,7 +15,7 @@ After you deploy an application to xref:deploying-to-cloudhub.adoc[CloudHub], yo
 Depending on if your application is deployed to xref:deploying-to-cloudhub.adoc[CloudHub] or to xref:deploying-to-your-own-servers.adoc[your own servers], there is a different set of possible actions you can perform.
 
 [NOTE]
-This document refers to applications that are deployed through the Runtime Manager console to xref:index.adoc[CloudHub]. To view the basic management tools that are common to all types of deployments, see xref:managing-deployed-applications.adoc[Manage Deployed Applications]. See xref:deployment-strategies.adoc[Deployment Options] to understand the different deployment scenarios that the platform offers.
+This document refers to applications that are deployed through the Runtime Manager console to xref:index.adoc[CloudHub]. To view the basic management tools that are common to all types of deployments, see xref:runtime-manager::managing-deployed-applications.adoc[Manage Deployed Applications]. See xref:runtime-manager::deployment-strategies.adoc[Deployment Options] to understand the different deployment scenarios that the platform offers.
 
 
 
@@ -47,7 +47,7 @@ They also display additional info about the CloudHub worker they run on, namely 
 
 image::cloudhub-manage-application.png[manage app]
 
-In this menu you will be able to change most of the settings you can configure when deploying. For applications on CloudHub, you will also be able to access Log data, Insights, Alerts, queues, set up and manage schedules and application data. You can also see the *Alerts History* tab, which displays a record of the triggered alerts on the app. See xref:alerts-on-runtime-manager.adoc[Alerts on Runtime Manager] for more on this.
+In this menu you will be able to change most of the settings you can configure when deploying. For applications on CloudHub, you will also be able to access Log data, Insights, Alerts, queues, set up and manage schedules and application data. You can also see the *Alerts History* tab, which displays a record of the triggered alerts on the app. See xref:runtime-manager::alerts-on-runtime-manager.adoc[Alerts on Runtime Manager] for more on this.
 
 
 //NO RENAME SHARED
@@ -56,7 +56,7 @@ include::partial$no-rename.adoc[tag=noRenameApp]
 
 == Monitor Applications
 
-If your application is deployed to CloudHub, a rich set of tools exists for monitoring events that may occur on your application and the performance of the virtual servers it's running on. See xref:monitoring.adoc[Monitoring Applications] for more details.
+If your application is deployed to CloudHub, a rich set of tools exists for monitoring events that may occur on your application and the performance of the virtual servers it's running on. See xref:runtime-manager::monitoring.adoc[Monitoring Applications] for more details.
 
 
 == Redeploy to a Different Region
@@ -150,12 +150,12 @@ CloudHub specifies this port for you and automatically load-balances your domain
 
 == See Also
 
-* xref:managing-deployed-applications.adoc[Manage Deployed Applications]
+* xref:runtime-manager::managing-deployed-applications.adoc[Manage Deployed Applications]
 * xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
 * xref:index.adoc[CloudHub]
 * xref:developing-applications-for-cloudhub.adoc[Develop Applications for CloudHub]
-* xref:deployment-strategies.adoc[Deployment Options]
-* xref:monitoring.adoc[Monitor Applications]
+* xref:runtime-manager::deployment-strategies.adoc[Deployment Options]
+* xref:runtime-manager::monitoring.adoc[Monitor Applications]
 * xref:cloudhub-fabric.adoc[Clustering]
 * xref:managing-queues.adoc[Manage Queues]
 * xref:managing-schedules.adoc[Manage Schedules]

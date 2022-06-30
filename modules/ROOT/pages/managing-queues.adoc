@@ -12,7 +12,7 @@ image:logo-rtf-disabled.png[xref="deployment-strategies.adoc#anypoint-runtime-fa
 
 You can view and control any Virtual Machine (VM) or Staged Event-Driven Architecture (http://en.wikipedia.org/wiki/Staged_event-driven_architecture[SEDA]) queues within the flows of your deployed applications from the *Queues* tab in Runtime Manager.
 
-Queues are available only for applications deployed to CloudHub workers. They are not available for applications that you deploy with the Runtime Manager to local servers. See xref:deployment-strategies.adoc[Deployment Options] for more details.
+Queues are available only for applications deployed to CloudHub workers. They are not available for applications that you deploy with the Runtime Manager to local servers. See xref:runtime-manager::deployment-strategies.adoc[Deployment Options] for more details.
 
 image::queuestab.png[QueuesTab]
 
@@ -118,13 +118,13 @@ When enabling persistent queues in your application, be aware of the following:
 * xref:mule-runtime::reliability-patterns[Reliability Patterns]
 * xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
 * xref:studio::index.adoc[Anypoint Studio]
-* xref:deployment-strategies.adoc[Deployment Options]
-* xref:managing-deployed-applications.adoc[Manage Deployed Applications]
+* xref:runtime-manager::deployment-strategies.adoc[Deployment Options]
+* xref:runtime-manager::managing-deployed-applications.adoc[Manage Deployed Applications]
 * xref:managing-applications-on-cloudhub.adoc[Manage Applications on CloudHub]
 * xref:index.adoc[CloudHub]
 * xref:developing-applications-for-cloudhub.adoc[Develop Applications for CloudHub]
 * xref:cloudhub-architecture.adoc[CloudHub Architecture]
-* xref:monitoring.adoc[Monitor Applications]
+* xref:runtime-manager::monitoring.adoc[Monitor Applications]
 * xref:managing-schedules.adoc[Manage Schedules]
 * xref:managing-application-data-with-object-stores.adoc[Manage Application Data with Object Stores]
 * xref:anypoint-cli::index.adoc[Anypoint Platform Command-Line Interface]

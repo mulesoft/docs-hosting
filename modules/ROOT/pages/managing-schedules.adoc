@@ -130,7 +130,7 @@ Because all schedules are based in the UTC timezone, the timezone configuration 
 
 * xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
 * xref:managing-applications-on-cloudhub.adoc[Manage Applications on CloudHub]
-* xref:monitoring.adoc[Monitor Applications]
+* xref:runtime-manager::monitoring.adoc[Monitor Applications]
 * xref:mule-runtime::scheduler-concept.adoc[Scheduler Endpoint (Trigger)]
 * xref:mule-runtime::migration-core-poll.adoc[Migrating the Poll Component]
 * https://www.mulesoft.com/exchange/org.mule.examples/sending-a-csv-file-through-email-using-smtp/[Example App on Exchange]

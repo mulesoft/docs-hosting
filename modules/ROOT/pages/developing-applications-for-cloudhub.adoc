@@ -40,7 +40,7 @@ To deploy the same Mule application to different deployment targets,
 such as an on-premises server and CloudHub,
 see xref:mule-runtime::deploying.adoc[Deploy Mule Applications].
 
-For the key differences between deployment environments, see xref:deployment-strategies.adoc[Deployment Options].
+For the key differences between deployment environments, see xref:runtime-manager::deployment-strategies.adoc[Deployment Options].
 
 You can define properties and variables for each deployment outside of the application
 and then reference them from your application.
@@ -97,10 +97,10 @@ For information, see xref:secure-application-properties.adoc[Secure Application 
 
 
 * xref:connectors::http/http-connector.adoc[HTTP Connectors]
-* xref:deployment-strategies.adoc[Deployment Options]
+* xref:runtime-manager::deployment-strategies.adoc[Deployment Options]
 * xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
 * xref:studio::index.adoc[Anypoint Studio]
-* xref:managing-deployed-applications.adoc[Manage Deployed Applications]
+* xref:runtime-manager::managing-deployed-applications.adoc[Manage Deployed Applications]
 * xref:anypoint-cli::index.adoc[Anypoint Platform Command-Line Interface]
 * xref:viewing-log-data.adoc[View Log Data]
 * xref:virtual-private-cloud.adoc[Virtual Private Cloud]

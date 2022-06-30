@@ -20,7 +20,7 @@ CloudHub allows you to make the processing power behind your applications respon
 . Select an application deployed to CloudHub to open its panel.
 . In the panel, click *Manage Application*.
 . In the *Settings* section, select the *Autoscaling* tab. +
-You can see all existing autoscaling policies, activate or deactivate them, create or delete them, and create associated xref:alerts-on-runtime-manager.adoc[Alerts on Runtime Manager].
+You can see all existing autoscaling policies, activate or deactivate them, create or delete them, and create associated xref:runtime-manager::alerts-on-runtime-manager.adoc[Alerts on Runtime Manager].
 
 == Create a Policy
 
@@ -84,11 +84,10 @@ image::alerts-history-autoscale.png[history]
 
 == See Also
 
-* xref:alerts-on-runtime-manager.adoc[Alerts on Runtime Manager]
-* xref:managing-deployed-applications.adoc[Manage Deployed Applications]
-* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
+* xref:runtime-manager::alerts-on-runtime-manager.adoc[Alerts on Runtime Manager]
+* xref:runtime-manager::managing-deployed-applications.adoc[Manage Deployed Applications]
 * xref:index.adoc[CloudHub]
-* xref:deployment-strategies.adoc[Deployment Options]
+* xref:runtime-manager::deployment-strategies.adoc[Deployment Options]
 * xref:cloudhub-fabric.adoc[Clustering]
 * xref:anypoint-cli::index.adoc[Anypoint Platform Command-Line Interface]
 * xref:secure-application-properties.adoc[Secure Application Properties]

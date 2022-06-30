@@ -25,7 +25,7 @@ See xref:api-manager::getting-started-proxy.adoc#configure_and_deploy_to_cloudhu
 
 
 To be notified by email when an error occurs during deployment, set up a *Deployment failed* alert.
-See xref:alerts-on-runtime-manager.adoc#create-an-alert[Create an Alert].
+See xref:runtime-manager::alerts-on-runtime-manager.adoc#create-an-alert[Create an Alert].
 
 
 == Deploy an Application from Runtime Manager
@@ -411,8 +411,8 @@ The *Logs* tab includes details on the application deployment errors.
 
 * xref:managing-cloudhub-specific-settings.adoc[Manage CloudHub-Specific Settings]
 * xref:managing-applications-on-cloudhub.adoc[Manage Applications on CloudHub]
-* xref:managing-deployed-applications.adoc#application_status_states[Application Status States]
-* xref:monitoring.adoc[Monitor Applications]
+* xref:runtime-manager::managing-deployed-applications.adoc#application_status_states[Application Status States]
+* xref:runtime-manager::monitoring.adoc[Monitor Applications]
 * xref:developing-applications-for-cloudhub.adoc[Develop Applications for CloudHub]
 * xref:anypoint-cli::index.adoc[Anypoint Platform Command-Line Interface]
 * xref:cloudhub-api.adoc[CloudHub REST API]

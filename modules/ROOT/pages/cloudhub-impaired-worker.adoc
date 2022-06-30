@@ -54,4 +54,4 @@ CloudHub displays a reminder notification one week before automatic application 
 
 * xref:notifications-on-runtime-manager.adoc[Notifications on Runtime Manager]
 * xref:worker-monitoring.adoc[Application Monitoring and Automatic Restarts]
-* xref:managing-deployed-applications.adoc[Manage Deployed Applications]
+* xref:runtime-manager::managing-deployed-applications.adoc[Manage Deployed Applications]

@@ -87,8 +87,8 @@ CloudHub displays a notification and a log message and takes no further action.
 
 == See Also
 
-* xref:alerts-on-runtime-manager.adoc[Configure Alerts]
+* xref:runtime-manager::alerts-on-runtime-manager.adoc[Configure Alerts]
 * xref:deploying-to-cloudhub.adoc[Deploy to CloudHub]
-* xref:managing-deployed-applications.adoc[Manage Deployed Applications]
+* xref:runtime-manager::managing-deployed-applications.adoc[Manage Deployed Applications]
 * xref:managing-applications-on-cloudhub.adoc[Manage Applications on CloudHub]
-* xref:monitoring.adoc[Monitor Applications and Servers]
+* xref:runtime-manager::monitoring.adoc[Monitor Applications and Servers]
