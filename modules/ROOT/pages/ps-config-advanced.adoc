@@ -17,6 +17,8 @@ If no data is sent or received in the specified time, CloudHub 2.0 closes the cl
 
 == Configure HTTP Requests and Read-Response Timeout
 
+When you modify HTTP requests, applications may not be reachable for up to 5 seconds.
+
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
