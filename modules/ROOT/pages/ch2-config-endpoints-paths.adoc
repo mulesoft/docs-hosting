@@ -100,25 +100,10 @@ include::partial$select-private-space.adoc[tag=clickSettings]
 . Click the *Ingress* tab.
 --
 . In the *Path* field, enter the path where you want the app to be reachable, for example, `/`.
-. Enable *Rewrite Request Paths* and enter the target path expected by the app, for example,  `v1/api`.
 . Depending on the deployment status, choose either:
 ** If you're ready to deploy the application, click *Deploy*.
 ** If this application is deployed, click *Apply Changes*.
 . Verify that the app can be reached at the new path.
-
-
-[[path-rewrite-examples]]
-=== Path Rewrite Examples
-
-*_Can we get some real-world examples here?_*
-
-[%header%autowidth.spread]
-|===
-|Target Path Value|Requests to... |Reach the App at...
-| api | my-app.example.com | my-app.example.com/api
-|===
-
-
 
 [[remove-public-endpoint]]
 == Remove a Public Endpoint
