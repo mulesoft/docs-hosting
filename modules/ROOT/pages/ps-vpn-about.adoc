@@ -1,6 +1,6 @@
 = Anypoint Virtual Private Network 
 
-*Last update* 03-May-22
+*Last update* 07-Jul-22
 
 
 Anypoint VPN (virtual private network) creates a secure connection between your private space and your on-premises network.
