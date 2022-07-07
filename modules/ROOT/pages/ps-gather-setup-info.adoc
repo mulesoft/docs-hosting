@@ -186,7 +186,7 @@ Runtime Manager supports Unicode characters in private space names.
 
 The private space name appears in the list when you select a deployment target for your apps.
 
-You can rename a private space, if necessary.
+You cannot rename a private space.
 
 [[private-network-region]]
 === Private Network Region

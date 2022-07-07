@@ -3,7 +3,7 @@
 
 *This topic is updated to the Design Spec dated 09-Nov-21*
 
-*Last update* 08-Mar-22
+*Last update* 22-Jun-22
 
 CloudHub 2.0 uses Transport Layer Security (TLS) contexts to encrypt 
 inbound traffic to the private space.
@@ -60,7 +60,7 @@ With this option, you can't change the default values for TLS versions, ciphers,
 === Truststore
 
 A truststore is a set of client certificates that the server checks against to enforce mutual TLS.
-The optional truststore identifies trusted external clients or private certificate authorities (CAs).
+The optional truststore identifies trusted external clients or certificate authorities (CAs).
 
 To enable mutual TLS, configure a truststore.
 If a truststore is not configured, mutual TLS is disabled.
@@ -131,7 +131,7 @@ Uploading the public certificate displays a summary of the certificate.
 . Choose a private key to upload.
 . Enter the key password used to access the private key within the keystore.
 +
-If the key password is unencrypted (plain text), which is not recommended,
+If the private key is unencrypted (plain text), which is not recommended,
 leave the *Key Password* field blank.
 +
 CloudHub 2.0 validates the password against the keystore.
