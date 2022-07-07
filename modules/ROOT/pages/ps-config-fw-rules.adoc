@@ -14,7 +14,7 @@ Creating a private space automatically creates these firewall rules:
 
 * Two rules to allow outbound connections from within your private space to any host:
 ** HTTP: All ports
-** HTTPS: port 443
+** HTTPS: All ports
 +
 You can't delete this rule.
 
