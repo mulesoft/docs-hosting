@@ -30,7 +30,7 @@ This fine-grained control over computing capacity provisioning gives you the fle
 
 
 
-Depending on your subscription, you can deploy your application with up to 8 replicas, up to a maximum of 4 vCores per application.
+Depending on your subscription, you can deploy your application with up to 8 replicas.
 To ensure that you have sufficient resources, see xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas].
 
 Replica scale-out also adds additional reliability.
