@@ -1,8 +1,6 @@
 = Clustering
 
-*THIS IS CH 1.0 PLACEHOLDER CONTENT* 
-
-*Removed persistent queues; point to Anypoint MQ instead.*
+*Last Update* 12-Jul-22
 
 Clustering provides scalability, workload distribution, and added reliability to your applications on CloudHub 2.0.
 This functionality is powered by CloudHub's scalable load-balancing service, replica scale-out, and Anypoint MQ features.
@@ -24,7 +22,7 @@ This fine-grained control over computing capacity provisioning gives you the fle
 
 
 
-Depending on your subscription, you can deploy your application with up to 8 replicas, up to a maximum of ?? vCores per application.
+Depending on your subscription, you can deploy your application with up to 8 replicas.
 To ensure that you have sufficient resources, see xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas].
 
 Replica scale-out also adds additional reliability.
