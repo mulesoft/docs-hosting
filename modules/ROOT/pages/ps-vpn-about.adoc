@@ -32,7 +32,6 @@ To create an Anypoint VPN connection to your network, see xref:ps-create-configu
 Each Anypoint VPN connection consists of two tunnels that enable you to connect to a single public IP address at a remote location.
 To configure connectivity to an additional public IP address at a remote location, you must create two VPN connections.
 
-A single VPN provides increased availability for your private space.
 Routine maintenance can briefly disable one of the two tunnels of your VPN connection.
 Your VPN connection automatically fails over to the second tunnel during this time, so access is not interrupted.
 For this reason, you must configure both tunnels on your endpoint.
@@ -63,8 +62,6 @@ Anypoint VPN supports any combination of the following IPsec settings:
 ** IKE (Phase 1) Lifetime: 28000 seconds (7 hours and 50 minutes)
 ** IPsec (Phase 2) Lifetime: 3000 seconds (50 minutes)
 
-[NOTE]
-Your endpoint must initiate traffic to establish and maintain the connection because the Anypoint VPN endpoint acts only as a responder.
 
 [[vpn-routing]]
 == Anypoint VPN Routing
@@ -93,7 +90,7 @@ To avoid exceeding the limit, consolidate networks to the fewest number possible
 If you enter a non-local/Internet Gateway (IGW) route to a route table, CloudHub 2.0 warns that another connection uses the route.
 * Routes should not overlap with existing routes.
 +
-CloudHub 2.0 warns if you enter a route that overlaps with another route in the route table.
+You receive a warning if you enter a route that overlaps with another route in the route table.
 
 
 [[vpn-limitations]]
@@ -104,7 +101,6 @@ Anypoint VPN does not support these features and configurations:
 * Network Address Translation (NAT)
 * IPv6
 * IKEv2 with policy-based VPNs
-* A single private space with both AWS Direct Connect and Anypoint VPN connections
 * Advertising a default route (0.0.0.0/0) over BGP or static routing
 
 [[vpn-recommendations]]
@@ -134,9 +130,6 @@ Other settings for the redundant VPN, such as the remote ASN for dynamic routing
 
 To configure a redundant VPN connection, you must:
 
-* Have sufficient entitlements. 
-+
-Each private space includes two VPN connection entitlements.
 * Have two VPN endpoints available in your network that use different public IP addresses.
 +
 Each gateway device supports a single VPN. 
@@ -161,13 +154,12 @@ High availability VPN connections also support static routing, in which you esta
 
 === How VPN Failover Works
 
-*NEED SOME INFORMATION FOR THIS SECTION*
-
 Failover to a redundant VPN depends on the routing type:
 
 * Dynamic (BGP)
 * Static
 
+Failover for dynamic or BGP VPNs is automatic. For static VPN failover, you must manually fail over to the other available VPN by modifying the routes.
 
 === VPN and Tunnel Status
 
