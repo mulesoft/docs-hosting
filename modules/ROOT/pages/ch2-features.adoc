@@ -158,7 +158,10 @@ public cloud
 |*Backup and restore* | Fully managed | Fully managed | Self-managed
 |===
 
-
+Fully managed:: MuleSoft provides and manages the feature.
+Self-managed:: MuleSoft provides the feature, but the customer manages the feature.
+Supported: MuleSoft does not provide the feature, but it is available on supported partner platforms. The feature is managed by the vendor, platform, or customer.
+Not supported:: MuleSoft does not provide the feature, and the customer cannot configure it.
 
 //// 
 == Features Included in the Internal Validation Release
