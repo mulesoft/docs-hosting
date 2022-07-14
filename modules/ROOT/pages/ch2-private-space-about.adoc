@@ -2,7 +2,7 @@
 
 // (*Learn more* link from *Private Spaces* page)
 
-*Last update* 29-Apr-22
+*Last update* 14-Jul-22
 
 A _private space_ is a virtual, private, and isolated logical space in CloudHub 2.0 in which to run your apps.
 You can create multiple private spaces, either in the same or different regions.
@@ -52,11 +52,6 @@ to configure multiple public endpoints, which clients use to reach the app from 
 If the domains in the TLS context include a wildcard, you can configure an optional subdomain, 
 such as the app name or an organization.
 You can create as many endpoints as you need.
-
-== Path Rewriting
-
-You can configure the app to be accessible from
-a different path from the base path where the app is listening.
 
 == Firewall Rules
 
