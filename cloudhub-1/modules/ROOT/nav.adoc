@@ -1,4 +1,4 @@
-.xref:index.adoc[CloudHub]
+.xref:index.adoc[CloudHub 1.0]
 * xref:index.adoc[CloudHub 1.0]
  ** xref:cloudhub-about.adoc[About CloudHub]
  *** xref:cloudhub-faq.adoc[CloudHub FAQ]

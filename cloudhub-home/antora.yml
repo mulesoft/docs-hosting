@@ -1,0 +1,5 @@
+name: cloudhub-home
+title: Hosting and Deployment
+version: master
+nav:
+- modules/ROOT/nav.adoc

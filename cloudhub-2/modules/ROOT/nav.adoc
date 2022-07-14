@@ -1,4 +1,4 @@
-.xref:index.adoc[CloudHub]
+.xref:index.adoc[CloudHub 2.0]
 * xref:index.adoc[CloudHub 2.0]
 ** xref:ch2-features.adoc[Features of CloudHub 2.0]
 *** xref:ch2-shared-space-about.adoc[Shared Spaces]
