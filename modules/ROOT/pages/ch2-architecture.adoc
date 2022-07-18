@@ -1,6 +1,6 @@
 = CloudHub 2.0 Architecture
 
-*Last update* 12-Jul-22
+*Last update* 18-Jul-22
 
 To understand CloudHub 2.0 security and availability, you should understand the architecture behind CloudHub 2.0.
 
@@ -73,8 +73,6 @@ You can scale replicas vertically by selecting one of the available vCore sizes:
 [%header,cols="5*a"]
 |===
 |vCore Size |vCPU | vCPU Burst | Heap Memory | Storage
-|0.05       |0.05 | 2          | 500 MB      | 8 GB
-|0.07       |0.07 | 2          |650 MB       | 8 GB
 |0.1        |0.1  | 2          |800 MB       | 8 GB
 |0.2        |0.2  | 2          |1 GB         | 8 GB
 |0.5        |0.5  | 2          |1.25 GB      | 10 GB

@@ -4,7 +4,7 @@ Based on https://docs.mulesoft.com/runtime-fabric/1.12/app-versioning[Reviewing 
 
 *PLEASE REVIEW FOR ACCURACY IN CH2*
 
-*Last update* 15-Mar-22
+*Last update* 18-Jul-22
 
 
 When deploying an application to CloudHub 2.0, Runtime Manager automatically versions and creates a new _configuration_.
@@ -44,7 +44,6 @@ A unique hash identifies each configuration in the history.
 ** Specify runtime options, such as uploading a new application file or changing the deployment target and resource allocation.
 ** Change the public endpoint for the app.
 ** Change app behavior with properties.
-** Enable TLS v1 and TLS v1.1.
 ** Disable app logs and metrics (private space only).
 . Click *Apply Changes*.
 +
@@ -84,9 +83,10 @@ The configuration failed to deploy.
 Recovering:
 The replica is attempting to restart after terminating.
 The last successfully deployed configuration is retained until the new (desired) configuration is successfully deployed.
-Desired::
-WHAT IS THIS?
+Applying::
+The previous configuration of the replica is running, and new configuration settings are in the process of being implemented.
 
+You can configure a _desired state_ that indicates your ideal state of the replica. For example, if you expect the replica to be running, you can set the desired state to `running`.
 == Rolling Update vs. Recreate Deployment Model
 
 Depending on the deployment model, CloudHub 2.0 applies new configurations as either:
