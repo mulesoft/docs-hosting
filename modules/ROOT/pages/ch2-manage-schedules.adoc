@@ -4,7 +4,7 @@
 
 *PLEASE REVIEW FOR ACCURACY IN CH2*
 
-*Last update* 30-Mar-22
+*Last update* 18-Jul-22
 
 You can use Runtime Manager to view and control the Scheduler components within the flows in your deployed applications, all without changing the running application.
 For example, you might want to disable a scheduled job while one of the applications is undergoing maintenance.
@@ -55,6 +55,8 @@ For information, see xref:ch2-download-test-app.adoc[].
 
 After you deploy the app, you can manage the schedule in Runtime Manager.
 The app doesn't need to be running.
+
+Use Anypoint Studio version 7.13.
 
 == View and Manage Application Schedules in Runtime Manager
 
@@ -179,7 +181,7 @@ You might want to disable a scheduled job if an application you are connecting
 to is undergoing maintenance and then reenable it after maintenance is complete.
 
 CloudHub 2.0 does not run the scheduled job until you reenable the Scheduler.
-
+Known issue: If you disable scheduler, it still runs when starting an application. If you want to prevent scheduler from running, set the `startdelay` property to five seconds.
 To disable the Scheduler element:
 
 // SELECT RTM APPS SHARED

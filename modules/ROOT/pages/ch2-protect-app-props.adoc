@@ -9,7 +9,7 @@ CloudHub 2.0 enables you to protect application property values by displaying th
 
 Additionally, the value is not viewable or retrievable by any user.
 CloudHub 2.0 resolves the property internally at runtime.
-These protected application values are encrypted and stored in the Anypoint Security secrets manager, which, in turn, is encrypted per user organization.
+These protected application values are encrypted and stored in the Anypoint Security secrets manager, which, in turn, is encrypted per user organization. Because the values are encrypted, you cannot view them in Anypoint Security secrets manager or Anypoint Runtime Manager.
 
 [IMPORTANT]
 Protected property values are separate from the encrypted Mule application properties stored in secure configuration files. 

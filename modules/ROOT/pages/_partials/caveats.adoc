@@ -11,6 +11,6 @@ You cannot change the name of an app after you deploy it. To change the name, yo
 // end::noRenameApp[]
 
 //tag::supportedMule[]
-CloudHub 2.0 supports Mule runtime engine versions 4.3 and above.
+CloudHub 2.0 supports Mule runtime engine versions 4.3x through 4.4x.
 Mule 3.x is not supported.
 // end::supportedMule[]
