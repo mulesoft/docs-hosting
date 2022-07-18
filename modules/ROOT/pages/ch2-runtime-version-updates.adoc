@@ -2,7 +2,7 @@
 
 *THIS IS BASED ON CH 1.0 CONTENT* 
 
-*Last update* 22-Sep-21
+*Last update* 18-Jul-22
 
 Because CloudHub 2.0 is an integration platform as a service (iPaaS), 
 it manages operating system and Mule runtime engine patching for you,
@@ -17,7 +17,6 @@ CloudHub 2.0 applies continuous updates to all three MuleSoft-managed deployment
 
 * US cloud
 * EU cloud
-* MuleSoft Government Cloud
 
 == Security Updates 
 

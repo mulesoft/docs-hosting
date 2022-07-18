@@ -1,6 +1,6 @@
 = Changing App Behavior with Properties
 
-*Last update* 29-Apr-22
+*Last update* 18-Jul-22
 
 You can change the behavior of the app while it's running using _properties_.
 
@@ -60,9 +60,7 @@ See xref:ch2-protect-app-props.adoc[].
 
 === Example: Using Properties to Set Environment Variables 
 
-You can specify Java system environment variables, which function the same as adding environment variables when you deploy to an on-premises server.
-
-You can also configure environment variables for your application.
+You can configure environment variables for your application.
 Properties enable you to externalize settings that change depending on the environment you're deploying to.
 For example, if you use a Mule application locally, you might configure your database host to be `0.0.0.0`.
 If you deploy the same app to CloudHub 2.0, you might configure the database host to be an Amazon RDS server.
@@ -140,8 +138,6 @@ If a CloudHub 2.0 runtime release upgrades the JDK, this value changes.|1.8.0_14
 |`${logging.*}`|Used internally, *do not use*| `\***`
 |`${host}`|Used internally for the local IP address of a worker|`10.40.122.33`
 |`${anypoint.url}`|Used internally as the base Anypoint Platform URL|US: `\https://anypoint.mulesoft.com`
-
-MuleSoft Government Cloud: `\https://gov.anypoint.mulesoft.com`
 |`${app.name}` |The name of the Application `.jar` file. | myApplication
 |===
 

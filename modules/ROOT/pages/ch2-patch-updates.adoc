@@ -1,6 +1,6 @@
 = CloudHub 2.0 Operating System Patch Updates
 
-*Last update* 16-Mar-22
+*Last update* 18-Jul-22
 
 Because CloudHub 2.0 is an integration platform as a service (iPaaS), 
 it manages operating system patching for you,
@@ -14,7 +14,6 @@ CloudHub 2.0 applies continuous updates to all three MuleSoft-managed deployment
 
 * US cloud
 * EU cloud
-* MuleSoft Government Cloud
 
 == Security Updates 
 

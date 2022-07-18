@@ -1,6 +1,6 @@
 = Features of CloudHub 2.0
 
-*Last update* 04-May-22
+*Last update* 18-Jul-22
 
 *This topic will (eventually) be replaced with an updated version of https://docs.mulesoft.com/general/intro-platform-hosting#support-matrix-for-runtime-plane-hosting-options[Support Matrix for Runtime Plane Hosting Options].*
 
@@ -114,7 +114,7 @@ This table compares the features and support for CloudHub 2.0, CloudHub 1.0, and
 (via API, Maven plugin, Anypoint CLI) |Supported 
 
 (via API and Maven plugin)
-|*Built-in notifications* | Supported | Supported |Supported
+|*Built-in notifications* | Not supported | Supported |Supported
 |*Custom notifications* 
 
 (*CloudHub Connector*)| Not supported | Supported | Not supported
