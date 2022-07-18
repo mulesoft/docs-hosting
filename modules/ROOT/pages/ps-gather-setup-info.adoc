@@ -1,6 +1,6 @@
 = Gathering Required Setup Information
 
-*Last update* 15-Jul-22
+*Last update* 18-Jul-22
 
 Use the following sections to gather the information you'll need to set up your private space.
 For information about private spaces, see xref:ch2-private-space-about.adoc[].
@@ -27,7 +27,7 @@ Which do you prefer?
 
 
 [[setup-info-private-space]]
-== Information Required to Set Up a Private Space (List)
+== Information Required to Set Up a Private Space
 
 The following list summarizes the information required to set up a private space.
 For details about each requirement, see the sections that follow.
