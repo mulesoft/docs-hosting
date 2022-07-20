@@ -1,4 +1,6 @@
 = Anypoint Platform Hosting Overview
+:page-aliases: general::intro-platform-hosting.adoc
+
 
 You can host different parts of Anypoint Platform in different locations, either in the cloud or in a physical data center. The best hosting option for your Anypoint Platform environment depends on your security, data privacy, and legal requirements. Different hosting options enable you to control the location where your and your customer's data is stored, processed, and managed. The data remains segregated within the physical location required by your companies IT policies and requirements.
 
