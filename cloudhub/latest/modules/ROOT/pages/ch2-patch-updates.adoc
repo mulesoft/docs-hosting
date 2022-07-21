@@ -1,0 +1,28 @@
+= CloudHub 2.0 Operating System Patch Updates
+
+*Last update* 20-Jul-22
+
+Because CloudHub 2.0 is an integration platform as a service (iPaaS), 
+it manages operating system patching for you,
+enabling you to focus on developing and updating your applications.
+
+CloudHub 2.0 applies security patches as needed to ensure that your application is secure.
+
+Patch updates use blue-green deployment, which ensures zero downtime.
+
+CloudHub 2.0 applies continuous updates to two MuleSoft-managed deployment platforms:
+
+* US cloud
+* EU cloud
+
+== Security Updates 
+
+MuleSoft regularly runs scans to identify security vulnerabilities in JVM and the underlying operating system, and then automatically applies security patches based on the following SLA:
+
+[%header,cols="20,25,40"]
+|===
+|Severity Level | Severity Definition | Patch Applied Within 
+|P0 | Critical | 7 days
+|P1 | High | 30 days
+|===
+

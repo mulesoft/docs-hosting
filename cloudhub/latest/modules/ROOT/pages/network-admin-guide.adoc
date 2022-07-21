@@ -1,0 +1,28 @@
+= Network Administrator Guide
+
+*NEED INPUT ON THIS GUIDE* 
+
+https://docs.google.com/document/d/1h_z0cI2VE3NV1Sgr8GFkX6GqYO9BJ-w5FmnxYqub-QA/edit#[CH2.0 Private Network: UX Project Brief]
+
+For Documentation: “View the guide” should link to a doc targeted at network admins, who don't necessarily know anything about Anypoint Platform, but are often depended on for help with setup. The goal is for our user to be able to send the network admin a link to this doc without comment and receive all the info they need. It should break down all info required for…
+
+* Setting up a private network
+* Determining which type of connection to use (a single VPN, redundant VPNs, or a transit gateway)
+* Setting up the selected connection type
+
+
+////
+For Documentation: The “Learn more” link (under CIDR Block) should link to detailed guidance on defining a CIDR block for their private network. It may be helpful for this to be a specific section in the network admin guide.
+////
+// CIDR Block Shared
+[[cidr-block]]
+include::partial$create-config.adoc[tag=cidrBlock,leveloffset=+1]
+
+
+== See Also 
+
+* xref:ps-gather-setup-info.adoc[]
+* xref:ps-create-configure-vpn.adoc[]
+* xref:ps-create-configure-tgw.adoc[]
+
+

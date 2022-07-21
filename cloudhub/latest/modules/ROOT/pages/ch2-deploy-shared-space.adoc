@@ -1,0 +1,93 @@
+= Deploying Apps to Shared Spaces
+
+*This topic is updated to the Domains & TLS UX Project Brief dated 25-Mar-22*
+
+*Last update* 13-Jul-22
+
+// How can we share this content with RTF?
+
+You deploy apps to a shared space using Runtime Manager.
+
+[IMPORTANT]
+include::partial$caveats.adoc[tag=supportedMule]
+
+== Deploy an App to a Shared Space
+
+//SELECT APP SHARED
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+. Click *Deploy application*.
+. On the *Deploy Application* page:
+.. Enter the <<app-name-reqs,name>> of the application.
++
+// NO RENAME SHARED
+[IMPORTANT]
+include::partial$caveats.adoc[tag=noRenameApp]
+.. Select an application file:
++
+--
+*** To upload a Mule app JAR file from your system, select *Choose file > Upload file*.
+*** To choose an example app from Anypoint Exchange:
+.... Select *Choose File > Import file from Exchange*.
+.... In the *Get from Exchange* page, enter `hello` in the *Search assets by name*:
++
+image::rtm-get-from-exchange.png[Get from Exchange page]
+.... Click *Hello World* and then click *Select*.
+--
+.. Select *CloudHub 2.0 Shared Space* from the *Deployment Target* list.
+.. Select the region to which to deploy the app. 
++
+For the list of regions, see xref:ch2-architecture.adoc#shared-global-regions[Shared Global Regions]. If you have the global deployment entitlement, all regions are available. If you have region restrictions based on your subscription, only regions that are available to your organization appear.
+.. Configure options for deployment:
++
+*** <<specify-runtime-options,Specify runtime options>>.
+*** <<app-properties,Change app behavior with properties>>.
+*** <<configure-logging,Configure logging for the app>>.
+// *** <<disable-logging,Disable app logs and metrics>>.
+
+. Click *Deploy Application*. 
+
+
+// == Specify Runtime Options 
+include::partial$deployment.adoc[tag=specifyRuntimeOpts,leveloffset=+1]
+
+////
+[[specify-runtime-options]]
+== Specify Runtime Options
+
+Click the *Runtime* tab and specify the following options:
+
+Runtime version::
+Specifies the Mule runtime engine version
+Replicas::
+Specifies the number of replicas, or instances, of the application to deploy
++
+A minimum of two replicas is required for high availability.
+Enforce deploying replicas across nodes::
+Selecting this option might cause some replicas in the deployment to remain in Pending status if there are unsufficient worker nodes or resources available on the worker nodes needed to deploy each replica.
+The deployment status transitions to Running after all replicas are deployed on different worker nodes.
+
+Resource allocation::
++
+--
+* *Reserved CPU*: Specify a value between `0.02` and `3.7` vCPU.
+* *CPU Limit*: Specify a value between `0.02` and `3.7` vCPU.
+* *Memory*: Specify a value between `0.7` and `14.5` GB.
+--
+////
+
+// ==== Application Names
+include::partial$deployment.adoc[tag=appNameReqs,leveloffset=+2]
+
+// == Change App Behavior with Properties
+include::partial$deployment.adoc[tag=changeAppProperties,leveloffset=+1]
+
+// == Configure Log Level
+include::partial$deployment.adoc[tag=configureLogging,leveloffset=+1]
+
+== See Also
+
+* xref:ch2-download-test-app.adoc[]
+* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (Link out from Beta docs)
+* xref:ps-config-domains.adoc[]
+* xref:ch2-integrate-log-system.adoc[]
+

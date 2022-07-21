@@ -1,0 +1,118 @@
+
+// tag::changeAppProperties[]
+[[app-properties]]
+= Change App Behavior with Properties
+
+You can configure property values, such as specifying the environment or setting passwords and usernames, during app deployment.
+
+For information about configuring app properties, see:
+
+* xref:ch2-manage-props.adoc[] 
+* xref:ch2-protect-app-props.adoc[]
+// end::changeAppProperties[]
+
+
+
+// tag::placeholders[]
+[[placeholder-table]]
+= Placeholders
+
+The subdomain and path support the following optional lowercase placeholders:
+
+[%header,cols="1,2"]
+|===
+| Placeholder | Resolves to
+| `app-name` | Name of the app that you specified in the *Application Name* field when you deploy the app
+| `business-group-id` | Business group ID associated with the app
+| `environment-id` | Environment that you deploy the app to
+|===
+// end::placeholders[]
+
+// tag::path-name-reqs[]
+Paths must start and end with an alphanumeric character and can contain only alphanumeric characters, hyphens, and underscores.
+// end::path-name-reqs[]
+
+// tag::subdomain-name-reqs[]
+Subdomains must start and end with an alphanumeric character and can contain only alphanumeric characters (a-z, A-Z, 0-9), hyphens (-), underscores (-), and periods (.).
+// end::subdomain-name-reqs[]
+
+// tag::appNameReqs[]
+[[app-name-reqs]]
+= Application Names
+
+The application name you specify can contain between 3 and 59 alphanumeric characters
+(a-z, A-Z, 0-9) and dashes (-).
+They cannot contain spaces or other characters. 
+The application name must start with a letter (a-z or A-Z). It cannot start with a number or dash.
+
+To ensure that names are unique and avoid domain conflicts, CloudHub 2.0 adds
+a six-character `_unique-id_` to the application name that you specify in the public endpoint URL.
+
+The application name identifies your application not only in Runtime Manager but also in the public `cloudhub.io` domain.
+For example, an application named `myapp` is accessible at `\http://myapp-_unique-id_._shard_.usa-w2.cloudhub.io`. You must have unique application names for each deployment target.
+
+To further customize your app names, you can create a naming convention.
+For example, you could prepend your company name and department to all application names,
+such as `mycompany-mydept-myapp`.
+You can then add DNS records to hide the complex application name.
+For example, you might route requests to `myapp.mycompany.com` to `mycompany-mydept-myapp-_unique-id_._shard_._region_.cloudhub.io`.
+// end::appNameReqs[]
+
+
+// tag::configureLogging[]
+[[configure-logging]]
+= Configure Logging for the App
+
+Logging is enabled by default for apps deployed to CloudHub 2.0.
+
+To disable logging for the app or configure additional log levels and categories to include in logs:
+
+. Click the *Logging* tab.
+. Deselect the logging option.
+. Select the log level:
++
+** *Fatal*: Fatal messages for when an application fails
+** *Error*: Error messages, such as when an exception occurs
+** *Warn*: Warning messages
+** *Info*: Informative messages
+** *Debug*: Debugging messages
+
+. Optionally, set the log level for specific a Java package class by
+clicking *Add Class*, entering the class name, and selecting the log level.
+// end::configureLogging[]
+
+
+
+// tag::specifyRuntimeOpts[]
+[[specify-runtime-options]]
+== Specify Runtime Options 
+
+Click the *Runtime* tab and specify the following options:
+
+Runtime version::
+Specifies the Mule runtime engine version.
+Replica size::
+Specifies the number of vCores in the replica to run your application.
++
+For information on replica sizes, memory, and storage, see
+xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas].
+CloudHub 2.0 limits the replica size per deployment to four vCores.
+Replicas::
+Specifies the number of replicas, or instances, of the application to deploy.
++
+A minimum of two replicas is required for high availability.
+Run in Runtime Cluster Mode::
+Enables xref:docs-rft-cloud::ch2-clustering.adoc[Mule clustering] across each replica of the application.
+
+Deployment model::
++
+--
+* *Rolling update*:
+** Maintains availability by incrementally updating replicas.
+** Requires one additional replica's worth of resources to succeed.
+
+* *Recreate*:
+** Terminates replicas before redeployment.
+** Redeployment is faster and doesn't require additional resources.
+--
+// end::specifyRuntimeOpts[]
