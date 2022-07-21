@@ -1,5 +1,0 @@
-name: deployment-home
-title: Deployment
-version: ~
-nav:
-- modules/ROOT/nav.adoc
