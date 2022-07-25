@@ -69,11 +69,6 @@ include::partial$select-private-space.adoc[tag=clickPropsOnSettings]
 . Click *Apply*. 
 . Click *Apply Changes*. 
 
-== Copy Protected Property Values between Sandboxes
-
-*Is this still valid in CH 2?*
-
-When moving applications between sandboxes, the property name is copied, but the value is left blank.
 
 == See Also
 
