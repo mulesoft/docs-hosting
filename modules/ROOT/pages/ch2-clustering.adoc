@@ -11,9 +11,9 @@ _High availability_ refers to having multiple replicas that, unlike clustering, 
 
 === CloudHub 2.0 Clustering and Object Store v2
 
-CloudHub 1.0 allowed only high availability and limited cluster-like behavior using Object Store v2. However, CloudHub 1.0 does not support using Object Store v2 with Mule 4 apps. CloudHub 2.0 supports clustering using Mule in addition to Object Store v2 for Mule 4 apps. When you enable Object Store v2 in CloudHub 2.0, note that it is rate limited. For more information, see the https://docs.mulesoft.com/object-store/[Object Store documentation^] (Link out from Beta docs).
+CloudHub 1.0 allowed only high availability and limited cluster-like behavior using Object Store v2. Also, CloudHub 1.0 does not support using Object Store v2 with Mule 4 apps. CloudHub 2.0 supports clustering using Mule in addition to Object Store v2 for Mule 4 apps. When you enable Object Store v2 in CloudHub 2.0, note that it is rate limited. For more information, see the https://docs.mulesoft.com/object-store/[Object Store documentation^] (Link out from Beta docs).
 
-Unlike in CloudHub 1.0, you do not need to configure your apps to use Object Store in CloudHub 2.0. Additionally, Mule 4 apps support Object Store v2.
+Unlike in CloudHub 1.0, you do not need to configure your apps to use Object Store in CloudHub 2.0. Additionally, in CloudHub 2.0, Mule 4 apps support Object Store v2 which can be enabled from Anypoint Runtime Manager console.
 
 == Before You Begin
 
@@ -73,7 +73,7 @@ See xref:cloudhub-networking-guide.adoc[CloudHub Networking Guide^] for more inf
 
 == Use Cases
 
-You can use either, both, or neither clustering features in a single application.
+You can combine clustering features in a single application.
 
 * To use Anypoint MQ, configure your Mule application to support this feature. See https://docs.mulesoft.com/mq/[Anypoint MQ^] (Link out from Beta docs) for information.
 * Adding additional replicas increases the cost of service.
