@@ -21,19 +21,7 @@ For this reason, ensure that you correctly anticipate your requirements before c
 We recommend a `/22` block.
 
 Because some addresses are reserved for fault tolerance, infrastructure, and zero-downtime,
-the allowed block size that you can assign for your Anypoint VPC is between `/16` and `/28`.
-
-[%header]
-.CIDR Block Sizing 
-|===
-| Netmask | Number of IP Addresses
-| `/16`| 65,536
-| `/28`| 16
-|===
-
-To estimate the size required for the CIDR block, multiply by 10 the number apps expected to deploy
-in the private space.
-For more specific estimations, use an internet tool for calculating CIDR ranges.
+the allowed block size that you can assign for your Anypoint VPC is between `/16` and `/24`.
 
 When specifying CIDR blocks, ensure that the CIDR blocks:
 

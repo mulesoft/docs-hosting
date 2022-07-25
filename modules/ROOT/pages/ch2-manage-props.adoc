@@ -1,6 +1,6 @@
 = Changing App Behavior with Properties
 
-*Last update* 29-Apr-22
+*Last update* 20-Jul-22
 
 You can change the behavior of the app while it's running using _properties_.
 
@@ -60,9 +60,7 @@ See xref:ch2-protect-app-props.adoc[].
 
 === Example: Using Properties to Set Environment Variables 
 
-You can specify Java system environment variables, which function the same as adding environment variables when you deploy to an on-premises server.
-
-You can also configure environment variables for your application.
+You can configure environment variables for your application.
 Properties enable you to externalize settings that change depending on the environment you're deploying to.
 For example, if you use a Mule application locally, you might configure your database host to be `0.0.0.0`.
 If you deploy the same app to CloudHub 2.0, you might configure the database host to be an Amazon RDS server.
@@ -103,8 +101,6 @@ For more information about nondefault property placeholder options, see the http
 
 == Reserved Properties 
 
-*These values are for CH 1.0 - still applicable? I guess remove worker-specific props?*
-
 CloudHub 2.0 reserves a set of properties and prevents apps from overwriting the values of those properties.
 If an application attempts to assign a value to a reserved property, CloudHub 2.0 doesn't use the assigned value.
 Instead, it returns the value as set internally, without throwing an error or exception, and adds a warning message to the log.
@@ -124,13 +120,7 @@ Do not use the `${spring.profiles.active}` and `${logging.*}` properties.
 |`${java.version}`|JVM version, excluding the dot (point) release.
 
 If a CloudHub 2.0 runtime release upgrades the JDK, this value changes.|1.8.0_141
-|`${csorganization.id}`|Master or business group ID|09396371-2cd4-412e-8d08-4356dd3e7bfc
-|`${environment.id}`|Environment ID|52a69d49e4b0e3c7324ae5b6
-|`${environment.type}`|Environment type|production
-|`${worker.id}`|Worker ID (for multiworker apps)|0
 |`${domain}`|App name|`myapp`
-|`${fullDomain}`|Full domain name of app|`myapp-123456.dr1xpr.usa-w1.cloudhub.io`
-|`${application.aws.region}`|App deployment region|`usa-e1`
 |`${http.port}`|HTTP port|8081
 |`${https.port}`|HTTPS port|8082
 |`${http.private.port}`|HTTP private port|8091
@@ -138,10 +128,7 @@ If a CloudHub 2.0 runtime release upgrades the JDK, this value changes.|1.8.0_14
 |`${mule.home}`|Absolute path to Mule installation|`/opt/mule/mule-4.1.1`
 |`${spring.profiles.active}`|Used internally, *do not use*|`\***`
 |`${logging.*}`|Used internally, *do not use*| `\***`
-|`${host}`|Used internally for the local IP address of a worker|`10.40.122.33`
 |`${anypoint.url}`|Used internally as the base Anypoint Platform URL|US: `\https://anypoint.mulesoft.com`
-
-MuleSoft Government Cloud: `\https://gov.anypoint.mulesoft.com`
 |`${app.name}` |The name of the Application `.jar` file. | myApplication
 |===
 

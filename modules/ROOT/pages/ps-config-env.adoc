@@ -2,7 +2,7 @@
 
 *This topic is updated to the Design Spec dated 09-Nov-21*
 
-*Last update* 09-Mar-22
+*Last update* 13-Jul-22
 
 Before you can deploy to a private space, you must specify the environments and at least one business group to associate with it.
 This association specifies in which environments the private space appears as 
@@ -16,7 +16,7 @@ By default, a private space is associated with all sandbox environments in its b
 
 == Associate Environments and Business Groups
 
-To associate environments in the business group or groups with the private space:
+If you have the CloudHub Network Administrator permission, associate environments in the business group or groups with the private space:
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
@@ -54,11 +54,22 @@ The list includes the business group and its child business groups to which the 
 
 == Manage Resources for a Business Group
 
-To view or manage resources associated with a business group:
+If you have the Organization Administrator permission, view or manage resources associated with a business group:
 
-. From Anypoint Platform, select *Access Management* > *Business Groups*, and then click the business group.
+. Log in to Anypoint Platform using an account that has the Organization Administrator permission.
+. In the navigation bar or the main Anypoint Platform page, click Access Management.
+. In the Access Management navigation menu, click *Business Groups*.
 . Click the *Settings* tab.
 . In the *Resources* section, view or modify the allocation for a resource, such as *Production vCores*.
+. Click *Save Changes* or *Discard Changes*.
+
+If *Business Groups* is not in the Access Management navigation menu:
+
+. Log in to Anypoint Platform using an account that has the Organization Administrator permission.
+. In the navigation bar or the main Anypoint Platform page, click Access Management.
+. In the Access Management navigation menu, click *Organization*.
+. Click the name of the business group you want to modify.
+. View or modify the allocation for a resource, such as *Production vCores*.
 . Click *Save Changes* or *Discard Changes*.
 
 

@@ -2,7 +2,7 @@
 
 *This topic is updated to the UI on QAX*
 
-*Last update* 04-May-22
+*Last update* 20-Jun-22
 
 // How can we share this content with RTF?
 
@@ -40,7 +40,6 @@ image::rtm-get-from-exchange.png[Get from Exchange page]
 *** <<specify-runtime-options,Specify runtime options>>.
 *** <<configure-endpoint-path,Configure endpoints and paths for the app>>.
 *** <<app-properties,Change app behavior with properties>>.
-*** <<enable-tls-v1,Enable TLS v1 and TLS v1.1>>.
 *** <<configure-logging,Configure logging for the app>>.
 // *** <<disable-logging,Disable app logs and metrics>>.
 // *** <<forward-logs,Forward logs to other services>>.
@@ -91,21 +90,8 @@ Paths support <<placeholder-table,placeholders>>.
 
 
 * To add an endpoint, click *Add Endpoint* and specify options.
-* To remove an endpoint, click the trash can icon (*Delete*) in the endpoint row.
-* To copy an endpoint, click the copy icon (*Copy*) in the endpoint row.
+* To remove an endpoint, click *X* (*Delete*) in the endpoint row.
 
---
-
-Path Rewrite::
-+
---
-If the HTTP Listener in your app listens on a different path than the path defined in *Public Endpoints*:
-
-. Enable the *Rewrite Request Paths* option.
-. Enter the target path expected by your app.
-+
-Requests sent to your app use the path that you specify here.
-. Click *Show Example* to see how the private space rewrites the path.
 --
 TLS Options::
 * *Last-Mile Security*

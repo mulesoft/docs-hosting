@@ -1,6 +1,6 @@
 = Viewing Diagnostic Data for Deployed Apps
 
-*Last update* 28-Apr-22
+*Last update* 20-Jul-22
 
 You can run a thread dump, which is a snapshot of all the threads in a replica.
 The thread dump indicates the current state of the server,
@@ -46,12 +46,7 @@ The page displays any past thread dumps:
 <screenshot>
 * To download a thread dump, click the *Download* button.
 
-CloudHub 2.0 saves the diagnostic output to a text file in the format *_TBD_*.
-// `__appName__-instance-__instanceID__-__replicaNumber__Date__-diag.txt`. 
-// *PLEASE CONFIRM FILE NAMING*
-
-CloudHub 2.0 saves the diagnostic output to a text file in the format `__appName__-instance-__instanceID__-__replicaNumber__-diag.txt`. 
-Use a text editor to view the diagnostics file.
+CloudHub 2.0 saves the diagnostic output to a text file in a hexadecimal format, for example: `5b181bef-b61c-524c-a0c8-698592977954_2022-07-20T15-06-27D`. Use a text editor to view the diagnostics file.
 
 
 == See Also

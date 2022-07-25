@@ -1,10 +1,7 @@
 = Managing App Schedules
 
-*Updated to the UI and to align more with https://docs.mulesoft.com/runtime-manager/hybrid-schedule-mgmt[hybrid scheduler] per Martin.*
 
-*PLEASE REVIEW FOR ACCURACY IN CH2*
-
-*Last update* 30-Mar-22
+*Last update* 21-Jul-22
 
 You can use Runtime Manager to view and control the Scheduler components within the flows in your deployed applications, all without changing the running application.
 For example, you might want to disable a scheduled job while one of the applications is undergoing maintenance.
@@ -34,7 +31,7 @@ When designing the schedule, consider the following:
 When you update the scheduler configuration, the change takes effect the next time the scheduler runs.
 * If a scheduled job is not triggered because the application is not running,
 CloudHub 2.0 triggers the job as soon as the app restarts.
-* Schedules are based in the timezone of the geographic region where you deploy the app.
+* Schedules are based in the app's defined timezone.
 * For multi-replica apps, CloudHub 2.0 runs scheduled jobs on all replicas.
 +
 If you run the scheduled job immediately by clicking *Run*, the scheduler runs on a single replica.
@@ -46,7 +43,7 @@ Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules
 
 == Before You Begin
 
-To use the scheduling feature in Runtime Manager, deploy an application that includes one or more Scheduler elements:
+To use the scheduling feature in Runtime Manager, deploy an application that includes one or more Scheduler elements using Anypoint Studio 7.13 or later.
 
 image::ch2-scheduler-studio.png[Scheduler component in the Anypoint Studio canvas]
 
@@ -74,7 +71,6 @@ Runtime Manager lists the Scheduler elements in the order they appear in your ap
 +
 +
 ** The *Name* column shows the name of the flow that contains the Scheduler element.
-// ** The *Status* column shows the status of the schedule.
 ** The frequency link in the *Schedule* column shows the schedule for the element.
 
 . If you want to see more information about when the jobs started and ended,
@@ -110,7 +106,7 @@ The *Schedule* column shows the schedule for the element.
 // +
 // image::ch2-scheduler-frequency.png[The arrow shows the fixed-frequency schedule configuration.]
 +
-The value for the frequency can be between 1 and 100 seconds.
+You can specify milliseconds, seconds, minutes, hours, or days for the frequency.
 The minimum recommended frequency between calls is 10 seconds.
 . Click *Update* to save changed settings or click *Cancel* to exit without saving.
 
@@ -158,7 +154,7 @@ For information about building cron triggers:
 == Run a Scheduled Job Immediately
 
 If a job runs nightly but you want to debug it now, you can trigger the job
-while it's running without updating the schedule in your application.
+while it's running without updating the schedule in your application. When you trigger the job in between instances of the scheduler running, the timer for the indicated time period resets.
 
 [NOTE]
 If you run the scheduled job immediately, the scheduler runs on a single replica
@@ -180,6 +176,7 @@ to is undergoing maintenance and then reenable it after maintenance is complete.
 
 CloudHub 2.0 does not run the scheduled job until you reenable the Scheduler.
 
+Known issue: If you disable the scheduler, it still runs when starting an application. If you want to prevent the scheduler from running, set the `startdelay` property to five seconds in your app using Anypoint Studio.
 To disable the Scheduler element:
 
 // SELECT RTM APPS SHARED

@@ -1,6 +1,6 @@
 = Configuring Endpoints and Paths for Apps Deployed to a Private Space
 
-*Last update* 15-June-22
+*Last update* 14-July-22
 
 [IMPORTANT]
 CloudHub 2.0 supports customizing public endpoints only for apps that are deployed to private spaces, not shared spaces.
@@ -115,7 +115,7 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSettings]
 . Click the *Ingress* tab.
-. In the endpoint link row, click the trash can icon (*Delete*).
+. In the endpoint link row, click *X* (*Delete*).
 
 
 [[view-private-endpoint]]

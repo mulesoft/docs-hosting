@@ -1,6 +1,6 @@
 = Anypoint Virtual Private Network 
 
-*Last update* 03-May-22
+*Last update* 07-Jul-22
 
 
 Anypoint VPN (virtual private network) creates a secure connection between your private space and your on-premises network.
@@ -32,7 +32,6 @@ To create an Anypoint VPN connection to your network, see xref:ps-create-configu
 Each Anypoint VPN connection consists of two tunnels that enable you to connect to a single public IP address at a remote location.
 To configure connectivity to an additional public IP address at a remote location, you must create two VPN connections.
 
-A single VPN provides increased availability for your private space.
 Routine maintenance can briefly disable one of the two tunnels of your VPN connection.
 Your VPN connection automatically fails over to the second tunnel during this time, so access is not interrupted.
 For this reason, you must configure both tunnels on your endpoint.
@@ -40,6 +39,8 @@ Tunnel selection depends on your VPN endpoint capabilities and the routing type 
  
 The MuleSoft VGW implementation supports a maximum throughput of 1.25 Gbps. Multiple VPN connections to the same private space share the throughput capabilities of a single VGW.
 The VPN connection throughput depends on several factors, such as the capability of your VPN endpoint, the capacity of the connection, the average packet size, the protocol, and network latency between the gateways.
+
+Anypoint VPN also supports _high availability_, wherein each Anypoint VPN connection consists of two endpoints to lessen the likelihood of connection failures. 
 
 [[vpn-ipsec]]
 == IPsec Settings
@@ -61,8 +62,6 @@ Anypoint VPN supports any combination of the following IPsec settings:
 ** IKE (Phase 1) Lifetime: 28000 seconds (7 hours and 50 minutes)
 ** IPsec (Phase 2) Lifetime: 3000 seconds (50 minutes)
 
-[NOTE]
-Your endpoint must initiate traffic to establish and maintain the connection because the Anypoint VPN endpoint acts only as a responder.
 
 [[vpn-routing]]
 == Anypoint VPN Routing
@@ -91,7 +90,7 @@ To avoid exceeding the limit, consolidate networks to the fewest number possible
 If you enter a non-local/Internet Gateway (IGW) route to a route table, CloudHub 2.0 warns that another connection uses the route.
 * Routes should not overlap with existing routes.
 +
-CloudHub 2.0 warns if you enter a route that overlaps with another route in the route table.
+You receive a warning if you enter a route that overlaps with another route in the route table.
 
 
 [[vpn-limitations]]
@@ -102,7 +101,6 @@ Anypoint VPN does not support these features and configurations:
 * Network Address Translation (NAT)
 * IPv6
 * IKEv2 with policy-based VPNs
-* A single private space with both AWS Direct Connect and Anypoint VPN connections
 * Advertising a default route (0.0.0.0/0) over BGP or static routing
 
 [[vpn-recommendations]]
@@ -122,8 +120,7 @@ If available, enable the setting `Clear Don't Fragment (DF) Bit`.
 [[vpn-ha]]
 == VPN High Availability
 
-Set up a redundant VPN connection to prevent losing connectivity if another 
-VPN or connection device is unavailable and allow for maintenance downtime.
+To ensure your applications and related operations are tolerant to Anypoint VPN updates or issues, or individual customer gateway failures, implement high availability VPN connections. Set up a redundant VPN connection to prevent losing connectivity if another VPN or connection device is unavailable and allow for maintenance downtime.
 
 The redundant VPN inherits some settings from the initial VPN configuration automatically.
 For example, if the routing type for the initial VPN is dynamic (BGP), the redundant
@@ -131,56 +128,38 @@ VPN is also dynamic.
 
 Other settings for the redundant VPN, such as the remote ASN for dynamic routing, include the values from the initial VPN, but you can change the values.
 
-
 To configure a redundant VPN connection, you must:
 
-* Have sufficient entitlements. 
-+
-Each private space includes two VPN connection entitlements.
 * Have two VPN endpoints available in your network that use different public IP addresses.
 +
 Each gateway device supports a single VPN. 
 
 * Create two VPN connections in your private space.
 
-For information, see
-https://help.mulesoft.com/s/article/How-to-Configure-High-Availability-with-Anypoint-VPN[How to Configure High Availability with Anypoint VPN].
+=== Configure High Availability with Anypoint VPN
 
-////
+The following example shows a high availability VPN topology using a single Anypoint VPC and two VPN connections.
 
-https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-redundant-connection.html
+A MuleSoft Virtual Private Gateway (VGW) supports one Anypoint VPC association, but it supports up to 10 VPN connections.
+You can locate your VPN Gateways in the same data center, or in different physical locations.
 
-risks of having a VPN that’s not highly available, potential causes, and recommendations on how to address it. We can assume in this case that their VPN uses static routing, so it’s possible that this is intended behavior.
+image:vpn-ha-topology.png[VPN High Availability Topology]
 
+Use BGP routing to advertise the same routes via VPN-1 and VPN-2. See https://help.mulesoft.com/s/article/Anypoint-VPN-Path-Selection-using-BGP-Routing[Anypoint VPN Path Selection using BGP Routing] for instructions on how to control path selection via the routing protocol.
 
-Q: Today in CloudHub, there are cases where we want to update VPNs to a new version, but there’s not a way in the UI for the customer to initiate an update. Do we want to add this functionality for private spaces? Why can’t we update VPNs automatically?
-A: Waiting for responses from AWS to check the frequency of the VPN upgrade. We don’t have to do it for GA. But eventually, we need to have a button/API to upgrade VPN. (Xuan)
+In this scenario, the VPN Gateways are configured to prefer: VPN-1 Tunnel-1, then VPN-1 Tunnel-2, then VPN-2 Tunnel-1, and finally VPN-2 Tunnel-2.
+This configuration produces an automatic failover to another tunnel, and to another VPN in the event of a VPN connectivity issue. This makes the Anypoint VPN solution more resilient and robust.
 
-Q: Is it possible for static routes inputted by the user to somehow conflict with existing routes for the VPC?
-A: Yes, it’s possible. I can create two VPNs with conflicting static routes. They can coexists. How it works? It’s the responsibility on the customer’s configuration. (Xuan)
-
-Q: How should the guidance in these knowledge base articles inform our UI?
-How to Configure High Availability with Anypoint VPN
-This doc recommends configuring customer VPN Gateways to prefer VPN-1 Tunnel-1, then VPN-1 Tunnel-2, then VPN-2 Tunnel-1, then VPN-2 Tunnel-2, using BGP routing.
-Anypoint VPN Path Selection Using BGP Routing
-This doc explains the BGP best path selection algorithm.
-A: This is information for Network Engineers mostly, so they will know how the Anypoint VPN behaves (meaning how the AWS VPN behaves) (Henry)
-Q: Considering the above, since our downloadable guides (see example) aren’t aware of whether the VPN is part of a redundant system, how do we direct network admins to configure gateways/tunnels properly?
-A: Whether a VPN is redundant doesn’t affect the connection process, so we don’t need to change the contents of the connection guides.
-
-
-
-////
+High availability VPN connections also support static routing, in which you establish a VPN-2 to work as a redundant, standby connection in the event of a failure with VPN-1.
 
 === How VPN Failover Works
-
-*NEED SOME INFORMATION FOR THIS SECTION*
 
 Failover to a redundant VPN depends on the routing type:
 
 * Dynamic (BGP)
 * Static
 
+Failover for dynamic or BGP VPNs is automatic. For static VPN failover, you must manually fail over to the other available VPN by modifying the routes.
 
 === VPN and Tunnel Status
 

@@ -1,6 +1,6 @@
 = Features of CloudHub 2.0
 
-*Last update* 04-May-22
+*Last update* 18-Jul-22
 
 *This topic will (eventually) be replaced with an updated version of https://docs.mulesoft.com/general/intro-platform-hosting#support-matrix-for-runtime-plane-hosting-options[Support Matrix for Runtime Plane Hosting Options].*
 
@@ -24,7 +24,7 @@ This table compares the features and support for CloudHub 2.0, CloudHub 1.0, and
 4+h|
 4+h|Load Balancing and Ingress
 | *Default endpoints*|Fully managed | Fully managed | Not supported
-| *URL rewriting* | Supported
+| *URL rewriting* | Not supported
 
 (app-level) | Supported
 
@@ -114,7 +114,7 @@ This table compares the features and support for CloudHub 2.0, CloudHub 1.0, and
 (via API, Maven plugin, Anypoint CLI) |Supported 
 
 (via API and Maven plugin)
-|*Built-in notifications* | Supported | Supported |Supported
+|*Built-in notifications* | Not supported | Supported |Supported
 |*Custom notifications* 
 
 (*CloudHub Connector*)| Not supported | Supported | Not supported
@@ -158,7 +158,10 @@ public cloud
 |*Backup and restore* | Fully managed | Fully managed | Self-managed
 |===
 
-
+Fully managed:: MuleSoft provides and manages the feature.
+Self-managed:: MuleSoft provides the feature, but the customer manages the feature.
+Supported: MuleSoft does not provide the feature, but it is available on supported partner platforms. The feature is managed by the vendor, platform, or customer.
+Not supported:: MuleSoft does not provide the feature, and the customer cannot configure it.
 
 //// 
 == Features Included in the Internal Validation Release

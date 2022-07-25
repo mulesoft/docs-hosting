@@ -2,7 +2,7 @@
 
 *This topic is updated to the Design Spec dated 02-Mar-22*
 
-*Last update* 22-Jun-22
+*Last update* 12-Jul-22
 
 
 Use options on the *Advanced* tab to:
@@ -86,6 +86,8 @@ include::partial$select-private-space.adoc[tag=clickAdvanced]
 [[ingress-load-balancer-log-levels]]
 == Ingress Load Balancer Log Levels
 
+The default log level for IP address filtering is `DEBUG`.
+
 [%header,cols="20a,60a"]
 .Ingress Load Balancer Log Levels
 |===
@@ -96,22 +98,10 @@ include::partial$select-private-space.adoc[tag=clickAdvanced]
 | All messages
 
 | ERROR (Recommended)
-| Only error messages, such when an exception occurs
-
-| FATAL
-| Only fatal messages when an application fails
+| Only error messages, such as when an exception occurs
 
 | INFO
 | Informative messages
-
-| SYSTEM
-| Messages about application and worker startup
-
-| CONSOLE
-| Messages about console events, such as setting the object store
-
-| WARN
-| Warning messages
 
 | TRACE
 | Tracks application metadata such as path, headers, state, and timeline between Ingress and APIs to facilitate collaboration

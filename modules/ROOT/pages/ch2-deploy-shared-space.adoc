@@ -2,7 +2,7 @@
 
 *This topic is updated to the Domains & TLS UX Project Brief dated 25-Mar-22*
 
-*Last update* 22-Jun-22
+*Last update* 13-Jul-22
 
 // How can we share this content with RTF?
 
@@ -36,12 +36,11 @@ image::rtm-get-from-exchange.png[Get from Exchange page]
 .. Select *CloudHub 2.0 Shared Space* from the *Deployment Target* list.
 .. Select the region to which to deploy the app. 
 +
-For the list of regions, see xref:ch2-architecture.adoc#shared-global-regions[Shared Global Regions].
+For the list of regions, see xref:ch2-architecture.adoc#shared-global-regions[Shared Global Regions]. If you have the global deployment entitlement, all regions are available. If you have region restrictions based on your subscription, only regions that are available to your organization appear.
 .. Configure options for deployment:
 +
 *** <<specify-runtime-options,Specify runtime options>>.
 *** <<app-properties,Change app behavior with properties>>.
-*** <<enable-tls-v1,Enable TLS v1 and TLS v1.1>>.
 *** <<configure-logging,Configure logging for the app>>.
 // *** <<disable-logging,Disable app logs and metrics>>.
 

@@ -10,41 +10,6 @@ Use Anypoint Runtime Manager to manage private spaces,
 such as adding and removing a route from the route table or
 detaching a transit gateway from the private space.
 
-[[delete-private-space]]
-== Delete a Private Space
-
-You can't delete a private space if it has any related private network, VPNs, or transit gateway attachments.
-
-You can't undo this action.
-
-//SELECT PRIVATE SPACE SHARED
-include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the Private Space menu (*...*) and select *Delete*:
-+
-<screenshot>
-// +
-// image::ps-delete.png[Delete option in the Private Space menu]
-. Click *Delete* to confirm the deletion.
-
-[[delete-private-network]]
-== Delete a Private Network 
-
-You can't delete a private network if any apps are deployed to it or if any
-connections exist.
-
-You can't undo this action.
-
-//SELECT PRIVATE SPACE SHARED
-include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. On the *Network* tab, click the Private Network menu (*...*) and select *Delete*:
-+
-<screenshot>
-// +
-// image::private-network-delete.png[Delete option in the Private Network menu]
-. Click *Delete* to confirm the deletion.
-
 [[add-remove-routes]]
 == Add or Remove a Route from the Route Table
 
@@ -107,6 +72,19 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 // image::connection-rename.png[Rename option in the Connections menu]
 include::partial$select-private-space.adoc[tag=renameItem]
 
+[[create-redundant-vpn]]
+== Create Redundant VPN
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Create Redundanct VPN*:
++
+<screenshot>
+// +
+// image::vpn-view-details.png[View Details option in the VPN menu]
+. Follow the steps in xref:ps-create-configure-vpn.adoc#create-redundant-vpn[Create a Redundant VPN].
+
 [[rename-vpn]]
 == Rename a VPN
 
@@ -162,19 +140,6 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 // +
 // image::vpn-view-details.png[View Details option in the VPN menu]
 . Click *X* to close the *VPN Details* window.
-
-[[create-redundant-vpn]]
-== Create Redundant VPN
-
-//SELECT PRIVATE SPACE SHARED
-include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Create Redundanct VPN*:
-+
-<screenshot>
-// +
-// image::vpn-view-details.png[View Details option in the VPN menu]
-. Follow the steps in xref:ps-create-configure-vpn.adoc#create-redundant-vpn[Create a Redundant VPN].
 
 [[delete-vpn]]
 == Delete a VPN
@@ -259,6 +224,41 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . At the confirmation prompt, click *Remove*.
 +
 Removing a transit gateway attachment might take several minutes.
+
+[[delete-private-network]]
+== Delete a Private Network 
+
+You can't delete a private network if any apps are deployed to it or if any
+connections exist.
+
+You can't undo this action.
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. On the *Network* tab, click the Private Network menu (*...*) and select *Delete*:
++
+<screenshot>
+// +
+// image::private-network-delete.png[Delete option in the Private Network menu]
+. Click *Delete* to confirm the deletion.
+
+[[delete-private-space]]
+== Delete a Private Space
+
+You can't delete a private space if it has any related private network, VPNs, or transit gateway attachments.
+
+You can't undo this action.
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. Click the Private Space menu (*...*) and select *Delete*:
++
+<screenshot>
+// +
+// image::ps-delete.png[Delete option in the Private Space menu]
+. Click *Delete* to confirm the deletion.
 
 == See Also 
 

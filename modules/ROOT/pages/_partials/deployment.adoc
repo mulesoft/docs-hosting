@@ -40,22 +40,22 @@ Subdomains must start and end with an alphanumeric character and can contain onl
 [[app-name-reqs]]
 = Application Names
 
-The application name you specify can contain between three and 59 alphanumeric characters
+The application name you specify can contain between 3 and 59 alphanumeric characters
 (a-z, A-Z, 0-9) and dashes (-).
 They cannot contain spaces or other characters. 
 The application name must start with a letter (a-z or A-Z). It cannot start with a number or dash.
 
 To ensure that names are unique and avoid domain conflicts, CloudHub 2.0 adds
-a six-character `_uniq-id_` to the application name that you specify in the public endpoint URL.
+a six-character `_unique-id_` to the application name that you specify in the public endpoint URL.
 
 The application name identifies your application not only in Runtime Manager but also in the public `cloudhub.io` domain.
-For example, an application named `myapp` is accessible at `\http://myapp-_uniq-id_._shard_.usa-w2.cloudhub.io`.
+For example, an application named `myapp` is accessible at `\http://myapp-_unique-id_._shard_.usa-w2.cloudhub.io`. You must have unique application names for each deployment target.
 
 To further customize your app names, you can create a naming convention.
 For example, you could prepend your company name and department to all application names,
 such as `mycompany-mydept-myapp`.
 You can then add DNS records to hide the complex application name.
-For example, you might route requests to `myapp.mycompany.com` to `mycompany-mydept-myapp-_uniq-id_._shard_._region_.cloudhub.io`.
+For example, you might route requests to `myapp.mycompany.com` to `mycompany-mydept-myapp-_unique-id_._shard_._region_.cloudhub.io`.
 // end::appNameReqs[]
 
 
@@ -65,13 +65,10 @@ For example, you might route requests to `myapp.mycompany.com` to `mycompany-myd
 
 Logging is enabled by default for apps deployed to CloudHub 2.0.
 
-To disable logging and metrics for the app or configure additional log levels and categories to include in logs:
+To disable logging for the app or configure additional log levels and categories to include in logs:
 
 . Click the *Logging* tab.
-. Deselect the logging option:
-+
-** Titanium subscribers: *Enable application logs and metrics*
-** Non-Titanium subscribers: *Enable application logs*
+. Deselect the logging option.
 . Select the log level:
 +
 ** *Fatal*: Fatal messages for when an application fails
@@ -80,8 +77,9 @@ To disable logging and metrics for the app or configure additional log levels an
 ** *Info*: Informative messages
 ** *Debug*: Debugging messages
 
-. Optionally, set the log level for specific a Java package class by
-clicking *Add Class*, entering the class name, and selecting the log level.
+. Optionally, set the log level for specific a Java package class by selecting the log level, entering the class name, and pressing the Enter key.
+
+If you disable logging, the *Logs* heading still appears in the Runtime Manager navigation menu, but application logs are not collected.
 // end::configureLogging[]
 
 
@@ -106,9 +104,6 @@ Specifies the number of replicas, or instances, of the application to deploy.
 A minimum of two replicas is required for high availability.
 Run in Runtime Cluster Mode::
 Enables xref:docs-rft-cloud::ch2-clustering.adoc[Mule clustering] across each replica of the application.
-Enforce deploying replicas across nodes::
-Selecting this option might cause some replicas in the deployment to remain in Pending status if there are unsufficient worker nodes or resources available on the worker nodes needed to deploy each replica.
-The deployment status transitions to Running after all replicas are deployed on different worker nodes.
 
 Deployment model::
 +

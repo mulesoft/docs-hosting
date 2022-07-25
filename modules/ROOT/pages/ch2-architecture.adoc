@@ -1,6 +1,6 @@
 = CloudHub 2.0 Architecture
 
-*Last update* 29-Apr-22
+*Last update* 18-Jul-22
 
 To understand CloudHub 2.0 security and availability, you should understand the architecture behind CloudHub 2.0.
 
@@ -70,21 +70,19 @@ Replica sizes have different compute, memory, and storage capacities.
 
 You can scale replicas vertically by selecting one of the available vCore sizes:
 
-[%header,cols="5*a"]
+[%header,cols="4*a"]
 |===
-|vCore Size |vCPU | vCPU Burst | Heap Memory | Storage
-|0.05       |0.05 | 2          | 500 MB      | 8 GB
-|0.07       |0.07 | 2          |650 MB       | 8 GB
-|0.1        |0.1  | 2          |800 MB       | 8 GB
-|0.2        |0.2  | 2          |1 GB         | 8 GB
-|0.5        |0.5  | 2          |1.25 GB      | 10 GB
-|1.0        |1    | 2          |1.5 GB       | 12 GB
-|1.5        |1.5  | 2          |2 GB         | 24 GB
-|2.0        |2    |            |3.5 GB       | 40 GB
-|2.5        |2.5  |            |4 GB         | 50 GB
-|3.0        |3    |            |4.5 GB       | 60 GB
-|3.5        |3.5  |            |5 GB         | 70 GB
-|4.0        |4    |            |7.5 GB       | 88 GB
+|vCore Size |vCPU | Heap Memory | Storage
+|0.1        |0.1  |800 MB       | 8 GB
+|0.2        |0.2  |1 GB         | 8 GB
+|0.5        |0.5  |1.25 GB      | 10 GB
+|1.0        |1    |1.5 GB       | 12 GB
+|1.5        |1.5  |2 GB         | 24 GB
+|2.0        |2    |3.5 GB       | 40 GB
+|2.5        |2.5  |4 GB         | 50 GB
+|3.0        |3    |4.5 GB       | 60 GB
+|3.5        |3.5  |5 GB         | 70 GB
+|4.0        |4    |7.5 GB       | 88 GB
 |===
 
 Replicas with fewer than 1.0 vCores:
@@ -110,9 +108,8 @@ The metaspace limit for apps deployed to CloudHub 2.0 is currently 256 MB,
 regardless of the replica size.
 The initial metaspace size is 128 MB; metaspace garbage collection begins after the metaspace reaches that threshold.
 
-You can scale your applications horizontally by adding multiple replicass and using Anypoint MQ for persistent queues.
-See xref:ch2-clustering.adoc#replica-scale-out[Replica Scale-out] and 
-https://docs.mulesoft.com/mq/[Anypoint MQ^] (Link out from Beta docs).
+You can scale your applications horizontally by adding multiple replicas for persistent queues.
+See xref:ch2-clustering.adoc#replica-scale-out[Replica Scale-out].
 
 CloudHub 2.0 monitors replicas to verify that they are operating correctly.
 If you enable automatic restarts, CloudHub 2.0 also automatically restarts applications, if necessary.

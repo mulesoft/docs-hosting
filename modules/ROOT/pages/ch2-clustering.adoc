@@ -1,7 +1,9 @@
 = Clustering
 
+*Last Update* 25-Jul-22
+
 Clustering provides scalability, workload distribution, and added reliability to your applications on CloudHub 2.0.
-This functionality is powered by CloudHub's scalable load-balancing service, replica scale-out, and Anypoint MQ features.
+This functionality is powered by CloudHub's scalable load-balancing service and replica scale-out.
 
 You can enable clustering features on a per-application basis using the Anypoint Runtime Manager console when either deploying a new application or redeploying an existing application.
 
@@ -37,10 +39,7 @@ Replica scale-out also adds additional reliability.
 Mule runtime engine (Mule) automatically distributes multiple replicas for the same application across two or more data centers for maximum reliability.
 
 When deploying your application to two or more replicas, you can distribute workloads across these instances of Mule.
-CloudHub provides the following:
-
-. The HTTP load balancing service automatically distributes HTTP requests among your assigned replicas.
-. https://docs.mulesoft.com/mq/[Anypoint MQ^] (Link out from Beta docs)
+CloudHub provides the following an HTTP load balancing service that automatically distributes HTTP requests among your assigned replicas.
 
 Batch jobs only run on a single replica at a time, and cannot be distributed across multiple replicas.
 If Mule restarts in the same deployment, the status persists and the batch continues processing.
@@ -75,15 +74,10 @@ See xref:cloudhub-networking-guide.adoc[CloudHub Networking Guide^] for more inf
 
 You can combine clustering features in a single application.
 
-* To use Anypoint MQ, configure your Mule application to support this feature. See https://docs.mulesoft.com/mq/[Anypoint MQ^] (Link out from Beta docs) for information.
-* Adding additional replicas increases the cost of service.
-
 [%header,cols="3*a"]
 |===
 |Use Case |Suggested Clustering Configuration |Implications
 |You want to scale out your application, but you are satisfied with the existing highly available CloudHub 2.0 architecture in terms of preventing service interruption or message loss. |
-Anypoint MQ is not required.
-
 Number of Replicas: 2 or more
 
 |
@@ -92,8 +86,6 @@ Number of Replicas: 2 or more
 * If one data center experiences an outage, your replicas are available in a different data center.
 
 |You have a high-stakes process for which you need to protect against message loss, but you are not experiencing issues with handling processing load and are OK with some service interruption in the case of a data center outage. |
-Anypoint MQ is required.
-
 Number of Replicas: 1
 
 |
@@ -102,8 +94,6 @@ Number of Replicas: 1
 * If the data center in which your replica operates experiences an outage, CloudHub 2.0 automatically migrates your application to another availability zone. You might experience downtime during the migration; however, your queues ensure zero message loss.
 
 |You have a high-stakes process for which you need to protect against message loss, avoid any chance of service interruption, and handle large processing loads. |
-Anypoint MQ is required.
-
 Number of Replicas: 2 or more
 
 |
@@ -112,8 +102,6 @@ Number of Replicas: 2 or more
 * If one data center experiences an outage, your replicas are automatically distributed to ensure redundancy.
 
 |You have an application that does not have any special requirements regarding either processing load or message loss. |
-Anypoint MQ is not required.
-
 Number of Replicas: 1
 
 |

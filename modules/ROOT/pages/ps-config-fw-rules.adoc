@@ -58,6 +58,9 @@ Protocol type:
 +
 * *HTTP*
 * *HTTPS*
+* *TCP*
+* *UTP*
+* *ICMP*
 
 Destination::
 Destination IP address:
