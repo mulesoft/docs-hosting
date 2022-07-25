@@ -2,7 +2,7 @@
 
 *This topic is updated to the UI on QAX*
 
-*Last update* 12-Jul-22
+*Last update* 20-Jun-22
 
 // How can we share this content with RTF?
 
@@ -90,8 +90,7 @@ Paths support <<placeholder-table,placeholders>>.
 
 
 * To add an endpoint, click *Add Endpoint* and specify options.
-* To remove an endpoint, click the trash can icon (*Delete*) in the endpoint row.
-* To copy an endpoint, click the copy icon (*Copy*) in the endpoint row.
+* To remove an endpoint, click *X* (*Delete*) in the endpoint row.
 
 --
 TLS Options::

@@ -77,8 +77,9 @@ To disable logging for the app or configure additional log levels and categories
 ** *Info*: Informative messages
 ** *Debug*: Debugging messages
 
-. Optionally, set the log level for specific a Java package class by
-clicking *Add Class*, entering the class name, and selecting the log level.
+. Optionally, set the log level for specific a Java package class by selecting the log level, entering the class name, and pressing the Enter key.
+
+If you disable logging, the *Logs* heading still appears in the Runtime Manager navigation menu, but application logs are not collected.
 // end::configureLogging[]
 
 
