@@ -7,7 +7,7 @@ You can enable clustering features on a per-application basis using the Anypoint
 
 == High Availability and Clustering
 
-_High availability_ refers to having multiple replicas that, unlike clustering, do not share data between each replica. _Clustering_, which is new to CloudHub 2.0, enables multiple replicas to communicate with each other and share data because they share memory. 
+_High availability_ refers to having multiple replicas that, unlike clustering, do not share data between each replica. _Clustering_ enables multiple replicas to communicate with each other and share data because they share memory. 
 
 === CloudHub 2.0 Clustering and Object Store v2
 
