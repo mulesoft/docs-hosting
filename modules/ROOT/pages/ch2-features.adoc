@@ -24,7 +24,7 @@ This table compares the features and support for CloudHub 2.0, CloudHub 1.0, and
 4+h|
 4+h|Load Balancing and Ingress
 | *Default endpoints*|Fully managed | Fully managed | Not supported
-| *URL rewriting* | Supported
+| *URL rewriting* | Not supported
 
 (app-level) | Supported
 
