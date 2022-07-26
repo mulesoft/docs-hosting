@@ -78,33 +78,6 @@ For information, see <<placeholder-table,placeholders>>.
 // === Placeholders
 include::partial$deployment.adoc[tag=placeholders,leveloffset=+2]
 
-[[configure-different-paths]]
-== Configure a Different Path for the App and the Public Endpoint URL
-
-You can configure different paths for the app and the public endpoint URL.
-For example, the HTTP Listener in the app is listening on `my-app.example.com/v1/api` and you
-want the app to be reachable from the internet using `my-app.example.com`.
-
-To configure different paths:
-
-. When deploying an app to a private space, click the *Ingress* tab.
-+
-See xref:ch2-deploy-private-space.adoc[].
-+
-If the app is already deployed:
-+
---
-include::partial$select-private-space.adoc[tag=selectAppsPage]
-include::partial$select-private-space.adoc[tag=clickAppName]
-include::partial$select-private-space.adoc[tag=clickSettings]
-. Click the *Ingress* tab.
---
-. In the *Path* field, enter the path where you want the app to be reachable, for example, `/`.
-. Depending on the deployment status, choose either:
-** If you're ready to deploy the application, click *Deploy*.
-** If this application is deployed, click *Apply Changes*.
-. Verify that the app can be reached at the new path.
-
 [[remove-public-endpoint]]
 == Remove a Public Endpoint
 
