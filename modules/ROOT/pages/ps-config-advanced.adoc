@@ -144,4 +144,4 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 include::partial$select-private-space.adoc[tag=clickAdvanced]
 . Click *Enable AWS Service Role*.
 . Click *Save* +
-A unique service role name is generated, and you can use this role configure to configure identity and access management for AWS.
+A unique service role name is generated, and you can use this role configure to configure identity and access management for AWS. Note that role generation might take a few minutes.
