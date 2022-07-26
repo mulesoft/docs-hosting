@@ -2,7 +2,7 @@
 
 *This topic is updated to the Design Spec dated 02-Mar-22*
 
-*Last update* 12-Jul-22
+*Last update* 26-Jul-22
 
 
 Use options on the *Advanced* tab to:
@@ -13,6 +13,7 @@ Use options on the *Advanced* tab to:
 This value is the amount of time CloudHub 2.0 waits for a response from the Mule application.
 If no data is sent or received in the specified time, CloudHub 2.0 closes the client and private space connections.
 * Configure ingress load balancer logs levels and download logs.
+* Configure Amazon Web Services (AWS) service roles.
 
 
 == Configure HTTP Requests and Read-Response Timeout
@@ -132,3 +133,15 @@ For example, if you use Runtime Manager to add the
 `logging.level.org.mule.service.http.impl.service.HttpMessageLogger=DEBUG` property, `DEBUG` level log information is emitted from `HttpMessageLogger`.
 ////
 
+[[configure-aws-role]]
+== Configure AWS Service Role
+
+If you have identity and access management (IAM) roles configured in AWS, you can associate the role with your private space. The private space receives the permissions from the IAM role in AWS and can access AWS resources. To enable this feature, Anypoint Platform generates a unique role name you can use with AWS IAM. For more information, see https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html[IAM roles].
+
+// SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+include::partial$select-private-space.adoc[tag=clickAdvanced]
+. Click *Enable AWS Service Role*.
+. Click *Save* +
+A unique service role name is generated, and you can use this role configure to configure identity and access management for AWS.
