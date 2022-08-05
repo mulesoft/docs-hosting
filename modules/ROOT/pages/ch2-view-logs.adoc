@@ -134,6 +134,8 @@ include::partial$select-private-space.adoc[tag=clickLogs]
 
 CloudHub 2.0 downloads the log output, using the current filters, using a hexadecimal naming convention and the `log` format, for example: `c6c671_462ccf_2022-07-21T20-08-32X.log`. Use a text editor to view the log file.
 
+////
+
 == Download Mule Logs
 
 Mule logs display the logs of the Mule runtime engine for CloudHub 2.0.
