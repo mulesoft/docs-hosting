@@ -98,7 +98,7 @@ The AWS account number appears in the *Selected principals* field.
 . Click *Next*.
 
 
-CloudHub 2.0 use the resource share owner and ID you provide to attach
+CloudHub 2.0 uses the resource share owner and ID you provide to attach
 the associated transit gateway on AWS to the private space.
 
 When the attachment succeeds, you see the `Attachment Created` message and 
