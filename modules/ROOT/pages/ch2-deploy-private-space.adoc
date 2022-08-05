@@ -166,7 +166,7 @@ For information about viewing logs, see xref:ch2-view-logs.adoc[].
 == See Also
 
 * xref:ch2-download-test-app.adoc[]
-* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (Link out from Beta docs)
+* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^]
 * xref:ch2-config-endpoints-paths.adoc[]
 * xref:ps-config-domains.adoc[]
 * xref:ch2-integrate-log-system.adoc[]

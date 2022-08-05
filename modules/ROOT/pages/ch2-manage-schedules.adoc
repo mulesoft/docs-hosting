@@ -144,8 +144,8 @@ The cron expression in this example sets the schedule to every 10 seconds.
 +
 For information about building cron triggers:
 +
-// .. Click *more* to view the http://www.quartz-scheduler.org/documentation[Quartz documentation^] (link out from Beta docs). 
-.. View the http://www.quartz-scheduler.org/documentation[Quartz documentation^] (link out from Beta docs). 
+// .. Click *more* to view the http://www.quartz-scheduler.org/documentation[Quartz documentation^]. 
+.. View the http://www.quartz-scheduler.org/documentation[Quartz documentation^]. 
 .. Select a version, click *Documentation > User's Guide > Tutorial*, and then click the *CronTrigger* lesson.
 . Click *Update* to save changed settings or click *Cancel* to exit without saving.
 

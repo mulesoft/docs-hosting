@@ -274,7 +274,7 @@ You can also xref:ch2-protect-app-props.adoc[protect application property values
 Protected property values are not viewable or retrievable by any user.
 These protected application values are encrypted and stored in the Anypoint Security secrets manager, which, in turn, is encrypted per user organization.
 
-For more information about MuleSoft security, see the http://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^] (Link out from Beta docs) .
+For more information about MuleSoft security, see the https://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^].
 
 
 == See Also
@@ -283,9 +283,9 @@ For more information about MuleSoft security, see the http://mulesoft.com/downlo
 * xref:ch2-monitor-apps.adoc[]
 * xref:ch2-protect-app-props.adoc[]
 * xref:ch2-config-app-alerts.adoc[]
-* http://status.mulesoft.com/[status.mulesoft.com^] 
-* http://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^] 
-* http://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^]
+* https://status.mulesoft.com/[status.mulesoft.com^] 
+* https://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^] 
+* https://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^]
 * xref:runtime-manager::deployment-strategies.adoc[]
 
 

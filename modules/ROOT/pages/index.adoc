@@ -38,19 +38,19 @@ See xref:deployment-strategies.adoc[Deployment Options^] for a better understand
 
 (from CH 1.0 "cloudhub" topic)
 
-http://www.mulesoft.com/cloudhub/ipaas-cloud-based-integration-demand[CloudHub] is an integration platform as a service (iPaaS) where you can deploy sophisticated cross-cloud integration applications in the cloud, create new APIs on top of existing data sources, integrate on-premises applications with cloud services, and much more.
+https://www.mulesoft.com/cloudhub/ipaas-cloud-based-integration-demand[CloudHub] is an integration platform as a service (iPaaS) where you can deploy sophisticated cross-cloud integration applications in the cloud, create new APIs on top of existing data sources, integrate on-premises applications with cloud services, and much more.
 
 == Create an Application for CloudHub
 
 image::logo-app.png[app]
 
-* See xref:deploying-to-cloudhub.adoc[Deploy to CloudHub^]. (Link out from Beta docs) 
-* See xref:mule-runtime::build-an-https-service.adoc[Build an HTTPS Service^] (Link out from Beta docs) to include HTTPS support in this application.
+* See xref:deploying-to-cloudhub.adoc[]. 
+* See xref:mule-runtime::build-an-https-service.adoc[] to include HTTPS support in this application.
 
 [TIP]
-For examples of more applications, see xref:exchange::index.adoc[Anypoint Exchange^]. (Link out from Beta docs) 
+For examples of more applications, see xref:exchange::index.adoc[Anypoint Exchange^].
 
-You can deploy the same Mule applications to CloudHub or to an xref:deploying-to-your-own-servers.adoc[on-premises server]. There are some differences in how features work between the environments, which you need to consider when you plan your deployment strategy. See xref:deployment-strategies.adoc[Deployment Options^]. (Link out from Beta docs) 
+You can deploy the same Mule applications to CloudHub or to an xref:deploying-to-your-own-servers.adoc[on-premises server]. There are some differences in how features work between the environments, which you need to consider when you plan your deployment strategy. See xref:deployment-strategies.adoc[].
 
 
 == Deploy your Application to CloudHub
@@ -59,8 +59,8 @@ image::logo-deploy.png[deploy]
 
 Learn how you can deploy your applications to CloudHub:
 
-* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub^] (Link out from Beta docs) 
-* xref:anypoint-cli::index.adoc[Anypoint Platform Command-Line Interface (CLI)^] (Link out from Beta docs) 
+* xref:deploying-to-cloudhub.adoc[] 
+* xref:anypoint-cli::index.adoc[]
 
 === Easy Scalability
 
@@ -71,7 +71,7 @@ CloudHub is an elastic cloud, meaning it scales on demand. You can start small a
 
 Using xref:studio::index.adoc[Anypoint Studio (Studio)], you can build integration applications and deploy them to CloudHub with just a few clicks.
 You can then access them like any other application deployed through the platform, by
-http://anypoint.mulesoft.com[signing in to] Anypoint Platform and then navigating to Runtime Manager.
+https://anypoint.mulesoft.com[signing in to] Anypoint Platform and then navigating to Runtime Manager.
 See xref:deploying-to-cloudhub.adoc#from-anypoint-platform[Deploy an Application from Studio].
 
 

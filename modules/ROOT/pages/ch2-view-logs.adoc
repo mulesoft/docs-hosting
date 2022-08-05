@@ -152,7 +152,7 @@ For example, the log records an entry when a Mule service or app starts, deploys
 CloudHub downloads the Mule log output to a text file in the format `__appName__-instance-__instanceID__-__workerNumber__-mule_ee.log`.
 Use a text editor to view the log file.
 
-For more information about Mule logs, see xref:mule-runtime::logging-in-mule.adoc#runtime-log[Runtime Log^] (Link out from Beta docs).
+For more information about Mule logs, see xref:mule-runtime::logging-in-mule.adoc#runtime-log[Runtime Log].
 
 
 

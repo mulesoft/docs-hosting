@@ -87,7 +87,6 @@ include::partial$deployment.adoc[tag=configureLogging,leveloffset=+1]
 == See Also
 
 * xref:ch2-download-test-app.adoc[]
-* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (Link out from Beta docs)
-* xref:ps-config-domains.adoc[]
+* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] 
 * xref:ch2-integrate-log-system.adoc[]
 
