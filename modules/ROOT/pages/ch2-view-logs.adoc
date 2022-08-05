@@ -10,7 +10,7 @@ GA: thread dumps: trigger, view, prev/next message nav, config menu sort
 CloudHub 2.0 provides access to log data that includes deployment messages and events for each replica and Mule runtime engine logs.
 
 For more advanced searching and log management, you can use Anypoint Monitoring (requires Titanium subscription).
-See https://docs.mulesoft.com/monitoring/[Anypoint Monitoring Overview^] (Link out from Beta docs).
+See xref:monitoring::index.adoc[].
 
 CloudHub 2.0 stores up to 200 MB of log data per config, or up to 30 days, whichever limit is reached first.
 // We’re considering an additional limit for how many configs/deployments we keep track of.
@@ -79,16 +79,16 @@ include::partial$select-private-space.adoc[tag=clickLogs]
 ** Filter logs by config ID
 +
 Click the *Config* drop-down menu and select the config to view:
-+
-<screenshot>
+// +
+// <screenshot>
 // +
 // image::ch2-logs-deploy.png[Filter log output by deployment]
 
 ** *Filter log by replica*
 +
 In a log message for the desired replica, click the name of the replica.
-+
-<screenshot>
+// +
+// <screenshot>
 +
 Only the logs for the selected replica appear.
 +
@@ -97,8 +97,8 @@ To clear the replica filter and display logs for all replicas, click the *X* but
 ** *Filter logs by time date and time range*
 +
 Click *Time Range*, select the date range, and optionally time, and click *Apply*.
-+
-<screenshot>
+// +
+// <screenshot>
 +
 The *Time Range* button label changes to show the selected date and time range.
 
@@ -128,11 +128,13 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickLogs]
 . Click the download (<icon>) button.
-+
-<screenshot>
+// +
+// <screenshot>
 // image::ch2-logs-download.png[Download log output]
 
 CloudHub 2.0 downloads the log output, using the current filters, using a hexadecimal naming convention and the `log` format, for example: `c6c671_462ccf_2022-07-21T20-08-32X.log`. Use a text editor to view the log file.
+
+//// 
 
 == Download Mule Logs
 
@@ -142,8 +144,8 @@ For example, the log records an entry when a Mule service or app starts, deploys
 
  . In the *Deployments* section, select the date and worker for which you want to download Mule logs.
  . Click the download icon for the worker and select *Mule Logs*:
-+
-<screenshot>
+// +
+// <screenshot>
 +
 // image::ch2-logs-mule-download.png[Download Mule log output in the Deployments section]
 

@@ -63,8 +63,8 @@ include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSchedules]
 +
 Runtime Manager lists the Scheduler elements in the order they appear in your app:
-+
-<screenshot>
+// +
+// <screenshot>
 +
 // image::ch2-scheduler-rtm.png[The screenshot shows (1) the Schedulers option and (2) the checkbox on the Schedulers page.]
 // The screenshot shows (1) the checkbox, (2) the Disable button, and (3) the schedule in the details pane.
@@ -75,8 +75,8 @@ Runtime Manager lists the Scheduler elements in the order they appear in your ap
 
 . If you want to see more information about when the jobs started and ended,
 click *Logs* in the left navigation menu.
-+
-<screenshot>
+// +
+// <screenshot>
 . Click the frequency link for an element to open the schedule editor.
 +
 The schedule editor you see depends on the schedule type:
@@ -95,14 +95,13 @@ include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSchedules]
 +
 The *Schedule* column shows the schedule for the element.
-+
-<screenshot>
-+
+// +
+// <screenshot>
 // image::ch2-scheduler-rtm.png[Schedules page showing a fixed frequency schedule type]
 . Click the frequency link for an element to open the schedule editor.
 . In the schedule editor, change the schedule or deselect *Enabled* to disable the schedule.
-+
-<screenshot>
+// +
+// <screenshot>
 // +
 // image::ch2-scheduler-frequency.png[The arrow shows the fixed-frequency schedule configuration.]
 +
@@ -125,14 +124,14 @@ include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSchedules]
 +
 The *Schedule* column shows the schedule for the element.
-+
-<screenshot>
+// +
+// <screenshot>
 // +
 // image::ch2-scheduler-rtm.png[The arrow shows Schedule column.]
 . Click the frequency link for an element to open the schedule editor.
 . In the schedule editor, change the schedule or deselect *Enabled* to disable the schedule.
-+
-<screenshot>
+// +
+// <screenshot>
 // +
 // image::ch2-scheduler-cron.png[The arrow shows the cron schedule configuration.]
 . In the schedule editor, click *Quick Reference* to expand or collapse the table that lists required fields and allowed values:
@@ -187,8 +186,8 @@ include::partial$select-private-space.adoc[tag=clickSchedules]
 +
 You can also disable or enable the schedule by deselecting or 
 selecting *Enabled* in the schedule editor.
-+
-<screenshot>
+// +
+// <screenshot>
 // +
 // image::ch2-scheduler-enable.png[Enabled toggle in the schedule editor]
 
@@ -196,8 +195,8 @@ selecting *Enabled* in the schedule editor.
 == See Also
 
 * xref:ch2-deploy.adoc[]
-* https://docs.mulesoft.com/mule-runtime/4.4/scheduler-concept[Scheduler Endpoint (Trigger)^] (link out from Beta docs)
-* http://www.quartz-scheduler.org/documentation[Quartz documentation^] (link out from Beta docs)
-* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (link out from Beta docs)
+* xref:mule-runtime::scheduler-concept.adoc[]
+* http://www.quartz-scheduler.org/documentation[Quartz documentation^]
+* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^]
 // * _Link to the API doc for updating schedulers_
 

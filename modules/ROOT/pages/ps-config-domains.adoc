@@ -76,9 +76,9 @@ When you add the TLS context, you can select the ciphers to use with the TLS con
 
 . Generate a keystore:
 +
-** https://docs.mulesoft.com/runtime-manager/lb-ssl-endpoints#create-a-certificate-file-and-private-key-with-the-openssl-command[PEM^] (Link out from Beta docs)
-** https://docs.mulesoft.com/mule-runtime/4.4/tls-configuration#generate-a-keystore[JKS^] (Link out from Beta docs)
-. Generate a https://docs.mulesoft.com/mule-runtime/4.4/tls-configuration#truststore-generation[truststore^] (Link out from Beta docs) (if you want to enable mutual TLS).
+** xref:runtime-manager::lb-ssl-endpoints.adoc#create-a-certificate-file-and-private-key-with-the-openssl-command[PEM]
+** xref:mule-runtime::tls-configuration.adoc#generate-a-keystore[JKS]
+. Generate a xref:mule-runtime::tls-configuration.adoc#truststore-generation[truststore] (if you want to enable mutual TLS).
 . Create DNS records for your domains.
 +
 To enable traffic to reach the apps deployed to the private space using a custom domain:
@@ -95,7 +95,7 @@ Your registrar might take up to 24 hours to apply the change.
 
 . Verify that your account has CloudHub Network Administrator permission, which is required to modify a private space.
 +
-For information, see https://docs.mulesoft.com/access-management/teams[Teams^] (Link out from Beta docs).
+For information, see xref:access-management::teams.adoc[].
 
 
 [[create-tls-context]]
@@ -123,8 +123,8 @@ PEM format::
 Uploading the public certificate displays a summary of the certificate.
 +
 * Click the information (*i*) icon to display the keystore details:
-+
-<screenshot> 
+// +
+// <screenshot> 
 * Click *X* to delete the public certificate.
 
 . Choose a private key to upload.
@@ -149,8 +149,8 @@ CloudHub 2.0 validates the password against the keystore.
 Selecting an alias displays a summary of the alias.
 +
 Click the information (*i*) icon to display the keystore details:
-+
-<screenshot>
+// +
+// <screenshot>
 . Enter the key password used to access the private key within the keystore.
 +
 CloudHub 2.0 validates the password against the key.
@@ -190,8 +190,8 @@ ciphers.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Domains & TLS* tab, in a custom TLS section, click the TLS context menu (*...*) and select *View Details*:
-+
-<screenshot>
+// +
+// <screenshot>
 
 == Delete a TLS Context
 
@@ -199,8 +199,8 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Domains & TLS* tab, in a custom TLS section, click the TLS context menu (*...*) and select *Delete*:
-+
-<screenshot>
+// +
+// <screenshot>
 +
 The *Delete* option appears only if you have CloudHub Network Administrator permission.
 
@@ -227,8 +227,8 @@ the public certificate.
 Uploading the public certificate displays a summary of the certificate.
 +
 Click the information (*i*) icon to display the keystore details:
-+
-<screenshot> 
+// +
+// <screenshot> 
 . Choose a private key to upload.
 . Enter the password used to access the private key within the keystore.
 +
@@ -293,5 +293,5 @@ ciphers.
 // * xref:ps-config-log-forwarding.adoc[]
 * xref:ch2-deploy-private-space.adoc[]
 * xref:ch2-config-endpoints-paths.adoc[]
-* https://docs.mulesoft.com/mule-runtime/latest/tls-configuration[Configure TLS with Keystores and Truststores^] (Link out from Beta docs)
-* https://www.whois.com/[Whois^] (Link out from Beta docs) 
+* xref:mule-runtime::tls-configuration.adoc[]
+* https://www.whois.com/[Whois^]

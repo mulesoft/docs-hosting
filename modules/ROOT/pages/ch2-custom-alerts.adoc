@@ -55,7 +55,7 @@ Each notification can contain up to 10,000 characters.
 == Alerts
 
 You can create standard alerts in Runtime Manager for applications deployed to CloudHub 2.0.
-See https://docs.mulesoft.com/runtime-manager/alerts-on-runtime-manager[Alerts^] (Link out from Beta docs).
+See xref:runtime-manager::alerts-on-runtime-manager.adoc[].
 
 If you create custom notifications, you can create custom alerts to send emails when 
 those notifications occur.
@@ -115,8 +115,8 @@ The connector can use basic authentication or inherited token authentication.
 image::alerts-custom-ch-connector-notification.png[Message field in the Create Notification properties window]
 
 For more information about creating a notification with CloudHub Connector, see
-https://docs.mulesoft.com/cloudhub-connector/1.0/#creating-notifications[Creating a Notification^] and
-https://docs.mulesoft.com/cloudhub-connector/1.0/cloudhub-connector-ref#createNotification[Create Notification^] (Links out from Beta docs) in the connector reference.
+xref:cloudhub-connector::index.adoc#creating-notifications.adoc[Creating a Notification] and
+xref:cloudhub-connector::cloudhub-connector-ref.adoc#createNotification[Create Notification]in the connector reference.
 --
 . Deploy the app to CloudHub 2.0.
 +
@@ -171,7 +171,7 @@ Enter the email addresses for notification recipients.
 
 +
 You can use variables in the alert *Subject* and *Message* fields.
-For information about using variables in alerts, see https://docs.mulesoft.com/runtime-manager/alerts-on-runtime-manager#alert-variables[Alert Variables^]. (Link out from Beta docs)
+For information about using variables in alerts, see xref:runtime-manager::alerts-on-runtime-manager.adoc#alert-variables[Alert Variables].
 
 When you trigger the alert, the specified recipients receive an email with the custom message you added to the app with CloudHub Connector.
 
@@ -217,20 +217,18 @@ For example, use the `<on-error-propagate>` component to send the error message 
 ----
 
 For information about the On-Error components,
-see https://docs.mulesoft.com/mule-runtime/4.4/error-handling#on_error_continue[Using On-Error Components to Handle Messaging Errors^] (Link out from Beta docs).
+see xref:mule-runtime::error-handling.adoc#on_error_continue[].
 
 == See Also
 
-* https://docs.mulesoft.com/cloudhub-connector/1.0/[CloudHub Connector^] (Link out from Beta docs)
-* https://www.mulesoft.com/exchange/com.mulesoft.connectors/mule-cloudhub-connector/[CloudHub Connector^] on Exchange (Link out from Beta docs)
-* https://docs.mulesoft.com/connectors/introduction/intro-config-use-studio#install[Add the Connector to Your Mule Project^] (Link out from Beta docs)
-* https://docs.mulesoft.com/mule-runtime/latest/intro-error-handlers[Introduction to Mule 4: Error Handlers^] (Link out from Beta docs)
+* xref:cloudhub-connector::index.adoc[CloudHub Connector]
+* https://www.mulesoft.com/exchange/com.mulesoft.connectors/mule-cloudhub-connector/[CloudHub Connector^] on Exchange
+* xref:connectors::introduction/intro-config-use-studio.adoc#install[Add the Connector to Your Mule Project]
+* xref:mule-runtime::intro-error-handlers.adoc[]
 
 ////
-* xref:alerts-on-runtime-manager.adoc[Alerts]
-* xref:connectors::introduction/intro-config-use-studio.adoc#install[Add the Connector to Your Mule Project]
+* xref:runtime-manager::alerts-on-runtime-manager.adoc[]
 * https://www.mulesoft.com/exchange/com.mulesoft.connectors/mule-cloudhub-connector/[CloudHub Connector^] on Exchange
-* xref:cloudhub-connector::index.adoc#create-the-cloudhub-configuration[Create the CloudHub Configuration^]
-* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub^]
-* xref:mule-runtime::intro-error-handlers.adoc[Introduction to Mule 4: Error Handlers]
+* xref:cloudhub-connector::index.adoc#create-the-cloudhub-configuration[Create the CloudHub Configuration]
+* xref:runtime-manager::deploying-to-cloudhub.adoc[]
 ////

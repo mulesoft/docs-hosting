@@ -72,8 +72,8 @@ The administrator configures the domains and certificates (TLS context) for the 
 See xref:ps-config-domains.adoc[].
 +
 After you select the domain for a private space, you can view the corresponding TLS context by clicking *View TLS Context*:
-+
-<screenshot>
+// +
+// <screenshot>
 * *Subdomain*: If the domain you selected includes a wildcard, you can configure the subdomain.
 +
 include::partial$deployment.adoc[tag=subdomain-name-reqs]
@@ -85,8 +85,8 @@ The default subdomain is `app-name`, which resolves to the name of the app that 
 include::partial$deployment.adoc[tag=path-name-reqs]
 +
 Paths support <<placeholder-table,placeholders>>.
-+
-<screenshot>
+// +
+// <screenshot>
 
 
 * To add an endpoint, click *Add Endpoint* and specify options.
@@ -107,7 +107,7 @@ This option requires that the Mule application include an SSL certificate and al
 Enables SSL forwarding during a session.
 
 SSL forwarding is mostly used with client authentication.
-See https://docs.mulesoft.com/anypoint-security/enable-client-authentication.html[Enable Client Authentication^] (Link out from Beta docs).
+See xref:anypoint-security::enable-client-authentication.adoc[].
 SSL forwarding forwards client certificate details in HTTP request headers so they are available to the application.
 These fields can identify an authenticated client and allow an application to determine and use the identity.
 

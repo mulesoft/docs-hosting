@@ -22,8 +22,8 @@ You might want to add a route to enable a new subnet to be accessible or remove 
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Private Network* section, click *Route Table*:
-+
-<screenshot>
+// +
+// <screenshot>
 // image::tgw-add-vpc-route.png[Add VPC route]
 +
 The route table shows all routes for the private space.
@@ -31,8 +31,8 @@ The route table shows all routes for the private space.
 --
 ** Add a route by entering the subnet in CIDR notation, selecting the connection,
 and clicking *Add Route*:
-+
-<screenshot>
+// +
+// <screenshot>
 // image::ps-edit-route.png[Route Table window]
 +
 You can't add a route that matches a priority route (a route that's used by your private network).
@@ -43,8 +43,8 @@ If you enter a non-local/Internet Gateway (IGW) route, CloudHub 2.0 warns that t
 Routes should not overlap with existing routes.
 CloudHub 2.0 warns if you enter a route that overlaps with another route in the route table.
 ** Remove a route by clicking the *X* icon for a row in the table and then clicking *Delete* to confirm.
-+
-<screenshot>
+// +
+// <screenshot>
 // image::ps-edit-route.png[Route Table window]
 +
 If the *X* icon doesn't appear for a route, you can't remove it.
@@ -67,8 +67,8 @@ image::tgw-route-added.png[Transit Gateway in the Next Hop column of the route t
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the Connections menu (*...*) and select *Rename*:
-+
-<screenshot>
+// +
+// <screenshot>
 // image::connection-rename.png[Rename option in the Connections menu]
 include::partial$select-private-space.adoc[tag=renameItem]
 
@@ -79,8 +79,8 @@ include::partial$select-private-space.adoc[tag=renameItem]
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Create Redundanct VPN*:
-+
-<screenshot>
+// +
+// <screenshot>
 // +
 // image::vpn-view-details.png[View Details option in the VPN menu]
 . Follow the steps in xref:ps-create-configure-vpn.adoc#create-redundant-vpn[Create a Redundant VPN].
@@ -92,8 +92,8 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Rename*:
-+
-<screenshot>
+// +
+// <screenshot>
 // image::vpn-rename.png[Rename option in the VPN menu]
 include::partial$select-private-space.adoc[tag=renameItem]
 
@@ -112,8 +112,8 @@ Modifying the tunnel initiation after VPN creation causes all VPNs in this conne
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Rename & Options*:
-+
-<screenshot>
+// +
+// <screenshot>
 // +
 // image::vpn-view-details.png[View Details option in the VPN menu]
 . On the *Connection Settings* page, you can:
@@ -135,8 +135,8 @@ to establish VPN tunnels.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *View Details*:
-+
-<screenshot>
+// +
+// <screenshot>
 // +
 // image::vpn-view-details.png[View Details option in the VPN menu]
 . Click *X* to close the *VPN Details* window.
@@ -152,8 +152,8 @@ You can't undo this action.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Delete*:
-+
-<screenshot>
+// +
+// <screenshot>
 // image::vpn-delete.png[Delete option in the VPN menu]
 . Click *Delete* to confirm the deletion.
 
@@ -168,8 +168,8 @@ To rename a transit gateway attachment:
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the transit gateway menu (*...*) and select *Rename*:
-+
-<screenshot>
+// +
+// <screenshot>
 // image::tgw-rename.png[Rename option in the transit gateway menu]
 include::partial$select-private-space.adoc[tag=renameItem]
 
@@ -188,8 +188,8 @@ To detach the transit gateway:
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the transit gateway menu (*...*) and select *Detach*:
-+
-<screenshot>
+// +
+// <screenshot>
 // image::tgw-detach-vpc.png[Detach transit gateway option in the transit gateway menu]
 . At the confirmation prompt, click *Detach*.
 +
@@ -237,8 +237,8 @@ You can't undo this action.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, click the Private Network menu (*...*) and select *Delete*:
-+
-<screenshot>
+// +
+// <screenshot>
 // +
 // image::private-network-delete.png[Delete option in the Private Network menu]
 . Click *Delete* to confirm the deletion.
@@ -254,8 +254,8 @@ You can't undo this action.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the Private Space menu (*...*) and select *Delete*:
-+
-<screenshot>
+// +
+// <screenshot>
 // +
 // image::ps-delete.png[Delete option in the Private Space menu]
 . Click *Delete* to confirm the deletion.

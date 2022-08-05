@@ -49,8 +49,8 @@ CloudHub 2.0 verifies the upgrade eligibility for the VPC.
 For information, see <<vpc-upgrade-requirements>>.
 +
 If the VPC is eligible, CloudHub 2.0 creates the new private space and adds it to the *Private Spaces* page.
-+
-<screenshot>
+// +
+// <screenshot>
 +
 The networking configuration can take up to 30 minutes to complete.
 
@@ -145,7 +145,7 @@ you must migrate to Anypoint VPN before upgrading to CloudHub 2.0.
 
 If the VPC uses the VPC peering connectivity method (provisioned manually by MuleSoft Support), we recommend that you switch to use transit gateway connections before upgrading to CloudHub 2.0.
 
-For information, see https://docs.mulesoft.com/runtime-manager/tgw-about[Transit Gateway Attachments^] (Link out from Beta docs) .
+For information, see xref:runtime-manager::tgw-about.adoc[] .
 
 === VPC uses AWS Direct Connect
 
@@ -167,7 +167,7 @@ To do so:
 . Deselect TLS 1.0.
 . Change the default cipher suite back to `NewDefault`.
 
-See https://docs.mulesoft.com/runtime-manager/lb-create-arm#enable-tls-1-0-on-a-dlb-using-runtime-manager[Enable TLS 1.0 on a DLB Using Runtime Manager^].
+See xref:runtime-manager::lb-create-arm.adoc#enable-tls-1-0-on-a-dlb-using-runtime-manager[Enable TLS 1.0 on a DLB Using Runtime Manager].
 
 
 == Delete an Upgraded Private Space

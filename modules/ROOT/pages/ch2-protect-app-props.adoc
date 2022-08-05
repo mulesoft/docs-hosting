@@ -13,7 +13,7 @@ These protected application values are encrypted and stored in the Anypoint Secu
 
 [IMPORTANT]
 Protected property values are separate from the encrypted Mule application properties stored in secure configuration files. 
-See https://docs.mulesoft.com/mule-runtime/4.3/secure-configuration-properties[Secure Configuration Properties^] (link out from Beta docs).
+See xref:mule-runtime::secure-configuration-properties.adoc[].
 
 == Protect Property Values in Runtime Manager
 
@@ -32,8 +32,8 @@ include::partial$select-private-space.adoc[tag=clickPropsOnSettings]
 . In the *New Key* field, enter the property name to protect. 
 . In the *New Value* field, enter the property value.
 . In the value field, click *Protect* and then click *Protect value* to confirm.
-+
-<screenshot>
+// +
+// <screenshot>
 // +
 // image::rtm-hide-props.png[Properties tab and key-value properties on the application Settings page]
 . Depending on the deployment status, choose either:
@@ -64,14 +64,14 @@ include::partial$select-private-space.adoc[tag=clickPropsOnSettings]
 . In the table view, click the icon next to the protected value that you want to replace. 
 . Click the menu icon next to the value and then click *Replace protected value*.
 . Enter a new value in the field:
-+
-<screenshot>
+// +
+// <screenshot>
 . Click *Apply*. 
 . Click *Apply Changes*. 
 
 
 == See Also
 
-* https://docs.mulesoft.com/mule-runtime/4.3/secure-configuration-properties[Secure Configuration Properties^] (link out from Beta docs)
+* xref:mule-runtime::secure-configuration-properties.adoc[]
 * xref:ch2-manage-props.adoc[]
 * xref:ch2-deploy.adoc[]

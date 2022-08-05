@@ -75,8 +75,8 @@ Enter a custom CIDR in the field.
 --
 . Click *Add Rule* to add more rules.
 . To remove a firewall rule, click the trash can icon (*Delete*) for the entry.
-+
-<screenshot>
+// +
+// <screenshot>
 // +
 // image::fw-rule-delete.png[Delete icon on the Firewall rules tab]
 

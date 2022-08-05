@@ -84,5 +84,5 @@ CloudHub displays a notification and a log message and takes no further action.
 
 * xref:ch2-deploy.adoc[]
 * xref:ch2-manage-apps.adoc[]
-* https://docs.mulesoft.com/runtime-manager/alerts-on-runtime-manager[Alerts^] (Link out from Beta docs)
-* https://docs.mulesoft.com/runtime-manager/monitoring[Monitor Applications and Servers^] (Link out from Beta docs)
+* xref:runtime-manager::alerts-on-runtime-manager.adoc[]
+* xref:runtime-manager::monitoring.adoc[]

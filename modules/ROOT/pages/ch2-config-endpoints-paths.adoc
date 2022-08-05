@@ -24,7 +24,7 @@ For information, see xref:ps-config-domains.adoc[].
 +
 The _path_ is the base path expected by the HTTP Listener in your app, for example `my-app.example.com/v1/api`.
 +
-For information, see https://docs.mulesoft.com/http-connector/1.6/http-listener-ref[HTTP Listener Reference - Mule 4^]. (Link out from Beta docs)
+For information, see xref:http-connector::http-listener-ref.adoc[HTTP Listener Reference - Mule 4].
 
 You can also remove the public endpoint to ensure clients outside of the private network cannot make requests to the app.
 
@@ -104,11 +104,11 @@ include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSettings]
 . Click the *Ingress* tab.
 . Hover over *private endpoint*:
-+
-<screenshot>
+// +
+// <screenshot>
 
 == See Also
 
 * xref:ch2-deploy-private-space.adoc[]
 * xref:ps-config-domains.adoc[]
-* https://docs.mulesoft.com/http-connector/1.6/http-listener-ref[HTTP Listener Reference - Mule 4^] (Link out from Beta docs)
+* xref:http-connector::http-listener-ref.adoc[HTTP Listener Reference - Mule 4]

@@ -38,7 +38,7 @@ Sign in with your Anypoint Platform credentials to deploy and manage your integr
 The console provides monitoring information from the platform services and also functions as a comprehensive dashboard for both application-level and account-level management.
 
 Administrator account holders can use the Anypoint Platform to add and manage other users in the organization, define user roles, and create and manage sandbox environments.
-For information, see https://docs.mulesoft.com/access-management[Access Management^] (Link out from Beta docs).
+For information, see xref:access-management::index.adoc[].
 
 [[platform-services]]
 == Platform Services
@@ -173,7 +173,7 @@ DNS records are unique to each control plane.
 Although the EU control plane supports some of the same regions that the
 US control plane supports, the DNS records are different.
 For more on the EU control plane, see
-https://docs.mulesoft.com/eu-control-plane/[About the EU Control Plane^] (Link out from Beta docs).
+xref:eu-control-plane::index.adoc[].
 
 For example, if you are using the US control plane and deploy to the Ireland region,
 the DNS records for internal and external IP addresses are
@@ -283,10 +283,10 @@ For more information about MuleSoft security, see the http://mulesoft.com/downlo
 * xref:ch2-monitor-apps.adoc[]
 * xref:ch2-protect-app-props.adoc[]
 * xref:ch2-config-app-alerts.adoc[]
-* http://status.mulesoft.com/[status.mulesoft.com^] (Link out from Beta docs) 
-* http://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^] (Link out from Beta docs) 
-* http://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^] (Link out from Beta docs) 
-* https://docs.mulesoft.com/runtime-manager/deployment-strategies[Deployment Options^] (Link out from Beta docs) 
+* http://status.mulesoft.com/[status.mulesoft.com^] 
+* http://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^] 
+* http://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^]
+* xref:runtime-manager::deployment-strategies.adoc[]
 
 
 ////
@@ -294,5 +294,5 @@ For more information about MuleSoft security, see the http://mulesoft.com/downlo
 * xref:cloudhub-faq.adoc[CloudHub FAQ]
 * xref:maintenance-and-upgrade-policy.adoc[Maintenance and Upgrade Policy]
 * xref:ch2-clustering.adoc[Clustering]
-* https://aws.amazon.com/ec2/instance-types/[Amazon EC2 Instance Types]
+* https://aws.amazon.com/ec2/instance-types/[Amazon EC2 Instance Types^]
 //// 

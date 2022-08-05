@@ -493,7 +493,7 @@ The *Transit Gateways* page is visible in Runtime Manager to Anypoint organizati
 Attaching one Anypoint VPC to an AWS Transit Gateway uses one Anypoint VPN license.
 * Sign in to an Anypoint Platform account with either the CloudHub 2.0 Network Administrator or the CloudHub 2.0 Network Viewer user permission.
 +
-See https://docs.mulesoft.com/access-management/users#grant-user-permissions[Grant Permissions and Roles to Users^] (Link out from Beta docs).
+See xref:access-management::users.adoc#grant-user-permissions[Grant Permissions and Roles to Users].
 
 * Identify the subnets in your network (in CIDR notation) that you want to make accessible through the transit gateway.
 

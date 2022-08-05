@@ -88,8 +88,8 @@ The AWS account number appears in the *Selected principals* field.
 == Verify the Resource Share
 
 . On the Anypoint Platform *Add Transit Gateway* page, paste the values you copied from AWS in the *ID* and *Owner* fields:
-+
-<screenshot>
+// +
+// <screenshot>
 +
 --
 *** The resource share *ID* field contains alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-).
@@ -122,8 +122,8 @@ To verify that the attachment is correct, select the transit gateway attachment 
 +
 You return to the *Network* tab for the private space.
 The *Connections* section shows the transit gateway ID and owner from AWS and indicates that the transit gateway state is *Available* and the attachment state is *Attached to Private Network*:
-+
-<screenshot>
+// +
+// <screenshot>
 // image::tgw-resource-share-available.png[Transit gateway attached]
 +
 If the VPC attachment state is *Not Attached to VPC*, the transit gateway is not attached.

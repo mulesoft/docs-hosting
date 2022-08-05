@@ -49,8 +49,8 @@ include::partial$caveats.adoc[tag=localAsnNote]
 .. In the *Static Routes* field, specify the (comma-separated) xref:ps-gather-setup-info.adoc#static-ip-prefixes[static IP prefixes] in CIDR notation.
 +
 Click *Show Existing Routes for this Network* to view the existing routes for the private network.
-+
-<screenshot>
+// +
+// <screenshot>
 . If you want to customize the tunnel configuration:
 +
 --
@@ -75,8 +75,8 @@ While the VPN is created, you can <<create-redundant-vpn,create a redundant VPN>
 +
 After the VPN creation completes successfully, the tunnel status is *Down* until you 
 <<connect-vpn,connect the VPN to your corporate network>>:
-+
-<screenshot>
+// +
+// <screenshot>
 // +
 // image::vpn-down.png[Tunnel status in the VPN section]
 +
