@@ -177,7 +177,7 @@ After you create the VPN,
 test the connectivity from CloudHub 2.0 to your networks.
 To test the connection, use the Network Tools application.
 
-For download and usage information about the Network Tools application, see https://help.mulesoft.com/s/article/How-To-Use-Network-Tools-Application[How To Use Network Tools Application^] (KB article).
+For download and usage information about the Network Tools application, see https://help.mulesoft.com/s/article/How-To-Use-Network-Tools-Application[How To Use Network Tools Application^].
 
 == See Also 
 

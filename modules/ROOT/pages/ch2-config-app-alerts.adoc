@@ -69,7 +69,6 @@ For information about using variables in alerts, see xref:runtime-manager::alert
 xref:connectors::introduction/intro-config-use-studio.adoc#install[Add the Connector to Your Mule Project]
 * xref:mule-runtime::intro-error-handlers.adoc[] 
 * xref:alerts-on-runtime-manager.adoc[]
-* https://www.mulesoft.com/exchange/com.mulesoft.connectors/mule-cloudhub-connector/[CloudHub Connector] on Exchange
 * xref:cloudhub-connector::index.adoc#create-the-cloudhub-configuration[Create the CloudHub Configuration]
 * xref:deploying-to-cloudhub.adoc[]
 ////

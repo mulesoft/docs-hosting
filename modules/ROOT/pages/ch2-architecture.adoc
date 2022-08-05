@@ -19,7 +19,7 @@ image::ch2-architecture.png[CloudHub 2.0 Architecture with four callouts]
 |===
 
 [NOTE]
-You can view the live status and detailed service history for Runtime Manager, platform services, and CloudHub 2.0 on https://status.mulesoft.com/[status.mulesoft.com] for the default (US hosted) Control Plane and https://eu1-status.mulesoft.com/[eu1-status.mulesoft.com] for the EU Control Plane.
+You can view the live status and detailed service history for Runtime Manager, platform services, and CloudHub 2.0 on https://status.mulesoft.com/[status.mulesoft.com^] for the default (US hosted) Control Plane and https://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^] for the EU Control Plane.
 
 [[integrations-apps]]
 == Integration Applications
@@ -33,7 +33,7 @@ see xref:index.adoc[] and xref:ch2-deploy.adoc[].
 [[runtime-manager]]
 == Runtime Manager
 
-Runtime Manager is integrated into the https://anypoint.mulesoft.com[Anypoint Platform].
+Runtime Manager is integrated into the https://anypoint.mulesoft.com[Anypoint Platform^].
 Sign in with your Anypoint Platform credentials to deploy and manage your integration applications at runtime.
 The console provides monitoring information from the platform services and also functions as a comprehensive dashboard for both application-level and account-level management.
 
