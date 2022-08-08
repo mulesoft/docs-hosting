@@ -1,8 +1,8 @@
 = Creating Private Spaces
 
-*This topic is updated to the Private Space (03-Nov) and Private Network (08-Nov) Design Specs*
+// *This topic is updated to the Private Space (03-Nov) and Private Network (08-Nov) Design Specs*
 
-*Last update* 07-Mar-22
+*Last update* 08-Aug-22
 
 To extend your network to Anypoint Platform, create a _private space_, 
 a virtual, private, and isolated network hosted in CloudHub 2.0,
@@ -15,8 +15,10 @@ to deploy your apps to.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 +
 The page shows any private spaces associated with the selected business group.
-. Click *Create Private Space*.
-. Enter a xref:ps-gather-setup-info.adoc#private-space-name[name] for your private space and click *Create*. Note that you cannot rename your private space after you create it.
+. Click *Create private space*.
+. Enter a xref:ps-gather-setup-info.adoc#private-space-name[name] for your private space and click *Create*.
++
+You cannot rename your private space after you create it.
 
 [[create-private-network]]
 == Create a Private Network
@@ -74,8 +76,9 @@ VPN or transit gateway attachment.
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. In the *Network* tab, click *Create Connection*. 
-. On the *Create Connection* page, select the connection type, enter the xref:ps-gather-setup-info.adoc#vpn-name[name], and click *Next*.
+. On the *Network* tab, click *Create Connection*. 
+. On the *Create Connection* page, select the connection type, enter the xref:ps-gather-setup-info.adoc#vpn-name[VPN] or 
+xref:ps-gather-setup-info.adoc#transit-gateway-name[transit gateway]connection name, and click *Next*.
 +
 Depending on the connection type you selected:
 +

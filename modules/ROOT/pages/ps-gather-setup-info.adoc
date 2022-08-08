@@ -1,6 +1,6 @@
 = Gathering Required Setup Information
 
-*Last update* 18-Jul-22
+*Last update* 08-Aug-22
 
 Use the following sections to gather the information you'll need to set up your private space.
 For information about private spaces, see xref:ch2-private-space-about.adoc[].
@@ -125,7 +125,7 @@ For details about each requirement, see the sections that follow.
 [[private-space-name]]
 === Private Space Name
 
-Private space names can contain up to 60 alphanumeric characters (a-z, A-Z, 0-9), spaces, and hyphens (-).
+Private space names can contain between 1 and 36 alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-).
 Runtime Manager supports Unicode characters in private space names.
 
 The private space name appears in the list when you select a deployment target for your apps.
