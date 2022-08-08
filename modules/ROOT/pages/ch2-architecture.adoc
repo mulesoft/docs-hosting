@@ -33,7 +33,7 @@ see xref:index.adoc[] and xref:ch2-deploy.adoc[].
 [[runtime-manager]]
 == Runtime Manager
 
-Runtime Manager is integrated into the https://anypoint.mulesoft.com[Anypoint Platform^].
+Runtime Manager is integrated into https://anypoint.mulesoft.com[Anypoint Platform^].
 Sign in with your Anypoint Platform credentials to deploy and manage your integration applications at runtime.
 The console provides monitoring information from the platform services and also functions as a comprehensive dashboard for both application-level and account-level management.
 
@@ -45,7 +45,8 @@ For information, see xref:access-management::index.adoc[].
 
 Platform services are responsible for coordinating all aspects of the platform.
 They coordinate deployment of applications, monitor integrations, provide analytics data, store application data, run scheduled jobs, and more.
-Many of these services are also exposed through the xref:ch2-api.adoc[].
+Many of these services are also exposed through the CloudHub 2.0 REST API.
+// xref:ch2-api.adoc[].
 
 [[cloudhub-2-replicas]]
 == CloudHub 2.0 Replicas
@@ -215,7 +216,7 @@ CloudHub 2.0 monitors the replicas for problems and provides a self-healing mech
 If the underlying hardware experiences a failure, the platform migrates your application to a new replica automatically.
 In the case of an application crash, whether due to a problem with custom code or a bug in the underlying stack, the platform recognizes the crash and can redeploy the replica automatically.
 
-For more information, see xref:ch2-app-monitoring.adoc[].
+// For more information, see xref:ch2-app-monitoring.adoc[].
 
 === Zero-Downtime Updates
 
@@ -228,7 +229,9 @@ This allows you to keep servicing requests from your old application while the n
 
 Clustering provides scalability, workload distribution, and added reliability to applications on CloudHub 2.0.
 These capabilities are powered by the scalable load-balancing service and
-xref:ch2-clustering.adoc#replica-scaleout[replica scaleout] features.
+replica scaleout features.
+
+For more information, see xref:ch2-clustering.adoc[].
 
 ==== Scale Out and Data Center Redundancy
 

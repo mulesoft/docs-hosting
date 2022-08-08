@@ -14,7 +14,7 @@ to the private space for <<CIDR Block,CIDR block>> configuration.
 // Should this page include other network admin requests - Domains tab?
 
 
-
+////
 [NOTE]
 ====
 The following two sections provide the same information in different formats:
@@ -24,7 +24,7 @@ The following two sections provide the same information in different formats:
 
 Which do you prefer?
 ====
-
+//// 
 
 [[setup-info-private-space]]
 == Information Required to Set Up a Private Space

@@ -45,7 +45,7 @@ Batch jobs only run on a single replica at a time, and cannot be distributed acr
 If Mule restarts in the same deployment, the status persists and the batch continues processing.
 If the entire application is updated or redeploying while the batch is running, the rest of the batch job doesn't continue.
 The main solution for persistent batch jobs in CloudHub 2.0 is to use 
-xref:object-store::index.adoc[Object Store v2].
+xref:object-store::index.adoc[].
 
 == Enable Clustering Features
 
@@ -114,5 +114,5 @@ Number of Replicas: 1
 == See Also
 
 * xref:ch2-architecture.adoc[]
-* xref:mq::index.adoc[]
+// * xref:mq::index.adoc[]
 * xref:object-store::index.adoc[]
