@@ -1,6 +1,6 @@
 = Integrating with Your Logging System Using Log4j
 
-Updated with information from Andrew.
+// Updated with information from Andrew.
 
 *Last update* 27-Apr-22
 
