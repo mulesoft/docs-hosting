@@ -4,7 +4,7 @@
 
 *Last update* 13-Jul-22
 
-Before you can deploy to a private space, you can specify the environments and at least one business group to associate with it.
+Before deploying to a private space, you can specify environments and at least one business group to associate with it.
 This association specifies in which environments the private space appears as 
 a target deployment in the *Deployment Target* list when deploying an app. 
 For information, see xref:ch2-deploy-private-space.adoc[].
