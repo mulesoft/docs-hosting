@@ -2,7 +2,7 @@
 
 // *This topic is updated to the VPN Design Specs dated 08-Nov-21*
 
-*Last update* 07-Mar-22
+*Last update* 08-Aug-22
 
 
 == Prerequisites
@@ -95,7 +95,7 @@ Anypoint Platform uses to generate a connection guide to use to configure your d
 
 After the VPN connection creation completes, the *Create VPN Connection* window
 displays the *Connect VPN* step.
-You can also display this page from the *Network* tab by clicking the VPN menu (*...*) and selecting *Connection Guide*.
+You can also display this page from the *Network* tab by clicking *View Connection Guide* or clicking the VPN menu (*...*) and selecting *Connection Guide*.
 
 . Select options from the drop-down lists:
 +
@@ -124,7 +124,7 @@ see xref:ps-vpn-about.adoc#vpn-ha[VPN High Availability].
 
 Redundant VPNs inherit some settings from the intial VPN configuration automatically.
 
-[NOTE]
+[IMPORTANT]
 After you create a redundant VPN, you can't change any of the settings.
 
 //SELECT PRIVATE SPACE SHARED

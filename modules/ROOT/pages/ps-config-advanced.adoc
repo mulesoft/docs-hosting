@@ -1,17 +1,17 @@
 = Configuring Advanced Private Space Settings
 
-*This topic is updated to the Design Spec dated 02-Mar-22*
+// *This topic is updated to the Design Spec dated 02-Mar-22*
 
-*Last update* 26-Jul-22
-
+*Last update* 08-Aug-22
 
 Use options on the *Advanced* tab to:
 
-* Configure how the private space handles HTTP requests.
+* Configure how the ingress load balancer handles HTTP requests.
 * Specify the read-response timeout.
 +
 This value is the amount of time CloudHub 2.0 waits for a response from the Mule application.
-If no data is sent or received in the specified time, CloudHub 2.0 closes the client and private space connections.
+// If no data is sent or received in the specified time, CloudHub 2.0 closes the client and private space connections.
+If no data is sent or received in the specified time, CloudHub 2.0 drops the request with a 504 error.
 * Configure ingress load balancer logs levels and download logs.
 * Configure Amazon Web Services (AWS) service roles.
 
@@ -34,12 +34,12 @@ From the *HTTP Requests* list, select one of the following:
 ** *Redirect to HTTPS*
 +
 Redirects HTTP requests to the same URL using the HTTPS protocol.
-** *Drop HTTP requests*
-+
-Silently drops HTTP requests.
-** *Also accept HTTP requests*
+** *Accept HTTP*
 +
 Accepts the inbound request on the default SSL endpoint using the HTTP protocol.
+** *Drop HTTP*
++
+Silently drops HTTP requests.
 --
 . Specify the read response timeout value.
 +
@@ -74,7 +74,7 @@ More verbose log levels might affect performance.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 include::partial$select-private-space.adoc[tag=clickAdvanced]
-. Configure custom log levels.
+. Configure custom log levels:
 +
 .. Enter the IP address and select the <<ingress-load-balancer-log-levels,log level>> from the drop-down list.
 .. Click *Add IP Address* to enter additional custom log levels.
@@ -95,8 +95,8 @@ The default log level for IP address filtering is `DEBUG`.
 | Level 
 | Description
 
-| All Priorities
-| All messages
+// | All Priorities
+// | All messages
 
 | ERROR (Recommended)
 | Only error messages, such as when an exception occurs
@@ -143,5 +143,6 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 include::partial$select-private-space.adoc[tag=clickAdvanced]
 . Click *Enable AWS Service Role*.
-. Click *Save* +
+. Click *Save Changes*
++
 A unique service role name is generated, and you can use this role configure to configure identity and access management for AWS. Note that role generation might take a few minutes. If the role name does not appear, refresh the page.

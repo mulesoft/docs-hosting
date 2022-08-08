@@ -1,9 +1,8 @@
 = Configuring Domains and Certificates (TLS Context) for a Private Space	
 
+// *This topic is updated to the Design Spec dated 09-Nov-21*
 
-*This topic is updated to the Design Spec dated 09-Nov-21*
-
-*Last update* 22-Jun-22
+*Last update* 08-Aug-22
 
 CloudHub 2.0 uses Transport Layer Security (TLS) contexts to encrypt 
 inbound traffic to the private space.
@@ -72,6 +71,7 @@ CloudHub 2.0 accepts truststore files in PEM formats.
 When you add the TLS context, you can select the ciphers to use with the TLS context.
 
 
+[[before-you-begin]]
 == Before You Begin
 
 . Generate a keystore:
@@ -118,16 +118,16 @@ The TLS context name can contain letters, numbers, spaces, and hyphens.
 --
 PEM format::
 . Select *Upload PEM files*.
-. Choose a public certificate to upload.
+. Click *Choose file* and select a public certificate to upload.
 +
 Uploading the public certificate displays a summary of the certificate.
 +
-* Click the information (*i*) icon to display the keystore details:
+* Click *...* > *View Details* to display the keystore details.
 // +
 // <screenshot> 
-* Click *X* to delete the public certificate.
+* Click *...* > *Delete* to delete the public certificate.
 
-. Choose a private key to upload.
+. Click *Choose file* and select a private key to upload.
 . Enter the key password used to access the private key within the keystore.
 +
 If the private key is unencrypted (plain text), which is not recommended,
@@ -136,11 +136,11 @@ leave the *Key Password* field blank.
 CloudHub 2.0 validates the password against the keystore.
 +
 . If you have a Certificate Authority (CA) path certificate file, 
-click *Choose File* to upload it.
+click *Choose file* to upload it.
 +
 JKS format::
 . Select *Upload JKS file*.
-. Choose a keystore file to upload.
+. Click *Choose file* and select a keystore file to upload.
 . Enter the password used to access the keystore file.
 +
 CloudHub 2.0 validates the password against the keystore.
@@ -148,13 +148,14 @@ CloudHub 2.0 validates the password against the keystore.
 +
 Selecting an alias displays a summary of the alias.
 +
-Click the information (*i*) icon to display the keystore details:
+Click the *i* to display the alias details.
 // +
 // <screenshot>
 . Enter the key password used to access the private key within the keystore.
 +
 CloudHub 2.0 validates the password against the key.
 --
+. Follow the steps in <<before-you-begin>> to configure DNS.
 . *Configure the truststore (optional):*
 +
 If you want to use mutual TLS, configure a truststore.
@@ -165,7 +166,7 @@ Click *Add Certificates* to upload a certificate file (in PEM format).
 When you upload a PEM file, CloudHub 2.0 displays the client certificates from the truststore file.
 +
 ** Click *Add Certificates* to upload additional certificate files.
-** Click the information icon (*i*) to display the details of an individual client certificate. 
+** Click the information icon (*View Details*) to display the details of an individual client certificate.
 ** Click the trash can icon (*Delete*) to delete an individual client certificate.
 ** If more than four certificates are uploaded, click *Show all x Certificates* to expand the link. 
 
@@ -180,7 +181,7 @@ If you choose to customize ciphers, CloudHub 2.0 displays the default (selected)
 ciphers.
 +
 ** Click *X* to remove a cipher from the list.
-** Click *Select a cipher to add* to choose a different cipher from the drop-down list.
+** Click *Select* to choose a different cipher from the drop-down list.
 . Click *Create TLS Context* or *Cancel* to discard changes.
 
 
@@ -189,7 +190,7 @@ ciphers.
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. On the *Domains & TLS* tab, in a custom TLS section, click the TLS context menu (*...*) and select *View Details*:
+. On the *Domains & TLS* tab, in a custom TLS section, click the TLS context menu (*...*) and select *View Details*.
 // +
 // <screenshot>
 
@@ -198,7 +199,7 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. On the *Domains & TLS* tab, in a custom TLS section, click the TLS context menu (*...*) and select *Delete*:
+. On the *Domains & TLS* tab, in a custom TLS section, click the TLS context menu (*...*) and select *Delete*.
 // +
 // <screenshot>
 +
@@ -217,16 +218,14 @@ The *Edit* button appears only if you have CloudHub Network Administrator permis
 +
 --
 PEM format::
-. Click *Upload PEM files*.
-. Click *X* to remove the current public certificate, 
-and then choose a new public certificate to upload.
+. Click *Choose file* to replace the current public certificate with a new public certificate.
 +
 You can't change the private key or password unless you replace
 the public certificate.
 +
 Uploading the public certificate displays a summary of the certificate.
 +
-Click the information (*i*) icon to display the keystore details:
+Click the information icon (*View Details*) to display the keystore details.
 // +
 // <screenshot> 
 . Choose a private key to upload.
@@ -238,14 +237,12 @@ leave the *Key Password* field blank.
 CloudHub 2.0 validates the password against the keystore.
 +
 . If you have a Certificate Authority (CA) path certificate file, 
-click *Choose File* to upload it.
+click *Choose file* to upload it.
 +
 You can remove and add a CA path certificate without replacing the public certificate.
 +
 JKS format::
-. Select *Upload JKS file*.
-. Click *X* to remove the current keystore file, 
-and then choose a new keystore file to upload.
+. Click *Choose file* to replace the current keystore file with a new keystore file.
 . Enter the password used to access the keystore file.
 +
 CloudHub 2.0 validates the password against the keystore.
@@ -255,7 +252,7 @@ You can select a different alias without replacing the keystore file.
 + 
 Selecting an alias displays a summary of the alias.
 +
-Click *View Details* to display the alias details.
+Click the information icon (*View Details*) to display the alias details.
 . Enter the key password used to access the private key within the keystore.
 +
 CloudHub 2.0 validates the password against the key.
@@ -277,7 +274,7 @@ When you upload a PEM file, CloudHub 2.0 displays the client certificates from t
 +
 If you want to customize ciphers, configure advanced options.
 +
-.. Click *Advanced Options* to display the cipher configuration.
+.. Click *Advanced options* to display the cipher configuration.
 .. Select either *Use Default Ciphers* or *Customize Ciphers*.
 +
 If you choose to customize ciphers, CloudHub 2.0 displays the default (selected)
@@ -285,7 +282,7 @@ ciphers.
 +
 ** Click *X* to remove a cipher from the list.
 ** Click *Select a cipher to add* to choose a different cipher.
-. Click *Create TLS Context* or *Cancel* to discard changes.
+. Click *Update TLS Context* or *Cancel* to discard changes.
 
 
 == See Also 

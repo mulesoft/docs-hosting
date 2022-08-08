@@ -1,9 +1,8 @@
 = Creating Transit Gateway Attachments
 
+// *This topic is updated to the TGW Design Specs dated 08-Nov-21*
 
-*This topic is updated to the TGW Design Specs dated 08-Nov-21*
-
-*Last update* 06-May-22
+*Last update* 08-Aug-22
 
 Multiple private spaces can connect to an internal VPC.
 You can reuse the transit gateway attachment by connecting another private space to it and accepting the attachment. 
@@ -29,7 +28,10 @@ To connect to a transit gateway:
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, *Create Connection*.
-. On the *Create Connection* page, select *Transit Gateway* and enter the xref:ps-gather-setup-info.adoc#transit-gateway-name[name] in the *Connection Name* field.
+. On the *Create Connection* page, select *Transit Gateway*.
++
+If CloudHub 2.0 finds any existing transit gateways in the organization,
+you can select a transit gateway or click *Add a new transit gateway* and then enter the xref:ps-gather-setup-info.adoc#transit-gateway-name[name] in the *Connection Name* field.
 +
 Use the same name for your transit gateway in AWS.
 You can change this name later.
@@ -38,11 +40,12 @@ You can change this name later.
 include::partial$create-config.adoc[tag=connectionNameReqs]
 . Click *Next*.
 
-The *Add Transit Gateway* page lists the steps to create a resource share in AWS:
+Depending on whether you selected an existing transit gateway or are 
+adding a new one, the *Add Transit Gateway* page lists the steps to create a resource share in AWS:
 
 . <<configure-tgw-routes,Configure routes>>.
-. <<create-resource-share,Create a resource share>>.
-. <<verify-resource-share,Verify the resource share>>.
+. <<create-resource-share,Create a resource share>>. (new gateway only)
+. <<verify-resource-share,Verify the resource share>>. (new gateway only)
 . <<accept-tgw-attachment,Accept the attachment>>.
 
 [[configure-tgw-routes]]
@@ -75,7 +78,7 @@ The link opens the AWS RAM console to the page for creating a resource share in 
 +
 The transit gateway ID appears in the *Selected resources* field.
 .. Under *Principals - _optional_*, ensure that *Allow external accounts* is selected, 
-enter the MuleSoft AWS account ID that appears on the *Add Transit Gateway* page, and click *Add*.
+enter the MuleSoft AWS account ID that appears on the *Add Transit Gateway* page in Anypoint Platform, and click *Add*.
 +
 The AWS account number appears in the *Selected principals* field.
 .. Under *Tags*, add a tag if you want.

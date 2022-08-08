@@ -1,6 +1,6 @@
 = Configuring Firewall Rules to Manage Traffic to a Private Space
 
-*This topic is updated to the Design Spec dated 09-Nov-21 and discussions*
+// *This topic is updated to the Design Spec dated 09-Nov-21 and discussions*
 
 *Last update* 08-Mar-22
 
@@ -9,14 +9,14 @@ By default, all traffic to your private space is blocked unless it is explicitly
 Creating a private space automatically creates these firewall rules:
 
 * Two rules to allow inbound connections from any host:
-** HTTP: port 80
 ** HTTPS: port 443
+** HTTP: port 80
 
 * Two rules to allow outbound connections from within your private space to any host:
-** HTTP: All ports
-** HTTPS: All ports
-+
-You can't delete this rule.
+** TCP: All ports
+** HTTPS: 443
+// +
+// You can't delete this rule.
 
 // Configure Anypoint Security for Edge Policies	
 // Specify IP Addresses to Allow	
@@ -41,7 +41,7 @@ Source::
 Source IP address:
 
 * *Anywhere (0.0.0.0/0)*
-* *Local Network (10.0.0.0/24)*
+* *Local private network*
 +
 This option is available only if a private network exists in the private space. 
 * *Custom CIDR*
@@ -56,28 +56,28 @@ Enter a custom CIDR in the field.
 Protocol::
 Protocol type:
 +
-* *HTTP*
-* *HTTPS*
+* *All*
 * *TCP*
 * *UTP*
-* *ICMP*
+* *HTTP*
+* *HTTPS*
 
 Destination::
 Destination IP address:
 
 * *Anywhere (0.0.0.0/0)*
-* *Local Network (10.0.0.0/24)*
+* *Local private network*
 +
 This option is available only if a private network exists in the private space. 
 * *Custom CIDR*
 +
 Enter a custom CIDR in the field.
 --
-. Click *Add Rule* to add more rules.
+. Click *Add rule* to add more rules.
 . To remove a firewall rule, click the trash can icon (*Delete*) for the entry.
 // +
 // <screenshot>
 // +
 // image::fw-rule-delete.png[Delete icon on the Firewall rules tab]
 
-. Click *Save Changes* or *Discard Changes*.
+. Click *Save Changes* or *Discard changes*.
