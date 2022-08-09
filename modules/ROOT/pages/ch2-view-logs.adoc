@@ -1,6 +1,6 @@
 = Viewing Log Data for Deployed Apps
 
-*Last update* 08-Aug-22
+*Last update* 09-Aug-22
 
 ////
 FC: replica, levels, time filters
@@ -15,7 +15,7 @@ See xref:monitoring::index.adoc[].
 CloudHub 2.0 stores up to 200 MB of log data per config, or up to 30 days, whichever limit is reached first.
 // We’re considering an additional limit for how many configs/deployments we keep track of.
 
-
+Logs are stored in the same geolocation to which the corresponding cluster is deployed.
 
 [NOTE]
 CloudHub 2.0 stores log data in Universal Time (UTC); however, the console displays the log using your computer's local time zone.
