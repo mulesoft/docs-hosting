@@ -43,6 +43,7 @@ This table compares the features and support for CloudHub 2.0, CloudHub 1.0, and
 | *Load balancer logs* | Supported
 
 (download) | Not supported | Supported
+| *Ingress logs* | Supported | Not supported | Not supported
 4+h|
 4+h|Network
 | *Deployment regions* | 12 geographical regions | 12 geographical regions | Supported 
