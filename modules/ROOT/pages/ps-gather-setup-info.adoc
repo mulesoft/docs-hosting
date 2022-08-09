@@ -1,6 +1,8 @@
 = Gathering Required Setup Information
 
-*Last update* 08-Aug-22
+:page-aliases: network-admin-guide.adoc
+
+*Last update* 09-Aug-22
 
 Use the following sections to gather the information you'll need to set up your private space.
 For information about private spaces, see xref:ch2-private-space-about.adoc[].
