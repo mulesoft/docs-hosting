@@ -59,8 +59,7 @@ include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSettings]
 include::partial$select-private-space.adoc[tag=clickPropsOnSettings]
 . Click *Table view*.
-. In the table view, click the icon next to the protected value that you want to replace. 
-. Click the menu icon next to the value and then click *Replace protected value*:
+. Click  *...* > *Replace protected value*:
 +
 image::rtm-replace-hidden-props.png[Replace protected value option]
 . Enter a new value in the field.
