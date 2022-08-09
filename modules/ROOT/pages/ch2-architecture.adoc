@@ -1,6 +1,6 @@
 = CloudHub 2.0 Architecture
 
-*Last update* 18-Jul-22
+*Last update* 09-Aug-22
 
 To understand CloudHub 2.0 security and availability, you should understand the architecture behind CloudHub 2.0.
 
@@ -71,19 +71,19 @@ Replica sizes have different compute, memory, and storage capacities.
 
 You can scale replicas vertically by selecting one of the available vCore sizes:
 
-[%header,cols="4*a"]
+[%header,cols="5*a"]
 |===
-|vCore Size |vCPU | Heap Memory | Storage
-|0.1        |0.1  |800 MB       | 8 GB
-|0.2        |0.2  |1 GB         | 8 GB
-|0.5        |0.5  |1.25 GB      | 10 GB
-|1.0        |1    |1.5 GB       | 12 GB
-|1.5        |1.5  |2 GB         | 24 GB
-|2.0        |2    |3.5 GB       | 40 GB
-|2.5        |2.5  |4 GB         | 50 GB
-|3.0        |3    |4.5 GB       | 60 GB
-|3.5        |3.5  |5 GB         | 70 GB
-|4.0        |4    |7.5 GB       | 88 GB
+|vCore Size |vCPU | Heap Memory | Total Memory | Storage
+|0.1        |0.1  |500 MB       |1 GB          | 8 GB
+|0.2        |0.2  |1 GB         |2 GB          | 8 GB
+|0.5        |0.5  |1.3 GB       |2.6 GB        | 10 GB
+|1.0        |1    |2 GB         |4 GB          | 12 GB
+|1.5        |1.5  |3 GB         |6 GB          | 24 GB
+|2.0        |2    |4 GB         |8 GB          | 40 GB
+|2.5        |2.5  |4.75 GB      |9.5 GB        | 50 GB
+|3.0        |3    |5.5 GB       |11 GB         | 60 GB
+|3.5        |3.5  |6.5 GB       |13 GB         | 70 GB
+|4.0        |4    |7.5 GB       |15 GB.        | 88 GB
 |===
 
 Replicas with fewer than 1.0 vCores:
@@ -91,19 +91,20 @@ Replicas with fewer than 1.0 vCores:
 * Provide limited CPU and I/O for apps with smaller workloads
 * Can burst to higher CPU speeds for a short time
 +
-This ability helps to improve application startup times and to process infrequent, large workloads.
-If you need consistent performance, use replicas with more vCores.
+This ability helps to improve application startup times and to process infrequent, large workloads. Note that application bursting depends on resource availability for nodes and is not guaranteed to occur. If you need consistent performance, use replicas with more vCores. 
 
 Replicas with 1 or more vCores provide performance consistency.
 
 Each replica has a minimum of 8 GB of storage, which is used for both system and application storage.
 If your application requires more storage (for example, verbose logging), use a replica with two or more vCores, enabling the application to access additional storage in `/tmp`.
 
-Only running applications count toward replica usage.
+All applications, including stopped applications, count toward replica usage. To prevent stopped applications from consuming resources, delete the application.
 
 If your applications require more vCores than are available,
 CloudHub 2.0 allows you to create the application, but you cannot start it until the additional vCores become available.
-To increase vCore allocation, stop another application or contact your account manager to increase your subscription's vCore allocation.
+To increase vCore allocation, delete an application or contact your account manager to increase your subscription's vCore allocation. 
+
+NOTE: Applications that are stopped still consume vCores as if they were running.
 
 The metaspace limit for apps deployed to CloudHub 2.0 is currently 256 MB,
 regardless of the replica size.
