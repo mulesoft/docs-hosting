@@ -1,6 +1,6 @@
 = Changing App Behavior with Properties
 
-*Last update* 20-Jul-22
+*Last update* 09-Aug-22
 
 You can change the behavior of the app while it's running using _properties_.
 
@@ -37,7 +37,7 @@ include::partial$select-private-space.adoc[tag=clickPropsOnSettings]
 // image::ch2-app-props.png[*Properties* tab, key and value fields, and *X* icon on the application *Settings* page]
 . Click *Table view*.
 +
-Alternatively, you can click *Text view* and enter the key-value pair in the text field in this format: `key=value`.
+Alternatively, you can click *Text view* and enter the key-value pair in the text field in this format: `New Key=New Value`.
 . In the *New Key* field, enter the property name. 
 . In the *New Value* field, enter the property value.
 +
@@ -48,14 +48,16 @@ To work around this limitation, use Chrome in incognito mode or use another brow
 --
 If you want to:
 
-** Hide the value in Runtime Manager, click *Protect* and then click *Protect value* to confirm.
+** Hide the value in Runtime Manager, in *Table view*, click *Protect* and then click *Protect value* to confirm.
 +
 See xref:ch2-protect-app-props.adoc[].
 ** Change a key or value, edit the text in the field.
 ** Delete a property, click *...* > *Delete property*.
 --
 . Click *Apply Changes*.
-. Select *Restart* from the menu in the top right to restart the application.
++
+Applying changes creates a new configuration and restarts the replicas. 
+For information, see xref:ch2-update-apps.adoc[].
 
 
 === Example: Using Properties to Set Environment Variables 
@@ -72,18 +74,17 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSettings]
 include::partial$select-private-space.adoc[tag=clickPropsOnSettings]
-. Define the variable by entering it in the *Text view*, in `key=value` format:
+. Define the variable by entering it in the *Text view*, in `key=value` format.
 // +
 // <screenshot>
 // +
 // image::rtm-env-variables.png[*Properties* tab on the *Settings* page]
 +
 [NOTE]
-In the *Text* view, use the backslash character (`\`) as an escape character.
+In the *Text view*, use the backslash character (`\`) as an escape character.
 For example, to use `:` in a key or value, use `\:` in the syntax.
 To use `\` in a key or value, use `\\` in the syntax.
-*List* view syntax requires no escape character.
-
+*Table view* syntax requires no escape character.
 . Use the environment variable in your Mule app configuration.
 
 == Add Application Properties Using a Properties File

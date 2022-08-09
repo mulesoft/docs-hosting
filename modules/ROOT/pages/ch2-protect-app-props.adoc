@@ -44,9 +44,7 @@ On the *Properties* tab, the values for properties that you just protected are n
 
 In the following example, the values for `birthdate` and `password` are protected, but the value for `username` is not:
 
-<screenshot>
-
-// image::rtm-hidden-props.png[Protected values on the Properties tab on the application Settings page]
+image::rtm-hidden-props.png[Protected values on the Properties tab on the application Settings page]
 
 After you commit the values and deploy the app, the protected property values
 don't appear in the console and aren't sent and received between the console and CloudHub.
@@ -62,13 +60,11 @@ include::partial$select-private-space.adoc[tag=clickSettings]
 include::partial$select-private-space.adoc[tag=clickPropsOnSettings]
 . Click *Table view*.
 . In the table view, click the icon next to the protected value that you want to replace. 
-. Click the menu icon next to the value and then click *Replace protected value*.
-. Enter a new value in the field:
-// +
-// <screenshot>
-. Click *Apply*. 
-. Click *Apply Changes*. 
-
+. Click the menu icon next to the value and then click *Replace protected value*:
++
+image::rtm-replace-hidden-props.png[Replace protected value option]
+. Enter a new value in the field.
+. Click *Apply*, then *Apply Changes*. 
 
 == See Also
 

@@ -13,7 +13,6 @@
 ** xref:ps-create-configure.adoc[Creating Private Spaces]
 ** xref:ps-create-configure-vpn.adoc[]
 ** xref:ps-create-configure-tgw.adoc[]
-// *** xref:network-admin-guide.adoc[]
 ** xref:ps-configure.adoc[]
 *** xref:ps-config-domains.adoc[Configuring Domains and Certificates for a Private Space]
 *** xref:ps-config-fw-rules.adoc[]
