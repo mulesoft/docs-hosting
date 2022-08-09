@@ -1,5 +1,4 @@
 = Gathering Required Setup Information
-
 :page-aliases: network-admin-guide.adoc
 
 *Last update* 09-Aug-22
