@@ -2,8 +2,6 @@
 
 Based on https://docs.mulesoft.com/runtime-fabric/1.12/app-versioning[Reviewing Application Versioning on Runtime Fabric^]. 
 
-*PLEASE REVIEW FOR ACCURACY IN CH2*
-
 *Last update* 18-Jul-22
 
 
@@ -19,7 +17,9 @@ Possible values are:
 +
 Running:: At least one replica is receiving traffic (Started state).
 Not running:: None of the replicas are receiving traffic.
-Unknown:: The target is disconnected.
+Unknown:: The target is disconnected. + 
+When this value appears, there is a MuleSoft-related outage or incident.
+
 * Make updates to a deployed application’s configuration, including:
 +
 ** Application file
