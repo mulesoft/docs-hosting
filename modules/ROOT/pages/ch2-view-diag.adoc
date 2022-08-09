@@ -1,12 +1,12 @@
 = Viewing Diagnostic Data for Deployed Apps
 
-*Last update* 20-Jul-22
+*Last update* 08-Aug-22
 
 You can run a thread dump, which is a snapshot of all the threads in a replica.
 The thread dump indicates the current state of the server,
 which is helpful for debugging and support.
 
-CloudHub 2.0 retains thread dumps for 30 days or up to 150 MB.
+CloudHub 2.0 retains thread dumps for 30 days or up to 100 MB.
 
 == Run a Thread Dump
 
@@ -37,11 +37,11 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 . In the navigation menu, click *Diagnostics*.
 +
-The page displays any past thread dumps:
+The page displays any past thread dumps.
 // +
 // <screenshot>
 +
-* To view logs for a deployment and replica associated with the thread dump, click the *View Logs* link in the *Replica* column:
+* To view logs for a deployment and replica associated with the thread dump, click the *View Logs* link in the *Replica* column.
 // +
 // <screenshot>
 * To download a thread dump, click the *Download* button.

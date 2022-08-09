@@ -1,6 +1,6 @@
 = Viewing Log Data for Deployed Apps
 
-*Last update* 20-Jul-22
+*Last update* 08-Aug-22
 
 ////
 FC: replica, levels, time filters
@@ -43,12 +43,11 @@ Logs from before the last updated time appear in a drop-down containing previous
 
 Each message includes the severity, time (relative and absolute), and replica name.
 
-* To open the currently selected deployment in Anypoint Monitoring, click *View in Monitoring*.
-* To view logs for a different config, click the *Config* drop-down list and select the config.
-
+// * To open the currently selected deployment in Anypoint Monitoring, click *View in Monitoring*.
+To view logs for a different config, click the *Config* drop-down list and select the config.
 The config label indicates the relative time of deployment, such as 10 hours ago.
 
-<screenshot>
+// <screenshot>
 // +
 // image::ch2-logs-deploy.png[Filter log output by deployment]
 -- 
@@ -64,7 +63,6 @@ include::partial$select-private-space.adoc[tag=clickLogs]
 +
 The results display includes the currently selected config, replica,
 and log levels.
-+
 
 
 == Filter Logs
@@ -78,7 +76,7 @@ include::partial$select-private-space.adoc[tag=clickLogs]
 +
 ** Filter logs by config ID
 +
-Click the *Config* drop-down menu and select the config to view:
+Click the *Config* drop-down menu and select the config to view.
 // +
 // <screenshot>
 // +
@@ -100,7 +98,7 @@ Click *Time Range*, select the date range, and optionally time, and click *Apply
 // +
 // <screenshot>
 +
-The *Time Range* button label changes to show the selected date and time range.
+The *Time range* button label changes to show the selected date and time range.
 
 ** *Filter logs by log level*
 +
@@ -127,7 +125,7 @@ To download logs based on the current filters:
 include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickLogs]
-. Click the download (<icon>) button.
+. Click the download button.
 // +
 // <screenshot>
 // image::ch2-logs-download.png[Download log output]
@@ -149,7 +147,8 @@ For example, the log records an entry when a Mule service or app starts, deploys
 +
 // image::ch2-logs-mule-download.png[Download Mule log output in the Deployments section]
 
-CloudHub downloads the Mule log output to a text file in the format `__appName__-instance-__instanceID__-__workerNumber__-mule_ee.log`.
+CloudHub downloads the Mule log output to a text file.
+// `__appName__-instance-__instanceID__-__workerNumber__-mule_ee.log`.
 Use a text editor to view the log file.
 
 For more information about Mule logs, see xref:mule-runtime::logging-in-mule.adoc#runtime-log[Runtime Log].
