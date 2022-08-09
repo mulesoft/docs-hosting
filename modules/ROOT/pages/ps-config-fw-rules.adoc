@@ -2,7 +2,7 @@
 
 // *This topic is updated to the Design Spec dated 09-Nov-21 and discussions*
 
-*Last update* 08-Mar-22
+*Last update* 09-Aug-22
 
 By default, all traffic to your private space is blocked unless it is explicitly allowed in a firewall rule.
 
@@ -81,3 +81,4 @@ Enter a custom CIDR in the field.
 // image::fw-rule-delete.png[Delete icon on the Firewall rules tab]
 
 . Click *Save Changes* or *Discard changes*.
+. Restart your application.
