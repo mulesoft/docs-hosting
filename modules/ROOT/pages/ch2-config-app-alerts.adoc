@@ -1,6 +1,6 @@
 = Configuring Application Alerts
 
-*Last update* 11-Mar-22
+*Last update* 09-Aug-22
 
 _Alerts_ indicate whether an app is behaving as expected. You can create alerts in Runtime Manager for applications deployed to CloudHub 2.0.
 See xref:runtime-manager::alerts-on-runtime-manager.adoc[].
@@ -64,11 +64,7 @@ For information about using variables in alerts, see xref:runtime-manager::alert
 ////
 == See Also
 
-* xref:cloudhub-connector::index.adoc[]
-* https://www.mulesoft.com/exchange/com.mulesoft.connectors/mule-cloudhub-connector/[CloudHub Connector^] on Exchange
-xref:connectors::introduction/intro-config-use-studio.adoc#install[Add the Connector to Your Mule Project]
 * xref:mule-runtime::intro-error-handlers.adoc[] 
 * xref:alerts-on-runtime-manager.adoc[]
-* xref:cloudhub-connector::index.adoc#create-the-cloudhub-configuration[Create the CloudHub Configuration]
 * xref:deploying-to-cloudhub.adoc[]
 ////
