@@ -31,10 +31,8 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSettings]
 include::partial$select-private-space.adoc[tag=clickPropsOnSettings]
-// +
-// <screenshot>
-// +
-// image::ch2-app-props.png[*Properties* tab, key and value fields, and *X* icon on the application *Settings* page]
++
+image::ch2-props-rtm.png[Properties with New Key and New Value fields on the application Settings page]
 . Click *Table view*.
 +
 Alternatively, you can click *Text view* and enter the key-value pair in the text field in this format: `New Key=New Value`.

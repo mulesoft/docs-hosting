@@ -62,19 +62,15 @@ include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSchedules]
 +
 Runtime Manager lists the Scheduler elements in the order they appear in your app:
-// +
-// <screenshot>
-// +
-// image::ch2-scheduler-rtm.png[The screenshot shows (1) the Schedulers option and (2) the checkbox on the Schedulers page.]
-// The screenshot shows (1) the checkbox, (2) the Disable button, and (3) the schedule in the details pane.
-// +
 +
-** The *Name* column shows the name of the flow that contains the Scheduler element.
-** The frequency link in the *Schedule* column shows the schedule for the element.
+image::ch2-scheduler-rtm.png[(1) Flow name and (2) the frequency link on the Schedulers page.]
++
+** The *Name* column shows the name of the flow (1) that contains the Scheduler element.
+** The frequency link (2) in the *Schedule* column shows the schedule for the element.
 . If you want to see more information about when the jobs started and ended,
-click *Logs* in the left navigation menu.
-// +
-// <screenshot>
+click *Logs* in the navigation menu:
++
+image::ch2-logs-rtm.png[Logs option in the navigation menu.]
 . Click the frequency link for an element to open the schedule editor.
 +
 The schedule editor you see depends on the schedule type:
@@ -92,16 +88,13 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSchedules]
 +
-The *Schedule* column shows the schedule for the element.
-// +
-// <screenshot>
-// image::ch2-scheduler-rtm.png[Schedules page showing a fixed frequency schedule type]
+The *Schedule* column shows the schedule for the element:
++
+image::ch2-scheduler-fixed-rtm.png[Fixed frequency schedule type]
 . Click the frequency link for an element to open the schedule editor.
-. In the schedule editor, change the schedule or deselect *Enabled* to disable the schedule.
-// +
-// <screenshot>
-// +
-// image::ch2-scheduler-frequency.png[The arrow shows the fixed-frequency schedule configuration.]
+. In the schedule editor, change the schedule or deselect *Enabled* to disable the schedule:
++
+image::ch2-scheduler-editor-fixed.png[Fixed-frequency schedule configuration]
 +
 You can specify milliseconds, seconds, minutes, hours, or days for the frequency.
 The minimum recommended frequency between calls is 10 seconds.
@@ -121,22 +114,14 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSchedules]
 +
-The *Schedule* column shows the schedule for the element.
-// +
-// <screenshot>
-// +
-// image::ch2-scheduler-rtm.png[The arrow shows Schedule column.]
+The *Schedule* column shows the schedule for the element:
++
+image::ch2-scheduler-cron-rtm.png[cron schedule type]
 . Click the frequency link for an element to open the schedule editor.
-. In the schedule editor, change the schedule or deselect *Enabled* to disable the schedule.
-// +
-// <screenshot>
-// +
-// image::ch2-scheduler-cron.png[The arrow shows the cron schedule configuration.]
-. In the schedule editor, click *Quick Reference* to expand or collapse the table that lists required fields and allowed values.
-// +
-// <screenshot>
-// +
-// image::ch2-scheduler-cron.png[Quick Reference toggle on the cron schedule editor]
+. In the schedule editor, change the schedule or deselect *Enabled* (1) to disable the schedule:
++
+image::ch2-scheduler-editor-cron.png[cron schedule configuration with (1) Enabled option and (2)  Quick Reference link]
+. In the schedule editor, click *Quick Reference* (2) to expand or collapse the table that lists required fields and allowed values.
 +
 The cron expression in this example sets the schedule to every 10 seconds.
 +
@@ -184,10 +169,8 @@ include::partial$select-private-space.adoc[tag=clickSchedules]
 +
 You can also disable or enable the schedule by deselecting or 
 selecting *Enabled* in the schedule editor.
-// +
-// <screenshot>
-// +
-// image::ch2-scheduler-enable.png[Enabled toggle in the schedule editor]
++
+image::ch2-scheduler-enable.png[Enabled toggle in the schedule editor]
 
 
 == See Also
