@@ -43,6 +43,7 @@ Displays a history of versions created from the configuration deployment and the
 . Depending on the deployment target (shared or private space), change the deployed configuration:
 +
 ** Specify runtime options, such as uploading a new application file or changing the deployment target and resource allocation.
+** View the app's current version.
 ** Change the public endpoint for the app.
 ** Change app behavior with properties.
 ** Disable or enable app logs and specify log levels.
