@@ -5,8 +5,7 @@ Use the following sections to gather the information you'll need to set up your 
 For information about private spaces, see xref:ch2-private-space-about.adoc[].
 
 You might need to collaborate with your network administrator if you don't have access to this information.
-In this case, share this setup checklist with them and provide an estimate of the number of apps you expect to deploy
-to the private space for <<CIDR Block,CIDR block>> configuration.
+In this case, share this setup checklist with them.
 
 [[setup-info-private-space]]
 == Information Required to Set Up a Private Space

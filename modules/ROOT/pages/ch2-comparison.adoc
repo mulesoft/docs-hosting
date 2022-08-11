@@ -10,5 +10,5 @@ CloudHub 2.0 improvements make it easier to learn, develop, and manage than Clou
 * Outbound firewall rule configuration
 * Dedicated load balancer and ingress self-service logs
 
-For a complete list of CloudHub 2.0 features, see xref:ch2-features.adoc[CloudHub 2.0 features].
+For a complete list of CloudHub 2.0 features, see xref:ch2-features.adoc[].
 

@@ -40,7 +40,7 @@ regardless of the number of connections.
 == TLS Contexts
 
 Using Transport Layer Security (TLS) contexts, CloudHub 2.0 enables clients to 
-use custom domains and paths to reach apps deployed to private spaces.
+use custom domains to reach apps deployed to private spaces.
 
 When setting up a private space, you configure Transport Layer Security (TLS) contexts 
 that define the domains that are available when deploying apps to the private spaces, 

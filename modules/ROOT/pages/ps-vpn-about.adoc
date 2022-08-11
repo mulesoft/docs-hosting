@@ -130,7 +130,6 @@ To configure a redundant VPN connection, you must:
 * Have two VPN endpoints available in your network that use different public IP addresses.
 +
 Each gateway device supports a single VPN. 
-
 * Create two VPN connections in your private space.
 
 === Configure High Availability with Anypoint VPN
