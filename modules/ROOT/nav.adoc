@@ -1,5 +1,6 @@
 .xref:index.adoc[CloudHub 2.0]
 * xref:ch2-features.adoc[Features of CloudHub 2.0]
+** xref:ch2-comparison.adoc[CloudHub 2.0 for CloudHub 1.0 Users]
 ** xref:ch2-shared-space-about.adoc[Shared Spaces]
 ** xref:ch2-private-space-about.adoc[Private Spaces]
 *** xref:ps-vpn-about.adoc[Anypoint VPN]
