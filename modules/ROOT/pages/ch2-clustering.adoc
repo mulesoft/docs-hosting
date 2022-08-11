@@ -19,6 +19,7 @@ Unlike in CloudHub 1.0, you do not need to configure your apps to use Object Sto
 
 Clustering requires:
 
+* A Platinum or Titanium subscription to Anypoint Platform.
 * A CloudHub Enterprise or Partner account type that enables you to use this feature.
 * Familiarity with deploying applications using Runtime Manager.
 
