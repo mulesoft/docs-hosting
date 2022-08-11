@@ -1,5 +1,4 @@
-= CloudHub 2.0
-
+= CloudHub 2.0 Overview
 
 CloudHub 2.0 is a fully managed, containerized integration platform as a service (iPaaS),
 built on Anypoint Runtime Fabric, where you can deploy APIs and integrations.
