@@ -1,7 +1,5 @@
 = Configuring Domains and Certificates (TLS Context) for a Private Space	
 
-*Last update* 08-Aug-22
-
 CloudHub 2.0 uses Transport Layer Security (TLS) contexts to encrypt 
 inbound traffic to the private space.
 
@@ -285,7 +283,6 @@ ciphers.
 
 == See Also 
 
-// * xref:ps-config-log-forwarding.adoc[]
 * xref:ch2-deploy-private-space.adoc[]
 * xref:ch2-config-endpoints-paths.adoc[]
 * xref:mule-runtime::tls-configuration.adoc[]

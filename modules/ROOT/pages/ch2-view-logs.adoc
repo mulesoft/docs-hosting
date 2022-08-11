@@ -1,12 +1,5 @@
 = Viewing Log Data for Deployed Apps
 
-*Last update* 09-Aug-22
-
-////
-FC: replica, levels, time filters
-GA: thread dumps: trigger, view, prev/next message nav, config menu sort
-////
-
 CloudHub 2.0 provides access to log data that includes deployment messages and events for each replica and Mule runtime engine logs.
 
 For more advanced searching and log management, you can use Anypoint Monitoring (requires Titanium subscription).
@@ -43,7 +36,6 @@ Logs from before the last updated time appear in a drop-down containing previous
 
 Each message includes the severity, time (relative and absolute), and replica name.
 
-// * To open the currently selected deployment in Anypoint Monitoring, click *View in Monitoring*.
 To view logs for a different config, click the *Config* drop-down list and select the config.
 The config label indicates the relative time of deployment, such as 10 hours ago.
 
@@ -117,7 +109,6 @@ Some log levels might not be available depending on the dynamic log level settin
 +
 The *Log Levels* button label changes to show the selected number of log levels.
 
-
 == Download Logs
 
 To download logs based on the current filters:
@@ -131,40 +122,6 @@ include::partial$select-private-space.adoc[tag=clickLogs]
 // image::ch2-logs-download.png[Download log output]
 
 CloudHub 2.0 downloads the log output, using the current filters, using a hexadecimal naming convention and the `log` format, for example: `c6c671_462ccf_2022-07-21T20-08-32X.log`. Use a text editor to view the log file.
-
-//// 
-
-== Download Mule Logs
-
-Mule logs display the logs of the Mule runtime engine for CloudHub 2.0.
-The Mule log contains information about app and lifecycle events.
-For example, the log records an entry when a Mule service or app starts, deploys, stops, or undeploys.
-
- . In the *Deployments* section, select the date and worker for which you want to download Mule logs.
- . Click the download icon for the worker and select *Mule Logs*:
-// +
-// <screenshot>
-+
-// image::ch2-logs-mule-download.png[Download Mule log output in the Deployments section]
-
-CloudHub downloads the Mule log output to a text file.
-// `__appName__-instance-__instanceID__-__workerNumber__-mule_ee.log`.
-Use a text editor to view the log file.
-
-For more information about Mule logs, see xref:mule-runtime::logging-in-mule.adoc#runtime-log[Runtime Log].
-
-
-
-=== Wildcard Searching
-
-You can filter log data by entering search terms into the search box at the top of the log page that match results in the log message.
-
-You can also search for an exact term in the log message with a few common quantifiers for wildcard searching:
-
-* `?` matches zero or one of the preceding elements.
-* `&#8727;` matches zero or more of the preceding elements.
-
-//// 
 
 
 == See Also

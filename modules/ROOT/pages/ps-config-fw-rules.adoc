@@ -1,9 +1,5 @@
 = Configuring Firewall Rules to Manage Traffic to a Private Space
 
-// *This topic is updated to the Design Spec dated 09-Nov-21 and discussions*
-
-*Last update* 10-Aug-22
-
 By default, all traffic to your private space is blocked unless it is explicitly allowed in a firewall rule.
 
 Creating a private space automatically creates these firewall rules:
@@ -15,13 +11,7 @@ Creating a private space automatically creates these firewall rules:
 * Two rules to allow outbound connections from within your private space to any host:
 ** TCP: All ports
 ** HTTPS: 443
-// +
-// You can't delete this rule.
 
-// Configure Anypoint Security for Edge Policies	
-// Specify IP Addresses to Allow	
-// Control Inbound Traffic with Firewall Rules	
-// Apply Edge Security Policies to the Private Space	
 
 == Configure Firewall Rules
 

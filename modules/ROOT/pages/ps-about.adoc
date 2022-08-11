@@ -1,10 +1,6 @@
 = Private Spaces
 
 
-// (*Learn more* link from *Private Spaces* page)
-
-*Last update* 01-Mar-22
-
 A _private space_ is a virtual, private, and isolated area in CloudHub 2.0 in which to run your apps.
 You can create multiple private spaces, either in the same or different regions.
 
@@ -18,8 +14,6 @@ In each private space, you define:
 * Firewall rules to allow and block inbound and outbound traffic to your private space.
 * The environments and business groups to allow to deploy to the private space.
 * Where to forward logs, either Anypoint Monitoring or an external service such as Splunk.
-
-// Utilize Anypoint Security Edge policies
 
 
 == Private Network
@@ -71,8 +65,6 @@ The private space provides load balancing to balance inbound traffic to apps acr
 
 By combining firewall rules and TLS context configuration, you can fine-tune how external services reach your applications.
 
-
-
 == See Also
 
 * xref:ps-create-configure.adoc[]
@@ -82,5 +74,4 @@ By combining firewall rules and TLS context configuration, you can fine-tune how
 * xref:ps-config-domains.adoc[]
 * xref:ps-config-fw-rules.adoc[]
 * xref:ps-config-env.adoc[]
-// * xref:ps-config-log-forwarding.adoc[]
 * xref:ch2-config-endpoints-paths.adoc[]

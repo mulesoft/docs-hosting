@@ -1,7 +1,5 @@
 = Clustering
 
-*Last Update* 25-Jul-22
-
 Clustering provides scalability, workload distribution, and added reliability to your applications on CloudHub 2.0.
 This functionality is powered by CloudHub's scalable load-balancing service and replica scale-out.
 

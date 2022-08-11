@@ -1,9 +1,5 @@
 = Integrating with Your Logging System Using Log4j
 
-// Updated with information from Andrew.
-
-*Last update* 27-Apr-22
-
 You can integrate your CloudHub 2.0 application with your logging system using the Log4j configuration.
 
 == Requirements and Restrictions

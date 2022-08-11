@@ -1,9 +1,5 @@
 = Creating Private Spaces
 
-// *This topic is updated to the Private Space (03-Nov) and Private Network (08-Nov) Design Specs*
-
-*Last update* 08-Aug-22
-
 To extend your network to Anypoint Platform, create a _private space_, 
 a virtual, private, and isolated network hosted in CloudHub 2.0,
 to deploy your apps to.

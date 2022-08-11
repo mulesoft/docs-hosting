@@ -1,7 +1,5 @@
 = CloudHub 2.0 Architecture
 
-*Last update* 09-Aug-22
-
 To understand CloudHub 2.0 security and availability, you should understand the architecture behind CloudHub 2.0.
 
 CloudHub 2.0 architecture comprises two major components: Anypoint Platform services and shared global regions.
@@ -46,7 +44,6 @@ For information, see xref:access-management::index.adoc[].
 Platform services are responsible for coordinating all aspects of the platform.
 They coordinate deployment of applications, monitor integrations, provide analytics data, store application data, run scheduled jobs, and more.
 Many of these services are also exposed through the CloudHub 2.0 REST API.
-// xref:ch2-api.adoc[].
 
 [[cloudhub-2-replicas]]
 == CloudHub 2.0 Replicas
@@ -217,7 +214,6 @@ CloudHub 2.0 monitors the replicas for problems and provides a self-healing mech
 If the underlying hardware experiences a failure, the platform migrates your application to a new replica automatically.
 In the case of an application crash, whether due to a problem with custom code or a bug in the underlying stack, the platform recognizes the crash and can redeploy the replica automatically.
 
-// For more information, see xref:ch2-app-monitoring.adoc[].
 
 === Zero-Downtime Updates
 

@@ -1,8 +1,5 @@
 = Updating Apps Deployed to CloudHub 2.0
 
-
-*Last update* 09-Aug-22
-
 When deploying an application to CloudHub 2.0, Runtime Manager automatically versions and creates a new _configuration_.
 
 Application configurations enable you to:

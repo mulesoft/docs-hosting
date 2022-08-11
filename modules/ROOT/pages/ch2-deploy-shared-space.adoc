@@ -1,11 +1,5 @@
 = Deploying Apps to Shared Spaces
 
-// *This topic is updated to the Domains & TLS UX Project Brief dated 25-Mar-22*
-
-*Last update* 08-Aug-22
-
-// How can we share this content with RTF?
-
 You deploy apps to a shared space using Runtime Manager.
 
 [IMPORTANT]
@@ -64,6 +58,6 @@ include::partial$deployment.adoc[tag=configureLogging,leveloffset=+1]
 == See Also
 
 * xref:ch2-download-test-app.adoc[]
-* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] 
+* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] on Exchange
 * xref:ch2-integrate-log-system.adoc[]
 

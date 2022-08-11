@@ -1,7 +1,5 @@
 = Changing App Behavior with Properties
 
-*Last update* 09-Aug-22
-
 You can change the behavior of the app while it's running using _properties_.
 
 Application properties are variables that act as placeholders in your Mule application and are set at runtime.

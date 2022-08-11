@@ -1,15 +1,12 @@
 = Gathering Required Setup Information
 :page-aliases: network-admin-guide.adoc
 
-*Last update* 09-Aug-22
-
 Use the following sections to gather the information you'll need to set up your private space.
 For information about private spaces, see xref:ch2-private-space-about.adoc[].
 
 You might need to collaborate with your network administrator if you don't have access to this information.
 In this case, share this setup checklist with them and provide an estimate of the number of apps you expect to deploy
 to the private space for <<CIDR Block,CIDR block>> configuration.
-
 
 [[setup-info-private-space]]
 == Information Required to Set Up a Private Space
@@ -442,15 +439,6 @@ See <<dynamic-vpn-routing>> and <<static-vpn-routing>>.
 The default value for *Remote ASN* is inherited from the first VPN.
 You can change this value.
 
-////
-
-Explanation of the difference between routing types, especially related to how they handle failover when a redundant VPN exists.
-
-
-Create a redundant VPN connection to the same external network to reduce downtime if another VPN or gateway fails. Because this connection uses dynamic routing, failover will be automatic. 
-
-Benefits of a redundant VPN
-////
 
 [[tgw-requirements]]
 == Transit Gateway Attachment Requirements

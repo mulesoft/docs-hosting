@@ -1,19 +1,17 @@
 = Creating VPN Connections
 
-// *This topic is updated to the VPN Design Specs dated 08-Nov-21*
-
-*Last update* 08-Aug-22
-
-
-== Prerequisites
-
-Before creating a VPN connection,
-xref:ps-create-configure.adoc#create-private-network[create the private network].
-
+To connect your private network to an external network using a 
+VPN, create the VPN connection in the on the *Network* tab.
 
 [NOTE]
 After you create a VPN, you can't change any of the VPN settings,
 except the static IP prefixes for static routing.
+
+== Before You Begin
+
+Before creating a VPN connection,
+xref:ps-create-configure.adoc#create-private-network[create the private network].
+
 
 [[create-vpn]]
 == Create a VPN

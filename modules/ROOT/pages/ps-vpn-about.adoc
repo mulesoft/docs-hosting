@@ -1,8 +1,5 @@
 = Anypoint Virtual Private Network 
 
-*Last update* 07-Jul-22
-
-
 Anypoint VPN (virtual private network) creates a secure connection between your private space and your on-premises network.
 Anypoint VPN enables apps running in the private space to access resources
 in your on-premises data centers behind your corporate firewall.
@@ -183,8 +180,6 @@ Tunnels operate in active/active or active/passive mode, depending on the routin
 
 Delete the VPN and try again. If this failure recurs, contact MuleSoft Support.
 |===
-
-
 
 
 == See Also

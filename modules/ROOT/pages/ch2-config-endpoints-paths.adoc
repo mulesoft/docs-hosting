@@ -1,7 +1,5 @@
 = Configuring Endpoints for Apps Deployed to a Private Space
 
-*Last update* 14-July-22
-
 [IMPORTANT]
 CloudHub 2.0 supports customizing public endpoints only for apps that are deployed to private spaces, not shared spaces.
 
@@ -103,7 +101,7 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSettings]
 . Click the *Ingress* tab.
-. Hover over *private endpoint*:
+. Hover over *private endpoint*.
 // +
 // <screenshot>
 

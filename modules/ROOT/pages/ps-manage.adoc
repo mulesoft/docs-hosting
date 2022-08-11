@@ -1,11 +1,5 @@
 = Managing Private Spaces
 
-// *This topic is updated to the Private Network (09-Nov)/VPN Connections (08-Nov) Design Specs/UI*
-
-// *To do: final TGW spec updates*
-
-*Last update* 09-Aug-22
-
 Use Anypoint Runtime Manager to manage private spaces,
 such as adding and removing a route from the route table or
 detaching a transit gateway from the private space.
@@ -265,5 +259,4 @@ image::ps-delete.png[Delete option in the Private Space menu]
 
 == See Also 
 
-* xref:ps-troubleshoot.adoc#troubleshoot-transit-gateway-attachments[Troubleshoot Transit Gateway Attachments]
 * https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing-delete.html[Deleting a resource share^] in the AWS documentation

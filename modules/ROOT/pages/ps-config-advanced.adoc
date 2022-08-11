@@ -1,9 +1,5 @@
 = Configuring Advanced Private Space Settings
 
-// *This topic is updated to the Design Spec dated 02-Mar-22*
-
-*Last update* 10-Aug-22
-
 Use options on the *Advanced* tab to:
 
 * Configure how the ingress load balancer handles HTTP requests.
@@ -121,16 +117,6 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 include::partial$select-private-space.adoc[tag=clickAdvanced]
 . Click *Download Logs*.
-
-
-////
-You can use Anypoint Runtime Manager to change the application log level by configuring the following property:
-```
-logging.level.<PACKAGE>=LEVEL
-``` 
-For example, if you use Runtime Manager to add the 
-`logging.level.org.mule.service.http.impl.service.HttpMessageLogger=DEBUG` property, `DEBUG` level log information is emitted from `HttpMessageLogger`.
-////
 
 [[configure-aws-role]]
 == Configure AWS Service Role

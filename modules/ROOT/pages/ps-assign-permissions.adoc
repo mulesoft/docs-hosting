@@ -1,8 +1,6 @@
 = Assigning Permissions 
 
 
-*Last update* 10-Aug-22
-
 Before you set up your private space, ensure you have the required permissions 
 assigned to your user account or a team to which you belong.
 To assign permissions, you need access to Anypoint access management and Organization Administrator permissions.

@@ -1,7 +1,5 @@
 = Managing App Schedules
 
-*Last update* 09-Aug-22
-
 You can use Runtime Manager to view and control the Scheduler components within the flows in your deployed applications, all without changing the running application.
 For example, you might want to disable a scheduled job while one of the applications is undergoing maintenance.
 
@@ -11,7 +9,6 @@ On the *Schedules* tab, you can:
 * Change the schedules in your application at runtime without redeploying.
 * Run the scheduled job immediately, without changing the schedule.
 * Disable or enable the schedule for a flow.
-// * Specify the timezone for a cron scheduler.
 
 You configure Scheduler component types as either _fixed frequency_ to trigger at a regular interval or _cron_ to trigger at a date and time based on a specified cron expression.
 
@@ -45,9 +42,6 @@ Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules
 To use the scheduling feature in Runtime Manager, deploy an application that includes one or more Scheduler elements using Anypoint Studio 7.13 or later.
 
 image::ch2-scheduler-studio.png[Scheduler component in the Anypoint Studio canvas]
-
-// You can download this example app from Exchange.
-// For information, see xref:ch2-download-test-app.adoc[].
 
 After you deploy the app, you can manage the schedule in Runtime Manager.
 The app doesn't need to be running.
@@ -127,7 +121,6 @@ The cron expression in this example sets the schedule to every 10 seconds.
 +
 For information about building cron triggers:
 +
-// .. Click *more* to view the http://www.quartz-scheduler.org/documentation[Quartz documentation^]. 
 .. View the http://www.quartz-scheduler.org/documentation[Quartz documentation^]. 
 .. Select a version, click *Documentation > User's Guide > Tutorial*, and then click the *CronTrigger* lesson.
 . Click *Update* to save changed settings or click *Cancel* to exit without saving.
@@ -179,5 +172,4 @@ image::ch2-scheduler-enable.png[Enabled toggle in the schedule editor]
 * xref:mule-runtime::scheduler-concept.adoc[]
 * http://www.quartz-scheduler.org/documentation[Quartz documentation^]
 * https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^]
-// * _Link to the API doc for updating schedulers_
 

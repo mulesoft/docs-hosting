@@ -1,11 +1,5 @@
 = Deploying Apps to Private Spaces
 
-// *This topic is updated to the UI on QAX*
-
-*Last update* 20-Jun-22
-
-// How can we share this content with RTF?
-
 You deploy apps to a private space using Runtime Manager.
 
 [IMPORTANT]
@@ -41,8 +35,6 @@ image::rtm-get-from-exchange.png[Get from Exchange page]
 *** <<configure-endpoint-path,Configure endpoints and paths for the app>>.
 *** <<app-properties,Change app behavior with properties>>.
 *** <<configure-logging,Configure logging for the app>>.
-// *** <<disable-logging,Disable app logs and metrics>>.
-// *** <<forward-logs,Forward logs to other services>>.
 
 . Click *Deploy Application*. 
 
@@ -140,34 +132,11 @@ include::partial$deployment.adoc[tag=changeAppProperties,leveloffset=+1]
 // == Configure Log Level
 include::partial$deployment.adoc[tag=configureLogging,leveloffset=+1]
 
-////
-
-include::partial$feature-availability.adoc[tag=featureUnavailableGA]
-[[forward-logs]]
-== Forward Logs to Other Services
-
-If log forwarding is not configured for the private space, the options on the *Logs* tab are disabled.
-See xref:ps-config-log-forwarding.adoc[].
-
-Show logs in Anypoint Monitoring::
-Forwards only application logs to Anypoint Monitoring and requires a Titanium subscription.
-
-Forward logs to _service_::
-Forwards application and load-balancer logs to the specified service:
-+
-** Azure
-** Elasticsearch
-** Graylog (GELF)
-** Splunk
-** CloudWatch
-
-For information about viewing logs, see xref:ch2-view-logs.adoc[].
-////
 
 == See Also
 
 * xref:ch2-download-test-app.adoc[]
-* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^]
+* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] on Exchange
 * xref:ch2-config-endpoints-paths.adoc[]
 * xref:ps-config-domains.adoc[]
 * xref:ch2-integrate-log-system.adoc[]
