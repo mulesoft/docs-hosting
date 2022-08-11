@@ -1,7 +1,5 @@
 = Configuring Domains and Certificates (TLS Context) for a Private Space	
 
-// *This topic is updated to the Design Spec dated 09-Nov-21*
-
 *Last update* 08-Aug-22
 
 CloudHub 2.0 uses Transport Layer Security (TLS) contexts to encrypt 

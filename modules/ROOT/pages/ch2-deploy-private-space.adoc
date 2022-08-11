@@ -1,6 +1,6 @@
 = Deploying Apps to Private Spaces
 
-*This topic is updated to the UI on QAX*
+// *This topic is updated to the UI on QAX*
 
 *Last update* 20-Jun-22
 

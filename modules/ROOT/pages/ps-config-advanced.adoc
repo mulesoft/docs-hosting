@@ -2,7 +2,7 @@
 
 // *This topic is updated to the Design Spec dated 02-Mar-22*
 
-*Last update* 08-Aug-22
+*Last update* 10-Aug-22
 
 Use options on the *Advanced* tab to:
 
@@ -79,9 +79,7 @@ include::partial$select-private-space.adoc[tag=clickAdvanced]
 .. Enter the IP address and select the <<ingress-load-balancer-log-levels,log level>> from the drop-down list.
 .. Click *Add IP Address* to enter additional custom log levels.
 .. To remove a custom log level, click the trash can icon (*Delete*) for the entry.
-// +
-// image::fw-rule-delete.png[Delete icon on the Firewall Rules tab]
-. Click *Save Changes* or *Discard Changes*.
+. Click *Save Changes* or *Discard changes*.
 
 
 [[ingress-load-balancer-log-levels]]
@@ -98,17 +96,18 @@ The default log level for IP address filtering is `DEBUG`.
 // | All Priorities
 // | All messages
 
-| ERROR (Recommended)
+| Error (Recommended)
 | Only error messages, such as when an exception occurs
 
-| INFO
-| Informative messages
+| Debug
+| Debugging messages
 
-| TRACE
+| Trace
 | Tracks application metadata such as path, headers, state, and timeline between Ingress and APIs to facilitate collaboration
 
-| DEBUG
-| Debugging messages
+| Info
+| Informative messages
+
 |===
 
 
@@ -143,6 +142,10 @@ include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 include::partial$select-private-space.adoc[tag=clickAdvanced]
 . Click *Enable AWS Service Role*.
-. Click *Save Changes*
+. Click *Save Changes* or *Discard changes*.
 +
-A unique service role name is generated, and you can use this role configure to configure identity and access management for AWS. Note that role generation might take a few minutes. If the role name does not appear, refresh the page.
+A unique service role name is generated, and you can use this role configure to configure identity and access management for AWS. Role generation might take a few minutes. If the role name does not appear, refresh the page.
+
+== See Also
+
+* https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html[IAM roles^] in the AWS documentation

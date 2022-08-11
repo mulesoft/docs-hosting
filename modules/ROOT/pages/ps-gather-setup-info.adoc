@@ -11,22 +11,6 @@ In this case, share this setup checklist with them and provide an estimate of th
 to the private space for <<CIDR Block,CIDR block>> configuration.
 
 
-// (*View the checklist* link from *Network* tab)
-// Should this page include other network admin requests - Domains tab?
-
-
-////
-[NOTE]
-====
-The following two sections provide the same information in different formats:
-
-* <<setup-info-private-space>>
-* <<setup-info-private-space-table>>
-
-Which do you prefer?
-====
-//// 
-
 [[setup-info-private-space]]
 == Information Required to Set Up a Private Space
 

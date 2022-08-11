@@ -258,11 +258,9 @@ You can't undo this action.
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the Private Space menu (*...*) and select *Delete*:
-// +
-// <screenshot>
-// +
-// image::ps-delete.png[Delete option in the Private Space menu]
+. Click the Private Space menu (*...*) and select *Delete*.
++
+image::ps-delete.png[Delete option in the Private Space menu]
 . Click *Delete private space* to confirm the deletion or *Cancel*.
 
 == See Also 

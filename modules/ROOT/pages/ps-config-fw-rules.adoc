@@ -2,7 +2,7 @@
 
 // *This topic is updated to the Design Spec dated 09-Nov-21 and discussions*
 
-*Last update* 09-Aug-22
+*Last update* 10-Aug-22
 
 By default, all traffic to your private space is blocked unless it is explicitly allowed in a firewall rule.
 
@@ -28,7 +28,7 @@ Creating a private space automatically creates these firewall rules:
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the *Firewall Rules* tab.
+. Click the *Firewall rules* tab.
 . Configure default rules for inbound traffic by selecting the *Protocol* and *Source* from the drop-down lists:
 +
 --
@@ -44,9 +44,16 @@ Source IP address:
 * *Local private network*
 +
 This option is available only if a private network exists in the private space. 
-* *Custom CIDR*
+// * *Custom CIDR*
+// +
+// Enter a custom CIDR in the field.
+
+Ports::
+Ports for inbound traffic are not configurable:
 +
-Enter a custom CIDR in the field.
+* Port 80 is reserved HTTP.
+* Port 443 is reserved for HTTPS.
+* Other ports below 1024 are not allowed.
 
 --
 . Configure default rules for outbound traffic by selecting the *Protocol* and *Destination* from the drop-down lists:
@@ -69,16 +76,18 @@ Destination IP address:
 * *Local private network*
 +
 This option is available only if a private network exists in the private space. 
-* *Custom CIDR*
-+
-Enter a custom CIDR in the field.
+// * *Custom CIDR*
+// +
+// Enter a custom CIDR in the field.
+
+Ports::
+Port ranges for outbound traffic are configurable.
+
 --
 . Click *Add rule* to add more rules.
 . To remove a firewall rule, click the trash can icon (*Delete*) for the entry.
-// +
-// <screenshot>
-// +
-// image::fw-rule-delete.png[Delete icon on the Firewall rules tab]
++
+image::fw-rule-delete.png[Delete icon on the Firewall rules tab]
 
 . Click *Save Changes* or *Discard changes*.
 . Restart your application.
