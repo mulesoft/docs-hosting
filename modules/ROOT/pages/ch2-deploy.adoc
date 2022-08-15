@@ -5,8 +5,8 @@ You can deploy Mule apps to either a shared or private space in CloudHub 2.0.
 * xref:ch2-deploy-shared-space.adoc[]
 * xref:ch2-deploy-private-space.adoc[]
 * xref:ch2-download-test-app.adoc[]
-* xref:mule-runtime::deploy-to-cloudhub-2.adoc[]
-* xref:anypoint-cli::runtime-manager-2[CloudHub 2.0 CLI]
+* xref:mule-runtime::deploy-to-cloudhub-2.adoc[Mule Maven Plugin for CloudHub 2.0]
+* xref:anypoint-cli::runtime-manager-2[Anypoint CLI for CloudHub 2.0]
 * https://anypoint.mulesoft.com/exchange/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/[CloudHub 2.0 API]
 
 [IMPORTANT]
