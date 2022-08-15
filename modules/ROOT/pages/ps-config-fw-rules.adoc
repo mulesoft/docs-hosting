@@ -1,34 +1,25 @@
 = Configuring Firewall Rules to Manage Traffic to a Private Space
 
-*This topic is updated to the Design Spec dated 09-Nov-21 and discussions*
-
-*Last update* 08-Mar-22
-
 By default, all traffic to your private space is blocked unless it is explicitly allowed in a firewall rule.
 
 Creating a private space automatically creates these firewall rules:
 
 * Two rules to allow inbound connections from any host:
-** HTTP: port 80
 ** HTTPS: port 443
+** HTTP: port 80
 
 * Two rules to allow outbound connections from within your private space to any host:
-** HTTP: All ports
-** HTTPS: All ports
-+
-You can't delete this rule.
+** TCP: All ports
+** HTTPS: 443
 
-// Configure Anypoint Security for Edge Policies	
-// Specify IP Addresses to Allow	
-// Control Inbound Traffic with Firewall Rules	
-// Apply Edge Security Policies to the Private Space	
+To support Anypoint MQ and ObjectStore v2, you must allow outbound traffic on port 443 (HTTPS).
 
 == Configure Firewall Rules
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the *Firewall Rules* tab.
+. Click the *Firewall rules* tab.
 . Configure default rules for inbound traffic by selecting the *Protocol* and *Source* from the drop-down lists:
 +
 --
@@ -41,12 +32,19 @@ Source::
 Source IP address:
 
 * *Anywhere (0.0.0.0/0)*
-* *Local Network (10.0.0.0/24)*
+* *Local private network*
 +
 This option is available only if a private network exists in the private space. 
-* *Custom CIDR*
+// * *Custom CIDR*
+// +
+// Enter a custom CIDR in the field.
+
+Ports::
+Ports for inbound traffic are not configurable:
 +
-Enter a custom CIDR in the field.
+* Port 80 is reserved HTTP.
+* Port 443 is reserved for HTTPS.
+* Other ports below 1024 are not allowed.
 
 --
 . Configure default rules for outbound traffic by selecting the *Protocol* and *Destination* from the drop-down lists:
@@ -56,28 +54,31 @@ Enter a custom CIDR in the field.
 Protocol::
 Protocol type:
 +
-* *HTTP*
-* *HTTPS*
+* *All*
 * *TCP*
 * *UTP*
-* *ICMP*
+* *HTTP*
+* *HTTPS*
 
 Destination::
 Destination IP address:
 
 * *Anywhere (0.0.0.0/0)*
-* *Local Network (10.0.0.0/24)*
+* *Local private network*
 +
 This option is available only if a private network exists in the private space. 
-* *Custom CIDR*
-+
-Enter a custom CIDR in the field.
+// * *Custom CIDR*
+// +
+// Enter a custom CIDR in the field.
+
+Ports::
+Port ranges for outbound traffic are configurable.
+
 --
-. Click *Add Rule* to add more rules.
+. Click *Add rule* to add more rules.
 . To remove a firewall rule, click the trash can icon (*Delete*) for the entry.
 +
-<screenshot>
-// +
-// image::fw-rule-delete.png[Delete icon on the Firewall rules tab]
+image::fw-rule-delete.png[Delete icon on the Firewall rules tab]
 
-. Click *Save Changes* or *Discard Changes*.
+. Click *Save Changes* or *Discard changes*.
+. Restart your application.

@@ -1,7 +1,5 @@
 = CloudHub 2.0 Architecture
 
-*Last update* 18-Jul-22
-
 To understand CloudHub 2.0 security and availability, you should understand the architecture behind CloudHub 2.0.
 
 CloudHub 2.0 architecture comprises two major components: Anypoint Platform services and shared global regions.
@@ -19,7 +17,7 @@ image::ch2-architecture.png[CloudHub 2.0 Architecture with four callouts]
 |===
 
 [NOTE]
-You can view the live status and detailed service history for Runtime Manager, platform services, and CloudHub 2.0 on https://status.mulesoft.com/[status.mulesoft.com] for the default (US hosted) Control Plane and https://eu1-status.mulesoft.com/[eu1-status.mulesoft.com] for the EU Control Plane.
+You can view the live status and detailed service history for Runtime Manager, platform services, and CloudHub 2.0 on https://status.mulesoft.com/[status.mulesoft.com^] for the default (US hosted) Control Plane and https://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^] for the EU Control Plane.
 
 [[integrations-apps]]
 == Integration Applications
@@ -33,19 +31,19 @@ see xref:index.adoc[] and xref:ch2-deploy.adoc[].
 [[runtime-manager]]
 == Runtime Manager
 
-Runtime Manager is integrated into the https://anypoint.mulesoft.com[Anypoint Platform].
+Runtime Manager is integrated into https://anypoint.mulesoft.com[Anypoint Platform^].
 Sign in with your Anypoint Platform credentials to deploy and manage your integration applications at runtime.
 The console provides monitoring information from the platform services and also functions as a comprehensive dashboard for both application-level and account-level management.
 
 Administrator account holders can use the Anypoint Platform to add and manage other users in the organization, define user roles, and create and manage sandbox environments.
-For information, see https://docs.mulesoft.com/access-management[Access Management^] (Link out from Beta docs).
+For information, see xref:access-management::index.adoc[].
 
 [[platform-services]]
 == Platform Services
 
 Platform services are responsible for coordinating all aspects of the platform.
 They coordinate deployment of applications, monitor integrations, provide analytics data, store application data, run scheduled jobs, and more.
-Many of these services are also exposed through the xref:ch2-api.adoc[].
+Many of these services are also exposed through the CloudHub 2.0 REST API.
 
 [[cloudhub-2-replicas]]
 == CloudHub 2.0 Replicas
@@ -70,19 +68,19 @@ Replica sizes have different compute, memory, and storage capacities.
 
 You can scale replicas vertically by selecting one of the available vCore sizes:
 
-[%header,cols="4*a"]
+[%header,cols="5*a"]
 |===
-|vCore Size |vCPU | Heap Memory | Storage
-|0.1        |0.1  |800 MB       | 8 GB
-|0.2        |0.2  |1 GB         | 8 GB
-|0.5        |0.5  |1.25 GB      | 10 GB
-|1.0        |1    |1.5 GB       | 12 GB
-|1.5        |1.5  |2 GB         | 24 GB
-|2.0        |2    |3.5 GB       | 40 GB
-|2.5        |2.5  |4 GB         | 50 GB
-|3.0        |3    |4.5 GB       | 60 GB
-|3.5        |3.5  |5 GB         | 70 GB
-|4.0        |4    |7.5 GB       | 88 GB
+|vCore Size |vCPU | Heap Memory | Total Memory | Storage
+|0.1        |0.1  |500 MB       |1 GB          | 8 GB
+|0.2        |0.2  |1 GB         |2 GB          | 8 GB
+|0.5        |0.5  |1.3 GB       |2.6 GB        | 10 GB
+|1.0        |1    |2 GB         |4 GB          | 12 GB
+|1.5        |1.5  |3 GB         |6 GB          | 24 GB
+|2.0        |2    |4 GB         |8 GB          | 40 GB
+|2.5        |2.5  |4.75 GB      |9.5 GB        | 50 GB
+|3.0        |3    |5.5 GB       |11 GB         | 60 GB
+|3.5        |3.5  |6.5 GB       |13 GB         | 70 GB
+|4.0        |4    |7.5 GB       |15 GB.        | 88 GB
 |===
 
 Replicas with fewer than 1.0 vCores:
@@ -90,19 +88,20 @@ Replicas with fewer than 1.0 vCores:
 * Provide limited CPU and I/O for apps with smaller workloads
 * Can burst to higher CPU speeds for a short time
 +
-This ability helps to improve application startup times and to process infrequent, large workloads.
-If you need consistent performance, use replicas with more vCores.
+This ability helps to improve application startup times and to process infrequent, large workloads. Note that application bursting depends on resource availability for nodes and is not guaranteed to occur. If you need consistent performance, use replicas with more vCores. 
 
 Replicas with 1 or more vCores provide performance consistency.
 
 Each replica has a minimum of 8 GB of storage, which is used for both system and application storage.
 If your application requires more storage (for example, verbose logging), use a replica with two or more vCores, enabling the application to access additional storage in `/tmp`.
 
-Only running applications count toward replica usage.
+All applications, including stopped applications, count toward replica usage. To prevent stopped applications from consuming resources, delete the application.
 
 If your applications require more vCores than are available,
 CloudHub 2.0 allows you to create the application, but you cannot start it until the additional vCores become available.
-To increase vCore allocation, stop another application or contact your account manager to increase your subscription's vCore allocation.
+To increase vCore allocation, delete an application or contact your account manager to increase your subscription's vCore allocation. 
+
+NOTE: Applications that are stopped still consume vCores as if they were running.
 
 The metaspace limit for apps deployed to CloudHub 2.0 is currently 256 MB,
 regardless of the replica size.
@@ -173,7 +172,7 @@ DNS records are unique to each control plane.
 Although the EU control plane supports some of the same regions that the
 US control plane supports, the DNS records are different.
 For more on the EU control plane, see
-https://docs.mulesoft.com/eu-control-plane/[About the EU Control Plane^] (Link out from Beta docs).
+xref:eu-control-plane::index.adoc[].
 
 For example, if you are using the US control plane and deploy to the Ireland region,
 the DNS records for internal and external IP addresses are
@@ -215,12 +214,11 @@ CloudHub 2.0 monitors the replicas for problems and provides a self-healing mech
 If the underlying hardware experiences a failure, the platform migrates your application to a new replica automatically.
 In the case of an application crash, whether due to a problem with custom code or a bug in the underlying stack, the platform recognizes the crash and can redeploy the replica automatically.
 
-For more information, see xref:ch2-app-monitoring.adoc[].
 
 === Zero-Downtime Updates
 
-Using the Rolling Update model, CloudHub 2.0 supports updating your applications at runtime so end users of your HTTP APIs experience zero downtime.
-While your application update is deploying, CloudHub 2.0 keeps the old version of your application running.
+CloudHub 2.0 supports updating your applications at runtime so end users of your HTTP APIs experience zero downtime.
+If the application uses the rolling update deployment model, CloudHub 2.0 keeps the old version of your application running while your application update is deploying.
 Your domain points to the old version of your application until the newly uploaded version is fully started.
 This allows you to keep servicing requests from your old application while the new version of your application is starting.
 
@@ -228,7 +226,9 @@ This allows you to keep servicing requests from your old application while the n
 
 Clustering provides scalability, workload distribution, and added reliability to applications on CloudHub 2.0.
 These capabilities are powered by the scalable load-balancing service and
-xref:ch2-clustering.adoc#replica-scaleout[replica scaleout] features.
+replica scaleout features.
+
+For more information, see xref:ch2-clustering.adoc[].
 
 ==== Scale Out and Data Center Redundancy
 
@@ -274,7 +274,7 @@ You can also xref:ch2-protect-app-props.adoc[protect application property values
 Protected property values are not viewable or retrievable by any user.
 These protected application values are encrypted and stored in the Anypoint Security secrets manager, which, in turn, is encrypted per user organization.
 
-For more information about MuleSoft security, see the http://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^] (Link out from Beta docs) .
+For more information about MuleSoft security, see the https://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^].
 
 
 == See Also
@@ -283,10 +283,10 @@ For more information about MuleSoft security, see the http://mulesoft.com/downlo
 * xref:ch2-monitor-apps.adoc[]
 * xref:ch2-protect-app-props.adoc[]
 * xref:ch2-config-app-alerts.adoc[]
-* http://status.mulesoft.com/[status.mulesoft.com^] (Link out from Beta docs) 
-* http://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^] (Link out from Beta docs) 
-* http://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^] (Link out from Beta docs) 
-* https://docs.mulesoft.com/runtime-manager/deployment-strategies[Deployment Options^] (Link out from Beta docs) 
+* https://status.mulesoft.com/[status.mulesoft.com^] 
+* https://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^] 
+* https://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^]
+* xref:runtime-manager::deployment-strategies.adoc[]
 
 
 ////
@@ -294,5 +294,5 @@ For more information about MuleSoft security, see the http://mulesoft.com/downlo
 * xref:cloudhub-faq.adoc[CloudHub FAQ]
 * xref:maintenance-and-upgrade-policy.adoc[Maintenance and Upgrade Policy]
 * xref:ch2-clustering.adoc[Clustering]
-* https://aws.amazon.com/ec2/instance-types/[Amazon EC2 Instance Types]
+* https://aws.amazon.com/ec2/instance-types/[Amazon EC2 Instance Types^]
 //// 

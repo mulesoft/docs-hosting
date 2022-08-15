@@ -1,30 +1,11 @@
 = Gathering Required Setup Information
-
-*Last update* 18-Jul-22
+:page-aliases: network-admin-guide.adoc
 
 Use the following sections to gather the information you'll need to set up your private space.
 For information about private spaces, see xref:ch2-private-space-about.adoc[].
 
 You might need to collaborate with your network administrator if you don't have access to this information.
-In this case, share this setup checklist with them and provide an estimate of the number of apps you expect to deploy
-to the private space for <<CIDR Block,CIDR block>> configuration.
-
-
-// (*View the checklist* link from *Network* tab)
-// Should this page include other network admin requests - Domains tab?
-
-
-
-[NOTE]
-====
-The following two sections provide the same information in different formats:
-
-* <<setup-info-private-space>>
-* <<setup-info-private-space-table>>
-
-Which do you prefer?
-====
-
+In this case, share this setup checklist with them.
 
 [[setup-info-private-space]]
 == Information Required to Set Up a Private Space
@@ -125,7 +106,7 @@ For details about each requirement, see the sections that follow.
 [[private-space-name]]
 === Private Space Name
 
-Private space names can contain up to 60 alphanumeric characters (a-z, A-Z, 0-9), spaces, and hyphens (-).
+Private space names can contain between 1 and 36 alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-).
 Runtime Manager supports Unicode characters in private space names.
 
 The private space name appears in the list when you select a deployment target for your apps.
@@ -457,15 +438,6 @@ See <<dynamic-vpn-routing>> and <<static-vpn-routing>>.
 The default value for *Remote ASN* is inherited from the first VPN.
 You can change this value.
 
-////
-
-Explanation of the difference between routing types, especially related to how they handle failover when a redundant VPN exists.
-
-
-Create a redundant VPN connection to the same external network to reduce downtime if another VPN or gateway fails. Because this connection uses dynamic routing, failover will be automatic. 
-
-Benefits of a redundant VPN
-////
 
 [[tgw-requirements]]
 == Transit Gateway Attachment Requirements
@@ -493,7 +465,7 @@ The *Transit Gateways* page is visible in Runtime Manager to Anypoint organizati
 Attaching one Anypoint VPC to an AWS Transit Gateway uses one Anypoint VPN license.
 * Sign in to an Anypoint Platform account with either the CloudHub 2.0 Network Administrator or the CloudHub 2.0 Network Viewer user permission.
 +
-See https://docs.mulesoft.com/access-management/users#grant-user-permissions[Grant Permissions and Roles to Users^] (Link out from Beta docs).
+See xref:access-management::users.adoc#grant-user-permissions[Grant Permissions and Roles to Users].
 
 * Identify the subnets in your network (in CIDR notation) that you want to make accessible through the transit gateway.
 

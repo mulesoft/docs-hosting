@@ -1,11 +1,5 @@
 = Managing Private Spaces
 
-*This topic is updated to the Private Network (09-Nov)/VPN Connections (08-Nov) Design Specs/UI*
-
-*To do: final TGW spec updates*
-
-*Last update* 09-Mar-22
-
 Use Anypoint Runtime Manager to manage private spaces,
 such as adding and removing a route from the route table or
 detaching a transit gateway from the private space.
@@ -22,8 +16,8 @@ You might want to add a route to enable a new subnet to be accessible or remove 
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Private Network* section, click *Route Table*:
-+
-<screenshot>
+// +
+// <screenshot>
 // image::tgw-add-vpc-route.png[Add VPC route]
 +
 The route table shows all routes for the private space.
@@ -31,8 +25,8 @@ The route table shows all routes for the private space.
 --
 ** Add a route by entering the subnet in CIDR notation, selecting the connection,
 and clicking *Add Route*:
-+
-<screenshot>
+// +
+// <screenshot>
 // image::ps-edit-route.png[Route Table window]
 +
 You can't add a route that matches a priority route (a route that's used by your private network).
@@ -43,8 +37,8 @@ If you enter a non-local/Internet Gateway (IGW) route, CloudHub 2.0 warns that t
 Routes should not overlap with existing routes.
 CloudHub 2.0 warns if you enter a route that overlaps with another route in the route table.
 ** Remove a route by clicking the *X* icon for a row in the table and then clicking *Delete* to confirm.
-+
-<screenshot>
+// +
+// <screenshot>
 // image::ps-edit-route.png[Route Table window]
 +
 If the *X* icon doesn't appear for a route, you can't remove it.
@@ -67,8 +61,8 @@ image::tgw-route-added.png[Transit Gateway in the Next Hop column of the route t
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the Connections menu (*...*) and select *Rename*:
-+
-<screenshot>
+// +
+// <screenshot>
 // image::connection-rename.png[Rename option in the Connections menu]
 include::partial$select-private-space.adoc[tag=renameItem]
 
@@ -79,8 +73,8 @@ include::partial$select-private-space.adoc[tag=renameItem]
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Create Redundanct VPN*:
-+
-<screenshot>
+// +
+// <screenshot>
 // +
 // image::vpn-view-details.png[View Details option in the VPN menu]
 . Follow the steps in xref:ps-create-configure-vpn.adoc#create-redundant-vpn[Create a Redundant VPN].
@@ -92,8 +86,8 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Rename*:
-+
-<screenshot>
+// +
+// <screenshot>
 // image::vpn-rename.png[Rename option in the VPN menu]
 include::partial$select-private-space.adoc[tag=renameItem]
 
@@ -111,9 +105,9 @@ Modifying the tunnel initiation after VPN creation causes all VPNs in this conne
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Rename & Options*:
-+
-<screenshot>
+. On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Connection Settings*:
+// +
+// <screenshot>
 // +
 // image::vpn-view-details.png[View Details option in the VPN menu]
 . On the *Connection Settings* page, you can:
@@ -125,7 +119,9 @@ Enable this option to specify that VPN starts up automatically.
 +
 If you deselect this option, you must generate traffic from the customer gateway
 to establish VPN tunnels.
-. Click *Save* (or *Save & Restart* if you modified the *Automatic Tunnel Initiation* option) or *Cancel* to close the *Connection Settings* window.
+. Click *Save* or *Cancel* to close the *Connection Settings* window.
++
+Modifying the *Automatic Tunnel Initiation* option restarts all VPNs in the connection.
 
 
 [[view-vpn-status]]
@@ -135,8 +131,8 @@ to establish VPN tunnels.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *View Details*:
-+
-<screenshot>
+// +
+// <screenshot>
 // +
 // image::vpn-view-details.png[View Details option in the VPN menu]
 . Click *X* to close the *VPN Details* window.
@@ -146,16 +142,17 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 
 Deleting the last VPN in a connection removes the entire connection.
 
+[IMPORTANT]
 You can't undo this action.
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Delete*:
-+
-<screenshot>
+// +
+// <screenshot>
 // image::vpn-delete.png[Delete option in the VPN menu]
-. Click *Delete* to confirm the deletion.
+. Click *Delete* to confirm the deletion or *Cancel*.
 
 [[rename-tgw]]
 == Rename a Transit Gateway Attachment 
@@ -168,8 +165,8 @@ To rename a transit gateway attachment:
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the transit gateway menu (*...*) and select *Rename*:
-+
-<screenshot>
+// +
+// <screenshot>
 // image::tgw-rename.png[Rename option in the transit gateway menu]
 include::partial$select-private-space.adoc[tag=renameItem]
 
@@ -179,7 +176,7 @@ include::partial$select-private-space.adoc[tag=renameItem]
 You might need to detach a transit gateway so that you can reattach it.
 
 Detaching a transit gateway from a private space also deletes the attachment in AWS.
-The resource share on AWS remains unaffected.
+The resource share on AWS remains unaffected. The transit gateway appears under *Add a transit gateway* if you only detach it and do not delete it from your organization.
 Any apps deployed to the private space continue to run, but they are no longer connected to your Amazon VPCs and VPNs.
 
 To detach the transit gateway:
@@ -188,8 +185,8 @@ To detach the transit gateway:
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, click the transit gateway menu (*...*) and select *Detach*:
-+
-<screenshot>
+// +
+// <screenshot>
 // image::tgw-detach-vpc.png[Detach transit gateway option in the transit gateway menu]
 . At the confirmation prompt, click *Detach*.
 +
@@ -197,8 +194,6 @@ Detaching a transit gateway might take several minutes.
 
 [[remove-tgw]]
 == Remove a Transit Gateway Attachment
-
-*Is this option no longer available?*
 
 You might want to remove a transit gateway attachment for the following reasons:
 
@@ -210,9 +205,10 @@ Removing a transit gateway attachment also deletes any associate routes.
 The resource share on AWS remains unaffected so you can readd the transit gateway without creating a new one.
 
 To completely remove the transit gateway from your Anypoint Platform organization, 
-delete the resources share on AWS.
+use the `DELETE <>/organizationns/:orgId/transitgateways/:tgw-id` API call and delete the resources share on AWS.
 For information, see https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing-delete.html[Deleting a resource share^] in the AWS documentation.
 
+////
 To remove a transit gateway attachment:
 
 //SELECT PRIVATE SPACE SHARED
@@ -224,6 +220,7 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . At the confirmation prompt, click *Remove*.
 +
 Removing a transit gateway attachment might take several minutes.
+////
 
 [[delete-private-network]]
 == Delete a Private Network 
@@ -231,14 +228,15 @@ Removing a transit gateway attachment might take several minutes.
 You can't delete a private network if any apps are deployed to it or if any
 connections exist.
 
+[IMPORTANT]
 You can't undo this action.
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, click the Private Network menu (*...*) and select *Delete*:
-+
-<screenshot>
+// +
+// <screenshot>
 // +
 // image::private-network-delete.png[Delete option in the Private Network menu]
 . Click *Delete* to confirm the deletion.
@@ -248,19 +246,17 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 
 You can't delete a private space if it has any related private network, VPNs, or transit gateway attachments.
 
+[IMPORTANT]
 You can't undo this action.
 
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the Private Space menu (*...*) and select *Delete*:
+. Click the Private Space menu (*...*) and select *Delete*.
 +
-<screenshot>
-// +
-// image::ps-delete.png[Delete option in the Private Space menu]
-. Click *Delete* to confirm the deletion.
+image::ps-delete.png[Delete option in the Private Space menu]
+. Click *Delete private space* to confirm the deletion or *Cancel*.
 
 == See Also 
 
-* xref:ps-troubleshoot.adoc#troubleshoot-transit-gateway-attachments[Troubleshoot Transit Gateway Attachments]
 * https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing-delete.html[Deleting a resource share^] in the AWS documentation

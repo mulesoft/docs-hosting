@@ -1,23 +1,17 @@
 = Creating Transit Gateway Attachments
 
-
-*This topic is updated to the TGW Design Specs dated 08-Nov-21*
-
-*Last update* 06-May-22
-
 Multiple private spaces can connect to an internal VPC.
 You can reuse the transit gateway attachment by connecting another private space to it and accepting the attachment. 
 You don't need to create the resource share again.
 
-== Prerequisites
+== Before You Begin
 
-Before creating a transit gateway attachment,
-xref:ps-create-configure.adoc#create-private-network[create the private network].
+* Before creating a transit gateway attachment, xref:ps-create-configure.adoc#create-private-network[create the private network].
+* Ensure the private space belongs to the same region in which you are creating the transit gateway attachment. Inter-region peering is not supported.
+For example, you cannot attach transit gateway attachment from region A to a private space belonging to region B.
 
 [[connect-tgw]]
 == Connect to a Transit Gateway
-
-// figure out how to share this entire bit with CH 1.0.
 
 For information about limitations when attaching a VPC to a transit gateway, 
 see 
@@ -29,7 +23,10 @@ To connect to a transit gateway:
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . On the *Network* tab, in the *Connections* section, *Create Connection*.
-. On the *Create Connection* page, select *Transit Gateway* and enter the xref:ps-gather-setup-info.adoc#transit-gateway-name[name] in the *Connection Name* field.
+. On the *Create Connection* page, select *Transit Gateway*.
++
+If CloudHub 2.0 finds any existing transit gateways in the organization,
+you can select a transit gateway or click *Add a new transit gateway* and then enter the xref:ps-gather-setup-info.adoc#transit-gateway-name[name] in the *Connection Name* field.
 +
 Use the same name for your transit gateway in AWS.
 You can change this name later.
@@ -38,11 +35,12 @@ You can change this name later.
 include::partial$create-config.adoc[tag=connectionNameReqs]
 . Click *Next*.
 
-The *Add Transit Gateway* page lists the steps to create a resource share in AWS:
+Depending on whether you selected an existing transit gateway or are 
+adding a new one, the *Add Transit Gateway* page lists the steps to create a resource share in AWS:
 
 . <<configure-tgw-routes,Configure routes>>.
-. <<create-resource-share,Create a resource share>>.
-. <<verify-resource-share,Verify the resource share>>.
+. <<create-resource-share,Create a resource share>>. (new gateway only)
+. <<verify-resource-share,Verify the resource share>>. (new gateway only)
 . <<accept-tgw-attachment,Accept the attachment>>.
 
 [[configure-tgw-routes]]
@@ -75,7 +73,7 @@ The link opens the AWS RAM console to the page for creating a resource share in 
 +
 The transit gateway ID appears in the *Selected resources* field.
 .. Under *Principals - _optional_*, ensure that *Allow external accounts* is selected, 
-enter the MuleSoft AWS account ID that appears on the *Add Transit Gateway* page, and click *Add*.
+enter the MuleSoft AWS account ID that appears on the *Add Transit Gateway* page in Anypoint Platform, and click *Add*.
 +
 The AWS account number appears in the *Selected principals* field.
 .. Under *Tags*, add a tag if you want.
@@ -88,8 +86,8 @@ The AWS account number appears in the *Selected principals* field.
 == Verify the Resource Share
 
 . On the Anypoint Platform *Add Transit Gateway* page, paste the values you copied from AWS in the *ID* and *Owner* fields:
-+
-<screenshot>
+// +
+// <screenshot>
 +
 --
 *** The resource share *ID* field contains alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-).
@@ -98,13 +96,11 @@ The AWS account number appears in the *Selected principals* field.
 . Click *Next*.
 
 
-CloudHub 2.0 use the resource share owner and ID you provide to attach
+CloudHub 2.0 uses the resource share owner and ID you provide to attach
 the associated transit gateway on AWS to the private space.
 
 When the attachment succeeds, you see the `Attachment Created` message and 
 you return to the *Add Transit Gateway* page.
-
-If the resource share validation fails, see xref:ps-troubleshoot.adoc#troubleshoot-transit-gateway-attachments[Troubleshoot Transit Gateway Attachments].
 
 [[accept-tgw-attachment]]
 == Accept the Attachment 
@@ -122,14 +118,12 @@ To verify that the attachment is correct, select the transit gateway attachment 
 +
 You return to the *Network* tab for the private space.
 The *Connections* section shows the transit gateway ID and owner from AWS and indicates that the transit gateway state is *Available* and the attachment state is *Attached to Private Network*:
-+
-<screenshot>
+// +
+// <screenshot>
 // image::tgw-resource-share-available.png[Transit gateway attached]
 +
 If the VPC attachment state is *Not Attached to VPC*, the transit gateway is not attached.
 Click *Accept the attachment* link and follow the steps again.
-+
-// If the VPC attachment state is `Rejected`, see xref:tgw-troubleshoot.adoc[].
 . <<test-connection,Test the connection>> from your private space to the transit gateway.
 
 

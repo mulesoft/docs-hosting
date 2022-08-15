@@ -40,10 +40,10 @@ Subdomains must start and end with an alphanumeric character and can contain onl
 [[app-name-reqs]]
 = Application Names
 
-The application name you specify can contain between 3 and 59 alphanumeric characters
+The application name you specify can contain between 3 and 42 alphanumeric characters
 (a-z, A-Z, 0-9) and dashes (-).
 They cannot contain spaces or other characters. 
-The application name must start with a letter (a-z or A-Z). It cannot start with a number or dash.
+The application name must start with a letter (a-z or A-Z). It cannot start with a number or dash and it cannot end with a dash.
 
 To ensure that names are unique and avoid domain conflicts, CloudHub 2.0 adds
 a six-character `_unique-id_` to the application name that you specify in the public endpoint URL.
@@ -65,20 +65,32 @@ For example, you might route requests to `myapp.mycompany.com` to `mycompany-myd
 
 Logging is enabled by default for apps deployed to CloudHub 2.0.
 
-To disable logging for the app or configure additional log levels and categories to include in logs:
+== Disable or Enable Logging
+
+To disable or reenable logging for the app:
 
 . Click the *Logging* tab.
-. Deselect the logging option.
+. Deselect or select the *Enable application logs* option.
+. Click *Apply Changes*.
+
+If you disable logging, the *Logs* heading still appears in the Runtime Manager navigation menu, but application logs are not collected.
+
+== Configure Log Levels and Categories
+
+To configure additional log levels and categories to include in logs:
+
+. Click the *Logging* tab.
 . Select the log level:
 +
-** *Fatal*: Fatal messages for when an application fails
-** *Error*: Error messages, such as when an exception occurs
-** *Warn*: Warning messages
-** *Info*: Informative messages
-** *Debug*: Debugging messages
+** *INFO*: Informative messages
+** *DEBUG*: Debugging messages
+** *WARNING*: Warning messages
+** *ERROR*: Error messages, such as when an exception occurs
+** *FATAL*: Fatal messages for when an application fails
 
-. Optionally, set the log level for specific a Java package class by
-clicking *Add Class*, entering the class name, and selecting the log level.
+. Optionally, set the log level for specific a Java package class by selecting the log level, entering the `package.name`, and pressing the Enter key.
+. Click *Apply Changes*.
+
 // end::configureLogging[]
 
 
@@ -102,7 +114,11 @@ Specifies the number of replicas, or instances, of the application to deploy.
 +
 A minimum of two replicas is required for high availability.
 Run in Runtime Cluster Mode::
-Enables xref:docs-rft-cloud::ch2-clustering.adoc[Mule clustering] across each replica of the application.
+Enables xref:ch2-clustering.adoc[Mule clustering] across each replica of the application.
++
+This option requires at least two replicas.
+// Is this on Production?
+// Use Object Store V2::
 
 Deployment model::
 +

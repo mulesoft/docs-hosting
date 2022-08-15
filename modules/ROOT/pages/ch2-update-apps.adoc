@@ -1,12 +1,5 @@
 = Updating Apps Deployed to CloudHub 2.0
 
-Based on https://docs.mulesoft.com/runtime-fabric/1.12/app-versioning[Reviewing Application Versioning on Runtime Fabric^] (Link out from Beta docs) . 
-
-*PLEASE REVIEW FOR ACCURACY IN CH2*
-
-*Last update* 18-Jul-22
-
-
 When deploying an application to CloudHub 2.0, Runtime Manager automatically versions and creates a new _configuration_.
 
 Application configurations enable you to:
@@ -19,8 +12,10 @@ Possible values are:
 +
 Running:: At least one replica is receiving traffic (Started state).
 Not running:: None of the replicas are receiving traffic.
-Unknown:: The target is disconnected.
-* Make updates to a deployed application’s configuration, including:
+Unknown:: The target is disconnected. + 
+When this value appears, there is a MuleSoft-related outage or incident.
+
+* Make updates to a deployed application's configuration, including:
 +
 ** Application file
 ** Application deployment package version
@@ -35,20 +30,24 @@ Unknown:: The target is disconnected.
 include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSettings]
+. Click *Configuration* to display the app configuration history:
 +
-* The *Config changes* tab displays the changes to the successfully deployed application configuration and includes the last ten configuration deployments in order by configuration date.
+Config changes tab::
+Displays the changes to the successfully deployed application configuration and includes the last ten configuration deployments in order by configuration date.
 A unique hash identifies each configuration in the history.
-* The *All changes* tab displays a history of versions created from the configuration deployment and the actions performed on each version.
+All changes tab::
+Displays a history of versions created from the configuration deployment and the actions performed on each version.
 . Depending on the deployment target (shared or private space), change the deployed configuration:
 +
 ** Specify runtime options, such as uploading a new application file or changing the deployment target and resource allocation.
+** View the app's current version.
 ** Change the public endpoint for the app.
 ** Change app behavior with properties.
-** Disable app logs and metrics (private space only).
+** Disable or enable app logs and specify log levels.
 . Click *Apply Changes*.
 +
 A message appears at the top of the page indicating the configuration is in progress.
-. Click *View Status* to view the <<replica-statuses,status>> for each replica in the deployment.
+. Click *View status* to view the <<replica-statuses,status>> for each replica in the deployment.
 
 When the configuration is successfully applied and deployed, a message appears at the top of the page, with application status, configuration identifier, date, and replica status.
 The new configuration appears in the *Config changes* list.
@@ -87,6 +86,7 @@ Applying::
 The previous configuration of the replica is running, and new configuration settings are in the process of being implemented.
 
 You can configure a _desired state_ that indicates your ideal state of the replica. For example, if you expect the replica to be running, you can set the desired state to `running`.
+
 == Rolling Update vs. Recreate Deployment Model
 
 Depending on the deployment model, CloudHub 2.0 applies new configurations as either:
@@ -114,8 +114,12 @@ If this is the first deployment of the application,
 the rollback version isn't defined.
 In case of a failed deployment, the application remains in the failed status.
 
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+include::partial$select-private-space.adoc[tag=clickAppName]
+include::partial$select-private-space.adoc[tag=clickSettings]
+. Click *Configuration* to display the app configuration history.
 . Select the version to which to roll back from the *Config changes* history.
-. Click *Apply Changes*.
+. Click *Deploy*.
 +
 The configuration moves to the top of the *Config changes* history list and displays the new deployment date, and it retains its original identifying hash.
 
