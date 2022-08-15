@@ -16,16 +16,16 @@ For a complete list of CloudHub 2.0 features, see xref:ch2-features.adoc[CloudHu
 
 The following improvements have been made to features that were also available in CloudHub 1.0:
 
-* With the added fractional vCore offerings in CloudHub 2.0, you no longer must bundle multiple listeners in the same application to reduce your footprint.
+* With the added fractional vCore offerings in CloudHub 2.0, you no longer need to bundle multiple listeners in the same application to reduce your footprint.
 * Unlike VPCs in CloudHub 1.0, you can associate a private space with multiple environments based only on the type of the environment, such as sandbox or production. You can now choose which environment type and individual business groups with which you share private spaces.
 * Private spaces function as improved VPCs. Private spaces automatically get a private network for their applications as well as a configurable, private ingress load balancer. The ingress autoscales to accommodate traffic.
-* By default, VPNs are now high availability.
+* By default, the recommended configuration for VPNs is high availability.
 * Applications now have xref:cloudhub-2::ch2-config-endpoints-paths.adoc[public and private endpoints] by default. You can also configure multiple public endpoints. You can access the endpoint addresses in Runtime Manager.
 * You can make in-place edits and updates to TLS context and truststore of the ingress layer.
 * In CloudHub 1.0, application names had to be unique globally per region. In CloudHub 2.0, the same application name can be used in different deployments in the same private space as long as they are in different environments or organizations.
-* Custom log4j.xml is supported by default to enable streaming logs to external log collectors. You no longer must contact Support to enable or disable this feature.
-* You can disable log streaming using Runtime Manager. You no longer must contact Support to enable or disable this feature. 
-* Self-service logs for the dedicated load balancer and ingress are availllable. Titanium users can download logs through private spaces or Anypoint Monitoring.
+* Custom log4j.xml is supported by default to enable streaming logs to external log collectors. You no longer need to contact Support to enable or disable this feature.
+* You can disable log streaming using Runtime Manager. You no longer need to contact Support to enable or disable this feature. 
+* Self-service logs for the dedicated load balancer and ingress are available. Titanium users can download logs through private spaces or Anypoint Monitoring.
 * Using ports 80 and 443, applications inside a private space can communicate using internal load balancer via the private endpoint. Note that this depends on application protocol. 
 
 == Considerations and Limitations
