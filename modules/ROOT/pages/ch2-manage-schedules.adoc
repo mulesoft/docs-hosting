@@ -25,9 +25,10 @@ When designing the schedule, consider the following:
 * The CloudHub 2.0 scheduler reads the job configuration every time it runs.
 +
 When you update the scheduler configuration, the change takes effect the next time the scheduler runs.
+* Changing the schedule redeploys your application.
 * If a scheduled job is not triggered because the application is not running,
 CloudHub 2.0 triggers the job as soon as the app restarts.
-* Schedules are based in the app's defined timezone.
+* Schedules are based in the scheduler's defined timezone.
 * For multi-replica apps, CloudHub 2.0 runs scheduled jobs on all replicas.
 +
 If you run the scheduled job immediately by clicking *Run*, the scheduler runs on a single replica.
@@ -36,6 +37,11 @@ CloudHub 2.0 distributes multiple concurrent schedulers across replicas.
 * You cannot manage CloudHub 2.0 schedules using scripts.
 +
 Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules.
+* Flow names can contain only upper and lower case latters, numbers, hyphens (`-`), underscores (`_`), and periods (`.`). The following characters are invalid: `/`, `[`, `]`, `{`, `}`, and `#`.
+* When you create a schedule using a scheduler that has a placeholder, the value that appears when you create a schedule varies based on when the placeholder is discovered. For example:
+** If the value is available before the app is deployed, the value appears.
+** If the value is available before deployment and depends on deployment properties, an estimation of the value appears.
+** If the value is a placeholder (such as `${cronExpression}`) that is provided at the time of dedployment, the exact value does not appear.
 
 == Before You Begin
 
@@ -151,7 +157,8 @@ to is undergoing maintenance and then reenable it after maintenance is complete.
 
 CloudHub 2.0 does not run the scheduled job until you reenable the Scheduler.
 
-Known issue: If you disable the scheduler, it still runs when starting an application. If you want to prevent the scheduler from running, set the `startdelay` property to five seconds in your app using Anypoint Studio.
+*Known issue*: If you disable the scheduler, it still runs when starting an application. If you want to prevent the scheduler from running, set the `startdelay` property to five seconds in your app using Anypoint Studio.
+
 To disable the Scheduler element:
 
 // SELECT RTM APPS SHARED
@@ -164,14 +171,6 @@ You can also disable or enable the schedule by deselecting or
 selecting *Enabled* in the schedule editor.
 +
 image::ch2-scheduler-enable.png[Enabled toggle in the schedule editor]
-
-== Considerations and Limitations
-
-* Flow names can contain only upper and lower case latters, numbers, hyphens (`-`), underscores (`_`), and periods (`.`). The following characters are invalid: `/`, `[`, `]`, `{`, `}`, and `#`.
-* When you create a schedule using a scheduler that has a placeholder, the value that appears when you create a schedule varies based on when the placeholder is discovered. For example:
-** If the value is available before the app is deployed, the value appears.
-** If the value is available before deployment and depends on deployment properties, an estimation of the value appears.
-** If the value is a placeholder (such as `${cronExpression}`) that is provided at the time of dedployment, the exact value does not appear.
 
 == See Also
 
