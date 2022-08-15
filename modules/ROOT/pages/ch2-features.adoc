@@ -15,6 +15,7 @@ This table compares the features and support for CloudHub 2.0, CloudHub 1.0, and
 | *Provisioning/scaling*|Fully managed | Fully managed | Self-managed
 | *OS patching* | Fully managed | Fully managed | Self-managed
 | *VM self-healing* |Fully managed | Fully managed | Supported (managed nodes)
+| *Persistent VM Queues* |Not supported | Supported | Not Supported
 
 
 4+h|
