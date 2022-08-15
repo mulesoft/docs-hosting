@@ -19,7 +19,7 @@ As a container-based platform, CloudHub applies security patches as needed to en
 
 Whenever there is new security patch, CloudHub 2.0 makes it available in the production as the default for new private spaces. The first Monday after the new patch has been in production for a week, MuleSoft autmatically applies the aforementioned patch to all private spaces in Sandbox environments. The following week, it applies the patch to all spaces in Production environments. The infrastructure supporting applications in the shared space are also patched during the same week.
 
-Anypoint VPNs used in CloudHub 2.0 are upgraded continuously. Whenever a new update is available, the VPN is patched within the service-level agreement. If the Anypoint VPN is not setup as high availability or if the non-high-availability VPN is not set up with two tunnels, downtime is expected.
+xref:runtime-manager:vpn-maintenance.adoc[Anypoint VPNs] used in CloudHub 2.0 are upgraded continuously. Whenever a new update is available, the VPN is patched within the service-level agreement. If the Anypoint VPN is not setup as high availability or if the non-high-availability VPN is not set up with two tunnels, downtime is expected.
 
 == Security Updates 
 
