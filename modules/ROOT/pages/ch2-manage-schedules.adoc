@@ -6,7 +6,7 @@ For example, you might want to disable a scheduled job while one of the applicat
 On the *Schedules* tab, you can:
 
 * View the schedules in your running application.
-* Change the schedules in your application at runtime without redeploying.
+* Change the schedules in your application.
 * Run the scheduled job immediately, without changing the schedule.
 * Disable or enable the schedule for a flow.
 
@@ -165,6 +165,13 @@ selecting *Enabled* in the schedule editor.
 +
 image::ch2-scheduler-enable.png[Enabled toggle in the schedule editor]
 
+== Considerations and Limitations
+
+* Flow names can contain only upper and lower case latters, numbers, hyphens (`-`), underscores (`_`), and periods (`.`). The following characters are invalid: `/`, `[`, `]`, `{`, `}`, and `#`.
+* When you create a schedule using a scheduler that has a placeholder, the value that appears when you create a schedule varies based on when the placeholder is discovered. For example:
+** If the value is available before the app is deployed, the value appears.
+** If the value is available before deployment and depends on deployment properties, an estimation of the value appears.
+** If the value is a placeholder (such as `${cronExpression}`) that is provided at the time of dedployment, the exact value does not appear.
 
 == See Also
 
