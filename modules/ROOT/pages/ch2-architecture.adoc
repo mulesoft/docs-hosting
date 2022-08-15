@@ -219,7 +219,7 @@ For more information, see xref:ch2-app-monitoring.adoc[].
 
 === Zero-Downtime Updates
 
-CloudHub 2.0 supports updating your applications at runtime so end users of your HTTP APIs experience zero downtime.
+Using the Rolling Update model, CloudHub 2.0 supports updating your applications at runtime so end users of your HTTP APIs experience zero downtime.
 While your application update is deploying, CloudHub 2.0 keeps the old version of your application running.
 Your domain points to the old version of your application until the newly uploaded version is fully started.
 This allows you to keep servicing requests from your old application while the new version of your application is starting.
