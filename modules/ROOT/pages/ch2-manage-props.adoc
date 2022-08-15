@@ -13,7 +13,7 @@ after you save them in Runtime Manager, their values aren't visible in the conso
 or passed between the console and CloudHub 2.0.
 For information, see xref:ch2-protect-app-props.adoc[].
 
-You can properties in either Anypoint Runtime Manager or a properties file.
+You can set properties in either Anypoint Runtime Manager or a properties file.
 If you set properties both in the properties file in your application and in Runtime Manager, the values set in Runtime Manager always override the values in the properties file when your application deploys.
 
 == Add Application Properties in Runtime Manager 
