@@ -6,7 +6,7 @@ enabling you to focus on developing and updating your applications.
 
 CloudHub 2.0 applies security patches as needed to ensure that your application is secure.
 
-Patch updates use blue-green deployment, which ensures zero downtime.
+Patch updates use blue-green deployment for applications that use the Rolling Update deployment model, which ensures zero downtime for applications that support it.
 
 CloudHub 2.0 applies continuous updates to two MuleSoft-managed deployment platforms:
 
@@ -15,9 +15,9 @@ CloudHub 2.0 applies continuous updates to two MuleSoft-managed deployment platf
 
 == CloudHub 2.0 Infrastructure Continuous Updates
 
-As a container-based platform, CloudHub applies security patches as needed to ensure the infrastructre is secure. CloudHub 2.0 backend automatically updates the underlying operating system. Patch udpates use rolling upgrade deployment and can include OS changes or changes to internal software. An update rotates, drains, and replaces the underlying hosts gradually to ensure zero downtime. During the upgrade, the Mule worker application might be restarted onto a new secure host. If the Mule worker is not running with multiple replicas, it might see slight downtime.
+As a container-based platform, CloudHub applies security patches as needed to ensure the infrastructure is secure. CloudHub 2.0 backend automatically updates the underlying operating system. Patch updates use rolling upgrade deployment (when selected as the deployment model) and can include operating system changes or changes to internal software. An update rotates, drains, and replaces the underlying hosts gradually to ensure zero downtime when using the Rolling Update deployment model. During the upgrade, the Mule application might be restarted onto a new secure host. If the Mule worker is not running with multiple replicas or is using the Recreate deployment model, it might see slight downtime.
 
-Whenever there is new security patch, CloudHub 2.0 makes it available in the production as the default for new private spaces. The first Monday after the new patch has been in production for a week, MuleSoft autmatically applies the aforementioned patch to all private spaces in Sandbox environments. The following week, it applies the patch to all spaces in Production environments. The infrastructure supporting applications in the shared space are also patched during the same week.
+When a new security patch is available, CloudHub 2.0 includes it in Production environments as the default for new private spaces. The first Monday after the new patch has been in production for a week, MuleSoft automatically applies the patch to all private spaces in Sandbox environments. The following week, it applies the patch to all spaces in Production environments. The infrastructure that supports applications in the shared space is also patched during the same week.
 
 xref:runtime-manager::vpn-maintenance.adoc[Anypoint VPNs] used in CloudHub 2.0 are upgraded continuously. Whenever a new update is available, the VPN is patched within the service-level agreement. If the Anypoint VPN is not setup as high availability or if the non-high-availability VPN is not set up with two tunnels, downtime is expected.
 

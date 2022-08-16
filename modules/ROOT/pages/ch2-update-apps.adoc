@@ -94,7 +94,6 @@ Depending on the deployment model, CloudHub 2.0 applies new configurations as ei
 * Rolling updates
 +
 Maintain availability by incrementally updating replicas.
-Requires one additional replica's worth of resources to succeed.
 +
 This model means zero downtime while CloudHub 2.0 applies updates to the application.
 +

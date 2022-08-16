@@ -125,7 +125,6 @@ Deployment model::
 --
 * *Rolling update*:
 ** Maintains availability by incrementally updating replicas.
-** Requires one additional replica's worth of resources to succeed.
 
 * *Recreate*:
 ** Terminates replicas before redeployment.
