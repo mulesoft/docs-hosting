@@ -1,16 +1,25 @@
 = Clustering
 
-*Last Update* 20-Jul-22
-
 Clustering provides scalability, workload distribution, and added reliability to your applications on CloudHub 2.0.
 This functionality is powered by CloudHub's scalable load-balancing service and replica scale-out.
 
 You can enable clustering features on a per-application basis using the Anypoint Runtime Manager console when either deploying a new application or redeploying an existing application.
 
+== High Availability and Clustering
+
+_High availability_ refers to having multiple replicas that, unlike clustering, do not share data between each replica. _Clustering_ enables multiple replicas to communicate with each other and share data because they share memory. 
+
+=== CloudHub 2.0 Clustering and Object Store v2
+
+CloudHub 2.0 supports clustering using Mule in addition to Object Store v2 for Mule 4 apps. When you enable Object Store v2 in CloudHub 2.0, note that it is rate limited. For more information, see xref:object-store::index.adoc[].
+
+You do not need to configure your apps to use Object Store in CloudHub 2.0. Additionally, Mule 4 apps support Object Store v2, which can be enabled from Anypoint Runtime Manager console.
+
 == Before You Begin
 
 Clustering requires:
 
+* A Platinum or Titanium subscription to Anypoint Platform.
 * A CloudHub Enterprise or Partner account type that enables you to use this feature.
 * Familiarity with deploying applications using Runtime Manager.
 
@@ -35,7 +44,7 @@ Batch jobs only run on a single replica at a time, and cannot be distributed acr
 If Mule restarts in the same deployment, the status persists and the batch continues processing.
 If the entire application is updated or redeploying while the batch is running, the rest of the batch job doesn't continue.
 The main solution for persistent batch jobs in CloudHub 2.0 is to use 
-https://docs.mulesoft.com/object-store/[Object Store v2^] (Link out from Beta docs).
+xref:object-store::index.adoc[].
 
 == Enable Clustering Features
 
@@ -62,9 +71,7 @@ See xref:cloudhub-networking-guide.adoc[CloudHub Networking Guide^] for more inf
 
 == Use Cases
 
-*Is this table useful?*
-
-You can use either, both, or neither clustering features in a single application.
+You can combine clustering features in a single application.
 
 [%header,cols="3*a"]
 |===
@@ -106,4 +113,5 @@ Number of Replicas: 1
 == See Also
 
 * xref:ch2-architecture.adoc[]
-
+// * xref:mq::index.adoc[]
+* xref:object-store::index.adoc[]
