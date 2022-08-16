@@ -37,7 +37,7 @@ While CloudHub 2.0 has many improvements from CloudHub 1.0, organizations should
 * Unlike VPCs in CloudHub 1.0, you can associate a private space with multiple environments based only on the type of the environment, such as sandbox or production. You can now choose which environment type and individual business groups with which you share private spaces.
 * Anypoint Security, Secrets Manager, tokenizer, web application firewall (WAF) policies are not supported.
 * Applications that are stopped still consume vCore licenses. To free vCores, delete applications that are not in use.
-* To move applications between regions, you must redeploy another shared space or private space in a different region. You cannot move the app to a different region once deployed.
+* To move applications between regions, you must redeploy the application to another shared space or private space in a different region. You cannot move the app to a different region once deployed.
 * xref:runtime-manager::deploying-to-cloudhub#copy-an-application-from-sandbox-to-production.adoc[Get From Sandbox functionality] is not supported.
 * Insights are not supported. Use xref:monitoring::index.adoc[Anypoint Monitoring].
 * Use port 8081 for HTTP and HTTPS traffic. 
@@ -47,7 +47,7 @@ While CloudHub 2.0 has many improvements from CloudHub 1.0, organizations should
 * Only Mule 4.3.0 through 4.4.x are supported. 
 * Application bursting depends on the resource usage of other applications that are deployed in the private space and is not guaranteed.
 * Secure application properties are stored in encrypted, private vaults and cannot be viewed directly by users or MuleSoft staff after they are created. Secure properties are accessible only by the application itself. You can overwrite the properties to new values at any time.
-* Use xref:mq::index.adoc[Anypoint MQ] for persistent queues and other queue management.
+* Use xref:mq::index.adoc[Anypoint MQ] for persistent queues and other queue management. Persistent queues are not supported.
 * HTTP and HTTPS inbound protocols are supported. Inbound protocols that are not HTTP-based are not supported.
 * Private endpoints do not offer mTLS capabilities as internet-facing public endpoints.
 * In application logs, you cannot search by correlation ID.
