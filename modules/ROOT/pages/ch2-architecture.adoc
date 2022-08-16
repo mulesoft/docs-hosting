@@ -80,7 +80,7 @@ You can scale replicas vertically by selecting one of the available vCore sizes:
 |2.5        |2.5  |4.75 GB      |9.5 GB        | 50 GB
 |3.0        |3    |5.5 GB       |11 GB         | 60 GB
 |3.5        |3.5  |6.5 GB       |13 GB         | 70 GB
-|4.0        |4    |7.5 GB       |15 GB.        | 88 GB
+|4.0        |4    |7.5 GB       |15 GB         | 88 GB
 |===
 
 Replicas with fewer than 1.0 vCores:
@@ -88,7 +88,7 @@ Replicas with fewer than 1.0 vCores:
 * Provide limited CPU and I/O for apps with smaller workloads
 * Can burst to higher CPU speeds for a short time
 +
-This ability helps to improve application startup times and to process infrequent, large workloads. Note that application bursting depends on resource availability for nodes and is not guaranteed to occur. If you need consistent performance, use replicas with more vCores. 
+This ability helps to improve application startup times and to process infrequent, large workloads. Note that application bursting depends on resource availability for nodes and is not guaranteed to occur. If you need consistent performance, use replicas with more vCores.
 
 Replicas with 1 or more vCores provide performance consistency.
 
@@ -99,7 +99,7 @@ All applications, including stopped applications, count toward replica usage. To
 
 If your applications require more vCores than are available,
 CloudHub 2.0 allows you to create the application, but you cannot start it until the additional vCores become available.
-To increase vCore allocation, delete an application or contact your account manager to increase your subscription's vCore allocation. 
+To increase vCore allocation, delete an application or contact your account manager to increase your subscription's vCore allocation.
 
 NOTE: Applications that are stopped still consume vCores as if they were running.
 
@@ -151,7 +151,7 @@ The following table summarizes what DNS records are available for your applicati
 | EU (London) |gbr-e1| `myapp-_uniq-id_._shard_.gbr-e1.cloudhub.io`
 3+h|MuleSoft Government Cloud Region
 | US Gov West |usag-w1.gov| `myapp-_uniq-id_._shard_.usg-w1.gov.cloudhub.io`
-3+h| EU Control Plane Regions 
+3+h| EU Control Plane Regions
 | EU (Ireland) |irl-e1.eu1| `myapp-_uniq-id_._shard_.irl-e1.eu1.cloudhub.io`
 | EU (Frankfurt) |deu-c1.eu1 | `myapp-_uniq-id_._shard_.deu-c1.eu1.cloudhub.io`
 |===
@@ -161,7 +161,7 @@ For example, if you deploy an application named `myapp` to Canada (Central), the
 CloudHub 2.0 backend services determine the values of:
 
 _uniq-id_::
-A 6-digit value appended to the app name to ensure uniqueness. 
+A 6-digit value appended to the app name to ensure uniqueness.
 _shard_::
 A 6-digit value associated with the space (private or shared) that the app is deployed to.
 +
@@ -189,7 +189,7 @@ These VMs provide the security and isolation needed for your integrations to run
 * If required, you can create single-tenant _private spaces_, which are virtual, private, and isolated areas in CloudHub 2.0 in which to run your apps.
 +
 For information, see xref:ch2-private-space-about.adoc[].
-* The management console and platform services have a _shared everything_ architecture; 
+* The management console and platform services have a _shared everything_ architecture;
 all tenants share the same web UI, monitoring services, and load balancers.
 +
 These services do not process or transmit your data.
@@ -259,8 +259,6 @@ You can also receive alerts and diagnostic information if your application becom
 
 == Security
 
-*Evaluate for CloudHub 2.0*
-
 CloudHub 2.0 architecture provides a secure platform for your integrations.
 
 CloudHub 2.0 does not inspect, store, or otherwise interact directly with payload data.
@@ -283,8 +281,8 @@ For more information about MuleSoft security, see the https://mulesoft.com/downl
 * xref:ch2-monitor-apps.adoc[]
 * xref:ch2-protect-app-props.adoc[]
 * xref:ch2-config-app-alerts.adoc[]
-* https://status.mulesoft.com/[status.mulesoft.com^] 
-* https://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^] 
+* https://status.mulesoft.com/[status.mulesoft.com^]
+* https://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^]
 * https://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^]
 * xref:runtime-manager::deployment-strategies.adoc[]
 
@@ -295,4 +293,4 @@ For more information about MuleSoft security, see the https://mulesoft.com/downl
 * xref:maintenance-and-upgrade-policy.adoc[Maintenance and Upgrade Policy]
 * xref:ch2-clustering.adoc[Clustering]
 * https://aws.amazon.com/ec2/instance-types/[Amazon EC2 Instance Types^]
-//// 
+////

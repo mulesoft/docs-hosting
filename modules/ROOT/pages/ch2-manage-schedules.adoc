@@ -41,7 +41,7 @@ Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules
 * When you create a schedule using a scheduler that has a placeholder, the value that appears when you create a schedule varies based on when the placeholder is discovered. For example:
 ** If the value is available before the app is deployed, the value appears.
 ** If the value is available before deployment and depends on deployment properties, an estimation of the value appears.
-** If the value is a placeholder (such as `${cronExpression}`) that is provided at the time of dedployment, the exact value does not appear.
+** If the value is a placeholder (such as `${cronExpression}`) that is provided at the time of deployment, the exact value does not appear.
 * If you make changes to schedulers, you should reupload the application to Exchange to ensure the expected scheduler behavior occurs.
 
 == Before You Begin
@@ -128,7 +128,7 @@ The cron expression in this example sets the schedule to every 10 seconds.
 +
 For information about building cron triggers:
 +
-.. View the http://www.quartz-scheduler.org/documentation[Quartz documentation^]. 
+.. View the http://www.quartz-scheduler.org/documentation[Quartz documentation^].
 .. Select a version, click *Documentation > User's Guide > Tutorial*, and then click the *CronTrigger* lesson.
 . Click *Update* to save changed settings or click *Cancel* to exit without saving.
 
@@ -151,7 +151,7 @@ include::partial$select-private-space.adoc[tag=clickSchedules]
 . Select the elements to manage and then click *Run*.
 
 [[disable-enable-scheduler]]
-== Disable or Enable a Scheduler Element 
+== Disable or Enable a Scheduler Element
 
 You might want to disable a scheduled job if an application you are connecting
 to is undergoing maintenance and then reenable it after maintenance is complete.
@@ -168,7 +168,7 @@ include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSchedules]
 . Select the elements to manage and then click *Disable*.
 +
-You can also disable or enable the schedule by deselecting or 
+You can also disable or enable the schedule by deselecting or
 selecting *Enabled* in the schedule editor.
 +
 image::ch2-scheduler-enable.png[Enabled toggle in the schedule editor]
@@ -179,4 +179,3 @@ image::ch2-scheduler-enable.png[Enabled toggle in the schedule editor]
 * xref:mule-runtime::scheduler-concept.adoc[]
 * http://www.quartz-scheduler.org/documentation[Quartz documentation^]
 * https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^]
-

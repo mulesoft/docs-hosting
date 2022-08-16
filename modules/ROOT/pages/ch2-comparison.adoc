@@ -8,7 +8,6 @@ CloudHub 2.0 improvements make it easier to learn, develop, and manage than Clou
 * Amazon Web Services (AWS) service roles for resource access control
 * More granular vCore purchase options
 * Outbound firewall rule configuration
-* Dedicated load balancer and ingress self-service logs
+* Ingress self-service logs
 
 For a complete list of CloudHub 2.0 features, see xref:ch2-features.adoc[].
-
