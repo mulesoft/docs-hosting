@@ -45,7 +45,7 @@ While CloudHub 2.0 has many improvements from CloudHub 1.0, organizations should
 === Application Considerations
 
 * Only Mule 4.3.0 through 4.4.x are supported. 
-* Application bursting depends on the resource usage of other applications that are deployed in the private space and is not guaranteed. You must allocate vCores accordingly.
+* Application bursting depends on the resource usage of other applications that are deployed in the private space and is not guaranteed.
 * Secure application properties are stored in encrypted, private vaults and cannot be viewed directly by users or MuleSoft staff after they are created. Secure properties are accessible only by the application itself. You can overwrite the properties to new values at any time.
 * Use xref:mq::index.adoc[Anypoint MQ] for persistent queues and other queue management.
 * HTTP and HTTPS inbound protocols are supported. Inbound protocols that are not HTTP-based are not supported.
