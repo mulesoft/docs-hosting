@@ -6,9 +6,9 @@ CloudHub 2.0 improvements make it easier to learn, develop, and manage than Clou
 * Container-based application deployment to regulate resource consumption, ensure application availability, and enable scalability
 * Deploying applications to shared spaces, which do not require advanced setup or infrastructure maintenance
 * Amazon Web Services (AWS) service roles for resource access control
-* More granular vCore purchase options
+* More granular vCore allocation options
 * Outbound firewall rule configuration
-* Dedicated load balancer and ingress self-service logs
+* Ingress self-service logs
 
 For a complete list of CloudHub 2.0 features, see xref:ch2-features.adoc[CloudHub 2.0 Features].
 
@@ -16,7 +16,7 @@ For a complete list of CloudHub 2.0 features, see xref:ch2-features.adoc[CloudHu
 
 The following improvements have been made to features that were also available in CloudHub 1.0:
 
-* With the added fractional vCore offerings in CloudHub 2.0, you no longer need to bundle multiple listeners in the same application to reduce your footprint.
+* With the added fractional vCore offerings in CloudHub 2.0, you may no longer need to bundle multiple listeners in the same application to reduce your footprint.
 * Unlike VPCs in CloudHub 1.0, you can associate a private space with multiple environments based only on the type of the environment, such as sandbox or production. You can now choose which environment type and individual business groups with which you share private spaces.
 * Private spaces function as improved VPCs. Private spaces automatically get a private network for their applications as well as a configurable, private ingress load balancer. The ingress autoscales to accommodate traffic.
 * By default, the recommended configuration for VPNs is high availability.
