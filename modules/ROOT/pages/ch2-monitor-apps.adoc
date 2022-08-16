@@ -1,7 +1,5 @@
 = Monitoring Apps Deployed to CloudHub 2.0
 
-(needs an intro)
-
 * xref:ch2-view-logs.adoc[]
 * xref:ch2-view-diag.adoc[]
 * xref:ch2-config-app-alerts.adoc[]

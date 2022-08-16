@@ -1,7 +1,5 @@
 = Shared Spaces
 
-*Last update* 18-Jul-22
-
 A _shared space_ is an elastic cloud of resources that includes Mule instances running in
 a multi-tenant environment. 
 CloudHub 2.0 provides one shared space in each supported xref:ps-gather-setup-info.adoc#private-network-region[region], to which you deploy your integration applications.
@@ -22,7 +20,6 @@ Any of the following features and functionality requires a private space:
 * Vanity domain names
 * Custom certificates
 * Private endpoints
-// * Log forwarding
 
 == See Also
 

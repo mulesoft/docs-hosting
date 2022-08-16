@@ -1,18 +1,15 @@
 = Configuring Advanced Private Space Settings
 
-*This topic is updated to the Design Spec dated 02-Mar-22*
-
-*Last update* 12-Jul-22
-
-
 Use options on the *Advanced* tab to:
 
-* Configure how the private space handles HTTP requests.
+* Configure how the ingress load balancer handles HTTP requests.
 * Specify the read-response timeout.
 +
 This value is the amount of time CloudHub 2.0 waits for a response from the Mule application.
-If no data is sent or received in the specified time, CloudHub 2.0 closes the client and private space connections.
+// If no data is sent or received in the specified time, CloudHub 2.0 closes the client and private space connections.
+If no data is sent or received in the specified time, CloudHub 2.0 drops the request with a 504 error.
 * Configure ingress load balancer logs levels and download logs.
+* Configure Amazon Web Services (AWS) service roles.
 
 
 == Configure HTTP Requests and Read-Response Timeout
@@ -33,12 +30,12 @@ From the *HTTP Requests* list, select one of the following:
 ** *Redirect to HTTPS*
 +
 Redirects HTTP requests to the same URL using the HTTPS protocol.
-** *Drop HTTP requests*
-+
-Silently drops HTTP requests.
-** *Also accept HTTP requests*
+** *Accept HTTP*
 +
 Accepts the inbound request on the default SSL endpoint using the HTTP protocol.
+** *Drop HTTP*
++
+Silently drops HTTP requests.
 --
 . Specify the read response timeout value.
 +
@@ -73,14 +70,12 @@ More verbose log levels might affect performance.
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 include::partial$select-private-space.adoc[tag=clickAdvanced]
-. Configure custom log levels.
+. Configure custom log levels:
 +
 .. Enter the IP address and select the <<ingress-load-balancer-log-levels,log level>> from the drop-down list.
 .. Click *Add IP Address* to enter additional custom log levels.
 .. To remove a custom log level, click the trash can icon (*Delete*) for the entry.
-// +
-// image::fw-rule-delete.png[Delete icon on the Firewall Rules tab]
-. Click *Save Changes* or *Discard Changes*.
+. Click *Save Changes* or *Discard changes*.
 
 
 [[ingress-load-balancer-log-levels]]
@@ -94,20 +89,21 @@ The default log level for IP address filtering is `DEBUG`.
 | Level 
 | Description
 
-| All Priorities
-| All messages
+// | All Priorities
+// | All messages
 
-| ERROR (Recommended)
+| Error (Recommended)
 | Only error messages, such as when an exception occurs
 
-| INFO
-| Informative messages
+| Debug
+| Debugging messages
 
-| TRACE
+| Trace
 | Tracks application metadata such as path, headers, state, and timeline between Ingress and APIs to facilitate collaboration
 
-| DEBUG
-| Debugging messages
+| Info
+| Informative messages
+
 |===
 
 
@@ -122,13 +118,20 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 include::partial$select-private-space.adoc[tag=clickAdvanced]
 . Click *Download Logs*.
 
+[[configure-aws-role]]
+== Configure AWS Service Role
 
-////
-You can use Anypoint Runtime Manager to change the application log level by configuring the following property:
-```
-logging.level.<PACKAGE>=LEVEL
-``` 
-For example, if you use Runtime Manager to add the 
-`logging.level.org.mule.service.http.impl.service.HttpMessageLogger=DEBUG` property, `DEBUG` level log information is emitted from `HttpMessageLogger`.
-////
+If you have identity and access management (IAM) roles configured in AWS, you can associate the role with your private space. The private space receives the permissions from the IAM role in AWS and can access AWS resources. To enable this feature, Anypoint Platform generates a unique role name you can use with AWS IAM. Note that you must allow outbound traffic on port 443 to use this feature. For more information, see https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html[IAM roles^].
 
+// SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+include::partial$select-private-space.adoc[tag=clickAdvanced]
+. Click *Enable AWS Service Role*.
+. Click *Save Changes* or *Discard changes*.
++
+A unique service role name is generated, and you can use this role configure to configure identity and access management for AWS. Role generation might take a few minutes. If the role name does not appear, refresh the page.
+
+== See Also
+
+* https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html[IAM roles^] in the AWS documentation

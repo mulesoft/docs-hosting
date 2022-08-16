@@ -1,7 +1,5 @@
 = Downloading Test Apps from Exchange
 
-*Last update* 04-May-22
-
 If you don't have a Mule app to test with, you can download an example app from Anypoint Exchange.
 
 [NOTE]
@@ -21,5 +19,5 @@ Exchange downloads the app JAR file to your local system.
 
 == See Also
 
-* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (Link out from Beta docs)
+* https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] on Exchange
 
