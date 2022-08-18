@@ -20,8 +20,8 @@ The following improvements have been made to features that were also available i
 * Private spaces function as improved VPCs. Private spaces automatically can be assigned a private network for their applications and a configurable, private ingress load balancer. The ingress auto-scales to accommodate traffic.
 * By default, the recommended configuration for VPNs is high availability.
 * Applications now have xref:ch2-config-endpoints-paths.adoc[public and private endpoints] by default. You can also configure multiple public endpoints. You can access the endpoint addresses in Runtime Manager.
-* You can make in-place edits and updates to TLS context and truststore of the ingress layer.
-* In CloudHub 1.0, application names had to be unique globally per region. In CloudHub 2.0, the same application name can be used in different deployments in the same private space as long as they are in different environments or organizations.
+* You can make in-place edits and updates to the TLS context and truststore of the ingress layer.
+* In CloudHub 1.0, application names had to be unique, globally, per region. In CloudHub 2.0, the same application name can be used in different deployments in the same private space as long as they are in different environments or organizations.
 * Custom log4j.xml is supported by default to enable xref:ch2-integrate-log-system.adoc[streaming logs] to external log collectors. You no longer need to contact Support to enable or disable this feature.
 * You can disable log streaming using Runtime Manager. You no longer need to contact Support to enable or disable this feature. 
 * Self-service logs for the dedicated load balancer and ingress are available via a private space. Titanium users can also download logs through Anypoint Monitoring.
@@ -35,7 +35,7 @@ While CloudHub 2.0 has many improvements from CloudHub 1.0, organizations should
 
 * CloudHub 1.0 VPC peering and direct connect have been deprecated in CloudHub 2.0. You can now use transit gateway attachments. Further, when you delete a private space that has a transit gateway attached, the transit gateway is preserved, and you can reattach it to a different private space.
 * Unlike VPCs in CloudHub 1.0, you can associate a private space with multiple environments based only on the type of the environment, such as sandbox or production. You can now choose which environment type and individual business groups with which you share private spaces.
-* Anypoint Security, Secrets Manager, tokenizer, web application firewall (WAF) policies are not supported.
+* CloudHub 2.0 does not support Anypoint Security, Secrets Manager, tokenizer, and web application firewall (WAF) policies.
 * Applications that are stopped still consume vCore licenses. To free vCores, delete applications that are not in use.
 * To move applications between regions, you must redeploy the application to another shared space or private space in a different region. You cannot move the app to a different region once deployed.
 * xref:runtime-manager::deploying-to-cloudhub#copy-an-application-from-sandbox-to-production.adoc[Get From Sandbox functionality] is not supported.
