@@ -12,7 +12,7 @@ You can integrate your CloudHub 2.0 application with your logging system using t
 * Do not use synchronous log appenders.
 +
 You can use only asynchronous log appenders.
-* Do not use file appenders, such as FileAppender, RollingFileAppender, and RandomAccessFileAppender.
+* File appenders, such as FileAppender, RollingFileAppender, AnypointMonitoringFileAppender, and RandomAccessFileAppender, are removed automatically.
 * When using custom Log4j configurations, both Mule runtime engine and application logs remain available in Runtime Manager.
 
 You can use any Log4j appender.

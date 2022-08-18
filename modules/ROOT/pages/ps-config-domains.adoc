@@ -86,7 +86,6 @@ Use https://www.whois.com/[Whois^] to look up your registrar.
 // <<screenshot>>
 .. Replace the domain's nameserver by pasting the DNS target.
 +
-+
 Your registrar might take up to 24 hours to apply the change.
 
 . Verify that your account has CloudHub Network Administrator permission, which is required to modify a private space.

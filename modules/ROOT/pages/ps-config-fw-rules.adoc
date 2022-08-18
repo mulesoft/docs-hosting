@@ -12,6 +12,7 @@ Creating a private space automatically creates these firewall rules:
 ** TCP: All ports
 ** HTTPS: 443
 
+To support Anypoint MQ and ObjectStore v2, you must allow outbound traffic on port 443 (HTTPS).
 
 == Configure Firewall Rules
 

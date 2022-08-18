@@ -11,9 +11,9 @@ _High availability_ refers to having multiple replicas that, unlike clustering, 
 
 === CloudHub 2.0 Clustering and Object Store v2
 
-CloudHub 1.0 allowed only high availability and limited cluster-like behavior using Object Store v2. Also, CloudHub 1.0 does not support using Object Store v2 with Mule 4 apps. CloudHub 2.0 supports clustering using Mule in addition to Object Store v2 for Mule 4 apps. When you enable Object Store v2 in CloudHub 2.0, note that it is rate limited. For more information, see xref:object-store::index.adoc[].
+CloudHub 2.0 supports clustering using Mule in addition to Object Store v2 for Mule 4 apps. When you enable Object Store v2 in CloudHub 2.0, note that it is rate limited. For more information, see xref:object-store::index.adoc[].
 
-Unlike in CloudHub 1.0, you do not need to configure your apps to use Object Store in CloudHub 2.0. Additionally, in CloudHub 2.0, Mule 4 apps support Object Store v2 which can be enabled from Anypoint Runtime Manager console.
+You do not need to configure your apps to use Object Store in CloudHub 2.0. Additionally, Mule 4 apps support Object Store v2, which can be enabled from Anypoint Runtime Manager console.
 
 == Before You Begin
 
