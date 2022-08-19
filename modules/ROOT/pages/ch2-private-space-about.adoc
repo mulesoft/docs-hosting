@@ -46,8 +46,7 @@ You can create as many endpoints as you need.
 You control the traffic to and from your private spaces.
 
 Inbound::
-By default, CloudHub 2.0 allows traffic to the private space on ports 80 (HTTP) and 443 (HTTPS) from anywhere (0.0.0.0/0). Configure firewall rules to allow connections through specified ports or remove ports. 
-You can configure additional firewall rules on ports 80 and 443 to control traffic to your private space.
+By default, CloudHub 2.0 allows traffic to the private space on ports 80 (HTTP) and 443 (HTTPS) from anywhere (0.0.0.0/0). Configure firewall rules to allow connections through specified ports, remove ports, or use ports 80 and 443 to control traffic to your private space.
 +
 The private space provides load balancing to balance inbound traffic to apps across multiple replicas.
 Outbound::
