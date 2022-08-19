@@ -14,9 +14,9 @@ For a complete list of CloudHub 2.0 features, see xref:ch2-features.adoc[CloudHu
 
 == Technical Enhancements from CloudHub 1.0 to CloudHub 2.0
 
-The following improvements have been made to features that were also available in CloudHub 1.0:
+The following improvements have been made to features that are also available in CloudHub 1.0:
 
-* With the added fractional vCore offerings in CloudHub 2.0, you may no longer need to bundle multiple listeners in the same application to reduce your footprint.
+* With the added fractional vCore offerings in CloudHub 2.0, you may no longer need to bundle multiple listeners in the same application to reduce your resource usage.
 * Private spaces function as improved VPCs. Private spaces automatically can be assigned a private network for their applications and a configurable, private ingress load balancer. The ingress auto-scales to accommodate traffic.
 * By default, the recommended configuration for VPNs is high availability.
 * Applications now have xref:ch2-config-endpoints-paths.adoc[public and private endpoints] by default. You can also configure multiple public endpoints. You can access the endpoint addresses in Runtime Manager.
