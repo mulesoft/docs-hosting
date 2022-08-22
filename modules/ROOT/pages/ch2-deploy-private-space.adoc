@@ -21,7 +21,7 @@ include::partial$caveats.adoc[tag=noRenameApp]
 +
 --
 *** To upload a Mule app JAR file from your system, select *Choose file > Upload file*. +
-File can contain only letters, numbers, and underscores per guidelines on https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7[unique package names].
+File names can contain only letters, numbers, and underscores per guidelines on https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7[unique package names].
 +
 *** To choose an example app from Anypoint Exchange:
 .... Select *Choose file > Import file from Exchange*.
