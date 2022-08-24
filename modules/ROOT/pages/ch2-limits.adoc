@@ -2,13 +2,13 @@
 
 CloudHub 2.0 imposes the following limits:
 
-Private spaces per organization:: ?
+Private spaces per organization:: 100
 
 Connections per private space:: 5. 10 if the connections are not redundant.
 
 VPNs per private space:: ??
 
-TLS contexts:: 10
+Custom TLS contexts per private space:: 10
 
 Client certificates per TLS context:: (I don't know if they can add more than one - just checking)
 
@@ -25,3 +25,7 @@ Public endpoints per app:: ?
 Apps connected to shared spaces:: Is there a limit?
 
 Log forwarding configurations per app:: ?
+
+
+[NOTE]
+Limits are subject to change.
