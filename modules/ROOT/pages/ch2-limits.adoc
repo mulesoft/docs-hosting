@@ -16,8 +16,6 @@ Client certificates per TLS context:: (I don't know if they can add more than on
 
 Firewall rules (total between inbound and outbound):: ?(or is it best to separate these?)
 
-Business groups associated with a private space:: ?
-
 Custom log levels for ingress load balancers:: ?
 
 Application size:: Up to 200 MB
