@@ -24,7 +24,7 @@ Application size:: Up to 200 MB
 
 Public endpoints per app:: ?
 
-Apps connected to shared spaces:: Is there a limit?
+Apps deployed to shared spaces:: Is there a limit?
 
 Log forwarding configurations per app:: ?
 
