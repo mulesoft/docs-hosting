@@ -8,7 +8,7 @@ Connections per private space:: 5. 10 if the connections are not redundant.
 
 VPNs per private space:: ??
 
-Transit gateways:: 5, depending on available network connection entitlements
+Transit gateway connections:: 5, depending on available network connection entitlements
 
 Custom TLS contexts per private space:: 10
 
