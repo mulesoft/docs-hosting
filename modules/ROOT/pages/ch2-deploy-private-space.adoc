@@ -57,30 +57,30 @@ To configure endpoints for the app to enable access from the internet:
 Public endpoint::
 +
 --
-* *Domain*: Select the domain, such as `cloudhub.io`, for the app from the dropdown.
+* *Domain*: Select the domain, such as `cloudhub.io`, for the app from the drop-down list.
 +
 [NOTE]
-If you select `cloudhub.io` (the default domain when deploying to a private space), you can't select a subdomain or path.
+If you select `cloudhub.io` (the default domain), you can't select a subdomain or path.
 +
 The administrator configures the domains and certificates (TLS context) for the private space.
 See xref:ps-config-domains.adoc[].
 +
 After you select the domain for a private space, you can view the corresponding TLS context by clicking *View TLS Context*:
-+
-<screenshot>
+// +
+// <screenshot>
 * *Subdomain*: If the domain you selected includes a wildcard, you can configure the subdomain.
 +
 include::partial$deployment.adoc[tag=subdomain-name-reqs]
 +
 Subdomains support <<placeholder-table,placeholders>>.
 The default subdomain is `app-name`, which resolves to the name of the app that you specified in the *Application Name* field when you deploy the app.
-* *Path* (private space only): specifies the URL path to the application endpoint.
+* *Path*: specifies the URL path to the application endpoint.
 +
 include::partial$deployment.adoc[tag=path-name-reqs]
 +
 Paths support <<placeholder-table,placeholders>>.
-+
-<screenshot>
+// +
+// <screenshot>
 * To add an endpoint, click *Add Endpoint* and specify options.
 * To remove an endpoint, click the *X* in the endpoint row.
 
