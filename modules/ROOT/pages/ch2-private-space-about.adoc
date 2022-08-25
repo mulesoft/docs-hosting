@@ -3,7 +3,7 @@
 A _private space_ is a virtual, private, and isolated logical space in CloudHub 2.0 in which to run your apps.
 You can create multiple private spaces, either in the same or different regions.
 
-You connect your private intranet to your private space to function as a single, private network. 
+You connect your private intranet to your private space to function as a single, private network.
 
 In each private space, you define:
 
@@ -41,6 +41,11 @@ When deploying an app to the private space, you can use the domains from the TLS
 If the domains in the TLS context include a wildcard, you can configure an optional subdomain, such as the app name or an organization.
 You can create as many endpoints as you need.
 
+== Path Rewriting
+
+You can configure the app to be accessible from
+a different path from the base path where the app is listening.
+
 == Firewall Rules
 
 You control the traffic to and from your private spaces.
@@ -50,7 +55,7 @@ By default, CloudHub 2.0 allows traffic to the private space on ports 80 (HTTP) 
 +
 The private space provides load balancing to balance inbound traffic to apps across multiple replicas.
 Outbound::
-By default, CloudHub 2.0 allows all traffic from the private space to destinations outside the private space. Configure firewall rules to remove this rule and allow traffic only on specified ports. 
+By default, CloudHub 2.0 allows all traffic from the private space to destinations outside the private space. Configure firewall rules to remove this rule and allow traffic only on specified ports.
 
 By combining firewall rules and TLS context configuration, you can fine-tune the ingress and egress of your application traffic.
 
