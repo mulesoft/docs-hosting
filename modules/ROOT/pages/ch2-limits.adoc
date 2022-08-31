@@ -18,12 +18,6 @@ Firewall rules (outbound):: 40
 
 Application size:: Up to 200 MB
 
-Public endpoints per app:: ?
-
-Apps deployed to shared spaces:: Is there a limit?
-
-Log forwarding configurations per app:: ?
-
 
 [NOTE]
 Limits are subject to change.
