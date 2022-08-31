@@ -67,7 +67,7 @@ CloudHub 2.0 accepts truststore files in PEM formats.
 Configure a DNS target to allow clients to reach your applications from within or outside of the private network.
 
 _Public DNS targets_ allow external clients to reach your applications at custom domains. 
-_Private DNS targets_ can can only be reached from inside a private network, or through VPN or transit gateway connections. Use it with internal DNS or allowlists in your connected external networks, so clients in those networks may make requests to your applications.
+_Private DNS targets_ can can only be reached from inside a private network, or through VPN or transit gateway connections. Use them with internal DNS or allowlists in your connected external networks, so clients in those networks may make requests to your applications.
 
 === Ciphers
 
