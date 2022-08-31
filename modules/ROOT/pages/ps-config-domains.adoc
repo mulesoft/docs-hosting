@@ -3,10 +3,10 @@
 CloudHub 2.0 uses Transport Layer Security (TLS) contexts to encrypt 
 inbound traffic to the private space.
 
-TLS contexts enable your apps to be reached at custom domains and, optionally, enable mutual TLS. 
- 
-Each private space includes one TLS context by default
-(for traffic to `cloudhub.io`), which can't be removed.
+TLS contexts enable your apps to be reached at custom domains and, optionally, enable mutual TLS.
+
+Each private space includes one TLS context by default (for traffic to `cloudhub.io`), which can't be removed. 
+The default certificate renews automatically and requires no action from the user.
 You can create additional TLS contexts as required.
 
 The TLS contexts that you configure for the private space define the domains that are available 
@@ -61,6 +61,13 @@ To enable mutual TLS, configure a truststore.
 If a truststore is not configured, mutual TLS is disabled.
 
 CloudHub 2.0 accepts truststore files in PEM formats.
+
+=== DNS Targets
+
+Configure a DNS target to allow clients to reach your applications from within or outside of the private network.
+
+_Public DNS targets_ allow external clients to reach your applications at custom domains. 
+_Private DNS targets_ can only be reached from inside a private network, or through VPN or transit gateway connections. Use them with internal DNS or allowlists in your connected external networks, so clients in those networks may make requests to your applications.
 
 === Ciphers
 

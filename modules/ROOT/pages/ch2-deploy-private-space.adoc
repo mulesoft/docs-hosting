@@ -20,7 +20,9 @@ include::partial$caveats.adoc[tag=noRenameApp]
 .. Select an application file:
 +
 --
-*** To upload a Mule app JAR file from your system, select *Choose file > Upload file*.
+*** To upload a Mule app JAR file from your system, select *Choose file > Upload file*. +
+File names can contain only letters, numbers, and underscores per guidelines on https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7[unique package names].
++
 *** To choose an example app from Anypoint Exchange:
 .... Select *Choose file > Import file from Exchange*.
 .... On the *Get from Exchange* page, enter `hello` in the *Search assets by name*:
@@ -140,4 +142,3 @@ include::partial$deployment.adoc[tag=configureLogging,leveloffset=+1]
 * xref:ch2-config-endpoints-paths.adoc[]
 * xref:ps-config-domains.adoc[]
 * xref:ch2-integrate-log-system.adoc[]
-
