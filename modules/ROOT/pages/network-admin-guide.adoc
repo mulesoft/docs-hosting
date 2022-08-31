@@ -1,0 +1,88 @@
+= Network Administrator Guide
+
+
+When you are gathering information to create a private space, the information or values you need depend on the type of connection your private space will use: an AWS transit gateway or a virtual private network (VPN).
+
+Use the following lists of requirements to get the information you need to create a private space. Your organization's network or system administrator can help you understand which configurations your organization's existing infrastructure can support or other corporate requirements.
+
+== How to Decide on a Connection Type
+
+(list of considerations?)
+
+[[transit-gateway]]
+== Transit Gateway Connection
+
+To create a transit gateway connection, you need:
+
+* Region
+* CIDR block
+* Connection name
+* Static routes (in CIDR notation)
+* AWS credentials for an account that has the ability to create resource shares
+* Resource share ID
+* Owner ID
+
+[[dynamic-vpn]]
+== Dynamic VPN Connection
+
+To create a dynamic VPN connection, you need:
+
+* Region
+* CIDR block
+* Connection name
+* Remote IP
+* Local ASN
+* Remote ASN
+* Inside IP CIDRs (optional)
+* Pre-shared keys (optional)
+* Gateway device information:
+** Vendor
+** Platform
+** Software
+
+[[static vpn]]
+== Static VPN Connection
+
+To create a static VPN connection, you need:
+
+* Region
+* CIDR block
+* Connection name
+* Remote IP
+* Local ASN
+* Static routes
+* Inside IP CIDRs (optional)
+* Pre-shared keys (optional)
+* Gateway device information:
+** Vendor
+** Platform
+** Software
+
+---------
+
+Luana: I have assembled high-level lists above of what each configuration needs; Taylor can probably help with how to decide each of these things.
+
+The UI specs have definitions of many of the pieces of info we request from users: https://www.figma.com/file/8oqIfXoNYJWjR5aAuY3QYa/Private-Spaces?node-id=0%3A1
+
+
+
+---------
+(Hanna's notes)
+For Documentation: “View the guide” should link to a doc targeted at network admins, who don't necessarily know anything about Anypoint Platform, but are often depended on for help with setup. The goal is for our user to be able to send the network admin a link to this doc without comment and receive all the info they need. It should break down all info required for…
+
+* Setting up a private network
+* Determining which type of connection to use (a single VPN, redundant VPNs, or a transit gateway)
+* Setting up the selected connection type
+////
+For Documentation: The “Learn more” link (under CIDR Block) should link to detailed guidance on defining a CIDR block for their private network. It may be helpful for this to be a specific section in the network admin guide.
+////
+// CIDR Block Shared
+[[cidr-block]]
+include::partial$create-config.adoc[tag=cidrBlock,leveloffset=+1]
+
+
+== See Also
+
+* xref:ps-gather-setup-info.adoc[]
+* xref:ps-create-configure-vpn.adoc[]
+* xref:ps-create-configure-tgw.adoc[]
