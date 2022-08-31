@@ -3,10 +3,10 @@
 CloudHub 2.0 uses Transport Layer Security (TLS) contexts to encrypt 
 inbound traffic to the private space.
 
-TLS contexts enable your apps to be reached at custom domains and, optionally, enable mutual TLS. 
- 
-Each private space includes one TLS context by default
-(for traffic to `cloudhub.io`), which can't be removed.
+TLS contexts enable your apps to be reached at custom domains and, optionally, enable mutual TLS.
+
+Each private space includes one TLS context by default (for traffic to `cloudhub.io`), which can't be removed. 
+The default certificate renews automatically and requires no action from the user.
 You can create additional TLS contexts as required.
 
 The TLS contexts that you configure for the private space define the domains that are available 
