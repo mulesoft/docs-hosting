@@ -21,14 +21,42 @@ When a new security patch is available, CloudHub 2.0 includes it in Production e
 
 xref:runtime-manager::vpn-maintenance.adoc[Anypoint VPNs] used in CloudHub 2.0 are upgraded continuously. Whenever a new update is available, the VPN is patched within the service-level agreement. If the Anypoint VPN is not setup as high availability or if the non-high-availability VPN is not set up with two tunnels, downtime is expected.
 
-== Security Updates 
+[[runtime-updates]]
+== Monthly Date-Patch Updates
+
+In the first full week of each month, MuleSoft releases a _date-patch update_,
+which includes backward-compatible bug fixes to address any issues discovered in Mule runtime engine. You must manually apply the date-patch to your CloudHub 2.0 apps.
+The monthly date-patch update might include security patches if the scheduled date is within the security SLA.
+
+The format of the version number for these updates is:
+
+_Major_._Minor_._Patch_ - _Date_
+
+Here's an example version number, including the patch date:
+
+`4.2.2 - 05-04-2020`
+
+The monthly patches update applications only to the latest date patch for the patch version.
+They do not change the patch version number.
+
+To update your apps:
+
+. Log in to Anypoint Platform.
+. Navigate to Runtime Manager.
+. In the Runtime Manager navigation menu, click *Applications*
+. Select the application you want to update.
+. In *Settings*, in the *Deployment Target* tab, click the *Runtime Version* drop-down.
+. Select the latest build for your version.
+. Click *Deploy*. +
+The application redeploys with the new runtime version. 
+
+== Security Updates
 
 MuleSoft regularly runs scans to identify security vulnerabilities in JVM and the underlying operating system, and then automatically applies security patches based on the following SLA:
 
 [%header,cols="20,25,40"]
 |===
-|Severity Level | Severity Definition | Patch Applied Within 
+|Severity Level | Severity Definition | Patch Applied Within
 |P0 | Critical | 7 days
 |P1 | High | 30 days
 |===
-
