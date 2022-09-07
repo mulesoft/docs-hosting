@@ -39,7 +39,7 @@ Here's an example version number, including the patch date:
 The monthly patches update applications only to the latest date patch for the patch version.
 They do not change the patch version number.
 
-To update your apps:
+=== Update the Runtime Version Manually
 
 . Log in to Anypoint Platform.
 . Navigate to Runtime Manager.
