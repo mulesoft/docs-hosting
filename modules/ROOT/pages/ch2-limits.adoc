@@ -1,0 +1,25 @@
+= Limits in CloudHub 2.0
+
+CloudHub 2.0 imposes the following limits:
+
+Private spaces per organization:: 100
+
+Connections per private space:: 5. 10 if the connections are not redundant.
+
+VPNs per private space:: 10
+
+Transit gateway connections:: 5, depending on available network connection entitlements
+
+Custom TLS contexts per private space:: 10
+
+HTTP header length (`maxHeaderLength`):: 16K
+
+Firewall rules (inbound):: 40
+
+Firewall rules (outbound):: 40
+
+Application size:: Up to 200 MB
+
+
+[NOTE]
+Limits are subject to change.

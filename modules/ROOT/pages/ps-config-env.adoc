@@ -1,10 +1,6 @@
 = Associating Environments and Business Groups with a Private Space
 
-*This topic is updated to the Design Spec dated 09-Nov-21*
-
-*Last update* 13-Jul-22
-
-Before you can deploy to a private space, you must specify the environments and at least one business group to associate with it.
+Before deploying to a private space, you can specify environments and at least one business group to associate with it.
 This association specifies in which environments the private space appears as 
 a target deployment in the *Deployment Target* list when deploying an app. 
 For information, see xref:ch2-deploy-private-space.adoc[].
@@ -25,7 +21,7 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Select the environments from the drop-down list:
 +
 --
-** *All environments*
+** *Any environment*
 +
 Associates the private space with all sandbox and production environments in the business group and its children.
 ** *Sandbox environments*
@@ -39,16 +35,15 @@ Associates the private space with only production environments in the business g
 +
 --
 ** *This business group and its children*
-** *Selected business group*
+** *Selected business groups*
 +
 Enter the business group name in the *Add business group* field and select it from the list.
 +
 The list includes the business group and its child business groups to which the private space is registered and that have not yet been added.
 --
-. To remove a business group, click the *X* for the entry:
+. To remove a business group, click the *X* for the entry.
 +
-<screenshot>
-// image::bg-delete.png[Delete icon on the Environments tab]
+image::bg-delete.png[Delete icon on the Environments tab]
 
 . Click *Save Changes* or *Discard Changes*.
 
@@ -57,7 +52,7 @@ The list includes the business group and its child business groups to which the 
 If you have the Organization Administrator permission, view or manage resources associated with a business group:
 
 . Log in to Anypoint Platform using an account that has the Organization Administrator permission.
-. In the navigation bar or the main Anypoint Platform page, click Access Management.
+. In the navigation bar or the main Anypoint Platform page, click *Access Management*.
 . In the Access Management navigation menu, click *Business Groups*.
 . Click the *Settings* tab.
 . In the *Resources* section, view or modify the allocation for a resource, such as *Production vCores*.
@@ -66,7 +61,7 @@ If you have the Organization Administrator permission, view or manage resources 
 If *Business Groups* is not in the Access Management navigation menu:
 
 . Log in to Anypoint Platform using an account that has the Organization Administrator permission.
-. In the navigation bar or the main Anypoint Platform page, click Access Management.
+. In the navigation bar or the main Anypoint Platform page, click *Access Management*.
 . In the Access Management navigation menu, click *Organization*.
 . Click the name of the business group you want to modify.
 . View or modify the allocation for a resource, such as *Production vCores*.
@@ -76,4 +71,4 @@ If *Business Groups* is not in the Access Management navigation menu:
 == See Also 
 
 * xref:ch2-deploy-private-space.adoc[]
-* https://docs.mulesoft.com/access-management/[Anypoint Access Management^] (Link out from Beta docs)
+* xref:access-management::index.adoc[]

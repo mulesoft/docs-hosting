@@ -1,21 +1,14 @@
 = Viewing Log Data for Deployed Apps
 
-*Last update* 20-Jul-22
-
-////
-FC: replica, levels, time filters
-GA: thread dumps: trigger, view, prev/next message nav, config menu sort
-////
-
 CloudHub 2.0 provides access to log data that includes deployment messages and events for each replica and Mule runtime engine logs.
 
 For more advanced searching and log management, you can use Anypoint Monitoring (requires Titanium subscription).
-See https://docs.mulesoft.com/monitoring/[Anypoint Monitoring Overview^] (Link out from Beta docs).
+See xref:monitoring::index.adoc[].
 
 CloudHub 2.0 stores up to 200 MB of log data per config, or up to 30 days, whichever limit is reached first.
 // We’re considering an additional limit for how many configs/deployments we keep track of.
 
-
+Logs are stored in the same region to which the corresponding cluster is deployed.
 
 [NOTE]
 CloudHub 2.0 stores log data in Universal Time (UTC); however, the console displays the log using your computer's local time zone.
@@ -39,17 +32,14 @@ When you update an application, a new configuration is created.
 In this case, the logs page might be empty.
 
 The page streams log messages as they occur, unless the last deployed section is closed.
-Logs from before the last updated time appear in the previous deployments section.
+Logs from before the last updated time appear in a drop-down containing previous deployments.
 
 Each message includes the severity, time (relative and absolute), and replica name.
 
-* To open the currently selected deployment in Anypoint Monitoring, click *View in Monitoring*.
-* To view logs for past deployments, click the *Past deployments* drop-down list and select the deployment.
-* To view logs for a different config, click the *Config* drop-down list and select the config.
-
+To view logs for a different config, click the *Config* drop-down list and select the config.
 The config label indicates the relative time of deployment, such as 10 hours ago.
 
-<screenshot>
+// <screenshot>
 // +
 // image::ch2-logs-deploy.png[Filter log output by deployment]
 -- 
@@ -61,18 +51,10 @@ To search within the currently displayed config:
 include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickLogs]
-. Enter the search term in the *Search* field and press Enter.
+. Enter the search term in the *Search* field.
 +
 The results display includes the currently selected config, replica,
 and log levels.
-+
-To change any of these elements, click *<- Search Results* to exit the search results.
-. Click the next <icon> and previous <icon> buttons to navigate the search results:
-+
-<screenshot>
-. Click a log message to view it in context.
-+
-Click *Search Results* to return to the search results.
 
 
 == Filter Logs
@@ -86,17 +68,17 @@ include::partial$select-private-space.adoc[tag=clickLogs]
 +
 ** Filter logs by config ID
 +
-Click the *Config* drop-down menu and select the config to view:
-+
-<screenshot>
+Click the *Config* drop-down menu and select the config to view.
+// +
+// <screenshot>
 // +
 // image::ch2-logs-deploy.png[Filter log output by deployment]
 
 ** *Filter log by replica*
 +
-Hover over a log message and select *Hide Others*:
-+
-<screenshot>
+In a log message for the desired replica, click the name of the replica.
+// +
+// <screenshot>
 +
 Only the logs for the selected replica appear.
 +
@@ -105,12 +87,10 @@ To clear the replica filter and display logs for all replicas, click the *X* but
 ** *Filter logs by time date and time range*
 +
 Click *Time Range*, select the date range, and optionally time, and click *Apply*.
+// +
+// <screenshot>
 +
-Alternatively, click *Show Latest Messages*:
-+
-<screenshot>
-+
-The *Time Range* button label changes to show the selected date and time range.
+The *Time range* button label changes to show the selected date and time range.
 
 ** *Filter logs by log level*
 +
@@ -129,7 +109,6 @@ Some log levels might not be available depending on the dynamic log level settin
 +
 The *Log Levels* button label changes to show the selected number of log levels.
 
-
 == Download Logs
 
 To download logs based on the current filters:
@@ -137,50 +116,12 @@ To download logs based on the current filters:
 include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickLogs]
-. Click the download (<icon>) button.
-+
-<screenshot>
+. Click the download button.
+// +
+// <screenshot>
 // image::ch2-logs-download.png[Download log output]
 
-CloudHub 2.0 downloads the log output, using the current filters, to a text file in the format *_TBD_*.
-
-// `__configID__.-__Date__Replica__.log`.
-// *PLEASE CONFIRM FILE NAMING*
-
-Use a text editor to view the log file.
-
-//// 
-
-== Download Mule Logs
-
-Mule logs display the logs of the Mule runtime engine for CloudHub 2.0.
-The Mule log contains information about app and lifecycle events.
-For example, the log records an entry when a Mule service or app starts, deploys, stops, or undeploys.
-
- . In the *Deployments* section, select the date and worker for which you want to download Mule logs.
- . Click the download icon for the worker and select *Mule Logs*:
-+
-<screenshot>
-+
-// image::ch2-logs-mule-download.png[Download Mule log output in the Deployments section]
-
-CloudHub downloads the Mule log output to a text file in the format `__appName__-instance-__instanceID__-__workerNumber__-mule_ee.log`.
-Use a text editor to view the log file.
-
-For more information about Mule logs, see xref:mule-runtime::logging-in-mule.adoc#runtime-log[Runtime Log^] (Link out from Beta docs).
-
-
-
-=== Wildcard Searching
-
-You can filter log data by entering search terms into the search box at the top of the log page that match results in the log message.
-
-You can also search for an exact term in the log message with a few common quantifiers for wildcard searching:
-
-* `?` matches zero or one of the preceding elements.
-* `&#8727;` matches zero or more of the preceding elements.
-
-//// 
+CloudHub 2.0 downloads the log output, using the current filters, using a hexadecimal naming convention and the `log` format, for example: `c6c671_462ccf_2022-07-21T20-08-32X.log`. Use a text editor to view the log file.
 
 
 == See Also

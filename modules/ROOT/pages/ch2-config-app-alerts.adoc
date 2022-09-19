@@ -1,9 +1,8 @@
 = Configuring Application Alerts
 
-*Last update* 11-Mar-22
+_Alerts_ indicate whether an app is behaving as expected. You can create alerts in xref:runtime-manager::alerts-on-runtime-manager.adoc[Runtime Manager] for applications deployed to CloudHub 2.0.
 
-_Alerts_ indicate whether an app is behaving as expected. You can create alerts in Runtime Manager for applications deployed to CloudHub 2.0.
-See https://docs.mulesoft.com/runtime-manager/alerts-on-runtime-manager[Alerts^] (Link out from Beta docs).
+You can also create basic alerts in Anypoint Monitoring that focus on application metrics such as message count and CPU utilization. See the Anypoint Monitoring documentation for more guidance on xref:monitoring::basic-alerts.adoc[creating basic alerts].
 
 == Rate Limits on Alerts
 
@@ -26,8 +25,8 @@ include::partial$select-private-space.adoc[tag=clickAppName]
 . In the navigation menu, click *Alerts*.
 . On the *Alerts* page, click the blue plus icon (*+*).
 . On the *Create an Alert* page, configure your custom alert and click *Submit*:
-+
-<screenshot>
+// +
+// <screenshot>
 // +
 // image::alerts-custom-rtm-create.png[Applications field in the Create an Alert window]
 +
@@ -57,20 +56,8 @@ Enter the email addresses for notification recipients.
 
 +
 You can use variables in the alert *Subject* and *Message* fields.
-For information about using variables in alerts, see https://docs.mulesoft.com/runtime-manager/alerts-on-runtime-manager#alert-variables[Alert Variables^]. (Link out from Beta docs)
+For information about using variables in alerts, see xref:runtime-manager::alerts-on-runtime-manager.adoc#alert-variables[Alert Variables].
 
 == See Also
 
-* https://docs.mulesoft.com/cloudhub-connector/1.0/[CloudHub Connector^] (Link out from Beta docs)
-* https://www.mulesoft.com/exchange/com.mulesoft.connectors/mule-cloudhub-connector/[CloudHub Connector^] on Exchange (Link out from Beta docs)
-* https://docs.mulesoft.com/connectors/introduction/intro-config-use-studio#install[Add the Connector to Your Mule Project^] (Link out from Beta docs)
-* https://docs.mulesoft.com/mule-runtime/latest/intro-error-handlers[Introduction to Mule 4: Error Handlers^] (Link out from Beta docs)
-
-////
-* xref:alerts-on-runtime-manager.adoc[Alerts]
-* xref:connectors::introduction/intro-config-use-studio.adoc#install[Add the Connector to Your Mule Project]
-* https://www.mulesoft.com/exchange/com.mulesoft.connectors/mule-cloudhub-connector/[CloudHub Connector^] on Exchange
-* xref:cloudhub-connector::index.adoc#create-the-cloudhub-configuration[Create the CloudHub Configuration^]
-* xref:deploying-to-cloudhub.adoc[Deploy to CloudHub^]
-* xref:mule-runtime::intro-error-handlers.adoc[Introduction to Mule 4: Error Handlers]
-////
+* xref:monitoring::basic-alerts.adoc[]

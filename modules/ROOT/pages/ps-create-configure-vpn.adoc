@@ -1,19 +1,17 @@
 = Creating VPN Connections
 
-*This topic is updated to the VPN Design Specs dated 08-Nov-21*
-
-*Last update* 07-Mar-22
-
-
-== Prerequisites
-
-Before creating a VPN connection,
-xref:ps-create-configure.adoc#create-private-network[create the private network].
-
+To connect your private network to an external network using a 
+VPN, create the VPN connection in the on the *Network* tab.
 
 [NOTE]
 After you create a VPN, you can't change any of the VPN settings,
 except the static IP prefixes for static routing.
+
+== Before You Begin
+
+Before creating a VPN connection,
+xref:ps-create-configure.adoc#create-private-network[create the private network].
+
 
 [[create-vpn]]
 == Create a VPN
@@ -37,7 +35,7 @@ BGP supports automatic failover for redundant connections.
 .. In the *Local ASN* field, enter a xref:ps-gather-setup-info.adoc#local-asn[local private ASN] that isn't already assigned to your network.
 +
 If you have already created a VPN in this private space, the *Create VPN Connection* page doesn't display the *Local ASN* field.
-.. In the *Remote ASN* field, enter a xref:ps-gather-setup-info.adoc#remote-asn[private ASN].
+.. In the *Remote ASN* field, enter a xref:ps-gather-setup-info.adoc#remote-asn[remote private ASN].
 +
 xref:ps-gather-setup-info.adoc#static-vpn-routing[Static]::
 Select this option if your device doesn't support BGP.
@@ -49,8 +47,8 @@ include::partial$caveats.adoc[tag=localAsnNote]
 .. In the *Static Routes* field, specify the (comma-separated) xref:ps-gather-setup-info.adoc#static-ip-prefixes[static IP prefixes] in CIDR notation.
 +
 Click *Show Existing Routes for this Network* to view the existing routes for the private network.
-+
-<screenshot>
+// +
+// <screenshot>
 . If you want to customize the tunnel configuration:
 +
 --
@@ -71,23 +69,21 @@ Any tunnel configuration values that you don't customize are set to the default.
 +
 The VPN can take up to 15 minutes to create.
 +
+Once created, you can <<connect-vpn,connect the VPN to your corporate network>>
+or you can click *Close* and complete this step later.
+
+
 While the VPN is created, you can <<create-redundant-vpn,create a redundant VPN>>.
-+
-After the VPN creation completes successfully, the tunnel status is *Down* until you 
-<<connect-vpn,connect the VPN to your corporate network>>:
-+
-<screenshot>
-// +
-// image::vpn-down.png[Tunnel status in the VPN section]
-+
-Connecting the VPN involves configuring your gateway device. 
-+
+
 If the VPN creation fails, click *Create VPN* to try again.
 . <<test-connection,Test the connection>> from your private space to the VPN.
 
 
 [[connect-vpn]]
 == Connect a VPN to Your Corporate Network 
+
+After the VPN creation completes successfully, the tunnel status is *Down* until you 
+connect the VPN to your corporate network.
 
 To connect the VPN to your corporate network, you or your network administrator must configure
 your gateway device outside of Anypoint Platform.
@@ -96,17 +92,14 @@ To facilitate this configuration, you provide information about your gateway dev
 Anypoint Platform uses to generate a connection guide to use to configure your device. 
 
 After the VPN connection creation completes, the *Create VPN Connection* window
-displays the *Connect VPN* step:
-
-<screenshot>
-
-You can also display this page from the *Network* tab by clicking the VPN menu (*...*) and selecting *View Connection Guide*.
+displays the *Connect VPN* step.
+You can also display this page from the *Network* tab by clicking *View Connection Guide* or clicking the VPN menu (*...*) and selecting *Connection Guide*.
 
 . Select options from the drop-down lists:
 +
-** *Device Vendor*
-** *Device Platform*
-** *Device Software*
+** *Device vendor*
+** *Device platform*
+** *Device software*
 
 +
 See xref:ps-gather-setup-info.adoc#supported-gateway-devices[Supported Gateway Devices].
@@ -129,7 +122,7 @@ see xref:ps-vpn-about.adoc#vpn-ha[VPN High Availability].
 
 Redundant VPNs inherit some settings from the initial VPN configuration automatically.
 
-[NOTE]
+[IMPORTANT]
 After you create a redundant VPN, you can't change any of the settings.
 
 //SELECT PRIVATE SPACE SHARED
@@ -177,7 +170,7 @@ After you create the VPN,
 test the connectivity from CloudHub 2.0 to your networks.
 To test the connection, use the Network Tools application.
 
-For download and usage information about the Network Tools application, see https://help.mulesoft.com/s/article/How-To-Use-Network-Tools-Application[How To Use Network Tools Application^] (KB article).
+For download and usage information about the Network Tools application, see https://help.mulesoft.com/s/article/How-To-Use-Network-Tools-Application[How To Use Network Tools Application^].
 
 == See Also 
 

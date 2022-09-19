@@ -21,7 +21,7 @@
 
 // RENAME SHARED
 // tag::renameItem[]
-. Enter the new name and click *Rename*.
+. Enter the new name and click *Save*.
 // end::renameItem[]
 
 // CLICK SCHEDULES SHARED

@@ -1,6 +1,4 @@
-= Configuring Endpoints and Paths for Apps Deployed to a Private Space
-
-*Last update* 14-July-22
+= Configuring Endpoints for Apps Deployed to a Private Space
 
 [IMPORTANT]
 CloudHub 2.0 supports customizing public endpoints only for apps that are deployed to private spaces, not shared spaces.
@@ -10,7 +8,7 @@ A private space routes requests from clients to apps deployed to the private spa
 
 When you deploy an app to a private space, both _public_ and _private endpoints_ are created, but you can modify only the public endpoint.
 An _endpoint_ is the URL used to reach the app deployed to the private space,
-for example `\https://my-app.example.com/`. Public endpoints enable clients outside of the network to reach the app. Private endpoints ensure the app is accessible only within the private network.
+for example `\https://my-app.example.com/`. Public endpoints enable clients outside of the network to reach the app. Private endpoints are accessible only within the private network, a VPN, or transit gateway (TGW). To ensure an app is accessible only within the network, you can remove public endpoints.
 
 You can customize how requests from clients reach the app by configuring:
 
@@ -24,7 +22,7 @@ For information, see xref:ps-config-domains.adoc[].
 +
 The _path_ is the base path expected by the HTTP Listener in your app, for example `my-app.example.com/v1/api`.
 +
-For information, see https://docs.mulesoft.com/http-connector/1.6/http-listener-ref[HTTP Listener Reference - Mule 4^]. (Link out from Beta docs)
+For information, see xref:http-connector::http-listener-ref.adoc[HTTP Listener Reference - Mule 4].
 
 You can also remove the public endpoint to ensure clients outside of the private network cannot make requests to the app.
 
@@ -78,33 +76,6 @@ For information, see <<placeholder-table,placeholders>>.
 // === Placeholders
 include::partial$deployment.adoc[tag=placeholders,leveloffset=+2]
 
-[[configure-different-paths]]
-== Configure a Different Path for the App and the Public Endpoint URL
-
-You can configure different paths for the app and the public endpoint URL.
-For example, the HTTP Listener in the app is listening on `my-app.example.com/v1/api` and you
-want the app to be reachable from the internet using `my-app.example.com`.
-
-To configure different paths:
-
-. When deploying an app to a private space, click the *Ingress* tab.
-+
-See xref:ch2-deploy-private-space.adoc[].
-+
-If the app is already deployed:
-+
---
-include::partial$select-private-space.adoc[tag=selectAppsPage]
-include::partial$select-private-space.adoc[tag=clickAppName]
-include::partial$select-private-space.adoc[tag=clickSettings]
-. Click the *Ingress* tab.
---
-. In the *Path* field, enter the path where you want the app to be reachable, for example, `/`.
-. Depending on the deployment status, choose either:
-** If you're ready to deploy the application, click *Deploy*.
-** If this application is deployed, click *Apply Changes*.
-. Verify that the app can be reached at the new path.
-
 [[remove-public-endpoint]]
 == Remove a Public Endpoint
 
@@ -130,12 +101,12 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSettings]
 . Click the *Ingress* tab.
-. Hover over *private endpoint*:
-+
-<screenshot>
+. Hover over *private endpoint*.
+// +
+// <screenshot>
 
 == See Also
 
 * xref:ch2-deploy-private-space.adoc[]
 * xref:ps-config-domains.adoc[]
-* https://docs.mulesoft.com/http-connector/1.6/http-listener-ref[HTTP Listener Reference - Mule 4^] (Link out from Beta docs)
+* xref:http-connector::http-listener-ref.adoc[HTTP Listener Reference - Mule 4]
