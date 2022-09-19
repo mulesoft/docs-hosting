@@ -127,7 +127,7 @@ MuleSoft strongly recommends that you create a redundant VPN.
 For information,
 see xref:ps-vpn-about.adoc#vpn-ha[VPN High Availability].
 
-Redundant VPNs inherit some settings from the intial VPN configuration automatically.
+Redundant VPNs inherit some settings from the initial VPN configuration automatically.
 
 [NOTE]
 After you create a redundant VPN, you can't change any of the settings.

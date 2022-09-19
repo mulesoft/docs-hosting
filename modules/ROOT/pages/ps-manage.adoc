@@ -78,7 +78,7 @@ include::partial$select-private-space.adoc[tag=renameItem]
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Create Redundanct VPN*:
+. On the *Network* tab, in the *Connections* section, click the VPN menu (*...*) and select *Create Redundant VPN*:
 +
 <screenshot>
 // +

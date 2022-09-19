@@ -63,7 +63,7 @@ Specifies the number of replicas, or instances, of the application to deploy
 +
 A minimum of two replicas is required for high availability.
 Enforce deploying replicas across nodes::
-Selecting this option might cause some replicas in the deployment to remain in Pending status if there are unsufficient worker nodes or resources available on the worker nodes needed to deploy each replica.
+Selecting this option might cause some replicas in the deployment to remain in Pending status if there are insufficient worker nodes or resources available on the worker nodes needed to deploy each replica.
 The deployment status transitions to Running after all replicas are deployed on different worker nodes.
 
 Resource allocation::
@@ -90,4 +90,3 @@ include::partial$deployment.adoc[tag=configureLogging,leveloffset=+1]
 * https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] (Link out from Beta docs)
 * xref:ps-config-domains.adoc[]
 * xref:ch2-integrate-log-system.adoc[]
-
