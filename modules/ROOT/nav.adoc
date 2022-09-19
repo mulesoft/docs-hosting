@@ -1,4 +1,4 @@
-.xref:index.adoc[Runtime Fabric Cloud]
+.Runtime Fabric Cloud
 * xref:index.adoc[Anypoint Runtime Fabric Cloud]
 ** xref:features.adoc[Features of Runtime Fabric Cloud]
 ** xref:ps-setup.adoc[Set Up a Private Space for Runtime Fabric Cloud Deployments]
