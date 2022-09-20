@@ -45,7 +45,6 @@ For the list of regions, see xref:ch2-architecture.adoc#shared-global-regions[Sh
 // == Specify Runtime Options 
 include::partial$deployment.adoc[tag=specifyRuntimeOpts,leveloffset=+1]
 
-
 // ==== Application Names
 include::partial$deployment.adoc[tag=appNameReqs,leveloffset=+2]
 
@@ -60,4 +59,3 @@ include::partial$deployment.adoc[tag=configureLogging,leveloffset=+1]
 * xref:ch2-download-test-app.adoc[]
 * https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^] on Exchange
 * xref:ch2-integrate-log-system.adoc[]
-
