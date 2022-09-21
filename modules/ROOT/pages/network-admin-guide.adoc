@@ -7,20 +7,43 @@ Use the following lists of requirements to get the information you need to creat
 
 == How to Decide on a Connection Type
 
-(list of considerations?)
+//(list of considerations?)
 
 [[transit-gateway]]
 == Transit Gateway Connection
 
-To create a transit gateway connection, you need:
+You can connect your private network to an existing AWS transit gateway. You need access to an AWS account that has the ability to create resource shares.
 
-* Region
-* CIDR block
-* Connection name
-* Static routes (in CIDR notation)
-* AWS credentials for an account that has the ability to create resource shares
-* Resource share ID
-* Owner ID
+To create a connection to an AWS transit gateway, you need to specify:
+
+* The connection name: use the same name your transit gateway has in AWS. You can change this name later.
+//The name can contain up to 255 alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-).
+* Region: select the region where your AWS transit gateway lives.
+//Your Anypoint VPC and AWS Transit Gateway must be in the same region.
+
+After indicating the name and region of your AWS transit gateway, you need to follow these steps to add it to your private network connection:
+
+. Configure Routes: +
+  In this step, you must specify IP prefixes of one or more external networks that you want to connect to through this transit gateway.
+  Use CIDR notation and separate with commas.
+. Create a Resource Share: +
+.. Sign in to your AWS corporate account and go to the *Create Resource Share* page.
+.. Under *Resources*, select your transit gateway.
+.. Under *Principals*, add the MuleSoft AWS account ID: 081025254626.
+.. Click Create resource share. +
+     The ID and Owner values for the resource share you just created appear.
+. Verify Resource Share: +
+  In this step, you need to enter the ID and Owner values from the resource share you created in AWS.
+. Accept Attachment: +
+.. Sign into AWS and go to the **Transit Gateways Attachments** page.
+.. Select the attachment with the “pending acceptance” state. +
+  To make sure the attachment is from MuleSoft, look in the Details tab and verify that the Resource owner account ID is 008119339527.
+.. Open the *Actions* menu and click *Accept*.
+.. Wait until the attachment’s state is updated to “available”.
+.. In Anypoint Platform, in the *Add Transit Gateway* window, click *Done*.
+
+When the attachment succeeds, the *Private Spaces* page displays the Transit Gateway details and indicates that it’s attached to your Private Network.
+
 
 [[dynamic-vpn]]
 == Dynamic VPN Connection
