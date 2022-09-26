@@ -82,7 +82,7 @@ include::partial$deployment.adoc[tag=placeholders,leveloffset=+2]
 You can configure different paths for the app and the public URL endpoint.
 For example, if the app is listening on `my-app.example.com/v1/api` and you
 want the app to be reachable from the internet using `my-app.example.com/api`.
-
+When you rewrite the path URL, the new path applies to all endpoints.
 
 To configure different paths:
 
@@ -94,18 +94,8 @@ To configure different paths:
 . Click *Apply Changes* to create a new configuration for your application.
 . Verify the path rewrite by clicking the public endpoint link and viewing the XML.
 +
-The API shows `/v1/api`, but URI is `/api`.
+For example, the API shows `/v1/api`, but URI is `/api`.
 
-[[path-rewrite-examples]]
-=== Path Rewrite Examples
-
-*_Can we get some real-world examples here?_*
-
-[%header%autowidth.spread]
-|===
-|HTTP Listener Path|Public Endpoint Path |Path Rewrite
-| /v1/api | /api | /v1/api
-|===
 
 [[remove-public-endpoint]]
 == Remove a Public Endpoint
