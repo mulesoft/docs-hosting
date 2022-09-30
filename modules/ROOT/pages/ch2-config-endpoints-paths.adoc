@@ -92,10 +92,6 @@ To configure different paths:
 . In the *Path Rewrite* field, enter the base path expected by the HTTP Listener in your app, for example,  `/v1/api`.
 
 . Click *Apply Changes* to create a new configuration for your application.
-. Verify the path rewrite by clicking the public endpoint link and viewing the XML.
-+
-For example, the API shows `/v1/api`, but URI is `/api`.
-
 
 [[remove-public-endpoint]]
 == Remove a Public Endpoint
