@@ -68,7 +68,6 @@ CloudHub 2.0 does not support the following application features or functions th
 * Mule versions prior to 4.3.0
 * Overwriting JVM parameters
 * Overriding default JVM truststores with custom truststores
-* Configuring application ingress path rewrite rules
 * xref:monitoring::log-points.adoc[Using log points in Anypoint Monitoring]
 * Creating custom notifications
 * Using the CloudHub Connector

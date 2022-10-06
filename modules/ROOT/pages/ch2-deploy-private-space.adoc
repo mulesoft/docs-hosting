@@ -38,10 +38,10 @@ image::rtm-get-from-exchange.png[Get from Exchange page]
 *** <<app-properties,Change app behavior with properties>>.
 *** <<configure-logging,Configure logging for the app>>.
 
-. Click *Deploy Application*. 
+. Click *Deploy Application*.
 
 
-// == Specify Runtime Options 
+// == Specify Runtime Options
 include::partial$deployment.adoc[tag=specifyRuntimeOpts,leveloffset=+1]
 
 
@@ -81,11 +81,21 @@ include::partial$deployment.adoc[tag=path-name-reqs]
 Paths support <<placeholder-table,placeholders>>.
 // +
 // <screenshot>
-
-
 * To add an endpoint, click *Add Endpoint* and specify options.
-* To remove an endpoint, click *X* (*Delete*) in the endpoint row.
+* To remove an endpoint, click the *X* in the endpoint row.
 
+--
+
+Path Rewrite::
++
+--
+If the HTTP Listener in your app listens on a different path than the path defined in *Public Endpoints*:
+
+. Enable the *Rewrite Request Paths* option.
+. Enter the target path expected by your app.
++
+Requests sent to your app use the path that you specify here.
+. Click *Show Example* to see how the private space rewrites the path.
 --
 TLS Options::
 +

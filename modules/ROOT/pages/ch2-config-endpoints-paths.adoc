@@ -1,4 +1,4 @@
-= Configuring Endpoints for Apps Deployed to a Private Space
+= Configuring Endpoints and Paths for Apps Deployed to a Private Space
 
 [IMPORTANT]
 CloudHub 2.0 supports customizing public endpoints only for apps that are deployed to private spaces, not shared spaces.
@@ -75,6 +75,23 @@ For information, see <<placeholder-table,placeholders>>.
 
 // === Placeholders
 include::partial$deployment.adoc[tag=placeholders,leveloffset=+2]
+
+[[configure-different-paths]]
+== Configure a Different Path for the App and the Public URL Endpoint
+
+You can configure different paths for the app and the public URL endpoint.
+For example, if the app is listening on `my-app.example.com/v1/api` and you
+want the app to be reachable from the internet using `my-app.example.com/api`.
+When you rewrite the path URL, the new path applies to all endpoints.
+
+To configure different paths:
+
+. xref:ch-deploy-private-space.adoc[Deploy the app to a private space].
+. Click the *Ingress* tab.
+. In the *Path* field, enter the path where you want the app to be reachable, for example, `/api`.
+. In the *Path Rewrite* field, enter the base path expected by the HTTP Listener in your app, for example,  `/v1/api`.
+
+. Click *Apply Changes* to create a new configuration for your application.
 
 [[remove-public-endpoint]]
 == Remove a Public Endpoint
