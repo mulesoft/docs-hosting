@@ -1,0 +1,111 @@
+= Network Administrator Guide
+
+
+When you are gathering information to create a private space, the information or values you need depend on the type of connection your private space will use: an AWS transit gateway or a virtual private network (VPN).
+
+Use the following lists of requirements to get the information you need to create a private space. Your organization's network or system administrator can help you understand which configurations your organization's existing infrastructure can support or other corporate requirements.
+
+== How to Decide on a Connection Type
+
+//(list of considerations?)
+
+[[transit-gateway]]
+== Transit Gateway Connection
+
+You can connect your private network to an existing AWS transit gateway. You need access to an AWS account that has the ability to create resource shares.
+
+To create a connection to an AWS transit gateway, you need to specify:
+
+* The connection name: use the same name your transit gateway has in AWS. You can change this name later.
+//The name can contain up to 255 alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-).
+* Region: select the region where your AWS transit gateway lives.
+//Your Anypoint VPC and AWS Transit Gateway must be in the same region.
+
+After indicating the name and region of your AWS transit gateway, you need to follow these steps to add it to your private network connection:
+
+. Configure Routes: +
+  In this step, you must specify IP prefixes of one or more external networks that you want to connect to through this transit gateway.
+  Use CIDR notation and separate with commas.
+. Create a Resource Share: +
+.. Sign in to your AWS corporate account and go to the *Create Resource Share* page.
+.. Under *Resources*, select your transit gateway.
+.. Under *Principals*, add the MuleSoft AWS account ID: 081025254626.
+.. Click Create resource share. +
+     The ID and Owner values for the resource share you just created appear.
+. Verify Resource Share: +
+  In this step, you need to enter the ID and Owner values from the resource share you created in AWS.
+. Accept Attachment: +
+.. Sign into AWS and go to the **Transit Gateways Attachments** page.
+.. Select the attachment with the “pending acceptance” state. +
+  To make sure the attachment is from MuleSoft, look in the Details tab and verify that the Resource owner account ID is 008119339527.
+.. Open the *Actions* menu and click *Accept*.
+.. Wait until the attachment’s state is updated to “available”.
+.. In Anypoint Platform, in the *Add Transit Gateway* window, click *Done*.
+
+When the attachment succeeds, the *Private Spaces* page displays the Transit Gateway details and indicates that it’s attached to your Private Network.
+
+
+[[dynamic-vpn]]
+== Dynamic VPN Connection
+
+To create a dynamic VPN connection, you need:
+
+* Region
+* CIDR block
+* Connection name
+* Remote IP
+* Local ASN
+* Remote ASN
+* Inside IP CIDRs (optional)
+* Pre-shared keys (optional)
+* Gateway device information:
+** Vendor
+** Platform
+** Software
+
+[[static vpn]]
+== Static VPN Connection
+
+To create a static VPN connection, you need:
+
+* Region
+* CIDR block
+* Connection name
+* Remote IP
+* Local ASN
+* Static routes
+* Inside IP CIDRs (optional)
+* Pre-shared keys (optional)
+* Gateway device information:
+** Vendor
+** Platform
+** Software
+
+---------
+
+Luana: I have assembled high-level lists above of what each configuration needs; Taylor can probably help with how to decide each of these things.
+
+The UI specs have definitions of many of the pieces of info we request from users: https://www.figma.com/file/8oqIfXoNYJWjR5aAuY3QYa/Private-Spaces?node-id=0%3A1
+
+
+
+---------
+(Hanna's notes)
+For Documentation: “View the guide” should link to a doc targeted at network admins, who don't necessarily know anything about Anypoint Platform, but are often depended on for help with setup. The goal is for our user to be able to send the network admin a link to this doc without comment and receive all the info they need. It should break down all info required for…
+
+* Setting up a private network
+* Determining which type of connection to use (a single VPN, redundant VPNs, or a transit gateway)
+* Setting up the selected connection type
+////
+For Documentation: The “Learn more” link (under CIDR Block) should link to detailed guidance on defining a CIDR block for their private network. It may be helpful for this to be a specific section in the network admin guide.
+////
+// CIDR Block Shared
+[[cidr-block]]
+include::partial$create-config.adoc[tag=cidrBlock,leveloffset=+1]
+
+
+== See Also
+
+* xref:ps-gather-setup-info.adoc[]
+* xref:ps-create-configure-vpn.adoc[]
+* xref:ps-create-configure-tgw.adoc[]
