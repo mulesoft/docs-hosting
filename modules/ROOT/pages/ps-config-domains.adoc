@@ -1,16 +1,16 @@
-= Configuring Domains and Certificates (TLS Context) for a Private Space	
+= Configuring Domains and Certificates (TLS Context) for a Private Space
 
-CloudHub 2.0 uses Transport Layer Security (TLS) contexts to encrypt 
+CloudHub 2.0 uses Transport Layer Security (TLS) contexts to encrypt
 inbound traffic to the private space.
 
 TLS contexts enable your apps to be reached at custom domains and, optionally, enable mutual TLS.
 
-Each private space includes one TLS context by default (for traffic to `cloudhub.io`), which can't be removed. 
+Each private space includes one TLS context by default (for traffic to `cloudhub.io`), which can't be removed.
 The default certificate renews automatically and requires no action from the user.
 You can create additional TLS contexts as required.
 
-The TLS contexts that you configure for the private space define the domains that are available 
-when deploying apps to the private spaces. 
+The TLS contexts that you configure for the private space define the domains that are available
+when deploying apps to the private spaces.
 See xref:ch2-config-endpoints-paths.adoc[].
 
 == TLS Contexts
@@ -39,18 +39,18 @@ A PEM file is a Base64-encoded ASCII file with a `.cer`, `.crt`, or `.pem` exten
 For PEM, the keystore consists of:
 +
 --
-*** Public certificate 
+*** Public certificate
 *** Private key
 *** Certificate Authority (CA) path file (optional)
 
-The keystore in PEM format uses TLS default values. 
+The keystore in PEM format uses TLS default values.
 --
 JKS (Java Keystore)::
 +
 A JKS file is a repository for authorization or public key certificates and does not store secret keys.
 +
 Use this option to upload a JKS file and use TLS default values.
-With this option, you can't change the default values for TLS versions, ciphers, and other TLS configuration options. 
+With this option, you can't change the default values for TLS versions, ciphers, and other TLS configuration options.
 
 === Truststore
 
@@ -66,7 +66,7 @@ CloudHub 2.0 accepts truststore files in PEM formats.
 
 Configure a DNS target to allow clients to reach your applications from within or outside of the private network.
 
-_Public DNS targets_ allow external clients to reach your applications at custom domains. 
+_Public DNS targets_ allow external clients to reach your applications at custom domains.
 _Private DNS targets_ can only be reached from inside a private network, or through VPN or transit gateway connections. Use them with internal DNS or allowlists in your connected external networks, so clients in those networks may make requests to your applications.
 
 === Ciphers
@@ -79,14 +79,14 @@ When you add the TLS context, you can select the ciphers to use with the TLS con
 
 . Generate a keystore:
 +
-** xref:runtime-manager::lb-ssl-endpoints.adoc#create-a-certificate-file-and-private-key-with-the-openssl-command[PEM]
+** xref:ps-config-ssl-endpoints.adoc#pem[PEM]
 ** xref:mule-runtime::tls-configuration.adoc#generate-a-keystore[JKS]
 . Generate a xref:mule-runtime::tls-configuration.adoc#truststore-generation[truststore] (if you want to enable mutual TLS).
 . Create DNS records for your domains.
 +
 To enable traffic to reach the apps deployed to the private space using a custom domain:
 +
-.. Log in to your domain registrar. 
+.. Log in to your domain registrar.
 +
 Use https://www.whois.com/[Whois^] to look up your registrar.
 .. Click *Copy* to copy the DNS target for the current private space.
@@ -108,9 +108,9 @@ To create a new TLS context:
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the *Domains & TLS* tab and then click *Create TLS Context*. 
+. Click the *Domains & TLS* tab and then click *Create TLS Context*.
 +
-If you don't have CloudHub Network Administrator permission, 
+If you don't have CloudHub Network Administrator permission,
 the *Create TLS Context* button is not available.
 . Enter a name for the TLS context.
 +
@@ -126,7 +126,7 @@ Uploading the public certificate displays a summary of the certificate.
 +
 * Click *...* > *View Details* to display the keystore details.
 // +
-// <screenshot> 
+// <screenshot>
 * Click *...* > *Delete* to delete the public certificate.
 
 . Click *Choose file* and select a private key to upload.
@@ -137,7 +137,7 @@ leave the *Key Password* field blank.
 +
 CloudHub 2.0 validates the password against the keystore.
 +
-. If you have a Certificate Authority (CA) path certificate file, 
+. If you have a Certificate Authority (CA) path certificate file,
 click *Choose file* to upload it.
 +
 JKS format::
@@ -170,7 +170,7 @@ When you upload a PEM file, CloudHub 2.0 displays the client certificates from t
 ** Click *Add Certificates* to upload additional certificate files.
 ** Click the information icon (*View Details*) to display the details of an individual client certificate.
 ** Click the trash can icon (*Delete*) to delete an individual client certificate.
-** If more than four certificates are uploaded, click *Show all x Certificates* to expand the link. 
+** If more than four certificates are uploaded, click *Show all x Certificates* to expand the link.
 
 . *Configure advanced options: (Optional)*
 +
@@ -212,7 +212,7 @@ The *Delete* option appears only if you have CloudHub Network Administrator perm
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the *Domains & TLS* tab and then click *Edit*. 
+. Click the *Domains & TLS* tab and then click *Edit*.
 +
 The *Edit* button appears only if you have CloudHub Network Administrator permission.
 
@@ -229,7 +229,7 @@ Uploading the public certificate displays a summary of the certificate.
 +
 Click the information icon (*View Details*) to display the keystore details.
 // +
-// <screenshot> 
+// <screenshot>
 . Choose a private key to upload.
 . Enter the password used to access the private key within the keystore.
 +
@@ -238,7 +238,7 @@ leave the *Key Password* field blank.
 +
 CloudHub 2.0 validates the password against the keystore.
 +
-. If you have a Certificate Authority (CA) path certificate file, 
+. If you have a Certificate Authority (CA) path certificate file,
 click *Choose file* to upload it.
 +
 You can remove and add a CA path certificate without replacing the public certificate.
@@ -251,7 +251,7 @@ CloudHub 2.0 validates the password against the keystore.
 . Select an alias from the drop-down list.
 +
 You can select a different alias without replacing the keystore file.
-+ 
++
 Selecting an alias displays a summary of the alias.
 +
 Click the information icon (*View Details*) to display the alias details.
@@ -270,7 +270,7 @@ Click *Add Certificates* to upload a certificate file (in PEM format).
 When you upload a PEM file, CloudHub 2.0 displays the client certificates from the truststore file.
 +
 ** Click *Add Certificates* to upload additional certificate files.
-** Click the information icon (*View Details*) to display the details of an individual client certificate. 
+** Click the information icon (*View Details*) to display the details of an individual client certificate.
 ** Click the trash can icon (*Delete*) to delete an individual client certificate.
 . *Configure advanced options: (Optional)*
 +
@@ -287,7 +287,7 @@ ciphers.
 . Click *Update TLS Context* or *Cancel* to discard changes.
 
 
-== See Also 
+== See Also
 
 * xref:ch2-deploy-private-space.adoc[]
 * xref:ch2-config-endpoints-paths.adoc[]
