@@ -124,7 +124,7 @@ include::partial$select-private-space.adoc[tag=clickSettings]
 
 == Sending Application-to-Application Requests within a Private Space
 
-In private space, every application replica exposes an endpoint inside the the private space. When you enable inbound traffic, that endpoint is exposed externally.
+In a private space, every application replica exposes an endpoint inside the private space. When you enable inbound traffic, that endpoint is exposed externally.
 
 Every application has a DNS record in the private space internal domain. For example, the DNS record for the application `helloch2` in the `2abc2ce6-cce6-463b-afaa-a1979e3xxxxx` environment is:
 ```
