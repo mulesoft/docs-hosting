@@ -122,6 +122,25 @@ include::partial$select-private-space.adoc[tag=clickSettings]
 // +
 // <screenshot>
 
+== Sending Application-to-Application Requests within a Private Space
+
+In a private space, every application replica exposes an endpoint inside the private space. When you enable inbound traffic, that endpoint is exposed externally.
+
+Every application has a DNS record in the private space internal domain. For example, the DNS record for the application `helloch2` in the `2abc2ce6-cce6-463b-afaa-a1979e3xxxxx` environment is:
+```
+helloch2.2abc2ce6-cce6-463b-afaa-a1979e3xxxxx.svc.cluster.local
+```
+Because application replicas first search DNS records in the same domain before searching the parent domain, you need only the application name and environment ID to send a request to another application in the same private space. If both applications are in the same namespace, you need only the application name:
+```
+http://helloch2:8081/hello
+```
+If required, replace `http` with `https`.
+
+The following example sends a request from one application to an application in another namespace. In this example, `1abc2ce6-cce6-463b-afaa-a1979e3xxxxx` is another environment in the same private space, so this environment ID is appended to the application name:
+```
+http://helloch2.1abc2ce6-cce6-463b-afaa-a1979e3xxxxx:8081/hello
+```
+
 == See Also
 
 * xref:ch2-deploy-private-space.adoc[]
