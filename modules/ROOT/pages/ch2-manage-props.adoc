@@ -105,10 +105,13 @@ Instead, it returns the value as set internally, without throwing an error or ex
 [%header,cols="3*a"]
 |===
 |Property|Description|Example
+|`${java.runtime.name}`|JVM name | OpenJDK Runtime Environment
+|`${java.version}`|JVM version| 1.8.0_342
+|`${jave.runtime.version}`|JVM version, including dot (point) release| 1.8.0_342-8u342-b07-0ubuntu1~20.04-b07
 |`${http.port}`|HTTP port|8081
-|`${https.port}`|HTTPS port|8082
-|`${http.private.port}`|HTTP private port|8091
-|`${https.private.port}`|HTTPS private port|8092
+|`${https.port}`|HTTPS port|8081
+|`${http.private.port}`|HTTP private port|8081
+|`${https.private.port}`|HTTPS private port|8081
 |===
 
 --
