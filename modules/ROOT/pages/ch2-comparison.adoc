@@ -60,7 +60,6 @@ CloudHub 2.0 application behavior deviates from CloudHub 1.0 in the following wa
 * Use xref:mq::index.adoc[Anypoint MQ] for persistent queues and other queue management. Persistent queues are not supported.
 * HTTP and HTTPS inbound protocols are supported. Inbound protocols that are not HTTP-based are not supported.
 * Private endpoints do not offer mTLS capabilities as internet-facing public endpoints.
-* In application logs, you cannot search by correlation ID.
 * In xref:monitoring::alerts.adoc[Anypoint Monitoring], you must set alerts for apps individually. Setting alerts for all apps simultaneously is not supported.
 
 CloudHub 2.0 does not support the following application features or functions that CloudHub 1.0 supports:
