@@ -1,0 +1,162 @@
+= Features of CloudHub 2.0
+
+CloudHub 2.0 includes many of the features from CloudHub 1.0 and Anypoint Runtime Fabric on Self-Managed Kubernetes.
+
+
+== CloudHub 2.0 Feature Comparison
+
+This table compares the features and support for CloudHub 2.0, CloudHub 1.0, and Anypoint Runtime Fabric on Self-Managed Kubernetes.
+
+[%header,cols="20a,20a,20a,20a"]
+.Feature Comparison
+|===
+| Capability | CloudHub 2.0 | CloudHub 1.0 | Runtime Fabric
+4+h|VM Management
+| *Provisioning/scaling*|Fully managed | Fully managed | Self-managed
+| *OS patching* | Fully managed | Fully managed | Self-managed
+| *VM self-healing* |Fully managed | Fully managed | Supported (managed nodes)
+| *Persistent VM Queues* |Not supported | Supported | Not supported
+
+
+4+h|
+4+h|Load Balancing and Ingress
+| *Default endpoints*|Fully managed | Fully managed | Not supported
+| *URL rewriting* | Supported
+
+(app-level) | Supported
+
+(DLB) | Supported
+|*Provisioning/updating* |Fully-managed|Fully-managed| Supported
+|*Certificate management*|Supported|Supported|Supported
+|*Multiple truststores*
+
+*(client certificates for mutual TLS)* | Supported | Not supported |Supported
+| *Custom endpoints* | Supported | Supported | Supported
+| *Multiple custom endpoints*
+
+*per app* | Supported| Partially supported | Supported
+| *TLS 1.0* | Not supported | Supported| Supported
+| *Private endpoints* | Supported |Supported | Supported
+| *Load balancer logs* | Supported
+
+(download) | Not supported | Supported
+| *Ingress logs* | Supported | Not supported | Not supported
+4+h|
+4+h|Network
+| *Deployment regions* | 12 geographical regions | 12 geographical regions | Supported
+
+(manual)
+|*Virtual Private Cloud* | Fully managed
+
+(private space) | Fully managed (Anypoint VPC) | Supported
+
+(manual)
+|*Virtual Private Network* | Fully managed
+
+(private space) | Fully managed
+
+(Anypoint VPN) | Supported
+
+(manual)
+| *AWS Transit Gateway* | Supported
+
+(private space) | Supported | Supported
+| *Direct Connect* | Not supported | Supported
+
+(not self-serve) | Supported
+|*VPC Peering* | Not supported | Supported
+
+(not self-serve) | Supported
+
+| *DNS* | Fully managed | Fully managed | Supported
+| *Inbound firewall rules*| Supported | Supported| Supported
+| *Outbound firewall rules*| Supported
+
+(private space) | Not supported| Supported
+|*Static IP addresses* | Supported
+
+(private space) | Supported
+
+(per app) | Supported
+4+h|
+4+h|App Capabilities
+|*Schedule management* | Supported | Supported | Not supported
+|*TLS certificates*
+
+*for API Gateway deployments*| Supported | Supported | Not supported
+| *DataGraph* | Not supported | Supported | Not supported
+|*Mule patch updates* | Automated | Automated | Requires redeployment
+|*Cluster*
+
+*management* | Fully managed | Fully managed | Self-managed
+| *Object store* | Fully managed
+
+(Object Store v2)| Fully managed
+
+(Object Store v2)| Supported
+| *High availability*
+
+*across AZs* | Fully managed
+
+(with two or more replicas)|Fully managed
+
+(with two or more workers)|Supported
+
+(with two or more replicas)
+|*Secure properties* | Supported | Supported | Partially supported
+|*Log tailing*| Fully managed | Fully managed | Supported outside Anypoint Platform
+|*Continuous integration deployments*|Supported
+
+(via API and Maven plugin)| Supported
+
+(via API, Maven plugin, Anypoint CLI) |Supported
+
+(via API and Maven plugin)
+|*Built-in notifications* | Not supported | Supported |Supported
+|*Custom notifications*
+
+(*CloudHub Connector*)| Not supported | Supported | Not supported
+|*Log forwarding* | Manual
+
+| Supported
+
+(per app) | Manual
+|*Message broker*|Fully managed
+
+(Anypoint MQ) | Fully managed
+
+(Anypoint MQ) | Fully managed
+
+(Anypoint MQ)
+|*App monitoring*|Fully managed
+
+(Anypoint Monitoring) | Fully managed
+
+(Anypoint Monitoring) | Fully managed
+
+(Anypoint Monitoring)
+| *Application isolation* | Supported | Supported | Supported
+|*Auto-recovery*| Fully managed | Fully managed | Supported
+|*Mule clustering* | Supported | Not supported | Supported
+
+4+h|
+4+h|Support
+|*VM management* | MuleSoft | MuleSoft | Infrastructure provider/
+
+public cloud
+|*Network* | MuleSoft | MuleSoft | Infrastructure provider/
+
+public cloud
+|*App capabilities* | MuleSoft | MuleSoft | MuleSoft/
+
+infrastructure provider/
+
+public cloud
+|*Load balancing and ingress* | MuleSoft | MuleSoft | Self-managed
+|*Backup and restore* | Fully managed | Fully managed | Self-managed
+|===
+
+Fully managed:: MuleSoft provides and manages the feature.
+Self-managed:: MuleSoft provides the feature, but the customer manages the feature.
+Supported:: MuleSoft does not provide the feature, but it is available on supported partner platforms. The feature is managed by the vendor, platform, or customer.
+Not supported:: MuleSoft does not provide the feature, and the customer cannot configure it.
