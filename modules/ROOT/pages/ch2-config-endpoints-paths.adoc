@@ -86,7 +86,7 @@ When you rewrite the path URL, the new path applies to all endpoints.
 
 To configure different paths:
 
-. xref:ch-deploy-private-space.adoc[Deploy the app to a private space].
+. xref:ch2-deploy-private-space.adoc[Deploy the app to a private space].
 . Click the *Ingress* tab.
 . In the *Path* field, enter the path where you want the app to be reachable, for example, `/api`.
 . In the *Path Rewrite* field, enter the base path expected by the HTTP Listener in your app, for example,  `/v1/api`.
@@ -122,7 +122,7 @@ include::partial$select-private-space.adoc[tag=clickSettings]
 // +
 // <screenshot>
 
-== Sending Application-to-Application Requests within a Private Space
+== Send Application-to-Application Requests within a Private Space
 
 In a private space, every application replica exposes an endpoint inside the private space. When you enable inbound traffic, that endpoint is exposed externally.
 
