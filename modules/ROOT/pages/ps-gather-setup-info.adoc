@@ -7,12 +7,17 @@ For information about private spaces, see xref:ch2-private-space-about.adoc[].
 You might need to collaborate with your network administrator if you don't have access to this information.
 In this case, share this setup checklist with them.
 
+[[organization-limits]]
+== Organization Entitlements and CloudHub 2.0
+
+include::partial$enforcement.adoc[]
+
 [[setup-info-private-space]]
 == Information Required to Set Up a Private Space
 
 The following list summarizes the information required to set up a private space.
 For details about each requirement, see the sections that follow.
- 
+
 *Private Network Setup*::
 +
 --
@@ -36,7 +41,7 @@ For details about each requirement, see the sections that follow.
 ** <<remote-asn>>
 * *<<static-vpn-routing,Static Routing Type>>*
 ** <<Local ASN>> (_first VPN only_)
-** <<static-ip-prefixes,Static IP prefixes>> 
+** <<static-ip-prefixes,Static IP prefixes>>
 * *<<advanced-tunnel-configuration,Advanced Tunnel Configuration>>* (_optional_)
 
 ** Tunnel 1
@@ -65,7 +70,7 @@ For details about each requirement, see the sections that follow.
 
 * *<<static-vpn-routing,Static Routing Type>>*
 
-** <<static-ip-prefixes,Static IP prefixes>> 
+** <<static-ip-prefixes,Static IP prefixes>>
 * *<<advanced-tunnel-configuration,Advanced Tunnel Configuration>>* (_optional_)
 
 ** Tunnel 1
@@ -88,14 +93,14 @@ For details about each requirement, see the sections that follow.
 * <<transit-gateway-name,Transit gateway name>>
 * <<transit-gateway-region,Transit gateway region>>
 * <<transit-gateway-routing,Transit gateway routing>>
-* <<mulesoft-aws-account-id,MuleSoft AWS account ID>> 
+* <<mulesoft-aws-account-id,MuleSoft AWS account ID>>
 * <<resource-share-id-owner,Resource share ID>>
 * <<resource-share-id-owner,Resource share owner>>
 --
 
 
 [[private-network-requirements]]
-== Private Network Requirements 
+== Private Network Requirements
 
 * <<private-space-name>>
 * <<private-network-region>>
@@ -145,15 +150,15 @@ include::partial$create-config.adoc[tag=cidrBlock,leveloffset=+2]
 
 If your corporate network uses internal DNS servers to resolve requests to
 custom domains, you must configure those servers to enable apps deployed
-to a private space to access internal resources that are not reachable 
+to a private space to access internal resources that are not reachable
 from the public internet.
 
-To configure internal DNS servers, specify the IP addresses for your internal 
+To configure internal DNS servers, specify the IP addresses for your internal
 domain servers and the domains that you want to be resolved by internal DNS.
 
-The private space resolves the domains using the specified DNS server, 
+The private space resolves the domains using the specified DNS server,
 enabling you to use internal host names in your private network
-as long as your applications use the FQDN to request back-end resources. 
+as long as your applications use the FQDN to request back-end resources.
 
 [[server-ip-addresses]]
 ==== Server IP Addresses
@@ -175,13 +180,13 @@ If the server isn't reachable, DNS resolution fails.
 If one of the name servers doesn't have a record for the domain,
 it returns the response `NXDOMAIN` (non-existent domain).
 Because this response is valid, the private space doesn't send the query
-to the other servers. 
+to the other servers.
 
 [[domains]]
 ==== Domains
 
 _Domains_ identify the internal domains that must be accessible from the private space.
-The configured internal DNS servers resolve the specified domains, and the 
+The configured internal DNS servers resolve the specified domains, and the
 external DNS server resolves all other domains.
 
 To configure an internal domain, specify the IP address.
@@ -198,7 +203,7 @@ The total number of characters for all configured domains is 229.
 * <<tgw-requirements,Transit Gateway Attachment>>
 
 [[vpn-requirements]]
-== VPN Requirements 
+== VPN Requirements
 
 Review the recommendations and limitations in xref:ps-vpn-about.adoc[].
 
@@ -219,13 +224,13 @@ include::partial$create-config.adoc[tag=consolidateNetworks]
 
 
 [[vpn-name]]
-=== VPN Name 
+=== VPN Name
 
 The _VPN name_ is the name of the VPN connection.
 
 
 [[remote-ip-address]]
-=== Remote IP Address 
+=== Remote IP Address
 
 The _remote IP address_ is the public (single, static) IP address of your VPN endpoint.
 
@@ -248,7 +253,7 @@ Dynamic (BGP) Routing Type option should link to an explanation of the differenc
 [[static-vpn-routing]]
 === Static VPN Routing
 
-If your gateway device doesn't support BGP, you must use static routing. 
+If your gateway device doesn't support BGP, you must use static routing.
 You might also want to use static routing if you want to provide your own secrets.
 // or set the PTP (Precision Time Protocol) CIDRs for the network interfaces on your router.
 
@@ -256,15 +261,15 @@ Static routing requires you to specify the routes (subnets) in your network that
 
 To create a static VPN connection, your VPN endpoint must be able to:
 
-* Establish IKE Security Associations using a Pre-Shared Key (PSK) 
+* Establish IKE Security Associations using a Pre-Shared Key (PSK)
 * Establish IPsec Security Associations in Tunnel mode
 * Use any combination of IPsec settings that Anypoint Platform supports
-* Fragment IP packets before encryption 
+* Fragment IP packets before encryption
 +
 You must fragment packets that are too large to transmit.
 +
 Your gateway device must be able to fragment packets before encapsulation.
-* Use one Security Association (SA) pair per tunnel 
+* Use one Security Association (SA) pair per tunnel
 +
 Anypoint VPN supports one unique SA pair (one inbound and one outbound connection) per tunnel.
 Some policy-based devices create an SA for each ACL (access-control list) entry.
@@ -273,7 +278,7 @@ In this situation, you must consolidate your rules and then filter unwanted traf
 +
 DPD allows devices to rapidly identify when network conditions change.
 You can enable DPD on the Anypoint Platform endpoint using `DPD Interval: 10` and `DPD Retries: 3`.
-* Allow asymmetric routing 
+* Allow asymmetric routing
 +
 Asymmetric routing occurs when routing policies send traffic from your network to the private space through one tunnel and traffic returns from the private space through the other tunnel.
 The Anypoint Platform VPN endpoint selects the tunnel using an internal algorithm, making the return path dynamic.
@@ -281,7 +286,7 @@ If your device uses an active/active tunnel configuration, you must allow asymme
 * For IPsec, enable perfect forward secrecy (PFS) with the Diffie-Hellman Phase 2 groups 2, 5, 14-24.
 
 [[local-asn]]
-=== Local ASN 
+=== Local ASN
 
 The _local ASN_ (Autonomous System Number) specifies a private ASN (`64512–65534`) to assign to the Anypoint Platform side of the VPN.
 
@@ -310,9 +315,9 @@ However, to answer your second question, Michelle said that users can set a diff
 The _remote ASN_ specifies a private ASN that corresponds to your backend.
 
 [NOTE]
-You configure the remote ASN only for dynamic routing. 
+You configure the remote ASN only for dynamic routing.
 
-Use either an existing ASN assigned to your network or a private ASN (`64512–65534`) that is not 
+Use either an existing ASN assigned to your network or a private ASN (`64512–65534`) that is not
 already assigned to your network.
 The default value is `65001`.
 
@@ -344,7 +349,7 @@ Any values that you don't specify are set to the default.
 The _inside IP CIDRs_ is the IP address range for the internal address of the VPN tunnel.
 
 [NOTE]
-You specify the inside IP CIDRs only for custom tunnel configuration. 
+You specify the inside IP CIDRs only for custom tunnel configuration.
 For automatic tunnel configuration, these values are auto-generated.
 
 For each tunnel, enter the IP address range for the internal address of the VPN tunnel.
@@ -367,23 +372,23 @@ You cannot use the following reserved CIDR blocks:
 [[preshared-keys]]
 ==== Pre-shared Keys
 
-A _pre-shared key_ (PSK) is a shared secret which was previously shared between 
+A _pre-shared key_ (PSK) is a shared secret which was previously shared between
 two ends of a connection for the VPN tunnels.
 
 [NOTE]
-You specify the PSK only for custom tunnel configuration. 
+You specify the PSK only for custom tunnel configuration.
 For automatic tunnel configuration, these values are auto-generated.
 
 For static connections, your VPN endpoint uses pre-shared keys (PSKs) to establish IKE Security Associations.
 
 For each tunnel, enter a value of between 8-64 characters that does not begin with zero (0).
-Use only alphanumeric characters, periods (.), and underscores (&#95;). 
+Use only alphanumeric characters, periods (.), and underscores (&#95;).
 
 
 [[auto-tunnel-initiation]]
 ==== Automatic Tunnel Initiation
 
-By default, VPN tunnels are initiated automatically. 
+By default, VPN tunnels are initiated automatically.
 
 If you deselect this option, you must generate traffic from the customer gateway
 to establish VPN tunnels.
@@ -406,9 +411,9 @@ check the requirements to verify that your device is suitable for use with Anypo
 See <<dynamic-vpn-routing>> and <<static-vpn-routing>>.
 
 [%header%autowidth.spread]
-.Supported Gateway Devices 
+.Supported Gateway Devices
 |===
-|Device Vendor | Device Platform | Device Software 
+|Device Vendor | Device Platform | Device Software
 |Check Point | Security Gateway | R77.10 or later
 .2+|Cisco | ASA | ASA 8.2 or later
 |IOS | Cisco IOS 12.4 or later
@@ -420,15 +425,15 @@ See <<dynamic-vpn-routing>> and <<static-vpn-routing>>.
 | ISG | ScreenOS 6.1 or 6.2 or later
 |Netgate | pfSense | OS 2.2.5 or later
 |Palo Alto Networks || PANOS 4.1.2 or later
-.6+|Yamaha .6+|| RT107e 
-| RTX1200 
-| RTX1210 
-| RTX1500 
-| RTX3000 
-| SRT100 
-.2+|Microsoft .2+|Windows Server| 2008 R2 or later 
+.6+|Yamaha .6+|| RT107e
+| RTX1200
+| RTX1210
+| RTX1500
+| RTX3000
+| SRT100
+.2+|Microsoft .2+|Windows Server| 2008 R2 or later
 |2012 R2 or later
-.2+|Zyxel .2+|Zywall Series| 4.20 or later for statically routed Anypoint VPN connections 
+.2+|Zyxel .2+|Zywall Series| 4.20 or later for statically routed Anypoint VPN connections
 |4.30 or later for dynamically routed Anypoint VPN connections
 |===
 
@@ -475,8 +480,8 @@ See xref:access-management::users.adoc#grant-user-permissions[Grant Permissions 
 Transit gateway attachment names can contain up to 255 alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-).
 Runtime Manager supports Unicode characters in private space names.
 
-Use the same name for your transit gateway in AWS. 
-You can change this name later. 
+Use the same name for your transit gateway in AWS.
+You can change this name later.
 
 [[transit-gateway-region]]
 === Transit Gateway Region
@@ -494,7 +499,7 @@ Consolidate networks to the fewest number possible to avoid exceeding the limit.
 [[mulesoft-aws-account-id]]
 === MuleSoft AWS Account ID
 
-The MuleSoft AWS account ID varies depending on your control plane, for example, US Cloud or EU Cloud, 
+The MuleSoft AWS account ID varies depending on your control plane, for example, US Cloud or EU Cloud,
 and appears in *Add transit gateway* page when you select to create the transit gateway connection.
 
 When you create a resource share in AWS, you specify this ID to allow Anypoint Platform to access the resource share.
@@ -511,8 +516,7 @@ You use these values to verify the resource share in Anypoint Platform.
 * The resource share *Owner* field contains only numbers.
 
 
-== See Also 
+== See Also
 
 * xref:ch2-private-space-about.adoc[]
 * xref:ps-vpn-about.adoc[]
-
