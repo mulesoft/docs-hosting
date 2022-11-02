@@ -10,8 +10,6 @@ To associate an SSL endpoint, you must provide:
 
 * An encrypted, PEM-encoded (Privacy-Enhanced Mail) certificate file.
 * A second file containing the private key of your PEM certificate.
-+
-The private key file must be _passphraseless_.
 
 [[pem]]
 == Create a Certificate File and Private Key with the openssl Command
