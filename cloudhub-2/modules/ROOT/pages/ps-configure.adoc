@@ -2,17 +2,17 @@
 
 After creating the private space, private network, and connections to external networks, you can configure the private space by:
 
+* xref:ps-config-ssl-endpoints.adoc[]
 * xref:ps-config-domains.adoc[]
 * xref:ps-config-fw-rules.adoc[]
 * xref:ps-config-env.adoc[]
 * xref:ps-config-advanced.adoc[]
 
 
-== See Also 
+== See Also
 
 * xref:ps-gather-setup-info.adoc[]
 * xref:ps-create-configure.adoc[]
 * xref:ps-create-configure-vpn.adoc[]
 * xref:ps-create-configure-tgw.adoc[]
 * xref:ps-manage.adoc[]
-

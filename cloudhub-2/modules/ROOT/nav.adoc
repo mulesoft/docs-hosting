@@ -17,6 +17,7 @@
 ** xref:ps-create-configure-vpn.adoc[]
 ** xref:ps-create-configure-tgw.adoc[]
 ** xref:ps-configure.adoc[]
+*** xref:ps-config-ssl-endpoints.adoc[]
 *** xref:ps-config-domains.adoc[Configuring Domains and Certificates for a Private Space]
 *** xref:ps-config-fw-rules.adoc[]
 *** xref:ps-config-env.adoc[]
