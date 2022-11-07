@@ -4,6 +4,6 @@ CloudHub 1.0 and CloudHub 2.0 share entitlement quotas. If your organization use
 
 * Private cloud quotas include both VPCs (virtual private clouds) in CloudHub 1.0 and private spaces in CloudHub 2.0.
 * Network connection quotas include VPNs and transit gateway attachments in both CloudHub 1.0 and CloudHub 2.0.
-* vCore usage quotas apply to apps deployed in both CloudHub 1.0 and CloudHub 2.0.
+* vCore usage quotas apply to apps deployed in CloudHub 1.0 and CloudHub 2.0.
 
 Anypoint Platform prevents you from consuming resources that exceed your organization’s limits. Anypoint Platform also prevents you from modifying existing resources if you are exceeding that resource’s limit. Note that failed application deployments and unsuccessful private space creation in CloudHub 2.0 still count toward limits.
