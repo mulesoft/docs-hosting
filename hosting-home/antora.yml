@@ -1,5 +1,5 @@
 name: hosting-home
-title: Hosting Options
+title: Anypoint Platform Hosting Overview
 version: master
 nav:
 - modules/ROOT/nav.adoc
