@@ -39,7 +39,7 @@ CloudHub 2.0 infrastructure behavior deviates from CloudHub 1.0 in the following
 * Unlike VPCs in CloudHub 1.0, you can associate a private space with multiple environments based only on the type of the environment, such as sandbox or production. You can now choose which environment type and individual business groups with which you share private spaces.
 * Applications that are stopped still consume vCore licenses. To free vCores, delete applications that are not in use.
 * To move applications between regions, you must redeploy the application to another shared space or private space in a different region. You cannot move the app to a different region once deployed.
-* HTTP and HTTPS traffic uses port 8081.
+* HTTP and HTTPS traffic uses port 8082.
 
 CloudHub 2.0 does not support the following infrastructure features or functions that CloudHub 1.0 supports:
 
