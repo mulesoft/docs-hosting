@@ -1,0 +1,5 @@
+name: hosting-home
+title: Hosting 
+version: master
+nav:
+- modules/ROOT/nav.adoc
