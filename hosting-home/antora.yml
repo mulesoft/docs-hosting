@@ -1,5 +1,5 @@
 name: hosting-home
-title: Hosting Options Overview 
+title: Hosting Options
 version: master
 nav:
 - modules/ROOT/nav.adoc
