@@ -90,7 +90,10 @@ MuleSoft provides three different options for hosting the Anypoint Platform runt
 
 * CloudHub 2.0
 +
-Whee!
+CloudHub 2.0 is a fully managed, containerized integration platform as a service (iPaaS) where you can deploy APIs and integrations as lightweight containers in the cloud.
++
+CloudHub 2.0 provides for deployments across 12 regions globally, either single or shared tenancy, and dynamically scales infrastructure and built-in services up or down to support elastic transaction volumes.
+See xref:cloudhub-2::index.adoc[CloudHub 2.0] for more information.
 * CloudHub 1.0
 +
 CloudHub is MuleSoft's cloud-based environment for hosting the Mule runtime server and related services. CloudHub enables you to deploy an API or a Mule application on a platform that’s managed by MuleSoft.
