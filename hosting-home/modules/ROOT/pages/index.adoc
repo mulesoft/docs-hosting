@@ -80,7 +80,7 @@ Not all Anypoint Platform components are supported in all cloud environments. Th
 | Secrets manager | Y | Y | N | N
 | Anypoint Security edge policies | N | N | N | N
 | Anypoint Security tokenization | N | N | N | N
-| Anypoint Security tokenization | Y | Y | N | N
+| Anypoint Service Mesh| Y | Y | N | N
 | Anypoint Studio | Y | Y | Y | Y
 | Anypoint Visualizer | Y | Y | Y | Y
 |===
