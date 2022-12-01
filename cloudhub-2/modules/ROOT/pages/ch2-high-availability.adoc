@@ -1,4 +1,5 @@
-= Clustering
+= High Availability
+:page-aliases: ch2-clustering.adoc
 
 Clustering provides scalability, workload distribution, and added reliability to your applications on CloudHub 2.0.
 This functionality is powered by CloudHub's scalable load-balancing service and replica scale-out.
