@@ -101,7 +101,7 @@ CloudHub is MuleSoft's cloud-based environment for hosting the Mule runtime serv
 +
 CloudHub also provides high availability, clustering and failover of your APIs and Mule applications and performs load balancing for them. See xref:runtime-manager::cloudhub.adoc[CloudHub] for more information.
 +
-CloudHub can only be managed only by version of the cloud control plane that exists in the same environment (US cloud, EU cloud, or MuleSoft Government Cloud).
+CloudHub can be managed only by version of the cloud control plane that exists in the same environment (US cloud, EU cloud, or MuleSoft Government Cloud).
 
 * Runtime Fabric
 +
@@ -152,6 +152,7 @@ The following table lists the runtime plane options that are supported in each c
 [%header,cols="5*a"]
 |===
 | Runtime Plane | US control plane | EU control plane | MuleSoft Government Cloud | Anypoint Platform PCE
+| CloudHub 2.0 | Y | Y | N | N
 | CloudHub | Y | Y | Y | N
 | Standalone runtimes | Y | Y | Y | Y
 | Runtime Fabric | Y | Y | N | N
@@ -159,6 +160,7 @@ The following table lists the runtime plane options that are supported in each c
 
 == See Also
 
+* xref:cloudhub-2::index.adoc[CloudHub 2.0]
 * xref:runtime-manager::cloudhub.adoc[CloudHub]
 * xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises]
 * xref:runtime-fabric::index.adoc[Anypoint Runtime Fabric Overview]
