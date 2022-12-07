@@ -9,7 +9,7 @@ To assign permissions, you need access to Access Management and the Organization
 * To view a private space, you need the CloudHub Network Viewer permission.
 * To deploy applications from Exchange, you need the Exchange Contributor and Exchange Viewer permissions.
 * To deploy applications in Runtime Manager, you need the Create Applications permission.
-* To view all applications in the *Applications* page in Runtime Manager, you need the Read Applications and Read Runtime Fabric permissions.
+* To view all applications on the *Applications* page in Runtime Manager, you need the Read Applications and Read Runtime Fabric permissions.
 
 Depending on your organization's permission structure, you can assign these permissions using the xref:access-management::teams.adoc[Teams] feature, the xref:access-management::users.adoc#grant-user-permissions[Roles] feature (deprecated), or by assigning an xref:access-management::users.adoc#grant-user-permissions[individual user permission].
 
