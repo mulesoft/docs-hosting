@@ -7,7 +7,7 @@ To assign permissions, you need access to Access Management and the Organization
 
 * To set up and manage a private space, you need the CloudHub Network Administrator permission.
 * To view a private space, you need the CloudHub Network Viewer permission.
-* To deploy applications from Exchange, you must have the Exchange Contributor and Exchange Viewer permissions.
+* To deploy applications from Exchange, you need the Exchange Contributor and Exchange Viewer permissions.
 * To deploy applications in Runtime Manager, you need the Create Applications permission.
 * To view all applications in the *Applications* page in Runtime Manager, you need the Read Applications and Read Runtime Fabric permissions.
 
