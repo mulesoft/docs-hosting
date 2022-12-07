@@ -43,10 +43,6 @@ CloudHub 2.0 infrastructure behavior deviates from CloudHub 1.0 in the following
 
 CloudHub 2.0 does not support the following infrastructure features or functions that CloudHub 1.0 supports:
 
-* Anypoint Security
-* Secrets Manager
-* Tokenizer
-* Web application firewall (WAF) policies
 * xref:runtime-manager::deploying-to-cloudhub#copy-an-application-from-sandbox-to-production.adoc[Get From Sandbox functionality]
 * Insights. Use xref:monitoring::index.adoc[Anypoint Monitoring] instead.
 
