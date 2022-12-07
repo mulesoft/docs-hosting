@@ -123,14 +123,15 @@ You can manage standalone runtimes by using cloud control planes (US Cloud, EU C
 
 Not all Anypoint Platform components are supported in each of the Runtime Plane hosting options:
 
-[%header,cols="4*a"]
 |===
-| Anypoint Platform Component | CloudHub | Runtime Fabric | Standalone
-| Mule runtime engine | Y | Y | Y
-| Anypoint MQ | Y | N | N
-| Anypoint Object Store | Y | N | N
-| Anypoint DataGraph | Y | N | N
-| Connectors | Y | Y | Y
+| Anypoint Platform Component | CloudHub 2.0 | CloudHub | Runtime Fabric | Standalone
+| Mule runtime engine | Y | Y | Y | Y
+| Anypoint MQ | N | Y | N | N
+| Anypoint Object Store | Y | Y | N | N
+| Anypoint MQ | Y | Y | Y | Y
+| Anypoint Object Store v2 | Y | Y | N | N
+| Anypoint DataGraph | N | Y | N | N
+| Connectors | Y | Y | Y | Y
 |===
 
 
