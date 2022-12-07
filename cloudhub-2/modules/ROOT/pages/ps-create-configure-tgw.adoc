@@ -48,7 +48,7 @@ adding a new one, the *Add Transit Gateway* page lists the steps to create a res
 
 In *Static Routes*, enter the IP prefixes of the external networks to connect through the transit gateway, and then click *Next*.
 
-The routes should match VPC CIDR range so traffic can flow between the private VPC in AWS and the private space in CloudHub 2.0. (???)
+The routes should match VPC CIDR range so traffic can flow between the private VPC in AWS and the private space in CloudHub 2.0. 
 
 After you attach the transit gateway, the private space includes the routes you specify here.
 
