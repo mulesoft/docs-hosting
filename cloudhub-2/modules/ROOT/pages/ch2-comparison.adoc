@@ -37,7 +37,6 @@ CloudHub 2.0 infrastructure behavior deviates from CloudHub 1.0 in the following
 
 * CloudHub 1.0 VPC peering and direct connect have been deprecated in CloudHub 2.0. You can now use transit gateway attachments. Further, when you delete a private space that has a transit gateway attached, the transit gateway is preserved, and you can reattach it to a different private space.
 * Unlike VPCs in CloudHub 1.0, you can associate a private space with multiple environments based only on the type of the environment, such as sandbox or production. You can now choose which environment type and individual business groups with which you share private spaces.
-* Applications that are stopped still consume vCore licenses. To free vCores, delete applications that are not in use.
 * To move applications between regions, you must redeploy the application to another shared space or private space in a different region. You cannot move the app to a different region once deployed.
 * HTTP and HTTPS traffic uses port 8081.
 
@@ -63,7 +62,6 @@ CloudHub 2.0 does not support the following application features or functions th
 * Mule versions prior to 4.3.0
 * Overwriting JVM parameters
 * Overriding default JVM truststores with custom truststores
-* xref:monitoring::log-points.adoc[Using log points in Anypoint Monitoring]
 * Creating custom notifications
 * Using the CloudHub Connector
 
