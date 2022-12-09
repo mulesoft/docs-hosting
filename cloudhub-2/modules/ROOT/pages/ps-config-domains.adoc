@@ -91,7 +91,11 @@ To enable traffic to reach the apps deployed to the private space using a custom
 Use https://www.whois.com/[Whois^] to look up your registrar.
 .. Click *Copy* to copy the DNS target for the current private space.
 // <<screenshot>>
-.. Replace the domain's nameserver by pasting the DNS target.
+.. Create a DNS record with the following values:
+* *Record Type*: `CNAME`
+* *Host (or Name)*: `*`
+* *Value (or Content)*: The public DNS target for your private space.
+
 +
 Your registrar might take up to 24 hours to apply the change.
 
