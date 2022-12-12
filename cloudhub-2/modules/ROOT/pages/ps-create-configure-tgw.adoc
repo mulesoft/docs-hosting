@@ -10,7 +10,7 @@ You don't need to create the resource share again.
 * Ensure the private space belongs to the same region in which you are creating the transit gateway attachment. Inter-region peering is not supported.
 For example, you cannot attach transit gateway attachment from region A to a private space belonging to region B.
 
-IMPORTANT: Update your infrastructure. (such as firewalls, routes, and connections) before creating transit gateway attachments. When a transit gateway is pending acceptance, all infrastructure updates are delayed until you accept the attachment.
+IMPORTANT: Update your infrastructure (such as firewalls, routes, and connections) before creating transit gateway attachments. When a transit gateway is pending acceptance, all infrastructure updates are delayed until you accept the attachment.
 
 [[connect-tgw]]
 == Connect to a Transit Gateway
