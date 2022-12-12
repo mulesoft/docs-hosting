@@ -1,0 +1,21 @@
+= Deploy Applications with the Mule Maven Plugin
+
+include::mule-runtime::partial$mmp-deploy-to-cloudhub-2.adoc[tag=intro,leveloffset=+1]
+
+include::mule-runtime::partial$mmp-deploy-to-cloudhub-2.adoc[tag=prerequisites,leveloffset=+1]
+
+include::mule-runtime::partial$mmp-deploy-to-cloudhub-2.adoc[tag=DeploymentConfig,leveloffset=+1]
+
+include::mule-runtime::partial$mmp-deploy-to-cloudhub-2.adoc[tag=DeploymentCommands,leveloffset=+1]
+
+include::mule-runtime::partial$mmp-deploy-to-cloudhub-2.adoc[tag=authenticationMethods,leveloffset=+1]
+
+include::mule-runtime::partial$mmp-deploy-to-cloudhub-2.adoc[tag=DeploymentReference,leveloffset=+1]
+
+include::mule-runtime::partial$mmp-deploy-to-cloudhub-2.adoc[tag=DeploymentSettingsReference,leveloffset=+1]
+
+include::mule-runtime::partial$mmp-deploy-to-cloudhub-2.adoc[tag=EncryptCredentials,leveloffset=+1]
+
+== See Also
+
+* xref:mule-runtime::mmp-concept.adoc[Mule Maven Plugin]
