@@ -126,8 +126,6 @@ Not all Anypoint Platform components are supported in each of the Runtime Plane 
 |===
 | Anypoint Platform Component | CloudHub 2.0 | CloudHub | Runtime Fabric | Standalone
 | Mule runtime engine | Y | Y | Y | Y
-| Anypoint MQ | N | Y | N | N
-| Anypoint Object Store | Y | Y | N | N
 | Anypoint MQ | Y | Y | Y | Y
 | Anypoint Object Store v2 | Y | Y | N | N
 | Anypoint DataGraph | N | Y | N | N
@@ -137,7 +135,7 @@ Not all Anypoint Platform components are supported in each of the Runtime Plane 
 
 * Anypoint MQ and Anypoint Object Store v2
 +
-Runtime Fabric and standalone runtimes do not support Anypoint MQ or Anypoint Object Store v2. Instead, Runtime Fabric and standalone runtimes support Mule clustering. On Runtime Fabric, multiple replicas of the same application can share objects. On standalone runtimes, multiple Mule runtime engines can share objects with each other.
+Runtime Fabric and standalone runtimes do not support Anypoint Object Store v2. Instead, Runtime Fabric and standalone runtimes support Mule clustering. On Runtime Fabric, multiple replicas of the same application can share objects. On standalone runtimes, multiple Mule runtime engines can share objects with each other.
 +
 See xref:mule-runtime::choosing-the-right-clustering-topology.adoc[Cluster Runtime Instances]
 
