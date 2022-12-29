@@ -66,7 +66,7 @@ include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickLogs]
 . Select filter options:
 +
-* *Filter logs by config ID*
+** *Filter logs by config ID*
 +
 Click the *Config* drop-down menu and select the config to view.
 // +
@@ -74,7 +74,7 @@ Click the *Config* drop-down menu and select the config to view.
 // +
 // image::ch2-logs-deploy.png[Filter log output by deployment]
 
-* *Filter log by replica*
+** *Filter log by replica*
 +
 In a log message for the desired replica, click the name of the replica.
 // +
@@ -84,7 +84,7 @@ Only the logs for the selected replica appear.
 +
 To clear the replica filter and display logs for all replicas, click the *X* button for the selected replica.
 
-* *Filter logs by time date and time range*
+** *Filter logs by time date and time range*
 +
 Click *Time Range*, select the date range, and optionally time, and click *Apply*.
 // +
@@ -92,7 +92,7 @@ Click *Time Range*, select the date range, and optionally time, and click *Apply
 +
 The *Time range* button label changes to show the selected date and time range.
 
-* *Filter logs by log level*
+** *Filter logs by log level*
 +
 Click *Log Levels* and check the log levels to display:
 +
