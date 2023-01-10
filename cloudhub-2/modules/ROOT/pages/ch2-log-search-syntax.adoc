@@ -15,4 +15,4 @@ include::monitoring::partial$include-log-search.adoc[tag=boolean-operators]
 
 include::monitoring::partial$include-log-search.adoc[tag=special-characters]
 
-include::monitoring::partial$include-log-search.adoc[tag=searchFields]
+include::monitoring::partial$include-log-search.adoc[tag=search-fields]
