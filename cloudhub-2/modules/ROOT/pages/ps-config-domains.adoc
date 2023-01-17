@@ -89,7 +89,7 @@ To enable traffic to reach the apps deployed to the private space using a custom
 .. Log in to your domain registrar.
 +
 Use https://www.whois.com/[Whois^] to look up your registrar.
-.. Create a CNAME record in your vanity domain, pointing to your private space’s FQDN.
+.. Create a CNAME record in your vanity domain, pointing to your private space FQDN.
 +
 Your registrar might take up to 24 hours to apply the change.
 
