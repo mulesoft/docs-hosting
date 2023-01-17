@@ -51,22 +51,27 @@ include::partial$caveats.adoc[tag=localAsnNote]
 Click *Show Existing Routes for this Network* to view the existing routes for the private network.
 // +
 // <screenshot>
-. If you want to customize the tunnel configuration:
-+
---
-.. Expand *Advanced Options* and specify:
-
-*** xref:ps-gather-setup-info.adoc#inside-ip-cidrs[IP ranges] (in CIDR format) for the internal address of each VPN tunnel.
-*** xref:ps-gather-setup-info.adoc#preshared-keys[Pre-shared keys] (PSKs) for each VPN tunnel.
-
+. If you want to customize the tunnel configuration, expand *Advanced Options*:
 .. Select xref:ps-gather-setup-info.adoc#auto-tunnel-initiation[*Automatic Tunnel Initiation*] to specify that the VPN starts up automatically.
 +
 If you deselect this option, you must generate traffic from the customer gateway to establish VPN tunnels.
 +
 If you have already created a VPN in this private space, this option isn't available.
+.. Select the tunnel configuration:
+*** *Automatic*
++
+Select this option to use the default tunnel configuration.
+*** *Custom*
++
+Select this option to customize:
++
+--
+**** xref:ps-gather-setup-info.adoc#inside-ip-cidrs[IP ranges] (in CIDR format) for the internal address of each VPN tunnel.
+**** xref:ps-gather-setup-info.adoc#preshared-keys[Pre-shared keys] (PSKs) for each VPN tunnel.
 --
 +
-Any tunnel configuration values that you don't customize are set to the default.
+[NOTE]
+You must specify values for all four fields.
 . Click *Create VPN*. 
 +
 The VPN can take up to 15 minutes to create.
