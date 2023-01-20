@@ -30,11 +30,11 @@ The monthly date-patch update might include security patches if the scheduled da
 
 The format of the version number for these updates is:
 
-_Major_._Minor_._Patch_ - _Date_
+_Major_._Minor_._Patch_ : _Date_
 
 Here's an example version number, including the patch date:
 
-`4.2.2 - 05-04-2020`
+`4.5.0:20211015`
 
 The monthly patches update applications only to the latest date patch for the patch version.
 They do not change the patch version number.
