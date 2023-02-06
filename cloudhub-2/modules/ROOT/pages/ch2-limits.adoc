@@ -22,19 +22,15 @@ Application size:: Up to 200 MB
 
 Maximum number of Client Certificates in a TLS Context::
 +
-Keystore maximum file size for types JKS, JCEKS, PKCS12: 40960 bytes (40 KB).
-+
-Keystore maximum file size for type PEM:
-+
-* Certificate File: 4096 bytes (4 KB).
-* CA Path Certificate File: 28672 bytes (28 KB).
-+
-Truststore maximum file size: 131072 bytes (128 KB)
-+
-[NOTE]
 There is no limit on the number of client certificates, but this is limited by the store file size.
 +
-A TLS Context can reference 1 keystore and 1 truststore, which have their respective file size limits.
+A TLS Context can reference 1 keystore and 1 truststore, which have their respective file size limits:
+* Truststore maximum file size: 131072 bytes (128 KB)
+* Keystore maximum file size for types JKS, JCEKS, PKCS12: 40960 bytes (40 KB).
+* Keystore maximum file size for type PEM:
+** Certificate File: 4096 bytes (4 KB).
+** CA Path Certificate File: 28672 bytes (28 KB).
+
 
 
 
