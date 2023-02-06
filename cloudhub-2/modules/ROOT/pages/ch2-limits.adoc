@@ -20,6 +20,16 @@ Firewall rules (outbound):: 40
 
 Application size:: Up to 200 MB
 
+Maximum number of Client Certificates in a TLS Context::
++
+Keystore maximum file size for types JKS, JCEKS, PKCS12 is 40960 bytes (40 KB).
++
+Keystore maximum file size for type PEM:
+* Certificate File is 4096 bytes (4 KB).
+* CA Path Certificate File is 28672 bytes (28 KB).
+
+
+
 
 [NOTE]
 Limits are subject to change.
