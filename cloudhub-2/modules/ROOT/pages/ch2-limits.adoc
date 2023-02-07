@@ -10,8 +10,6 @@ VPNs per private space:: 10
 
 Transit gateway connections:: 5, depending on available network connection entitlements
 
-Custom TLS contexts per private space:: 10
-
 HTTP header length (`maxHeaderLength`):: 16K
 
 Firewall rules (inbound):: 40
@@ -20,7 +18,9 @@ Firewall rules (outbound):: 40
 
 Application size:: Up to 200 MB
 
-Maximum number of Client Certificates in a TLS Context::
+Custom TLS contexts per private space:: 10
++
+*Maximum number of Client Certificates in a TLS Context:*
 +
 There is no limit on the number of client certificates, but this is limited by the store file size.
 +
