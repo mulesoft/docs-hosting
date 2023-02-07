@@ -22,7 +22,7 @@ Custom TLS contexts per private space:: 10
 +
 *Maximum number of Client Certificates in a TLS Context:*
 +
-There is no limit on the number of client certificates, but this is limited by the store file size.
+There is no limit on the number of client certificates, but there is a limit on the store file size.
 +
 A TLS Context can reference 1 keystore and 1 truststore, which have their respective file size limits:
 +
