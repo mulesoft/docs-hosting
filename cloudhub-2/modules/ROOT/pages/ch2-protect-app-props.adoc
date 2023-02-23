@@ -60,10 +60,10 @@ image::ch2-protected-props-replace.png[Replace protected value option]
 
 [NOTE]
 Currently, you cannot turn already existing property values from unprotected to protected, whether via API or the Anypoint Runtime Manager UI, as this is not supported at the moment.
-For more information, see xref:https://help.mulesoft.com/s/article/Unable-to-re-deploy-a-Cloudhub-2-0-app-that-uses-API-Autodiscovery-and-has-a-Protected-Property[Unable to re-deploy a Cloudhub 2.0 app that uses API Autodiscovery and has a Protected Property^].
+For more information, see xref:https://help.mulesoft.com/s/article/Unable-to-re-deploy-a-Cloudhub-2-0-app-that-uses-API-Autodiscovery-and-has-a-Protected-Property[Unable to re-deploy a Cloudhub 2.0 app that uses API Autodiscovery and has a Protected Property].
 
 == See Also
 
-* xref:mule-runtime::secure-configuration-properties.adoc[]
+* xref:mule-runtime::secure-configuration-properties.adoc[Secure Configuration Properties]
 * xref:ch2-manage-props.adoc[]
 * xref:ch2-deploy.adoc[]
