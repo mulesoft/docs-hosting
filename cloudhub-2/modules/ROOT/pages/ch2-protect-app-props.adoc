@@ -1,18 +1,18 @@
 = Protecting App Property Values
 
-CloudHub 2.0 enables you to protect application property values by displaying the property name but not its value, in Anypoint Runtime Manager, 
+CloudHub 2.0 enables you to protect application property values by displaying the property name but not its value, in Anypoint Runtime Manager,
 
 Additionally, the value is not viewable or retrievable by any user.
 CloudHub 2.0 resolves the property internally at runtime.
 These protected application values are encrypted and stored in the Anypoint Security secrets manager, which, in turn, is encrypted per user organization. Because the values are encrypted, you cannot view them in Anypoint Security secrets manager or Anypoint Runtime Manager.
 
 [IMPORTANT]
-Protected property values are separate from the encrypted Mule application properties stored in secure configuration files. 
+Protected property values are separate from the encrypted Mule application properties stored in secure configuration files.
 See xref:mule-runtime::secure-configuration-properties.adoc[].
 
 == Protect Property Values in Runtime Manager
 
-Set protected properties via the table view for granular control over each property and value. 
+Set protected properties via the table view for granular control over each property and value.
 
 Although you can attempt to protect a single property more than once, Runtime Manager issues a warning and protects only the final instance of that property.
 
@@ -23,8 +23,8 @@ include::partial$select-private-space.adoc[tag=clickSettings]
 include::partial$select-private-space.adoc[tag=clickPropsOnSettings]
 . Depending on how many properties you want to protect, choose either:
 ** To protect properties one at a time, click *Table view*.
-** To protect multiple properties, use *Text view* to add the key-value pairs, switch to *Table view*, and continue to Step 8 to protect the properties. 
-. In the *New Key* field, enter the property name to protect. 
+** To protect multiple properties, use *Text view* to add the key-value pairs, switch to *Table view*, and continue to Step 8 to protect the properties.
+. In the *New Key* field, enter the property name to protect.
 . In the *New Value* field, enter the property value.
 . In the value field, click *Protect* and then click *Protect value* to confirm.
 +
@@ -56,7 +56,11 @@ include::partial$select-private-space.adoc[tag=clickPropsOnSettings]
 +
 image::ch2-protected-props-replace.png[Replace protected value option]
 . Enter a new value in the field.
-. Click *Apply*, then *Apply Changes*. 
+. Click *Apply*, then *Apply Changes*.
+
+[NOTE]
+Currently, you cannot turn already existing property values from unprotected to protected, whether via API or the Anypoint Runtime Manager UI, as this is not supported at the moment.
+For more information, see xref:https://help.mulesoft.com/s/article/Unable-to-re-deploy-a-Cloudhub-2-0-app-that-uses-API-Autodiscovery-and-has-a-Protected-Property[Unable to re-deploy a Cloudhub 2.0 app that uses API Autodiscovery and has a Protected Property].
 
 == See Also
 
