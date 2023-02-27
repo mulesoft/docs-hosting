@@ -1,0 +1,52 @@
+// Shared Connection Name
+// tag::connectionNameReqs[]
+Connection names can contain up to 60 alphanumeric characters (a-z, A-Z, 0-9), spaces, and hyphens (-).
+Runtime Manager supports Unicode characters in connection names.
+// end::connectionNameReqs[]
+
+// Shared CIDR Block
+// tag::cidrBlock[]
+= CIDR Block 
+
+The _CIDR block_ is the range of IPv4 addresses, in CIDR (Classless Inter-Domain Routing) notation
+that the apps deployed in your private space use.
+The CIDR block defines the size of the private space.
+For example, to grant your private network 256 IP addresses between `10.111.0.0` and `10.111.0.255`, 
+set the CIDR block to `10.111.0.0/24`.
+
+When you create a private space, you must specify the CIDR block.
+You can't resize or change the CIDR block after you create the private space.
+For this reason, ensure that you correctly anticipate your requirements before configuring this parameter.
+
+We recommend a `/22` block.
+
+Because some addresses are reserved for fault tolerance, infrastructure, and zero-downtime,
+the allowed block size that you can assign for your Anypoint VPC is between `/16` and `/24`. Note that the size of the block does not limit the number of IPs that your apps can use.
+
+When specifying CIDR blocks, ensure that the CIDR blocks:
+
+* Are from a private IP space
+* Don't overlap with any other CIDR blocks assigned to your other private spaces
+* Don't overlap with any CIDR blocks in use in your corporate network
+
+You cannot use the following reserved CIDR blocks:
+
+----
+172.17.0.0/16
+100.64.0.0/10 
+198.19.0.0/16
+224.0.0.0/4
+169.254.0.0/16
+127.0.0.0/8
+0.0.0.0/8
+----
+
+// end::cidrBlock[]
+
+
+// Shared Consolidate Networks
+// tag::consolidateNetworks[]
+Before configuring routing, consolidate networks to the fewest number possible.
+A maximum of 95 route table entries is allowed per private space,
+regardless of the number of connections.
+// end::consolidateNetworks[]

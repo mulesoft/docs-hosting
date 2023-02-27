@@ -1,0 +1,131 @@
+= Viewing Log Data for Deployed Apps
+
+CloudHub 2.0 provides access to log data that includes deployment messages and events for each replica and Mule runtime engine logs.
+
+For more advanced searching and log management, you can use Anypoint Monitoring (requires Titanium subscription).
+See xref:monitoring::index.adoc[].
+
+CloudHub 2.0 stores up to 100 MB of log data per config, or up to 30 days, whichever limit is reached first.
+// We’re considering an additional limit for how many configs/deployments we keep track of.
+
+Logs are stored in the same region to which the corresponding cluster is deployed.
+
+[NOTE]
+CloudHub 2.0 stores log data in Universal Time (UTC); however, the console displays the log using your computer's local time zone.
+
+== View Logs
+
+To view logs for applications deployed to a private space:
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+include::partial$select-private-space.adoc[tag=clickAppName]
+include::partial$select-private-space.adoc[tag=clickLogs]
++
+--
+The logs page displays all logs for all replicas for the selected config,
+with the latest messages at the bottom.
+The config represents the deployment since the last update.
+
+[NOTE]
+When you update an application, a new configuration is created.
+In this case, the logs page might be empty.
+
+The page streams log messages as they occur, unless the last deployed section is closed.
+Logs from before the last updated time appear in a drop-down containing previous deployments.
+
+Each message includes the severity, time (relative and absolute), and replica name.
+
+To view logs for a different config, click the *Config* drop-down list and select the config.
+The config label indicates the relative time of deployment, such as 10 hours ago.
+
+// <screenshot>
+// +
+// image::ch2-logs-deploy.png[Filter log output by deployment]
+--
+
+== Search Logs
+
+To search within the currently displayed config:
+
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+include::partial$select-private-space.adoc[tag=clickAppName]
+include::partial$select-private-space.adoc[tag=clickLogs]
+. Enter the search term in the *Search* field.
++
+The results display includes the currently selected config, replica,
+and log levels.
+
+You can search with queries. For more information, see xref:ch2-log-search-syntax.adoc[].
+
+== Filter Logs
+
+To filter the log results:
+
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+include::partial$select-private-space.adoc[tag=clickAppName]
+include::partial$select-private-space.adoc[tag=clickLogs]
+. Select filter options:
++
+** Filter logs by config ID
++
+Click the *Config* drop-down menu and select the config to view.
+// +
+// <screenshot>
+// +
+// image::ch2-logs-deploy.png[Filter log output by deployment]
+
+** *Filter log by replica*
++
+In a log message for the desired replica, click the name of the replica.
+// +
+// <screenshot>
++
+Only the logs for the selected replica appear.
++
+To clear the replica filter and display logs for all replicas, click the *X* button for the selected replica.
+
+** *Filter logs by time date and time range*
++
+Click *Time Range*, select the date range, and optionally time, and click *Apply*.
+// +
+// <screenshot>
++
+The *Time range* button label changes to show the selected date and time range.
+
+** *Filter logs by log level*
++
+Click *Log Levels* and check the log levels to display:
++
+--
+** *Fatal*: Fatal messages for when an application fails
+** *Error*: Error messages, such as when an exception occurs
+** *Warn*: Warning messages
+** *Info*: Informative messages
+** *Debug*: Debugging messages
+--
++
+[NOTE]
+Some log levels might not be available depending on the dynamic log level setting for the deployment.
++
+The *Log Levels* button label changes to show the selected number of log levels.
+
+== Download Logs
+
+To download logs based on the current filters:
+
+include::partial$select-private-space.adoc[tag=selectAppsPage]
+include::partial$select-private-space.adoc[tag=clickAppName]
+include::partial$select-private-space.adoc[tag=clickLogs]
+. Click the download button.
+// +
+// <screenshot>
+// image::ch2-logs-download.png[Download log output]
+
+CloudHub 2.0 downloads the log output, using the current filters, using a hexadecimal naming convention and the `log` format, for example: `c6c671_462ccf_2022-07-21T20-08-32X.log`. Use a text editor to view the log file.
+
+
+== See Also
+
+* xref:ch2-view-diag.adoc[]
+* xref:ch2-update-apps.adoc[]

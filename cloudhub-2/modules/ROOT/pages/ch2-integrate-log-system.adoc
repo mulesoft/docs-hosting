@@ -1,0 +1,95 @@
+= Integrating with Your Logging System Using Log4j
+
+You can integrate your CloudHub 2.0 application with your logging system using the Log4j configuration.
+
+== Requirements and Restrictions
+
+* MuleSoft Support doesn't assist in implementing custom logging configurations or resolving issues caused by custom logging configurations.
+* MuleSoft is not responsible for issues arising from misconfiguration of your Log4j appender, including these or other issues:
+** Lost logging data
+** Performance degradation
+** Running out of disk space
+* Do not use synchronous log appenders.
++
+You can use only asynchronous log appenders.
+* File appenders, such as FileAppender, RollingFileAppender, AnypointMonitoringFileAppender, and RandomAccessFileAppender, are removed automatically.
+* When using custom Log4j configurations, both Mule runtime engine and application logs remain available in Runtime Manager.
+
+You can use any Log4j appender.
+
+For information about configuring `log4j2.xml`, see the
+https://logging.apache.org/log4j/2.x/manual/configuration.html#ConfigurationSyntax[Log4j Configuration Syntax^].
+
+== Example: Create a Log4j Configuration Using Splunk
+
+For logs to be viewable in CloudHub 2.0 and flow to Splunk,
+configure the `SplunkHttp` Log4j appender.
+
+To enable the Log4j appender:
+
+. Update the `log4j2.xml` configuration file with your logger settings and include the `SplunkHttp` Log4j appender.
++
+--
+In Anypoint Studio, the `log4j2.xml` file is located in the `src/main/resources` directory.
+
+[source,xml,linenums]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" name="cloudhub" packages="com.splunk.logging,org.apache.logging.log4j">
+    <Appenders>
+    	<Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{MM-dd HH:mm:ss}] %-5p %c{1} [%t]: %m%n"/>
+        </Console>
+        <SplunkHttp name="SPLUNK" 
+        	source="${env:APP_NAME}"
+        	host="${env:POD_NAME}"
+        	sourceType="mule-app"
+            url="${sys:splunk.host}"
+            token="${sys:splunk.token}"
+            index="main">
+            <PatternLayout pattern="[%d{MM-dd HH:mm:ss}] %-5p %c{1} [%t]: %m%n" />
+        </SplunkHttp>
+    </Appenders>
+    <Loggers>
+        <AsyncRoot level="INFO">
+            <AppenderRef ref="CONSOLE"/>
+            <AppenderRef ref="SPLUNK"/>
+        </AsyncRoot>
+    </Loggers>
+</Configuration>
+----
+[NOTE]
+Deploying an app to CloudHub 2.0 configures `AnypointMonitoringFileAppender` automatically,
+so you don't need to configure it in `log4j2.xml`.
+--
+
+. Ensure that the configuration includes the Splunk dependency:
++
+[source,xml,linenums]
+----
+<dependency> 
+   <groupId>com.splunk.logging</groupId> 
+   <artifactId>splunk-library-javalogging</artifactId> 
+   <version>x.x.x</version> 
+</dependency>   
+*********
+******************
+<repository> 
+   <id>splunk-artifactory</id> 
+   <name>Splunk Releases</name> 
+   <url>https://splunk.jfrog.io/splunk/ext-releases-local</url>; 
+</repository>
+----
++
+For the latest version of Splunk, see https://github.com/splunk/splunk-library-javalogging/tags[GitHub^].
+
+
+After your application starts, logs start flowing to your custom Log4j appender, and you can view them on your target logging system.
+
+== See Also
+
+* xref::ch2-deploy-private-space.adoc[]
+* xref::ch2-deploy-shared-space.adoc[]
+* https://help.mulesoft.com/s/global-search/%40uri#q=log4j&t=SalesforceArticle&f:@sfdcproduct=[CloudHub Log4j Knowledge Articles^]
+
+
