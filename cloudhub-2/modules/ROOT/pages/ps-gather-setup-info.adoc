@@ -10,7 +10,7 @@ In this case, share this setup checklist with them.
 [[organization-limits]]
 == Organization Entitlements and CloudHub 2.0
 
-include::partial$enforcement.adoc[]
+include::partial$include-enforcement.adoc[]
 
 [[setup-info-private-space]]
 == Information Required to Set Up a Private Space
