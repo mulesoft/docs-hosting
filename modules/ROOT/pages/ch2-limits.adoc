@@ -22,7 +22,7 @@ Application size:: Up to 200 MB
 
 == Organization Entitlements and CloudHub 2.0
 
-include::partial$enforcement.adoc[]
+include::partial$include-enforcement.adoc[]
 
 [NOTE]
 Limits are subject to change.
