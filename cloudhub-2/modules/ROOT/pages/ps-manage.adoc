@@ -151,7 +151,7 @@ You can enable VPN logs to be directly accessible by MuleSoft Support Engineers.
 .. Any updates you make to an existing VPN after [date] enabled the VPN logs to be directly accessible by MuleSoft Support Engineers.
 
 [NOTE]
-
+Enabling this feature speeds up the process for obtaining VPN logs from AWS, as the Support can download them directly, with no need to raise an AWS support ticket.
 
 
 
