@@ -140,7 +140,7 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 [[enable-vpn-logs]]
 == Enable VPN logs
 
-You can enable VPN logs to be directly accessible by MuleSoft Support Engineers. This shortens the process for obtaining the logs from AWS.
+You can enable VPN logs to be directly accessible by MuleSoft support engineers. This shortens the process for obtaining the logs from AWS.
 
 . For VPN connections created after [date], VPN logs are enabled by default upon creation.
 . For existing VPN connections:
@@ -151,7 +151,7 @@ You can enable VPN logs to be directly accessible by MuleSoft Support Engineers.
 .. Any updates you make to an existing VPN after [date] enabled the VPN logs to be directly accessible by MuleSoft Support Engineers.
 
 [NOTE]
-Enabling this feature speeds up the process for obtaining VPN logs from AWS, as the Support can download them directly, with no need to raise an AWS support ticket.
+Enabling this feature speeds up the process for obtaining VPN logs from AWS, as the MuleSoft support team can download them directly, with no need to raise an AWS support ticket.
 
 
 
