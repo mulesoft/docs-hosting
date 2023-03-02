@@ -148,7 +148,7 @@ You can enable VPN logs to be directly accessible by MuleSoft support engineers.
 +
 `https://{{env}}.anypoint.mulesoft.com/runtimefabric/api/organizations/{{org-id}}/privatespaces/{{ps-id}}/connections/{{connection-id}}/vpns/{{vpn-id}}`.
 +
-The payload to enable logs for VPNs with twi tunnels without making other changes is: `{"vpnTunnels":[{"isLogsEnabled": true}, {"isLogsEnabled": true}]}`.
+The payload to enable logs for VPNs with two tunnels without making other changes is `{"vpnTunnels":[{"isLogsEnabled": true}, {"isLogsEnabled": true}]}`.
 +
 The `isLogsEnabled` flag can only be set to true; otherwise, the API returns a 400 error.
 +
