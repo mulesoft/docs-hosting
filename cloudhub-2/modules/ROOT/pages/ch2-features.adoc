@@ -107,7 +107,7 @@ This table compares the features and support for CloudHub 2.0, CloudHub 1.0, and
 |*Log tailing*| Fully managed | Fully managed | Supported outside Anypoint Platform
 |*Continuous integration deployments*|Supported
 
-(via API and Maven plugin)| Supported
+(via API and Maven plugin, Anypoint CLI)| Supported
 
 (via API, Maven plugin, Anypoint CLI) |Supported
 
