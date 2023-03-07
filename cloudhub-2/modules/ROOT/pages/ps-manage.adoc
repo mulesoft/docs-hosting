@@ -12,7 +12,7 @@ to the public internet or through a connection (VPN or transit gateway).
 
 You might want to add a route to enable a new subnet to be accessible or remove a route if you no longer want a subnet to be accessible through the transit gateway.
 
-You can remove the default routes that MuleSoft provides. However, when you change the default route, your private space might experience down time. If the *X* icon doesn't appear for a route, you can't remove it. Additionally, private spaces created before March x, 2023 cannot remove MuleSoft's default routes.
+You can remove the default routes that MuleSoft provides. However, when you change the default route, your private space might experience downtime. If the *X* icon doesn't appear for a route, you can't remove it. For private spaces created before March x, 2023, you cannot remove the default routes.
 
 MuleSoft also has routes, such as control plane traffic routes, that you cannot view or remove from the Route table.
 
