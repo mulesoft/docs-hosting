@@ -95,13 +95,10 @@ Replicas with 1 or more vCores provide performance consistency.
 Each replica has a minimum of 8 GB of storage, which is used for both system and application storage.
 If your application requires more storage (for example, verbose logging), use a replica with two or more vCores, enabling the application to access additional storage in `/tmp`.
 
-All applications, including stopped applications, count toward replica usage. To prevent stopped applications from consuming resources, delete the application.
+All running applications count toward replica usage. Stopped applications do not.
 
-If your applications require more vCores than are available,
-CloudHub 2.0 allows you to create the application, but you cannot start it until the additional vCores become available.
-To increase vCore allocation, delete an application or contact your account manager to increase your subscription's vCore allocation.
-
-NOTE: Applications that are stopped still consume vCores as if they were running.
+If your applications require more vCores than are available, CloudHub 2.0 allows you to create the application, but you cannot start it until the additional vCores become available.
+To increase vCore allocation, stop or delete an application or contact your account manager to increase your subscription's vCore allocation.
 
 The metaspace limit for apps deployed to CloudHub 2.0 is currently 256 MB,
 regardless of the replica size.
