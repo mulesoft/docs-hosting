@@ -152,7 +152,7 @@ The payload to enable logs for VPNs with two tunnels without making other change
 +
 The `isLogsEnabled` flag can only be set to true; otherwise, the API returns a 400 error.
 +
-.. Any updates you make to an existing VPN after March 8, 2023 enabled the VPN logs to be directly accessible by MuleSoft Support Engineers.
+.. Any updates you make to an existing VPN after March 8, 2023 enables the VPN logs to be directly accessible by MuleSoft Support Engineers.
 
 [NOTE]
 Enabling this feature speeds up the process for obtaining VPN logs from AWS, as the MuleSoft support team can download them directly, with no need to raise an AWS support ticket.
