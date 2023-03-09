@@ -150,7 +150,7 @@ You can enable VPN logs to be directly accessible by MuleSoft support engineers.
 +
 The payload to enable logs for VPNs with two tunnels without making other changes is `{"vpnTunnels":[{"isLogsEnabled": true}, {"isLogsEnabled": true}]}`.
 +
-The `isLogsEnabled` flag can only be set to true; otherwise, the API returns a 400 error.
+The `isLogsEnabled` flag can only be set to `true`; otherwise, the API returns a 400 error.
 +
 .. Any updates you make to an existing VPN after March 8, 2023 enables the VPN logs to be directly accessible by MuleSoft Support Engineers.
 
