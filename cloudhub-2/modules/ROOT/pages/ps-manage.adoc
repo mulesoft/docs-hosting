@@ -47,16 +47,16 @@ CloudHub 2.0 warns if you enter a route that overlaps with another route in the 
 +
 If the *X* icon doesn't appear for a route, you can't remove it.
 +
-You can remove routes for static VPN connections. 
+You can remove routes for static VPN connections.
 --
 . Click *Done* to close the route table.
 
 Anypoint Platform submits the new route to AWS.
 
-//// 
+////
 In the route table, added routes show *Transit Gateway* as the value in the *Next Hop* column:
 image::tgw-route-added.png[Transit Gateway in the Next Hop column of the route table]
-//// 
+////
 
 [[rename-connection]]
 == Rename a Connection
@@ -141,6 +141,29 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 // image::vpn-view-details.png[View Details option in the VPN menu]
 . Click *X* to close the *VPN Details* window.
 
+[[enable-vpn-logs]]
+== Enable VPN logs
+
+You can enable VPN logs to be directly accessible by MuleSoft support engineers. This shortens the process for obtaining the logs from AWS.
+
+. For VPN connections created after March 8, 2023, VPN logs are enabled by default upon creation.
+. For existing VPN connections:
+.. You can enable VPN logs via PATCH call to the following existing public endpoint:
++
+`https://anypoint.mulesoft.com/runtimefabric/api/organizations/{{org-id}}/privatespaces/{{ps-id}}/connections/{{connection-id}}/vpns/{{vpn-id}}`.
++
+The payload to enable logs for VPNs with two tunnels without making other changes is `{"vpnTunnels":[{"isLogsEnabled": true}, {"isLogsEnabled": true}]}`.
++
+The `isLogsEnabled` flag can only be set to `true`; otherwise, the API returns a 400 error.
++
+.. Any updates you make to an existing VPN after March 8, 2023 enables the VPN logs to be directly accessible by MuleSoft Support Engineers.
+
+[NOTE]
+Enabling this feature speeds up the process for obtaining VPN logs from AWS, as the MuleSoft support team can download them directly, with no need to raise an AWS support ticket.
+
+
+
+
 [[delete-vpn]]
 == Delete a VPN
 
@@ -159,9 +182,9 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click *Delete* to confirm the deletion or *Cancel*.
 
 [[rename-tgw]]
-== Rename a Transit Gateway Attachment 
+== Rename a Transit Gateway Attachment
 
-You might want to rename a transit gateway attachment to match the attachment name in AWS. 
+You might want to rename a transit gateway attachment to match the attachment name in AWS.
 
 To rename a transit gateway attachment:
 
@@ -208,7 +231,7 @@ In this case, you must remove the attachment before trying to attach it again.
 Removing a transit gateway attachment also deletes any associate routes.
 The resource share on AWS remains unaffected so you can readd the transit gateway without creating a new one.
 
-To completely remove the transit gateway from your Anypoint Platform organization, 
+To completely remove the transit gateway from your Anypoint Platform organization,
 use the `DELETE <>/organizationns/:orgId/transitgateways/:tgw-id` API call and delete the resources share on AWS.
 For information, see https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing-delete.html[Deleting a resource share^] in the AWS documentation.
 
@@ -227,7 +250,7 @@ Removing a transit gateway attachment might take several minutes.
 ////
 
 [[delete-private-network]]
-== Delete a Private Network 
+== Delete a Private Network
 
 You can't delete a private network if any apps are deployed to it or if any
 connections exist.
@@ -261,6 +284,6 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 image::ps-delete.png[Delete option in the Private Space menu]
 . Click *Delete private space* to confirm the deletion or *Cancel*.
 
-== See Also 
+== See Also
 
 * https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing-delete.html[Deleting a resource share^] in the AWS documentation
