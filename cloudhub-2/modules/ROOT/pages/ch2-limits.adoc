@@ -12,9 +12,9 @@ Transit gateway connections:: 5, depending on available network connection entit
 
 HTTP header length (`maxHeaderLength`):: 16K
 
-Firewall rules (inbound):: 40
+Firewall rules (inbound):: 180
 
-Firewall rules (outbound):: 40
+Firewall rules (outbound):: 180
 
 Application size:: Up to 200 MB
 
