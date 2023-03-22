@@ -12,7 +12,7 @@ Transit gateway connections:: 5, depending on available network connection entit
 
 Custom TLS contexts per private space:: 10
 
-HTTP header length (`maxHeaderLength`):: 16K
+HTTP header length (`maxHeaderLength`):: 32K
 
 Firewall rules (inbound):: 40
 

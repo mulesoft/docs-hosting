@@ -21,7 +21,7 @@ The following improvements have been made to features that are also available in
 * By default, VPNs allow high availability.
 * Applications now have xref:ch2-config-endpoints-paths.adoc[public and private endpoints] by default. You can also configure multiple public endpoints. You can access the endpoint addresses in Runtime Manager.
 * You can make in-place edits and updates to the TLS context and truststore of the ingress layer.
-* In CloudHub 1.0, application names had to be unique, globally, per region. In CloudHub 2.0, the same application name can be used in different deployments in the same private space as long as they are in different environments or organizations.
+* In CloudHub 1.0, application names had to be unique per control plane. In CloudHub 2.0, application names must be unique per private space.
 * Custom log4j.xml is supported by default to enable xref:ch2-integrate-log-system.adoc[streaming logs] to external log collectors. You no longer need to contact Support to enable or disable this feature.
 * You can disable log streaming using Runtime Manager. You no longer need to contact Support to enable or disable this feature.
 * Self-service logs for the dedicated load balancer and ingress are available via a private space. Titanium users can also download logs through Anypoint Monitoring.
