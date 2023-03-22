@@ -1,4 +1,4 @@
-= Deploy Applications with the Mule Maven Plugin
+= Deploying Apps with the Mule Maven Plugin
 
 include::mule-runtime::partial$mmp-deploy-to-cloudhub-2.adoc[tag=intro,leveloffset=+1]
 
