@@ -10,8 +10,6 @@ VPNs per private space:: 10
 
 Transit gateway connections:: 5, depending on available network connection entitlements
 
-Custom TLS contexts per private space:: 10
-
 HTTP header length (`maxHeaderLength`):: 16K
 
 Firewall rules (inbound):: 40
@@ -19,6 +17,22 @@ Firewall rules (inbound):: 40
 Firewall rules (outbound):: 40
 
 Application size:: Up to 200 MB
+
+Custom TLS contexts per private space:: 10
++
+*Maximum number of Client Certificates in a TLS Context:*
++
+There is no limit on the number of client certificates, but there is a limit on the store file size.
++
+A TLS Context can reference one keystore and one truststore, which have their respective file size limits:
++
+* Truststore maximum file size: 131072 bytes (128 KB)
+* Keystore maximum file size for types JKS, JCEKS, PKCS12: 40960 bytes (40 KB).
+* Keystore maximum file size for type PEM:
+** Certificate File: 4096 bytes (4 KB).
+** CA Path Certificate File: 28672 bytes (28 KB).
+
+
 
 
 [NOTE]

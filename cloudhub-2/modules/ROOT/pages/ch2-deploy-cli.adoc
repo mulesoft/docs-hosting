@@ -1,6 +1,6 @@
-= Deploy Applications with Anypoint CLI
+= Deploying Apps with Anypoint CLI
 
-Use these commands for deploying and managing applications in Cloudhub 2.0.
+Use these commands for deploying and managing apps in Cloudhub 2.0.
 
 include::anypoint-cli::partial$cloudhub2-apps.adoc[tag=summary,leveloffset=+1]
 

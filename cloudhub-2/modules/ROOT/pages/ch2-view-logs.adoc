@@ -42,7 +42,7 @@ The config label indicates the relative time of deployment, such as 10 hours ago
 // <screenshot>
 // +
 // image::ch2-logs-deploy.png[Filter log output by deployment]
--- 
+--
 
 == Search Logs
 
@@ -56,6 +56,7 @@ include::partial$select-private-space.adoc[tag=clickLogs]
 The results display includes the currently selected config, replica,
 and log levels.
 
+You can search with queries. For more information, see xref:ch2-log-search-syntax.adoc[].
 
 == Filter Logs
 
