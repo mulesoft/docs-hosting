@@ -1,6 +1,6 @@
 = Protecting App Property Values
 
-CloudHub 2.0 enables you to protect application property values by displaying the property name but not its value, in Anypoint Runtime Manager,
+CloudHub 2.0 enables you to protect application property values by displaying the property name but not its value, in Anypoint Runtime Manager.
 
 Additionally, the value is not viewable or retrievable by any user.
 CloudHub 2.0 resolves the property internally at runtime.
