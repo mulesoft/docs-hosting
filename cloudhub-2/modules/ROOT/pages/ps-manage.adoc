@@ -232,7 +232,7 @@ Removing a transit gateway attachment also deletes any associate routes.
 The resource share on AWS remains unaffected so you can readd the transit gateway without creating a new one.
 
 To completely remove the transit gateway from your Anypoint Platform organization,
-use the `DELETE <>/organizationns/:orgId/transitgateways/:tgw-id` API call and delete the resources share on AWS.
+use the `DELETE <>/organizations/:orgId/transitgateways/:tgw-id` API call and delete the resources share on AWS.
 For information, see https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing-delete.html[Deleting a resource share^] in the AWS documentation.
 
 ////
