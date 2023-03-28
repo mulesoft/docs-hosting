@@ -1,6 +1,6 @@
 = Protecting App Property Values
 
-CloudHub 2.0 enables you to protect application property values by displaying the property name but not its value, in Anypoint Runtime Manager,
+CloudHub 2.0 enables you to protect application property values by displaying the property name but not its value, in Anypoint Runtime Manager.
 
 Additionally, the value is not viewable or retrievable by any user.
 CloudHub 2.0 resolves the property internally at runtime.
@@ -57,10 +57,6 @@ include::partial$select-private-space.adoc[tag=clickPropsOnSettings]
 image::ch2-protected-props-replace.png[Replace protected value option]
 . Enter a new value in the field.
 . Click *Apply*, then *Apply Changes*.
-
-[NOTE]
-Protecting API Gateway’s client ID and secret is currently not supported, either via API or the Anypoint Runtime Manager UI.
-For more information, see https://help.mulesoft.com/s/article/Unable-to-re-deploy-a-Cloudhub-2-0-app-that-uses-API-Autodiscovery-and-has-a-Protected-Property[Unable to re-deploy a Cloudhub 2.0 app that uses API Autodiscovery and has a Protected Property^].
 
 == See Also
 
