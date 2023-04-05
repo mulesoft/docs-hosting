@@ -172,7 +172,7 @@ For more on the EU control plane, see
 xref:eu-control-plane::index.adoc[].
 
 For example, if you are using the US control plane and deploy to the Ireland region,
-the DNS records for internal and external IP addresses are
+the DNS records for external and internal IP addresses are
 `myapp-_uniq-id_._shard_.irl-e1.cloudhub.io` and `myapp-_uniq-id_.internal-_shard_.irl-e1.cloudhub.io`.
 
 
