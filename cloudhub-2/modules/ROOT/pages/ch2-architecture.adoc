@@ -130,7 +130,7 @@ The load balancer that CloudHub 2.0 uses to route requests resides in the same r
 Depending on what region you deploy your application in, the DNS record and the load balancer for your integration might change.
 The following table summarizes what DNS records are available for your application in each region:
 
-[%header,cols="15a,10a,40a"]
+[%header,cols="15a,10a,30a,40a"]
 |===
 | Region Name | Region | Target ID | Example DNS Record
 4+h| US Control Plane Regions
