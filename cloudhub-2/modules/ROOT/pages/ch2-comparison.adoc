@@ -64,6 +64,7 @@ CloudHub 2.0 does not support the following application features or functions th
 * Overriding default JVM truststores with custom truststores
 * Creating custom notifications
 * Using the CloudHub Connector
+* TLS 1.0. Use 1.2 or 1.3 instead.
 
 == See Also
 
