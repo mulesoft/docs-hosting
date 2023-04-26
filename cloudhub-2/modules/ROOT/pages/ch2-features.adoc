@@ -36,6 +36,9 @@ This table compares the features and support for CloudHub 2.0, CloudHub 1.0, and
 
 *per app* | Supported| Partially supported | Supported
 | *TLS 1.0* | Not supported | Supported| Supported
+| *TLS 1.1* | Supported, but not recommended | Supported| Supported
+| *TLS 1.2* | Supported | Supported| Supported
+| *TLS 1.3* | Supported | Supported| Supported
 | *Private endpoints* | Supported |Supported | Supported
 | *Load balancer logs* | Supported
 
