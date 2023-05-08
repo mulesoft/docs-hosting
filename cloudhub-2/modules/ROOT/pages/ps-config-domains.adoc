@@ -3,7 +3,7 @@
 CloudHub 2.0 uses Transport Layer Security (TLS) contexts to encrypt
 inbound traffic to the private space.
 
-TLS contexts enable your apps to be reached at custom domains and, optionally, enable mutual TLS.
+TLS contexts enable your apps to be reached at custom domains and, optionally, enable partial client authentication.
 
 Each private space includes one TLS context by default (for traffic to `cloudhub.io`), which can't be removed.
 The default certificate renews automatically and requires no action from the user.
@@ -54,11 +54,11 @@ With this option, you can't change the default values for TLS versions, ciphers,
 
 === Truststore
 
-A truststore is a set of client certificates that the server checks against to enforce mutual TLS.
+A truststore is a set of client certificates that the server checks against to enforce partial client authentication.
 The optional truststore identifies trusted external clients or certificate authorities (CAs).
 
-To enable mutual TLS, configure a truststore.
-If a truststore is not configured, mutual TLS is disabled.
+To enable partial client authentication, configure a truststore.
+If a truststore is not configured, partial client authentication is disabled.
 
 CloudHub 2.0 accepts truststore files in PEM formats.
 
@@ -81,7 +81,7 @@ When you add the TLS context, you can select the ciphers to use with the TLS con
 +
 ** xref:ps-config-ssl-endpoints.adoc#pem[PEM]
 ** xref:mule-runtime::tls-configuration.adoc#generate-a-keystore[JKS]
-. Generate a xref:mule-runtime::tls-configuration.adoc#truststore-generation[truststore] (if you want to enable mutual TLS).
+. Generate a xref:mule-runtime::tls-configuration.adoc#truststore-generation[truststore] (if you want to enable partial client authentication).
 . Create DNS records for your domains.
 +
 To enable traffic to reach the apps deployed to the private space using a custom domain:
@@ -158,8 +158,8 @@ CloudHub 2.0 validates the password against the key.
 . Follow the steps in <<before-you-begin>> to configure DNS.
 . *Configure the truststore (optional):*
 +
-If you want to use mutual TLS, configure a truststore.
-The truststore defines the client certificates to use to enable mutual TLS with the configured keystore.
+If you want to use partial client authentication, configure a truststore.
+The truststore defines the client certificates to use to enable partial client authentication with the configured keystore.
 +
 Click *Add Certificates* to upload a certificate file (in PEM format).
 +
@@ -260,8 +260,8 @@ CloudHub 2.0 validates the password against the key.
 
 . *Configure the truststore: (Optional)*
 +
-If you want to use mutual TLS, configure a truststore.
-The truststore defines the client certificates to use to enable mutual TLS with the configured keystore.
+If you want to use partial client authentication, configure a truststore.
+The truststore defines the client certificates to use to enable partial client authentication with the configured keystore.
 +
 Click *Add Certificates* to upload a certificate file (in PEM format).
 +
