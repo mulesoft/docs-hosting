@@ -16,7 +16,7 @@ Firewall rules (inbound):: 180
 
 Firewall rules (outbound):: 180
 
-Application size:: Up to 200 MB
+Application size:: Up to 350 MB
 
 Custom TLS contexts per private space:: 10
 
