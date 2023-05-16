@@ -107,8 +107,7 @@ The initial metaspace size is 128 MB; metaspace garbage collection begins after 
 You can scale your applications horizontally by adding multiple replicas for persistent queues.
 See xref:ch2-clustering.adoc#replica-scale-out[Replica Scale-out].
 
-CloudHub 2.0 monitors replicas to verify that they are operating correctly.
-If you enable automatic restarts, CloudHub 2.0 also automatically restarts applications, if necessary.
+CloudHub 2.0 monitors replicas to verify that they are operating correctly, and automatically restarts applications if necessary.
 
 [[shared-global-regions]]
 == Shared Global Regions
