@@ -16,13 +16,11 @@ Firewall rules (inbound):: 180
 
 Firewall rules (outbound):: 180
 
-Application size:: Up to 200 MB
+Application size:: Up to 350 MB
 
 Custom TLS contexts per private space:: 10
-+
-*Maximum number of Client Certificates in a TLS Context:*
-+
-There is no limit on the number of client certificates, but there is a limit on the store file size.
+
+Maximum number of Client Certificates in a TLS Context:: There is no limit on the number of client certificates, but there is a limit on the store file size.
 +
 A TLS Context can reference one keystore and one truststore, which have their respective file size limits:
 +
@@ -31,6 +29,9 @@ A TLS Context can reference one keystore and one truststore, which have their re
 * Keystore maximum file size for type PEM:
 ** Certificate File: 4096 bytes (4 KB).
 ** CA Path Certificate File: 28672 bytes (28 KB).
+
+Ingress controller `content-length` in POST requests:: 0 or greater. `content-length` must be included in the POST request, even if the value is 0.
+
 
 
 

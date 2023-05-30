@@ -20,6 +20,7 @@ Any of the following features and functionality requires a private space:
 * Vanity domain names
 * Custom certificates
 * Private endpoints
+* Static application source IP addresses
 
 == See Also
 

@@ -136,11 +136,6 @@ http://helloch2:8081/hello
 ```
 If required, replace `http` with `https`.
 
-The following example sends a request from one application to an application in another namespace. In this example, `1abc2ce6-cce6-463b-afaa-a1979e3xxxxx` is another environment in the same private space, so this environment ID is appended to the application name:
-```
-http://helloch2.1abc2ce6-cce6-463b-afaa-a1979e3xxxxx:8081/hello
-```
-
 == See Also
 
 * xref:ch2-deploy-private-space.adoc[]

@@ -71,7 +71,7 @@ You can scale replicas vertically by selecting one of the available vCore sizes:
 [%header,cols="4*a"]
 |===
 |vCore Size | Total Memory | Heap Memory | Storage
-|0.1        |1 GB          |500 MB       | 8 GB
+|0.1        |1.2 GB        |600 MB       | 8 GB
 |0.2        |2 GB          |1 GB         | 8 GB
 |0.5        |2.6 GB        |1.3 GB       | 10 GB
 |1          |4 GB          |2 GB         | 12 GB
@@ -107,8 +107,7 @@ The initial metaspace size is 128 MB; metaspace garbage collection begins after 
 You can scale your applications horizontally by adding multiple replicas for persistent queues.
 See xref:ch2-clustering.adoc#replica-scale-out[Replica Scale-out].
 
-CloudHub 2.0 monitors replicas to verify that they are operating correctly.
-If you enable automatic restarts, CloudHub 2.0 also automatically restarts applications, if necessary.
+CloudHub 2.0 monitors replicas to verify that they are operating correctly, and automatically restarts applications if necessary.
 
 [[shared-global-regions]]
 == Shared Global Regions
@@ -130,27 +129,27 @@ The load balancer that CloudHub 2.0 uses to route requests resides in the same r
 Depending on what region you deploy your application in, the DNS record and the load balancer for your integration might change.
 The following table summarizes what DNS records are available for your application in each region:
 
-[%header,cols="15a,10a,40a"]
+[%header,cols="15a,10a,30a,40a"]
 |===
-| Region Name | Region | Example DNS Record
-3+h| US Control Plane Regions
-| US East (N. Virginia) |usa-e1| `myapp-_uniq-id_._shard_.usa-e1.cloudhub.io`
-| US East (Ohio) |usa-e2| `myapp-_uniq-id_._shard_.usa-e2.cloudhub.io`
-| US West (N. California) |usa-w1 | `myapp-_uniq-id_._shard_.usa-w1.cloudhub.io`
-| US West (Oregon) |usa-w2| `myapp-_uniq-id_._shard_.usa-w2.cloudhub.io`
-| Canada (Central) |can-c1 | `myapp-_uniq-id_._shard_.can-c1.cloudhub.io`
-| South America (Sao Paulo) |bra-s1| `myapp-_uniq-id_._shard_.bra-s1.cloudhub.io`
-| Asia Pacific (Singapore) |sgp-s1| `myapp-_uniq-id_._shard_.sgp-s1.cloudhub.io`
-| Asia Pacific (Sydney) |aus-s1| `myapp-_uniq-id_._shard_.aus-s1.cloudhub.io`
-| Asia Pacific (Tokyo) |jpn-e1| `myapp-_uniq-id_._shard_.jpn-e1.cloudhub.io`
-| EU (Ireland) |irl-e1| `myapp-_uniq-id_._shard_.irl-e1.cloudhub.io`
-| EU (Frankfurt) |deu-c1| `myapp-_uniq-id_._shard_.deu-c1.cloudhub.io`
-| EU (London) |gbr-e1| `myapp-_uniq-id_._shard_.gbr-e1.cloudhub.io`
-3+h|MuleSoft Government Cloud Region
-| US Gov West |usag-w1.gov| `myapp-_uniq-id_._shard_.usg-w1.gov.cloudhub.io`
-3+h| EU Control Plane Regions
-| EU (Ireland) |irl-e1.eu1| `myapp-_uniq-id_._shard_.irl-e1.eu1.cloudhub.io`
-| EU (Frankfurt) |deu-c1.eu1 | `myapp-_uniq-id_._shard_.deu-c1.eu1.cloudhub.io`
+| Region Name | Region | Target ID | Example DNS Record
+4+h| US Control Plane Regions
+| US East (N. Virginia) |usa-e1 | `cloudhub-us-east-1` | `myapp-_uniq-id_._shard_.usa-e1.cloudhub.io`
+| US East (Ohio) |usa-e2| `cloudhub-us-east-2` | `myapp-_uniq-id_._shard_.usa-e2.cloudhub.io`
+| US West (N. California) |usa-w1 |`cloudhub-us-west-1` | `myapp-_uniq-id_._shard_.usa-w1.cloudhub.io`
+| US West (Oregon) |usa-w2| `cloudhub-us-west-2` | `myapp-_uniq-id_._shard_.usa-w2.cloudhub.io`
+| Canada (Central) |can-c1| `cloudhub-ca-central-1` | `myapp-_uniq-id_._shard_.can-c1.cloudhub.io`
+| South America (Sao Paulo) |bra-s1| `cloudhub-sa-east-1` | `myapp-_uniq-id_._shard_.bra-s1.cloudhub.io`
+| Asia Pacific (Singapore) |sgp-s1| `cloudhub-ap-southeast-1` | `myapp-_uniq-id_._shard_.sgp-s1.cloudhub.io`
+| Asia Pacific (Sydney) |aus-s1| `cloudhub-ap-southeast-2` | `myapp-_uniq-id_._shard_.aus-s1.cloudhub.io`
+| Asia Pacific (Tokyo) |jpn-e1| `cloudhub-ap-northeast-1` | `myapp-_uniq-id_._shard_.jpn-e1.cloudhub.io`
+| EU (Ireland) |irl-e1 | `cloudhub-eu-west-1` | `myapp-_uniq-id_._shard_.irl-e1.cloudhub.io`
+| EU (Frankfurt) |deu-c1 | `cloudhub-eu-central-1` | `myapp-_uniq-id_._shard_.deu-c1.cloudhub.io`
+| EU (London) |gbr-e1 | `cloudhub-eu-west-2` | `myapp-_uniq-id_._shard_.gbr-e1.cloudhub.io`
+4+h|MuleSoft Government Cloud Region
+| US Gov West |usag-w1.gov| N/A | `myapp-_uniq-id_._shard_.usg-w1.gov.cloudhub.io`
+4+h| EU Control Plane Regions
+| EU (Ireland) |irl-e1.eu1 | `cloudhub-eu-west-1` | `myapp-_uniq-id_._shard_.irl-e1.eu1.cloudhub.io`
+| EU (Frankfurt) |deu-c1.eu1 | `cloudhub-eu-central-1` | `myapp-_uniq-id_._shard_.deu-c1.eu1.cloudhub.io`
 |===
 
 For example, if you deploy an application named `myapp` to Canada (Central), the domain used to access the application is `myapp-_uniq-id_._shard_.can-c1.cloudhub.io`.
@@ -172,7 +171,7 @@ For more on the EU control plane, see
 xref:eu-control-plane::index.adoc[].
 
 For example, if you are using the US control plane and deploy to the Ireland region,
-the DNS records for internal and external IP addresses are
+the DNS records for external and internal IP addresses are
 `myapp-_uniq-id_._shard_.irl-e1.cloudhub.io` and `myapp-_uniq-id_.internal-_shard_.irl-e1.cloudhub.io`.
 
 
