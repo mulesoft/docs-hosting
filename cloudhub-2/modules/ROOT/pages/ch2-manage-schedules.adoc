@@ -17,6 +17,9 @@ To change a schedule type (between fixed frequency and cron or vice versa),
 you must update and redeploy the app.
 You can't change the schedule type on a deployed application.
 
+[IMPORTANT]
+To view the application schedules, you must have the *Exchange Viewer* permission, in addition to the *Read Applications* permission.
+
 [[design-schedule]]
 == Schedule Design Considerations
 
