@@ -1,4 +1,4 @@
-W-12660383= Assigning Permissions
+= Assigning Permissions
 
 
 Before you set up your private space, ensure you have the required permissions
