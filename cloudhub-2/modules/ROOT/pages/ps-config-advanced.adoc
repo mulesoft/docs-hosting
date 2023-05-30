@@ -121,7 +121,7 @@ include::partial$select-private-space.adoc[tag=clickAdvanced]
 [[configure-aws-role]]
 == Configure AWS Service Role
 
-If you have identity and access management (IAM) roles configured in AWS, you can associate the role with your private space. The private space receives the permissions from the IAM role in AWS and can access AWS resources. To enable this feature, Anypoint Platform generates a unique role name you can use with AWS IAM. Note that you must allow outbound traffic on port 443 to use this feature. For more information, see https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html[IAM roles^].
+If you have identity and access management (IAM) roles configured in AWS, you can associate the role with your private space. The private space receives the permissions from the IAM role in AWS and can access AWS resources. To enable this feature, Anypoint Platform generates a unique role name you can use with AWS IAM. You must use the same organization ID to configure this feature as the organization that configured the private space. You must also allow outbound traffic on port 443 to use this feature. For more information, see https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html[IAM roles^]. 
 
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
