@@ -58,7 +58,8 @@ Some Anypoint Platform components are not supported in Anypoint Platform PCE. Se
 
 === Support Matrix for Control Plane Hosting Options
 
-Not all Anypoint Platform components are supported in all cloud environments. The following table shows which environments support each component:
+Not all Anypoint Platform components and features are supported in all cloud environments.
+The following table shows which environments support each component:
 
 [%header,cols="5*a"]
 |===
@@ -73,6 +74,7 @@ Not all Anypoint Platform components are supported in all cloud environments. Th
 | Anypoint DataGraph | Y | Y | N | N
 | Anypoint Exchange | Y | Y | Y | Y
 | Flow Designer | Y | Y | N | N
+| Anypoint MQ | Y | N | <<mq-on-govcloud,Y>> | N
 | Anypoint Monitoring | Y | Y | Y | Y
 | Anypoint Partner Manager | Y | Y | N | N
 | Runtime Fabric | Y | Y | N | N
@@ -84,6 +86,29 @@ Not all Anypoint Platform components are supported in all cloud environments. Th
 | Anypoint Studio | Y | Y | Y | Y
 | Anypoint Visualizer | Y | Y | Y | Y
 |===
+
+[[mq-on-govcloud]]
+==== Anypoint MQ on MuleSoft Government Cloud
+
+The following Anypoint MQ features are not available on MuleSoft Government Cloud:
+
+* Unencryped queues
++
+All queues are encrypted and the *Encryption* option is not available when 
+xref:mq::mq-queues.adoc#create-a-queue[creating a queue].
+* xref:mq::mq-client-apps.adoc[Client apps]
++
+Use 
+xref:mq::mq-connected-apps.adoc[Connected Apps] instead.
+* The following REST APIs in the Anypoint MQ Stats API:
++
+** https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/method/%23322/[Get usage metrics for an org]
+** https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/method/%23383/[Get usage metrics for an environment within an org]
++
+You can use Anypoint MQ Stats API to retrieve metrics for queues and exchanges.
+See 
+xref:mq::mq-apis.adoc#mqstatapi[Anypoint MQ Stats API].
+
 
 == Runtime Plane Hosting Options
 
@@ -133,7 +158,7 @@ Not all Anypoint Platform components are supported in each of the Runtime Plane 
 |===
 
 
-* Anypoint MQ and Anypoint Object Store v2
+* Anypoint Object Store v2
 +
 Runtime Fabric and standalone runtimes do not support Anypoint Object Store v2. Instead, Runtime Fabric and standalone runtimes support Mule clustering. On Runtime Fabric, multiple replicas of the same application can share objects. On standalone runtimes, multiple Mule runtime engines can share objects with each other.
 +
