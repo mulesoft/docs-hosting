@@ -92,7 +92,7 @@ The following table shows which environments support each component:
 
 The following Anypoint MQ features are not available on MuleSoft Government Cloud:
 
-* Unencryped queues
+* Unencrypted queues
 +
 All queues are encrypted and the *Encryption* option is not available when 
 xref:mq::mq-queues.adoc#create-a-queue[creating a queue].
