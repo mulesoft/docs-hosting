@@ -74,7 +74,7 @@ The following table shows which environments support each component:
 | Anypoint DataGraph | Y | Y | N | N
 | Anypoint Exchange | Y | Y | Y | Y
 | Flow Designer | Y | Y | N | N
-| Anypoint MQ | Y | N | Y <<mq-support,^***^>> | N
+| Anypoint MQ | Y | Y | Y <<mq-support,^***^>> | N
 | Anypoint Monitoring | Y | Y | Y | Y
 | Anypoint Partner Manager | Y | Y | N | N
 | Runtime Fabric | Y | Y | N | N
@@ -90,7 +90,7 @@ The following table shows which environments support each component:
 [[mq-support]]
 ^***^ {empty}
 // MQ Support in GovCloud
-include::gov-cloud::partial$mq-in-govcloud.adoc[tag=mqSupportInGovCloud]
+include::mq::partial$mq-in-govcloud.adoc[tag=mqSupportInGovCloud]
 
 == Runtime Plane Hosting Options
 
