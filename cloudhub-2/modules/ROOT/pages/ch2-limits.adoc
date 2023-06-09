@@ -32,6 +32,10 @@ A TLS Context can reference one keystore and one truststore, which have their re
 
 Ingress controller `content-length` in POST requests:: 0 or greater. `content-length` must be included in the POST request, even if the value is 0.
 
+Application properties:: 300
+
+Application property keys:: 1024 characters
+
 
 
 
