@@ -20,7 +20,7 @@ Application size:: Up to 350 MB
 
 Application properties:: 300
 
-Application property keys:: 1024 characters
+Application property keys and values:: 1024 characters
 
 Custom TLS contexts per private space:: 10
 
