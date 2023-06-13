@@ -96,6 +96,11 @@ Although this method is not the best practice on CloudHub 2.0 (because the *Prop
 To prevent CloudHub 2.0 properties from overriding properties bundled with the deployable archive, change options in the `property-placeholder` element in the Mule application.
 For more information about nondefault property placeholder options, see the https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/support/PropertySourcesPlaceholderConfigurer.html[Spring documentation on Property Placeholder options^].
 
+== Limitations
+
+- You can add up to 300 properties. 
+- Property keys and their values cannot exceed 1024 characters.
+
 == Reserved Properties 
 
 CloudHub 2.0 reserves a set of properties and prevents apps from overwriting the values of those properties.
