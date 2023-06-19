@@ -63,7 +63,7 @@ To create a dynamic VPN connection, you need:
 ** Platform
 ** Software
 
-[[static vpn]]
+[[static-vpn]]
 == Static VPN Connection
 
 To create a static VPN connection, you need:
