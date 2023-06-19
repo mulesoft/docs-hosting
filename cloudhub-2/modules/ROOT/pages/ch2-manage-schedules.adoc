@@ -40,7 +40,7 @@ CloudHub 2.0 distributes multiple concurrent schedulers across replicas.
 * You cannot manage CloudHub 2.0 schedules using scripts.
 +
 Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules.
-* Flow names can contain only upper and lower case latters, numbers, hyphens (`-`), underscores (`_`), and periods (`.`). The following characters are invalid: `/`, `[`, `]`, `{`, `}`, and `#`.
+* Flow names can contain only upper and lower case letters, numbers, hyphens (`-`), underscores (`_`), and periods (`.`). The following characters are invalid: `/`, `[`, `]`, `{`, `}`, and `#`.
 * When you create a schedule using a scheduler that has a placeholder, the value that appears when you create a schedule varies based on when the placeholder is discovered. For example:
 ** If the value is available before the app is deployed, the value appears.
 ** If the value is available before deployment and depends on deployment properties, an estimation of the value appears.
