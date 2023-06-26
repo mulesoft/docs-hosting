@@ -1,4 +1,4 @@
-= Configuring Firewall Rules to Manage Traffic to a Private Space
+= Configuring Firewall Rules to Manage Traffic to and from a Private Space
 
 By default, all traffic to your private space is blocked unless it is explicitly allowed in a firewall rule.
 
