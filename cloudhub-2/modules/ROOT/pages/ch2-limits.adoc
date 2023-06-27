@@ -16,7 +16,13 @@ Firewall rules (inbound):: 180
 
 Firewall rules (outbound):: 180
 
+SMTP traffic:: 20 emails per hour. Outbound traffic on port 25 (SMTP) is blocked by default as a spam prevention measure. For security reasons, use SMTP ports 465 or 587.
+
 Application size:: Up to 350 MB
+
+Application properties:: 300
+
+Application property keys and values:: 1024 characters
 
 Custom TLS contexts per private space:: 10
 

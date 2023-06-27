@@ -1,0 +1,1 @@
+include::release-notes::partial$cloudhub-2/cloudhub-2-rn-landing-page.adoc[]
