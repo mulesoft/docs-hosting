@@ -6,7 +6,7 @@ You can host different parts of Anypoint Platform in different locations, either
 
 == Control Plane vs Runtime Plane
 
-To understand the different hosting options that MuleSoft supports, it is important to understand the control plane and runtime plane within the context of Anypoint Platform.
+To understand the different hosting options that MuleSoft supports, you must understand the control plane and runtime plane within the context of Anypoint Platform.
 
 image:intro-control-runtime-planes.png[Diagram of contents of the control plane and runtime plane]
 
@@ -50,7 +50,7 @@ See xref:gov-cloud::index.adoc[About Government Cloud] for more information.
 +
 MuleSoft also enables you to host the control plane within your own data center. Anypoint Platform Private Cloud Edition (Anypoint Platform PCE) is a version of Anypoint Platform that supports hosting the control plane within a user-managed data center. This enables you to control the environment where your assets and metadata are stored.
 +
-Anypoint Platform PCE supports deploying to Mule runtime servers hosted in a standalone environment. You can host the control plane in a physical server, a virtual server, or a 3rd-party cloud environment such as Amazon Web Services.
+Anypoint Platform PCE supports deploying to Mule runtime servers hosted in a standalone environment. You can host the control plane in a physical server, a virtual server, or a third-party cloud environment such as Amazon Web Services.
 +
 See xref:private-cloud::index.adoc[About Anypoint Platform PCE] for more information.
 +
@@ -58,7 +58,8 @@ Some Anypoint Platform components are not supported in Anypoint Platform PCE. Se
 
 === Support Matrix for Control Plane Hosting Options
 
-Not all Anypoint Platform components are supported in all cloud environments. The following table shows which environments support each component:
+Not all Anypoint Platform components and features are supported in all cloud environments.
+The following table shows which environments support each component:
 
 [%header,cols="5*a"]
 |===
@@ -73,6 +74,7 @@ Not all Anypoint Platform components are supported in all cloud environments. Th
 | Anypoint DataGraph | Y | Y | N | N
 | Anypoint Exchange | Y | Y | Y | Y
 | Flow Designer | Y | Y | N | N
+| Anypoint MQ | Y | Y | Y <<mq-support,^***^>> | N
 | Anypoint Monitoring | Y | Y | Y | Y
 | Anypoint Partner Manager | Y | Y | N | N
 | Runtime Fabric | Y | Y | N | N
@@ -84,6 +86,11 @@ Not all Anypoint Platform components are supported in all cloud environments. Th
 | Anypoint Studio | Y | Y | Y | Y
 | Anypoint Visualizer | Y | Y | Y | Y
 |===
+
+[[mq-support]]
+^***^ {empty}
+// MQ Support in GovCloud
+include::mq::partial$mq-in-govcloud.adoc[tag=mqSupportInGovCloud]
 
 == Runtime Plane Hosting Options
 
@@ -133,7 +140,7 @@ Not all Anypoint Platform components are supported in each of the Runtime Plane 
 |===
 
 
-* Anypoint MQ and Anypoint Object Store v2
+* Anypoint Object Store v2
 +
 Runtime Fabric and standalone runtimes do not support Anypoint Object Store v2. Instead, Runtime Fabric and standalone runtimes support Mule clustering. On Runtime Fabric, multiple replicas of the same application can share objects. On standalone runtimes, multiple Mule runtime engines can share objects with each other.
 +

@@ -25,7 +25,7 @@ The following improvements have been made to features that are also available in
 * Custom log4j.xml is supported by default to enable xref:ch2-integrate-log-system.adoc[streaming logs] to external log collectors. You no longer need to contact Support to enable or disable this feature.
 * You can disable log streaming using Runtime Manager. You no longer need to contact Support to enable or disable this feature.
 * Self-service logs for the dedicated load balancer and ingress are available via a private space. Titanium users can also download logs through Anypoint Monitoring.
-* Using ports 80 and 443, applications inside a private space can communicate using internal load balancer via the private endpoint. Note that this depends on application protocol.
+* Using ports 80 and 443, applications inside a private space can communicate using internal load balancer via the private endpoint. This depends on application protocol.
 
 == Considerations and Limitations
 
@@ -40,6 +40,7 @@ CloudHub 2.0 infrastructure behavior deviates from CloudHub 1.0 in the following
 * To move applications between regions, you must redeploy the application to another shared space or private space in a different region. You cannot move the app to a different region once deployed.
 * HTTP and HTTPS traffic uses port 8081.
 * CloudHub 2.0 blocks outbound SMTP traffic when more than 20 emails are sent in one hour.
+* You cannot create a VPN connection between a CloudHub 1.0 VPC and a CloudHub 2.0 private space.
 
 CloudHub 2.0 does not support the following infrastructure features or functions that CloudHub 1.0 supports:
 
