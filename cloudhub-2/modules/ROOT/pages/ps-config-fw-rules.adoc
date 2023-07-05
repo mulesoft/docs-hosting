@@ -12,7 +12,7 @@ Creating a private space automatically creates these firewall rules:
 ** TCP: All ports
 ** HTTPS: 443
 
-xref:ch2-deploy-api.adoc[Using the Application Manager API], you can also configure inbound firewall rules that use protocol other than HTTP.
+You can also configure inbound firewall rules that use TCP as the protocol.
 
 To support Anypoint MQ, API Manager, and ObjectStore v2, you must allow outbound traffic on port 443 (HTTPS).
 
