@@ -1,0 +1,174 @@
+= Deploy an App with TCP using the Application Manager API
+
+To configure protocols other than HTTP or HTTPS, configure TCP inbound rules to manage traffic for your private space. You can then use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.0/console/method/%231158/[Application Manager API] to deploy an app using TCP. 
+
+To configure firewall rules using TCP, see xref:ps-config-fw-rules.adoc#configure-firewall-rules[Configure Firewall Rules] and select TCP.
+
+== Find Free Ports for Your App
+
+The port range for TCP is from 30500 to 32500. To confirm port availability, use the https://anypoint.mulesoft.com/exchange/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/minor/1.0/console/method/%232327/[CloudHub 2.0 API] that returns a list of available ports. 
+
+The following examples show the API request and response when you use it to find free ports:
+
+Request:
+
+[source,json]
+---- 
+GET
+https:/anypoint.mulesoft.com/runtimefabric/api/organizations/{organizationId}/privatespaces/{privatespaceId}/ports?available=true&count=10
+----
+
+Response: 
+
+[source,json]
+----
+{
+   "ports": [
+       30500,
+       30501,
+       30502,
+       30503,
+       30504,
+       30511,
+       30512,
+       30513,
+       30514,
+       30515
+   ]
+}
+----
+
+
+The `available` parameter enables you to alternate between used and unused ports.
+The `count` parameter enables you to specify the amount of ports desired. `count` can range from 1 to 10. The end result is limited by the actual availability of ports.
+
+== Deploy an App Using the Application Manager API
+
+In the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.0/console/method/%231158/[Application Manager API], use the `tcp` section under `deploymentSettings` to map your TCP port and deploy your app. The mapping uses the external port to expose `portNumber` and the app level-defined port `applicationPortNumber`. There is a 10 port limit per application. 
+
+The following example shows the request to deploy a new app using a TCP port mapping:
+
+[source,json]
+----
+POST https://anypoint.mulesoft.com/amc/application-manager/api/v2/organizations/{organizationId}/environments/{environmentId}/deployments
+
+{
+ "name": "logs-app-uc01",
+ "labels": [
+   "beta"
+ ],
+ "target": {
+   "provider": "MC",
+   "targetId": "cfe2157f-438b-4fb8-81fe-13ec89c55545",
+   "deploymentSettings": {
+     "clustered": false,
+     "enforceDeployingReplicasAcrossNodes": false,
+//------------------------------------NEW-------------------------------------
+     "tcp": {
+         "inbound": {
+           "ports": [
+             {
+               "portNumber": 30500,
+               "applicationPortNumber": 9000  
+             },
+             {
+               "portNumber": 30501,
+               "applicationPortNumber": 9001  
+             },
+             {
+               "portNumber": 30502,
+               "applicationPortNumber": 9002  
+             },
+           ]
+         }
+       },
+//------------------------------------NEW-------------------------------------
+     "jvm": {},
+     "runtimeVersion": "4.4.0:20220523-1",
+     "updateStrategy": "rolling",
+     "disableAmLogForwarding": false,
+     "generateDefaultPublicUrl": true
+   },
+   "replicas": 1
+ },
+ "application": {
+   "ref": {
+     "groupId": "66310c16-bce5-43c4-b978-5945ed2f99c5",
+     "artifactId": "app-with-40-schedulers",
+     "version": "1.0.5",
+     "packaging": "jar"
+   },
+   "assets": [],
+   "desiredState": "STARTED",
+   "configuration": {
+     "mule.agent.application.properties.service": {
+       "applicationName": "logs-app-uc01",
+       "properties": {},
+       "secureProperties": {}
+     },
+     "mule.agent.logging.service": {
+       "artifactName": "logs-app-uc01",
+       "scopeLoggingConfigurations": []
+     }
+   },
+   "integrations": {
+     "services": {
+       "objectStoreV2": {
+         "enabled": false
+       }
+     }
+   },
+   "vCores": "0.05"
+ }
+}
+----
+
+Deployments that include unavailable ports fail. Successful deployments occupy the newly mapped ports, and those ports become unavailable. If the app is deleted, the ports become available again.
+
+== Update an App Using the Application Manager API
+
+In the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.0/console/method/%231158/[Application Manager API], use the `tcp` section under `deploymentSettings` to update TCP port and redeploy your app. 
+
+The following example shows request to update an existing app and its body with a new TCP mapping:
+
+[source,json]
+----
+PATCH
+https://anypoint.mulesoft.com/amc/adam/api/organizations/{organizationId}/environments/{environmentId}/deployments/{deploymentId}
+
+{
+    "id": "id",
+    "target": {
+      "provider": "MC",
+      "targetId": "873a9879-cca7-4211-b90e-826e98123929",
+      "deploymentSettings": {
+        "tcp": {
+          "inbound": {
+            "ports": [
+              {
+                "portNumber": 30507,
+                "applicationPortNumber": 9007
+              },
+              {
+                "portNumber": 30508,
+                "applicationPortNumber": 9008
+              },
+              {
+                "portNumber": 30509,
+                "applicationPortNumber": 9009
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+----
+
+Updates that include unavailable ports fail. Successful deployments occupy the newly mapped ports, and those ports become unavailable. The ports that you replaced with new mappings become available.
+
+== Access Your TCP App
+
+You can access the app using VPN or a transit gateway and within the private space. Since the apps run on worker nodes, they cannot be accessed directly over the internet. The URL to access a TCP app has this structure: `{application-url}.tcp.{environment}.cloudhub.io:{port}`
+
+For example, the URL for the app deployed in the previous examples would be `logs-app-uc01.tcp.cloudhub.io:30500`.
