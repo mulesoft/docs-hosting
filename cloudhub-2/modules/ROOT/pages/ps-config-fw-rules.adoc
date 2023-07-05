@@ -97,7 +97,7 @@ The following examples show the API request and response when you use it to find
 
 Request:
 
-[source,xml]
+[source,json]
 ---- 
 GET
 https:/anypoint.mulesoft.com/runtimefabric/api/organizations/{organizationId}/privatespaces/{privatespaceId}/ports?available=true&count=10
@@ -105,7 +105,7 @@ https:/anypoint.mulesoft.com/runtimefabric/api/organizations/{organizationId}/pr
 
 Response: 
 
-[source,xml]
+[source,json]
 ----
 {
    "ports": [
@@ -133,7 +133,7 @@ In the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6
 
 The following example shows the request to deploy a new app using a TCP port mapping:
 
-[source,xml]
+[source,json]
 ----
 POST https://anypoint.mulesoft.com/amc/application-manager/api/v2/organizations/{organizationId}/environments/{environmentId}/deployments
 
@@ -216,7 +216,7 @@ In the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6
 
 The following example shows request to update an existing app and its body with a new TCP mapping:
 
-[source,xml]
+[source,json]
 ----
 PATCH
 https://anypoint.mulesoft.com/amc/adam/api/organizations/{organizationId}/environments/{environmentId}/deployments/{deploymentId}
