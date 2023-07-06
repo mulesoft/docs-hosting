@@ -159,7 +159,9 @@ CloudHub 2.0 backend services determine the values of:
 _uniq-id_::
 A 6-digit value appended to the app name to ensure uniqueness.
 _shard_::
-A 6-digit value associated with the space (private or shared) that the app is deployed to.
+A 6-digit value associated with the private space that the app is deployed to.
++
+A 6-digit value followed by hyphen (`-`) and number, associated with the shared space that the app is deployed to.
 +
 CloudHub 2.0 assigns each private space a value for _shard_.
 For apps deployed to shared spaces, each region might have multiple _shard_ values.
