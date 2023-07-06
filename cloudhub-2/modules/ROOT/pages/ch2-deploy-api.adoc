@@ -127,7 +127,7 @@ Deployments that include unavailable ports fail. Successful deployments use the 
 
 For incorrect port configurations, the following errors appear:
 
-* `App <name> has leased the maximum number of ports.` occurs when you specify more than ten ports.
+* `App <name> has leased the maximum number of ports.` occurs when you specify more than 10 ports.
 * `Ports must be within the supported range of 30500 - 32500` occurs when the port you specify is out of range.
 * `Port 30501 is already in use by other owner` occurs when the port you specify is in use by another app.
 
