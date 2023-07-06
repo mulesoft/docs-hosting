@@ -1,12 +1,12 @@
 = Deploy an App with TCP using the Application Manager API
 
-To configure protocols other than HTTP or HTTPS, configure TCP inbound rules to manage traffic for your private space. You can then use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.0/console/method/%231158/[Application Manager API] to deploy an app using TCP. 
+To configure protocols other than HTTP or HTTPS, set up TCP inbound rules to manage traffic for your private space. You can then use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.0/console/method/%231158/[Application Manager API] to deploy an app using TCP. 
 
-To configure firewall rules using TCP, see xref:ps-config-fw-rules.adoc#configure-firewall-rules[Configure Firewall Rules] and select TCP.
+To configure firewall rules using TCP, follow the steps in xref:ps-config-fw-rules.adoc#configure-firewall-rules[Configure Firewall Rules] and select TCP.
 
 == Find Available Ports for Your App
 
-The port range for TCP is from 30500 to 32500. To confirm port availability, use the https://anypoint.mulesoft.com/exchange/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/minor/1.0/console/method/%232327/[CloudHub 2.0 API] that returns a list of available ports. 
+The port range for TCP is between 30500 to 32500. To confirm port availability, use the https://anypoint.mulesoft.com/exchange/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/minor/1.0/console/method/%232327/[CloudHub 2.0 API] that returns a list of available ports. 
 
 The following examples show the API request and response when you use it to find available ports:
 
@@ -40,11 +40,11 @@ Response:
 
 
 The `available` parameter enables you to alternate between used and unused ports.
-The `count` parameter enables you to specify the amount of ports desired. `count` can range from 1 to 10. The end result is limited by the actual availability of ports.
+The `count` parameter lets you specify the number of ports, between 1 and 10. The actual availability of ports limits the end result.
 
 == Deploy an App Using the Application Manager API
 
-In the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.0/console/method/%231158/[Application Manager API], use the `tcp` section under `deploymentSettings` to map your TCP port and deploy your app. The mapping uses the external port to expose `portNumber` and the app level-defined port `applicationPortNumber`. There is a 10 port limit per application. 
+In the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.0/console/method/%231158/[Application Manager API], use the `tcp` section under `deploymentSettings` to map your TCP port and deploy your app. The mapping uses the external port to expose `portNumber` and the app level-defined port `applicationPortNumber`. You can configure up to 10 ports per application. 
 
 The following example shows the request to deploy a new app using a TCP port mapping:
 
@@ -123,19 +123,19 @@ POST https://anypoint.mulesoft.com/amc/application-manager/api/v2/organizations/
 }
 ----
 
-Deployments that include unavailable ports fail. Successful deployments occupy the newly mapped ports, and those ports become unavailable. If the app is deleted, the ports become available again.
+Deployments that include unavailable ports fail. Successful deployments use the newly mapped ports, and those ports become unavailable. If the app is deleted, the ports become available again.
 
 If you configure ports incorrectly, the following errors appear:
 
-* When you specify more than ten ports: `Owner <name>  has reached the maximum port lease capacity`
-* When the port you specify is not in the range of 30500 to 32500: `Ports must be within the supported range of 30500 - 32500`
-* When the port you specify is in use by another app: `Ports 30501 is already in use by other owner`
+* When you specify more than ten ports: `App <name> has leased the maximum number of ports.`
+* When the port you specify is out of range: `Ports must be within the supported range of 30500 - 32500`
+* When the port you specify is in use by another app: `Port 30501 is already in use by other owner`
 
 == Update an App Using the Application Manager API
 
-In the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.0/console/method/%231158/[Application Manager API], use the `tcp` section under `deploymentSettings` to update TCP port and redeploy your app. 
+Using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.0/console/method/%231158/[Application Manager API], change the `tcp` mapping in the `deploymentSettings` section to update the TCP port, and then redeploy the app. 
 
-The following example shows request to update an existing app and its body with a new TCP mapping:
+The following example shows a request to update an existing app and its body with a new TCP mapping:
 
 [source,json]
 ----
@@ -175,6 +175,6 @@ Updates that include unavailable ports fail. Successful deployments occupy the n
 
 == Access Your TCP App
 
-You can access the app using VPN or a transit gateway and within the private space. Since the apps run on worker nodes, they cannot be accessed directly over the internet. The URL to access a TCP app has this structure: `{application-url}.tcp.{environment}.cloudhub.io:{port}`
+You can access the app using VPN or a transit gateway and within the private space. Because the apps run on worker nodes, they cannot be accessed directly over the internet. The URL to access a TCP app has this structure: `{application-url}.tcp.{environment}.cloudhub.io:{port}`
 
 A sample URL is `mllp-app-2-mpskt5.q8b5lv.usa-e1.tcp.stgx.cloudhub.io:30500`.
