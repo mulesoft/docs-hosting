@@ -156,15 +156,15 @@ For example, if you deploy an application named `myapp` to Canada (Central), the
 
 CloudHub 2.0 backend services determine the values of:
 
-_uniq-id_::
+`uniq-id`::
 A 6-digit value appended to the app name to ensure uniqueness.
-_shard_::
+`shard`::
 A 6-digit value associated with the private space that the app is deployed to.
 +
 A 6-digit value followed by hyphen (`-`) and number, associated with the shared space that the app is deployed to.
 +
-CloudHub 2.0 assigns each private space a value for _shard_.
-For apps deployed to shared spaces, each region might have multiple _shard_ values. When an app is stopped or restarted, the shard value does not change. However, when an app is deleted and redeployed in a shared space, the shard value might change.
+CloudHub 2.0 assigns each private space a value for `shard`.
+For apps deployed to shared spaces, each region might have multiple `shard` values. When an app is stopped or restarted, the `shard` value does not change. However, when an app is deleted and redeployed in a shared space, the `shard` value might change.
 
 DNS records are unique to each control plane.
 Although the EU control plane supports some of the same regions that the
