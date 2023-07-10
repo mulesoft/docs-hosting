@@ -49,7 +49,7 @@ Anypoint VPN supports dynamic or static routing for VPN connections.
 * *Dynamic routing* Your device uses Border Gateway Protocol (BGP) to advertise routes to Anypoint VPN. Use BGP routing if your device supports this protocol.
 * *Static routing* - Requires you to specify the routes (subnets) in your network that are accessible through Anypoint VPN. +
 [NOTE]
-A maximum of 95 route table entries is permitted per private space, regardless of the number of VPN connections. Consolidate networks to the fewest number possible to avoid exceeding the limit.
+A maximum of 95 route table entries are permitted per private space, regardless of the number of VPN connections. Consolidate networks to the fewest number possible to avoid exceeding the limit.
 
 === Limitations
 
