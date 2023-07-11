@@ -157,11 +157,11 @@ For example, if you deploy an application named `myapp` to Canada (Central), the
 CloudHub 2.0 backend services determine the values of:
 
 `uniq-id`::
-A 6-digit value appended to the app name to ensure uniqueness.
+A 6-digit value appended to the app name to ensure uniqueness, such as `a9cdqr`.
 `shard`::
-A 6-digit value associated with the private space that the app is deployed to.
+A 6-digit value associated with the private space that the app is deployed to, such as `q9opcf`.
 +
-A 6-digit value followed by hyphen (`-`) and number, associated with the shared space that the app is deployed to.
+A 6-digit value followed by hyphen (`-`) and number, associated with the shared space that the app is deployed to, such as `bsb3v6-2`.
 +
 CloudHub 2.0 assigns each private space a value for `shard`.
 For apps deployed to shared spaces, each region might have multiple `shard` values. When an app is stopped or restarted, the `shard` value does not change. However, when an app is deleted and redeployed in a shared space, the `shard` value might change.
