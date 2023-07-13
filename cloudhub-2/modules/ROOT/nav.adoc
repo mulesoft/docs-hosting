@@ -9,7 +9,6 @@
 *** xref:ps-vpn-about.adoc[Anypoint VPN]
 *** xref:ps-tgw-about.adoc[Transit Gateway Attachments]
 * xref:ch2-architecture.adoc[CloudHub 2.0 Architecture]
-** xref:ch2-vpn.adoc[Anypoint VPN]
 ** xref:ch2-clustering.adoc[Clustering]
 ** xref:ch2-patch-updates.adoc[CloudHub 2.0 Operating System Patch Updates]
 * xref:ps-setup.adoc[Extending Your Network to Anypoint Platform]
