@@ -100,6 +100,37 @@ Anypoint VPN does not support these features and configurations:
 * IKEv2 with policy-based VPNs
 * Advertising a default route (0.0.0.0/0) over BGP or static routing
 
+[[vpn_requirements]]
+== Requirements for Static VPN Connections
+
+To create a static VPN connection, your VPN endpoint must be able to:
+
+* Establish IKE Security Associations using a Pre-Shared Key (PSK)
+* Establish IPsec Security Associations in Tunnel mode
+* Use any combination of IPsec settings that MuleSoft supports
+* Fragment IP packets before encryption
++
+You must fragment packets that are too large to transmit. Your VPN device must be able to fragment packets before encapsulation.
+* Use one Security Association (SA) pair per tunnel
++
+Anypoint VPN supports one unique SA pair per tunnel (a pair refers to one inbound and one outbound connection). Some policy-based devices create an SA for each ACL (access-control list) entry. In this situation, you must consolidate your rules and then filter unwanted traffic.
+* Use IPsec Dead Peer Detection (DPD)
++
+DPD allows devices to rapidly identify when network conditions change. You can enable DPD on the MuleSoft endpoint using `DPD Interval: 10` and `DPD Retries: 3`.
+* Allow asymmetric routing
++
+Asymmetric routing occurs when routing policies send traffic from your network to the private space through one tunnel and traffic returns from the private space through the other tunnel. The MuleSoft VPN endpoint selects the tunnel using an internal algorithm, making the return path dynamic. If your device uses an active/active tunnel configuration, you must allow asymmetric routing for each Anypoint VPN connection.
+* For IPsec, enable perfect forward secrecy (PFS) with the above Phase 2 Diffie-Hellman groups
+
+== Requirements for Dynamic VPN Connections
+
+To create a dynamic VPN connection, in addition to the static VPN connection requirements, the VPN endpoint must support:
+
+* Establishing BGP peering
+* Using route-based VPNs (bind tunnels to logical interfaces)
+* For IPsec, enabling perfect forward secrecy (PFS) with the above Phase 2 Diffie-Hellman groups
+
+
 [[vpn-recommendations]]
 == Anypoint VPN Recommendations
 
