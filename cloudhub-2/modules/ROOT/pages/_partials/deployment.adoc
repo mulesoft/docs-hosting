@@ -104,7 +104,7 @@ To configure additional log levels and categories to include in logs:
 Click the *Runtime* tab and specify the following options:
 
 Runtime version::
-Specifies the Mule runtime engine version.
+Specifies the Mule runtime engine version. Versions 4.3.x, 4.4.x, and 4.5.x are supported.
 Replica size::
 Specifies the number of vCores in the replica to run your application.
 +
