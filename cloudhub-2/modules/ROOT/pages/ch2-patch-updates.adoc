@@ -28,6 +28,9 @@ In the first full week of each month, MuleSoft releases a _date-patch update_,
 which includes backward-compatible bug fixes to address any issues discovered in Mule runtime engine.
 The monthly date-patch update might include security patches if the scheduled date is within the security SLA.
 
+The monthly patches update applications only to the latest date patch for the patch version.
+They do not change the patch version number.
+
 The format of the version number for these updates to 4.3.x or 4.4.x versions is:
 
 _Major_._Minor_._Patch_ : _Date_
@@ -36,16 +39,8 @@ Here's an example version number, including the patch date:
 
 `4.4.0:20211015`
 
-The format of the version number for updates to 4.5.x versions is:
+include::anypoint-cli::partial$mule-4.5-release-channels.adoc[]
 
-_Major_._Minor_._Patch_ : _Build_ _Channel_
-
-Here's an example for the version number, including the channel:
-
-`4.5.0:1e`
-
-The monthly patches update applications only to the latest date patch for the patch version.
-They do not change the patch version number.
 
 === Update Schedule
 
