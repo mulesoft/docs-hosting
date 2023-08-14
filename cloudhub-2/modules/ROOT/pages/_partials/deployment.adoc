@@ -105,6 +105,18 @@ Click the *Runtime* tab and specify the following options:
 
 Runtime version::
 Specifies the Mule runtime engine version. Versions 4.3.x, 4.4.x, and 4.5.x are supported.
+Use Edge Release Channel::
+Starting with Mule 4.5, MuleSoft introduces two new release channels, xref:release-notes::mule-lts-edge-release-cadence.adoc[Edge and Long-term Support (LTS)].
++
+For new applications, the *Use Edge Release Channel* box is enabled by default. Uncheck this box if you want to use an LTS or a legacy runtime version.
++
+For existing applications using a legacy version, the *Use Edge Release Channel* box is disabled by default. The *Runtime version* dropdown list indicates if there is an update available, as well as the previous and latest version of the application. Check the  *Use Edge Release Channel* box if you want to change to an Edge version.
++
+For existing applications using an Edge version, the *Use Edge Release Channel* box is enabled by default. The *Runtime version* dropdown list indicates if there is an update available, as well as the previous and latest version of the application. Uncheck the  *Use Edge Release Channel* box if you want to change to a legacy version.
++
+For existing applications running on a legacy version that was originally deployed using an Edge version, you must Check the  *Use Edge Release Channel* box to see the previous version on the *Runtime version* dropdown list.
++
+For existing applications using an Edge version on extended support, a warning message appears indicating the version's EOL.
 Replica size::
 Specifies the number of vCores in the replica to run your application.
 +
