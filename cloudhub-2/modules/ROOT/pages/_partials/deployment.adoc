@@ -106,7 +106,7 @@ Click the *Runtime* tab and specify the following options:
 Runtime version::
 Specifies the Mule runtime engine version. Versions 4.3.x, 4.4.x, and 4.5.x are supported.
 Use Edge Release Channel::
-Starting with Mule 4.5, MuleSoft introduces two new release channels, xref:release_notes::mule-runtime/lts-edge-release-cadence.adoc[Edge and Long-term Support (LTS)].
+Starting with Mule 4.5, MuleSoft introduces two new release channels, xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[Edge and Long-term Support (LTS)].
 +
 For new applications, the *Use Edge Release Channel* box is enabled by default. Uncheck this box if you want to use an LTS or a legacy runtime version.
 +
