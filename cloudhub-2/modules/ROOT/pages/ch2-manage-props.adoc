@@ -35,7 +35,7 @@ image::ch2-props-rtm.png[Properties with New Key and New Value fields on the app
 +
 Alternatively, you can click *Text view* and enter the key-value pair in the text field in this format: `New Key=New Value`.
 . In the *New Key* field, enter the property name. 
-. In the *New Value* field, enter the property value.
+. In the *New Value* field, enter the property value. If the property value contains spaces, enclose it in quotation marks, such as `"ApiKey 898jdey1-13232"`.
 +
 [NOTE]
 If the save password feature of Chrome is enabled and includes a username for `anypoint.mulesoft.com` that matches the contents of the key field, Chrome overwrites the value field with the stored password associated with that username. 
