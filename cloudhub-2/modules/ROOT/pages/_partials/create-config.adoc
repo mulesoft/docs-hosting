@@ -39,6 +39,10 @@ You cannot use the following reserved CIDR blocks:
 169.254.0.0/16
 127.0.0.0/8
 0.0.0.0/8
+100.64.0.0/16
+100.66.0.0/16
+100.67.0.0/16
+100.68.0.0/16
 ----
 
 // end::cidrBlock[]

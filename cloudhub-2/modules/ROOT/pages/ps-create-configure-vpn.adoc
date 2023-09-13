@@ -49,6 +49,10 @@ include::partial$caveats.adoc[tag=localAsnNote]
 .. In the *Static Routes* field, specify the (comma-separated) xref:ps-gather-setup-info.adoc#static-ip-prefixes[static IP prefixes] in CIDR notation.
 +
 Click *Show Existing Routes for this Network* to view the existing routes for the private network.
++
+[NOTE]
+You cannot use/have an overlap with the following xref:ps-gather-setup-info.adoc#cidr-block[reserved CIDR blocks] for static routes
+
 // +
 // <screenshot>
 . If you want to customize the tunnel configuration, expand *Advanced Options*:
