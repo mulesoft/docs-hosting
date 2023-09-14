@@ -19,7 +19,7 @@ As a container-based platform, CloudHub 2.0 applies infrastructure fixes and sec
 
 When an update is available, CloudHub 2.0 includes it in Production environments as the default for new private spaces. The existing infrastructure patching schedule occurs in the same maintenance window as xref:release-notes::cloudhub-2/cloudhub-2-runtimes-release-notes.adoc[CloudHub 2.0 Runtime patches]. Infrastructure and runtime updates might cause your applications to restart.
 
-xref:cloudhub-1::vpn-maintenance.adoc[Anypoint VPNs] used in CloudHub 2.0 are upgraded continuously. Whenever a new update is available, the VPN is patched within the service-level agreement. If the Anypoint VPN is not setup as high availability or if the non-high-availability VPN is not set up with two tunnels, downtime is expected.
+xref:cloudhub::vpn-maintenance.adoc[Anypoint VPNs] used in CloudHub 2.0 are upgraded continuously. Whenever a new update is available, the VPN is patched within the service-level agreement. If the Anypoint VPN is not setup as high availability or if the non-high-availability VPN is not set up with two tunnels, downtime is expected.
 
 [[runtime-updates]]
 == Monthly Date-Patch Updates

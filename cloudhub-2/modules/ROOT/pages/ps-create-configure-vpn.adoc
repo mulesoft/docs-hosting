@@ -3,7 +3,7 @@
 To connect your private network to an external network using a 
 VPN, create the VPN connection on the *Network* tab.
 
-If you have an existing Anypoint VPN, change the remote IP to repurpose the VPN for use with CloudHub 2.0. For more information, see the xref:cloudhub-1::vpn-about.adoc[Anypoint VPN documentation].
+If you have an existing Anypoint VPN, change the remote IP to repurpose the VPN for use with CloudHub 2.0. For more information, see the xref:cloudhub::vpn-about.adoc[Anypoint VPN documentation].
 
 [NOTE]
 After you create a VPN, you can't change any of the VPN settings,
