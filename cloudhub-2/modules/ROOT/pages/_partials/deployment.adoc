@@ -123,7 +123,7 @@ Specifies the number of vCores in the replica to run your application.
 For information on replica sizes, memory, and storage, see
 xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas].
 CloudHub 2.0 limits the replica size per deployment to four vCores.
-Replicas::
+Replica Count::
 Specifies the number of replicas, or instances, of the application to deploy.
 +
 A minimum of two replicas is required for high availability.
@@ -132,7 +132,8 @@ Enables xref:ch2-clustering.adoc[Mule clustering] across each replica of the app
 +
 This option requires at least two replicas.
 // Is this on Production?
-// Use Object Store V2::
+Use Object Store V2::
+You can select xref:object-store::index.adoc[Object Store v2] as the implementation for Mule 3 and Mule 4 by checking the *Use Object Store V2* checkbox.
 
 Deployment model::
 +
