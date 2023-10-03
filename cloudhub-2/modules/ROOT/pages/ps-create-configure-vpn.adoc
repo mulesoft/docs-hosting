@@ -3,7 +3,7 @@
 To connect your private network to an external network using a 
 VPN, create the VPN connection on the *Network* tab.
 
-If you have an existing Anypoint VPN, change the remote IP to repurpose the VPN for use with CloudHub 2.0. For more information, see the xref:cloudhub-1::vpn-about.adoc[Anypoint VPN documentation].
+If you have an existing Anypoint VPN, change the remote IP to repurpose the VPN for use with CloudHub 2.0. For more information, see the xref:cloudhub::vpn-about.adoc[Anypoint VPN documentation].
 
 [NOTE]
 After you create a VPN, you can't change any of the VPN settings,
@@ -49,6 +49,10 @@ include::partial$caveats.adoc[tag=localAsnNote]
 .. In the *Static Routes* field, specify the (comma-separated) xref:ps-gather-setup-info.adoc#static-ip-prefixes[static IP prefixes] in CIDR notation.
 +
 Click *Show Existing Routes for this Network* to view the existing routes for the private network.
++
+[NOTE]
+You cannot use/have an overlap with the following xref:ps-gather-setup-info.adoc#cidr-block[reserved CIDR blocks] for static routes
+
 // +
 // <screenshot>
 . If you want to customize the tunnel configuration, expand *Advanced Options*:
