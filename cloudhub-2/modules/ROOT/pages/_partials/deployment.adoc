@@ -104,14 +104,26 @@ To configure additional log levels and categories to include in logs:
 Click the *Runtime* tab and specify the following options:
 
 Runtime version::
-Specifies the Mule runtime engine version.
+Specifies the Mule runtime engine version. Versions 4.3.x, 4.4.x, and 4.5.x are supported.
+Use Edge Release Channel::
+Starting with Mule 4.5, MuleSoft introduces two new release channels, xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[Edge and Long-term Support (LTS)].
++
+For new applications, the *Use Edge Release Channel* box is enabled by default. Uncheck this box if you want to use an LTS or a legacy runtime version.
++
+For existing applications using a legacy version, the *Use Edge Release Channel* box is disabled by default. The *Runtime version* dropdown list indicates if there is an update available, as well as the previous and latest version of the application. Check the  *Use Edge Release Channel* box if you want to change to an Edge version.
++
+For existing applications using an Edge version, the *Use Edge Release Channel* box is enabled by default. The *Runtime version* dropdown list indicates if there is an update available, as well as the previous and latest version of the application. Uncheck the  *Use Edge Release Channel* box if you want to change to a legacy version.
++
+For existing applications running on a legacy version that was originally deployed using an Edge version, you must Check the  *Use Edge Release Channel* box to see the previous version on the *Runtime version* dropdown list.
++
+For existing applications using an Edge version on extended support, a warning message appears indicating the version's EOL.
 Replica size::
 Specifies the number of vCores in the replica to run your application.
 +
 For information on replica sizes, memory, and storage, see
 xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas].
 CloudHub 2.0 limits the replica size per deployment to four vCores.
-Replicas::
+Replica Count::
 Specifies the number of replicas, or instances, of the application to deploy.
 +
 A minimum of two replicas is required for high availability.
@@ -120,7 +132,8 @@ Enables xref:ch2-clustering.adoc[Mule clustering] across each replica of the app
 +
 This option requires at least two replicas.
 // Is this on Production?
-// Use Object Store V2::
+Use Object Store V2::
+You can select xref:object-store::index.adoc[Object Store v2] as the implementation for Mule 3 and Mule 4 by checking the *Use Object Store V2* checkbox.
 
 Deployment model::
 +
