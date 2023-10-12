@@ -1,0 +1,23 @@
+= Run Vulnerability Assessment and Penetration Tests
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+include::cloudhub::partial$ch-penetration-testing.adoc[tag=intro]
+
+include::cloudhub::partial$ch-penetration-testing.adoc[tag=runTest]
+
+include::cloudhub::partial$ch-penetration-testing.adoc[tag=prereqIntro]
+
+include::cloudhub::partial$ch-penetration-testing.adoc[tag=prereqEnd]
+
+include::cloudhub::partial$ch-penetration-testing.adoc[tag=steps]
+
+include::cloudhub::partial$ch-penetration-testing.adoc[tag=reporting]
+
+== See Also
+
+* xref:index.adoc[]
+* xref:ch2-deploy.adoc[]
+* xref:ch2-manage-apps.adoc[]
+* xref:runtime-manager::deployment-strategies.adoc[]
