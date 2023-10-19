@@ -58,6 +58,7 @@ CloudHub 2.0 application behavior deviates from CloudHub 1.0 in the following wa
 * HTTP, HTTPS, and TCP inbound protocols are supported. Inbound protocols that are not TCP or HTTP-based are not supported.
 * Private endpoints do not offer mTLS capabilities as internet-facing public endpoints.
 * In xref:monitoring::alerts.adoc[Anypoint Monitoring], you must set alerts for apps individually. Setting alerts for all apps simultaneously is not supported.
+* CloudHub 1.0 and 2.0 application workers of the same vCore sizes may differ in performance metrics and should not be compared.
 
 CloudHub 2.0 does not support the following application features or functions that CloudHub 1.0 supports:
 
