@@ -1,0 +1,140 @@
+= Configuring Application Level Egress Rules
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Application level egress rules are independent of private space level firewall rules. For an egress traffic to go through, it needs to pass both private space and application level control.
+
+
+== Before You Begin
+
+* Set up your private space and complete the provisioning of your private network.
+* Verify that your account has CloudHub Network Viewer permission, which is required to view a private space's firewall and application level rules.
+* Verify that your account has CloudHub Network Administrator permission, which is required to modify a private space's firewall and application level rules.
+
+== Configure Application Level Rules in Your Private Space
+
+To configure the application level groups in a private space:
+
+. From Anypoint Platform, select *Runtime Manager* > *Private Spaces*.
+. Click the name of the private space to manage.
+. On the *Firewall rules* tab, expand the *App-Level Rules* section.
+
+By default, the application level egress rules feature is disabled when you create a new private space. Toggle the feature to enable it.
+
+[NOTE]
+Ensure that you have completed the provisioning of your private network before enabling the toggle.
+
+Toggling the *App-Level Egress Rules* feature enables the *Default-Egress-Rule-Group*. The default egress rule is *Allow any protocol to any destination*. 
+
+image::ps-toggle-app-level-egress.png[Toggle app-level egress rules feature]
+
+To modify the default egress rule group:
+
+. Click *Edit*.
++
+The rule group configuration window opens.
+. In the *Egress Rules* section, use the dropdown list and select the desired protocol and destination.
+. Click *Add Rule* to add new rules to the rule group.
++ 
+You can delete rules by clicking the trash can icon.
+. Click *Update Egress Rules* to save your changes.
++
+Your changes will affect all the applications in the current private space.
++
+[NOTE]
+You can neither rename nor delete the default rule group.
+
+image::ps-egress-edit-default.png[Edit the default app level egress rule group]
+
+To create a new custom egress rule group:
+
+. Click *Create Rule Group*.
++
+The rule group configuration window opens.
+. Add a group name.
+. In the *Egress Rules* section, click *Add Rule* and use the dropdown list to select the desired protocol and destination.
+. Click *Add Rule* to add new rules to the new rule group.
++ 
+You can delete rules by clicking the trash can icon.
+. Click *Create Egress Rules* to save your changes.
++
+When created, new rule groups are not used by any apps. To use your custom rule groups, you must select them in the applications settings.
+
+To delete an existing custom rule group: 
+
+. Select *Delete* from the *More actions* menu  image:more-icon.png[The more actions icon, 2%,2%]. 
+. When prompted, click *Delete Rule Group* to confirma the deletion.
++
+[NOTE]
+Once you delete a rule group, any applications using it immediately starts using the default egress rule group instead.
+
+image::ps-egress-delete-ruleset.png[Delete custom egress rule group]
+
+You can disable the application level egress rule feature by clicking the feature's toggle feature. When prompted, click *Delete and Disable App-Level Rules* to confirm. 
+
+[NOTE]
+Once you disable the feature, all the custom app-level egress rule groups are deleted, and all app-level egress is allowed for all applications.
+
+== Apply Application Level Egress Rules When Deploying Your Applications
+
+You can apply the app-level egress rules that you configured in your private space when you deploy an application:
+
+. When deploying an application to your private space, go to the *Firewall Rules* tab.
++
+The *Egress Rule Group* section shows all the rule groups configured for the selected private space.
+. Use the dropdown to select the egress ruleset you want to apply to your application. 
++
+The selected rule group's details appear below the *Egress Rule Group* list.
+. Click *Apply Changes* to apply the selected egress rules to your application.
+
+
+== Configure Application Egress Connection to Anypoint MQ or ObjectStore v2
+
+To set up connections to Anypoint MQ or OSv2, and access external endpoints, such as `anypoint.mulesoft.com` , you can follow the steps provided in this section.
+
+[NOTE]
+You must also allow outbound access to all 443 at the private space level separately.
+
+To allow HTTPS connections to OSv2, an app-level egress rule group with the following rule:
+
+* Protocol: HTTPS
+* Destination: Custom Domains 
+** With value
+*** For prod: anypoint.mulesoft.com
+*** For prod-eu: eu1.anypoint.mulesoft.com
+* Port Range: 443
+
+To allow HTTPS connections to Anypoint MQ, add an app-level egress rule group with the following two rules:
+
+. Allow egress to Anypoint control plane:
+** Protocol: HTTPS
+** Destination: Custom Domains 
+*** With value
+**** For prod: anypoint.mulesoft.com
+**** For prod-eu: eu1.anypoint.mulesoft.com
+** Port Range: 443
+. Allow egress to MQ destination:
+** Protocol: HTTPS
+** Destination: Custom Domains 
+*** With value of the domain name configured in MQ connector URL
++
+For example, if the MQ connector URL is `https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/{{anypointOrgId}}/environments/{{anypointEnvId}}/`,
+use value `mq-us-east-1.anypoint.mulesoft.com`.
+** Port Range 443
+
+
+== Performance Impact
+
+Given the extra layer of validation, using the application level egress rules can introduce slight network latency delays to your applications' connections. To balance security and performance:
+
+* Limit active rule groups to 60 in your private space.
+* Use a maximum of 40 rules per rule group.
+
+These measures help optimize latency while maintaining effective network security.
+
+== See Also
+
+* xref:ch2-private-space-about.adoc[]
+* xref:ch2-deploy-private-space.adoc[]
+* xref:ps-config-fw-rules.adoc[]
