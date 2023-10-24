@@ -1,12 +1,10 @@
 = Associating Environments and Business Groups with a Private Space
 
 Before deploying to a private space, you can specify environments and at least one business group to associate with it.
-This association specifies in which environments the private space appears as 
-a target deployment in the *Deployment Target* list when deploying an app. 
+This association specifies in which environments the private space appears as a target deployment in the *Deployment Target* list when deploying an app. 
 For information, see xref:ch2-deploy-private-space.adoc[].
 
-You can associate a private space with the production and sandbox environments
-in the business group, and its child business groups, that it's registered with or with a subset of business groups.
+You can associate a private space with the production and sandbox environments in the business group, and its child business groups, that it's registered with or with a subset of business groups.
 
 By default, a private space is associated with all sandbox environments in its business groups.
 
@@ -18,29 +16,43 @@ If you have the CloudHub Network Administrator permission, associate environment
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the *Environments* tab.
-. Select the environments from the drop-down list:
-+
---
-** *Any environment*
-+
-Associates the private space with all sandbox and production environments in the business group and its children.
-** *Sandbox environments*
-+
-Associates the private space with only sandbox environments in the business group and its children.
-** *Production environments*
-+
-Associates the private space with only production environments in the business group and its children.
---
-. Select the business groups from the drop-down list:
+. Select the business groups from the drop-down list:  
 +
 --
 ** *This business group and its children*
++ 
+This option allows you to select either all environments, all sandbox environment or all production environments for the selected business group and all its children.
 ** *Selected business groups*
 +
-Enter the business group name in the *Add business group* field and select it from the list.
+Enter the business group name in the *Add business group* field and select it from the list. This option allows you to select specific environments for specific child business groups.
 +
 The list includes the business group and its child business groups to which the private space is registered and that have not yet been added.
 --
++
+image::ps-select-business-group.png[Select the business group from the drop-down list.]
+
+. Select the environments from the drop-down list:
++
+--
+** *All Environment*
++
+Associates the private space with all sandbox and production environments in the business group and all its children, or in specific child business organizations.
+** *All Sandbox Environments*
++
+Associates the private space with only sandbox environments in the business group and all its children, or in specific child business organizations.
+** *All Production Environments*
++
+Associates the private space with only production environments in the business group and all its children, or in specific child business organizations.
+** *Select Environments Manually*
++
+Allows you to associate the private space with specific environments in specific child business groups.
++
+*** Check the *Sandbox* or *Production* box to bulk select all sandbox or production environments in specific child business organizations.
+*** Check the box for each specific subenvironment to individually select the desired environments in specific child business organizations.
+--
++
+image::ps-select-environment.png[Select the environments from the drop-down list.]
+. Click *Save Changes* to confirm the association.
 . To remove a business group, click the *X* for the entry.
 +
 image::bg-delete.png[Delete icon on the Environments tab]
