@@ -32,6 +32,9 @@ This option allows you to select either all environments, all sandbox environmen
 Enter the business group name in the *Add business group* field and select it from the list. This option allows you to select specific environments for specific child business groups.
 +
 The list includes the business group and its child business groups to which the private space is registered and that have not yet been added.
+
+[start=2]
+. Click *Save Changes* or *Discard Changes* to discard or confirm the association.
 --
 +
 image::ps-select-business-group.png[Select the business group from the drop-down list.]
