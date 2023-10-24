@@ -68,7 +68,11 @@ image::ps-select-environment.png[Select the environments from the drop-down list
 
 === Add or Remove Business Groups
 
-You can add new busines groups using the *Add business group* field.
+You can add or remove business groups for your private space:
+
+To add new business groups, use the *Add business group* field.
+
+To remove a business group, click the trash can icon for the entry.
 
 To remove a business group, click the trash can icon for the entry.
 
