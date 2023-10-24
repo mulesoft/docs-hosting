@@ -15,7 +15,9 @@ If you have the CloudHub Network Administrator permission, associate environment
 //SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-. Click the *Environments* tab.
+. Click the *Environments* tab to:
+** <<associate-business-groups>>
+** <<associate-environments>>
 
 === Associate Business Groups
 
