@@ -56,6 +56,9 @@ Allows you to associate the private space with specific environments in specific
 +
 *** Check the *Sandbox* or *Production* box to bulk select all sandbox or production environments in specific child business organizations.
 *** Check the box for each specific subenvironment to individually select the desired environments in specific child business organizations.
+
+[start=2]
+. Click *Save Changes* or *Discard Changes* to discard or confirm the association.
 --
 +
 image::ps-select-environment.png[Select the environments from the drop-down list.]
