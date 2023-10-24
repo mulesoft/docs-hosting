@@ -1,4 +1,4 @@
-= Associating Environments and Business Groups with a Private Space
+= Associating Business Groups and Environments with a Private Space
 
 Before deploying to a private space, you can specify environments and at least one business group to associate with it.
 This association specifies in which environments the private space appears as a target deployment in the *Deployment Target* list when deploying an app. 
@@ -8,7 +8,7 @@ You can associate a private space with the production and sandbox environments i
 
 By default, a private space is associated with all sandbox environments in its business groups.
 
-== Associate Environments and Business Groups
+== Associate Business Groups and Environments
 
 If you have the CloudHub Network Administrator permission, associate environments in the business group or groups with the private space:
 
@@ -16,6 +16,9 @@ If you have the CloudHub Network Administrator permission, associate environment
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click the *Environments* tab.
+
+=== Associate Business Groups
+
 . Select the business groups from the drop-down list:  
 +
 --
@@ -30,6 +33,8 @@ The list includes the business group and its child business groups to which the 
 --
 +
 image::ps-select-business-group.png[Select the business group from the drop-down list.]
+
+=== Associate Environments
 
 . Select the environments from the drop-down list:
 +
@@ -52,12 +57,16 @@ Allows you to associate the private space with specific environments in specific
 --
 +
 image::ps-select-environment.png[Select the environments from the drop-down list.]
-. Click *Save Changes* to confirm the association.
-. To remove a business group, click the *X* for the entry.
-+
+
+=== Finish Your Association
+
+You can add new busines groups using the *Add business group* field.
+
+To remove a business group, click the trash can icon for the entry.
+
 image::bg-delete.png[Delete icon on the Environments tab]
 
-. Click *Save Changes* or *Discard Changes*.
+Click *Save Changes* or *Discard Changes* to discard or confirm the association.
 
 == Manage Resources for a Business Group
 
