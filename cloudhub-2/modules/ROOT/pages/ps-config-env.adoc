@@ -74,7 +74,6 @@ To remove a business group, click the trash can icon for the entry.
 
 image::bg-delete.png[Delete icon on the Environments tab]
 
-Click *Save Changes* or *Discard Changes* to discard or confirm the association.
 
 == Manage Resources for a Business Group
 
