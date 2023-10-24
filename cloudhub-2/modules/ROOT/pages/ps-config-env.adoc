@@ -66,7 +66,7 @@ Allows you to associate the private space with specific environments in specific
 +
 image::ps-select-environment.png[Select the environments from the drop-down list.]
 
-=== Finish Your Association
+=== Add or Remove Business Groups
 
 You can add new busines groups using the *Add business group* field.
 
