@@ -74,7 +74,6 @@ To add new business groups, use the *Add business group* field.
 
 To remove a business group, click the trash can icon for the entry.
 
-To remove a business group, click the trash can icon for the entry.
 
 image::bg-delete.png[Delete icon on the Environments tab]
 
