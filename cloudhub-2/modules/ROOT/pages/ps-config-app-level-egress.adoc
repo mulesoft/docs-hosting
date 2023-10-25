@@ -53,7 +53,8 @@ To create a new custom egress rule group:
 +
 The rule group configuration window opens.
 . Add a group name.
-+ You can edit and rename custom rule groups. 
++ 
+You can edit and rename custom rule groups. 
 . In the *Egress Rules* section, click *Add Rule* and use the dropdown list to select the desired protocol and destination.
 . Click *Add Rule* to add new rules to the new rule group.
 + 
@@ -125,7 +126,7 @@ use value `mq-us-east-1.anypoint.mulesoft.com`.
 ** Port Range 443
 
 [NOTE]
-If you enable egress for a domain that includes redirection, such as when`https://salesforce.com` redirects to `https://www.salesforce.com`, ensure to allow egress for both the original target, `salesforce.com`, and the redirected target, `www.salesforce.com`.
+If you enable egress for a domain that includes redirection, such as when `https://salesforce.com` redirects to `https://www.salesforce.com`, ensure to allow egress for both the original target, `salesforce.com`, and the redirected target, `www.salesforce.com`.
 
 
 == Performance Impact
