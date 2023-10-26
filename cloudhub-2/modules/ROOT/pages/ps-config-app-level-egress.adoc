@@ -135,7 +135,7 @@ use value `mq-us-east-1.anypoint.mulesoft.com`.
 [NOTE]
 If you enable egress for a domain that includes redirection, such as when `https://salesforce.com` redirects to `https://www.salesforce.com`, ensure to allow egress for both the original target, `salesforce.com`, and the redirected target, `www.salesforce.com`.
 
-You can add application level egress support for API Manage. To configure application egress connection to API Manager, use value `anypoint.mulesoft.com` for the destination on port range 443.
+You can add application level egress support for API Manager. To configure application egress connection to API Manager, use value `anypoint.mulesoft.com` for the destination on port range 443.
 
 
 == Performance Impact
