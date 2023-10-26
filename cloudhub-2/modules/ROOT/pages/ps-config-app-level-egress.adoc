@@ -98,13 +98,13 @@ To set up connections to Anypoint MQ or OSv2, and access external endpoints, suc
 [NOTE]
 You must also allow outbound access to all 443 at the private space level separately.
 
-To allow HTTPS connections to OSv2, an app-level egress rule group with the following rule:
+To allow HTTPS connections to OSv2, add an app-level egress rule group with the following rule:
 
 * Protocol: HTTPS
 * Destination: Custom Domains 
 ** With value
-*** For prod: anypoint.mulesoft.com
-*** For prod-eu: eu1.anypoint.mulesoft.com
+*** For prod: `anypoint.mulesoft.com`
+*** For prod-eu: `eu1.anypoint.mulesoft.com`
 * Port Range: 443
 
 To allow HTTPS connections to Anypoint MQ, add an app-level egress rule group with the following two rules:
@@ -113,8 +113,8 @@ To allow HTTPS connections to Anypoint MQ, add an app-level egress rule group wi
 ** Protocol: HTTPS
 ** Destination: Custom Domains 
 *** With value
-**** For prod: anypoint.mulesoft.com
-**** For prod-eu: eu1.anypoint.mulesoft.com
+**** For prod: `anypoint.mulesoft.com`
+**** For prod-eu: `eu1.anypoint.mulesoft.com`
 ** Port Range: 443
 . Allow egress to MQ destination:
 ** Protocol: HTTPS
@@ -124,6 +124,16 @@ To allow HTTPS connections to Anypoint MQ, add an app-level egress rule group wi
 For example, if the MQ connector URL is `https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/{{anypointOrgId}}/environments/{{anypointEnvId}}/`,
 use value `mq-us-east-1.anypoint.mulesoft.com`.
 ** Port Range 443
+. Allow egress to Object Store v2 destination
+** Protocol: [HTTPS]
+** Destination: [Custom Domains] 
+*** With value
+**** For prod: `object-store-us-east-1.anypoint.mulesoft.com`
+**** For prod-eu: [xxx]
+** Port Range: 443
+
+
+
 
 [NOTE]
 If you enable egress for a domain that includes redirection, such as when `https://salesforce.com` redirects to `https://www.salesforce.com`, ensure to allow egress for both the original target, `salesforce.com`, and the redirected target, `www.salesforce.com`.
@@ -131,10 +141,13 @@ If you enable egress for a domain that includes redirection, such as when `https
 
 == Performance Impact
 
-Given the extra layer of validation, using the application level egress rules can introduce slight network latency delays to your applications' connections. To balance security and performance:
+Given the extra layer of validation, using the application level egress rules can introduce three to ten-minute network latency delays to your applications' connections. To balance security and performance:
 
-* Limit active rule groups to 60 in your private space.
+* Limit active rule groups to 20 in your private space.
 * Use a maximum of 40 rules per rule group.
+* Limit the total combination of rule group and rules to 800. 
++
+You can customize the number of rule groups and rules in the combination based on your needs.
 
 These measures help optimize latency while maintaining effective network security.
 
