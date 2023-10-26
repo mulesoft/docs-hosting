@@ -100,43 +100,42 @@ You must also allow outbound access to all 443 at the private space level separa
 
 To allow HTTPS connections to OSv2, add an app-level egress rule group with the following rule:
 
-* Protocol: HTTPS
-* Destination: Custom Domains 
+* Protocol: `HTTPS`
+* Destination: `[Custom Domains]`
 ** With value
 *** For prod: `anypoint.mulesoft.com`
 *** For prod-eu: `eu1.anypoint.mulesoft.com`
-* Port Range: 443
+* Port Range: `443`
 
 To allow HTTPS connections to Anypoint MQ, add an app-level egress rule group with the following two rules:
 
 . Allow egress to Anypoint control plane:
-** Protocol: HTTPS
-** Destination: Custom Domains 
+** Protocol: `HTTPS`
+** Destination: `[Custom Domains]`
 *** With value
 **** For prod: `anypoint.mulesoft.com`
 **** For prod-eu: `eu1.anypoint.mulesoft.com`
-** Port Range: 443
+** Port Range: `443`
 . Allow egress to MQ destination:
 ** Protocol: HTTPS
-** Destination: Custom Domains 
+** Destination: `[Custom Domains]`
 *** With value of the domain name configured in MQ connector URL
 +
 For example, if the MQ connector URL is `https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/{{anypointOrgId}}/environments/{{anypointEnvId}}/`,
 use value `mq-us-east-1.anypoint.mulesoft.com`.
 ** Port Range 443
 . Allow egress to Object Store v2 destination
-** Protocol: [HTTPS]
-** Destination: [Custom Domains] 
+** Protocol: `HTTPS`
+** Destination: `[Custom Domains}`
 *** With value
 **** For prod: `object-store-us-east-1.anypoint.mulesoft.com`
-**** For prod-eu: [xxx]
-** Port Range: 443
-
-
-
+**** For prod-eu: `[xxx]`
+** Port Range: `443`
 
 [NOTE]
 If you enable egress for a domain that includes redirection, such as when `https://salesforce.com` redirects to `https://www.salesforce.com`, ensure to allow egress for both the original target, `salesforce.com`, and the redirected target, `www.salesforce.com`.
+
+You can add application level egress support for API Manage. To configure application egress connection to API Manager, use value `anypoint.mulesoft.com` for the destination on port range 443.
 
 
 == Performance Impact
