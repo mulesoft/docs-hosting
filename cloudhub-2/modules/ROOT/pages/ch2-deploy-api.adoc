@@ -6,7 +6,7 @@ To configure firewall rules using TCP, follow the steps in xref:ps-config-fw-rul
 
 == Find Available Ports for Your App
 
-The port range for TCP is between 30500 to 32500. To confirm port availability, use the https://anypoint.mulesoft.com/exchange/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/minor/1.0/console/method/%232327/[CloudHub 2.0 API] that returns a list of available ports. 
+The port range for TCP is between 30500 to 32500. To confirm port availability, use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/[CloudHub 2.0 API^] that returns a list of available ports. 
 
 The following examples show the API request and response when you use it to find available ports:
 

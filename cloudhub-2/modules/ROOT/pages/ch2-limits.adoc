@@ -2,6 +2,8 @@
 
 CloudHub 2.0 imposes the following limits:
 
+Environments per business group:: 200
+
 Private spaces per organization:: 100
 
 Connections per private space:: 5. 10 if the connections are not redundant.
