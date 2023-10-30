@@ -98,14 +98,6 @@ To set up connections to Anypoint MQ or OSv2, and access external endpoints, suc
 [NOTE]
 You must also allow outbound access to all 443 at the private space level separately.
 
-To allow HTTPS connections to OSv2, add an app-level egress rule group with the following rule:
-
-* Protocol: `HTTPS`
-* Destination: `Custom Domains`
-** With value
-*** For prod: `anypoint.mulesoft.com`
-*** For prod-eu: `eu1.anypoint.mulesoft.com`
-
 To allow HTTPS connections to Anypoint MQ, add an app-level egress rule group with the following two rules:
 
 . Allow egress to Anypoint control plane:
@@ -121,8 +113,16 @@ To allow HTTPS connections to Anypoint MQ, add an app-level egress rule group wi
 +
 For example, if the MQ connector URL is `https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/{{anypointOrgId}}/environments/{{anypointEnvId}}/`,
 use value `mq-us-east-1.anypoint.mulesoft.com`.
+
+To allow HTTPS connections to Object Store v2, add an app-level egress rule group with the following two rules:
+
+. Allow egress to Anypoint control plane:
+** Protocol: `HTTPS`
+** Destination: `Custom Domains`
+*** With value
+**** For prod: `anypoint.mulesoft.com`
+**** For prod-eu: `eu1.anypoint.mulesoft.com`
 . Allow egress to Object Store v2 destination
-.. Allow egress to Anypoint control plane
 ** Protocol: `HTTPS`
 ** Destination: `Custom Domains`
 *** With value
@@ -137,10 +137,9 @@ If you enable egress for a domain that includes redirection, such as when `https
 == Configure Application Level Egress Connection to API Manager
 
 You can add application level egress support for API Manager.
-Add an app-level egress rule group with the following rule:
 
-. Allow egress to API Manager
-.. Allow egress to anypoint control plane
+Add an app-level egress rule group with the following rule to allow egress to Anypoint control plane:
+
 ** Protocol: `HTTPS`
 ** Destination: `Custom Domains`
 *** With value
@@ -169,3 +168,4 @@ DNS record timing issues can sometimes lead to unexpected connectivity errors. T
 * xref:ps-config-fw-rules.adoc[]
 * xref:mq::index.adoc[]
 * xref:object-store::index.adoc[]
+* xref:api-manager::latest-overview-concept.adoc[]
