@@ -61,19 +61,19 @@ You can edit and rename custom rule groups.
 You can delete rules by clicking the delete button image:trash-icon.png[Delete button, 2%,2%].
 . Click *Create Egress Rules* to save your changes.
 +
-When created, new rule groups are not used by any apps. To use your custom rule groups, you must select them in the applications settings.
+To use your custom rule groups, you must select them in the applications settings.
 
 To delete an existing custom rule group: 
 
 . Select *Delete* from the *More actions* menu image:more-icon.png[More actions menu, 2%,2%]. 
-. When prompted, click *Delete Rule Group* to confirma the deletion.
+. When prompted, click *Delete Rule Group* to confirm the deletion.
 +
 [NOTE]
-Once you delete a rule group, any applications using it immediately starts using the default egress rule group instead.
+Once you delete a custom rule group, any applications using it immediately starts using the default egress rule group instead.
 
 image::ps-egress-delete-ruleset.png[Delete custom egress rule group]
 
-You can disable the application level egress rule feature by clicking the feature's toggle feature. When prompted, click *Delete and Disable App-Level Rules* to confirm. 
+You can disable the application level egress rule feature by clicking the feature's toggle. When prompted, click *Delete and Disable App-Level Rules* to confirm. 
 
 [NOTE]
 Once you disable the feature, all the custom app-level egress rule groups are deleted, and all app-level egress is allowed for all applications.
@@ -85,7 +85,7 @@ You can apply the app-level egress rules that you configured in your private spa
 . When deploying an application to your private space, go to the *Firewall Rules* tab.
 +
 The *Egress Rule Group* section shows all the rule groups configured for the selected private space.
-. Use the dropdown to select the egress ruleset you want to apply to your application. 
+. Use the dropdown list to select the egress ruleset you want to apply to your application. 
 +
 The selected rule group's details appear below the *Egress Rule Group* list.
 . Click *Apply Changes* to apply the selected egress rules to your application.
