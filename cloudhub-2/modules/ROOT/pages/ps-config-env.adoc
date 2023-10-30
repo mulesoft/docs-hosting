@@ -29,7 +29,7 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 This option allows you to select either all environments, all sandbox environment or all production environments for the selected business group and all its children.
 ** *Selected business groups*
 +
-Enter the business group name in the *Add business group* field and select it from the list. This option allows you to select specific environments for specific child business groups.
+Enter the business group name in the *Add business group* field and select it from the list. This option allows you to select specific environments for specific business groups.
 +
 The list includes the business group and its child business groups to which the private space is registered and that have not yet been added.
 
@@ -46,19 +46,19 @@ image::ps-select-business-group.png[Select the business group from the drop-down
 --
 ** *All Environment*
 +
-Associates the private space with all sandbox and production environments in the business group and all its children, or in specific child business organizations.
+Associates the private space with all sandbox and production environments in the business group and all its children, or in specific business groups.
 ** *All Sandbox Environments*
 +
-Associates the private space with only sandbox environments in the business group and all its children, or in specific child business organizations.
+Associates the private space with only sandbox environments in the business group and all its children, or in specific business groups.
 ** *All Production Environments*
 +
-Associates the private space with only production environments in the business group and all its children, or in specific child business organizations.
+Associates the private space with only production environments in the business group and all its children, or in specific business groups.
 ** *Select Environments Manually*
 +
-Allows you to associate the private space with specific environments in specific child business groups.
+Allows you to associate the private space with specific environments in specific business groups.
 +
-*** Check the *Sandbox* or *Production* box to bulk select all sandbox or production environments in specific child business organizations.
-*** Check the box for each specific subenvironment to individually select the desired environments in specific child business organizations.
+*** Check the *Sandbox* or *Production* box to bulk select all sandbox or production environments in specific business groups.
+*** Check the box for each specific subenvironment to individually select the desired environments in specific business groups.
 
 [start=2]
 . Click *Save Changes* or *Discard Changes* to discard or confirm the association.
