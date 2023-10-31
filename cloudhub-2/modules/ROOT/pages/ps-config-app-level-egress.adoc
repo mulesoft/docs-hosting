@@ -130,7 +130,7 @@ This URL varies depending on the region. For example, to access Object Store in 
 
 If you enable egress for a domain that includes redirection, such as when `https://salesforce.com` redirects to `https://www.salesforce.com`, allow egress for both the original target, `salesforce.com`, and the redirected target, `www.salesforce.com`.
 
-== Configure Application-Level Egress Connection to API Manager
+== Configure an Application-Level Egress Connection to API Manager
 
 To add application-level egress support to API Manager.
 
