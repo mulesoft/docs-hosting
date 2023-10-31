@@ -71,7 +71,7 @@ image::ps-egress-delete-ruleset.png[Delete custom egress rule group]
 You can disable the application level egress rule feature by clicking the feature's toggle. When prompted, click *Delete and Disable App-Level Rules* to confirm. 
 
 [NOTE]
-Once you disable the feature, all the custom app-level egress rule groups are deleted, and all app-level egress is allowed for all applications.
+Once you disable the application-level egress rule feature, all custom application-level egress rule groups are deleted, and all application-level egress is allowed for all applications.
 
 == Apply Application Level Egress Rules When Deploying Your Applications
 
