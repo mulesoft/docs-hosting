@@ -93,7 +93,7 @@ To set up connections to Anypoint MQ or OSv2 and access external endpoints, such
 [NOTE]
 You must also allow outbound access to all 443 ports at the private-space level separately.
 
-To allow HTTPS connections to Anypoint MQ, add an app-level egress rule group with the following two rules:
+To allow HTTPS connections to Anypoint MQ, add an app-level egress rule group with the following rules:
 
 . Allow egress to Anypoint control plane:
 ** Protocol: `HTTPS`
