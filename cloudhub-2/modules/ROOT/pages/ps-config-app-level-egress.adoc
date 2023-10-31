@@ -23,7 +23,7 @@ To configure the application level groups in a private space:
 By default, the application level egress rules feature is disabled when you create a new private space. Toggle the feature to enable it.
 
 [NOTE]
-Ensure that you have completed the provisioning of your private network before enabling the toggle.
+Ensure that you finished provisioning your private network before enabling the toggle.
 
 Toggling the *App-Level Egress Rules* feature enables the *Default-Egress-Rule-Group*. The default egress rule is *Allow any protocol to any destination*. 
 
