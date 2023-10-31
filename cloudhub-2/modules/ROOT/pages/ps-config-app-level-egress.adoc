@@ -83,7 +83,7 @@ The *Egress Rule Group* section shows the rule groups configured for the selecte
 . Select the egress ruleset you want to apply to your application. 
 +
 The selected rule group's details appear below the *Egress Rule Group* list.
-. Click *Apply Changes* to apply the selected egress rules to your application.
+. Click *Apply Changes*.
 
 
 == Configure Application Egress Connection to Anypoint MQ or ObjectStore v2
