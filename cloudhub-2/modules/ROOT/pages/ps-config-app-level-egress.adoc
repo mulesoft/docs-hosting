@@ -25,7 +25,7 @@ By default, the application level egress rules feature is disabled when you crea
 [NOTE]
 Ensure that you finished provisioning your private network before enabling the toggle.
 
-Toggling the *App-Level Egress Rules* feature enables the *Default-Egress-Rule-Group*. The default egress rule is *Allow any protocol to any destination*. 
+Toggling *App-Level Egress Rules* enables the *Default-Egress-Rule-Group*. The default egress rule is *Allow any protocol to any destination*. 
 
 image::ps-toggle-app-level-egress.png[Toggle app-level egress rules feature]
 
