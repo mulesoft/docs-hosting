@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Application level egress rules are independent of private space level firewall rules. For an egress traffic to go through, it must pass both private space and application level control.
+Application-level egress rules are independent of private-space-level firewall rules. For egress traffic to go through, it must pass both private space and application-level control.
 
 
 == Before You Begin
