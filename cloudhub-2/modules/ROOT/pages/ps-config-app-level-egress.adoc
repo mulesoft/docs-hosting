@@ -41,7 +41,7 @@ You can delete rules by clicking the delete button image:trash-icon.png[Delete b
 Your changes will affect all the applications in the current private space.
 +
 [NOTE]
-You can neither rename nor delete the default rule group.
+You cannot rename or delete the default rule group.
 
 image::ps-egress-edit-default.png[Edit the default app level egress rule group]
 
