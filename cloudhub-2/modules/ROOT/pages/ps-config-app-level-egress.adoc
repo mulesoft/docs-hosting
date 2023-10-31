@@ -80,7 +80,7 @@ You can apply the app-level egress rules that you configured in your private spa
 . When deploying an application to your private space, go to the *Firewall Rules* tab.
 +
 The *Egress Rule Group* section shows the rule groups configured for the selected private space.
-. Use the dropdown list to select the egress ruleset you want to apply to your application. 
+. Select the egress ruleset you want to apply to your application. 
 +
 The selected rule group's details appear below the *Egress Rule Group* list.
 . Click *Apply Changes* to apply the selected egress rules to your application.
