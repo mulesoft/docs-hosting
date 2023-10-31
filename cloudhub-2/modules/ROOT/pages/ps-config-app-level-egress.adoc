@@ -1,4 +1,4 @@
-= Configuring Application Level Egress Rules
+= Configuring Application-Level Egress Rules
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
