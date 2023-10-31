@@ -64,7 +64,7 @@ To delete an existing custom rule group:
 . When prompted, click *Delete Rule Group* to confirm the deletion.
 +
 [NOTE]
-Once you delete a custom rule group, any applications using it immediately starts using the default egress rule group instead.
+Once you delete a custom rule group, any applications that use it immediately start using the default egress rule group instead.
 
 image::ps-egress-delete-ruleset.png[Delete custom egress rule group]
 
