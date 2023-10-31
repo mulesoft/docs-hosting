@@ -156,7 +156,7 @@ You can customize the number of rule groups and rules in the combination based o
 These measures help optimize latency while maintaining effective network security.
 
 [NOTE]
-DNS record timing issues can sometimes lead to unexpected connectivity errors. To enhance the reliability of Mule applications, ensure to implement robust error handling and connection retry mechanisms.
+DNS record timing issues can sometimes lead to unexpected connectivity errors. To enhance the reliability of Mule applications, implement robust error handling and connection retry mechanisms.
 
 == See Also
 
