@@ -95,51 +95,53 @@ You must also allow outbound access to all 443 ports at the private-space level 
 
 To allow HTTPS connections to Anypoint MQ, add an app-level egress rule group with the following rules:
 
-. Allow egress to Anypoint control plane:
-** Protocol: `HTTPS`
-** Destination: `Custom Domains`
-*** With value
-**** For prod: `anypoint.mulesoft.com`
-**** For prod-eu: `eu1.anypoint.mulesoft.com`
-. Allow egress to MQ destination:
-** Protocol: HTTPS
-** Destination: `Custom Domains`
-*** With value of the domain name configured in MQ connector URL
+Allow egress to Anypoint control plane:
+* *Protocol*: `HTTPS`
+* *Destination*: `Custom Domains`
+** With value:
+*** For prod: `anypoint.mulesoft.com`
+*** For prod-eu: `eu1.anypoint.mulesoft.com`
+
+Allow egress to MQ destination:
+* *Protocol*: HTTPS
+* *Destination*: `Custom Domains`
+** With the value of the domain name configured in MQ connector URL
 +
 For example, if the MQ connector URL is `https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/{{anypointOrgId}}/environments/{{anypointEnvId}}/`,
 use value `mq-us-east-1.anypoint.mulesoft.com`.
 
-To allow HTTPS connections to Object Store v2, add an app-level egress rule group with the following two rules:
+To allow HTTPS connections to Object Store v2, add an app-level egress rule group with the following rules:
 
-. Allow egress to Anypoint control plane:
-** Protocol: `HTTPS`
-** Destination: `Custom Domains`
-*** With value
-**** For prod: `anypoint.mulesoft.com`
-**** For prod-eu: `eu1.anypoint.mulesoft.com`
-. Allow egress to Object Store v2 destination
-** Protocol: `HTTPS`
-** Destination: `Custom Domains`
-*** With value
-**** For prod: `object-store-us-east-1.anypoint.mulesoft.com`
-**** For prod-eu: `[xxx]`
+Allow egress to Anypoint control plane:
+* *Protocol*: `HTTPS`
+* *Destination*: `Custom Domains`
+** With value
+*** For prod: `anypoint.mulesoft.com`
+*** For prod-eu: `eu1.anypoint.mulesoft.com`
+
+Allow egress to Object Store v2 destination
+* *Protocol*: `HTTPS`
+* *Destination*: `Custom Domains`
+** With value
+*** For prod: `object-store-us-east-1.anypoint.mulesoft.com`
+*** For prod-eu: `[xxx]`
 +
-This URL varies depending on the region. For example, if you want to access Object Store in `ap-southeast-1`, add the URL `object-store-ap-southeast-1.anypoint.mulesoft.com` as value.
+This URL varies depending on the region. For example, to access Object Store in `ap-southeast-1`, add the URL `object-store-ap-southeast-1.anypoint.mulesoft.com` as the value.
 
 [NOTE]
-If you enable egress for a domain that includes redirection, such as when `https://salesforce.com` redirects to `https://www.salesforce.com`, ensure to allow egress for both the original target, `salesforce.com`, and the redirected target, `www.salesforce.com`.
+If you enable egress for a domain that includes redirection, such as when `https://salesforce.com` redirects to `https://www.salesforce.com`, allow egress for both the original target, `salesforce.com`, and the redirected target, `www.salesforce.com`.
 
-== Configure Application Level Egress Connection to API Manager
+== Configure Application-Level Egress Connection to API Manager
 
-You can add application level egress support for API Manager.
+You can add application-level egress support to API Manager.
 
-Add an app-level egress rule group with the following rule to allow egress to Anypoint control plane:
+Add a custom rule group with the following rule to allow egress to the Anypoint control plane:
 
-** Protocol: `HTTPS`
-** Destination: `Custom Domains`
-*** With value
-**** For prod: `anypoint.mulesoft.com`
-**** For prod-eu: `eu1.anypoint.mulesoft.com`
+* *Protocol*: `HTTPS`
+* *Destination*: `Custom Domains`
+** With value
+*** For prod: `anypoint.mulesoft.com`
+*** For prod-eu: `eu1.anypoint.mulesoft.com`
 
 == Performance Impact
 
