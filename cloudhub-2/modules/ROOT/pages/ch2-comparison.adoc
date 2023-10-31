@@ -56,7 +56,6 @@ CloudHub 2.0 application behavior deviates from CloudHub 1.0 in the following wa
 * Secure application properties are stored in encrypted, private vaults and cannot be viewed directly by users or MuleSoft staff after they are created. Secure properties are accessible only by the application itself. You can overwrite the properties to new values at any time.
 * Use xref:mq::index.adoc[Anypoint MQ] for persistent queues and other queue management. Persistent queues are not supported.
 * HTTP, HTTPS, and TCP inbound protocols are supported. Inbound protocols that are not TCP or HTTP-based are not supported.
-* Private endpoints do not offer mTLS capabilities as internet-facing public endpoints.
 * In xref:monitoring::alerts.adoc[Anypoint Monitoring], you must set alerts for apps individually. Setting alerts for all apps simultaneously is not supported.
 * CloudHub application workers and CloudHub 2.0 application replicas of the same vCore sizes may differ in performance metrics and cannot be compared.
 
