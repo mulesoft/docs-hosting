@@ -51,8 +51,7 @@ To create a new custom egress rule group:
 . In the rule group configuration window, add a group name.
 + 
 You can edit and rename custom rule groups. 
-. In the *Egress Rules* section, click *Add Rule* and select the desired protocol and destination.
-. Click *Add Rule* to add new rules to the new rule group.
+. In the *Egress Rules* section, click *Add Rule* and select the desired protocol and destination to add new rules to the new custom rule group.
 + 
 You can delete rules by clicking the delete button image:trash-icon.png[Delete button, 2%,2%].
 . Click *Create Egress Rules* to save your changes.
