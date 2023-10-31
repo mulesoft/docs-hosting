@@ -86,7 +86,7 @@ The selected rule group's details appear below the *Egress Rule Group* list.
 . Click *Apply Changes*.
 
 
-== Configure Application Egress Connection to Anypoint MQ or ObjectStore v2
+== Configure an Application Egress Connection to Anypoint MQ or ObjectStore v2
 
 To set up connections to Anypoint MQ or OSv2, and access external endpoints, such as `anypoint.mulesoft.com` , follow the steps provided in this section.
 
