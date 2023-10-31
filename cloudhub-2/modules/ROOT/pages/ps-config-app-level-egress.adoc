@@ -91,7 +91,7 @@ The selected rule group's details appear below the *Egress Rule Group* list.
 To set up connections to Anypoint MQ or OSv2 and access external endpoints, such as `anypoint.mulesoft.com`, follow these steps:
 
 [NOTE]
-You must also allow outbound access to all 443 at the private space level separately.
+You must also allow outbound access to all 443 ports at the private-space level separately.
 
 To allow HTTPS connections to Anypoint MQ, add an app-level egress rule group with the following two rules:
 
