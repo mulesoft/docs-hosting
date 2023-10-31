@@ -48,9 +48,7 @@ image::ps-egress-edit-default.png[Edit the default app level egress rule group]
 To create a new custom egress rule group:
 
 . Click *Create Rule Group*.
-+
-The rule group configuration window opens.
-. Add a group name.
+. In the rule group configuration window, add a group name.
 + 
 You can edit and rename custom rule groups. 
 . In the *Egress Rules* section, click *Add Rule* and use the dropdown list to select the desired protocol and destination.
