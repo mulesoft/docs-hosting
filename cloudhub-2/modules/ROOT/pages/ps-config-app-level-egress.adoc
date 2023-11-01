@@ -35,7 +35,7 @@ To modify the default egress rule group:
 . In the *Egress Rules* section of the group configuration window, select the desired protocol and destination.
 . Click *Add Rule* to add new rules to the rule group.
 + 
-You can delete rules by clicking the delete button (image:trash-icon.png[Delete button, 1%,1%]).
+You can delete rules by clicking the delete button (image:trash-icon.png[Delete button, 2%,2%]).
 . Click *Update Egress Rules* to save your changes.
 +
 Your changes affect all applications in the current private space.
@@ -52,14 +52,14 @@ To create a new custom egress rule group:
 You can edit and rename custom rule groups. 
 . In the *Egress Rules* section, click *Add Rule* and select the protocol and destination for every rule that you want to add.
 + 
-You can delete rules by clicking the delete button (image:trash-icon.png[Delete button, 1%,1%]).
+You can delete rules by clicking the delete button (image:trash-icon.png[Delete button, 2%,2%]).
 . Click *Create Egress Rules* to save your changes.
 +
 To use custom rule groups, select them in the application settings.
 
 To delete an existing custom rule group: 
 
-.  Select *More actions* (image:more-icon.png[More actions menu, 1%,1%]) > *Delete*. 
+.  Select *More actions* (image:more-icon.png[More actions menu, 2%,2%]) > *Delete*. 
 . When prompted, click *Delete Rule Group* to confirm the deletion.
 +
 [NOTE]
@@ -87,6 +87,7 @@ You can apply the application-level egress rules that you configured in your pri
 To allow HTTPS connections to Anypoint MQ, add an application-level egress rule group with the following rules:
 
 Allow egress to the Anypoint control plane:
+
 * *Protocol*: `HTTPS`
 * *Destination*: `Custom Domains`
 ** With value:
@@ -94,6 +95,7 @@ Allow egress to the Anypoint control plane:
 *** For prod-eu: `eu1.anypoint.mulesoft.com`
 
 Allow egress to the MQ destination:
+
 * *Protocol*: HTTPS
 * *Destination*: `Custom Domains`
 ** With the value of the domain name configured in the MQ connector URL
@@ -106,6 +108,7 @@ use the value `mq-us-east-1.anypoint.mulesoft.com`.
 To allow HTTPS connections to Object Store v2, add an application-level egress rule group with the following rules:
 
 Allow egress to the Anypoint control plane:
+
 * *Protocol*: `HTTPS`
 * *Destination*: `Custom Domains`
 ** With value:
@@ -113,6 +116,7 @@ Allow egress to the Anypoint control plane:
 *** For prod-eu: `eu1.anypoint.mulesoft.com`
 
 Allow egress to the Object Store v2 destination
+
 * *Protocol*: `HTTPS`
 * *Destination*: `Custom Domains`
 ** With value:
