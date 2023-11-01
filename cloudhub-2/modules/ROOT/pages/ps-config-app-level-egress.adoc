@@ -115,7 +115,7 @@ To allow HTTPS connections to Object Store v2, add an application-level egress r
 Allow egress to Anypoint control plane:
 * *Protocol*: `HTTPS`
 * *Destination*: `Custom Domains`
-** With value
+** With value:
 *** For prod: `anypoint.mulesoft.com`
 *** For prod-eu: `eu1.anypoint.mulesoft.com`
 
