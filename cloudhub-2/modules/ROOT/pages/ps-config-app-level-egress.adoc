@@ -115,7 +115,7 @@ Allow egress to the Anypoint control plane:
 *** For prod: `anypoint.mulesoft.com`
 *** For prod-eu: `eu1.anypoint.mulesoft.com`
 
-Allow egress to the Object Store v2 destination
+Allow egress to the Object Store v2 destination:
 
 * *Protocol*: `HTTPS`
 * *Destination*: `Custom Domains`
