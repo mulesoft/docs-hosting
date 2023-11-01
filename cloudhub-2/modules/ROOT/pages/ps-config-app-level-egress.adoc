@@ -138,7 +138,7 @@ Add a custom rule group with the following rule to allow egress to the Anypoint 
 
 * *Protocol*: `HTTPS`
 * *Destination*: `Custom Domains`
-** With value
+** With value:
 *** For prod: `anypoint.mulesoft.com`
 *** For prod-eu: `eu1.anypoint.mulesoft.com`
 
