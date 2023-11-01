@@ -35,7 +35,7 @@ To modify the default egress rule group:
 . In the *Egress Rules* section of the group configuration window, select the desired protocol and destination.
 . Click *Add Rule* to add new rules to the rule group.
 + 
-You can delete rules by clicking the delete button (image:trash-icon.png[Delete button, 2%,2%]).
+You can delete rules by clicking the delete button (image:trash-icon.png[Delete button, 1.5%,1.5%]).
 . Click *Update Egress Rules* to save your changes.
 +
 Your changes affect all applications in the current private space.
@@ -52,14 +52,14 @@ To create a new custom egress rule group:
 You can edit and rename custom rule groups. 
 . In the *Egress Rules* section, click *Add Rule* and select the protocol and destination for every rule that you want to add.
 + 
-You can delete rules by clicking the delete button (image:trash-icon.png[Delete button, 2%,2%]).
+You can delete rules by clicking the delete button (image:trash-icon.png[Delete button, 1.5%,1.5%]).
 . Click *Create Egress Rules* to save your changes.
 +
 To use custom rule groups, select them in the application settings.
 
 To delete an existing custom rule group: 
 
-.  Select *More actions* (image:more-icon.png[More actions menu, 2%,2%]) > *Delete*. 
+.  Select *More actions* (image:more-icon.png[More actions menu, 1%,1%]) > *Delete*. 
 . When prompted, click *Delete Rule Group* to confirm the deletion.
 +
 [NOTE]
