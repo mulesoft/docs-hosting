@@ -77,7 +77,7 @@ Once you disable the application-level egress rule feature, all custom applicati
 
 You can apply the app-level egress rules that you configured in your private space when you deploy an application:
 
-. When deploying an application to your private space, go to the *Firewall Rules* tab.
+. When deploying an application to your private space, select the *Firewall Rules* tab.
 +
 The *Egress Rule Group* section shows the rule groups configured for the selected private space.
 . Select the egress ruleset to apply to your application. 
