@@ -103,7 +103,7 @@ Allow egress to the MQ destination:
 For example, if the MQ connector URL is `https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/{{anypointOrgId}}/environments/{{anypointEnvId}}/`,
 use the value `mq-us-east-1.anypoint.mulesoft.com`.
 
-== Configure an Application-Level Egress Connection to ObjectStore v2
+== Configure an Application-Level Egress Connection to Object Store v2
 
 To allow HTTPS connections to Object Store v2, add an application-level egress rule group with the following rules:
 
