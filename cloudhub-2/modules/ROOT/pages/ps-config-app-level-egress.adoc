@@ -105,7 +105,7 @@ Allow egress to Anypoint control plane:
 Allow egress to MQ destination:
 * *Protocol*: HTTPS
 * *Destination*: `Custom Domains`
-** With the value of the domain name configured in MQ connector URL
+** With the value of the domain name configured in the MQ connector URL
 +
 For example, if the MQ connector URL is `https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/{{anypointOrgId}}/environments/{{anypointEnvId}}/`,
 use value `mq-us-east-1.anypoint.mulesoft.com`.
