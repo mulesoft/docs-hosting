@@ -9,7 +9,7 @@ Application-level egress rules are independent of private-space-level firewall r
 == Before You Begin
 
 * Set up your private space and finish provisioning your private network.
-* Verify that your account has CloudHub Network Viewer permission, which is required to view a private space's firewall and application level rules.
+* Verify that your account has CloudHub Network Viewer permission, which is required to view a private space's firewall and application-level rules.
 * Verify that your account has CloudHub Network Administrator permission, which is required to modify a private space's firewall and application level rules.
 
 == Configure Application Level Rules in Your Private Space
