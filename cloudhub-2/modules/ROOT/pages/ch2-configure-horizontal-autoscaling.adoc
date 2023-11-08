@@ -1,0 +1,4 @@
+= Configure Autoscaling for CH2 Deployments
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
