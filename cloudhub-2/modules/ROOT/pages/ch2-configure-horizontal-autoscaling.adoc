@@ -1,4 +1,60 @@
-= Configure Autoscaling for CH2 Deployments
+= Configuring Autoscaling for CH2 Deployments
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+
+You can configure horizontal scaling of Mule applications to make them responsive to resource usage by automatically scaling up or down the deployment replicas as needed.
+
+In Kubernetes, a Horizontal Pod Autoscaler (HPA) automatically updates a workload resource, with the aim of automatically scaling the workload to match demand. Horizontal scaling means that the response to increased load is to deploy more pods. For more information, visit the https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale[Kubernetes documentaton^]. 
+
+== Before You Begin
+
+* Enable the https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-metrics-apis[support for metrics APIs^] on your managed K8s API server.
++
+Refer to your managed vendors' documentation on how to install or enable metrics API servers.
+ 
+== Configure Horizontal Autoscaling
+
+To configure horizontal autoscaling:
+
+. From Anypoint Platform, select *Runtime Manager* > *Applications*.
+. Click *Deploy application*.
+. In the *Runtime* tab, check the *Enable Autoscaling* box.
+. Set the minimum and maximum *Replica Count* limits.
+. Deploy your Mule application.
+
+image::ch2-config-autoscaling.png[Configure horizontal autoscaling.]
+
+
+== Limitations
+
+* Horizontal autoscaling does not work with clustering and rate limiting.
+* Horizontal autoscaling works with 0.1 vCcore replica size only. You cannot reserve or limit CPU resources. 
+
+
+== Autoscaling Status
+
+When an autoscaling event occurs and your Mule application with horizontal autoscaling scales up, you can check the scaling status by clicking *Vew status* in your application's details window:
+
+image::ch2-status-autoscaling.png[Check the application's scaling status.]
+
+
+You can track the scaled up replicas startup and the number of replicas your application scaled from and to by checking the application's logs:
+
+. From Anypoint Platform, select *Runtime Manager* > *Applications*.
+. Click the row of the application with autoscaling.
+. Click *Manage application*.
+. Seelect the *Logs* tab.
+
+[source,console,linenums]
+----
+Info	8 minutes ago - 2023-11-08 14:35:01.466 PST - Runtime Manager
+Application id:<app-ID> scaled UP from 1 to 2 replicas.
+Info	a minute ago - 2023-11-08 14:41:24.819 PST - Runtime Manager
+Application id:<app-ID> scaled DOWN from 2 to 1 replicas. :
+----
+
+
+== See Also
+
+* xref:runtime-fabric::configure-horizontal-autoscaling.adoc[]
