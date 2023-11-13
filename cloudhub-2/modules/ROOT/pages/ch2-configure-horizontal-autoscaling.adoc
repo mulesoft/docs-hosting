@@ -32,7 +32,7 @@ image::ch2-config-autoscaling.png[Configure horizontal autoscaling.]
 * Horizontal autoscaling works with 0.1 vCcore replica size only. You cannot reserve or limit CPU resources. 
 
 
-== Autoscaling Status
+== Autoscaling Status in Runtime Manager
 
 When an autoscaling event occurs and your Mule application with horizontal autoscaling scales up, you can check the scaling status by clicking *Vew status* in your application's details window:
 
