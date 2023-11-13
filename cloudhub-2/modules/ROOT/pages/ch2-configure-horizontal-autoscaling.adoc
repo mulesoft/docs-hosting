@@ -34,7 +34,7 @@ image::ch2-config-autoscaling.png[Configure horizontal autoscaling.]
 
 == Autoscaling Status in Runtime Manager
 
-When an autoscaling event occurs and your Mule application with horizontal autoscaling scales up, you can check the scaling status by clicking *View status* in your application's details window:
+When an autoscaling event occurs and your Mule application with horizontal autoscaling scales up, you can check the *Scaling* status by clicking *View status* in your application's details window:
 
 image::ch2-status-autoscaling.png[Check the application's scaling status.]
 
