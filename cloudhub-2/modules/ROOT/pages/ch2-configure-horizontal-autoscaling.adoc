@@ -34,12 +34,12 @@ image::ch2-config-autoscaling.png[Configure horizontal autoscaling.]
 
 == Autoscaling Status in Runtime Manager
 
-When an autoscaling event occurs and your Mule application with horizontal autoscaling scales up, you can check the scaling status by clicking *Vew status* in your application's details window:
+When an autoscaling event occurs and your Mule application with horizontal autoscaling scales up, you can check the scaling status by clicking *View status* in your application's details window:
 
 image::ch2-status-autoscaling.png[Check the application's scaling status.]
 
 
-You can track the scaled up replicas startup and the number of replicas your application scaled from and to by checking the application's logs:
+You can track the scaled-up replicas startup and the number of replicas your application scaled from and to by checking the application's logs:
 
 . From Anypoint Platform, select *Runtime Manager* > *Applications*.
 . Click the row of the application with autoscaling.
