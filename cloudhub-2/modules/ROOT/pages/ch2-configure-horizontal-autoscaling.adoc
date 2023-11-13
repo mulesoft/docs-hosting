@@ -44,7 +44,7 @@ You can track the scaled-up replicas startup and the number of replicas your app
 . From Anypoint Platform, select *Runtime Manager* > *Applications*.
 . Click the row of the application with autoscaling.
 . Click *Manage application*.
-. Seelect the *Logs* tab.
+. Select the *Logs* tab.
 
 [source,console,linenums]
 ----
