@@ -21,7 +21,7 @@ To configure horizontal autoscaling:
 . Click *Deploy application*.
 . In the *Runtime* tab, check the *Enable Autoscaling* box.
 . Set the minimum and maximum *Replica Count* limits.
-. Deploy your Mule application.
+. Click *Deploy Application*.
 
 image::ch2-config-autoscaling.png[Configure horizontal autoscaling.]
 
