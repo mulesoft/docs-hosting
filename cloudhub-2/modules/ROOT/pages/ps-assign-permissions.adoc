@@ -6,11 +6,10 @@ assigned to your user account or a team to which you belong.
 To assign permissions, you need access to Access Management and the Organization Administrator permission.
 
 * To set up and manage a private space, you need the CloudHub Network Administrator permission.
-* To view a private space, you need the CloudHub Network Viewer permission.
-** To view a private space as as an individual user within an organization, you need at least one of the following permissions:
+* To view a private space as an individual user within an organization, you need at least one of the following permissions:
+*** Cloudhub Network Viewer
 *** Organization Administrator
 *** Cloudhub Network Administrator
-*** Cloudhub Network Viewer
 ** To view the schedules in applications deployed to CloudHub 2.0 and Runtime Fabric, you must assign the Exchange Viewer permission to the Business Organization that owns the asset.
 * To deploy applications from Exchange, you must assign the Exchange Contributor and Exchange Viewer permissions to the Business Organization that owns the asset.
 * To deploy applications in Runtime Manager, you need the Create Applications permission.
