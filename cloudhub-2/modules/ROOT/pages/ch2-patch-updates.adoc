@@ -21,6 +21,147 @@ When an update is available, CloudHub 2.0 includes it in Production environments
 
 xref:cloudhub::vpn-maintenance.adoc[Anypoint VPNs] used in CloudHub 2.0 are upgraded continuously. Whenever a new update is available, the VPN is patched within the service-level agreement. If the Anypoint VPN is not setup as high availability or if the non-high-availability VPN is not set up with two tunnels, downtime is expected.
 
+== Self-Triggered Infrastructure Upgrades
+
+You can manually apply infrastructure upgrades earlier than the scheduled patching process. In this way, you can choose a time that better suits your organization's needs. 
+
+[NOTE]
+This upgrade is irreversible. Test in a lower environment before applying it in a production environment, and perform during low traffic windows.
+
+=== Apply the Self-Triggered Upgrade via Runtime Manager
+
+. From Anypoint Platform, select *Runtime Manager* > *Private Spaces*.
++
+If an upgrade is available for a private space, a tooltip shows under the *Infra Status* column.
+. Click *Upgrade available*.
+. Select the checkbox to confirm that you agree to upgrade early.
+. Click *Upgrade*.
+
+After applying the upgrade, you can check the status under the the *Infra Status* column.
+
+=== Apply the Self-Triggered Upgrade via API
+
+You can upgrade a private space using the Upgrade Private Space API. 
+
+==== Check for Available Upgrades
+
+To check if there is an upgrade available for your private space, use the `isSpaceUpgradeAvailable` field added to existing PrivateSpaces APIs. The following examples show the API request and response:
+
+
+Request:
+
+[source,json]
+---- 
+GET
+https:/anypoint.mulesoft.com/runtimefabric/api/organizations/{organizationId}/privatespaces/{privatespaceId}
+----
+
+Response:
+
+[source,java]
+----
+{
+    "id": "69f1b6f6-2bd9-4ceb-a145-a75f11a5eaee",
+    "name": "mySpace",
+    "status": "Active",
+    // EXTRA NON-RELEVANT FIELDS
+    "isSpaceUpgradeAvailable": true
+}
+----
+
+=== Apply Upgrades to your Private Space
+
+If there is a new version available, you can upgrade your private space to the latest available version via the Upgrade Private Space API. The following examples show the API request and response:
+
+Request:
+
+[source,json]
+---- 
+PATCH 
+https:/anypoint.mulesoft.com/runtimefabric/api/organizations/{organizationId}/privatespaces/{privateSpaceId}/upgrade
+----
+
+Response:
+
+[source,java]
+----
+{
+    "id": "69f1b6f6-2bd9-4ceb-a145-a75f11a5eaee",
+    "name": "mySpace",
+    "status": "Active",
+    // EXTRA NON-RELEVANT FIELDS
+    "isSpaceUpgradeAvailable": false
+}
+----
+
+==== Check the Upgrade Status
+
+After you trigger the upgrade, you can check the status via the `globalSpaceStatus `field on the response of the Private Spaces API, which contains a subfield with the status of the current upgrade.
+
+Request:
+
+[source,json]
+---- 
+GET
+https:/anypoint.mulesoft.com/runtimefabric/api/organizations/{organizationId}/privatespaces/{privatespaceId}
+----
+
+Response:
+
+[source,java]
+----
+{
+    "id": "69f1b6f6-2bd9-4ceb-a145-a75f11a5eaee",
+    "name": "mySpace",
+    "status": "Active",
+    // EXTRA NON-RELEVANT FIELDS
+    "globalSpaceStatus": {
+        "space": {
+           "status": "Active"
+        },
+        "cluster": [
+         {
+           "name": "jferaPreviousAP11-ap-southeast-2-eabb4",
+           "infra": {
+             "status": "InfrastructureProvisionSuccess",
+             "lastSeenTimeStamp": 1695756774114
+           },
+          "fabric": {
+            "status": "Active",
+            "lastSeenTimeStamp": 1695763243212
+          },
+          "ingress": {
+            "status": "INGRESS_APPLIED",
+            "lastSeenTimeStamp": 1695760545873
+          }
+         }
+      ],
+      "network": {
+         "status": "InfrastructureProvisionSuccess",
+         "lastSeenTimeStamp": 1695756773862
+      },
+      "upgrade": {
+         "status": "In Progress"
+      }
+    },
+    
+"isSpaceUpgradeAvailable": false
+}
+----
+
+===== Possible Status Types
+
+[%header,cols="20,70"]
+|===
+|Status | Description
+|Active | The private space is currently not ongoing any infrastructure upgrade or configuration update, and is working as expected. 
+|In Progress|  The private space is undergoing an infrastructure change which can be related to a user configuration update, or to  an infrastructure upgrade, either self-triggered or as part of a monthly infrastructure upgrade. 
+|Failed| The private space experienced a failure which can be related to a user configuration update, or to  an infrastructure upgrade, either self-triggered or as part of a monthly infrastructure upgrade. 
+|Degraded |  The private space is in a disconnected state and not ready to be used.
+|===
+
+
+
 [[runtime-updates]]
 == Monthly Date-Patch Updates
 
