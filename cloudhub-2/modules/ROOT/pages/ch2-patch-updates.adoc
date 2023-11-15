@@ -78,7 +78,7 @@ Request:
 [source,json]
 ---- 
 PATCH 
-https:/anypoint.mulesoft.com/runtimefabric/api/organizations/{organizationId}/privatespaces/{privateSpaceId}/upgrade
+https:/anypoint.mulesoft.com/runtimefabric/api/organizations/{organizationId}/privatespaces/{privateSpaceId}/upgrade?optIn=true
 ----
 
 Response:
@@ -93,6 +93,9 @@ Response:
     "isSpaceUpgradeAvailable": false
 }
 ----
+
+[NOTE]
+This request must contain an `optIn` parameter. If the `optIn` parameter is not passed or is passed with a `false` value, the API returns a `400 Bad Request` error.
 
 ==== Check the Upgrade Status
 
