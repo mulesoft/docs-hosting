@@ -1,13 +1,13 @@
-= Configuring CPU-based Horizontal Pod Autoscaling (HPA) for CH2 Deployments
+= Configuring Horizontal Autoscaling (HPA) for CloudHub 2.0 Deployments
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can configure horizontal scaling of Mule applications to make them responsive to CPU usage by automatically scaling up or down the deployment replicas as needed.
+You can configure CPU-based horizontal scaling for Mule applications to make them responsive to CPU usage by automatically scaling up or down the deployment replicas as needed.
 
 In Kubernetes, a Horizontal Pod Autoscaler (HPA) automatically updates a workload resource, with the aim of automatically scaling the workload to match demand. Horizontal scaling means that the response to increased load is to deploy more pods. For more information, visit the https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale[Kubernetes documentaton^]. 
 
-== Configure Horizontal Autoscaling
+== Configure Horizontal Pod Autoscaling
 
 To configure horizontal autoscaling:
 
@@ -26,11 +26,11 @@ image::ch2-config-autoscaling.png[Configure horizontal autoscaling.]
 * CPU-based HPA works with 0.1 vCcores replica size only.
 * Mule apps that scale based on CPU usage are a good fit with CPU based HPA. For example:
 ** HTTP/HTTPS applications with async requests.
-** Reverse Proxies
-** Low latency+High throughput apps
-** Dataweave Transformations
-** APIKit Routing
-** API Gateways with policies
+** Reverse Proxies.
+** Low latency+High throughput applications.
+** Dataweave Transformations.
+** APIKit Routing.
+** API Gateways with policies.
 
 == Autoscaling Status and Logs
 
@@ -58,7 +58,7 @@ Application id:<app-ID> scaled DOWN from 2 to 1 replicas. :
 
 MuleSoft owns and applies the https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/[autoscaling^] policy for your Mule application deployments.
 
-The CPU based HPA policy used for all Mule apps deployed to CloudHub 2.0 is as follows:
+The CPU-based HPA policy used for all Mule apps deployed to CloudHub 2.0 is as follows:
 
 ----
 apiVersion: autoscaling/v2
