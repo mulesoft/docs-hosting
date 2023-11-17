@@ -1,18 +1,12 @@
-= Configuring Horizontal Autoscaling (HPA) for CH2 Deployments
+= Configuring CPU-based Horizontal Pod Autoscaling (HPA) for CH2 Deployments
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can configure horizontal scaling of Mule applications to make them responsive to resource usage by automatically scaling up or down the deployment replicas as needed.
+You can configure horizontal scaling of Mule applications to make them responsive to CPU usage by automatically scaling up or down the deployment replicas as needed.
 
 In Kubernetes, a Horizontal Pod Autoscaler (HPA) automatically updates a workload resource, with the aim of automatically scaling the workload to match demand. Horizontal scaling means that the response to increased load is to deploy more pods. For more information, visit the https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale[Kubernetes documentaton^]. 
 
-== Before You Begin
-
-* Enable the https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-metrics-apis[support for metrics APIs^] on your managed K8s API server.
-+
-Refer to your managed vendors' documentation on how to install or enable metrics API servers.
- 
 == Configure Horizontal Autoscaling
 
 To configure horizontal autoscaling:
@@ -26,15 +20,16 @@ To configure horizontal autoscaling:
 image::ch2-config-autoscaling.png[Configure horizontal autoscaling.]
 
 
-== Limitations
+== Performance Considerations and Limitations
 
-* Horizontal autoscaling does not work with clustering and rate limiting.
-* Horizontal autoscaling works with 0.1 vCcore replica size only. You cannot reserve or limit CPU resources. 
+* CPU-based HPA does not work with clustering and rate limiting.
+* CPU-based HPA works with 0.1 vCcores replica size only.
+* CPU-based HPA is specially useful for Mule applications that scale based on CPU usage. For example, HTTP/HTTPS applications with async requests, or  Mule applications with high throughput (shorter requests, lower latency).
 
 
 == Autoscaling Status and Logs
 
-When an autoscaling event occurs and your Mule application with horizontal autoscaling scales up, you can check the *Scaling* status by clicking *View status* in your application's details window:
+When an autoscaling event occurs and your Mule application with horizontal autoscaling scales up, you can check the *Scaling* status by clicking *View status* in your application's details window. You can also see the *Scaling* status of your application in the *Applications* list.
 
 image::ch2-status-autoscaling.png[Check the application's scaling status.]
 
