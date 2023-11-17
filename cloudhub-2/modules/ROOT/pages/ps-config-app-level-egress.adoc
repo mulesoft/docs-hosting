@@ -125,7 +125,9 @@ Allow egress to the Object Store v2 destination:
 +
 This URL varies depending on the region. For example, to access Object Store in `ap-southeast-1`, add the URL `object-store-ap-southeast-1.anypoint.mulesoft.com` as the value.
 
-If you enable egress for a domain that includes redirection, such as when `https://salesforce.com` redirects to `https://www.salesforce.com`, allow egress for both the original target, `salesforce.com`, and the redirected target, `www.salesforce.com`.
+If you enable egress for a domain that includes redirection, such as when `salesforce.com` redirects to `www.salesforce.com`, allow egress for both the original target, `salesforce.com`, and the redirected target, `www.salesforce.com`.
+
+Wildcard records are not supported. For example, `salesforce.com` does not automatically cover `example.salesforce.com`. 
 
 == Configure an Application-Level Egress Connection to API Manager
 
