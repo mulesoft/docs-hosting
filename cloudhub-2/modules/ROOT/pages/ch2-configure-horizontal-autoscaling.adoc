@@ -49,6 +49,62 @@ Info	a minute ago - 2023-11-08 14:41:24.819 PST - Runtime Manager
 Application id:<app-ID> scaled DOWN from 2 to 1 replicas. :
 ----
 
+== CPU-based Autoscaling Policy
+
+MuleSoft owns and applies the https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/[autoscaling^] policy for your Mule application deployments.
+
+The CPU based HPA policy used for all Mule apps deployed to CloudHub 2.0 is as follows:
+
+----
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: my-app
+  namespace: app-namespace
+spec:
+  behavior:
+    scaleDown:
+      policies:
+      - periodSeconds: 15
+        type: Percent
+        value: 100
+      selectPolicy: Max
+      stabilizationWindowSeconds: 300
+    scaleUp:
+      policies:
+      - periodSeconds: 180
+        type: Percent
+        value: 100
+      selectPolicy: Max
+      stabilizationWindowSeconds: 0
+  maxReplicas: 3
+  metrics:
+  - resource:
+      name: cpu
+      target:
+        averageUtilization: 70
+        type: Utilization
+    type: Resource
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: my-app
+----
+
+Some points to consider:
+
+Scale up +
+
+* Each period up to 100% of the running pods may be added until the maximum configured replicas.
+* The number of replicas added is based on the aggregated calculations over the past 180 seconds.
+* Max scale up profile is 1 -> 2 -> 4 -> 8, where MuleSoft hits 8 replicas in approximately 6 minutes.
+
+Scale down +
+
+* Each period, running replicas may be scaled down till it reaches the minimum configured replicas.
+* The number of replicas removed is based on the aggregated calculations over the past 300 seconds of the stabilization window.
+
 
 == See Also
 
