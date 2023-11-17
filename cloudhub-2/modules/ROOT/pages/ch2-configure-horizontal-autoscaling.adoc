@@ -24,8 +24,13 @@ image::ch2-config-autoscaling.png[Configure horizontal autoscaling.]
 
 * CPU-based HPA does not work with clustering and rate limiting.
 * CPU-based HPA works with 0.1 vCcores replica size only.
-* CPU-based HPA is specially useful for Mule applications that scale based on CPU usage. For example, HTTP/HTTPS applications with async requests, or  Mule applications with high throughput (shorter requests, lower latency).
-
+* Mule apps that scale based on CPU usage are a good fit with CPU based HPA. For example:
+** HTTP/HTTPS applications with async requests.
+** Reverse Proxies
+** Low latency+High throughput apps
+** Dataweave Transformations
+** APIKit Routing
+** API Gateways with policies
 
 == Autoscaling Status and Logs
 
