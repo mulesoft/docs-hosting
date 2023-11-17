@@ -7,6 +7,49 @@ You can configure CPU-based horizontal scaling for Mule applications to make the
 
 In Kubernetes, a Horizontal Pod Autoscaler (HPA) automatically updates a workload resource, with the aim of automatically scaling the workload to match demand. Horizontal scaling means that the response to increased load is to deploy more pods. For more information, visit the https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale[Kubernetes documentaton^]. 
 
+== Configure Horizontal Pod Autoscaling
+
+To configure horizontal autoscaling for Mule apps deployed to CloudHub 2.0, follow these steps:
+
+. From Anypoint Platform, select *Runtime Manager* > *Applications*.
+. Click *Deploy application*.
+. In the *Runtime* tab, check the *Enable Autoscaling* box.
+. Set the minimum and maximum *Replica Count* limits.
+. Click *Deploy Application*.
+
+image::ch2-config-autoscaling.png[Configure horizontal autoscaling]
+
+== Autoscaling Status and Logs
+
+When an autoscaling event occurs and your Mule application with horizontal autoscaling scales up, you can check the *Scaling* status by clicking *View status* in your application's details window. You can also see the *Scaling* status of your application in the *Applications* list.
+
+image::ch2-status-autoscaling.png[Check the application's scaling status.]
+
+You can track the scaled-up replicas startup and the number of replicas your application scaled from and to by checking the application's logs:
+
+. From Anypoint Platform, select *Runtime Manager* > *Applications*.
+. Click the row of the application with autoscaling.
+. Click *Manage application*.
+. Select the *Logs* tab.
+
+[source,console,linenums]
+----
+Info	8 minutes ago - 2023-11-08 14:35:01.466 PST - Runtime Manager
+Application id:<app-ID> scaled UP from 1 to 2 replicas.
+Info	a minute ago - 2023-11-08 14:41:24.819 PST - Runtime Manager
+Application id:<app-ID> scaled DOWN from 2 to 1 replicas. :
+----
+
+You can also track when autoscaling events occur through *Audit logs* in Access Manager. Each time an application deployment scales, there is an audit log published under the product *Runtime Manager*, by the *Anypoint Staff* user. The log has *Action* set to `Scaling` with the *Object* as the application ID.
+
+
+The following is an example log payload:
+
+[source,console,linenums]
+----
+{"properties":{"organizationId":"my-orgID-abc","environmentId":"my-envID-xyz","response":{"message":{"message":"Application id:my-appID-123 scaled DOWN from 3 to 2 replicas.","logLevel":"INFO","context":{"logger":"Runtime Manager"},"timestamp":1700234556678}},"deploymentId":"my-appID-123","initialRequest":"/organizations/my-orgID-abc/environments/my-envID-xyz/deployments/my-appID-123/specs/my-specID-456"},"subaction":"Scaling"}
+----
+
 
 == Understand CPU-based Autoscaling Policy
 
@@ -73,7 +116,7 @@ Max replicas +
 For a successful horizontal autoscaling of your Mule apps, review the following performance considerations:
 
 * Mule apps that scale based on CPU usage are a good fit with CPU based HPA. For example: 
-
++
 ** HTTP/HTTPS applications with async requests.
 ** Reverse Proxies.
 ** Low latency+High throughput applications.
@@ -81,55 +124,14 @@ For a successful horizontal autoscaling of your Mule apps, review the following 
 ** APIKit Routing.
 ** API Gateways with policies.
 
+* Non-reentrant applications that do not have built-in parallel processing such as batch jobs, scheduler applications without re-entrancy and duplicate scheduling across applications, and low-throughput, high-latency applications with large requests are not a good fit with CPU-based HPA.
+
 === Limitations
 
 There are some limitations to consider:
 
 * CPU-based HPA does not work with clustering and rate limiting.
-* CPU-based HPA works with 0.1 vCcores replica size only.
-
-== Configure Horizontal Pod Autoscaling
-
-To configure horizontal autoscaling for Mule apps deployed to CloudHub 2.0, follow these steps:
-
-. From Anypoint Platform, select *Runtime Manager* > *Applications*.
-. Click *Deploy application*.
-. In the *Runtime* tab, check the *Enable Autoscaling* box.
-. Set the minimum and maximum *Replica Count* limits.
-. Click *Deploy Application*.
-
-image::ch2-config-autoscaling.png[Configure horizontal autoscaling]
-
-== Autoscaling Status and Logs
-
-When an autoscaling event occurs and your Mule application with horizontal autoscaling scales up, you can check the *Scaling* status by clicking *View status* in your application's details window. You can also see the *Scaling* status of your application in the *Applications* list.
-
-image::ch2-status-autoscaling.png[Check the application's scaling status.]
-
-You can track the scaled-up replicas startup and the number of replicas your application scaled from and to by checking the application's logs:
-
-. From Anypoint Platform, select *Runtime Manager* > *Applications*.
-. Click the row of the application with autoscaling.
-. Click *Manage application*.
-. Select the *Logs* tab.
-
-[source,console,linenums]
-----
-Info	8 minutes ago - 2023-11-08 14:35:01.466 PST - Runtime Manager
-Application id:<app-ID> scaled UP from 1 to 2 replicas.
-Info	a minute ago - 2023-11-08 14:41:24.819 PST - Runtime Manager
-Application id:<app-ID> scaled DOWN from 2 to 1 replicas. :
-----
-
-You can also track when autoscaling events occurred through *Audit logs* in Runtime Manager. Each time an application deployment scaled, there is an audit log published under the product *Runtime Manager*, by the *Anypoint Staff* user. The log has *Action* set to `Scaling` with the *Object* as the application ID.
-
-
-The following is an example log payload:
-
-[source,console,linenums]
-----
-{"properties":{"organizationId":"my-orgID-abc","environmentId":"my-envID-xyz","response":{"message":{"message":"Application id:my-appID-123 scaled DOWN from 3 to 2 replicas.","logLevel":"INFO","context":{"logger":"Runtime Manager"},"timestamp":1700234556678}},"deploymentId":"my-appID-123","initialRequest":"/organizations/my-orgID-abc/environments/my-envID-xyz/deployments/my-appID-123/specs/my-specID-456"},"subaction":"Scaling"}
-----
+* CPU-based HPA works with 0.1 vCores replica size only.
 
 
 == See Also
