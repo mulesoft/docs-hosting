@@ -28,7 +28,7 @@ You can opt-in to early infrastructure upgrades so that they are applied earlier
 On average, this upgrade takes between thirty to sixty minutes to complete. If your upgrade is queued, it can take longer than thirty minutes. The impact of the upgrade process on running applications is consistent with the auto-patching behavior described in the previous sections.
 
 [NOTE]
-This upgrade is irreversible. Ensure that you understand what the impact of the upgrade is, and choose when to trigger the upgrade based on your organization's needs before applying it in a production environment.
+This upgrade is irreversible. Ensure that you understand the impact of the upgrade and choose when to trigger the upgrade based on your organization needs before applying it in a production environment.
 
 === Apply the Opt-in Upgrade via Runtime Manager
 
