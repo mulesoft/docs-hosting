@@ -71,7 +71,7 @@ Response:
 }
 ----
 
-=== Apply Upgrades to your Private Space
+=== Apply Upgrades to Your Private Space
 
 If there is a new version available, you can upgrade your private space to the latest available version via the Upgrade Private Space API. The following examples show the API request and response:
 
