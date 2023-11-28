@@ -140,11 +140,11 @@ To add application-level egress support to API Manager, add a custom rule group 
 *** For prod-eu: `eu1.anypoint.mulesoft.com`
 
 [NOTE]
-When configuring application-level egress connections to Anypoint MQ, Object Store v2, or API Manager, you must also allow outbound access to all 443 ports at the private-space level separately.
+When configuring application-level egress connections to Anypoint MQ, Object Store v2, or API Manager, you must also allow outbound access to all 443 ports at the private-space level separately. For more information about allowing outbound access to 443 ports, visit xref:ps-config-fw-rules.adoc[]. 
 
 == Performance Impact
 
-Given the extra layer of validation, using the application-level egress rules can introduce three-minute to ten-minute network latency delays to your applications' connections. To balance security and performance:
+Given the extra layer of validation, using the application-level egress rules can introduce three-millisecond to ten-millisecond network latency delays to your applications' connections. To balance security and performance:
 
 * Limit active rule groups to 20 in your private space.
 * Use a maximum of 40 rules per rule group.
