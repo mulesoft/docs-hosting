@@ -21,7 +21,7 @@ When an update is available, CloudHub 2.0 includes it in Production environments
 
 xref:cloudhub::vpn-maintenance.adoc[Anypoint VPNs] used in CloudHub 2.0 are upgraded continuously. Whenever a new update is available, the VPN is patched within the service-level agreement. If the Anypoint VPN is not setup as high availability or if the non-high-availability VPN is not set up with two tunnels, downtime is expected.
 
-== Self-Triggered Infrastructure Upgrades
+== Opt-in Early Infrastructure Upgrades (Optional)
 
 You can manually apply infrastructure upgrades earlier than the scheduled patching process. In this way, you can choose a time that better suits your organization's needs. 
 
