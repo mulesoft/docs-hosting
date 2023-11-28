@@ -23,7 +23,7 @@ xref:cloudhub::vpn-maintenance.adoc[Anypoint VPNs] used in CloudHub 2.0 are upgr
 
 == Opt-in Early Infrastructure Upgrades (Optional)
 
-You can manually apply infrastructure upgrades earlier than the scheduled patching process. In this way, you can choose a time that better suits your organization's needs. 
+You can opt into early infrastructure upgrades to be applied earlier than the scheduled patching process, between the Release Available and Auto-Update dates stated in the xref:release-notes::cloudhub-2/cloudhub-2-runtimes-release-notes.adoc[monthly updates table]. In this way, you can choose a time that better suits your organization's needs. 
 
 [NOTE]
 This upgrade is irreversible. Test in a lower environment before applying it in a production environment, and perform during low traffic windows.
