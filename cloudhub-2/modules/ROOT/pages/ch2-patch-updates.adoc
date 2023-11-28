@@ -101,7 +101,7 @@ This request must contain an `optIn` parameter. If the `optIn` parameter is not 
 
 ==== Check the Upgrade Status
 
-After you trigger the upgrade, you can check the status via the `globalSpaceStatus `field on the response of the Private Spaces API, which contains a subfield with the status of the current upgrade.
+After you trigger the upgrade, you can check the status via the `globalSpaceStatus` field on the response of the Private Spaces API, which contains a subfield with the status of the current upgrade.
 
 Request:
 
