@@ -159,7 +159,7 @@ Response:
 [%header,cols="20,70"]
 |===
 |Status | Description
-|Active | The private space is currently not ongoing any infrastructure upgrade or configuration update, and is working as expected. 
+|Active | The private space is currently not ongoing any infrastructure upgrade or configuration update and is working as expected. 
 |In Progress|  The private space is undergoing an infrastructure change which can be related to a user configuration update, or to  an infrastructure upgrade, either self-triggered or as part of a monthly infrastructure upgrade. 
 |Failed| The private space experienced a failure which can be related to a user configuration update, or to  an infrastructure upgrade, either self-triggered or as part of a monthly infrastructure upgrade. 
 |Degraded |  The private space is in a disconnected state and not ready to be used.
