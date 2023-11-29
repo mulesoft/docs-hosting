@@ -22,6 +22,7 @@
 *** xref:ps-config-ssl-endpoints.adoc[]
 *** xref:ps-config-domains.adoc[Configuring Domains and Certificates for a Private Space]
 *** xref:ps-config-fw-rules.adoc[]
+*** xref:ps-config-app-level-egress.adoc[]
 *** xref:ps-config-env.adoc[]
 *** xref:ps-config-advanced.adoc[]
 ** xref:ps-manage.adoc[]
