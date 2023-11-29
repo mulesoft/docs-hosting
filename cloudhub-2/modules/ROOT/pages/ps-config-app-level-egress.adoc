@@ -1,0 +1,167 @@
+= Configuring Application-Level Egress Rules
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Application-level egress rules are independent of private-space-level firewall rules. For egress traffic to go through, it must pass both private space and application-level control.
+
+
+== Before You Begin
+
+* Set up your private space and finish provisioning your private network.
+* Verify that your account has CloudHub Network Viewer permission, which is required to view a private space's firewall and application-level rules.
+* Verify that your account has CloudHub Network Administrator permission, which is required to modify a private space's firewall and application-level rules.
+
+== Configure Application-Level Rules in Your Private Space
+
+To configure the application-level rules in a private space:
+
+. From Anypoint Platform, select *Runtime Manager* > *Private Spaces*.
+. Click the name of the private space to manage.
+. On the *Firewall rules* tab, expand the *App-Level Rules* section.
+
+By default, the application-level egress rules feature is disabled when you create a new private space. Toggle the feature to enable it.
+
+[NOTE]
+Ensure that you finished provisioning your private network before enabling the toggle.
+
+Toggling *App-Level Egress Rules* enables the *Default-Egress-Rule-Group*. The default egress rule is *Allow any protocol to any destination*. 
+
+image::ps-toggle-app-level-egress.png[Toggle the application-level egress rules feature]
+
+To modify the default egress rule group:
+
+. Click *Edit*.
+. In the *Egress Rules* section of the group configuration window, select the desired protocol and destination.
+. Click *Add Rule* to add new rules to the rule group.
++ 
+You can delete rules by clicking the delete button (image:trash-icon.png[Delete button, 1.5%,1.5%]).
+. Click *Update Egress Rules* to save your changes.
++
+Your changes affect all applications in the current private space.
++
+You cannot rename or delete the default rule group.
+
+image::ps-egress-edit-default.png[Edit the default app level egress rule group]
+
+To create a new custom egress rule group:
+
+. Click *Create Rule Group*.
+. In the rule group configuration window, add a group name.
++ 
+You can edit and rename custom rule groups. 
+. In the *Egress Rules* section, click *Add Rule* and select the protocol and destination for every rule that you want to add.
++ 
+You can delete rules by clicking the delete button (image:trash-icon.png[Delete button, 1.5%,1.5%]).
+. Click *Create Egress Rules* to save your changes.
++
+To use custom rule groups, select them in the application settings.
+
+To delete an existing custom rule group: 
+
+.  Select *More actions* (image:more-icon.png[More actions menu, 1%,1%]) > *Delete*. 
+. When prompted, click *Delete Rule Group* to confirm the deletion.
++
+[NOTE]
+Once you delete a custom rule group, any applications that use it immediately start using the default egress rule group instead.
+
+image::ps-egress-delete-ruleset.png[Delete custom egress rule group]
+
+You can disable the application-level egress rule feature by clicking the feature's toggle. When prompted, click *Delete and Disable App-Level Rules* to confirm. 
+
+[NOTE]
+Once you disable the application-level egress rule feature, all custom application-level egress rule groups are deleted, and all application-level egress is allowed for all applications.
+
+== Apply Application-Level Egress Rules When Deploying Your Applications
+
+You can apply the application-level egress rules that you configured in your private space when you deploy an application:
+
+. When deploying an application to your private space, select the *Firewall Rules* tab.
++
+. In the *Egress Rule Group* section, select the ruleset to apply to your application. 
+. Click *Apply Changes*.
+
+
+== Configure an Application-Level Egress Connection to Anypoint MQ
+
+To allow HTTPS connections to Anypoint MQ, add an application-level egress rule group with the following rules:
+
+Allow egress to the Anypoint control plane:
+
+* *Protocol*: `HTTPS`
+* *Destination*: `Custom Domains`
+** With value:
+*** For prod: `anypoint.mulesoft.com`
+*** For prod-eu: `eu1.anypoint.mulesoft.com`
+
+Allow egress to the MQ destination:
+
+* *Protocol*: HTTPS
+* *Destination*: `Custom Domains`
+** With the value of the domain name configured in the MQ connector URL
++
+For example, if the MQ connector URL is `https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/{{anypointOrgId}}/environments/{{anypointEnvId}}/`,
+use the value `mq-us-east-1.anypoint.mulesoft.com`.
+
+== Configure an Application-Level Egress Connection to Object Store v2
+
+To allow HTTPS connections to Object Store v2, add an application-level egress rule group with the following rules:
+
+Allow egress to the Anypoint control plane:
+
+* *Protocol*: `HTTPS`
+* *Destination*: `Custom Domains`
+** With value:
+*** For prod: `anypoint.mulesoft.com`
+*** For prod-eu: `eu1.anypoint.mulesoft.com`
+
+Allow egress to the Object Store v2 destination:
+
+* *Protocol*: `HTTPS`
+* *Destination*: `Custom Domains`
+** With value:
+*** For prod: `object-store-us-east-1.anypoint.mulesoft.com`
+*** For prod-eu: `[xxx]`
++
+This URL varies depending on the region. For example, to access Object Store in `ap-southeast-1`, add the URL `object-store-ap-southeast-1.anypoint.mulesoft.com` as the value.
+
+If you enable egress for a domain that includes redirection, such as when `salesforce.com` redirects to `www.salesforce.com`, allow egress for both the original target, `salesforce.com`, and the redirected target, `www.salesforce.com`.
+
+Wildcard records are not supported. For example, `salesforce.com` does not automatically cover `example.salesforce.com`. 
+
+== Configure an Application-Level Egress Connection to API Manager
+
+To add application-level egress support to API Manager, add a custom rule group with the following rule to allow egress to the Anypoint control plane:
+
+* *Protocol*: `HTTPS`
+* *Destination*: `Custom Domains`
+** With value:
+*** For prod: `anypoint.mulesoft.com`
+*** For prod-eu: `eu1.anypoint.mulesoft.com`
+
+[NOTE]
+When configuring application-level egress connections to Anypoint MQ, Object Store v2, or API Manager, you must also allow outbound access to all 443 ports at the private-space level separately. For more information about allowing outbound access to 443 ports, visit xref:ps-config-fw-rules.adoc[]. 
+
+== Performance Impact
+
+Given the extra layer of validation, using the application-level egress rules can introduce three-millisecond to ten-millisecond network latency delays to your applications' connections. To balance security and performance:
+
+* Limit active rule groups to 20 in your private space.
+* Use a maximum of 40 rules per rule group.
+* Limit the total combination of rule groups and rules to 800. 
++
+You can customize the number of rule groups and rules in the combination based on your needs.
+
+These measures help optimize latency while maintaining effective network security.
+
+[NOTE]
+DNS record timing issues can sometimes lead to unexpected connectivity errors. To enhance the reliability of Mule applications, implement robust error handling and connection retry mechanisms.
+
+== See Also
+
+* xref:ch2-private-space-about.adoc[]
+* xref:ch2-deploy-private-space.adoc[]
+* xref:ps-config-fw-rules.adoc[]
+* xref:mq::index.adoc[]
+* xref:object-store::index.adoc[]
+* xref:api-manager::latest-overview-concept.adoc[]
