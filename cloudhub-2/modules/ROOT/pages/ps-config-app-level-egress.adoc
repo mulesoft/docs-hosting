@@ -129,6 +129,9 @@ If you enable egress for a domain that includes redirection, such as when `sales
 
 Wildcard records are not supported. For example, `salesforce.com` does not automatically cover `example.salesforce.com`. 
 
+[NOTE]
+You can't enable domains with double hyphens. For example, `abc--xyz.com`.  
+
 == Configure an Application-Level Egress Connection to API Manager
 
 To add application-level egress support to API Manager, add a custom rule group with the following rule to allow egress to the Anypoint control plane:
