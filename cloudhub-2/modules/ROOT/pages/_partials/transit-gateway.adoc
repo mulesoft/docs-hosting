@@ -53,7 +53,7 @@ Detaching a transit gateway might take several minutes.
 == Delete a Transit Gateway
 
 To completely remove the transit gateway from your Anypoint Platform organization,
-use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/minor/1.0/console/method/%234136/[`DELETE <>/organizations/:orgId/transitgateways/:tgw-id`] API call and delete the resources share on AWS.
+use the [https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/minor/1.0/console/method/%234136/]delete transit gateway API call (`DELETE <>/organizations/:orgId/transitgateways/:tgw-id`) and delete the resources share on AWS.
 For information, see https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing-delete.html[Deleting a resource share^] in the AWS documentation.
 
 // end::deleteTGW[]
