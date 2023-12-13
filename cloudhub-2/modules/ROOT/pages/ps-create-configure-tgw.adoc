@@ -166,6 +166,14 @@ To test the connection, use the Network Tools application.
 
 For download and usage information about the Network Tools application, see https://help.mulesoft.com/s/article/How-To-Use-Network-Tools-Application[How To Use Network Tools Application^] (KB article).
 
+// == Rename a Transit Gateway Attachment
+include::_partials$transit-gateway.adoc[tag=renameTGW]
+
+// == Detach a Transit Gateway from the Private Space
+include::_partials$transit-gateway.adoc[tag=detachTGW]
+
+// == Delete a Transit Gateway Attachment
+include::_partials$transit-gateway.adoc[tag=deleteTGW]
 
 == See Also 
 
