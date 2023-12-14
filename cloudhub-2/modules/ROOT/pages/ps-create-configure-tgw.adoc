@@ -183,16 +183,25 @@ Your private space loses access to a transit gateway when:
 If you want to remove or delete the transit gateway from CloudHub 2.0, you should complete the steps in <<remove-tgw>> or <<delete-tgw>> before deleting the transit gateway, transit gateway attachment, or resource share from the AWS console. Removing connections from the AWS console without removing them from CloudHub 2.0 disrupts the connection but does not remove it. 
 
 [[troubleshoot-tgw]]
-== Troubleshoot Unknown or Deleted States for the Transit Gateway
+== Troubleshoot States for the Transit Gateway or Transit Gateway Attachment
 
-When the transit gateway connection is disrupted, the state of the transit gateway changes to `unknown` or `deleted`. Depending on the cause of the state change, you can fix the state of the transit gateway by deleting or detaching the transit gateway.
+When the transit gateway connection is disrupted, the state of the transit gateway or transit gateway attachment changes to `unknown`, `rejected`, or `deleted`. Depending on the cause of the state change, you can fix the state of the transit gateway or transit gateway attachment by deleting or detaching them.
 
-The `unknown` state occurs when:
+=== Resolve Transit Gateway States
+
+The `unknown` state for a transit gateway state occurs when:
 
 * The transit gateway or resource share is deleted. To fix this state, delete the transit gateway from CloudHub 2.0 using the steps in <<delete-tgw>>.
-* The MuleSoft account principal is deleted. To fix this state add the principal in the resource share.
+* The MuleSoft account principal is deleted. To fix this state, add the principal in the resource share.
 
-The `deleted` state occurs when the transit gateway is deleted from the AWS console but not CloudHub 2.0. To fix this state, detach the transit gateway from the private space using the steps in <<detach-tgw>>.
+The `deleted` state occurs when the transit gateway is deleted from the AWS console but not CloudHub 2.0. To fix this state, delete the transit gateway from CloudHub 2.0 using the steps in <<delete-tgw>>.
+
+=== Resolve Transit Gateway Attachment States
+
+The `deleted` state for a transit gateway attachment occurs when the transit gateway attachment is deleted from the AWS console but not CloudHub 2.0. To fix this state, detach the transit gateway attachment from the private space using the instructions in <<detach-tgw>>.
+
+The `rejected` state for a transit gateway attachment occurs when the transit gateway attachment is rejected. To fix this state, detach the transit gateway attachment from the private space using the steps in <<detach-tgw>>.
+
 
 // == Rename a Transit Gateway Attachment
 include::_partials$transit-gateway.adoc[tag=renameTGW]
