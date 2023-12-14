@@ -1,6 +1,6 @@
 = Creating Transit Gateway Attachments
 
-When you attach a transit gateway to a private space, Amazon Web Services (AWS) creates a _transit gateway attachment_ to represent the connection. You can attach the same transit gateway to on-premisis VPCs in your own AWS account to enable communication between private spaces and VPCs. Multiple private spaces can connect to an internal VPC.
+When you attach a transit gateway to a private space, CloudHub 2.0 creates a _transit gateway attachment_ to represent the connection on Amazon Web Services (AWS). You can attach the same transit gateway to on-premises VPCs in your own AWS account to enable communication between private spaces and VPCs. Multiple private spaces can connect to an internal VPC.
 You can reuse a transit gateway attachment by connecting another private space to it and accepting the attachment. 
 You don't need to create the resource share again.
 
@@ -171,7 +171,7 @@ For download and usage information about the Network Tools application, see http
 
 After you test the connection to your private space, periodically ensure your transit gateway connection is maintained. 
 
-If your private space loses access to the transit gateway, the state of the transit gateway is changed to `unknown` or `deleted`. If the transit gateway remains in the `unknown` state for 14 days, Anypoint Platform may remove the private space attachments from the transit gateway. However, the transit gateway itself is not removed. 
+If your private space loses access to the transit gateway, the state of the transit gateway is changed to `unknown` or `deleted`. If the transit gateway remains in the `unknown` or `deleted` state for 14 days, Anypoint Platform may remove the private space attachments from the transit gateway. However, the transit gateway itself is not removed. 
 
 Your private space loses access to a transit gateway when:
 
