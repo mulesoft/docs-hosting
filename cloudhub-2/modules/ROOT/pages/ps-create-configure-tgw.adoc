@@ -204,13 +204,13 @@ The `rejected` state for a transit gateway attachment occurs when the transit ga
 
 
 // == Rename a Transit Gateway Attachment
-include::_partials$transit-gateway.adoc[tag=renameTGW]
+include::partial$transit-gateway.adoc[tag=renameTGW]
 
 // == Detach a Transit Gateway from the Private Space
-include::_partials$transit-gateway.adoc[tag=detachTGW]
+include::partial$transit-gateway.adoc[tag=detachTGW]
 
 // == Delete a Transit Gateway Attachment
-include::_partials$transit-gateway.adoc[tag=deleteTGW]
+include::partial$transit-gateway.adoc[tag=deleteTGW]
 
 == See Also 
 

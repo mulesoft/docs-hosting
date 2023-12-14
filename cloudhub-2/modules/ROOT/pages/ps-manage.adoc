@@ -182,13 +182,13 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 . Click *Delete* to confirm the deletion or *Cancel*.
 
 // == Rename a Transit Gateway Attachment
-include::_partials$transit-gateway.adoc[tag=renameTGW]
+include::partial$transit-gateway.adoc[tag=renameTGW]
 
 // == Detach a Transit Gateway from the Private Space
-include::_partials$transit-gateway.adoc[tag=detachTGW]
+include::partial$transit-gateway.adoc[tag=detachTGW]
 
 // == Delete a Transit Gateway Attachment
-include::_partials$transit-gateway.adoc[tag=deleteTGW]
+include::partial$transit-gateway.adoc[tag=deleteTGW]
 
 ////
 To remove a transit gateway attachment:
