@@ -169,7 +169,7 @@ For download and usage information about the Network Tools application, see http
 [[best-practices]]
 == Maintain the Transit Gateway 
 
-After you test the connection to your private space, periodically ensure your transit gateway connection is maintained. 
+After you test the connection to your private space, periodically check the connection to your transit gateway. 
 
 If your private space loses access to the transit gateway, the state of the transit gateway changes to `unknown` or `deleted`. If the transit gateway remains in the `unknown` or `deleted` state for 14 days, Anypoint Platform might remove the private space attachments from the transit gateway. However, the transit gateway itself is not removed. 
 
