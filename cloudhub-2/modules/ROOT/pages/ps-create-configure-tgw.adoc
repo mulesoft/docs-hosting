@@ -171,7 +171,7 @@ For download and usage information about the Network Tools application, see http
 
 After you test the connection to your private space, periodically ensure your transit gateway connection is maintained. 
 
-If your private space loses access to the transit gateway, the state of the transit gateway is changed to `unknown` or `deleted`. If the transit gateway remains in the `unknown` or `deleted` state for 14 days, Anypoint Platform may remove the private space attachments from the transit gateway. However, the transit gateway itself is not removed. 
+If your private space loses access to the transit gateway, the state of the transit gateway changes to `unknown` or `deleted`. If the transit gateway remains in the `unknown` or `deleted` state for 14 days, Anypoint Platform might remove the private space attachments from the transit gateway. However, the transit gateway itself is not removed. 
 
 Your private space loses access to a transit gateway when:
 
@@ -180,7 +180,7 @@ Your private space loses access to a transit gateway when:
 * A resource share is deleted.
 * The MuleSoft account principal is deleted from the resource share. 
 
-If you want to remove or delete the transit gateway from CloudHub 2.0, you should complete the steps in <<remove-tgw>> or <<delete-tgw>> before deleting the transit gateway, transit gateway attachment, or resource share from the AWS console. Removing connections from the AWS console without removing them from CloudHub 2.0 disrupts the connection but does not remove it. 
+To remove or delete the transit gateway from CloudHub 2.0, complete the steps in <<remove-tgw>> or <<delete-tgw>> before deleting the transit gateway, transit gateway attachment, or resource share from the AWS console. Removing connections from the AWS console without removing them from CloudHub 2.0 disrupts the connection but does not remove it. 
 
 [[troubleshoot-tgw]]
 == Troubleshoot States for the Transit Gateway or Transit Gateway Attachment
@@ -191,8 +191,12 @@ When the transit gateway connection is disrupted, the state of the transit gatew
 
 The `unknown` state for a transit gateway state occurs when:
 
-* The transit gateway or resource share is deleted. To fix this state, delete the transit gateway from CloudHub 2.0 using the steps in <<delete-tgw>>.
-* The MuleSoft account principal is deleted. To fix this state, add the principal in the resource share.
+* The transit gateway or resource share is deleted.
++
+To fix this state, delete the transit gateway from CloudHub 2.0 using the steps in <<delete-tgw>>.
+* The MuleSoft account principal is deleted.
++
+To fix this state, add the principal in the resource share.
 
 The `deleted` state occurs when the transit gateway is deleted from the AWS console but not CloudHub 2.0. To fix this state, delete the transit gateway from CloudHub 2.0 using the steps in <<delete-tgw>>.
 
