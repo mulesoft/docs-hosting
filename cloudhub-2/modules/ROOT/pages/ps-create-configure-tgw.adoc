@@ -185,7 +185,7 @@ To remove or delete the transit gateway from CloudHub 2.0, complete the steps in
 [[troubleshoot-tgw]]
 == Troubleshoot States for the Transit Gateway or Transit Gateway Attachment
 
-When the transit gateway connection is disrupted, the state of the transit gateway or transit gateway attachment changes to `unknown`, `rejected`, or `deleted`. Depending on the cause of the state change, you can fix the state of the transit gateway or transit gateway attachment by deleting or detaching them.
+When the transit gateway connection is disrupted, the state of the transit gateway or transit gateway attachment changes to `unknown`, `rejected`, or `deleted`. Depending on the cause of the state change, you can fix the state of the transit gateway or transit gateway attachment by deleting and recreating or detaching and reattaching them.
 
 === Resolve Transit Gateway States
 
