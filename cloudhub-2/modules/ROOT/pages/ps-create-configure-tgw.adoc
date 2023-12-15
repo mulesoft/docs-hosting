@@ -198,13 +198,13 @@ To fix this state, delete the transit gateway from CloudHub 2.0 using the steps 
 +
 To fix this state, add the principal in the resource share.
 
-The `deleted` state occurs when the transit gateway is deleted from the AWS console but not CloudHub 2.0. To fix this state, delete the transit gateway from CloudHub 2.0 using the steps in <<delete-tgw>>.
+The `deleted` state occurs when the transit gateway is deleted from the AWS console but not CloudHub 2.0. To fix this state, delete the transit gateway from CloudHub 2.0 using the steps in <<delete-tgw>>, then create a new transit gateway.
 
 === Resolve Transit Gateway Attachment States
 
-The `deleted` state for a transit gateway attachment occurs when the transit gateway attachment is deleted from the AWS console but not CloudHub 2.0. To fix this state, detach the transit gateway attachment from the private space using the instructions in <<detach-tgw>>.
+The `deleted` state for a transit gateway attachment occurs when the transit gateway attachment is deleted from the AWS console but not CloudHub 2.0. To fix this state, detach the transit gateway attachment from the private space using the steps in <<detach-tgw>>, then reattach the transit gateway attachment.
 
-The `rejected` state for a transit gateway attachment occurs when the transit gateway attachment is rejected. To fix this state, detach the transit gateway attachment from the private space using the steps in <<detach-tgw>>.
+The `rejected` state for a transit gateway attachment occurs when the transit gateway attachment is rejected. To fix this state, detach the transit gateway attachment from the private space using the steps in <<detach-tgw>>, then reattach the transit gateway attachment.
 
 
 // == Rename a Transit Gateway Attachment
