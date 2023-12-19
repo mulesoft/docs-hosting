@@ -1,0 +1,59 @@
+
+// tag::renameTGW[]
+[[rename-tgw]]
+== Rename a Transit Gateway Attachment
+
+You might want to rename a transit gateway attachment to match the attachment name in AWS.
+
+To rename a transit gateway attachment:
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. On the *Network* tab, in the *Connections* section, click the transit gateway menu (*...*) and select *Rename*:
+// +
+// <screenshot>
+// image::tgw-rename.png[Rename option in the transit gateway menu]
+include::partial$select-private-space.adoc[tag=renameItem]
+// end::renameTGW[]
+
+
+// tag::detachTGW[]
+[[detach-tgw]]
+== Detach a Transit Gateway from the Private Space
+
+You might want to detach a transit gateway attachment for the following reasons:
+
+* If you reject an attachment in AWS, the transit gateway attachment appears as `Rejected` in Anypoint Platform.
+In this case, you must remove the attachment before trying to attach it again.
+* If an attachment is deleted on AWS, you can remove the attachment from Anypoint Platform.
+
+Removing a transit gateway attachment also deletes any associate routes.
+The resource share on AWS remains unaffected so you can readd the transit gateway without creating a new one. However, detaching a transit gateway from a private space also deletes the attachment in AWS. 
+
+The transit gateway appears under *Add a transit gateway* if you only detach it and do not delete it from your organization.
+Any apps deployed to the private space continue to run, but they are no longer connected to your Amazon VPCs and VPNs.
+
+To detach the transit gateway:
+
+//SELECT PRIVATE SPACE SHARED
+include::partial$select-private-space.adoc[tag=selectPrivateSpace]
+include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
+. On the *Network* tab, in the *Connections* section, click the transit gateway menu (*...*) and select *Detach*:
+// +
+// <screenshot>
+// image::tgw-detach-vpc.png[Detach transit gateway option in the transit gateway menu]
+. At the confirmation prompt, click *Detach*.
++
+Detaching a transit gateway might take several minutes.
+// end::detachTGW[]
+
+// tag::deleteTGW[]
+[[delete-tgw]]
+== Delete a Transit Gateway
+
+To completely remove the transit gateway from your Anypoint Platform organization,
+use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/minor/1.0/console/method/%234136/[delete transit gateway API call] (`DELETE <>/organizations/:orgId/transitgateways/:tgw-id`) and delete the resources share on AWS.
+For information, see https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing-delete.html[Deleting a resource share^] in the AWS documentation.
+
+// end::deleteTGW[]
