@@ -1,7 +1,7 @@
 = Creating Transit Gateway Attachments
 
-Multiple private spaces can connect to an internal VPC.
-You can reuse the transit gateway attachment by connecting another private space to it and accepting the attachment. 
+When you attach a transit gateway to a private space, CloudHub 2.0 creates a _transit gateway attachment_ to represent the connection on Amazon Web Services (AWS). You can attach the same transit gateway to on-premises VPCs in your own AWS account to enable communication between private spaces and VPCs. Multiple private spaces can connect to an internal VPC.
+You can reuse a transit gateway attachment by connecting another private space to it and accepting the attachment. 
 You don't need to create the resource share again.
 
 == Before You Begin
@@ -166,6 +166,55 @@ To test the connection, use the Network Tools application.
 
 For download and usage information about the Network Tools application, see https://help.mulesoft.com/s/article/How-To-Use-Network-Tools-Application[How To Use Network Tools Application^] (KB article).
 
+[[best-practices]]
+== Maintain the Transit Gateway 
+
+After you test the connection to your private space, periodically check the connection to your transit gateway. 
+
+If your private space loses access to the transit gateway, the state of the transit gateway changes to `unknown` or `deleted`. If the transit gateway remains in the `unknown` or `deleted` state for 14 days, Anypoint Platform might remove the private space attachments from the transit gateway. However, the transit gateway itself is not removed. 
+
+Your private space loses access to a transit gateway when:
+
+* The transit gateway is deleted from CloudHub 2.0.
+* The transit gateway is deleted from the AWS console.
+* A resource share is deleted.
+* The MuleSoft account principal is deleted from the resource share. 
+
+To remove or delete the transit gateway from CloudHub 2.0, complete the steps in <<remove-tgw>> or <<delete-tgw>> before deleting the transit gateway, transit gateway attachment, or resource share from the AWS console. Removing connections from the AWS console without removing them from CloudHub 2.0 disrupts the connection but does not remove it. 
+
+[[troubleshoot-tgw]]
+== Troubleshoot States for the Transit Gateway or Transit Gateway Attachment
+
+When the transit gateway connection is disrupted, the state of the transit gateway or transit gateway attachment changes to `unknown`, `rejected`, or `deleted`. Depending on the cause of the state change, you can fix the state of the transit gateway or transit gateway attachment by deleting and recreating or detaching and reattaching them.
+
+=== Resolve Transit Gateway States
+
+The `unknown` state for a transit gateway state occurs when:
+
+* The transit gateway or resource share is deleted.
++
+To fix this state, delete the transit gateway from CloudHub 2.0 using the steps in <<delete-tgw>>.
+* The MuleSoft account principal is deleted.
++
+To fix this state, add the principal in the resource share.
+
+The `deleted` state occurs when the transit gateway is deleted from the AWS console but not CloudHub 2.0. To fix this state, delete the transit gateway from CloudHub 2.0 using the steps in <<delete-tgw>>, then create a new transit gateway.
+
+=== Resolve Transit Gateway Attachment States
+
+The `deleted` state for a transit gateway attachment occurs when the transit gateway attachment is deleted from the AWS console but not CloudHub 2.0. To fix this state, detach the transit gateway attachment from the private space using the steps in <<detach-tgw>>, then reattach the transit gateway attachment.
+
+The `rejected` state for a transit gateway attachment occurs when the transit gateway attachment is rejected. To fix this state, detach the transit gateway attachment from the private space using the steps in <<detach-tgw>>, then reattach the transit gateway attachment.
+
+
+// == Rename a Transit Gateway Attachment
+include::partial$transit-gateway.adoc[tag=renameTGW]
+
+// == Detach a Transit Gateway from the Private Space
+include::partial$transit-gateway.adoc[tag=detachTGW]
+
+// == Delete a Transit Gateway Attachment
+include::partial$transit-gateway.adoc[tag=deleteTGW]
 
 == See Also 
 
