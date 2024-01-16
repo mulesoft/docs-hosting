@@ -148,7 +148,7 @@ You can enable VPN logs to be directly accessible by MuleSoft support engineers.
 
 . For VPN connections created after March 8, 2023, VPN logs are enabled by default upon creation.
 . For existing VPN connections:
-.. You can enable VPN logs via PATCH call to the following existing public endpoint:
+.. You can enable VPN logs via PATCH call to the following existing external endpoint:
 +
 `https://anypoint.mulesoft.com/runtimefabric/api/organizations/{{org-id}}/privatespaces/{{ps-id}}/connections/{{connection-id}}/vpns/{{vpn-id}}`.
 +
