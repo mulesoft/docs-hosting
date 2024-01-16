@@ -94,7 +94,7 @@ To configure different paths:
 . Click *Apply Changes* to create a new configuration for your application.
 
 [[remove-external-endpoint]]
-== Remove a External Endpoint
+== Remove an External Endpoint
 
 To remove an external endpoint:
 
