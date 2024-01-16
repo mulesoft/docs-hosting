@@ -107,7 +107,7 @@ include::partial$select-private-space.adoc[tag=clickSettings]
 
 
 [[view-internal-endpoint]]
-== View the internal Endpoint for an App
+== View the Internal Endpoint for an App
 
 An internal endpoint is accessible from inside the same private space or through
 the VPN or transit gateway connection for the private space. You cannot make changes to the path or domain for an internal endpoint.
