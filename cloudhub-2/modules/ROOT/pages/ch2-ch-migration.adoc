@@ -1,0 +1,22 @@
+= Migrating from CloudHub to CloudHub 2.0
+
+If your organization uses CloudHub, you can facilitate the migration process to CloudHub 2.0 by using Runtime Manager's interface for creating private spaces based on existing VPCs.
+
+== Before You Begin
+
+You must have the following xref:access-management::permissions-by-product.adoc[permissions] to complete VPC to private space conversion: 
+
+* Organization Administrator over the root organization
+* CloudHub Network Administrator from Runtime Manager
+* CloudHub Network Viewer from Runtime Manager
+* Create Applications permission from Runtime Manager
+
+If you do not have the required permissions for this process, contact your organization administrator.
+
+== Prepare Your VPC for Migration
+
+== Initiate the Migration Process
+
+== Test Your New Private Space
+
+== Troubleshooting
