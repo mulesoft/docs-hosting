@@ -11,5 +11,5 @@ include::partial$deployment.adoc[tag=configureLogging,leveloffset=+1]
 == See Also 
 
 * xref:ch2-integrate-log-system.adoc[]
-* xref:view-logs.adoc[]
+* xref:ch2-view-logs.adoc[]
 * xref:monitoring::index.adoc[]
