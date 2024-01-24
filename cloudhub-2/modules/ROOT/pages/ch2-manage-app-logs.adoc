@@ -1,0 +1,3 @@
+= Managing Application Logs
+
+include::partial$deployment.adoc[tag=configureLogging,leveloffset=+1]
