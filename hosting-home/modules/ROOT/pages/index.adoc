@@ -87,6 +87,7 @@ The following table shows which environments support each component:
 | Anypoint Service Mesh| Y | Y | N | N
 | Anypoint Studio | Y | Y | Y | Y
 | Anypoint Visualizer | Y | Y | Y | Y
+| RPA Manager | Y | Y | N | N
 |===
 
 [[mq-support]]
