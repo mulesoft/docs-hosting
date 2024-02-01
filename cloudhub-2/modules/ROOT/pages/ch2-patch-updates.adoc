@@ -204,7 +204,7 @@ After a new automated update occurs, you can check your xref:managing-deployed-a
 
 You can also check your application logs to verify if your application was deployed correctly and take any remediation actions in the event of some auto-minor update-related issue. For more information, visit xref:ch2-view-logs.adoc#view-logs[View Logs].
 
-To be notified by e-mail when an error occurs after an automated update, you can xref:ch2-config-app-alerts.adoc[]. 
+To be notified by e-mail when an error occurs after an automated update, you can xref:ch2-config-app-alerts.adoc[create an alert]. 
 
 
 === Update the Runtime Version Manually
