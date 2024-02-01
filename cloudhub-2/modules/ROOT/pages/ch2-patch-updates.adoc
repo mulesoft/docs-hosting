@@ -15,7 +15,7 @@ CloudHub 2.0 applies continuous updates to two MuleSoft-managed deployment platf
 
 == CloudHub 2.0 Infrastructure Updates
 
-As a container-based platform, CloudHub 2.0 applies infrastructure fixes and security patches as needed to ensure the infrastructure is secure and up-to-date. Patch updates use rolling upgrade deployment (when selected as the deployment model) and can include operating system changes or changes to internal software. An update rotates, drains, and replaces the underlying hosts gradually to ensure zero downtime when using the Rolling Update deployment model. During the upgrade, the Mule application might be restarted onto a new secure host. If the Mule worker is not running with multiple replicas or is using the Recreate deployment model, it will experience slight downtime.
+As a container-based platform, CloudHub 2.0 applies infrastructure fixes and security patches as needed to ensure the infrastructure is secure and up-to-date. Patch updates use rolling upgrade deployment (when selected as the deployment model) and can include operating system changes or changes to internal software. An update rotates, drains, and replaces the underlying hosts gradually to ensure zero downtime when using the Rolling Update deployment model. During the upgrade, the Mule application might be restarted onto a new secure host. If the Mule worker is not running with multiple replicas or is using the Recreate deployment model, it experiences slight downtime.
 
 When an update is available, CloudHub 2.0 includes it in Production environments as the default for new private spaces. The existing infrastructure patching schedule occurs in the same maintenance window as xref:release-notes::cloudhub-2/cloudhub-2-runtimes-release-notes.adoc[CloudHub 2.0 Runtime patches]. Infrastructure and runtime updates might cause your applications to restart.
 
@@ -197,6 +197,15 @@ include::anypoint-cli::partial$mule-4.5-release-channels.adoc[]
 
 When an automatic update occurs, the audit log for your application adds an entry by user Anypoint Staff, which shows the date and time an update occurred and whether it was successful.
 If the update is successful, no action is required. If your application does not support zero-downtime updates or requires a manual update, you can manually apply the date patch released in the first full week of the month in week 1 or week 2. See xref:ch2-patch-updates.adoc#update-the-runtime-version-manually[Update the Runtime Version Manually].
+
+== Check Your Application Status After an Automated Update
+
+After a new automated update occurs, you can check your xref:managing-deployed-applications.adoc#application_status_states[applications status state] in the *Status* column in Runtime Manager's *Applications* tab.
+
+You can also check your application logs to verify if your application was deployed correctly and take any remediation actions in the event of some auto-minor update-related issue. For more information, visit xref:ch2-view-logs.adoc#view-logs[View Logs].
+
+To be notified by e-mail when an error occurs after an automated update, you can xref:ch2-config-app-alerts.adoc[]. 
+
 
 === Update the Runtime Version Manually
 
