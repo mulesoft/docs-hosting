@@ -117,6 +117,10 @@ For existing applications using an Edge version, the *Use Edge Release Channel* 
 For existing applications running on a legacy version that was originally deployed using an Edge version, you must Check the  *Use Edge Release Channel* box to see the previous version on the *Runtime version* dropdown list.
 +
 For existing applications using an Edge version on extended support, a warning message appears indicating the version's EOL.
+
+Java Version:: 
+Select the Java version for your application. For more information, visit xref:general::java-support.adoc[].
+
 Replica size::
 Specifies the number of vCores in the replica to run your application.
 +

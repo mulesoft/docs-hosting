@@ -198,16 +198,67 @@ include::anypoint-cli::partial$mule-4.5-release-channels.adoc[]
 When an automatic update occurs, the audit log for your application adds an entry by user Anypoint Staff, which shows the date and time an update occurred and whether it was successful.
 If the update is successful, no action is required. If your application does not support zero-downtime updates or requires a manual update, you can manually apply the date patch released in the first full week of the month in week 1 or week 2. See xref:ch2-patch-updates.adoc#update-the-runtime-version-manually[Update the Runtime Version Manually].
 
-== Check Your Application Status After an Automated Update
+== Edge and LTS Releases for Mule
 
-After a new automated update occurs, you can check your xref:managing-deployed-applications.adoc#application_status_states[applications status state] in the *Status* column in Runtime Manager's *Applications* tab.
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=MuleIntro]
 
-You can also check your application logs to verify if your application was deployed correctly and take any remediation actions in the event of some auto-minor update-related issue. For more information, visit xref:ch2-view-logs.adoc#view-logs[View Logs].
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CHa]
 
-To be notified by e-mail when an error occurs after an automated update, you can xref:ch2-config-app-alerts.adoc[create an alert]. 
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=MuleIntro1]
+
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=MuleIntro1A]
+
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=MuleIntro2]
 
 
-=== Update the Runtime Version Manually
+[%header,="2*a"]
+|===
+| Action | CloudHub 2.0
+| Deploy net new apps  
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CH1]
+| Auto-upgrade 
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CH2]
+| Self-upgrade
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CH3]
+| Rollback 
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CH4]
+| Restart apps
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CH5]
+| Keep running applications 
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CH6]
+| End of Extended Support 
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CH7]
+| Retirement  
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CH8]
+| Supportability 
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CH9]
+|===
+
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=MuleIntro3]
+
+=== CloudHub 2.0
+
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=MuleIntro4]
+
+CloudHub 2.0 requires 
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=MuleIntro5]
+
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=MuleIntro6]
+
+
+== Update Notification
+
+When a new runtime version is available:
+
+* The *Applications* page displays an *Update Available* column that indicates if there is an update available for the application:
+
+*  *Update available* and the new available updates appear in the *Deployment Target* tab of the *Settings* page for the application:
+
+
+MuleSoft applies the updates automatically, based on the published schedules.
+If you want, you can update them manually at your convenience.
+
+== Update the Runtime Version Manually
 
 . Log in to Anypoint Platform.
 . Navigate to Runtime Manager.
@@ -217,6 +268,10 @@ To be notified by e-mail when an error occurs after an automated update, you can
 . Select the latest build for your version.
 . Click *Deploy*. +
 The application redeploys with the new runtime version.
+
+If you select the Edge release channel, a banner appears indicating the date of the next automatic update.
+
+image::ch2-app-edge-auto-update.png[Banner indicating the date of automatic update for Edge release channel.]
 
 == Security Updates
 
@@ -228,3 +283,14 @@ MuleSoft regularly runs scans to identify security vulnerabilities in JVM and th
 |P0 | Critical | 7 days
 |P1 | High | 30 days
 |===
+
+== Check Your Application Status After an Update
+
+After a new update occurs, you can check your xref:managing-deployed-applications.adoc#application_status_states[applications status state] in the *Status* column in Runtime Manager's *Applications* tab.
+
+You can also check your application logs to verify if your application was deployed correctly and take any remediation actions in the event of some auto-minor update-related issue. For more information, visit xref:ch2-view-logs.adoc#view-logs[View Logs].
+
+
+== See Also
+
+* xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[].
