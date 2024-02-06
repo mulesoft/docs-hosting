@@ -112,7 +112,7 @@ For new applications, the Edge channel is selected by default in the *Release Ch
 +
 For existing applications using a legacy version, the *Release Channel* drop-down list is selected as `None` by default. Use the *Release Channel* drop-down list to select the desired release channel.
 +
-For existing applications using an Edge version, the *Release Channel* drop-down list is selected as `Edge`. The *Runtime Version* dropdown list indicates if there is an update available, as well as the previous and latest version of the application. Uncheck the  *Release Channel* drop-down list to change to a legacy version.
+For existing applications using an Edge version, the *Release Channel* drop-down list is selected as `Edge`. The *Runtime Version* dropdown list indicates if there is an update available, as well as the previous and latest version of the application. Use the  *Release Channel* drop-down list to change to a legacy version.
 +
 For existing applications using an Edge or an LTS version on extended support, a warning message appears indicating the version's EOL.
 
