@@ -251,9 +251,12 @@ include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[
 When a new runtime version is available:
 
 * The *Applications* page displays an *Update Available* column that indicates if there is an update available for the application:
++
+image::ch2-update-available-column.png[]
 
 *  *Update available* and the new available updates appear in the *Deployment Target* tab of the *Settings* page for the application:
-
++
+image::ch2-update-available-field.png[]
 
 MuleSoft applies the updates automatically, based on the published schedules.
 If you want, you can update them manually at your convenience.
