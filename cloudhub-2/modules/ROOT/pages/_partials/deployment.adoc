@@ -114,9 +114,7 @@ For existing applications using a legacy version, the *Release Channel* drop-dow
 +
 For existing applications using an Edge version, the *Release Channel* drop-down list is selected as `Edge`. The *Runtime Version* dropdown list indicates if there is an update available, as well as the previous and latest version of the application. Uncheck the  *Release Channel* drop-down list to change to a legacy version.
 +
-For existing applications running on a legacy version that was originally deployed using an Edge version, you must Check the  *Use Edge Release Channel* box to see the previous version on the *Runtime version* dropdown list.
-+
-For existing applications using an Edge version on extended support, a warning message appears indicating the version's EOL.
+For existing applications using an Edge or an LTS version on extended support, a warning message appears indicating the version's EOL.
 
 Java Version:: 
 Select the Java version for your application. For more information, visit xref:general::java-support.adoc[].
