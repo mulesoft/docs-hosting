@@ -19,7 +19,8 @@ You do not need to configure your apps to use Object Store in CloudHub 2.0. Addi
 
 Clustering requires:
 
-* A Platinum or Titanium subscription to Anypoint Platform.
+include::reuse::partials$billing/pricing.adoc[tag=prereqBullet]
+
 * A CloudHub Enterprise or Partner account type that enables you to use this feature.
 * Familiarity with deploying applications using Runtime Manager.
 
