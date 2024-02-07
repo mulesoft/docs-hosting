@@ -19,7 +19,7 @@ You do not need to configure your apps to use Object Store in CloudHub 2.0. Addi
 
 Clustering requires:
 
-include::reuse::partial$pricing.adoc[tag=prereqBullet]
+include::reuse::partial$billing/pricing.adoc[tag=prereqBullet]
 
 * A CloudHub Enterprise or Partner account type that enables you to use this feature.
 * Familiarity with deploying applications using Runtime Manager.
