@@ -1,6 +1,6 @@
 = Deploy an App with TCP using the Application Manager API
 
-To configure protocols other than HTTP or HTTPS, first set up TCP inbound firewall rules to allow TCP traffic for your private space. You can then use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/minor/1.0/pages/home/[Application Manager API] to deploy an app using TCP. 
+To configure protocols other than HTTP or HTTPS, first set up TCP inbound firewall rules to allow TCP traffic for your private space. You can then use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/minor/1.0/pages/home/[Application Manager API] to deploy an app using TCP. TCP inbound firewall rules do not support custom endpoints.
 
 To configure firewall rules using TCP, follow the steps in xref:ps-config-fw-rules.adoc#configure-firewall-rules[Configure Firewall Rules] and select TCP.
 
