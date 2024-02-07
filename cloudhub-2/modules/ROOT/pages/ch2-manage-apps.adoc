@@ -4,3 +4,4 @@
 * xref:ch2-manage-schedules.adoc[]
 * xref:ch2-manage-props.adoc[]
 * xref:ch2-protect-app-props.adoc[]
+* xref:ch2-manage-app-logs.adoc[]
