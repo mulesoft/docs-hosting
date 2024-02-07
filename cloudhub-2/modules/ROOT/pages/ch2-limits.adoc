@@ -38,7 +38,7 @@ A TLS Context can reference one keystore and one truststore, which have their re
 
 Ingress controller `content-length` in POST requests:: 0 or greater. `content-length` must be included in the POST request, even if the value is 0.
 
-API rate limit:: 15 requests per second per remote IP address.
+Anypoint Platform CloudHub 2.0 API rate limit:: 15 requests per second per remote IP address.
 
 
 
