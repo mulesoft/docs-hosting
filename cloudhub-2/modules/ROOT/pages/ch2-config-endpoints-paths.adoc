@@ -1,7 +1,7 @@
 = Configuring Endpoints and Paths for Apps Deployed to a Private Space
 
 [IMPORTANT]
-CloudHub 2.0 supports customizing external endpoints only for apps that are deployed to private spaces, not shared spaces.
+CloudHub 2.0 supports customizing endpoints only for apps that are deployed to private spaces, not shared spaces.
 
 
 A private space routes requests from clients to apps deployed to the private space.
