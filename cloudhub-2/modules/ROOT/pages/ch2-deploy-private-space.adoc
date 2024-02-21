@@ -54,7 +54,7 @@ To configure endpoints for the app to enable access from the internet:
 
 . Click the *Ingress* tab and specify the following options:
 +
-External endpoint::
+Endpoint::
 +
 --
 * *Host*: Select the domain, such as `cloudhub.io`, for the app from the drop-down list.
@@ -89,7 +89,7 @@ Paths support <<placeholder-table,placeholders>>.
 Path Rewrite::
 +
 --
-If the HTTP Listener in your app listens on a different path than the path defined in *External Endpoints*:
+If the HTTP Listener in your app listens on a different path than the path defined in *Endpoints*:
 
 . Enable the *Rewrite Request Paths* option.
 . Enter the target path expected by your app.
