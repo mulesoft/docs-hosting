@@ -1,0 +1,15 @@
+= Managing App Logs
+
+Logging is available for apps deployed to both shared and private spaces.  
+
+// replace with partial
+
+If your organization has a Titanium subscription, you can use Anypoint Monitoring for more advanced searching and log management. For more information, see xref:monitoring::index.adoc[].
+
+include::partial$deployment.adoc[tag=configureLogging,leveloffset=+1]
+
+== See Also 
+
+* xref:ch2-integrate-log-system.adoc[]
+* xref:ch2-view-logs.adoc[]
+* xref:monitoring::index.adoc[]
