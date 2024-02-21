@@ -11,7 +11,7 @@ When you deploy an app to a private space, two types of _endpoints_ are created:
 * *Endpoint*: A URL used to reach the app deployed to the public space. In this context, it is accessible externally and enables clients outside of the network to reach the app. You can delete this endpoint to prevent external traffic from reaching the app.
 * *Internal endpoint*: A URL used to reach the app deployed to the public space, but it is accessible only within the private network, VPN, or transit gateway (TGW). This type of endpoint cannot be modified or deleted.
 
-for example `\https://my-app.example.com/`. External endpoints enable clients outside of the network to reach the app. Internal endpoints are accessible only within the private network, a VPN, or transit gateway (TGW). To ensure an app is accessible only within the network, you can remove external endpoints.
+An example endpoint URL is `\https://my-app.example.com/`. Endpoints enable clients outside of the network to reach the app. Internal endpoints are accessible only within the private network, a VPN, or transit gateway (TGW). To ensure an app is accessible only within the network, use internal endpoints.
 
 You can customize how requests from clients reach the app by configuring:
 
