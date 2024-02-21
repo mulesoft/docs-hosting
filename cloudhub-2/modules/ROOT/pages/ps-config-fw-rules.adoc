@@ -83,4 +83,3 @@ Port ranges for outbound traffic are configurable.
 image::fw-rule-delete.png[Delete icon on the Firewall rules tab]
 
 . Click *Save Changes* or *Discard changes*.
-. Restart your application.
