@@ -15,19 +15,19 @@ An example endpoint URL is `\https://my-app.example.com/`. Endpoints enable clie
 
 You can customize how requests from clients reach the app by configuring:
 
-* Multiple custom external endpoints
+* Multiple custom endpoints
 +
-The administrator specifies the domains that you can use for the external endpoints
+The administrator specifies the domains that you can use for the endpoints
 by configuring the TLS context in the private space settings.
 For information, see xref:ps-config-domains.adoc[].
 
-* Different paths for the app and the external endpoint URL
+* Different paths for the app and the endpoint URL
 +
 The _path_ is the base path expected by the HTTP Listener in your app, for example `my-app.example.com/v1/api`.
 +
 For information, see xref:http-connector::http-listener-ref.adoc[HTTP Listener Reference - Mule 4].
 
-You can also remove the external endpoint to ensure clients outside of the private network cannot make requests to the app.
+You can also remove the endpoint to ensure clients outside of the private network cannot make requests to the app.
 
 
 [[before-you-begin]]
@@ -39,16 +39,16 @@ For information, see xref:ps-config-domains.adoc[].
 
 
 [[configure-multiple-endpoints]]
-== Configure Multiple External Endpoints
+== Configure Multiple Endpoints
 
-You can enable your app to be reached via multiple external endpoints, for example,
+You can enable your app to be reached via multiple endpoints, for example,
 `my-app.example.com` and `my-old-app.oldname.com`.
 
 [TIP]
 To ensure that each endpoint name is unique, use the `app-name` placeholder in the subdomain,
 or the path if the domain doesn't include a wildcard.
 
-To configure multiple external endpoints:
+To configure multiple endpoints:
 
 . When deploying an app to a private space, click the *Ingress* tab.
 +
@@ -80,9 +80,9 @@ For information, see <<placeholder-table,placeholders>>.
 include::partial$deployment.adoc[tag=placeholders,leveloffset=+2]
 
 [[configure-different-paths]]
-== Configure a Different Path for the App and the External URL Endpoint
+== Configure a Different Path for the App and the URL Endpoint
 
-You can configure different paths for the app and the external URL endpoint.
+You can configure different paths for the app and the URL endpoint.
 For example, if the app is listening on `my-app.example.com/v1/api` and you
 want the app to be reachable from the internet using `my-app.example.com/api`.
 When you rewrite the path URL, the new path applies to all endpoints.
@@ -97,9 +97,9 @@ To configure different paths:
 . Click *Apply Changes* to create a new configuration for your application.
 
 [[remove-external-endpoint]]
-== Remove an External Endpoint
+== Remove an Endpoint
 
-To remove an external endpoint:
+To remove an endpoint:
 
 //SELECT APP SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
