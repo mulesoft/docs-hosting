@@ -20,7 +20,7 @@ When this value appears, there is a MuleSoft-related outage or incident.
 ** Application file
 ** Application deployment package version
 ** Deployment target settings, such as runtime version, number of replicas, and whether the application is running in cluster mode
-** External endpoint and TLS settings
+** Endpoint and TLS settings
 ** Resource allocations, including CPU and memory
 ** App property values
 * View logs and diagnostics associated with a configuration.
@@ -41,7 +41,7 @@ Displays a history of versions created from the configuration deployment and the
 +
 ** Specify runtime options, such as uploading a new application file or changing the deployment target and resource allocation.
 ** View the app's current version.
-** Change the external endpoint for the app.
+** Change the endpoint for the app.
 ** Change app behavior with properties.
 ** Disable or enable app logs and specify log levels.
 . Click *Apply Changes*.
