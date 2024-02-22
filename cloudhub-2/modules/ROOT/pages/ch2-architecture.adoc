@@ -111,11 +111,9 @@ CloudHub 2.0 monitors replicas to verify that they are operating correctly, and 
 
 == CloudHub 2.0 Resourcing for Anypoint Integration Customers
 
-Organizations that use CloudHub 2.0 and use the Anypoint Integration pricing packages use replica sizing for application deployment. You can choose from the following replica sizes based on the application profile or size and display the equivalent in terms of vCores. Replica sizes with the suffix `.mem` are memory-intensive options with the same compute.
 
-include::general::partial$pricing.adoc[]
+include::reuse::partial$billing/pricing.adoc[tag=vCoreSizeCH2]
 
-During the monthly patching cycle, your applications automatically migrate to an equivalent replica size. Application deployment through the Mule Maven Plugin is not yet supported. However, you can deploy using the Runtime Manager UI and the Application Manager Experience APIs by leveraging a new field under `target.deploymentSettings` called `instanceType`.
 
 [[shared-global-regions]]
 == Shared Global Regions
