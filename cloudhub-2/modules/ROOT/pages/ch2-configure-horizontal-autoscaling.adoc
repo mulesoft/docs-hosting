@@ -1,0 +1,138 @@
+= Configuring Horizontal Autoscaling (HPA) for CloudHub 2.0 Deployments
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+[IMPORTANT]
+This feature applies only to select customers in the US control plane who are opted in to the new pricing and packaging model. For more details, visit xref:general::pricing.adoc[]
+
+You can configure CPU-based horizontal scaling for Mule applications to make them responsive to CPU usage by automatically scaling up or down the deployment replicas as needed.
+
+In Kubernetes, a Horizontal Pod Autoscaler (HPA) automatically updates a workload resource, with the aim of automatically scaling the workload to match demand. Horizontal scaling means that the response to increased load is to deploy more pods. For more information, visit the https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale[Kubernetes documentaton^]. 
+
+== Configure Horizontal Pod Autoscaling
+
+To configure horizontal autoscaling for Mule apps deployed to CloudHub 2.0, follow these steps:
+
+. From Anypoint Platform, select *Runtime Manager* > *Applications*.
+. Click *Deploy application*.
+. In the *Runtime* tab, check the *Enable Autoscaling* box.
+. Set the minimum and maximum *Replica Count* limits.
+. Click *Deploy Application*.
+
+image::ch2-config-autoscaling.png[Configure horizontal autoscaling]
+
+== Autoscaling Status and Logs
+
+When an autoscaling event occurs and your Mule application with horizontal autoscaling scales up, you can check the *Scaling* status by clicking *View status* in your application's details window. You can also see the *Scaling* status of your application in the *Applications* list.
+
+image::ch2-status-autoscaling.png[Check the application's scaling status.]
+
+You can track the scaled-up replicas startup and the number of replicas your application scaled from and to by checking the application's logs:
+
+. From Anypoint Platform, select *Runtime Manager* > *Applications*.
+. Click the row of the application with autoscaling.
+. Click *Manage application*.
+. Select the *Logs* tab.
+
+[source,console,linenums]
+----
+Info	8 minutes ago - 2023-11-08 14:35:01.466 PST - Runtime Manager
+Application id:<app-ID> scaled UP from 1 to 2 replicas.
+Info	a minute ago - 2023-11-08 14:41:24.819 PST - Runtime Manager
+Application id:<app-ID> scaled DOWN from 2 to 1 replicas. :
+----
+
+You can also track when autoscaling events occur through xref:access-management::audit-logging.adoc[Audit Logs] in Access Management. Each time an application deployment scales, there is an audit log published under the product *Runtime Manager*, by the *Anypoint Staff* user. The log has *Action* set to `Scaling` with the *Object* as the application ID.
+
+
+The following is an example log payload:
+
+[source,console,linenums]
+----
+{"properties":{"organizationId":"my-orgID-abc","environmentId":"my-envID-xyz","response":{"message":{"message":"Application id:my-appID-123 scaled DOWN from 3 to 2 replicas.","logLevel":"INFO","context":{"logger":"Runtime Manager"},"timestamp":1700234556678}},"deploymentId":"my-appID-123","initialRequest":"/organizations/my-orgID-abc/environments/my-envID-xyz/deployments/my-appID-123/specs/my-specID-456"},"subaction":"Scaling"}
+----
+
+
+== Understand CPU-based Autoscaling Policy
+
+MuleSoft owns and applies the https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/[autoscaling^] policy for your Mule application deployments.
+
+The CPU-based HPA policy used for all Mule apps deployed to CloudHub 2.0 is as follows:
+
+----
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: my-app
+  namespace: app-namespace
+spec:
+  behavior:
+    scaleDown:
+      policies:
+      - periodSeconds: 15
+        type: Percent
+        value: 100
+      selectPolicy: Max
+      stabilizationWindowSeconds: 300
+    scaleUp:
+      policies:
+      - periodSeconds: 180
+        type: Percent
+        value: 100
+      selectPolicy: Max
+      stabilizationWindowSeconds: 0
+  maxReplicas: 3
+  metrics:
+  - resource:
+      name: cpu
+      target:
+        averageUtilization: 70
+        type: Utilization
+    type: Resource
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: my-app
+----
+
+Some points to consider:
+
+Scale up can occur at most every 180 seconds. Each period, up to 100% of the currently running replicas may be added until the maximum configured replicas is reached. For scaling up there is no stabilization window. When the metrics indicate that the target should be scaled up, the target is scaled up immediately.
+
+Scale down can occur at most every 15 seconds. Each Period, up to 100% of the currently running replicas may be removed which means the scaling target can be scaled down to the minimum allowed replicas. The number of replicas removed is based on the aggregated calculations over the past 300 seconds of the stabilization window.
+
+Min replicas +
+
+* The minimum number of replicas that would be guaranteed to run at any given point of time.
+* Scale down policy would never remove replicas below this number.
+
+Max replicas +
+
+* The maximum number of replicas that are capped, beyond which no more replicas can be added for scale up.
+* Scale up policy would never add replicas above this number.
+
+
+== Performance Considerations and Limitations
+
+For a successful horizontal autoscaling of your Mule apps, review the following performance considerations:
+
+* Mule apps that scale based on CPU usage are a good fit with CPU based HPA. For example: 
+** HTTP/HTTPS applications with async requests.
+** Reverse Proxies.
+** Low latency+High throughput applications.
+** Dataweave Transformations.
+** APIKit Routing.
+** API Gateways with policies.
+* Non-reentrant applications that do not have built-in parallel processing such as batch jobs, scheduler applications without re-entrancy and duplicate scheduling across applications, and low-throughput, high-latency applications with large requests are not a good fit with CPU-based HPA.
+
+=== Limitations
+
+There are some limitations to consider:
+
+* CPU-based HPA works for micro and micro memory-intensive xref:general::pricing.adoc#cloudhub-2-0-application-deployment[replica sizes] for customers on Integration - Starter.
+
+== See Also
+
+* xref:runtime-fabric::configure-horizontal-autoscaling.adoc[]
