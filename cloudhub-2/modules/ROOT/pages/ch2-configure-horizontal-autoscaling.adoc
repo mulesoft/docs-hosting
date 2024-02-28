@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 
 [IMPORTANT]
-This feature applies only to select customers in the US control plane who are opted in to the new pricing and packaging model. For more details, visit xref:general::pricing.adoc[]
+This feature applies only to select customers who are opted in to the new pricing and packaging model. For more details, visit xref:general::pricing.adoc[]
 
 You can configure CPU-based horizontal scaling for Mule applications to make them responsive to CPU usage by automatically scaling up or down the deployment replicas as needed.
 
@@ -18,6 +18,9 @@ To configure horizontal autoscaling for Mule apps deployed to CloudHub 2.0, foll
 . Click *Deploy application*.
 . In the *Runtime* tab, check the *Enable Autoscaling* box.
 . Set the minimum and maximum *Replica Count* limits.
+. Select the *Replica Size* from the dropdown menu.
++
+ Integration-Advanced customers can select from `Micro`, `Micro.Mem`, and `Small` replica sizes. Customers on other tiers can select from `Micro`and `Micro.Mem` replica sizes. For more information, see general::pricing.adoccloudhub-2-0-application-deployment[CloudHub 2.0 Application Deployment].
 . Click *Deploy Application*.
 
 image::ch2-config-autoscaling.png[Configure horizontal autoscaling]
@@ -99,9 +102,9 @@ spec:
 
 Some points to consider:
 
-Scale up can occur at most every 180 seconds. Each period, up to 100% of the currently running replicas may be added until the maximum configured replicas is reached. For scaling up there is no stabilization window. When the metrics indicate that the target should be scaled up, the target is scaled up immediately.
+Scale-up can occur, at most, every 180 seconds. During each period, up to 100% of the currently running replicas may be added until the maximum configured replicas is reached. There is no stabilization window for scaling up. The target is scaled up immediately after the metrics indicate a scale-up is needed. 
 
-Scale down can occur at most every 15 seconds. Each Period, up to 100% of the currently running replicas may be removed which means the scaling target can be scaled down to the minimum allowed replicas. The number of replicas removed is based on the aggregated calculations over the past 300 seconds of the stabilization window.
+Scale-down can occur, at most, every 15 seconds. During each period, up to 100% of the currently running replicas may be removed, which means the scaling target can be scaled down to the minimum allowed replicas. The number of replicas removed is based on the aggregated calculations over the past 1800 seconds of the stabilization window.
 
 Min replicas +
 
@@ -127,11 +130,6 @@ For a successful horizontal autoscaling of your Mule apps, review the following 
 ** API Gateways with policies.
 * Non-reentrant applications that do not have built-in parallel processing such as batch jobs, scheduler applications without re-entrancy and duplicate scheduling across applications, and low-throughput, high-latency applications with large requests are not a good fit with CPU-based HPA.
 
-=== Limitations
-
-There are some limitations to consider:
-
-* CPU-based HPA works for micro and micro memory-intensive xref:general::pricing.adoc#cloudhub-2-0-application-deployment[replica sizes] for customers on Integration - Starter.
 
 == See Also
 
