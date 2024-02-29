@@ -16,7 +16,7 @@ To configure horizontal autoscaling for Mule apps deployed to CloudHub 2.0, foll
 
 . From Anypoint Platform, select *Runtime Manager* > *Applications*.
 . Click *Deploy application*.
-. In the *Runtime* tab, check the *Enable Autoscaling* box.
+. In the *Runtime* tab, check the *Enable CPU Based Horizontal Autoscaling* box.
 . Set the minimum and maximum *Replica Count* limits.
 . Select the *Replica Size* from the dropdown menu.
 +
