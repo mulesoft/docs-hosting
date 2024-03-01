@@ -57,7 +57,7 @@ The following is an example log payload:
 ----
 
 
-== Understand CPU-based Autoscaling Policy
+== Understand CPU-Based Autoscaling Policy
 
 MuleSoft owns and applies the https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/[autoscaling^] policy for your Mule application deployments.
 
@@ -102,7 +102,7 @@ spec:
 
 Some points to consider:
 
-Scale-up can occur, at most, every 180 seconds. Up to 100% of the currently running replicas may be added until the maximum configured replicas are reached. There is no stabilization window for scaling up. The target scals up immediately after the metrics indicate a scale-up is needed. 
+Scale-up can occur, at most, every 180 seconds. Up to 100% of the currently running replicas may be added until the maximum configured replicas are reached. There is no stabilization window for scaling up. The target scales up immediately after the metrics indicate a scale-up is needed. 
 
 Scale-down can occur, at most, every 15 seconds. Up to 100% of the currently running replicas may be removed, which means the scaling target can be scaled down to the minimum allowed replicas. The number of replicas removed is based on the aggregated calculations over the past 1800 seconds of the stabilization window.
 
@@ -125,10 +125,10 @@ For a successful horizontal autoscaling of your Mule apps, review the following 
 ** HTTP/HTTPS applications with async requests.
 ** Reverse Proxies.
 ** Low latency+High throughput applications.
-** Dataweave Transformations.
+** DataWeave Transformations.
 ** APIKit Routing.
 ** API Gateways with policies.
-* Non-reentrant applications that don’t have built-in parallel processing such as batch jobs, scheduler applications without re-entrance and duplicate scheduling across applications, and low-throughput, high-latency applications with large requests are not a good fit for CPU-based HPA.
+* Non-reentrant applications that don't have built-in parallel processing such as batch jobs, scheduler applications without re-entrance and duplicate scheduling across applications, and low-throughput, high-latency applications with large requests are not a good fit for CPU-based HPA.
 
 
 == See Also
