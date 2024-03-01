@@ -110,7 +110,7 @@ To enable distributed tracing in your application deployments:
 . Select the *Enable tracing* checkbox.
 . Click *Deploy Application* if you are enabling the feature for a new deployment, or *Apply Changes* if you are editing an existing application.
 
-Once you enable distributed tracing, the Runtime Manager backend starts instrumenting traces for your application.
+Once you enable tracing, the Runtime Manager backend starts instrumenting traces for your application.
 
 [NOTE]
 Distributed tracing is available for Titanium or Advanced tier subscriptions only.
