@@ -98,7 +98,7 @@ To configure additional log levels and categories to include in logs:
 
 // tag::enableDistributedTracing[]
 
-== Enable Distributed Tracing
+== Enable Trace Data Collection
 
 Distributed tracing enables you to understand the execution path of a transaction in MuleSoft ecosystem by having full visibility into the execution path of API calls or application transactions. This feature exposes tracing information in OpenTelemetry standard fom Mule runtime into all APM solutions.
 
