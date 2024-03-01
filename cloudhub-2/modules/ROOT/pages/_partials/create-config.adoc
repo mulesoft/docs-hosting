@@ -25,9 +25,11 @@ the allowed block size that you can assign for your Anypoint VPC is between `/16
 
 When specifying CIDR blocks, ensure that the CIDR blocks:
 
-* Are from a private IP space
-* Don't overlap with any other CIDR blocks assigned to your other private spaces
-* Don't overlap with any CIDR blocks in use in your corporate network
+* Are from a private IP space.
+* Don't overlap with any other CIDR blocks assigned to your other private spaces. When you enter a CIDR block during private space creation, CloudHub 2.0 checks the value to ensure it does not overlap with another CIDR that is currently in use.
+* Don't overlap with any CIDR blocks in use in your corporate network.
+
+MuleSoft reccomends using subnets from standard RFC 1918 addresses, such as `10.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`.
 
 You cannot use the following reserved CIDR blocks:
 
