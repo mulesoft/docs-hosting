@@ -19,13 +19,13 @@ The following improvements have been made to features that are also available in
 * With the added fractional vCore offerings in CloudHub 2.0, you may no longer need to bundle multiple listeners in the same application to reduce your resource usage.
 * In CloudHub 2.0, private spaces function as improved VPCs from CloudHub 1.0. You can automatically assign a private network for the applications in a private space. You can also configure a private ingress load balancer that auto-scales to accommodate traffic.
 * By default, VPNs allow high availability.
-* Applications now have xref:ch2-config-endpoints-paths.adoc[public and private endpoints] by default. You can also configure multiple public endpoints. You can access the endpoint addresses in Runtime Manager.
+* Applications now have xref:ch2-config-endpoints-paths.adoc[endpoints and internal endpoints] by default. You can also configure multiple endpoints. You can access the endpoint addresses in Runtime Manager.
 * You can make in-place edits and updates to the TLS context and truststore of the ingress layer.
 * In CloudHub 1.0, application names had to be unique per control plane. In CloudHub 2.0, application names must be unique per private space.
 * Custom log4j.xml is supported by default to enable xref:ch2-integrate-log-system.adoc[streaming logs] to external log collectors. You no longer need to contact Support to enable or disable this feature.
 * You can disable log streaming using Runtime Manager. You no longer need to contact Support to enable or disable this feature.
 * Self-service logs for the dedicated load balancer and ingress are available via a private space. Titanium users can also download logs through Anypoint Monitoring.
-* Using ports 80 and 443, applications inside a private space can communicate using internal load balancer via the private endpoint. This depends on application protocol.
+* Using ports 80 and 443, applications inside a private space can communicate using internal load balancer via the internal endpoint. This depends on application protocol.
 
 == Considerations and Limitations
 
