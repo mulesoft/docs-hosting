@@ -110,6 +110,9 @@ To enable distributed tracing in your application deployments:
 . Select the *Enable tracing* checkbox.
 . Click *Deploy Application* if you are enabling the feature for a new deployment, or *Apply Changes* if you are editing an existing application.
 
+[NOTE]
+You can't enable trace data collection via Mule Maven plugin or Studio.
+
 Once you enable tracing, the Runtime Manager backend starts instrumenting traces for your application.
 
 [NOTE]
