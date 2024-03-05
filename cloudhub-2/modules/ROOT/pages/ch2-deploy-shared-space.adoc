@@ -54,7 +54,7 @@ include::partial$deployment.adoc[tag=changeAppProperties,leveloffset=+1]
 // == Configure Log Level
 include::partial$deployment.adoc[tag=configureLogging,leveloffset=+1]
 
-// == Enable Distributed Tracing
+// = Enable Distributed Tracing
 include::partial$deployment.adoc[tag=enableDistributedTracing,leveloffset=+1]
 
 
