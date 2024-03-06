@@ -191,6 +191,20 @@ external DNS server resolves all other domains.
 
 To configure an internal domain, specify the IP address.
 
+The following internal private DNS domains are not supported:
+
+* `cloudhub.io`
+* `mulesoft.com`
+* `anypointdns.net`
+* `amazon.com`
+* `amazonaws.com`
+* `compute.internal`
+* `io`
+* `com`
+* `net`
+* `internal`
+* `local/domain.com`
+
 // To specify an internal domain, use the second-level domain name, such as `mulesoft.com`.
 
 [NOTE]

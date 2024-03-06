@@ -121,7 +121,7 @@ Allow egress to the Object Store v2 destination:
 * *Destination*: `Custom Domains`
 ** With value:
 *** For prod: `object-store-us-east-1.anypoint.mulesoft.com`
-*** For prod-eu: `[xxx]`
+*** For prod-eu: `eu1.anypoint.mulesoft.com`
 +
 This URL varies depending on the region. For example, to access Object Store in `ap-southeast-1`, add the URL `object-store-ap-southeast-1.anypoint.mulesoft.com` as the value.
 

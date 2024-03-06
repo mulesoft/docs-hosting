@@ -1,6 +1,6 @@
 = Deploy an App with TCP using the Application Manager API
 
-To configure protocols other than HTTP or HTTPS, first set up TCP inbound firewall rules to allow TCP traffic for your private space. You can then use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/minor/1.0/pages/home/[Application Manager API] to deploy an app using TCP. 
+To configure protocols other than HTTP or HTTPS, first set up TCP inbound firewall rules to allow TCP traffic for your private space. You can then use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/minor/1.0/pages/home/[Application Manager API] to deploy an app using TCP. TCP inbound firewall rules do not support custom endpoints.
 
 To configure firewall rules using TCP, follow the steps in xref:ps-config-fw-rules.adoc#configure-firewall-rules[Configure Firewall Rules] and select TCP.
 
@@ -170,6 +170,6 @@ Updates that include unavailable ports fail. Successful deployments occupy the n
 
 == Access Your TCP App
 
-You can access the app using VPN or a transit gateway and within the private space. Because the apps run on worker nodes, they cannot be accessed directly over the internet. The URL to access a TCP app has this structure: `{application-url}.tcp.{environment}.cloudhub.io:{port}`
+You can access the app using VPN or a transit gateway and within the private space. Because the apps run on worker nodes, they cannot be accessed directly over the internet. The URL to access a TCP app has this structure: `{application-url}.{environment}.tcp.cloudhub.io:{port}`
 
-A sample URL is `mllp-app-2-mpskt5.q8b5lv.tcp.usa-e1.cloudhub.io:30500`.
+A sample URL is `mllp-app-2-mpskt5.q8b5lv.usa-e2.tcp.cloudhub.io:30500`.
