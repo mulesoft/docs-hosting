@@ -103,7 +103,7 @@ spec:
 
 Some points to consider:
 
-* Scale-up can occur, at most, every 180 seconds. CloudHub 2.0 might add up to 100% of the currently running replicas until reaching the maximum configured replicas. There is no stabilization window for scaling up. The target scales up immediately after the metrics indicate a scale-up is needed. 
+* Scale-up can occur, at most, every 180 seconds. Horizontal autoscaling might add up to 100% of the currently running replicas until reaching the maximum configured replicas. There is no stabilization window for scaling up. The target scales up immediately after the metrics indicate a scale-up is needed. 
 * Scale-down can occur, at most, every 15 seconds. Horizontal autoscaling might remove up to 100% of the currently running replicas, scaling down the target to the minimum allowed replicas. The number of replicas removed is based on the aggregated calculations over the past 1800 seconds of the stabilization window.
 
 Min replicas: +
