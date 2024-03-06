@@ -46,7 +46,7 @@ Info	a minute ago - 2023-11-08 14:41:24.819 PST - Runtime Manager
 Application id:<app-ID> scaled DOWN from 2 to 1 replicas. :
 ----
 
-You can also track when autoscaling events occur through xref:access-management::audit-logging.adoc[Audit Logs] in Access Management. Each time an application deployment scales, an audit log is published under the product *Runtime Manager*, by user *Anypoint Staff*. The log has *Action* set to `Scaling`, and the *Object* is the application ID.
+You can track autoscaling events through xref:access-management::audit-logging.adoc[Audit Logs] in Access Management. Each time an application deployment scales, an audit log is published under the product *Runtime Manager*, by user *Anypoint Staff*. The log has *Action* set to `Scaling`, and the *Object* is the application ID.
 
 
 The following is an example log payload:
