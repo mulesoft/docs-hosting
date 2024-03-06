@@ -109,6 +109,12 @@ See xref:ch2-clustering.adoc#replica-scale-out[Replica Scale-out].
 
 CloudHub 2.0 monitors replicas to verify that they are operating correctly, and automatically restarts applications if necessary.
 
+== CloudHub 2.0 Resourcing for Anypoint Integration Customers
+
+
+include::reuse::partial$billing/pricing.adoc[tag=vCoreSizeCH2]
+
+
 [[shared-global-regions]]
 == Shared Global Regions
 
