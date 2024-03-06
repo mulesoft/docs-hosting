@@ -170,6 +170,6 @@ Updates that include unavailable ports fail. Successful deployments occupy the n
 
 == Access Your TCP App
 
-You can access the app using VPN or a transit gateway and within the private space. Because the apps run on worker nodes, they cannot be accessed directly over the internet. The URL to access a TCP app has this structure: `{application-url}.tcp.{environment}.cloudhub.io:{port}`
+You can access the app using VPN or a transit gateway and within the private space. Because the apps run on worker nodes, they cannot be accessed directly over the internet. The URL to access a TCP app has this structure: `{application-url}.{environment}.tcp.cloudhub.io:{port}`
 
 A sample URL is `mllp-app-2-mpskt5.q8b5lv.usa-e2.tcp.cloudhub.io:30500`.
