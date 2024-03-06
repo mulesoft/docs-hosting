@@ -38,6 +38,7 @@ To track the scaled-up replicas startup and the number of replicas your applicat
 . Click *Manage application*.
 . Select the *Logs* tab.
 
+.Example application log
 [source,console,linenums]
 ----
 Info	8 minutes ago - 2023-11-08 14:35:01.466 PST - Runtime Manager
