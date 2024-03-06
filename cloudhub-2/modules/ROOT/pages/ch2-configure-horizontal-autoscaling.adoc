@@ -31,7 +31,7 @@ When an autoscaling event occurs and your Mule application with horizontal autos
 
 image::ch2-status-autoscaling.png[Check the application's scaling status.]
 
-You can track the scaled-up replicas startup and the number of replicas your application scaled from and to by checking the application's logs:
+To track the scaled-up replicas startup and the number of replicas your application scaled from and to, check the application's logs:
 
 . From Anypoint Platform, select *Runtime Manager* > *Applications*.
 . Click the row of the application with autoscaling.
