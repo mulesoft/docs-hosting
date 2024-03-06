@@ -123,7 +123,7 @@ For a successful horizontal autoscaling of your Mule apps, review the following 
 * Mule apps that scale based on CPU usage are a good fit for CPU-based HPA. For example: 
 ** HTTP/HTTPS applications with async requests.
 ** Reverse Proxies.
-** Low latency+High throughput applications.
+** Applications with low latency and high throughput.
 ** DataWeave Transformations.
 ** APIKit Routing.
 ** API Gateways with policies.
