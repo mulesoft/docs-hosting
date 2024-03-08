@@ -370,9 +370,8 @@ For each tunnel, enter the IP address range for the internal address of the VPN 
 
 You can specify a size /30 CIDR block from the `169.254.0.0/16` range.
 The CIDR block must be unique across all private network connections. 
-When you enter a CIDR block when creating a private space, CloudHub 2.0 checks the value to ensure it does not overlap with another CIDR that is currently in use.
 
-MuleSoft reccomends using subnets from standard RFC 1918 addresses, such as `10.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`.
+MuleSoft recommends using subnets from standard RFC 1918 addresses, such as `10.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`.
 
 You cannot use the following reserved CIDR blocks:
 
@@ -389,7 +388,7 @@ You cannot use the following reserved CIDR blocks:
 [[preshared-keys]]
 ==== Pre-shared Keys
 
-A _pre-shared key_ (PSK) is a shared secret which was previously shared between
+A _pre-shared key_ (PSK) is a shared secret that was previously shared between
 two ends of a connection for the VPN tunnels.
 
 [NOTE]
