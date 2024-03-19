@@ -30,6 +30,7 @@
 ** xref:ch2-deploy-shared-space.adoc[]
 ** xref:ch2-deploy-private-space.adoc[]
 *** xref:ch2-config-endpoints-paths.adoc[]
+** xref:ch2-configure-horizontal-autoscaling.adoc[]
 ** xref:ch2-deploy-maven.adoc[]
 ** xref:ch2-deploy-cli.adoc[]
 ** xref:ch2-deploy-api.adoc[]
