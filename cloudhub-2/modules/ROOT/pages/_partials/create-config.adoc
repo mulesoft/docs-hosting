@@ -29,7 +29,7 @@ When specifying CIDR blocks, ensure that the CIDR blocks:
 * Don't overlap with any other CIDR blocks assigned to your other private spaces.
 * Don't overlap with any CIDR blocks in use in your corporate network.
 
-MuleSoft recommends using subnets from standard RFC 1918 addresses, such as `10.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`.
+MuleSoft recommends using subnets from standard RFC 1918 addresses, such as `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`.
 
 Optionally, if you want to connect your private space to your corporate network (either on-premises or in the cloud), specify reserved CIDR blocks for your private space to prevent IP address overlap. Use CIDR notation and commas: `192.168.0.0/16, 172.16.0.0/12`.
 
