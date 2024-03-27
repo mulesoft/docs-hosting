@@ -104,7 +104,7 @@ Clustering enabled
 * If the data center in which your replica operates experiences an outage, CloudHub 2.0 automatically migrates your application to another availability zone. You might experience downtime during the migration; however, your queues ensure zero message loss.
 
 |You have a high-stakes process for which you need to protect against message loss, avoid any chance of service interruption, and handle large processing loads. |
-Number of Replicas: 2 or more +
+Number of Replicas: Two or more +
 Clustering enabled
 
 |
