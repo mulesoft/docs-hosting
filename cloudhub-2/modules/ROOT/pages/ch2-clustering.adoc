@@ -113,7 +113,7 @@ Clustering enabled
 * If one data center experiences an outage, your replicas are automatically distributed to ensure redundancy.
 
 |You have an application that does not have any special requirements regarding either processing load or message loss. |
-Number of Replicas: 1 +
+Number of Replicas: One +
 Clustering not enabled 
 
 |
