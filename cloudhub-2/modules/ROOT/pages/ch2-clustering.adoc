@@ -67,7 +67,7 @@ Requests to the application (domain) URL are automatically load balanced between
 
 
 //Clients can bypass the clustering load balancer by using a replica's direct URL.
-//See xref:cloudhub-networking-guide.adoc[CloudHub Networking Guide^] for more information in how to access an application in a specific CloudHub 2.0 replica.
+//See xref:cloudhub-networking-guide.adoc[CloudHub Networking Guide] for more information on how to access an application in a specific CloudHub 2.0 replica.
 
 
 == How Clustering is Implemented
