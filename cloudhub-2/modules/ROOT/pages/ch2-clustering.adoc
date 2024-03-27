@@ -72,7 +72,7 @@ Requests to the application (domain) URL are automatically load balanced between
 
 == How Clustering is Implemented
 
-When you enable clustering, all the replicas of a Mule applications act as a unit. A cluster is a virtual server composed of multiple replicas. The nodes in a cluster communicate and share information through a distributed shared memory grid. Thus, data is replicated across memory in different replicas.
+When you enable clustering, all the replicas of a Mule application act as a unit. A cluster is a virtual server composed of multiple replicas. The nodes in a cluster communicate and share information through a distributed shared memory grid. Thus, data is replicated across memory in different replicas.
 
 For more information, see xref:mule-runtime::mule-high-availability-ha-clusters.adoc[].
 
