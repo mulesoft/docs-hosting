@@ -72,7 +72,7 @@ Logging is enabled by default for apps deployed to CloudHub 2.0.
 To disable or reenable logging for the app:
 
 . Click the *Logging* tab.
-. Deselect or select the *Enable application logs* option.
+. Deselect or select the *Forward application logs to Anypoint Platform* option.
 . Click *Apply Changes*.
 
 If you disable logging, the *Logs* heading still appears in the Runtime Manager navigation menu, but application logs are not collected.
