@@ -14,6 +14,7 @@ You can integrate your CloudHub 2.0 application with your logging system using t
 You can use only asynchronous log appenders.
 * File appenders, such as FileAppender, RollingFileAppender, AnypointMonitoringFileAppender, and RandomAccessFileAppender, are removed automatically.
 * When using custom Log4j configurations, both Mule runtime engine and application logs remain available in Runtime Manager.
+* You can forward tracing module logs using only third-party appenders. You cannot update the logging patterns to send them to Anypoint Monitoring.
 
 You can use any Log4j appender.
 
