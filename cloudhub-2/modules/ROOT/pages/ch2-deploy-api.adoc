@@ -4,6 +4,14 @@ To configure protocols other than HTTP or HTTPS, first set up TCP inbound firewa
 
 To configure firewall rules using TCP, follow the steps in xref:ps-config-fw-rules.adoc#configure-firewall-rules[Configure Firewall Rules] and select TCP.
 
+== Before You Begin
+
+Configure the following network-level rules for the firewall in your private space:
+
+* An ingress rule: `Allow TCP` on the port range `30500-32500`.
+* An egress rule: `Allow HTTP/HTTPS` to `Any Destination`. +
+If you must restrict outbound traffic, configure `Allow TCP` to `Any Destination` on the port `<application-port>` as a rule.
+
 == Find Available Ports for Your App
 
 The port range for TCP is between 30500 to 32500. To confirm port availability, use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/[CloudHub 2.0 API^] that returns a list of available ports. 
