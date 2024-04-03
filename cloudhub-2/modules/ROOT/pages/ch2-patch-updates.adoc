@@ -23,13 +23,13 @@ xref:cloudhub::vpn-maintenance.adoc[Anypoint VPNs] used in CloudHub 2.0 are upgr
 
 === Clustered Replicas and Rolling Updates
 
-When using Mule xref:ch2-clustering.adoc[clustering], a rolling update with a Mule runtime version that has a Hazelcast version change will generate a scenario when, at a certain point in time, the cluster will have more than one member with different Hazelcast versions. This may lead to application failure with a Hazelcast serialization error if the Hazelcast versions are incompatible.
+When running Mule in a xref:ch2-clustering.adoc[cluster], a rolling update with a Mule runtime version that has a Hazelcast version change can result in multiple members of the cluster with different Hazelcast versions.  This might cause application failure, with a Hazelcast serialization error, if the different Hazelcast versions are incompatible. 
 
 To prevent this kind of error, use the Recreate update strategy.
 
 == Opt-in Early Infrastructure Upgrades (Optional)
 
-You can opt-in to early infrastructure upgrades so that they are applied earlier than the scheduled patching process, between the Release Available and the Auto-Update dates stated in the xref:release-notes::cloudhub-2/cloudhub-2-runtimes-release-notes.adoc[monthly updates table]. In this way, you can choose the time that better suits your organization's needs. 
+Opt in to apply infrastructure upgrades earlier than the scheduled patching process, between the Release Available and the Auto-Update dates stated in the xref:release-notes::cloudhub-2/cloudhub-2-runtimes-release-notes.adoc[monthly updates table]. This way, you can choose the time that better suits your organization's needs.
 
 On average, this upgrade takes between thirty to sixty minutes to complete. If your upgrade is queued, it can take longer than thirty minutes. The impact of the upgrade process on running applications is consistent with the auto-patching behavior described in the previous sections.
 
