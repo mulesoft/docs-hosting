@@ -21,7 +21,7 @@ When an update is available, CloudHub 2.0 includes it in Production environments
 
 xref:cloudhub::vpn-maintenance.adoc[Anypoint VPNs] used in CloudHub 2.0 are upgraded continuously. Whenever a new update is available, the VPN is patched within the service-level agreement. If the Anypoint VPN is not set up as high availability or if the non-high-availability VPN is not set up with two tunnels, downtime is expected.
 
-=== Recommendations when Deploying Stateful Mule Apps
+=== Clustered Replicas and Rolling Updates
 
 When using Mule xref:ch2-clustering.adoc[clustering], a rolling update with a Mule runtime version that has a Hazelcast version change will generate a scenario when, at a certain point in time, the cluster will have more than one member with different Hazelcast versions. This may lead to application failure with a Hazelcast serialization error.
 
