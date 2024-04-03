@@ -6,7 +6,7 @@ To configure firewall rules using TCP, follow the steps in xref:ps-config-fw-rul
 
 == Before You Begin
 
-You must configure the following network-level rules for the firewall in your private space:
+Configure the following network-level rules for the firewall in your private space:
 
 * An ingress rule: `Allow TCP` on the port range `30500-32500`.
 * An egress rule: `Allow HTTP/HTTPS` to `Any Destination`. +
