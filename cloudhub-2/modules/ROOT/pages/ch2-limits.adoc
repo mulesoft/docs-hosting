@@ -2,6 +2,8 @@
 
 CloudHub 2.0 imposes the following limits:
 
+Environments per business group:: 200
+
 Private spaces per organization:: 100
 
 Connections per private space:: 5. 10 if the connections are not redundant.
@@ -36,6 +38,7 @@ A TLS Context can reference one keystore and one truststore, which have their re
 
 Ingress controller `content-length` in POST requests:: 0 or greater. `content-length` must be included in the POST request, even if the value is 0.
 
+Anypoint Platform CloudHub 2.0 API rate limit:: 15 requests per second per remote IP address.
 
 
 

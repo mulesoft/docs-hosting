@@ -15,11 +15,163 @@ CloudHub 2.0 applies continuous updates to two MuleSoft-managed deployment platf
 
 == CloudHub 2.0 Infrastructure Updates
 
-As a container-based platform, CloudHub 2.0 applies infrastructure fixes and security patches as needed to ensure the infrastructure is secure and up-to-date. Patch updates use rolling upgrade deployment (when selected as the deployment model) and can include operating system changes or changes to internal software. An update rotates, drains, and replaces the underlying hosts gradually to ensure zero downtime when using the Rolling Update deployment model. During the upgrade, the Mule application might be restarted onto a new secure host. If the Mule worker is not running with multiple replicas or is using the Recreate deployment model, it will experience slight downtime.
+As a container-based platform, CloudHub 2.0 applies infrastructure fixes and security patches as needed to ensure the infrastructure is secure and up-to-date. Patch updates use rolling upgrade deployment (when selected as the deployment model) and can include operating system changes or changes to internal software. An update rotates, drains, and replaces the underlying hosts gradually to ensure zero downtime when using the Rolling Update deployment model. During the upgrade, the Mule application might be restarted onto a new secure host. If the Mule worker is not running with multiple replicas or is using the Recreate deployment model, it experiences slight downtime.
 
 When an update is available, CloudHub 2.0 includes it in Production environments as the default for new private spaces. The existing infrastructure patching schedule occurs in the same maintenance window as xref:release-notes::cloudhub-2/cloudhub-2-runtimes-release-notes.adoc[CloudHub 2.0 Runtime patches]. Infrastructure and runtime updates might cause your applications to restart.
 
-xref:cloudhub::vpn-maintenance.adoc[Anypoint VPNs] used in CloudHub 2.0 are upgraded continuously. Whenever a new update is available, the VPN is patched within the service-level agreement. If the Anypoint VPN is not setup as high availability or if the non-high-availability VPN is not set up with two tunnels, downtime is expected.
+xref:cloudhub::vpn-maintenance.adoc[Anypoint VPNs] used in CloudHub 2.0 are upgraded continuously. Whenever a new update is available, the VPN is patched within the service-level agreement. If the Anypoint VPN is not set up as high availability or if the non-high-availability VPN is not set up with two tunnels, downtime is expected.
+
+=== Clustered Replicas and Rolling Updates
+
+When running Mule in a xref:ch2-clustering.adoc[cluster], a rolling update with a Mule runtime version that has a Hazelcast version change can result in multiple members of the cluster with different Hazelcast versions.  This might cause application failure, with a Hazelcast serialization error, if the different Hazelcast versions are incompatible. 
+
+To prevent this kind of error, use the Recreate update strategy.
+
+== Opt-in Early Infrastructure Upgrades (Optional)
+
+Opt in to apply infrastructure upgrades earlier than the scheduled patching process, between the Release Available and the Auto-Update dates stated in the xref:release-notes::cloudhub-2/cloudhub-2-runtimes-release-notes.adoc[monthly updates table]. This way, you can choose the time that better suits your organization's needs.
+
+On average, this upgrade takes between thirty to sixty minutes to complete. If your upgrade is queued, it can take longer than thirty minutes. The impact of the upgrade process on running applications is consistent with the auto-patching behavior described in the previous sections.
+
+[NOTE]
+This upgrade is irreversible. Ensure that you understand the impact of the upgrade and choose when to trigger the upgrade based on your organization's needs before applying it in a production environment.
+
+=== Apply the Opt-in Upgrade via Runtime Manager
+
+. From Anypoint Platform, select *Runtime Manager* > *Private Spaces*.
++
+If an upgrade is available for a private space, a tooltip shows under the *Infra Status* column.
+. Click *Upgrade available*.
+. Select the checkbox to confirm that you agree to upgrade early.
+. Click *Upgrade*.
+
+After applying the upgrade, you can check the status under the the *Infra Status* column.
+
+=== Apply the Self-Triggered Upgrade via API
+
+You can upgrade a private space using the Upgrade Private Space API. 
+
+==== Check for Available Upgrades
+
+To check if there is an upgrade available for your private space, use the `isSpaceUpgradeAvailable` field added to existing PrivateSpaces APIs. The following examples show the API request and response:
+
+
+Request:
+
+[source,json]
+---- 
+GET
+https:/anypoint.mulesoft.com/runtimefabric/api/organizations/{organizationId}/privatespaces/{privatespaceId}
+----
+
+Response:
+
+[source,java]
+----
+{
+    "id": "69f1b6f6-2bd9-4ceb-a145-a75f11a5eaee",
+    "name": "mySpace",
+    "status": "Active",
+    // EXTRA NON-RELEVANT FIELDS
+    "isSpaceUpgradeAvailable": true
+}
+----
+
+=== Apply Upgrades to Your Private Space
+
+If there is a new version available, you can upgrade your private space to the latest available version via the Upgrade Private Space API. The following examples show the API request and response:
+
+Request:
+
+[source,json]
+---- 
+PATCH 
+https:/anypoint.mulesoft.com/runtimefabric/api/organizations/{organizationId}/privatespaces/{privateSpaceId}/upgrade?optIn=true
+----
+
+Response:
+
+[source,java]
+----
+{
+    "id": "69f1b6f6-2bd9-4ceb-a145-a75f11a5eaee",
+    "name": "mySpace",
+    "status": "Active",
+    // EXTRA NON-RELEVANT FIELDS
+    "isSpaceUpgradeAvailable": false
+}
+----
+
+[NOTE]
+This request must contain an `optIn` parameter. If the `optIn` parameter is not passed or is passed with a `false` value, the API returns a `400 Bad Request` error.
+
+==== Check the Upgrade Status
+
+After you trigger the upgrade, you can check the status via the `globalSpaceStatus` field on the response of the Private Spaces API, which contains a subfield with the status of the current upgrade.
+
+Request:
+
+[source,json]
+---- 
+GET
+https:/anypoint.mulesoft.com/runtimefabric/api/organizations/{organizationId}/privatespaces/{privatespaceId}
+----
+
+Response:
+
+[source,java]
+----
+{
+    "id": "69f1b6f6-2bd9-4ceb-a145-a75f11a5eaee",
+    "name": "mySpace",
+    "status": "Active",
+    // EXTRA NON-RELEVANT FIELDS
+    "globalSpaceStatus": {
+        "space": {
+           "status": "Active"
+        },
+        "cluster": [
+         {
+           "name": "jferaPreviousAP11-ap-southeast-2-eabb4",
+           "infra": {
+             "status": "InfrastructureProvisionSuccess",
+             "lastSeenTimeStamp": 1695756774114
+           },
+          "fabric": {
+            "status": "Active",
+            "lastSeenTimeStamp": 1695763243212
+          },
+          "ingress": {
+            "status": "INGRESS_APPLIED",
+            "lastSeenTimeStamp": 1695760545873
+          }
+         }
+      ],
+      "network": {
+         "status": "InfrastructureProvisionSuccess",
+         "lastSeenTimeStamp": 1695756773862
+      },
+      "upgrade": {
+         "status": "In Progress"
+      }
+    },
+    
+"isSpaceUpgradeAvailable": false
+}
+----
+
+===== Possible Status Types
+
+[%header,cols="20,70"]
+|===
+|Status | Description
+|Active | The private space is currently not ongoing any infrastructure upgrade or configuration update and is working as expected. 
+|In Progress|  The private space is undergoing an infrastructure change which can be related to a user configuration update, or to  an infrastructure upgrade, either self-triggered or as part of a monthly infrastructure upgrade. 
+|Failed| The private space experienced a failure which can be related to a user configuration update, or to  an infrastructure upgrade, either self-triggered or as part of a monthly infrastructure upgrade. 
+|Degraded |  The private space is in a disconnected state and not ready to be used.
+|===
+
+
 
 [[runtime-updates]]
 == Monthly Date-Patch Updates
@@ -28,16 +180,19 @@ In the first full week of each month, MuleSoft releases a _date-patch update_,
 which includes backward-compatible bug fixes to address any issues discovered in Mule runtime engine.
 The monthly date-patch update might include security patches if the scheduled date is within the security SLA.
 
-The format of the version number for these updates is:
+The monthly patches update applications only to the latest date patch for the patch version.
+They do not change the patch version number.
+
+The format of the version number for these updates to 4.3.x or 4.4.x versions is:
 
 _Major_._Minor_._Patch_ : _Date_
 
 Here's an example version number, including the patch date:
 
-`4.5.0:20211015`
+`4.4.0:20211015`
 
-The monthly patches update applications only to the latest date patch for the patch version.
-They do not change the patch version number.
+include::anypoint-cli::partial$mule-4.5-release-channels.adoc[]
+
 
 === Update Schedule
 
@@ -49,7 +204,70 @@ They do not change the patch version number.
 When an automatic update occurs, the audit log for your application adds an entry by user Anypoint Staff, which shows the date and time an update occurred and whether it was successful.
 If the update is successful, no action is required. If your application does not support zero-downtime updates or requires a manual update, you can manually apply the date patch released in the first full week of the month in week 1 or week 2. See xref:ch2-patch-updates.adoc#update-the-runtime-version-manually[Update the Runtime Version Manually].
 
-=== Update the Runtime Version Manually
+== Edge and LTS Releases for Mule
+
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=MuleIntro]
+
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CHa]
+
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=MuleIntro1]
+
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=MuleIntro1A]
+
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=MuleIntro2]
+
+
+[%header,="2*a"]
+|===
+| Action | CloudHub 2.0
+| Deploy net new apps  
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CH1]
+| Auto-upgrade 
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CH2]
+| Self-upgrade
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CH3]
+| Rollback 
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CH4]
+| Restart apps
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CH5]
+| Keep running applications 
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CH6]
+| End of Extended Support 
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CH7]
+| Retirement  
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CH8]
+| Supportability 
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=CH9]
+|===
+
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=MuleIntro3]
+
+=== CloudHub 2.0
+
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=MuleIntro4]
+
+CloudHub 2.0 requires 
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=MuleIntro5]
+
+include::release-notes::partial$mule-runtime/mule-lts-edge-release-cadence.adoc[tags=MuleIntro6]
+
+
+== Update Notification
+
+When a new runtime version is available:
+
+* The *Applications* page displays an *Update Available* column that indicates if there is an update available for the application:
++
+image::ch2-update-available-column.png[]
+
+*  *Update available* and the new available updates appear in the *Deployment Target* tab of the *Settings* page for the application:
++
+image::ch2-update-available-field.png[]
+
+MuleSoft applies the updates automatically, based on the published schedules.
+If you want, you can update them manually at your convenience.
+
+== Update the Runtime Version Manually
 
 . Log in to Anypoint Platform.
 . Navigate to Runtime Manager.
@@ -59,6 +277,10 @@ If the update is successful, no action is required. If your application does not
 . Select the latest build for your version.
 . Click *Deploy*. +
 The application redeploys with the new runtime version.
+
+If you select the Edge release channel, a banner appears indicating the date of the next automatic update.
+
+image::ch2-app-edge-auto-update.png[Banner indicating the date of automatic update for Edge release channel.]
 
 == Security Updates
 
@@ -70,3 +292,14 @@ MuleSoft regularly runs scans to identify security vulnerabilities in JVM and th
 |P0 | Critical | 7 days
 |P1 | High | 30 days
 |===
+
+== Check Your Application Status After an Update
+
+After a new update occurs, you can check your xref:managing-deployed-applications.adoc#application_status_states[applications status state] in the *Status* column in Runtime Manager's *Applications* tab.
+
+You can also check your application logs to verify if your application was deployed correctly and take any remediation actions in the event of some auto-minor update-related issue. For more information, visit xref:ch2-view-logs.adoc#view-logs[View Logs].
+
+
+== See Also
+
+* xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[].

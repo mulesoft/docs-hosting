@@ -72,7 +72,7 @@ Logging is enabled by default for apps deployed to CloudHub 2.0.
 To disable or reenable logging for the app:
 
 . Click the *Logging* tab.
-. Deselect or select the *Enable application logs* option.
+. Deselect or select the *Forward application logs to Anypoint Platform* option.
 . Click *Apply Changes*.
 
 If you disable logging, the *Logs* heading still appears in the Runtime Manager navigation menu, but application logs are not collected.
@@ -81,7 +81,7 @@ If you disable logging, the *Logs* heading still appears in the Runtime Manager 
 
 To configure additional log levels and categories to include in logs:
 
-. Click the *Logging* tab.
+. Click the *Monitoring* tab.
 . Select the log level:
 +
 ** *INFO*: Informative messages
@@ -96,6 +96,29 @@ To configure additional log levels and categories to include in logs:
 // end::configureLogging[]
 
 
+// tag::enableDistributedTracing[]
+
+= Enable Trace Data Collection
+
+Traces enable you to understand the execution path of a transaction in MuleSoft ecosystem by having full visibility into the execution path of API calls or application transactions. This feature exposes tracing information in OpenTelemetry standard from Mule runtime into the Anypoint Monitoring xref:monitoring::telemetry-exporter.adoc[Telemetry Exporter].
+
+You can enable trace data collection for your CloudHub 2.0 applications running on Mule runtime version 4.6 or later. 
+
+To enable distributed tracing in your application deployments:
+
+. Click the *Monitoring* tab.
+. Select the *Enable tracing* checkbox.
+. Click *Deploy Application* if you are enabling the feature for a new deployment, or *Apply Changes* if you are editing an existing application.
+
+[NOTE]
+You can't enable trace data collection via Mule Maven plugin, Anypoint CLI, or Studio yet. You can enable trace data collection via UI and API.
+
+Once you enable tracing, and redeploy your application, the Runtime Manager backend starts instrumenting traces for your application.
+
+[NOTE]
+include::reuse::partial$billing/pricing.adoc[tag=featureAdvReq]
+ 
+// end::enableDistributedTracing[]
 
 // tag::specifyRuntimeOpts[]
 [[specify-runtime-options]]
@@ -104,14 +127,28 @@ To configure additional log levels and categories to include in logs:
 Click the *Runtime* tab and specify the following options:
 
 Runtime version::
-Specifies the Mule runtime engine version.
+Specifies the Mule runtime engine version. Versions 4.3.x, 4.4.x, 4.5.x, and 4,6.x are supported.
+Release Channel::
+Starting with Mule 4.5, MuleSoft introduces two new release channels, xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[Edge and Long-term Support (LTS)].
++
+For new applications, the Edge channel is selected by default in the *Release Channel* drop-down menu. 
++
+For existing applications using a legacy version, the *Release Channel* drop-down list is selected as `None` by default. Use the *Release Channel* drop-down list to select the desired release channel.
++
+For existing applications using an Edge version, the *Release Channel* drop-down list is selected as `Edge`. The *Runtime Version* dropdown list indicates if there is an update available, as well as the previous and latest version of the application. Use the  *Release Channel* drop-down list to change to a legacy version.
++
+For existing applications using an Edge or an LTS version on extended support, a warning message appears indicating the version's EOL.
+
+Java Version:: 
+Select the Java version for your application. For more information, visit xref:general::java-support.adoc[].
+
 Replica size::
 Specifies the number of vCores in the replica to run your application.
 +
 For information on replica sizes, memory, and storage, see
 xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas].
 CloudHub 2.0 limits the replica size per deployment to four vCores.
-Replicas::
+Replica Count::
 Specifies the number of replicas, or instances, of the application to deploy.
 +
 A minimum of two replicas is required for high availability.
@@ -120,7 +157,8 @@ Enables xref:ch2-clustering.adoc[Mule clustering] across each replica of the app
 +
 This option requires at least two replicas.
 // Is this on Production?
-// Use Object Store V2::
+Use Object Store V2::
+You can select xref:object-store::index.adoc[Object Store v2] as the implementation for Mule 3 and Mule 4 by checking the *Use Object Store V2* checkbox.
 
 Deployment model::
 +

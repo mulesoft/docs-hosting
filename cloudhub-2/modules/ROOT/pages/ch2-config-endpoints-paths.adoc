@@ -1,30 +1,33 @@
 = Configuring Endpoints and Paths for Apps Deployed to a Private Space
 
 [IMPORTANT]
-CloudHub 2.0 supports customizing public endpoints only for apps that are deployed to private spaces, not shared spaces.
+CloudHub 2.0 supports customizing endpoints only for apps that are deployed to private spaces, not shared spaces.
 
 
 A private space routes requests from clients to apps deployed to the private space.
 
-When you deploy an app to a private space, both _public_ and _private endpoints_ are created, but you can modify only the public endpoint.
-An _endpoint_ is the URL used to reach the app deployed to the private space,
-for example `\https://my-app.example.com/`. Public endpoints enable clients outside of the network to reach the app. Private endpoints are accessible only within the private network, a VPN, or transit gateway (TGW). To ensure an app is accessible only within the network, you can remove public endpoints.
+When you deploy an app to a private space, two types of _endpoints_ are created:
+
+* *Endpoint*: A URL used to reach the app deployed to the public space. In this context, it is accessible externally and enables clients outside of the network to reach the app. You can delete this endpoint to prevent external traffic from reaching the app.
+* *Internal endpoint*: A URL used to reach the app deployed to the public space, but it is accessible only within the private network, VPN, or transit gateway (TGW). This type of endpoint cannot be modified or deleted.
+
+An example endpoint URL is `\https://my-app.example.com/`. Endpoints enable clients outside of the network to reach the app. Internal endpoints are accessible only within the private network, a VPN, or transit gateway (TGW). To ensure an app is accessible only within the network, use internal endpoints.
 
 You can customize how requests from clients reach the app by configuring:
 
-* Multiple custom public endpoints
+* Multiple custom endpoints
 +
-The administrator specifies the domains that you can use for the public endpoints
+The administrator specifies the domains that you can use for the endpoints
 by configuring the TLS context in the private space settings.
 For information, see xref:ps-config-domains.adoc[].
 
-* Different paths for the app and the public endpoint URL
+* Different paths for the app and the endpoint URL
 +
 The _path_ is the base path expected by the HTTP Listener in your app, for example `my-app.example.com/v1/api`.
 +
 For information, see xref:http-connector::http-listener-ref.adoc[HTTP Listener Reference - Mule 4].
 
-You can also remove the public endpoint to ensure clients outside of the private network cannot make requests to the app.
+You can also remove the endpoint to ensure clients outside of the private network cannot make requests to the app.
 
 
 [[before-you-begin]]
@@ -36,16 +39,16 @@ For information, see xref:ps-config-domains.adoc[].
 
 
 [[configure-multiple-endpoints]]
-== Configure Multiple Public Endpoints
+== Configure Multiple Endpoints
 
-You can enable your app to be reached via multiple public endpoints, for example,
+You can enable your app to be reached via multiple endpoints, for example,
 `my-app.example.com` and `my-old-app.oldname.com`.
 
 [TIP]
 To ensure that each endpoint name is unique, use the `app-name` placeholder in the subdomain,
 or the path if the domain doesn't include a wildcard.
 
-To configure multiple public endpoints:
+To configure multiple endpoints:
 
 . When deploying an app to a private space, click the *Ingress* tab.
 +
@@ -77,9 +80,9 @@ For information, see <<placeholder-table,placeholders>>.
 include::partial$deployment.adoc[tag=placeholders,leveloffset=+2]
 
 [[configure-different-paths]]
-== Configure a Different Path for the App and the Public URL Endpoint
+== Configure a Different Path for the App and the URL Endpoint
 
-You can configure different paths for the app and the public URL endpoint.
+You can configure different paths for the app and the URL endpoint.
 For example, if the app is listening on `my-app.example.com/v1/api` and you
 want the app to be reachable from the internet using `my-app.example.com/api`.
 When you rewrite the path URL, the new path applies to all endpoints.
@@ -93,10 +96,10 @@ To configure different paths:
 
 . Click *Apply Changes* to create a new configuration for your application.
 
-[[remove-public-endpoint]]
-== Remove a Public Endpoint
+[[remove-external-endpoint]]
+== Remove an Endpoint
 
-To remove a public endpoint:
+To remove an endpoint:
 
 //SELECT APP SHARED
 include::partial$select-private-space.adoc[tag=selectAppsPage]
@@ -106,19 +109,19 @@ include::partial$select-private-space.adoc[tag=clickSettings]
 . In the endpoint link row, click *X* (*Delete*).
 
 
-[[view-private-endpoint]]
-== View the Private Endpoint for an App
+[[view-internal-endpoint]]
+== View the Internal Endpoint for an App
 
-A private endpoint is accessible from inside the same private space or through
-the VPN or transit gateway connection for the private space. You cannot make changes to the path or domain for a private endpoint.
+An internal endpoint is accessible from inside the same private space or through
+the VPN or transit gateway connection for the private space. You cannot make changes to the path or domain for an internal endpoint.
 
-To view or copy the URL for the private endpoint:
+To view or copy the URL for the internal endpoint:
 
 include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSettings]
 . Click the *Ingress* tab.
-. Hover over *private endpoint*.
+. Hover over *internal endpoint*.
 // +
 // <screenshot>
 

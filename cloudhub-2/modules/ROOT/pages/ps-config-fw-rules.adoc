@@ -46,7 +46,7 @@ Ports for inbound traffic are not configurable:
 +
 * Port 80 is reserved HTTP.
 * Port 443 is reserved for HTTPS.
-* Other ports below 1024 are not allowed.
+* Other ports below 1024 are not allowed. Ports 1024 and above are allowed for plain TCP connections, but not for additional HTTP/HTTPS ingress endpoints.
 
 --
 . Configure default rules for outbound traffic by selecting the *Protocol* and *Destination* from the drop-down lists:
@@ -83,4 +83,3 @@ Port ranges for outbound traffic are configurable.
 image::fw-rule-delete.png[Delete icon on the Firewall rules tab]
 
 . Click *Save Changes* or *Discard changes*.
-. Restart your application.

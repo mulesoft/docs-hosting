@@ -19,7 +19,8 @@ You do not need to configure your apps to use Object Store in CloudHub 2.0. Addi
 
 Clustering requires:
 
-* A Platinum or Titanium subscription to Anypoint Platform.
+include::reuse::partial$billing/pricing.adoc[tag=prereqBullet]
+
 * A CloudHub Enterprise or Partner account type that enables you to use this feature.
 * Familiarity with deploying applications using Runtime Manager.
 
@@ -59,15 +60,22 @@ See xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas] for mo
 
 If your application is already deployed, you must redeploy it for your new settings to take effect.
 
-== How Clustering is Implemented
+== How High Availability is Implemented
 
 HTTP load balancing is implemented by an internal reverse proxy server.
 Requests to the application (domain) URL are automatically load balanced between all the application's replica URLs.
 
-//// 
-Clients can bypass the clustering load balancer by using a replica's direct URL.
-See xref:cloudhub-networking-guide.adoc[CloudHub Networking Guide^] for more information in how to access an application in a specific CloudHub 2.0 replica.
-////
+
+//Clients can bypass the clustering load balancer by using a replica's direct URL.
+//See xref:cloudhub-networking-guide.adoc[CloudHub Networking Guide] for more information on how to access an application in a specific CloudHub 2.0 replica.
+
+
+== How Clustering is Implemented
+
+When you enable clustering, all the replicas of a Mule application act as a unit. A cluster is a virtual server composed of multiple replicas. The nodes in a cluster communicate and share information through a distributed shared memory grid. Thus, data is replicated across memory in different replicas.
+
+For more information, see xref:mule-runtime::mule-high-availability-ha-clusters.adoc[].
+
 
 == Use Cases
 
@@ -77,7 +85,9 @@ You can combine clustering features in a single application.
 |===
 |Use Case |Suggested Clustering Configuration |Implications
 |You want to scale out your application, but you are satisfied with the existing highly available CloudHub 2.0 architecture in terms of preventing service interruption or message loss. |
-Number of Replicas: 2 or more
+Number of Replicas: Two or more +
+Clustering not enabled
+
 
 |
 * Application performance is not affected by queue latency.
@@ -85,7 +95,8 @@ Number of Replicas: 2 or more
 * If one data center experiences an outage, your replicas are available in a different data center.
 
 |You have a high-stakes process for which you need to protect against message loss, but you are not experiencing issues with handling processing load and are OK with some service interruption in the case of a data center outage. |
-Number of Replicas: 1
+Number of Replicas: One +
+Clustering enabled
 
 |
 * Application might experience some queue latency.
@@ -93,7 +104,8 @@ Number of Replicas: 1
 * If the data center in which your replica operates experiences an outage, CloudHub 2.0 automatically migrates your application to another availability zone. You might experience downtime during the migration; however, your queues ensure zero message loss.
 
 |You have a high-stakes process for which you need to protect against message loss, avoid any chance of service interruption, and handle large processing loads. |
-Number of Replicas: 2 or more
+Number of Replicas: Two or more +
+Clustering enabled
 
 |
 * Application might experience some queue latency.
@@ -101,7 +113,8 @@ Number of Replicas: 2 or more
 * If one data center experiences an outage, your replicas are automatically distributed to ensure redundancy.
 
 |You have an application that does not have any special requirements regarding either processing load or message loss. |
-Number of Replicas: 1
+Number of Replicas: One +
+Clustering not enabled 
 
 |
 * Application performance is not affected by queue latency.

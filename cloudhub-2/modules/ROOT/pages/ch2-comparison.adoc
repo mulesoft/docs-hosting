@@ -19,13 +19,13 @@ The following improvements have been made to features that are also available in
 * With the added fractional vCore offerings in CloudHub 2.0, you may no longer need to bundle multiple listeners in the same application to reduce your resource usage.
 * In CloudHub 2.0, private spaces function as improved VPCs from CloudHub 1.0. You can automatically assign a private network for the applications in a private space. You can also configure a private ingress load balancer that auto-scales to accommodate traffic.
 * By default, VPNs allow high availability.
-* Applications now have xref:ch2-config-endpoints-paths.adoc[public and private endpoints] by default. You can also configure multiple public endpoints. You can access the endpoint addresses in Runtime Manager.
+* Applications now have xref:ch2-config-endpoints-paths.adoc[endpoints and internal endpoints] by default. You can also configure multiple endpoints. You can access the endpoint addresses in Runtime Manager.
 * You can make in-place edits and updates to the TLS context and truststore of the ingress layer.
 * In CloudHub 1.0, application names had to be unique per control plane. In CloudHub 2.0, application names must be unique per private space.
 * Custom log4j.xml is supported by default to enable xref:ch2-integrate-log-system.adoc[streaming logs] to external log collectors. You no longer need to contact Support to enable or disable this feature.
 * You can disable log streaming using Runtime Manager. You no longer need to contact Support to enable or disable this feature.
 * Self-service logs for the dedicated load balancer and ingress are available via a private space. Titanium users can also download logs through Anypoint Monitoring.
-* Using ports 80 and 443, applications inside a private space can communicate using internal load balancer via the private endpoint. This depends on application protocol.
+* Using ports 80 and 443, applications inside a private space can communicate using internal load balancer via the internal endpoint. This depends on application protocol.
 
 == Considerations and Limitations
 
@@ -39,7 +39,6 @@ CloudHub 2.0 infrastructure behavior deviates from CloudHub 1.0 in the following
 * Unlike VPCs in CloudHub 1.0, you can associate a private space with multiple environments based only on the type of the environment, such as sandbox or production. You can now choose which environment type and individual business groups with which you share private spaces.
 * To move applications between regions, you must redeploy the application to another shared space or private space in a different region. You cannot move the app to a different region once deployed.
 * HTTP and HTTPS traffic uses port 8081.
-* CloudHub 2.0 blocks outbound SMTP traffic when more than 20 emails are sent in one hour.
 * You cannot create a VPN connection between a CloudHub 1.0 VPC and a CloudHub 2.0 private space.
 
 CloudHub 2.0 does not support the following infrastructure features or functions that CloudHub 1.0 supports:
@@ -51,13 +50,13 @@ CloudHub 2.0 does not support the following infrastructure features or functions
 
 CloudHub 2.0 application behavior deviates from CloudHub 1.0 in the following ways:
 
-* Only Mule 4.3.0 through 4.4.x are supported.
+* Only Mule 4.3.0 through 4.5.x are supported.
 * Application bursting depends on the resource usage of other applications that are deployed in the private space and is not guaranteed.
 * Secure application properties are stored in encrypted, private vaults and cannot be viewed directly by users or MuleSoft staff after they are created. Secure properties are accessible only by the application itself. You can overwrite the properties to new values at any time.
 * Use xref:mq::index.adoc[Anypoint MQ] for persistent queues and other queue management. Persistent queues are not supported.
 * HTTP, HTTPS, and TCP inbound protocols are supported. Inbound protocols that are not TCP or HTTP-based are not supported.
-* Private endpoints do not offer mTLS capabilities as internet-facing public endpoints.
 * In xref:monitoring::alerts.adoc[Anypoint Monitoring], you must set alerts for apps individually. Setting alerts for all apps simultaneously is not supported.
+* CloudHub application workers and CloudHub 2.0 application replicas of the same vCore sizes may differ in performance metrics and cannot be compared.
 
 CloudHub 2.0 does not support the following application features or functions that CloudHub 1.0 supports:
 
