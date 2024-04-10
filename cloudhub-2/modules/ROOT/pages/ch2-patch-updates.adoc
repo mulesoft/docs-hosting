@@ -27,6 +27,25 @@ When running Mule in a xref:ch2-clustering.adoc[cluster], a rolling update with 
 
 To prevent this kind of error, use the Recreate update strategy.
 
+
+[[self-upgrade-schedule]]
+== Schedule Infrastructure Upgrades (Optional)
+
+Schedule infrastructure upgrades earlier than the scheduled patching process, between the Release Available and the Auto-Update dates stated in the xref:release-notes::cloudhub-2/cloudhub-2-runtimes-release-notes.adoc[monthly updates table]. This way, you can choose a date in the future that better suits your organization's needs.
+
+=== Schedule the Upgrade via Runtime Manager
+
+. From Anypoint Platform, select *Runtime Manager* > *Private Spaces*.
++
+If an upgrade is available for a private space, a the *Upgrade Available* status appears under the *Infra Status* column.
+. Click *Schedule an Upgrade*.
+. Select the date on which you want your private space to upgrade. +
+Upgrades occur at 00:00 UTC on the date you select.
+. Select the checkbox to confirm that you agree to upgrade early.
+. Click *Upgrade*.
+
+After applying the upgrade, you can check the status under the *Infra Status* column.
+
 == Opt-in Early Infrastructure Upgrades (Optional)
 
 Opt in to apply infrastructure upgrades earlier than the scheduled patching process, between the Release Available and the Auto-Update dates stated in the xref:release-notes::cloudhub-2/cloudhub-2-runtimes-release-notes.adoc[monthly updates table]. This way, you can choose the time that better suits your organization's needs.
@@ -40,12 +59,12 @@ This upgrade is irreversible. Ensure that you understand the impact of the upgra
 
 . From Anypoint Platform, select *Runtime Manager* > *Private Spaces*.
 +
-If an upgrade is available for a private space, a tooltip shows under the *Infra Status* column.
+If an upgrade is available for a private space, the *Upgrade Available* status appears under the *Infra Status* column.
 . Click *Upgrade available*.
 . Select the checkbox to confirm that you agree to upgrade early.
 . Click *Upgrade*.
 
-After applying the upgrade, you can check the status under the the *Infra Status* column.
+After applying the upgrade, you can check the status under the *Infra Status* column.
 
 === Apply the Self-Triggered Upgrade via API
 
