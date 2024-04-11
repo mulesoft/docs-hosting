@@ -33,6 +33,10 @@ To prevent this kind of error, use the Recreate update strategy.
 
 Schedule infrastructure upgrades earlier than the scheduled patching process, between the Release Available and the Auto-Update dates stated in the xref:release-notes::cloudhub-2/cloudhub-2-runtimes-release-notes.adoc[monthly updates table]. This way, you can choose a date in the future that better suits your organization's needs.
 
+On average, this upgrade takes between thirty to sixty minutes to complete. If your upgrade is queued, it can take longer than thirty minutes. The impact of the upgrade process on running applications is consistent with the auto-patching behavior described in the previous sections.
+
+You can modify or delete your scheduled upgrade if it is not already in progress. If you cancel the schedule and do not create another or opt in to an earlier upgrade, the upgrade occurs during the mandatory patching window.
+
 === Schedule the Upgrade via Runtime Manager
 
 . From Anypoint Platform, select *Runtime Manager* > *Private Spaces*.
