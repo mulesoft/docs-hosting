@@ -35,13 +35,13 @@ Schedule infrastructure upgrades earlier than the scheduled patching process, be
 
 On average, this upgrade takes between thirty to sixty minutes to complete. If your upgrade is queued, it can take longer than thirty minutes. The impact of the upgrade process on running applications is consistent with the auto-patching behavior described in the previous sections.
 
-You can modify or delete your scheduled upgrade if it is not already in progress. If you cancel the schedule and do not create another or opt in to an earlier upgrade, the upgrade occurs during the mandatory patching window.
+You can modify or delete your scheduled upgrade if it is not already in progress, as indicated by the `Queued` status. If you cancel the schedule and do not create another or opt in to an earlier upgrade, the upgrade occurs during the mandatory patching window.
 
 === Schedule the Upgrade via Runtime Manager
 
 . From Anypoint Platform, select *Runtime Manager* > *Private Spaces*.
 +
-If an upgrade is available for a private space, a the *Upgrade Available* status appears under the *Infra Status* column.
+If an upgrade is available for a private space, the *Upgrade Available* status appears under the *Infra Status* column.
 . Click *Schedule an Upgrade*.
 . Select the date on which you want your private space to upgrade. +
 Upgrades occur at 00:00 UTC on the date you select.
@@ -65,7 +65,7 @@ This upgrade is irreversible. Ensure that you understand the impact of the upgra
 +
 If an upgrade is available for a private space, the *Upgrade Available* status appears under the *Infra Status* column.
 . Click *Upgrade available*.
-. Select the checkbox to confirm that you agree to upgrade early.
+. Click *Upgrade now* and opt in to the early upgrade.
 . Click *Upgrade*.
 
 After applying the upgrade, you can check the status under the *Infra Status* column.
