@@ -70,131 +70,9 @@ If an upgrade is available for a private space, the *Upgrade Available* status a
 
 After applying the upgrade, you can check the status under the *Infra Status* column.
 
-=== Apply the Self-Triggered Upgrade via API
+=== Schedule or Apply the Upgrade via API
 
-You can upgrade a private space using the Upgrade Private Space API. 
-
-==== Check for Available Upgrades
-
-To check if there is an upgrade available for your private space, use the `isSpaceUpgradeAvailable` field added to existing PrivateSpaces APIs. The following examples show the API request and response:
-
-
-Request:
-
-[source,json]
----- 
-GET
-https:/anypoint.mulesoft.com/runtimefabric/api/organizations/{organizationId}/privatespaces/{privatespaceId}
-----
-
-Response:
-
-[source,java]
-----
-{
-    "id": "69f1b6f6-2bd9-4ceb-a145-a75f11a5eaee",
-    "name": "mySpace",
-    "status": "Active",
-    // EXTRA NON-RELEVANT FIELDS
-    "isSpaceUpgradeAvailable": true
-}
-----
-
-=== Apply Upgrades to Your Private Space
-
-If there is a new version available, you can upgrade your private space to the latest available version via the Upgrade Private Space API. The following examples show the API request and response:
-
-Request:
-
-[source,json]
----- 
-PATCH 
-https:/anypoint.mulesoft.com/runtimefabric/api/organizations/{organizationId}/privatespaces/{privateSpaceId}/upgrade?optIn=true
-----
-
-Response:
-
-[source,java]
-----
-{
-    "id": "69f1b6f6-2bd9-4ceb-a145-a75f11a5eaee",
-    "name": "mySpace",
-    "status": "Active",
-    // EXTRA NON-RELEVANT FIELDS
-    "isSpaceUpgradeAvailable": false
-}
-----
-
-[NOTE]
-This request must contain an `optIn` parameter. If the `optIn` parameter is not passed or is passed with a `false` value, the API returns a `400 Bad Request` error.
-
-==== Check the Upgrade Status
-
-After you trigger the upgrade, you can check the status via the `globalSpaceStatus` field on the response of the Private Spaces API, which contains a subfield with the status of the current upgrade.
-
-Request:
-
-[source,json]
----- 
-GET
-https:/anypoint.mulesoft.com/runtimefabric/api/organizations/{organizationId}/privatespaces/{privatespaceId}
-----
-
-Response:
-
-[source,java]
-----
-{
-    "id": "69f1b6f6-2bd9-4ceb-a145-a75f11a5eaee",
-    "name": "mySpace",
-    "status": "Active",
-    // EXTRA NON-RELEVANT FIELDS
-    "globalSpaceStatus": {
-        "space": {
-           "status": "Active"
-        },
-        "cluster": [
-         {
-           "name": "jferaPreviousAP11-ap-southeast-2-eabb4",
-           "infra": {
-             "status": "InfrastructureProvisionSuccess",
-             "lastSeenTimeStamp": 1695756774114
-           },
-          "fabric": {
-            "status": "Active",
-            "lastSeenTimeStamp": 1695763243212
-          },
-          "ingress": {
-            "status": "INGRESS_APPLIED",
-            "lastSeenTimeStamp": 1695760545873
-          }
-         }
-      ],
-      "network": {
-         "status": "InfrastructureProvisionSuccess",
-         "lastSeenTimeStamp": 1695756773862
-      },
-      "upgrade": {
-         "status": "In Progress"
-      }
-    },
-    
-"isSpaceUpgradeAvailable": false
-}
-----
-
-===== Possible Status Types
-
-[%header,cols="20,70"]
-|===
-|Status | Description
-|Active | The private space is currently not ongoing any infrastructure upgrade or configuration update and is working as expected. 
-|In Progress|  The private space is undergoing an infrastructure change which can be related to a user configuration update, or to  an infrastructure upgrade, either self-triggered or as part of a monthly infrastructure upgrade. 
-|Failed| The private space experienced a failure which can be related to a user configuration update, or to  an infrastructure upgrade, either self-triggered or as part of a monthly infrastructure upgrade. 
-|Degraded |  The private space is in a disconnected state and not ready to be used.
-|===
-
-
+You can upgrade a private space using the Upgrade Private Space API. For more information, see the Upgrade Private Space API documentation in Exchange.
 
 [[runtime-updates]]
 == Monthly Date-Patch Updates
@@ -304,6 +182,23 @@ The application redeploys with the new runtime version.
 If you select the Edge release channel, a banner appears indicating the date of the next automatic update.
 
 image::ch2-app-edge-auto-update.png[Banner indicating the date of automatic update for Edge release channel.]
+
+[[ps-status]]
+== Possible Status Types for Private Space Upgrades and Updates
+
+The *Update Available* column in the *Private Space* page shows the status of infrastructure upgrades and runtime updates for your private space.
+
+[%header,cols="20,70"]
+|===
+|Status |Description
+|Latest |The private space is running the latest available infrastructure version. It is currently not undergoing an infrastructure upgrade or configuration update.
+|Upgrade Available |An upgrade is available for the private space. You can either initiate an upgrade immediately or schedule a time for the upgrade to begin.
+|Upgrade Scheduled |The private space has an upgrade scheduled for a future date.
+|Queued |The upgrade that was scheduled or initiated is about to begin. You can no longer make changes to the schedule or interrupt the upgrade.
+|Upgrading |The private space is undergoing an infrastructure upgrade, either scheduled, self-triggered, or as part of a monthly infrastructure upgrade. 
+|Updating |The private space is undergoing an update that was triggered by a configuration change. 
+|Failed |The private space experienced a failure which can be related to a user configuration update, or to an infrastructure upgrade, either scheduled, self-triggered, or as part of a monthly infrastructure upgrade. 
+|===
 
 == Security Updates
 
