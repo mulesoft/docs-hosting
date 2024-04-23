@@ -10,6 +10,8 @@ Configure CPU-based horizontal scaling for Mule applications to make them respon
 
 In Kubernetes, a Horizontal Pod Autoscaler (HPA) automatically updates a workload resource to scale the workload to match demand. Horizontal scaling automatically deploys more pods as a response to an increased load. For more information, visit the https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale[Kubernetes documentaton^]. 
 
+The xref:general::pricing.adoc#global-resource-pool-limits[Global Resource Pool Limit] does not limit the applications configured with Horizontal Pod Autoscaling.
+
 == Configure Horizontal Pod Autoscaling
 
 To configure horizontal autoscaling for Mule apps deployed to CloudHub 2.0, follow these steps:
