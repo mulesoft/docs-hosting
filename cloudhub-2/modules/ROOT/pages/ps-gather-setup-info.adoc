@@ -397,7 +397,7 @@ You can configure the following CIDRS from the MuleSoft infrastructure CIDRs poo
 100.68.0.0/16
 ----
 
-Additionally, AWS EKS uses `10.100.0.0/16` or `172.20.0.0/16` inside of private space networks. 
+// Additionally, AWS EKS uses `10.100.0.0/16` or `172.20.0.0/16` inside of private space networks. 
 
 [[preshared-keys]]
 ==== Pre-shared Keys
