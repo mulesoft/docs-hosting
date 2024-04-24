@@ -93,7 +93,8 @@ To configure different paths:
 . Click the *Ingress* tab.
 . In the *Path* field, enter the path where you want the app to be reachable, for example, `/api`.
 . In the *Path Rewrite* field, enter the base path expected by the HTTP Listener in your app, for example,  `/v1/api`.
-
++
+This field is available only for apps that are deployed with custom TLS context.
 . Click *Apply Changes* to create a new configuration for your application.
 
 [[remove-external-endpoint]]
