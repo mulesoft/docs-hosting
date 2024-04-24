@@ -373,7 +373,10 @@ The CIDR block must be unique across all private network connections.
 
 MuleSoft recommends using subnets from standard RFC 1918 addresses, such as `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`.
 
-You cannot use the following reserved CIDR blocks:
+[[reserved-cidr]]
+==== Reserved and Unusable CIDR
+
+You cannot use the following list of CIDR blocks for reserved CIDR blocks or as private space network CIDRs, as these are reserved by Anypoint Platform:
 
 ----
 169.254.0.0/30
@@ -384,6 +387,17 @@ You cannot use the following reserved CIDR blocks:
 169.254.5.0/30
 169.254.169.252/30
 ----
+
+You can configure the following private space internal CIDRs as reserved CIDR blocks, but you cannot use them as private space network CIDRs:
+
+----
+100.64.0.0/16
+100.66.0.0/16
+100.67.0.0/16
+100.68.0.0/16
+----
+
+Additionally, AWS EKS uses `10.100.0.0/16` or `172.20.0.0/16` inside of private space networks. 
 
 [[preshared-keys]]
 ==== Pre-shared Keys
