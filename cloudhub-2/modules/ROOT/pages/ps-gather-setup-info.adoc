@@ -388,7 +388,7 @@ You cannot use the following list of CIDR blocks for reserved CIDR blocks or as 
 169.254.169.252/30
 ----
 
-You can configure the following private space internal CIDRs as reserved CIDR blocks, but you cannot use them as private space network CIDRs:
+You can configure the following CIDRS from the MuleSoft infrastructure CIDRs pool as reserved CIDR blocks, but you cannot use them as private space network CIDRs:
 
 ----
 100.64.0.0/16
