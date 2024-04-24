@@ -33,7 +33,7 @@ MuleSoft recommends using subnets from standard RFC 1918 addresses, such as `10.
 
 Optionally, if you want to connect your private space to your corporate network (either on-premises or in the cloud), specify reserved CIDR blocks for your private space to prevent IP address overlap. Use CIDR notation and commas: `192.168.0.0/16, 172.16.0.0/12`.
 
-You cannot use the following CIDR blocks, as these are reserved by Anypoint Platform:
+You cannot use the following CIDR blocks:
 
 ----
 172.17.0.0/16
