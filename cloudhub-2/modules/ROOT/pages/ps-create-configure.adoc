@@ -35,6 +35,9 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 --
 .. Select the xref:ps-gather-setup-info.adoc#private-network-region[region] where you want your apps to run.
 .. Enter the xref:ps-gather-setup-info.adoc#cidr-block[CIDR block], which is the range of IP addresses that your apps can use.
+.. Optionally, enter your corporate private network's reserved CIDRs to connect to your private space. 
++
+When you reserve your CIDRs, Anypoint Platform creates IPs for your private space without using these blocks to prevent conflicts with your private network. 
 .. Click *Create*.
 --
 The private network can take up to 30 minutes to create.
