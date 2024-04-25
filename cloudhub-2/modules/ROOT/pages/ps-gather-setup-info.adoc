@@ -374,6 +374,23 @@ The CIDR block must be unique across all private network connections.
 MuleSoft recommends using subnets from standard RFC 1918 addresses, such as `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`.
 
 [[reserved-cidr]]
+==== Reserved CIDR
+
+When you create your private space and configure your private network, you can configure _reserved CIDR blocks_ that correspond with your reserved corporate network CIDRs. When you reserve CIDRs in private network configuration, Anypoint Platform does not use the blocks you specify when associating IP addresses with your private space. This prevents overlap between your corporate network CIDRs and Anypoint Platform infrastructure. 
+
+There are two strategies for reserving CIDRs during private space creation:
+
+. Provide all reserved corporate CIDRs
++
+Specify all CIDR blocks you plan to use within your corporate network. CloudHub 2.0 automatically checks for conflicts with its CIDR pool and chooses options that do not overlap. +
+This approach simplifies setup but requires providing a potentially larger list.
++
+. Manually identify overlapping corporate CIDRs
++
+Manually review the MuleSoft CIDR pool. Then, specify only the CIDRs from your corporate network CIDR list that conflict with options in the MuleSoft CIDR pool. This approach minimizes the list you provide, but you must check for overlap beforehand. +
+Note that the MuleSoft CIDR pool is subject to change.
+
+[[unusable-cidr]]
 ==== Unusable CIDR
 
 You cannot use the following list of CIDR blocks for reserved CIDR blocks or as private space network CIDRs, as these are reserved by Anypoint Platform:
@@ -388,7 +405,7 @@ You cannot use the following list of CIDR blocks for reserved CIDR blocks or as 
 169.254.169.252/30
 ----
 
-Anypoint Platform has a list of CIDRs as an internal CIDR pool for provisioning private space networks that may be subject to change. You can configure the following as reserved CIDR blocks, but you cannot use them as private space network CIDRs:
+Anypoint Platform has a list of CIDRs as an internal CIDR pool for provisioning private space networks. The MuleSoft CIDR pool is subject to change. You can configure the following as reserved CIDR blocks, but you cannot use them as private space network CIDRs:
 
 ----
 100.64.0.0/16
