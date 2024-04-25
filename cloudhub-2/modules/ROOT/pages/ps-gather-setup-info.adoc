@@ -405,7 +405,7 @@ You cannot use the following list of CIDR blocks:
 169.254.169.252/30
 ----
 
-Anypoint Platform has a list of CIDRs as an internal CIDR pool for provisioning private space networks. The MuleSoft CIDR pool is subject to change. You can configure the following as reserved CIDR blocks, but you cannot use them as private space network CIDRs:
+Anypoint Platform has a list of CIDRs as an internal CIDR pool for provisioning private space networks. The MuleSoft CIDR pool is subject to change. You can configure some of the following as reserved CIDR blocks, but you cannot use them as private space network CIDRs:
 
 ----
 100.64.0.0/16
