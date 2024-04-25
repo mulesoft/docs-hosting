@@ -374,7 +374,7 @@ The CIDR block must be unique across all private network connections.
 MuleSoft recommends using subnets from standard RFC 1918 addresses, such as `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`.
 
 [[reserved-cidr]]
-==== Reserved CIDR
+==== Reserved Corporate CIDR
 
 When you create your private space and configure your private network, you can configure _reserved CIDR blocks_ that correspond with your reserved corporate network CIDRs. When you reserve CIDRs in private network configuration, Anypoint Platform does not use the blocks you specify when associating IP addresses with your private space. This prevents overlap between your corporate network CIDRs and Anypoint Platform infrastructure. 
 
