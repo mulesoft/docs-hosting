@@ -393,7 +393,7 @@ Note that the MuleSoft CIDR pool is subject to change.
 [[unusable-cidr]]
 ==== Unusable CIDR
 
-You cannot use the following list of CIDR blocks for reserved CIDR blocks or as private space network CIDRs, as these are reserved by Anypoint Platform:
+You cannot use the following list of CIDR blocks:
 
 ----
 169.254.0.0/30
