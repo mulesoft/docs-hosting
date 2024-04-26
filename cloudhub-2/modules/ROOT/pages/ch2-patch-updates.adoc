@@ -72,7 +72,7 @@ After applying the upgrade, you can check the status under the *Infra Status* co
 
 === Schedule or Apply the Upgrade via API
 
-You can upgrade a private space using the Upgrade Private Space API. For more information, see the Upgrade Private Space API documentation in Exchange.
+You can upgrade a private space using the Upgrade Private Space API. For more information, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/minor/1.0/console/endpoint/%232428/[Upgrade Private Space API] documentation in Exchange.
 
 [[runtime-updates]]
 == Monthly Date-Patch Updates
