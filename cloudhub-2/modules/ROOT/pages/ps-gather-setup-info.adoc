@@ -415,6 +415,18 @@ The CIDR block must be unique across all private network connections.
 
 MuleSoft recommends using subnets from standard RFC 1918 addresses, such as `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`.
 
+You cannot use the following list of CIDR blocks:
+
+----
+169.254.0.0/30
+169.254.1.0/30
+169.254.2.0/30
+169.254.3.0/30
+169.254.4.0/30
+169.254.5.0/30
+169.254.169.252/30
+----
+
 [[preshared-keys]]
 ==== Pre-shared Keys
 
