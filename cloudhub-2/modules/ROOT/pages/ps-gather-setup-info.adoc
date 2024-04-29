@@ -167,13 +167,13 @@ Note that the MuleSoft CIDR pool is subject to change.
 You cannot use the following list of CIDR blocks:
 
 ----
-169.254.0.0/30
-169.254.1.0/30
-169.254.2.0/30
-169.254.3.0/30
-169.254.4.0/30
-169.254.5.0/30
-169.254.169.252/30
+172.17.0.0/16
+100.64.0.0/10
+198.19.0.0/16
+224.0.0.0/4
+169.254.0.0/16
+127.0.0.0/8
+0.0.0.0/8
 ----
 
 Anypoint Platform has a list of CIDRs as an internal CIDR pool for provisioning private space networks. The MuleSoft CIDR pool is subject to change. You can configure some of the following as reserved CIDR blocks, but you cannot use them as private space network CIDRs:
