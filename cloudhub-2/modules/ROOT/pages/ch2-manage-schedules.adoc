@@ -135,6 +135,9 @@ For information about building cron triggers:
 .. Select a version, click *Documentation > User's Guide > Tutorial*, and then click the *CronTrigger* lesson.
 . Click *Update* to save changed settings or click *Cancel* to exit without saving.
 
+include::cloudhub::partial$ch-app-schedule-freq.adoc[]
+
+
 [[run-immediately]]
 == Run a Scheduled Job Immediately
 
