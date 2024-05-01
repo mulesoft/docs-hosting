@@ -153,13 +153,13 @@ There are two strategies for reserving CIDRs during private space creation:
 
 . Provide all reserved corporate CIDRs
 +
-Specify all CIDR blocks you plan to use within your corporate network. CloudHub 2.0 automatically checks for conflicts with its CIDR pool and chooses options that do not overlap. +
+Specify all CIDR blocks you plan to use within your corporate network. CloudHub 2.0 automatically checks for conflicts with the MuleSoft infrastructure CIDR pool and chooses options that do not overlap. +
 This approach simplifies setup but requires providing a potentially larger list.
 +
 . Manually identify overlapping corporate CIDRs
 +
-Manually review the MuleSoft CIDR pool. Then, specify only the CIDRs from your corporate network CIDR list that conflict with options in the MuleSoft CIDR pool. This approach minimizes the list you provide, but you must check for overlap beforehand. +
-Note that the MuleSoft CIDR pool is subject to change.
+Manually review the MuleSoft infrastructure CIDR pool. Then, specify only the CIDRs from your corporate network CIDR list that conflict with options in the MuleSoft infrastructure CIDR pool. This approach minimizes the list you provide, but you must check for overlap beforehand. +
+Note that the MuleSoft infrastructure CIDR pool is subject to change.
 
 [[unusable-cidr]]
 ==== Unusable CIDR
@@ -176,7 +176,10 @@ You cannot use the following list of CIDR blocks:
 0.0.0.0/8
 ----
 
-Anypoint Platform has a list of CIDRs as an internal CIDR pool for provisioning private space networks. The MuleSoft CIDR pool is subject to change. You can configure some of the following as reserved CIDR blocks, but you cannot use them as private space network CIDRs:
+[[infra-cidr-pool]]
+==== MuleSoft Infrastructure CIDR Pool
+
+Anypoint Platform has a list of CIDRs as an internal CIDR pool for provisioning private space networks. The MuleSoft infrastructure CIDR pool is subject to change. You can configure some of the following as reserved CIDR blocks, but you cannot use them as private space network CIDRs:
 
 ----
 100.64.0.0/16
@@ -412,8 +415,6 @@ For each tunnel, enter the IP address range for the internal address of the VPN 
 
 You can specify a size /30 CIDR block from the `169.254.0.0/16` range.
 The CIDR block must be unique across all private network connections. 
-
-MuleSoft recommends using subnets from standard RFC 1918 addresses, such as `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`.
 
 You cannot use the following list of CIDR blocks:
 
