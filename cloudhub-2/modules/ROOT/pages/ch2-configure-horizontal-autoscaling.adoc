@@ -22,7 +22,7 @@ To configure horizontal autoscaling for Mule apps deployed to CloudHub 2.0, foll
 . Set the minimum and maximum *Replica Count* limits.
 . Select the *Replica Size* from the dropdown menu.
 +
-If you have the Anypoint Integration Advanced package, you can select from `Micro`, `Micro.Mem`, and `Small` replica sizes. If you have a different pricing plan, `Micro` or `Micro.Mem` replica sizes. For more information, see xref:general::pricing.adoc#cloudhub-2-0-application-deployment[CloudHub 2.0 Application Deployment].
+If you have the Anypoint Integration Advanced package, you can select from `Micro`, `Micro.Mem`, and `Small` replica sizes. If you have a different pricing plan, select `Micro` or `Micro.Mem` replica sizes. For more information, see xref:general::pricing.adoc#cloudhub-2-0-application-deployment[CloudHub 2.0 Application Deployment].
 . Click *Deploy Application*.
 
 image::ch2-config-autoscaling.png[Configure horizontal autoscaling]
