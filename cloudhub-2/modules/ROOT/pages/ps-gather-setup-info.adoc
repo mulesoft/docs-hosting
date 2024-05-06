@@ -144,6 +144,21 @@ Asia Pacific (Tokyo)
 [[cidr-block]]
 include::partial$create-config.adoc[tag=cidrBlock,leveloffset=+2]
 
+[[unusable-cidr]]
+==== Unusable CIDR
+
+You cannot use the following list of CIDR blocks:
+
+----
+172.17.0.0/16
+100.64.0.0/10
+198.19.0.0/16
+224.0.0.0/4
+169.254.0.0/16
+127.0.0.0/8
+0.0.0.0/8
+----
+
 [[reserved-cidr]]
 ==== Reserved Corporate CIDR
 
@@ -161,20 +176,7 @@ This approach simplifies setup but requires providing a potentially larger list.
 Manually review the MuleSoft infrastructure CIDR pool. Then, specify only the CIDRs from your corporate network CIDR list that conflict with options in the MuleSoft infrastructure CIDR pool. This approach minimizes the list you provide, but you must check for overlap beforehand. +
 Note that the MuleSoft infrastructure CIDR pool is subject to change.
 
-[[unusable-cidr]]
-==== Unusable CIDR
 
-You cannot use the following list of CIDR blocks:
-
-----
-172.17.0.0/16
-100.64.0.0/10
-198.19.0.0/16
-224.0.0.0/4
-169.254.0.0/16
-127.0.0.0/8
-0.0.0.0/8
-----
 
 [[infra-cidr-pool]]
 ==== MuleSoft Infrastructure CIDR Pool
