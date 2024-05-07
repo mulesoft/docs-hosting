@@ -83,7 +83,7 @@ To create a static VPN connection, you need:
 
 ---------
 
-Luana: I have assembled high-level lists above of what each configuration needs; Taylor can probably help with how to decide each of these things.
+Luana: I have assembled high-level lists above of what each configuration needs; Vikram can probably help with how to decide each of these things.
 
 The UI specs have definitions of many of the pieces of info we request from users: https://www.figma.com/file/8oqIfXoNYJWjR5aAuY3QYa/Private-Spaces?node-id=0%3A1
 
