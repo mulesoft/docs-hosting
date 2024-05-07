@@ -1,4 +1,4 @@
-= Network Administrator Guide
+= Set Up CloudHub 2.0 with Your Network Administrator
 
 
 When you are gathering information to create a private space, the information or values you need depend on the type of connection your private space will use: an AWS transit gateway or a virtual private network (VPN).
