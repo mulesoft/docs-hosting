@@ -141,7 +141,7 @@ This table compares the features and support for CloudHub 2.0, CloudHub 1.0, and
 | *Application isolation* | Supported | Supported | Supported
 |*Auto-recovery*| Fully managed | Fully managed | Supported
 |*Mule clustering* | Supported | Not supported | Supported
-|*Autoscaling* | Not supported | Supported | Supported
+|*Autoscaling* | Supported | Supported | Supported
 
 4+h|
 4+h|Support

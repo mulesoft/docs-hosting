@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 
 [IMPORTANT]
-This feature applies only to select customers who are opted into the new pricing and packaging model. For more details, visit xref:general::pricing.adoc[].
+include::reuse::partial$billing/pricing.adoc[tag=featureUBPReq]
 
 Configure CPU-based horizontal scaling for Mule applications to make them responsive to CPU usage by automatically scaling up or down the deployment replicas as needed.
 
@@ -22,7 +22,7 @@ To configure horizontal autoscaling for Mule apps deployed to CloudHub 2.0, foll
 . Set the minimum and maximum *Replica Count* limits.
 . Select the *Replica Size* from the dropdown menu.
 +
-Integration-Advanced customers can select from `Micro`, `Micro.Mem`, and `Small` replica sizes. Customers on other tiers can select from `Micro`and `Micro.Mem` replica sizes. For more information, see xref:general::pricing.adoc#cloudhub-2-0-application-deployment[CloudHub 2.0 Application Deployment].
+If you have the Anypoint Integration Advanced package, you can select from `Micro`, `Micro.Mem`, and `Small` replica sizes. If you have a different pricing plan, select `Micro` or `Micro.Mem` replica sizes. For more information, see xref:general::pricing.adoc#cloudhub-2-0-application-deployment[CloudHub 2.0 Application Deployment].
 . Click *Deploy Application*.
 
 image::ch2-config-autoscaling.png[Configure horizontal autoscaling]
