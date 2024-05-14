@@ -3,10 +3,10 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-[IMPORTANT]
-include::reuse::partial$billing/pricing.adoc[tag=featureUBPReq]
-
 Configure CPU-based horizontal scaling for Mule applications to make them responsive to CPU usage by automatically scaling up or down the deployment replicas as needed.
+
+[NOTE]
+This feature applies only to select customers who are opted into the new pricing and packaging model. For more details, see xref:general::pricing.adoc[]
 
 In Kubernetes, a Horizontal Pod Autoscaler (HPA) automatically updates a workload resource to scale the workload to match demand. Horizontal scaling automatically deploys more pods as a response to an increased load. For more information, visit the https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale[Kubernetes documentaton^]. 
 
@@ -117,6 +117,8 @@ Max replicas: +
 
 * The maximum number of capped replicas. No more replicas can be added above this number for scaling up.
 * Scale-up policy should never add replicas above this number.
+
+Enabling HPA can result in customers incurring additional flow usage when your application scales horizontally. To avoid overages from unpredicted scaling, configure the maximum configured replicas judiciously to stay within purchased flow limits. Track your incurred flow usage through xref:general::usage-reports.adoc[usage reports].
 
 
 == Performance Considerations
