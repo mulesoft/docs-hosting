@@ -140,6 +140,20 @@ http://helloch2:8081/hello
 ```
 If required, replace `http` with `https`.
 
+=== Application-to-Application Communication
+
+An application communicates with another application via:
+
+* The default public DNS name: `app.sxjsip.aus-s1.cloudhub.io`
+* The default internal DNS name (in private spaces only): `app.internal-sxjsip.aus-s1.cloudhub.io`
+* The custom domain name (if configured): `acme.example.com`
+* The cluster local DNS: `app` or `app.envid.svc.cluster.local`
+
+If you use the internal DNS name, traffic remains within the private space network. You can delete or omit the externally exposed endpoint when deploying an application to a private space. In that case, you can use the application's internal endpoint for internal traffic.
+
+If you use the cluster local endpoint, the traffic doesn't leave the cluster. However, the cluster local endpoint isn't highly available. During some cluster operations such as disaster recovery, the endpoint can be unreachable. The cluster local endpoint allows traffic within the same environment only.
+
+
 == See Also
 
 * xref:ch2-deploy-private-space.adoc[]
