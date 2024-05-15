@@ -151,7 +151,7 @@ An application communicates with another application via:
 
 If you use the internal DNS name, traffic remains within the private space network. You can delete or omit the externally exposed endpoint when deploying an application to a private space. In that case, you can use the application's internal endpoint for internal traffic.
 
-If you use the cluster local endpoint, the traffic doesn't leave the cluster. However, the cluster local endpoint is not highly available. During some cluster operations such as disaster recovery, the endpoint can be unreachable. The cluster local endpoint allows traffic within the same environment only.
+If you use the cluster local endpoint, the traffic doesn't leave the cluster. However, the cluster local endpoint isn't highly available. During some cluster operations such as disaster recovery, the endpoint can be unreachable. The cluster local endpoint allows traffic within the same environment only.
 
 
 == See Also
