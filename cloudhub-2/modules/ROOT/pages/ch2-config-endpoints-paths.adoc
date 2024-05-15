@@ -142,7 +142,7 @@ If required, replace `http` with `https`.
 
 === Application-to-Application Communication
 
-An application communicate with another application via:
+An application communicates with another application via:
 
 * The default public DNS name: `app.sxjsip.aus-s1.cloudhub.io`
 * The default internal DNS name (in private spaces only): `app.internal-sxjsip.aus-s1.cloudhub.io`
