@@ -97,7 +97,7 @@ include::mq::partial$mq-in-govcloud.adoc[tag=mqSupportInGovCloud]
 
 == Runtime Plane Hosting Options
 
-include::hosting::partial$index-runtime-plane-hosting-options.adoc[]
+include::hosting::partial$index-runtime-plane-hosting-options.adoc[tag=runtimePlaneHostingOptions]
 
 === Support Matrix for Runtime Plane Hosting Options
 

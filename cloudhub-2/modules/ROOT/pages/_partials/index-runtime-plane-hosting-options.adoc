@@ -1,4 +1,5 @@
 // RUNTIME PLANE HOSTING OPTIONS 
+// tag::runtimePlaneHostingOptions[]
 MuleSoft provides different options for hosting the Anypoint Platform runtime plane:
 
 * CloudHub 2.0
@@ -30,3 +31,4 @@ The standalone option enables you to host Mule runtime engine server and related
 When using standalone runtimes, you are also responsible for providing the framework for high availability, failover, clustering and load balancing. See xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises].
 +
 You can manage standalone runtimes by using cloud control planes (US Cloud, EU Cloud, MuleSoft Government Cloud) or a customer-hosted control plane (Anypoint Platform PCE).
+// end::runtimePlaneHostingOptions[]
