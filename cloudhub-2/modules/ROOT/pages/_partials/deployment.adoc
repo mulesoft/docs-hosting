@@ -100,23 +100,22 @@ To configure additional log levels and categories to include in logs:
 
 = Enable Trace Data Collection
 
-Traces enable you to understand the execution path of a transaction in MuleSoft ecosystem by having full visibility into the execution path of API calls or application transactions. This feature exposes tracing information in OpenTelemetry standard from Mule runtime into the Anypoint Monitoring xref:monitoring::telemetry-exporter.adoc[Telemetry Exporter].
+[NOTE]
+include::reuse::partial$billing/pricing.adoc[tag=featureAdvReq]
 
-You can enable trace data collection for your CloudHub 2.0 applications running on Mule runtime version 4.6 or later. 
+Traces enable you to understand the path of a transaction in the MuleSoft ecosystem by providing full visibility into the execution path of API calls or application transactions. 
+When you enable trace data collection for an app, Anypoint Platform collects and exposes tracing information from Mule runtime engine in the OpenTelemetry standard, enabling you to export it using the Anypoint Monitoring xref:monitoring::telemetry-exporter.adoc[Telemetry Exporter]. 
 
-To enable distributed tracing in your application deployments:
+You can enable trace data collection for your CloudHub 2.0 applications running on Mule version 4.6 or later. 
+You can't enable trace data collection using the Mule Maven plugin, Anypoint CLI, or Anypoint Studio. You can enable trace data collection using only the UI and API.
+
+To enable trace data collection for an app:
 
 . Click the *Monitoring* tab.
 . Select the *Enable tracing* checkbox.
 . Click *Deploy Application* if you are enabling the feature for a new deployment, or *Apply Changes* if you are editing an existing application.
 
-[NOTE]
-You can't enable trace data collection via Mule Maven plugin, Anypoint CLI, or Studio yet. You can enable trace data collection via UI and API.
-
 Once you enable tracing, and redeploy your application, the Runtime Manager backend starts instrumenting traces for your application.
-
-[NOTE]
-include::reuse::partial$billing/pricing.adoc[tag=featureAdvReq]
  
 // end::enableDistributedTracing[]
 
