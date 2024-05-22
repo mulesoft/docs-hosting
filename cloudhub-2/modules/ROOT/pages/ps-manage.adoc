@@ -55,6 +55,9 @@ You can remove routes for static VPN connections.
 
 Anypoint Platform submits the new route to AWS.
 
+[NOTE]
+You can not add 169.254.168.0/22 (reserved by AWS) as route destination.
+
 ////
 In the route table, added routes show *Transit Gateway* as the value in the *Next Hop* column:
 image::tgw-route-added.png[Transit Gateway in the Next Hop column of the route table]

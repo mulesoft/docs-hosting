@@ -145,7 +145,7 @@ Asia Pacific (Tokyo)
 include::partial$create-config.adoc[tag=cidrBlock,leveloffset=+2]
 
 [[unusable-cidr]]
-==== Unusable CIDR
+==== Unusable Private Space Network CIDR
 
 You cannot use the following list of CIDR blocks:
 
@@ -160,7 +160,7 @@ You cannot use the following list of CIDR blocks:
 ----
 
 [[reserved-cidr]]
-==== Reserved Corporate CIDR
+==== Reserved Corporate CIDR (Optional)
 
 Optionally, when you create your private space and configure your private network, you can configure _reserved CIDR blocks_ that correspond with your reserved corporate network CIDRs. When you reserve CIDRs in a private network configuration, Anypoint Platform does not use the blocks you specify when associating IP addresses with your private space. This prevents overlap between your corporate network CIDRs and Anypoint Platform infrastructure. 
 
