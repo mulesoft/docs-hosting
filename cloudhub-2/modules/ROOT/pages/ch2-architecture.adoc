@@ -138,7 +138,7 @@ The following table summarizes what DNS records are available for your applicati
 [%header,cols="15a,10a,30a,40a,40a"]
 |===
 | Region Name | Region | Target ID | Example DNS Record | Target Name
-5+h| US Control Plane Regions
+5+h| US Commercial Cloud Regions
 | US East (N. Virginia) |usa-e1 | `cloudhub-us-east-1` | `myapp-_uniq-id_._shard_.usa-e1.cloudhub.io` | `Cloudhub-US-East-1`
 | US East (Ohio) |usa-e2| `cloudhub-us-east-2` | `myapp-_uniq-id_._shard_.usa-e2.cloudhub.io` | `Cloudhub-US-East-2`
 | US West (N. California) |usa-w1 |`cloudhub-us-west-1` | `myapp-_uniq-id_._shard_.usa-w1.cloudhub.io` | `Cloudhub-US-West-1`
@@ -153,7 +153,7 @@ The following table summarizes what DNS records are available for your applicati
 | EU (London) |gbr-e1 | `cloudhub-eu-west-2` | `myapp-_uniq-id_._shard_.gbr-e1.cloudhub.io` | `Cloudhub-EU-West-2`
 5+h|MuleSoft Government Cloud Region
 | US Gov West |usag-w1.gov| N/A | `myapp-_uniq-id_._shard_.usg-w1.gov.cloudhub.io` | N/A
-5+h| EU Control Plane Regions
+5+h| EU Commercial Cloud Regions
 | EU (Ireland) |irl-e1.eu1 | `cloudhub-eu-west-1` | `myapp-_uniq-id_._shard_.irl-e1.eu1.cloudhub.io` | `Cloudhub-EU-West-1`
 | EU (Frankfurt) |deu-c1.eu1 | `cloudhub-eu-central-1` | `myapp-_uniq-id_._shard_.deu-c1.eu1.cloudhub.io` | `Cloudhub-EU-Central-1`
 |===
