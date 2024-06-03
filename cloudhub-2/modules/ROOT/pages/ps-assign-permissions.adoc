@@ -24,6 +24,12 @@ Depending on your organization's permission structure, you can assign these perm
 Note that users who have the Organization Administrator permission can also view and manage all private spaces and additional privileges across Anypoint Platform. However, you should not assign this permission as a substitute for CloudHub 2.0-specific privileges. For more information, see xref:access-management::permissions-by-product.adoc[general permissions].
 
 
+To view applications on Runtime Fabric(RTF) and CloudHub 2.0(CH 2.0), make sure to give the below two permissions to the user.
+* "Read Applications" for the Environment
+* "Read Runtime Fabrics" for the Business Group
+
+See: https://help.salesforce.com/s/articleView?id=001115459&type=1
+
 == See Also
 
 * xref:access-management::index.adoc[]
