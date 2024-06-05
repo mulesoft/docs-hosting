@@ -84,7 +84,7 @@ You can combine clustering features in a single application.
 [%header,cols="3*a"]
 |===
 |Use Case |Suggested Clustering Configuration |Implications
-|You want to scale out your application, but you are satisfied with the existing highly available CloudHub 2.0 architecture in terms of preventing service interruption or message loss. |
+|You want to scale out your application, but you are satisfied with the existing highly available CloudHub 2.0 architecture in terms of preventing service interruption or message loss. And you are ok to have the mule schedules executed multiple times simultaneously. Ideally, the schedule flows are idempotent to avoid any conflicts.|
 Number of Replicas: Two or more +
 Clustering not enabled
 
@@ -92,6 +92,7 @@ Clustering not enabled
 |
 * Application performance is not affected by queue latency.
 * No need to configure your application to support queues.
+* Application schedules are executed on all replicas independently
 * If one data center experiences an outage, your replicas are available in a different data center.
 
 |You have a high-stakes process for which you need to protect against message loss, but you are not experiencing issues with handling processing load and are OK with some service interruption in the case of a data center outage. |
@@ -101,6 +102,8 @@ Clustering enabled
 |
 * Application might experience some queue latency.
 * You need to configure your application to support queues before deploying.
+* Application schedules are executed once on the single reeplica
+* Application schedules execution might be missed if the application runtime is not avalable at the time of execution
 * If the data center in which your replica operates experiences an outage, CloudHub 2.0 automatically migrates your application to another availability zone. You might experience downtime during the migration; however, your queues ensure zero message loss.
 
 |You have a high-stakes process for which you need to protect against message loss, avoid any chance of service interruption, and handle large processing loads. |
@@ -110,6 +113,8 @@ Clustering enabled
 |
 * Application might experience some queue latency.
 * You need to configure your application to support queues before deploying.
+* Application schedules are executed only once on the primary replica
+* Application schedules might be missed during lead election
 * If one data center experiences an outage, your replicas are automatically distributed to ensure redundancy.
 
 |You have an application that does not have any special requirements regarding either processing load or message loss. |
@@ -119,6 +124,7 @@ Clustering not enabled
 |
 * Application performance is not affected by queue latency.
 * No need to configure your application to support queues.
+* Application schedules are executed once on the single reeplica
 * If the data center in which your replica operates experiences an outage, CloudHub 2.0 automatically migrates your application to another availability zone, but you might experience some downtime and message loss during the migration.
 
 |===
