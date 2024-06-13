@@ -118,6 +118,7 @@ include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSettings]
 . Click *Configuration* to display the app configuration history.
 . Select the version to which to roll back from the *Config changes* history.
+** To change the runtime version of a previously used configuration, select the desired version from the *Runtime Version* dropdown list. You can change any other configuration before deploying.
 . Click *Deploy*.
 +
 The configuration moves to the top of the *Config changes* history list and displays the new deployment date, and it retains its original identifying hash.
