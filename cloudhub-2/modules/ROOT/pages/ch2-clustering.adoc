@@ -84,7 +84,7 @@ You can combine clustering features in a single application.
 [%header,cols="3*a"]
 |===
 |Use Case |Suggested Clustering Configuration |Implications
-|You want to scale out your application, but you are satisfied with the existing highly available CloudHub 2.0 architecture in terms of preventing service interruption or message loss. And you are ok to have the mule schedules executed multiple times simultaneously. Ideally, the schedule flows are idempotent to avoid any conflicts.|
+|You want to scale out your application, but you are satisfied with the existing highly available CloudHub 2.0 architecture in terms of preventing service interruption or message loss. You agree with having the mule schedules executed multiple times simultaneously. Ideally, the schedule flows are idempotent to avoid any conflicts.|
 Number of Replicas: Two or more +
 Clustering not enabled
 
