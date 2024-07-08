@@ -94,7 +94,7 @@ Clustering not enabled
 |
 * Application performance is not affected by queue latency.
 * No need to configure your application to support queues.
-* Application schedules are executed on all replicas independently
+* Application schedules are executed on all replicas independently.
 * Object Stores are not shared between replicas. 
 * If the object is writtent to one relica, the other replicas won't see the object, unless Cloud Object Store is used.
 * If one data center experiences an outage, your replicas are available in a different data center.
