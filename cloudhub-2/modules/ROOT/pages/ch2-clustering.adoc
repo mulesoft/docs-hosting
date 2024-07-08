@@ -51,10 +51,12 @@ xref:object-store::index.adoc[].
 
 You can enable and disable either or both features of clustering in one of two ways:
 
-* When you deploy an application to CloudHub 2.0 for the first time using Runtime Manager
-* On the *Deployment Target* tab in Runtime Manager for a previously deployed application
+* When you deploy an application to CloudHub 2.0 for the first time using Runtime Manager:
+** Use the *Replica Count* and *Replica Size* drop-down menus on the *Runtime* tab to select the vCore options and configure the computing power you need.
+** Check the *Run in Runtime Cluster Mode* in the *Runtime Options* section to enable Mule clustering across each replica of the application. This option requires at least two replicas.
+* For previously deployed applications, use the *Replica Count* and *Replica Size* drop-down menus on the *Deployment Target* tab.
+** Check the *Run in Runtime Cluster Mode* in the *Runtime Options* section to enable Mule clustering across each replica of the application. This option requires at least two replicas.
 
-Use the drop-down menus on the *Deployment Target* tab to select the vCore options for your application and to configure the computing power that you need.
 
 See xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas] for more information about deploying to multiple replicas.
 
