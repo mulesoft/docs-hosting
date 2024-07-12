@@ -150,7 +150,6 @@ include::partial$create-config.adoc[tag=cidrBlock,leveloffset=+2]
 You cannot use the following list of CIDR blocks:
 
 ----
-172.17.0.0/16
 100.64.0.0/10
 198.19.0.0/16
 224.0.0.0/4
