@@ -51,10 +51,12 @@ xref:object-store::index.adoc[].
 
 You can enable and disable either or both features of clustering in one of two ways:
 
-* When you deploy an application to CloudHub 2.0 for the first time using Runtime Manager
-* On the *Deployment Target* tab in Runtime Manager for a previously deployed application
+* When you deploy an application to CloudHub 2.0 for the first time using Runtime Manager:
+** Use the *Replica Count* and *Replica Size* drop-down menus on the *Runtime* tab to select the vCore options and configure the computing power you need.
+** Check the *Run in Runtime Cluster Mode* in the *Runtime Options* section to enable Mule clustering across each replica of the application. This option requires at least two replicas.
+* For previously deployed applications, use the *Replica Count* and *Replica Size* drop-down menus on the *Deployment Target* tab.
+** Check the *Run in Runtime Cluster Mode* in the *Runtime Options* section to enable Mule clustering across each replica of the application. This option requires at least two replicas.
 
-Use the drop-down menus on the *Deployment Target* tab to select the vCore options for your application and to configure the computing power that you need.
 
 See xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas] for more information about deploying to multiple replicas.
 
@@ -84,7 +86,7 @@ You can combine clustering features in a single application.
 [%header,cols="3*a"]
 |===
 |Use Case |Suggested Clustering Configuration |Implications
-|You want to scale out your application, but you are satisfied with the existing highly available CloudHub 2.0 architecture in terms of preventing service interruption or message loss. |
+|You want to scale out your application, but you are satisfied with the existing highly available CloudHub 2.0 architecture in terms of preventing service interruption or message loss. You agree with having the mule schedules executed multiple times simultaneously. Ideally, the schedule flows are idempotent to avoid any conflicts.|
 Number of Replicas: Two or more +
 Clustering not enabled
 
@@ -92,6 +94,9 @@ Clustering not enabled
 |
 * Application performance is not affected by queue latency.
 * No need to configure your application to support queues.
+* Application schedules are executed on all replicas independently.
+* Object Stores are not shared between replicas. 
+* If the object is writtent to one relica, the other replicas won't see the object, unless Cloud Object Store is used.
 * If one data center experiences an outage, your replicas are available in a different data center.
 
 |You have a high-stakes process for which you need to protect against message loss, but you are not experiencing issues with handling processing load and are OK with some service interruption in the case of a data center outage. |
@@ -99,17 +104,21 @@ Number of Replicas: One +
 Clustering enabled
 
 |
-* Application might experience some queue latency.
-* You need to configure your application to support queues before deploying.
-* If the data center in which your replica operates experiences an outage, CloudHub 2.0 automatically migrates your application to another availability zone. You might experience downtime during the migration; however, your queues ensure zero message loss.
+* The application can experience some queue latency.
+* Configure your application to support queues before deploying.
+* Application schedules are executed once on a single replica.
+* Application schedule execution can be missed if the application runtime is not available at the time of execution.
+* If the data center in which your replica operates experiences an outage, CloudHub 2.0 automatically migrates your application to another availability zone. You can experience downtime during the migration; however, your queues ensure zero message loss.
 
 |You have a high-stakes process for which you need to protect against message loss, avoid any chance of service interruption, and handle large processing loads. |
 Number of Replicas: Two or more +
 Clustering enabled
 
 |
-* Application might experience some queue latency.
+* The application can experience some queue latency.
 * You need to configure your application to support queues before deploying.
+* Application schedules are executed only once on the primary replica.
+* Application schedules can be missed during the lead election.
 * If one data center experiences an outage, your replicas are automatically distributed to ensure redundancy.
 
 |You have an application that does not have any special requirements regarding either processing load or message loss. |
@@ -118,8 +127,11 @@ Clustering not enabled
 
 |
 * Application performance is not affected by queue latency.
-* No need to configure your application to support queues.
-* If the data center in which your replica operates experiences an outage, CloudHub 2.0 automatically migrates your application to another availability zone, but you might experience some downtime and message loss during the migration.
+* You don't need to configure your application to support queues.
+* Application schedules are executed once on a single replica.
+* Object Stores are replicated and shared with each replica.
+* All replicas can read objects written by another replica, with or without Cloud Object Store.
+* If the data center in which your replica operates experiences an outage, CloudHub 2.0 automatically migrates your application to another availability zone; however, you can experience some downtime and message loss during the migration.
 
 |===
 
