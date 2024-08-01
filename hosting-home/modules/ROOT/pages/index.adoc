@@ -75,7 +75,6 @@ The following table shows which environments support each component:
 | Customer-hosted runtimes | Y | Y | Y | Y
 | Anypoint DataGraph | Y | Y | N | N
 | Anypoint Exchange | Y | Y | Y | Y
-| Flow Designer | Y | Y | N | N
 | Anypoint MQ | Y | Y | Y <<mq-support,^***^>> | N
 | Anypoint Monitoring | Y | Y | Y | Y
 | Anypoint Partner Manager | Y | Y | N | N
