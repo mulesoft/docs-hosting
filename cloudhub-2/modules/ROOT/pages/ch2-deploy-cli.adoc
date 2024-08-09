@@ -2,6 +2,6 @@
 
 Use these commands for deploying and managing apps in Cloudhub 2.0.
 
-include::anypoint-cli::partial$cloudhub2-apps.adoc[tag=summary,leveloffset=+1]
+include::anypoint-cli::partial$cloudhub2-apps.adoc[tag=summary]
 
-include::anypoint-cli::partial$cloudhub2-apps.adoc[tag=commands,leveloffset=+1]
+include::anypoint-cli::partial$cloudhub2-apps.adoc[tag=commands]
