@@ -290,4 +290,3 @@ ciphers.
 * xref:ch2-deploy-private-space.adoc[]
 * xref:ch2-config-endpoints-paths.adoc[]
 * xref:mule-runtime::tls-configuration.adoc[]
-* https://www.whois.com/[Whois^]
