@@ -83,3 +83,6 @@ Port ranges for outbound traffic are configurable.
 image::fw-rule-delete.png[Delete icon on the Firewall rules tab]
 
 . Click *Save Changes* or *Discard changes*.
+
+[NOTE]
+You can't configure duplicate firewall rules. If you attempt to do so, an error shows prompting you to delete any duplicated firewall rules.
