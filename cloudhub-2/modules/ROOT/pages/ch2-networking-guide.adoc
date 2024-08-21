@@ -1,0 +1,75 @@
+= CloudHub 2.0 Networking Guide
+
+This guide covers cloud deployments using CloudHub 2.0. See xref:runtime-manager::deployment-strategie.adoc[Deployment Options] for information about different deployment scenarios.
+
+== Basic Networking Architecture Components
+
+CloudHub 2.0 is MuleSoft's fully managed iPaaS platform to architect your integration and API deployments so they are maintainable, secure, and scalable. The basic components of CloudHub 2.0 networking architecture are: Load Balancer, Virtual Private Cloud (VPC) (Private Spaces??), and the Mule workers (replicas??) DNS records.
+
+image::ch2-networking-architecture-diagram.png[Basic Components of CloudHub 2.0 Networking Architecture]
+
+This guide provides information about Load Balancing and DNS records. For information about VPC, see [Virtual Private Cloud ](Private Space??).
+
+=== HTTP Load Balancer
+
+CloudHub 2.0 provides a load balancing service for all integrations. You can use a default endpoint or provision a custom endpoint with your own certificate.
+
+When you deploy an application to two or more replicas, you can distribute workloads across these instances of Mule. CloudHub 2.0 provides an HTTP load balancing service that automatically distributes HTTP requests among your assigned replicas.
+
+The CloudHub 2.0 load balancing service does round-robin load distribution across application replicas, which provides horizontal scalability. The load balancing service also provides transparent switchover when an application is upgraded. See xref:ch2-update-apps.adoc[].
+
+Each application deployed on CloudHub 2.0 has both default public and internal DNS records that refer to the load balancer, `<app>.<space-shard>.region.cloudhub.io.` and `<app>.internal-<space-shard>.region.cloudhub.io.` 
+
+The CloudHub load balancing service accepts public traffic on the standard HTTPS port: `443`. You can also choose to accept HTTP traffic on the standard HTTP port: `80`.
+
+==== Mule Application Ports
+
+Applications must listen on host `0.0.0.0` and port via the reserved property `${http.port}`. You can dynamically allocate the value of this property, but you can't hard-code it.
+The load balancer service forwards traffic to the deployed application.
+
+
+==== Upstream HTTPS Traffic
+
+By default, the load balancer forwards traffic to the application over HTTP. To use HTTPS:
+
+* Enable the *Last-Mile Security* setting in the *Ingress* tab of the xref:ch2-deploy-private-space.adoc#configure-endpoint-path[deployment settings]. 
+* Configure the application to listen on HTTPS by providing a certificate in the xref:ps-config-domains.adoc[TLS context] of your Private Space.
+
+The following example shows a Mule configuration that exposes an HTTPS endpoint:
+
+[source,console,linenums]
+----
+<http:listener-config name="HTTP_Listener_Configuration" protocol="HTTPS" host="0.0.0.0" port="${http.port}" doc:name="HTTP Listener Configuration" >
+		<tls:context name="TLS_Context_Custom_Keystore" doc:name="TLS Context">
+			<tls:key-store type="jks" path="server.jks" keyPassword="" password="" alias="" />
+		</tls:context>
+</http:listener-config>
+----
+
+==== Load Balancer Connections
+
+For each request a client makes through the CloudHub 2.0 load balancer `(<app>.<space-id>.region.cloudhub.io)`, the load balancer maintains two connections: one connection between the client and the load balancer, and another connection between the load balancer and the application. For each connection, the load balancer manages a default idle timeout of 300 seconds that is triggered when no data is sent over either connection. If no data is sent or received during this duration, the load balancer closes both connections.
+For connections that take longer than 300 seconds to process from either side, consider handling the processing asynchronously. The timeout can be customized in advanced Private Space settings and mule respectively.
+
+
+
+
+=== DNS Records
+
+
+
+=== Regional Services
+
+
+
+=== Private Spaces
+
+==== Custom domain name
+
+==== Application to application communication
+
+==== IP Ranges
+
+==== Firewall Rules and Port Access
+
+==== Connections
