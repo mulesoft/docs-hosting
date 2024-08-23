@@ -32,7 +32,7 @@ This fine-grained control over computing capacity provisioning gives you the fle
 
 
 
-You can deploy your application with up to 8 replicas, or up to 16 replicas if you have the Anypoint Integration Advanced package or a Platinum or Titanium subscription to Anypoint Platform.
+You can deploy your application with up to 8 replicas, or you can deploy with up to 16 replicas if you have the Anypoint Integration Advanced package or a Platinum or Titanium subscription to Anypoint Platform.
 To ensure that you have sufficient resources, see xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas].
 
 Replica scale-out also adds additional reliability.
