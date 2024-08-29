@@ -176,9 +176,9 @@ By default, no non-http ports are open. You can open a fixed list of TCP ports (
 Egress:: 
 
 By default, applications can make outbound connections to any destination and ports. You can change this behavior to restrict egress traffic.
-
++
 You can remove all ingress and egress rules from and to the internet. In this case, the cluster still functions normally because of the following control measures:
-
++
 * Anypoint Monitoring ingestion traffic firewall rules are implicitly added to all Mule applications' firewall rules.
 * Essential AWS services traffic flows are always allowed from Mule applications.
 * You can apply egress rules at the application level. Fore more information, see xref:ps-config-app-level-egress.adoc[].
