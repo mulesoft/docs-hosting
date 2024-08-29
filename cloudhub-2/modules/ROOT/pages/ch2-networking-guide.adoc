@@ -1,6 +1,6 @@
 = CloudHub 2.0 Networking Guide
 
-This guide covers cloud deployments using CloudHub 2.0. See xref:runtime-manager::deployment-strategie.adoc[Deployment Options] for information about different deployment scenarios.
+This guide covers cloud deployments using CloudHub 2.0. See xref:runtime-manager::deployment-strategies.adoc[Deployment Options] for information about different deployment scenarios.
 
 == Basic Networking Architecture Components
 
@@ -48,7 +48,7 @@ The following example shows a Mule application configuration that exposes an HTT
 
 For each request a client makes through the CloudHub 2.0 load balancer `(<app>.<space-id>.region.cloudhub.io)`, the load balancer maintains two connections: one connection between the client and the load balancer, and another connection between the load balancer and the application. For each connection, the load balancer manages a default idle timeout of 300 seconds that is triggered when no data is sent over either connection. If no data is sent or received during this duration, the load balancer closes both connections.
 
-For connections that take longer than 300 seconds to process from either side, handle the processing asynchronously. You can customize the idle timeout value in the *Advanced* tab of your xref:cloudhub-2:ps-config-advanced.adoc#configure-http-requests-and-read-response-timeout [private space settings] in Runtime Manager, or via the Mule application xref:mule-runtime::global-settings-configuration.adoc[global configurations] of the  xref:mule-runtime::about-mule-configuration.adoc[Mule configuration file].
+For connections that take longer than 300 seconds to process from either side, handle the processing asynchronously. You can customize the idle timeout value in the *Advanced* tab of your xref:ps-config-advanced.adoc#configure-http-requests-and-read-response-timeout[private space settings] in Runtime Manager, or via the Mule application xref:mule-runtime::global-settings-configuration.adoc[global configurations] of the  xref:mule-runtime::about-mule-configuration.adoc[Mule configuration file].
 
 === DNS Records
 
@@ -118,8 +118,10 @@ You can apply custom certificates to your private space. CloudHub 2.0 parses the
 
 Configure either in the public or the internal DNS record to CNAME. For example: 
 
-* {empty}`*.example.com => sxjsip.aus-s1.cloudhub.io`
-* {empty}`*.example.com => internal-sxjsip.aus-s1.cloudhub.io`
+----
+*.example.com => sxjsip.aus-s1.cloudhub.io
+*.example.com => internal-sxjsip.aus-s1.cloudhub.io
+----
 
 ==== IP Ranges
 
@@ -135,10 +137,12 @@ Private spaces also leverage several secondary CIDR for internal usage.
 
 If you use BGP routing protocols, you may see the following additional CIDR blocks being published to your gateway:
 
-* `100.64.0.0/16`
-* `100.66.0.0/16`
-* `100.67.0.0/16`
-* `100.68.0.0/16`
+----
+100.64.0.0/16
+100.66.0.0/16
+100.67.0.0/16
+100.68.0.0/16
+----
 
 Because of this, `100.64.0.0/10` is xref:ps-gather-setup-info.adoc#unusable-cidr[not a supported range] for private spaces.
 
