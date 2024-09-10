@@ -14,7 +14,7 @@ To assign permissions, you need access to Access Management and the Organization
 Without at least one of these permissions, you can't see any details upon selecting the *Private Spaces* tab. Instead, you receive a *Not Authorized* message.
 * To deploy applications from Exchange, you must assign the Exchange Contributor and Exchange Viewer permissions to the Business Organization that owns the asset.
 * To deploy applications in Runtime Manager, you need the Create Applications permission.
-* To view all applications on the *Applications* page in Runtime Manager, you need the Read Applications and CloudHub Network Viewer permission.
+* To view all applications on the *Applications* page in Runtime Manager, you need the Read Applications, Read Runtime Fabric, and CloudHub Network Viewer permission.
 * To view applications deployed to Runtime Fabric and CloudHub 2.0, you also need the following two permissions:
 ** Read Applications for the Environment.
 ** Read Runtime Fabrics for the Business Group.
