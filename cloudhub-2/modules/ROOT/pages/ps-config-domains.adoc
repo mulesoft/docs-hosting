@@ -284,7 +284,7 @@ ciphers.
 ** Click *Select a cipher to add* to choose a different cipher.
 . Click *Update TLS Context* or *Cancel* to discard changes.
 
-Add the LetsEncrypt root to your trust store, if you want the client to trust the `cloudhub.io` certificates.
+Add the LetsEncrypt root to your truststore if you want the client to trust the `cloudhub.io` certificates.
 
 == See Also
 
