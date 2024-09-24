@@ -1,6 +1,6 @@
-= CloudHub 2.0 Networking Guide
+= CloudHub 2.0 Networking
 
-This guide covers cloud deployments using CloudHub 2.0. See xref:runtime-manager::deployment-strategies.adoc[Deployment Options] for information about different deployment scenarios.
+This guide covers cloud deployments using CloudHub 2.0. See xref:runtime-manager::deployment-strategies.adoc[] for information about different deployment scenarios.
 
 == Basic Networking Architecture Components
 
