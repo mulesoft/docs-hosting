@@ -258,7 +258,7 @@ The monitoring script exits and the application is left unchanged until you manu
 ////
 
 The logs report the details of the restart procedure.
-You can also receive alerts and diagnostic information if your application becomes unresponsive. For more information, see xref:ch2-config-app-alerts.adoc[]
+You can also receive alerts and diagnostic information if your application becomes unresponsive. For more information, see xref:ch2-config-app-alerts.adoc[].
 
 
 == Security
