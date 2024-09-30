@@ -151,8 +151,6 @@ The following table summarizes what DNS records are available for your applicati
 | EU (Ireland) |irl-e1 | `cloudhub-eu-west-1` | `myapp-_uniq-id_._shard_.irl-e1.cloudhub.io` | `Cloudhub-EU-West-1`
 | EU (Frankfurt) |deu-c1 | `cloudhub-eu-central-1` | `myapp-_uniq-id_._shard_.deu-c1.cloudhub.io` | `Cloudhub-EU-Central-1`
 | EU (London) |gbr-e1 | `cloudhub-eu-west-2` | `myapp-_uniq-id_._shard_.gbr-e1.cloudhub.io` | `Cloudhub-EU-West-2`
-5+h|MuleSoft Government Cloud Region
-| US Gov West |usag-w1.gov| N/A | `myapp-_uniq-id_._shard_.usg-w1.gov.cloudhub.io` | N/A
 5+h| EU Runtime Plane Regions
 | EU (Ireland) |irl-e1.eu1 | `cloudhub-eu-west-1` | `myapp-_uniq-id_._shard_.irl-e1.eu1.cloudhub.io` | `Cloudhub-EU-West-1`
 | EU (Frankfurt) |deu-c1.eu1 | `cloudhub-eu-central-1` | `myapp-_uniq-id_._shard_.deu-c1.eu1.cloudhub.io` | `Cloudhub-EU-Central-1`
