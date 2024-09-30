@@ -12,7 +12,7 @@
 ** xref:ch2-clustering.adoc[Clustering]
 ** xref:ch2-patch-updates.adoc[CloudHub 2.0 Operating System Patch Updates]
 ** xref:ch2-penetration-testing-policies.adoc[Run Vulnerability Assessment and Penetration Tests]
-* xref:ch2-networking-guide.adoc[CloudHub 2.0 Networking Guide]
+* xref:ch2-networking-guide.adoc[CloudHub 2.0 Networking Architecture]
 * xref:ps-setup.adoc[Extending Your Network to Anypoint Platform]
 ** xref:ps-assign-permissions.adoc[Assigning Permissions]
 ** xref:ps-gather-setup-info.adoc[Gathering Required Setup Information]
