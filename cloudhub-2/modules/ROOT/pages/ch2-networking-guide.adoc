@@ -8,7 +8,7 @@ The basic components of CloudHub 2.0 networking architecture are: HTTP Load Bala
 
 * <<HTTP Load Balancer>>
 * <<DNS Records>>
-* <<Private Spaces Configurations >>
+* <<Private Spaces Configurations>>
 * <<Regional Services>> 
 
 image::ch2-networking-architecture-diagram.png[Basic Components of CloudHub 2.0 Networking Architecture]
