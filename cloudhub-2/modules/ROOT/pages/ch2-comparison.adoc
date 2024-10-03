@@ -1,6 +1,6 @@
 = CloudHub 2.0 for CloudHub 1.0 Users
 
-include::release-notes::partial$release-notes/rn-deprecate-tls.adoc[]
+include::reuse::partial$feature-unsupported-banner.adoc[tag=deprecateTLS]
 
 CloudHub 2.0 improvements make it easier to learn, develop, and manage than CloudHub 1.0. Benefits include:
 
