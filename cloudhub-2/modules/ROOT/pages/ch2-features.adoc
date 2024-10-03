@@ -1,4 +1,8 @@
 = Features of CloudHub 2.0
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:page-aliases:
 
 :page-notice-banner-message: This product no longer supports the deprecated Transport Layer Security (TLS) versions 1.1 and 1.0. Upgrade your TLS version to 1.2 or later.
 
