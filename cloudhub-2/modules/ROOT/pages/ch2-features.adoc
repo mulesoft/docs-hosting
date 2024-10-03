@@ -1,3 +1,6 @@
+include::release-notes::partial$release-notes/rn-deprecate-tls.adoc[]
+
+
 = Features of CloudHub 2.0
 
 CloudHub 2.0 includes many of the features from CloudHub 1.0 and Anypoint Runtime Fabric on Self-Managed Kubernetes.
