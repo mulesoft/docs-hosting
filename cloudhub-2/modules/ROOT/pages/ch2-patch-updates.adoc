@@ -206,7 +206,7 @@ image::ch2-app-edge-auto-update.png[Banner indicating the date of automatic upda
 [[ps-status]]
 == Possible Status Types for Private Space Upgrades and Updates
 
-The *Update Available* column in the *Private Space* page shows the status of infrastructure upgrades and runtime updates for your private space.
+The *Infra Status* column in the *Private Space* page shows the status of infrastructure upgrades for your private space.
 
 [%header,cols="20,70"]
 |===
