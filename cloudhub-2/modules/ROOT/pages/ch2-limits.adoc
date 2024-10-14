@@ -14,9 +14,9 @@ Transit gateway connections:: 5 per private space, depending on available networ
 
 HTTP header length (`maxHeaderLength`):: 32K
 
-Firewall rules (inbound):: 180
+Firewall rules (inbound):: 300
 
-Firewall rules (outbound):: 180
+Firewall rules (outbound):: 300
 
 Application size:: Up to 350 MB
 
