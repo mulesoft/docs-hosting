@@ -26,7 +26,7 @@ GET
 https:/anypoint.mulesoft.com/runtimefabric/api/organizations/{organizationId}/privatespaces/{privatespaceId}/ports?available=true&count=10
 ----
 
-In the request, the `available` parameter enables you to alternate between used and unused ports.
+In the request, the `available` parameter provides unused ports in the response.
 The `count` parameter lets you specify the number of ports, between 1 and 10. The actual availability of ports limits the end result.
 
 Response: 
