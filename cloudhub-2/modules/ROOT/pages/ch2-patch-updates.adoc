@@ -218,6 +218,8 @@ The *Infra Status* column in the *Private Space* page shows the status of infras
 |Upgrading |The private space is undergoing an infrastructure upgrade, either scheduled, self-triggered, or as part of a monthly infrastructure upgrade. 
 |Updating |The private space is undergoing an update that was triggered by a configuration change. 
 |Failed |The private space experienced a failure which can be related to a user configuration update, or to an infrastructure upgrade, either scheduled, self-triggered, or as part of a monthly infrastructure upgrade. 
+|Degraded |The private space is in degrade state.
+| -- |Unable to get the details of the private space status and the status is unknown.
 |===
 
 == Security Updates
