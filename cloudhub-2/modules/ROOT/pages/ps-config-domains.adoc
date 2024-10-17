@@ -75,7 +75,7 @@ When you add the TLS context, you can select the ciphers to use with the TLS con
 
 [NOTE]
 ====
-Starting Jan 15, 2025, CloudHub 2.0 private space ingress will no longer support TLS cipher version 1.1. Therefore, the following TLS 1.1 ciphers will be deprecated:
+CloudHub 2.0 private space ingress support for TLS cipher version 1.1 ends starting January 15, 2025. Don’t use the following TLS 1.1 ciphers after that date:
 ```
 TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
 TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
