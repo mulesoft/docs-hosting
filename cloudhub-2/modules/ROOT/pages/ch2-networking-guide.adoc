@@ -152,7 +152,7 @@ By default, no non-http ports are open. You can open a fixed list of TCP ports (
 
 Egress:: 
 
-By default, applications can make outbound connections to any destination and ports. You can change this behavior to restrict egress traffic.
+By default, applications can make outbound connections to any destination and port. You can change this behavior to restrict egress traffic.
 +
 You can remove all ingress and egress rules from and to the internet. In this case, the cluster still functions normally because of the following control measures:
 +
