@@ -33,7 +33,7 @@ The load balancing service forwards traffic to deployed applications.
 
 === Upstream HTTPS Traffic
 
-By default, the load balancing service forwards traffic deployed application over HTTP. To use HTTPS:
+By default, the load balancing service forwards traffic deployed applications over HTTP. To use HTTPS:
 
 * Enable the *Last-Mile Security* setting in the *Ingress* tab of the xref:ch2-deploy-private-space.adoc#configure-endpoint-path[deployment settings]. 
 * Configure the application to listen on HTTPS by providing a certificate in the xref:ps-config-domains.adoc[TLS context] of your private space.
