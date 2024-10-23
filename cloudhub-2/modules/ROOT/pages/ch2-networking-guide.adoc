@@ -21,7 +21,7 @@ When you deploy an application to two or more replicas, CloudHub 2.0 provides an
 
 The CloudHub 2.0 load balancing service performs a round-robin load distribution across application replicas, which provides horizontal scalability. The load balancing service also provides transparent switchover when an application is upgraded. See xref:ch2-update-apps.adoc[].
 
-Each application deployed to CloudHub 2.0 has both default public and internal DNS records that refer to the load balancer: `<app>.<space-shard>.region.cloudhub.io.` and `<app>.internal-<space-shard>.region.cloudhub.io.`. 
+Each application deployed to CloudHub 2.0 has both default public and internal DNS records that refer to the load balancer: `<app>.<space-shard>.<region>.cloudhub.io.` and `<app>.internal-<space-shard>.<region>.cloudhub.io.`. 
 
 The CloudHub 2.0 load balancing service accepts public traffic on the standard HTTPS port: `443`. You can also choose to accept HTTP traffic on the standard HTTP port: `80`.
 
