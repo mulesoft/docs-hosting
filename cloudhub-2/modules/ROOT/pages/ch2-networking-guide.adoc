@@ -158,7 +158,7 @@ You can remove all ingress and egress rules from and to the internet. In this ca
 +
 * Anypoint Monitoring ingestion traffic firewall rules are implicitly added to all Mule applications' firewall rules.
 * Essential AWS services traffic flows are always allowed from Mule applications.
-* You can apply egress rules at the application level. Fore more information, see xref:ps-config-app-level-egress.adoc[].
+* You can apply egress rules at the application level. For more information, see xref:ps-config-app-level-egress.adoc[].
 * You can remove default route to IGW. However, for the egress firewall rules to work, the destination IPs must be routable.
 
 
