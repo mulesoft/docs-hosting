@@ -127,7 +127,7 @@ You can also indicate a reserved range for your on-prem network when creating yo
 
 Private spaces support two types of connections: Virtual Private Network (VPN) and Transit Gateway (TGW). 
 
-Each Anypoint VPN connection consists of two tunnels that enable you to connect to a single public IP address at a remote location. VPNs are high available if you configure both tunnels on your endpoint. 
+Each Anypoint VPN connection consists of two tunnels that enable you to connect to a single public IP address at a remote location. VPNs are highly available if you configure both tunnels on your endpoint. 
 
 Additionally, CloudHub 2.0 enables you to define redundant VPN connections for additional resiliency. As a managed VPN service, the underlying VPN service is frequently upgraded. Routine maintenance can briefly disable one of the two tunnels of your VPN connection. Your VPN connection automatically fails over to the second tunnel during this time, so access is not interrupted. For this reason, you must configure both tunnels on your endpoint. For more information, see  https://help.mulesoft.com/s/article/Tunnel-Switch-in-an-Anypoint-Dynamic-BGP-VPN-Update[Tunnel Switch in an Anypoint Dynamic (BGP) VPN Update]. 
 
