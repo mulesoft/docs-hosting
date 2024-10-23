@@ -51,7 +51,7 @@ The following example shows a Mule application configuration that exposes an HTT
 
 === Load Balancer Connections
 
-For each request a client makes through the CloudHub 2.0 load balancer `(<app>.<space-id>.region.cloudhub.io)`, the load balancer maintains two connections: one connection between the client and the load balancer, and another connection between the load balancer and the application. For each connection, the load balancer manages a default idle timeout of 300 seconds that is triggered when no data is sent over either connection. If no data is sent or received during this duration, the load balancer closes both connections.
+For each request a client makes through the CloudHub 2.0 load balancer `(<app>.<space-id>.<region>.cloudhub.io)`, the load balancer maintains two connections: one connection between the client and the load balancer, and another connection between the load balancer and the application. For each connection, the load balancer manages a default idle timeout of 300 seconds that is triggered when no data is sent over either connection. If no data is sent or received during this duration, the load balancer closes both connections.
 
 For connections that take longer than 300 seconds to process from either side, handle the processing asynchronously. You can customize the idle timeout value in the *Advanced* tab of your xref:ps-config-advanced.adoc#configure-http-requests-and-read-response-timeout[private space settings] in Runtime Manager, or via the Mule application xref:mule-runtime::global-settings-configuration.adoc[global configurations] of the  xref:mule-runtime::about-mule-configuration.adoc[Mule configuration file].
 
