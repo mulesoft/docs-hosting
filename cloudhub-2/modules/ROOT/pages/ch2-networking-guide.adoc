@@ -1,0 +1,196 @@
+= CloudHub 2.0 Networking Architecture
+
+CloudHub 2.0 is MuleSoft's fully managed, containerized integration platform as a service (iPaaS) where you can deploy APIs and integrations as lightweight containers in the cloud so they are maintainable, secure, and scalable. 
+
+This document provides relevant information regarding the configuration and administration of CloudHub 2.0 networks, network interfaces, and network services. For information about different deployment scenarios, see xref:runtime-manager::deployment-strategies.adoc[].
+
+The basic components of CloudHub 2.0 networking architecture are HTTP Load Balancer, Mule replica DNS records, Private Spaces, and Regional Services.
+
+* <<HTTP Load Balancer>>
+* <<DNS Records>>
+* <<Private Spaces Configurations>>
+* <<Regional Services>> 
+
+image::ch2-networking-architecture-diagram.png[Basic Components of CloudHub 2.0 Networking Architecture]
+
+== HTTP Load Balancer
+
+CloudHub 2.0 provides a load balancing service for all integrations. You can use a default endpoint or provision a custom endpoint with your own certificate.
+
+When you deploy an application to two or more replicas, CloudHub 2.0 provides an HTTP load balancing service that automatically distributes HTTP requests among your assigned replicas.
+
+The CloudHub 2.0 load balancing service performs a round-robin load distribution across application replicas, which provides horizontal scalability. The load balancing service also provides transparent switchover when an application is upgraded. See xref:ch2-update-apps.adoc[].
+
+Each application deployed to CloudHub 2.0 has both default public and internal DNS records that refer to the load balancer: `<app>.<space-id>.<region>.cloudhub.io.` and `<app>.internal-<space-id>.<region>.cloudhub.io.`. 
+
+The CloudHub 2.0 load balancing service accepts public traffic on the standard HTTPS port: `443`. You can also choose to accept HTTP traffic on the standard HTTP port: `80`.
+
+=== Mule Application Ports
+
+Applications must listen on host `0.0.0.0` and port via the reserved property `${http.port}`. You can dynamically allocate the value of this property, but you can't hard-code it.
+
+The load balancing service forwards traffic to deployed applications.
+
+=== Upstream HTTPS Traffic
+
+By default, the load balancing service forwards traffic deployed applications over HTTP. To use HTTPS:
+
+* Enable the *Last-Mile Security* setting in the *Ingress* tab of the xref:ch2-deploy-private-space.adoc#configure-endpoint-path[deployment settings]. 
+* Configure the application to listen on HTTPS by providing a certificate in the xref:ps-config-domains.adoc[TLS context] of your private space.
+
+The following example shows a Mule application configuration that exposes an HTTPS endpoint:
+
+[source,console,linenums]
+----
+<http:listener-config name="HTTP_Listener_Configuration" protocol="HTTPS" host="0.0.0.0" port="${http.port}" doc:name="HTTP Listener Configuration" >
+		<tls:context name="TLS_Context_Custom_Keystore" doc:name="TLS Context">
+			<tls:key-store type="jks" path="server.jks" keyPassword="" password="" alias="" />
+		</tls:context>
+</http:listener-config>
+----
+
+=== Load Balancer Connections
+
+For each request a client makes through the CloudHub 2.0 load balancer `(<app>.<space-id>.<region>.cloudhub.io)`, the load balancer maintains two connections: one connection between the client and the load balancer, and another connection between the load balancer and the application. For each connection, the load balancer manages a default idle timeout of 300 seconds that is triggered when no data is sent over either connection. If no data is sent or received during this duration, the load balancer closes both connections.
+
+For connections that take longer than 300 seconds to process from either side, handle the processing asynchronously. You can customize the idle timeout value in the *Advanced* tab of your xref:ps-config-advanced.adoc#configure-http-requests-and-read-response-timeout[private space settings] in Runtime Manager, or via the Mule application xref:mule-runtime::global-settings-configuration.adoc[global configurations] of the  xref:mule-runtime::about-mule-configuration.adoc[Mule configuration file].
+
+== DNS Records
+
+The following DNS records are exposed for your CloudHub 2.0 applications:
+
+[cols="2*a"]
+|===
+|`*.<space-id>.<region>.cloudhub.io`|Applications running inside a private space.
+|`<space-id>.<region>.cloudhub.io`|Record pointing to the load balancer. Use this record as the target of a custom domain CNAME.
+|`*.internal-<space-id>.<region>.cloudhub.io`|Applications running inside a private space. The IP addresses for this DNS record are accessible only within your xref:ch2-private-space-about.adoc[private spaces]. They cannot be accessed within xref:ch2-shared-space-about.adoc[shared spaces].
+|`internal-<space-id>.<region>.cloudhub.io`|Internal load balancer. Use this record as the target of a custom domain CNAME. The IP addresses for this DNS record are accessible only within your private spaces. They cannot be accessed within shared spaces.
+|===
+
+
+== Private Spaces Configurations
+
+The following configurations apply to private spaces only.
+
+=== Application-to-Application Communication
+
+An application communicates with another application via:
+
+* The default public DNS name: `app.sxjsip.aus-s1.cloudhub.io`
+* The default internal DNS name (in private spaces only): `app.internal-sxjsip.aus-s1.cloudhub.io`
+* The custom domain name (if configured): `acme.example.com`
+* The cluster local DNS: `app` or `app.envid.svc.cluster.local`
+
+If you use the internal DNS name, traffic remains within the private space network. You can delete or omit the externally exposed endpoint when deploying an application to a private space. In that case, you can use the application's internal endpoint for internal traffic.
+
+If you use the private space’s local endpoint, the traffic doesn’t leave the private space. However, the private space's local endpoint isn’t highly available. The endpoint can be unreachable during some private space operations, such as disaster recovery. The private space's local endpoint allows traffic within the same environment only.
+
+=== Custom Domain Name
+
+You can apply custom certificates to your private space. CloudHub 2.0 parses the CN and SAN list from the certificate and makes those domains available when deploying applications. 
+
+Configure either in the public or the internal DNS record to CNAME. For example: 
+
+----
+*.example.com => sxjsip.aus-s1.cloudhub.io
+*.example.com => internal-sxjsip.aus-s1.cloudhub.io
+----
+
+=== IP Ranges
+
+Inbound traffic entering a private space originates from an IP address listed under the *Inbound Static IPs* field of the private network configuration. HTTP connections can inspect the `X-Forwarded-For` header to discover the original client IP address.
+
+Traffic egressing to the internet originates from an IP address listed under the *Outbound Static IPs* field of the private network configuration. The public DNS target and the private DNS target IPs don't change during the lifetime of the private space.
+
+Traffic egressing to a VPN or transit gateway originates from the private space CIDR block.
+
+image::ch2-networking-ip-ranges.png[Inbound and outbound IPs listed in the UI]
+
+Private spaces also leverage several secondary CIDR for internal usage. 
+
+If you use BGP routing protocols, you may see the following additional CIDR blocks being published to your gateway:
+
+----
+100.64.0.0/16
+100.66.0.0/16
+100.67.0.0/16
+100.68.0.0/16
+----
+
+Because of this, `100.64.0.0/10` is xref:ps-gather-setup-info.adoc#unusable-cidr[not a supported range] for private spaces.
+
+You can filter these prefixes from the route map. For more information see https://help.mulesoft.com/s/article/Received-Extra-BGP-routes-from-CloudHub-2-0-VPN[Received Extra BGP routes from CloudHub 2.0 VPN].
+
+You can also indicate a reserved range for your on-prem network when creating your private space. CloudHub 2.0 doesn't use reserved ranges indicated by customers. For more information, see xref:ps-gather-setup-info.adoc#reserved-cidr[Reserved Corporate CIDR].
+
+=== Connections
+
+Private spaces support two types of connections: Virtual Private Network (VPN) and Transit Gateway (TGW). 
+
+Each Anypoint VPN connection consists of two tunnels that enable you to connect to a single public IP address at a remote location. VPNs are highly available if you configure both tunnels on your endpoint. 
+
+Additionally, CloudHub 2.0 enables you to define redundant VPN connections for additional resiliency. As a managed VPN service, the underlying VPN service is frequently upgraded. Routine maintenance can briefly disable one of the two tunnels of your VPN connection. Your VPN connection automatically fails over to the second tunnel during this time, so access is not interrupted. For this reason, you must configure both tunnels on your endpoint. For more information, see  https://help.mulesoft.com/s/article/Tunnel-Switch-in-an-Anypoint-Dynamic-BGP-VPN-Update[Tunnel Switch in an Anypoint Dynamic (BGP) VPN Update]. 
+
+By design, TGW connections are already highly available. Don't create redundant TGW connections. For more information, see xref:ps-tgw-about.adoc[].
+
+==== Connections between CloudHub and CloudHub 2.0
+
+You can use a xref:ps-create-configure-tgw.adoc[TGW attachment] to connect a dedicated VPC in CloudHub to a CloudHub 2.0 private space. You must apply the attachments independently in CloudHub and CloudHub 2.0.
+
+
+=== Firewall Rules and Port Access
+
+HTTP Ingress::
+
+By default, ports `443` and `80` are exposed for all external inbound traffic. You can remove or change these ports to restrict inbound traffic.
+
+
+Non-HTTP Ingress::
+
+By default, no non-http ports are open. You can open a fixed list of TCP ports (30500-32500) to allow non-http traffic to flow to your Mule applications. Those ports are only reachable from within the private space or originated from a VPN or a TGW. For more information about how to allow TCP traffic for your private space, see xref:ch2-deploy-api.adoc[].
+
+
+Egress:: 
+
+By default, applications can make outbound connections to any destination and port. You can change this behavior to restrict egress traffic.
++
+You can remove all ingress and egress rules from and to the internet. In this case, the private space still functions normally because of these control measures:
++
+* Anypoint Monitoring ingestion traffic firewall rules are implicitly added to all Mule applications' firewall rules.
+* Essential AWS services traffic flows are always allowed from Mule applications.
+* You can apply egress rules at the application level. For more information, see xref:ps-config-app-level-egress.adoc[].
+* You can remove the default route to the Internet Gateway. However, for the egress firewall rules to work, the destination IPs must be routable.
+
+
+== Regional Services
+
+The DNS record and the load balancer for your integration may change depending on what region you deploy your applications in. The following table summarizes what DNS records are available for your applications in each region:
+
+Anypoint Platform for the U.S. control plane covers the following regions:
+
+[%header,cols="2*a"]
+|===
+| Regions in U.S. Control Plane | DNS Record
+| US East (N. Virginia) | `<app>.<space-id>.usa-e1.cloudhub.io`
+| US East (Ohio) | `<app>.<space-id>.usa-e2.cloudhub.io`
+| US West (N. California) | `<app>.<space-id>.usa-w1.cloudhub.io`
+| US West (Oregon) | `<app>.<space-id>.usa-w2.cloudhub.io`
+| Canada (Central) | `<app>.<space-id>.can-c1.cloudhub.io`
+| South America (Sao Paulo) | `<app>.<space-id>.bra-s1.cloudhub.io`
+| Asia Pacific (Singapore) | `<app>.<space-id>.sgp-s1.cloudhub.io`
+| Asia Pacific (Sydney) | `<app>.<space-id>.aus-s1.cloudhub.io`
+| Asia Pacific (Tokyo) | `<app>.<space-id>.jpn-e1.cloudhub.io`
+| EU (Ireland) | `<app>.<space-id>.irl-e1.cloudhub.io`
+| EU (Frankfurt) | `<app>.<space-id>.deu-c1.cloudhub.io`
+| EU (London) | `<app>.<space-id>.gbr-e1.cloudhub.io`
+|===
+
+
+Anypoint Platform for the EU control plane covers the following regions: 
+
+[%header,cols="2*a"]
+|===
+| Regions in EU Control Plane | DNS Record
+| EU (Ireland) | `<app>.<space-id>.irl-e1.eu1.cloudhub.io`
+| EU (Frankfurt) | `<app>.<space-id>.deu-c1.eu1.cloudhub.io`
+|===
