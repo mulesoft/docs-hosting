@@ -23,11 +23,11 @@ The CloudHub 2.0 load balancing service performs a round-robin load distribution
 
 Each application deployed to CloudHub 2.0 has both default public and internal DNS records that refer to the load balancer: `<app>.<space-id>.<region>.cloudhub.io.` and `<app>.internal-<space-id>.<region>.cloudhub.io.`. 
 
-The CloudHub 2.0 load balancing service accepts public traffic on the standard HTTPS port: `443`. You can also choose to accept HTTP traffic on the standard HTTP port: `80`.
+The CloudHub 2.0 private spaces load balancing service accepts public traffic on the standard HTTPS port: `443`. You can also choose to accept HTTP traffic on the standard HTTP port: `80`. Shared spaces don't accept port `80`.
 
 === Mule Application Ports
 
-Applications must listen on host `0.0.0.0` and port via the reserved property `${http.port}`. You can dynamically allocate the value of this property, but you can't hard-code it.
+Applications must listen on host `0.0.0.0` and port via the reserved property `${http.port}`. MuleSoft allocates the value of this property.
 
 The load balancing service forwards traffic to deployed applications.
 
@@ -36,7 +36,7 @@ The load balancing service forwards traffic to deployed applications.
 By default, the load balancing service forwards traffic deployed applications over HTTP. To use HTTPS:
 
 * Enable the *Last-Mile Security* setting in the *Ingress* tab of the xref:ch2-deploy-private-space.adoc#configure-endpoint-path[deployment settings]. 
-* Configure the application to listen on HTTPS by providing a certificate in the xref:ps-config-domains.adoc[TLS context] of your private space.
+* Configure the application to listen on HTTPS by providing a certificate in the TLS context of your private space.
 
 The following example shows a Mule application configuration that exposes an HTTPS endpoint:
 
@@ -79,7 +79,7 @@ An application communicates with another application via:
 * The default public DNS name: `app.sxjsip.aus-s1.cloudhub.io`
 * The default internal DNS name (in private spaces only): `app.internal-sxjsip.aus-s1.cloudhub.io`
 * The custom domain name (if configured): `acme.example.com`
-* The cluster local DNS: `app` or `app.envid.svc.cluster.local`
+* The cluster local DNS: `app` or `app.envid.svc.cluster.local:8081`
 
 If you use the internal DNS name, traffic remains within the private space network. You can delete or omit the externally exposed endpoint when deploying an application to a private space. In that case, you can use the application's internal endpoint for internal traffic.
 
@@ -98,11 +98,11 @@ Configure either in the public or the internal DNS record to CNAME. For example:
 
 === IP Ranges
 
-Inbound traffic entering a private space originates from an IP address listed under the *Inbound Static IPs* field of the private network configuration. HTTP connections can inspect the `X-Forwarded-For` header to discover the original client IP address.
+Traffic egressing to the internet originates from an IP address listed under the *Outbound Static IPs* field of the private network configuration. 
 
-Traffic egressing to the internet originates from an IP address listed under the *Outbound Static IPs* field of the private network configuration. The public DNS target and the private DNS target IPs don't change during the lifetime of the private space.
+The public DNS target and the private DNS target IPs don't change during the lifetime of the private space.
 
-Traffic egressing to a VPN or transit gateway originates from the private space CIDR block.
+Traffic egressing to a VPN or Transit Gateway (TGW) originates from the private space CIDR block.
 
 image::ch2-networking-ip-ranges.png[Inbound and outbound IPs listed in the UI]
 
@@ -132,6 +132,9 @@ Each Anypoint VPN connection consists of two tunnels that enable you to connect 
 Additionally, CloudHub 2.0 enables you to define redundant VPN connections for additional resiliency. As a managed VPN service, the underlying VPN service is frequently upgraded. Routine maintenance can briefly disable one of the two tunnels of your VPN connection. Your VPN connection automatically fails over to the second tunnel during this time, so access is not interrupted. For this reason, you must configure both tunnels on your endpoint. For more information, see  https://help.mulesoft.com/s/article/Tunnel-Switch-in-an-Anypoint-Dynamic-BGP-VPN-Update[Tunnel Switch in an Anypoint Dynamic (BGP) VPN Update]. 
 
 By design, TGW connections are already highly available. Don't create redundant TGW connections. For more information, see xref:ps-tgw-about.adoc[].
+
+CloudHub 1.0 VPC AWS direct connect connections have been deprecated in CloudHub 2.0. Instead, you can use TGW attachments. Further, when you delete a private space that has a TGW attached, the transit gateway is preserved, and you can reattach it to a different private space.
+
 
 ==== Connections between CloudHub and CloudHub 2.0
 
@@ -168,21 +171,21 @@ The DNS record and the load balancer for your integration may change depending o
 
 Anypoint Platform for the U.S. control plane covers the following regions:
 
-[%header,cols="2*a"]
+[%header,cols="3*a"]
 |===
-| Regions in U.S. Control Plane | DNS Record
+| Regions in U.S. Control Plane | DNS Record | Internal DNS Record
 | US East (N. Virginia) | `<app>.<space-id>.usa-e1.cloudhub.io`
-| US East (Ohio) | `<app>.<space-id>.usa-e2.cloudhub.io`
-| US West (N. California) | `<app>.<space-id>.usa-w1.cloudhub.io`
-| US West (Oregon) | `<app>.<space-id>.usa-w2.cloudhub.io`
-| Canada (Central) | `<app>.<space-id>.can-c1.cloudhub.io`
-| South America (Sao Paulo) | `<app>.<space-id>.bra-s1.cloudhub.io`
-| Asia Pacific (Singapore) | `<app>.<space-id>.sgp-s1.cloudhub.io`
-| Asia Pacific (Sydney) | `<app>.<space-id>.aus-s1.cloudhub.io`
-| Asia Pacific (Tokyo) | `<app>.<space-id>.jpn-e1.cloudhub.io`
-| EU (Ireland) | `<app>.<space-id>.irl-e1.cloudhub.io`
-| EU (Frankfurt) | `<app>.<space-id>.deu-c1.cloudhub.io`
-| EU (London) | `<app>.<space-id>.gbr-e1.cloudhub.io`
+| US East (Ohio) | `<app>.<space-id>.usa-e2.cloudhub.io` | `<app>.internal-<space-id>.usa-e1.cloudhub.io`
+| US West (N. California) | `<app>.<space-id>.usa-w1.cloudhub.io` | `<app>.internal-<space-id>.usa-w1.cloudhub.io`
+| US West (Oregon) | `<app>.<space-id>.usa-w2.cloudhub.io` | `<app>.internal-<space-id>.usa-w2.cloudhub.io`
+| Canada (Central) | `<app>.<space-id>.can-c1.cloudhub.io` | `<app>.internal-<space-id>.can-c1.cloudhub.io`
+| South America (Sao Paulo) | `<app>.<space-id>.bra-s1.cloudhub.io` | `<app>.internal-<space-id>.bra-s1.cloudhub.io`
+| Asia Pacific (Singapore) | `<app>.<space-id>.sgp-s1.cloudhub.io` | `<app>.internal-<space-id>.sgp-s1.cloudhub.io`
+| Asia Pacific (Sydney) | `<app>.<space-id>.aus-s1.cloudhub.io` | `<app>.internal-<space-id>.aus-s1.cloudhub.io`
+| Asia Pacific (Tokyo) | `<app>.<space-id>.jpn-e1.cloudhub.io` | `<app>.internal-<space-id>.jpn-e1.cloudhub.io`
+| EU (Ireland) | `<app>.<space-id>.irl-e1.cloudhub.io` | `<app>.internal-<space-id>.irl-e1.cloudhub.io`
+| EU (Frankfurt) | `<app>.<space-id>.deu-c1.cloudhub.io` | `<app>.internal-<space-id>.deu-c1.cloudhub.io`
+| EU (London) | `<app>.<space-id>.gbr-e1.cloudhub.io` | `<app>.internal-<space-id>.gbr-e1.cloudhub.io`
 |===
 
 
