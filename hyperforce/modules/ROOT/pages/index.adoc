@@ -1,0 +1,90 @@
+= Salesforce Hyperforce (Hyperforce)
+
+Salesforce Hyperforce (Hyperforce) is a modern, scalable, and secure infrastructure designed to support your MuleSoft application deployments. Hyperforce enables you to deliver Mule apps rapidly and reliably to locations worldwide, giving you more choice and control over data residency. Mule apps benefit from its integration of enhanced standards for compliance, scalability, security, agility, and privacy.
+
+With Hyperforce, you can use a globally distributed and reliable platform to ensure optimal performance and reliability for your integrations and APIs.
+
+Some key benefits:
+
+* Data Residency +
+Enables you to serve your users globally while maintaining control over data residency and compliance.
+
+* Scalability +
+Enables you to grow and scale your business more flexibly and sustainably.
+
+* Security +
+Follows least-privileged control, zero-trust principles, and encrypts data both at rest and in transit.
+
+* Agility +
+Minimizes downtime for releases and maintenance. Additionally, it accelerates development and testing environments and offers extensive interoperability with AWS, streamlining your workflow.
+
+* Privacy +
+Provides you privacy standards that give you control and transparency over your users' data.
+
+== Before You Begin
+
+Before deploying Mule apps to Hyperforce your MuleSoft account must have access to a Hyperforce instance. Contact your MuleSoft account representative to provision a MuleSoft license to a Hyperforce instance.
+
+After you have access to a Hyperforce instance, refer to these topics:
+
+* xref:configure-mule-hyperforce.adoc[Configuring Mule to Access Hyperforce]
+* xref:deploy-mule-apps-hyperforce.adoc[Deploying Mule Apps to Hyperforce]
+
+
+== Features Supported on Hyperforce
+
+The following table provides Anypoint Platform features supported on Hyperforce:
+
+[%header%autowidth.spread]
+|===
+| Features/Components|Included | Notes
+| Access Management|Yes | -
+| Anypoint Integration Advanced | No | -
+| Anypoint API Manager|Yes | 
+| Anypoint Analytics - API|No | 
+| Anypoint Visualizer |Yes |
+| Anypoint Code Builder (Desktop IDE) |Yes | For exceptions, refer to xref:url.adoc[Anypoint Code Builder on Hyperforce]
+| Anypoint Exchange |Yes |
+| Anypoint MQ |Yes |For exceptions, refer to xref:url.adoc[Anypoint MQ on Hyperforce]
+| Anypoint Monitoring |Yes | For exceptions, refer to xref:url.adoc[Anypoint Monitoring on Hyperforce]
+| Anypoint Runtime Manager|Yes |
+| Anypoint Security Secrets Manager|Yes |
+| Anypoint Studio|Yes |
+| Anypoint Community Manager|Yes |
+| API Designer|Yes |
+| API Experience Hub|<TBD> |
+| API Functional Monitoring|Yes |
+| API Governance|Yes |
+| API Mocking Service|Yes |
+| CloudHub 2.0|Yes |
+| CloudHub|No |
+| Dataloader | Yes |
+| Flex Gateway | Yes | For exceptions, refer to xref:url.adoc[Flex Gateway on Hyperforce]
+| Mule Gateway | Yes |
+| Mule runtime engine | Yes | Mule 3 is not supported.
+| MUnit | Yes | -
+| Object Store V2 | Yes | For exceptions, refer to xref:url.adoc[Object Store V2 on Hyperforce]
+| Runtime Fabric | Yes | -
+| Hybrid Standalone Deployment | No | -
+|===
+
+== Hyperforce Supported Regions
+
+Hyperforce is available in these regions:
+
+[%header%autowidth.spread]
+|===
+|Location | Region Control Plane | Platform URL
+|North America | Canada Cloud | ca1.platform.mulesoft.com
+|APAC | Japan Cloud | jp1.platform.mulesoft.com
+|===
+
+== Mule Runtime Version Compatibility
+
+* Hyperforce is compatible with Mule runtime engine versions under support, 4.4.0 and later.
+* Hyperforce supports the Mule runtime engine LTS and Edge release channels. The recommended customer profile is LTS. For more information, visit xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[].
+
+== See Also
+
+* xref:configure-mule-hyperforce.adoc[Configuring Mule to Access Hyperforce]
+* xref:deploy-mule-apps-hyperforce.adoc[Deploying Mule Apps to Hyperforce]
