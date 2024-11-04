@@ -1,6 +1,6 @@
 = Deploying Mule Apps to Hyperforce
 
-When deploying Mule Apps to Salesforce Hyperforce (Hyperforce), you deploy to a CloudHub 2.0 private or shared space. Consider the following guidelines.
+When deploying Mule Apps to a Salesforce Hyperforce (Hyperforce) instance, you deploy via CloudHub 2.0 to a private or shared space. Consider the following guidelines.
 
 == Before You Begin
 Before deploying Mule apps to Hyperforce, review the following points:
