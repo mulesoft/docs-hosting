@@ -38,33 +38,33 @@ The following table provides Anypoint Platform features supported on Hyperforce:
 [%header%autowidth.spread]
 |===
 | Features/Components|Included | Notes
-| Access Management|Yes | -
+| xref:access-management::index.adoc[Access Management]|Yes | -
 | Anypoint Integration Advanced | No | -
-| Anypoint API Manager|Yes | 
-| Anypoint Analytics - API|No | 
-| Anypoint Visualizer |Yes |
-| Anypoint Code Builder (Desktop IDE) |Yes | For exceptions, refer to xref:url.adoc[Anypoint Code Builder on Hyperforce]
-| Anypoint Exchange |Yes |
-| Anypoint MQ |Yes |For exceptions, refer to xref:url.adoc[Anypoint MQ on Hyperforce]
-| Anypoint Monitoring |Yes | For exceptions, refer to xref:url.adoc[Anypoint Monitoring on Hyperforce]
-| Anypoint Runtime Manager|Yes |
-| Anypoint Security Secrets Manager|Yes |
-| Anypoint Studio|Yes |
-| Anypoint Community Manager|Yes |
-| API Designer|Yes |
-| API Experience Hub|<TBD> |
-| API Functional Monitoring|Yes |
-| API Governance|Yes |
-| API Mocking Service|Yes |
-| CloudHub 2.0|Yes |
-| CloudHub|No |
+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]|Yes | 
+| xref:api-manager::analytics-landing-page.adoc[Anypoint Mule API Analytics |No | 
+| xref:visualizer::index.adoc[Anypoint Visualizer] |Yes | For exceptions, refer to xref:visualizer::index.adoc#visualizer-hyperforce[Anypoint Visualizer on Hyperforce]
+| xref:anypoint-code-builder::index.adoc[Anypoint Code Builder (Desktop IDE)] |Yes | For exceptions, refer to xref:url.adoc[Anypoint Code Builder on Hyperforce]
+| xref:exchange::index.adoc[Anypoint Exchange] |Yes |
+| xref:mq::index.adoc[Anypoint MQ] |Yes |For exceptions, refer to xref:mq::index.adoc#mq-on-hyperforce[Anypoint MQ on Hyperforce]
+| xref:monitoring::index.adoc[Anypoint Monitoring] |Yes | For exceptions, refer to xref:monitoring::index.adoc#insights[Anypoint Monitoring on Hyperforce]
+| xref:runtime-manager::index.adoc[Anypoint Runtime Manager]|Yes |
+| xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager]|Yes |
+| xref:studio::index.adoc[Anypoint Studio]|Yes |
+| xref:api-community-manager::index.adoc[Anypoint Community Manager]|Yes |
+| xref:design-center::design-create-publish-api-specs.adoc[API Designer]|Yes |
+| xref:api-experience-hub::index.adoc[API Experience Hub]|<TBD> |
+| xref:api-functional-monitoring::index.adoc[API Functional Monitoring]|Yes |
+| xref:api-governance::index.adoc[API Governance]|Yes |
+| xref:design-center::design-mocking-service.adoc[API Mocking Service]|Yes |
+| xref:cloudhub-2::index.adoc[CloudHub 2.0]|Yes |
+| xref:cloudhub::index.adoc[CloudHub]|No |
 | Dataloader | Yes |
-| Flex Gateway | Yes | For exceptions, refer to xref:url.adoc[Flex Gateway on Hyperforce]
-| Mule Gateway | Yes |
-| Mule runtime engine | Yes | Mule 3 is not supported.
-| MUnit | Yes | -
-| Object Store V2 | Yes | For exceptions, refer to xref:url.adoc[Object Store V2 on Hyperforce]
-| Runtime Fabric | Yes | -
+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway] | Yes | For exceptions, refer to xref:url.adoc[Flex Gateway on Hyperforce]
+| xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway] | Yes |
+| xref:mule-runtime::index.adoc[Mule runtime engine] | Yes | Mule 3 is not supported.
+| xref:munit::index.adoc[MUnit] | Yes | -
+| xref:object-store::index.adoc[Object Store V2] | Yes | For exceptions, refer to xref:object-store::index.adoc#osv2-on-hyperforce[Object Store V2 on Hyperforce]
+| xref:runtime-fabric::index.adoc[Runtime Fabric] | Yes | -
 | Hybrid Standalone Deployment | No | -
 |===
 
