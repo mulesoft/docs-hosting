@@ -41,7 +41,7 @@ The following table provides Anypoint Platform features supported on Hyperforce:
 | xref:access-management::index.adoc[Access Management]|Yes | -
 | Anypoint Integration Advanced | No | -
 | xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]|Yes | 
-| xref:api-manager::analytics-landing-page.adoc[Anypoint Mule API Analytics |No | 
+| xref:api-manager::analytics-landing-page.adoc[Anypoint Mule API Analytics] |No | 
 | xref:visualizer::index.adoc[Anypoint Visualizer] |Yes | For exceptions, refer to xref:visualizer::index.adoc#visualizer-hyperforce[Anypoint Visualizer on Hyperforce]
 | xref:anypoint-code-builder::index.adoc[Anypoint Code Builder (Desktop IDE)] |Yes | For exceptions, refer to xref:url.adoc[Anypoint Code Builder on Hyperforce]
 | xref:exchange::index.adoc[Anypoint Exchange] |Yes |
