@@ -1,5 +1,5 @@
 .xref:index.adoc[Hyperforce]
 * xref:index.adoc[Overview]
-* xref:hyperforce-release-notes.adoc[Release Notes]
+* xref:release-notes::hyperforce-release-notes.adoc[Release Notes]
 * xref:configure-mule-hyperforce.adoc[Configuring Mule to Access Hyperforce]
 * xref:deploy-mule-apps-hyperforce.adoc[Deploying Mule Apps to Hyperforce]
