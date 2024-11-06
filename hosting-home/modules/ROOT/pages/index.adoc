@@ -69,7 +69,7 @@ Some Anypoint Platform components are not supported in Anypoint Platform PCE. Se
 Not all Anypoint Platform components and features are supported in all cloud environments.
 The following table shows which environments support each component:
 
-[%header,cols="5*a"]
+[%header,cols="7*a"]
 |===
 | Anypoint Platform Component | US control plane | EU control plane | MuleSoft Government Cloud | Anypoint Platform PCE | Canada Cloud | Japan Cloud
 | Access management | Y | Y | Y | Y | Y | Y
@@ -135,13 +135,13 @@ Connectors that retrieve and manipulate files on the file system are not support
 
 The following table lists the runtime plane options that are supported in each control plane hosting option.
 
-[%header,cols="5*a"]
+[%header,cols="7*a"]
 |===
-| Runtime Plane | US control plane | EU control plane | MuleSoft Government Cloud | Anypoint Platform PCE
-| CloudHub 2.0 | Y | Y | N | N
-| CloudHub | Y | Y | Y | N
-| Standalone runtimes | Y | Y | Y | Y
-| Runtime Fabric | Y | Y | N | N
+| Runtime Plane | US control plane | EU control plane | MuleSoft Government Cloud | Anypoint Platform PCE | Canada cloud | Japan cloud
+| CloudHub 2.0 | Y | Y | N | N | Y | Y 
+| CloudHub | Y | Y | Y | N | N | N
+| Standalone runtimes | Y | Y | Y | Y | Y | Y
+| Runtime Fabric | Y | Y | N | N | Y | Y
 |===
 
 == See Also
