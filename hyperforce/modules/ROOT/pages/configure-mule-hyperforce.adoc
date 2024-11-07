@@ -7,7 +7,7 @@ Before deploying Mule apps to a Salesforce Hyperforce (Hyperforce) instance, you
 
 By default, Mule is configured to point to the US control plane. If you do not override these properties, the API gateway capability of Mule is disabled in the Hyperforce instance.
 
-You can configure Mule properties using a `wrapper.conf file`, the command line, or CloudHub 2.0. To configure Mule properties through Maven, refer to xref:exchange::to-publish-assets-maven.adoc[Publish assets using Maven].
+You can configure Mule properties using a `wrapper.conf file`, the command line, or CloudHub 2.0. To configure Mule properties through Maven, refer to xref:exchange::to-publish-assets-maven.adoc#publish-an-asset-to-exchange-using-maven[Publish assets using Maven].
 
 == Configure Mule Properties in the Wrapper.conf File
 
