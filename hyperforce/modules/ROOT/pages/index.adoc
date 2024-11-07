@@ -47,6 +47,7 @@ The following table provides Anypoint Platform features supported on Hyperforce:
 | xref:exchange::index.adoc[Anypoint Exchange] |Yes |
 | xref:mq::index.adoc[Anypoint MQ] |Yes |For exceptions, refer to xref:mq::index.adoc#mq-on-hyperforce[Anypoint MQ on Hyperforce]
 | xref:monitoring::index.adoc[Anypoint Monitoring] |Yes | For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Anypoint Platform Region]
+| xref:partner-manager::index.adoc[Anypoint Partner Manager]|No| -
 | xref:runtime-manager::index.adoc[Anypoint Runtime Manager]|Yes |
 | xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager]|Yes |
 | xref:studio::index.adoc[Anypoint Studio]|Yes |-
@@ -56,6 +57,7 @@ The following table provides Anypoint Platform features supported on Hyperforce:
 | xref:api-functional-monitoring::index.adoc[API Functional Monitoring]|Yes |
 | xref:api-governance::index.adoc[API Governance]|Yes |
 | xref:design-center::design-mocking-service.adoc[API Mocking Service]|Yes |
+| Connectors (All MuleSoft owned) |Yes | -
 | xref:cloudhub-2::index.adoc[CloudHub 2.0]|Yes |
 | xref:cloudhub::index.adoc[CloudHub]|No |-
 | Dataloader | Yes |
