@@ -57,7 +57,7 @@ The following table provides Anypoint Platform features supported on Hyperforce:
 | xref:api-functional-monitoring::index.adoc[API Functional Monitoring]|Yes | (TBD)
 | xref:api-governance::index.adoc[API Governance]|Yes | (TBD)
 | xref:design-center::design-mocking-service.adoc[API Mocking Service]|Yes | (TBD)
-| Connectors (All MuleSoft owned) |Yes | -
+| Connectors |Yes | All connectors owned by MuleSoft.
 | xref:cloudhub-2::index.adoc[CloudHub 2.0]|Yes | (TBD)
 | xref:cloudhub::index.adoc[CloudHub]|No |-
 | Dataloader | Yes | (TBD)
