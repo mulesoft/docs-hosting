@@ -12,7 +12,7 @@ Your MuleSoft account must have access to a Hyperforce instance. Contact your Mu
 Hyperforce has a different base URL, exchange and platform endpoints. For a successful deployment change the Anypoint Platform endpoints URLs to the supported Hyperforce regions endpoints:
 
 ** xref:configure-mule-hyperforce.adoc[Configuring Mule to access Hyperforce]
-** xref:exchange::to-publish-assets-maven.adoc[Publish assets using Maven]
+** xref:exchange::to-publish-assets-maven.adoc#publish-an-asset-to-exchange-using-maven[Publish an Asset to Exchange Using Maven]
 ** xref:url.adoc[Configure Hyperforce in Anypoint Code Builder] (STILL WIP)
 ** xref:url.adoc[Configure Hyperforce in Anypoint Studio]  (STILL WIP)
 
