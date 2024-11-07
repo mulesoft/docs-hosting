@@ -46,7 +46,7 @@ The following table provides Anypoint Platform features supported on Hyperforce:
 | xref:anypoint-code-builder::index.adoc[Anypoint Code Builder (Desktop IDE)] |Yes | (TBD)
 | xref:exchange::index.adoc[Anypoint Exchange] |Yes |
 | xref:mq::index.adoc[Anypoint MQ] |Yes |For exceptions, refer to xref:mq::index.adoc#mq-on-hyperforce[Anypoint MQ on Hyperforce]
-| xref:monitoring::index.adoc[Anypoint Monitoring] |Yes | For details, refer to xref:monitoring::index.adoc#features[Anypoint Monitoring on Hyperforce]
+| xref:monitoring::index.adoc[Anypoint Monitoring] |Yes | For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Anypoint Platform Region]
 | xref:runtime-manager::index.adoc[Anypoint Runtime Manager]|Yes |
 | xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager]|Yes |
 | xref:studio::index.adoc[Anypoint Studio]|Yes |
