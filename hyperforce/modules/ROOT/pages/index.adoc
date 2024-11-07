@@ -43,7 +43,7 @@ The following table provides Anypoint Platform features supported on Hyperforce:
 | xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]|Yes | 
 | xref:api-manager::analytics-landing-page.adoc[Anypoint Mule API Analytics] |No | 
 | xref:visualizer::index.adoc[Anypoint Visualizer] |Yes | For exceptions, refer to xref:visualizer::index.adoc#visualizer-hyperforce[Anypoint Visualizer on Hyperforce]
-| xref:anypoint-code-builder::index.adoc[Anypoint Code Builder (Desktop IDE)] |Yes | For exceptions, refer to xref:url.adoc[Anypoint Code Builder on Hyperforce]
+| xref:anypoint-code-builder::index.adoc[Anypoint Code Builder (Desktop IDE)] |Yes | (TBD)
 | xref:exchange::index.adoc[Anypoint Exchange] |Yes |
 | xref:mq::index.adoc[Anypoint MQ] |Yes |For exceptions, refer to xref:mq::index.adoc#mq-on-hyperforce[Anypoint MQ on Hyperforce]
 | xref:monitoring::index.adoc[Anypoint Monitoring] |Yes | For details, refer to xref:monitoring::index.adoc#features[Anypoint Monitoring on Hyperforce]
@@ -59,7 +59,7 @@ The following table provides Anypoint Platform features supported on Hyperforce:
 | xref:cloudhub-2::index.adoc[CloudHub 2.0]|Yes |
 | xref:cloudhub::index.adoc[CloudHub]|No |
 | Dataloader | Yes |
-| xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway] | Yes | For exceptions, refer to xref:url.adoc[Flex Gateway on Hyperforce]
+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway] | Yes | (TBD)
 | xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway] | Yes |
 | xref:mule-runtime::index.adoc[Mule runtime engine] | Yes | Mule 3 is not supported.
 | xref:munit::index.adoc[MUnit] | Yes | -
