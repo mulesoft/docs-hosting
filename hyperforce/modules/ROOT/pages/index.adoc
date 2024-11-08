@@ -76,7 +76,7 @@ Hyperforce is available in these regions:
 
 [%header%autowidth.spread]
 |===
-|Location | Region Control Plane | Platform URL
+|Location | Region Control Plane | Anypoint Platform URL
 |North America | Canada Cloud | ca1.platform.mulesoft.com
 |APAC | Japan Cloud | jp1.platform.mulesoft.com
 |===
