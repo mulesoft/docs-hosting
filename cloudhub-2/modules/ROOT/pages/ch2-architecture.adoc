@@ -138,7 +138,7 @@ The following table summarizes what DNS records are available for your applicati
 [%header,cols="15a,10a,30a,40a,40a"]
 |===
 | Region Name | Region | Target ID | Example DNS Record | Target Name
-5+h| US Runtime Plane Regions
+5+h| US Cloud: Runtime Plane Regions
 | US East (N. Virginia) |usa-e1 | `cloudhub-us-east-1` | `myapp-_uniq-id_._shard_.usa-e1.cloudhub.io` | `Cloudhub-US-East-1`
 | US East (Ohio) |usa-e2| `cloudhub-us-east-2` | `myapp-_uniq-id_._shard_.usa-e2.cloudhub.io` | `Cloudhub-US-East-2`
 | US West (N. California) |usa-w1 |`cloudhub-us-west-1` | `myapp-_uniq-id_._shard_.usa-w1.cloudhub.io` | `Cloudhub-US-West-1`
@@ -151,9 +151,13 @@ The following table summarizes what DNS records are available for your applicati
 | EU (Ireland) |irl-e1 | `cloudhub-eu-west-1` | `myapp-_uniq-id_._shard_.irl-e1.cloudhub.io` | `Cloudhub-EU-West-1`
 | EU (Frankfurt) |deu-c1 | `cloudhub-eu-central-1` | `myapp-_uniq-id_._shard_.deu-c1.cloudhub.io` | `Cloudhub-EU-Central-1`
 | EU (London) |gbr-e1 | `cloudhub-eu-west-2` | `myapp-_uniq-id_._shard_.gbr-e1.cloudhub.io` | `Cloudhub-EU-West-2`
-5+h| EU Runtime Plane Regions
+5+h| EU Cloud: Runtime Plane Regions
 | EU (Ireland) |irl-e1.eu1 | `cloudhub-eu-west-1` | `myapp-_uniq-id_._shard_.irl-e1.eu1.cloudhub.io` | `Cloudhub-EU-West-1`
 | EU (Frankfurt) |deu-c1.eu1 | `cloudhub-eu-central-1` | `myapp-_uniq-id_._shard_.deu-c1.eu1.cloudhub.io` | `Cloudhub-EU-Central-1`
+5+h| Canada Cloud: Runtime Plane Regions
+| Canada (Central) |can-c1| `cloudhub-ca-central-1` | `myapp-uniq-id.can-c1.ca1.cloudhub.io` | `Cloudhub-CA-Central-1`
+5+h| Japan Cloud: Runtime Plane Regions
+| Asia Pacific (Tokyo) |jpn-e1| `cloudhub-ap-northeast-1` | `myapp-uniq-id.jpn-e1.jp1.cloudhub.io` | `Cloudhub-AP-Northeast-1`
 |===
 
 For example, if you deploy an application named `myapp` to Canada (Central), the domain used to access the application is `myapp-_uniq-id_._shard_.can-c1.cloudhub.io`.
