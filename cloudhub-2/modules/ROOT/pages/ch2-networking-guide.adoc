@@ -1,10 +1,10 @@
 = CloudHub 2.0 Networking Architecture
 
-CloudHub 2.0 is MuleSoft's fully managed, containerized integration platform as a service (iPaaS) where you can deploy APIs and integrations as lightweight containers in the cloud so they are maintainable, secure, and scalable. 
+CloudHub 2.0 is MuleSoft's fully managed, containerized integration platform as a service (iPaaS). It allows you to deploy APIs and integrations as lightweight containers in the cloud, ensuring they’re maintainable, secure, and scalable.
 
 This document provides relevant information regarding the configuration and administration of CloudHub 2.0 networks, network interfaces, and network services. For information about different deployment scenarios, see xref:runtime-manager::deployment-strategies.adoc[].
 
-The basic components of CloudHub 2.0 networking architecture are HTTP Load Balancer, Mule replica DNS records, Private Spaces, and Regional Services.
+The basic components of CloudHub 2.0 networking architecture are HTTP load balancer, Mule replica DNS records, private spaces, and regional services.
 
 * <<HTTP Load Balancer>>
 * <<DNS Records>>
@@ -15,25 +15,25 @@ image::ch2-networking-architecture-diagram.png[Basic Components of CloudHub 2.0 
 
 == HTTP Load Balancer
 
-CloudHub 2.0 provides a load balancing service for all integrations. You can use a default endpoint or provision a custom endpoint with your own certificate.
+CloudHub 2.0 provides a load-balancing service for all integrations. You can use a default endpoint or provision a custom endpoint with your own certificate.
 
-When you deploy an application to two or more replicas, CloudHub 2.0 provides an HTTP load balancing service that automatically distributes HTTP requests among your assigned replicas.
+When you deploy an application to two or more replicas, CloudHub 2.0 provides an HTTP load-balancing service that automatically distributes HTTP requests among your assigned replicas.
 
-The CloudHub 2.0 load balancing service performs a round-robin load distribution across application replicas, which provides horizontal scalability. The load balancing service also provides transparent switchover when an application is upgraded. See xref:ch2-update-apps.adoc[].
+The CloudHub 2.0 load-balancing service performs a round-robin load distribution across application replicas, which provides horizontal scalability. The load-balancing service also provides transparent switchover when an application is upgraded. See xref:ch2-update-apps.adoc[].
 
 Each application deployed to CloudHub 2.0 has both default public and internal DNS records that refer to the load balancer: `<app>.<space-id>.<region>.cloudhub.io.` and `<app>.internal-<space-id>.<region>.cloudhub.io.`. 
 
-The CloudHub 2.0 private spaces load balancing service accepts public traffic on the standard HTTPS port: `443`. You can also choose to accept HTTP traffic on the standard HTTP port: `80`. Shared spaces don't accept port `80`.
+The CloudHub 2.0 private spaces load-balancing service accepts public traffic on the standard HTTPS port: `443`. For private spaces, you can also accept HTTP traffic on the standard HTTP port: `80`. Shared spaces don’t accept port `80`.
 
 === Mule Application Ports
 
 Applications must listen on host `0.0.0.0` and port via the reserved property `${http.port}`. MuleSoft allocates the value of this property.
 
-The load balancing service forwards traffic to deployed applications.
+The load-balancing service forwards traffic to deployed applications.
 
 === Upstream HTTPS Traffic
 
-By default, the load balancing service forwards traffic deployed applications over HTTP. To use HTTPS:
+By default, the load-balancing service forwards traffic to deployed applications over HTTP. To use HTTPS:
 
 * Enable the *Last-Mile Security* setting in the *Ingress* tab of the xref:ch2-deploy-private-space.adoc#configure-endpoint-path[deployment settings]. 
 * Configure the application to listen on HTTPS by providing a certificate in the TLS context of your private space.
@@ -81,13 +81,13 @@ An application communicates with another application via:
 * The custom domain name (if configured): `acme.example.com`
 * The cluster local DNS: `app` or `app.envid.svc.cluster.local:8081`
 
-If you use the internal DNS name, traffic remains within the private space network. You can delete or omit the externally exposed endpoint when deploying an application to a private space. In that case, you can use the application's internal endpoint for internal traffic.
+If you use the internal DNS name, traffic remains within the private space network. You can delete or omit the externally exposed endpoint when deploying an application to a private space. In that case, use the application’s internal endpoint for internal traffic.
 
-If you use the private space’s local endpoint, the traffic doesn’t leave the private space. However, the private space's local endpoint isn’t highly available. The endpoint can be unreachable during some private space operations, such as disaster recovery. The private space's local endpoint allows traffic within the same environment only.
+If you use the private space’s local endpoint, traffic doesn’t leave the private space. However, the private space’s local endpoint isn’t highly available. The endpoint can be unreachable during some private space operations, such as disaster recovery. The private space’s local endpoint allows traffic within the same environment only.
 
 === Custom Domain Name
 
-You can apply custom certificates to your private space. CloudHub 2.0 parses the CN and SAN list from the certificate and makes those domains available when deploying applications. 
+You can apply custom certificates to your private space. CloudHub 2.0 parses the CN and SAN lists from the certificate and makes those domains available when deploying applications. 
 
 Configure either in the public or the internal DNS record to CNAME. For example: 
 
@@ -100,15 +100,15 @@ Configure either in the public or the internal DNS record to CNAME. For example:
 
 Traffic egressing to the internet originates from an IP address listed under the *Outbound Static IPs* field of the private network configuration. 
 
-The public DNS target and the private DNS target IPs don't change during the lifetime of the private space.
+The public DNS target and the private DNS target IPs don’t change during the lifetime of the private space.
 
 Traffic egressing to a VPN or Transit Gateway (TGW) originates from the private space CIDR block.
 
 image::ch2-networking-ip-ranges.png[Inbound and outbound IPs listed in the UI]
 
-Private spaces also leverage several secondary CIDR for internal usage. 
+Private spaces also use several secondary CIDR for internally. 
 
-If you use BGP routing protocols, you may see the following additional CIDR blocks being published to your gateway:
+If you use BGP routing protocols, the following additional CIDR blocks can be published to your gateway:
 
 ----
 100.64.0.0/16
@@ -119,9 +119,9 @@ If you use BGP routing protocols, you may see the following additional CIDR bloc
 
 Because of this, `100.64.0.0/10` is xref:ps-gather-setup-info.adoc#unusable-cidr[not a supported range] for private spaces.
 
-You can filter these prefixes from the route map. For more information see https://help.mulesoft.com/s/article/Received-Extra-BGP-routes-from-CloudHub-2-0-VPN[Received Extra BGP routes from CloudHub 2.0 VPN].
+You can filter these prefixes from the route map. For more information, see https://help.mulesoft.com/s/article/Received-Extra-BGP-routes-from-CloudHub-2-0-VPN[Received Extra BGP routes from CloudHub 2.0 VPN].
 
-You can also indicate a reserved range for your on-prem network when creating your private space. CloudHub 2.0 doesn't use reserved ranges indicated by customers. For more information, see xref:ps-gather-setup-info.adoc#reserved-cidr[Reserved Corporate CIDR].
+You can also indicate a reserved range for your on-prem network upon creating your private space. CloudHub 2.0 doesn’t use reserved ranges indicated by customers. For more information, see xref:ps-gather-setup-info.adoc#reserved-cidr[Reserved Corporate CIDR].
 
 === Connections
 
@@ -129,14 +129,14 @@ Private spaces support two types of connections: Virtual Private Network (VPN) a
 
 Each Anypoint VPN connection consists of two tunnels that enable you to connect to a single public IP address at a remote location. VPNs are highly available if you configure both tunnels on your endpoint. 
 
-Additionally, CloudHub 2.0 enables you to define redundant VPN connections for additional resiliency. As a managed VPN service, the underlying VPN service is frequently upgraded. Routine maintenance can briefly disable one of the two tunnels of your VPN connection. Your VPN connection automatically fails over to the second tunnel during this time, so access is not interrupted. For this reason, you must configure both tunnels on your endpoint. For more information, see  https://help.mulesoft.com/s/article/Tunnel-Switch-in-an-Anypoint-Dynamic-BGP-VPN-Update[Tunnel Switch in an Anypoint Dynamic (BGP) VPN Update]. 
+Additionally, CloudHub 2.0 enables you to define redundant VPN connections for additional resiliency. As a managed service, the underlying VPN service is often upgraded. Routine maintenance can briefly disable one of the two tunnels of your VPN connection. Your VPN connection automatically fails over to the second tunnel during this time, so access isn’t interrupted. For this reason, you must configure both tunnels on your endpoint. For more information, see  https://help.mulesoft.com/s/article/Tunnel-Switch-in-an-Anypoint-Dynamic-BGP-VPN-Update[Tunnel Switch in an Anypoint Dynamic (BGP) VPN Update]. 
 
-By design, TGW connections are already highly available. Don't create redundant TGW connections. For more information, see xref:ps-tgw-about.adoc[].
+By design, TGW connections are highly available. Don’t create redundant TGW connections. For more information, see xref:ps-tgw-about.adoc[].
 
-CloudHub 1.0 VPC AWS direct connect connections have been deprecated in CloudHub 2.0. Instead, you can use TGW attachments. Further, when you delete a private space that has a TGW attached, the transit gateway is preserved, and you can reattach it to a different private space.
+CloudHub VPC AWS direct connect connections are deprecated in CloudHub 2.0. Instead, use TGW attachments. When you delete a private space that has a TGW attached, the transit gateway is preserved, and you can reattach it to a different private space.
 
 
-==== Connections between CloudHub and CloudHub 2.0
+==== Connections Between CloudHub and CloudHub 2.0
 
 You can use a xref:ps-create-configure-tgw.adoc[TGW attachment] to connect a dedicated VPC in CloudHub to a CloudHub 2.0 private space. You must apply the attachments independently in CloudHub and CloudHub 2.0.
 
@@ -159,7 +159,7 @@ By default, applications can make outbound connections to any destination and po
 +
 You can remove all ingress and egress rules from and to the internet. In this case, the private space still functions normally because of these control measures:
 +
-* Anypoint Monitoring ingestion traffic firewall rules are implicitly added to all Mule applications' firewall rules.
+* Anypoint Monitoring ingestion traffic firewall rules are implicitly added to all Mule applications’ firewall rules.
 * Essential AWS services traffic flows are always allowed from Mule applications.
 * You can apply egress rules at the application level. For more information, see xref:ps-config-app-level-egress.adoc[].
 * You can remove the default route to the Internet Gateway. However, for the egress firewall rules to work, the destination IPs must be routable.
@@ -167,9 +167,9 @@ You can remove all ingress and egress rules from and to the internet. In this ca
 
 == Regional Services
 
-The DNS record and the load balancer for your integration may change depending on what region you deploy your applications in. The following table summarizes what DNS records are available for your applications in each region:
+The DNS record and the load balancer for your integration can change depending on what region you deploy your applications in. This table summarizes what DNS records are available for your applications in each region:
 
-Anypoint Platform for the U.S. control plane covers the following regions:
+Anypoint Platform for the US control plane covers these regions:
 
 [%header,cols="3*a"]
 |===
@@ -189,7 +189,7 @@ Anypoint Platform for the U.S. control plane covers the following regions:
 |===
 
 
-Anypoint Platform for the EU control plane covers the following regions: 
+Anypoint Platform for the EU control plane covers these regions: 
 
 [%header,cols="2*a"]
 |===
