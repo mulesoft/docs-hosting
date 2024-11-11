@@ -19,7 +19,7 @@ For CloudHub 2.0 pricing information, contact either your account executive or y
 
 All features of CloudHub 2.0 are supported on Hyperforce with these exceptions:
 
-//[TBD]
+When deploying to any of the Hyperforce supported regions, do not delete the egress traffic default route, `0.0.0.0`. Deleting the default egress traffic route can result in Monitoring not to work in CloudHub 2.0.
 
 
 == See Also
