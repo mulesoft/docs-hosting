@@ -44,14 +44,14 @@ The following table provides Anypoint Platform features supported on Hyperforce:
 | xref:api-manager::analytics-landing-page.adoc[Anypoint Mule API Analytics] |No | -
 | xref:visualizer::index.adoc[Anypoint Visualizer] |Yes | For exceptions, refer to xref:visualizer::index.adoc#visualizer-hyperforce[Anypoint Visualizer on Hyperforce]
 | xref:anypoint-code-builder::index.adoc[Anypoint Code Builder (Desktop IDE)] |Yes | (TBD)
-| xref:exchange::index.adoc[Anypoint Exchange] |Yes | (TBD)
+| xref:exchange::index.adoc[Anypoint Exchange] |Yes | For exceptions, refer to xref:exchange::index.adoc#exchange-on-hyperforce[Anypoint Exchange on Hyperforce]
 | xref:mq::index.adoc[Anypoint MQ] |Yes |For exceptions, refer to xref:mq::index.adoc#mq-on-hyperforce[Anypoint MQ on Hyperforce]
 | xref:monitoring::index.adoc[Anypoint Monitoring] |Yes | For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Anypoint Platform Region]
 | xref:partner-manager::index.adoc[Anypoint Partner Manager]|No| -
 | xref:runtime-manager::index.adoc[Anypoint Runtime Manager]|Yes | (TBD)
 | xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager]|Yes | -
 | xref:studio::index.adoc[Anypoint Studio]|Yes |-
-| xref:api-community-manager::index.adoc[Anypoint Community Manager]|Yes | (TBD)
+| xref:api-community-manager::index.adoc[Anypoint Community Manager]|Yes | -
 | xref:design-center::design-create-publish-api-specs.adoc[API Designer]|No | -
 | xref:api-experience-hub::index.adoc[API Experience Hub]|No |-
 | xref:api-functional-monitoring::index.adoc[API Functional Monitoring]|Yes | (TBD)
