@@ -138,7 +138,7 @@ CloudHub VPC AWS direct connect connections are deprecated in CloudHub 2.0. Inst
 
 ==== Connections Between CloudHub and CloudHub 2.0
 
-You can use a xref:ps-create-configure-tgw.adoc[TGW attachment] to connect a dedicated VPC in CloudHub to a CloudHub 2.0 private space. You must apply the attachments independently in CloudHub and CloudHub 2.0.
+Use a xref:ps-create-configure-tgw.adoc[TGW attachment] to connect a dedicated VPC in CloudHub to a CloudHub 2.0 private space. You must apply the attachments independently in CloudHub and CloudHub 2.0.
 
 
 === Firewall Rules and Port Access
