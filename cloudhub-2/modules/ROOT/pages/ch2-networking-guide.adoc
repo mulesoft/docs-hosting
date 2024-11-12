@@ -133,7 +133,7 @@ Additionally, you can define redundant VPN connections for increased resiliency.
 
 By design, TGW connections are highly available. Don’t create redundant TGW connections. For more information, see xref:ps-tgw-about.adoc[].
 
-CloudHub VPC AWS direct connect connections are deprecated in CloudHub 2.0. Instead, use TGW attachments. When you delete a private space that has a TGW attached, the transit gateway is preserved, and you can reattach it to a different private space.
+CloudHub VPC AWS direct connect connections are deprecated in CloudHub 2.0. Instead, use TGW attachments. If you delete a private space with an attached TGW, the transit gateway is saved, and you can reattach it to a different private space.
 
 
 ==== Connections Between CloudHub and CloudHub 2.0
