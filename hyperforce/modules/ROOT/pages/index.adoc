@@ -66,7 +66,7 @@ The following table provides Anypoint Platform features supported on Hyperforce:
 | xref:mule-runtime::index.adoc[Mule runtime engine] | Yes | Mule 3 is not supported as it reached EOL.
 | xref:munit::index.adoc[MUnit] | Yes | -
 | xref:object-store::index.adoc[Object Store V2] | Yes | For exceptions, refer to xref:object-store::index.adoc#osv2-on-hyperforce[Object Store V2 on Hyperforce]
-| xref:runtime-fabric::index.adoc[Runtime Fabric] | Yes | -
+| xref:runtime-fabric::index.adoc[Runtime Fabric] | No | Contact your account manager to unlock this capability.
 | Hybrid Standalone Deployment | No | -
 |===
 
@@ -85,6 +85,10 @@ Hyperforce is available in these regions:
 
 * Hyperforce is compatible with Mule runtime engine versions under support, 4.4.0 and later.
 * Hyperforce supports the Mule runtime engine LTS and Edge release channels. The recommended customer profile is LTS. For more information, visit xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[].
+
+== Contact Salesforce Support
+
+If you need to contact Salesforce Support, refer to https://help.salesforce.com/s/articleView?id=000394257&type=1#:~:text=your%20Trailblazer%20profile-,Salesforce%20Help%20Portal,-Logging%20in%20to[Logging in to Salesforce Help Portal Using Trailblazer].
 
 == See Also
 
