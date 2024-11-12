@@ -17,7 +17,7 @@ Hyperforce has a different base URL, exchange and platform endpoints. For a succ
 ** xref:studio::hyperforce-configuration.adoc[Configure Hyperforce in Anypoint Studio]
 
 == Deploy Mule Apps to Hyperforce
-To deploy a Mule app to a Hyperforce instance, deploy the app to a CloudHub 2.0 private or shared space. For details, refer to xref:cloudhub-2::ch2-deploy.adoc[Deploying to CloudHub 2.0].
+To deploy a Mule app to a Hyperforce instance, deploy the app to a CloudHub 2.0 private or shared space. For details, refer to xref:cloudhub-2::ch2-deploy.adoc[Deploying to CloudHub 2.0] and xref:cloudhub-2::ch2-architecture.adoc#shared-global-regions[Shared Global Regions].
 
 == See Also
 
