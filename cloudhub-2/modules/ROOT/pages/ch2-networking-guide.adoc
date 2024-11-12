@@ -108,7 +108,7 @@ image::ch2-networking-ip-ranges.png[Inbound and outbound IPs listed in the UI]
 
 Private spaces also use several secondary CIDR for internally. 
 
-If you use BGP routing protocols, the following additional CIDR blocks can be published to your gateway:
+If you use BGP routing protocols, you can publish these CIDR blocks to your gateway:
 
 ----
 100.64.0.0/16
