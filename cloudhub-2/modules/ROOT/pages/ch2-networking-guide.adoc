@@ -1,6 +1,6 @@
 = CloudHub 2.0 Networking Architecture
 
-CloudHub 2.0 is MuleSoft's fully managed, containerized integration platform as a service (iPaaS). It allows you to deploy APIs and integrations as lightweight containers in the cloud, ensuring they’re maintainable, secure, and scalable.
+CloudHub 2.0 is MuleSoft's fully managed, containerized integration platform as a service (iPaaS). Deploy APIs and integrations as lightweight containers in the cloud, ensuring they’re maintainable, secure, and scalable.
 
 This document provides relevant information regarding the configuration and administration of CloudHub 2.0 networks, network interfaces, and network services. For information about different deployment scenarios, see xref:runtime-manager::deployment-strategies.adoc[].
 
