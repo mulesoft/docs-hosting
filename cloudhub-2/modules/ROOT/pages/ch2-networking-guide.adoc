@@ -4,7 +4,7 @@ CloudHub 2.0 is MuleSoft's fully managed, containerized integration platform as 
 
 This document provides relevant information regarding the configuration and administration of CloudHub 2.0 networks, network interfaces, and network services. For information about different deployment scenarios, see xref:runtime-manager::deployment-strategies.adoc[].
 
-The basic components of CloudHub 2.0 networking architecture are HTTP load balancer, Mule replica DNS records, private spaces, and regional services.
+The basic components of the CloudHub 2.0 networking architecture are an HTTP load balancer, Mule replica DNS records, private spaces, and regional services.
 
 * <<HTTP Load Balancer>>
 * <<DNS Records>>
