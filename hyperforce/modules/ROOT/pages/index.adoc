@@ -55,12 +55,12 @@ The following table provides Anypoint Platform features supported on Hyperforce:
 | xref:design-center::design-create-publish-api-specs.adoc[API Designer]|No | -
 | xref:api-experience-hub::index.adoc[API Experience Hub]|No |-
 | xref:api-functional-monitoring::index.adoc[API Functional Monitoring]|Yes | (TBD)
-| xref:api-governance::index.adoc[API Governance]|Yes | 
+| xref:api-governance::index.adoc[API Governance]|Yes | -
 | xref:design-center::design-mocking-service.adoc[API Mocking Service]|Yes | (TBD)
 | Connectors |Yes | All connectors owned by MuleSoft.
 | xref:cloudhub-2::index.adoc[CloudHub 2.0]|Yes | For exceptions, refer to xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 on Hyperforce] 
 | xref:cloudhub::index.adoc[CloudHub]|No |-
-| Dataloader | Yes | (TBD)
+| Dataloader | No | -
 | xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway] | Yes | (TBD)
 | xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway] | Yes | (TBD)
 | xref:mule-runtime::index.adoc[Mule runtime engine] | Yes | Mule 3 is not supported as it reached EOL.
