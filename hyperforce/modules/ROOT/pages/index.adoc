@@ -61,8 +61,8 @@ The following table provides Anypoint Platform features supported on Hyperforce:
 | xref:cloudhub-2::index.adoc[CloudHub 2.0]|Yes | For exceptions, refer to xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 on Hyperforce] 
 | xref:cloudhub::index.adoc[CloudHub]|No |-
 | Dataloader | No | -
-| xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway] | Yes | (TBD)
-| xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway] | Yes | (TBD)
+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway] | Yes | For details, refer to xref:gateway::flex-review-prerequisites.adoc#flex-gateway-hyperforce[Flex Gateway on Hyperforce], xref:gateway::flex-use-api-alerts.adoc[Using Flex Gateway API Alerts], and xref:gateway::flex-view-api-metrics.adoc[Viewing Key Metrics for Flex Gateway APIs]
+| xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway] | Yes | For exceptions, refer to xref:gateway::mule-gateway-capabilities-mule4.adoc#mule-gateway-hyperforce[Mule Gateway on Hyperforce]
 | xref:mule-runtime::index.adoc[Mule runtime engine] | Yes | Mule 3 is not supported as it reached EOL.
 | xref:munit::index.adoc[MUnit] | Yes | -
 | xref:object-store::index.adoc[Object Store V2] | Yes | For exceptions, refer to xref:object-store::index.adoc#osv2-on-hyperforce[Object Store V2 on Hyperforce]
