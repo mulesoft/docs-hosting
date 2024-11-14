@@ -40,7 +40,7 @@ The following table provides Anypoint Platform features supported on Hyperforce:
 | Features/Components|Included | Notes
 | xref:access-management::index.adoc[Access Management]|Yes | -
 | Anypoint Integration Advanced | No | -
-| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]|Yes | (TBD)
+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]|Yes | -
 | xref:api-manager::analytics-landing-page.adoc[Anypoint Mule API Analytics] |No | -
 | xref:visualizer::index.adoc[Anypoint Visualizer] |Yes | For exceptions, refer to xref:visualizer::index.adoc#visualizer-hyperforce[Anypoint Visualizer on Hyperforce]
 | xref:anypoint-code-builder::index.adoc[Anypoint Code Builder (Desktop IDE)] |Yes | For details, refer to [xref:anypoint-code-builder::int-ai-developing-integrations.adoc[Einstein for Anypoint Code Builder Generative Flows]] and xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud IDE].
@@ -54,9 +54,9 @@ The following table provides Anypoint Platform features supported on Hyperforce:
 | xref:api-community-manager::index.adoc[Anypoint Community Manager]|Yes | -
 | xref:design-center::design-create-publish-api-specs.adoc[API Designer]|No | -
 | xref:api-experience-hub::index.adoc[API Experience Hub]|No |-
-| xref:api-functional-monitoring::index.adoc[API Functional Monitoring]|Yes | (TBD)
+| xref:api-functional-monitoring::index.adoc[API Functional Monitoring]|Yes | -
 | xref:api-governance::index.adoc[API Governance]|Yes | -
-| xref:design-center::design-mocking-service.adoc[API Mocking Service]|Yes | (TBD)
+| xref:design-center::design-mocking-service.adoc[API Mocking Service]|Yes | -
 | Connectors |Yes | All connectors owned by MuleSoft.
 | xref:cloudhub-2::index.adoc[CloudHub 2.0]|Yes | For exceptions, refer to xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 on Hyperforce] 
 | xref:cloudhub::index.adoc[CloudHub]|No |-
