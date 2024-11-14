@@ -40,7 +40,7 @@ The following table provides Anypoint Platform features supported on Hyperforce:
 | Features/Components|Included | Notes
 | xref:access-management::index.adoc[Access Management]|Yes | -
 | Anypoint Integration Advanced | No | -
-| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]|Yes | -
+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]|Yes | For details, refer to xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager on Hyperforce],  xref:api-manager::analytics-landing-page.adoc[Mule API Analytics], and xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
 | xref:api-manager::analytics-landing-page.adoc[Anypoint Mule API Analytics] |No | -
 | xref:visualizer::index.adoc[Anypoint Visualizer] |Yes | For exceptions, refer to xref:visualizer::index.adoc#visualizer-hyperforce[Anypoint Visualizer on Hyperforce]
 | xref:anypoint-code-builder::index.adoc[Anypoint Code Builder (Desktop IDE)] |Yes | For details, refer to xref:anypoint-code-builder::int-ai-developing-integrations.adoc[Einstein for Anypoint Code Builder Generative Flows] and xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud IDE].
