@@ -46,7 +46,7 @@ The following table provides Anypoint Platform features supported on Hyperforce:
 | xref:anypoint-code-builder::index.adoc[Anypoint Code Builder (Desktop IDE)] |Yes | For details, refer to xref:anypoint-code-builder::int-ai-developing-integrations.adoc[Einstein for Anypoint Code Builder Generative Flows] and xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud IDE].
 | xref:exchange::index.adoc[Anypoint Exchange] |Yes | For exceptions, refer to xref:exchange::index.adoc#exchange-on-hyperforce[Anypoint Exchange on Hyperforce]
 | xref:mq::index.adoc[Anypoint MQ] |Yes |For exceptions, refer to xref:mq::index.adoc#mq-on-hyperforce[Anypoint MQ on Hyperforce]
-| xref:monitoring::index.adoc[Anypoint Monitoring] |Yes | For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Anypoint Platform Region]
+| xref:monitoring::index.adoc[Anypoint Monitoring] |Yes | For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
 | xref:partner-manager::index.adoc[Anypoint Partner Manager]|No| -
 | xref:runtime-manager::index.adoc[Anypoint Runtime Manager]|Yes | -
 | xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager]|Yes | -
