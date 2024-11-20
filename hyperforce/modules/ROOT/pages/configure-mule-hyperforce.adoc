@@ -1,6 +1,6 @@
 = Configuring Mule Properties to Access Hyperforce
 
-Before deploying Mule apps to a Salesforce Hyperforce (Hyperforce) instance, you must configure Mule runtime engine (Mule) to access a Hyperforce instance. To do this, you must:
+To deploy Mule apps to a Salesforce Hyperforce (Hyperforce) instance, you must configure Mule runtime engine (Mule) to access a Hyperforce instance. To do this, you must:
 
 * Redefine the configuration properties that enable Mule to point to a Hyperforce instance. 
 * Provide the xref:access-management::managing-business-groups.adoc#client-id-and-secret[client ID and client secret] of the environment belonging to your organization.
