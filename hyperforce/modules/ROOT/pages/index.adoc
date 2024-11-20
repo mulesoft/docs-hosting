@@ -88,7 +88,11 @@ Hyperforce is available in these regions:
 
 == Contact Salesforce Support
 
-If you need to contact Salesforce Support, refer to https://help.salesforce.com/s/articleView?id=000394257&type=1#:~:text=your%20Trailblazer%20profile-,Salesforce%20Help%20Portal,-Logging%20in%20to[Logging in to Salesforce Help Portal Using Trailblazer].
+If you need to contact Salesforce Support, under the Salesforce Help Portal section refer to https://help.salesforce.com/s/articleView?id=000394257&type=1#:~:text=your%20Trailblazer%20profile-,Salesforce%20Help%20Portal,-Logging%20in%20to[Logging in to Salesforce Help Portal Using Trailblazer].
+
+[NOTE]
+Use the single-use code method to open support cases. 
+
 
 == See Also
 
