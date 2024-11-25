@@ -46,6 +46,7 @@ Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules
 ** If the value is a placeholder (such as `${cronExpression}`) that is provided at the time of deployment, the exact value of the placeholder does not appear in the user interface.
 ** CloudHub 2.0 uses a default value of `60000`.
 * If you make changes to schedulers, you should reupload the application to Exchange to ensure the expected scheduler behavior occurs.
+* CloudHub 2.0 schedules run concurrently by default. The Scheduler triggers the execution of a schedule flow while a previously-triggered execution is still running. To run schedules sequentially, set the `disallowConcurrentExecution` property as `true` in the xref:mule-runtime::scheduler-concept.adoc#props_scheduler[scheduler] configuration file. 
 
 == Before You Begin
 
