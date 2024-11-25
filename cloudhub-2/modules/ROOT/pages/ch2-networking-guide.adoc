@@ -11,7 +11,8 @@ The basic components of the CloudHub 2.0 networking architecture are an HTTP loa
 * <<Private Spaces Configurations>>
 * <<Regional Services>> 
 
-image::ch2-networking-architecture-diagram.png[Basic Components of CloudHub 2.0 Networking Architecture]
+image::ch2-networking-architecture-ps-diagram.png[Basic Components of CloudHub 2.0 Networking Architecture in a Private Space]
+image::ch2-networking-architecture-shs-diagram.png[Basic Components of CloudHub 2.0 Networking Architecture in a Shared Space]
 
 == HTTP Load Balancer
 
