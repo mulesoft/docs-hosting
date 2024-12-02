@@ -51,7 +51,7 @@ The following table provides Anypoint Platform features supported on Hyperforce:
 | xref:runtime-manager::index.adoc[Anypoint Runtime Manager]|Yes | -
 | xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager]|Yes | -
 | xref:studio::index.adoc[Anypoint Studio]|Yes |-
-| xref:api-community-manager::index.adoc[Anypoint Community Manager]|Yes | -
+| xref:api-community-manager::index.adoc[API Community Manager]|Yes | -
 | xref:design-center::design-create-publish-api-specs.adoc[API Designer]|No | -
 | xref:api-experience-hub::index.adoc[API Experience Hub]|No |-
 | xref:api-functional-monitoring::index.adoc[API Functional Monitoring]|Yes | -
