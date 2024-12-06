@@ -14,6 +14,13 @@ CloudHub 2.0:
 
 For CloudHub 2.0 pricing information, contact either your account executive or your account development representative.
 
+[[cloudhub2-hyperforce]]
+== CloudHub 2.0 on Hyperforce
+
+All features of CloudHub 2.0 are supported on Hyperforce with these exceptions:
+
+When deploying to any Hyperforce supported regions, deleting the default egress traffic route, `0.0.0.0`, can result in Anypoint Monitoring to not work in CloudHub 2.0.
+
 
 == See Also
 

@@ -1,0 +1,102 @@
+= Salesforce Hyperforce
+
+Salesforce Hyperforce (Hyperforce) is a modern, scalable, and secure infrastructure designed to support your MuleSoft application deployments. Hyperforce enables you to deliver Mule apps rapidly and reliably to locations worldwide, giving you more choice and control over data residency. Mule apps benefit from its integration of enhanced standards for compliance, scalability, security, agility, and privacy.
+
+With Hyperforce, you can use a globally distributed and reliable platform to ensure optimal performance and reliability for your integrations and APIs.
+
+Some key benefits:
+
+* Data Residency +
+Enables you to serve your users globally while maintaining control over data residency and compliance.
+
+* Scalability +
+Enables you to grow and scale your business more flexibly and sustainably.
+
+* Security +
+Follows least-privileged control, zero-trust principles, and encrypts data both at rest and in transit.
+
+* Agility +
+Minimizes downtime for releases and maintenance. Additionally, it accelerates development and testing environments and offers extensive interoperability with AWS, streamlining your workflow.
+
+* Privacy +
+Provides you privacy standards that give you control and transparency over your users' data.
+
+== Before You Begin
+
+Before deploying Mule apps to Hyperforce your MuleSoft account must have access to a Hyperforce instance. Contact your MuleSoft account representative to provision a MuleSoft license to a Hyperforce instance.
+
+After you have access to a Hyperforce instance, refer to these topics:
+
+* xref:configure-mule-hyperforce.adoc[Configuring Mule to Access Hyperforce]
+* xref:deploy-mule-apps-hyperforce.adoc[Deploying Mule Apps to Hyperforce]
+
+
+== Features Supported on Hyperforce
+
+The following table provides Anypoint Platform features supported on Hyperforce:
+
+[%header%autowidth.spread]
+|===
+| Features/Components|Included | Notes
+| xref:access-management::index.adoc[Access Management]|Yes | -
+| Anypoint Integration Advanced | No | -
+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]|Yes | For details, refer to xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager on Hyperforce],  xref:api-manager::analytics-landing-page.adoc[Mule API Analytics], and xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
+| xref:api-manager::analytics-landing-page.adoc[Anypoint Mule API Analytics] |No | -
+| xref:visualizer::index.adoc[Anypoint Visualizer] |Yes | For exceptions, refer to xref:visualizer::index.adoc#visualizer-hyperforce[Anypoint Visualizer on Hyperforce]
+| xref:anypoint-code-builder::index.adoc[Anypoint Code Builder (Desktop IDE)] |Yes | For exceptions, refer to xref:anypoint-code-builder::int-ai-developing-integrations.adoc[Einstein for Anypoint Code Builder Generative Flows] and xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud IDE].
+| xref:exchange::index.adoc[Anypoint Exchange] |Yes | For exceptions, refer to xref:exchange::index.adoc#exchange-on-hyperforce[Anypoint Exchange on Hyperforce]
+| xref:mq::index.adoc[Anypoint MQ] |Yes |For exceptions, refer to xref:mq::index.adoc#mq-on-hyperforce[Anypoint MQ on Hyperforce]
+| xref:monitoring::index.adoc[Anypoint Monitoring] |Yes | For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
+| xref:partner-manager::index.adoc[Anypoint Partner Manager]|No| -
+| xref:runtime-manager::index.adoc[Anypoint Runtime Manager]|Yes | -
+| xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager]|Yes | -
+| xref:studio::index.adoc[Anypoint Studio]|Yes |-
+| xref:api-community-manager::index.adoc[API Community Manager]|Yes | -
+| xref:design-center::design-create-publish-api-specs.adoc[API Designer]|No | -
+| xref:api-experience-hub::index.adoc[API Experience Hub]|No |-
+| xref:api-functional-monitoring::index.adoc[API Functional Monitoring]|Yes | -
+| xref:api-governance::index.adoc[API Governance]|Yes | -
+| xref:design-center::design-mocking-service.adoc[API Mocking Service]|Yes | -
+| Connectors |Yes | All connectors owned by MuleSoft.
+| xref:cloudhub-2::index.adoc[CloudHub 2.0]|Yes | For exceptions, refer to xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 on Hyperforce] 
+| xref:cloudhub::index.adoc[CloudHub]|No |-
+| Dataloader | No | -
+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway] | Yes | For details, refer to xref:gateway::flex-review-prerequisites.adoc#flex-gateway-hyperforce[Flex Gateway on Hyperforce], xref:gateway::flex-use-api-alerts.adoc[Using Flex Gateway API Alerts], and xref:gateway::flex-view-api-metrics.adoc[Viewing Key Metrics for Flex Gateway APIs]
+| xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway] | Yes | For exceptions, refer to xref:mule-gateway::mule-gateway-capabilities-mule4.adoc#mule-gateway-hyperforce[Mule Gateway on Hyperforce]
+| xref:mule-runtime::index.adoc[Mule runtime engine] | Yes | Mule 3 is not supported as it reached EOL.
+| xref:munit::index.adoc[MUnit] | Yes | -
+| xref:object-store::index.adoc[Object Store V2] | Yes | For exceptions, refer to xref:object-store::index.adoc#osv2-on-hyperforce[Object Store V2 on Hyperforce]
+| xref:runtime-fabric::index.adoc[Runtime Fabric] | No | Contact your account manager to unlock this capability.
+| Hybrid Standalone Deployment | No | -
+|===
+
+== Hyperforce Supported Regions
+
+Hyperforce is available in these regions:
+
+[%header%autowidth.spread]
+|===
+|Location | Region Control Plane | Anypoint Platform URL
+|North America | Canada Cloud | ca1.platform.mulesoft.com
+|APAC | Japan Cloud | jp1.platform.mulesoft.com
+|===
+
+== Mule Runtime Version Compatibility
+
+* Hyperforce is compatible with Mule runtime engine versions under support, 4.4.0 and later.
+* Hyperforce supports the Mule runtime engine LTS and Edge release channels. The recommended customer profile is LTS. For more information, visit xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[].
+
+== Contact Salesforce Support
+
+If you need to contact Salesforce Support, under the Salesforce Help Portal section refer to https://help.salesforce.com/s/articleView?id=000394257&type=1#:~:text=your%20Trailblazer%20profile-,Salesforce%20Help%20Portal,-Logging%20in%20to[Logging in to Salesforce Help Portal Using Trailblazer].
+
+[NOTE]
+Use the single-use code method to open support cases. 
+
+
+== See Also
+
+* xref:configure-mule-hyperforce.adoc[Configuring Mule to Access Hyperforce]
+* xref:deploy-mule-apps-hyperforce.adoc[Deploying Mule Apps to Hyperforce]
+
+
