@@ -40,7 +40,7 @@ Ingress controller `content-length` in POST requests:: 0 or greater. `content-le
 
 Anypoint Platform CloudHub 2.0 API rate limit:: 15 requests per second per remote IP address.
 
-
+For information about limits in Exchange, see xref:exchange::asset-versions.adoc#asset-limits[Asset Limits].
 
 
 [NOTE]
