@@ -5,6 +5,9 @@ You deploy apps to a shared space using Runtime Manager.
 [IMPORTANT]
 include::partial$caveats.adoc[tag=supportedMule]
 
+[NOTE]
+include::partial$caveats.adoc[tag=softDelete]
+
 == Deploy an App to a Shared Space
 
 //SELECT APP SHARED
