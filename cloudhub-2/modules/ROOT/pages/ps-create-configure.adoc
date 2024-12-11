@@ -66,6 +66,9 @@ After you configure internal DNS, the *Network* tab indicates the number of conf
 
 image::internal-dns.png[Internal DNS configuration in the Private Network section]
 
+[NOTE]
+You can't add MuleSoft domains or public domains as private space internal DNS.
+
 [[create-connection-to-external-network]]
 == Create a Connection to an External Network
 
@@ -92,4 +95,3 @@ Depending on the connection type you selected:
 * xref:ps-create-configure-tgw.adoc[]
 * xref:ps-configure.adoc[]
 * xref:ps-manage.adoc[]
-
