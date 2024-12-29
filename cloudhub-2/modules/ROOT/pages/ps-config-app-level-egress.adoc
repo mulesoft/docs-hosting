@@ -130,9 +130,11 @@ If you enable egress for a domain that includes redirection, such as when `sales
 Wildcard records are not supported. For example, `salesforce.com` does not automatically cover `example.salesforce.com`. 
 
 [NOTE]
+----
 You can't enable domains with double hyphens. For example, `abc--xyz.com`.  
 +
 Domains with identical IP addresses are handled together, allowing one domain allows all identical domains.
+----
 
 == Configure an Application-Level Egress Connection to API Manager
 
