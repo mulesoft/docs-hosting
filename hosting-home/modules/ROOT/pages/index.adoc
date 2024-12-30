@@ -91,7 +91,6 @@ The following table shows which environments support each component:
 | Secrets manager | Y | Y | N | N | Y | Y
 | Anypoint Security edge policies | N | N | N | N | N | N
 | Anypoint Security tokenization | N | N | N | N | N | N
-| Anypoint Service Mesh| Y | Y | N | N | N | N
 | Anypoint Studio | Y | Y | Y | Y | Y | Y
 | Anypoint Visualizer | Y | Y | Y | Y | Y | Y
 | RPA Manager | Y | Y | N | N | N | N
