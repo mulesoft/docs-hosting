@@ -15,7 +15,7 @@ This limit is enforced by a combination of organization, environment, alert (nam
 * Ensure that your default environment (defined in your profile) has Read Application permissions.
 
 [[configure-custom-app-alerts]]
-=== Create a Custom Alert
+== Create a Custom Alert
 
 In Runtime Manager, bind the custom notification to an alert:
 
