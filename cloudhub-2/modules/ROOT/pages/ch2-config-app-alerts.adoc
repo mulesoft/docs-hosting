@@ -15,21 +15,15 @@ This limit is enforced by a combination of organization, environment, alert (nam
 * Ensure that your default environment (defined in your profile) has Read Application permissions.
 
 [[configure-custom-app-alerts]]
-== Create a Custom Alert
+=== Create a Custom Alert
 
-Use Runtime Manager to set up an alert related to successful app deployment:
+In Runtime Manager, bind the custom notification to an alert:
 
-// SELECT APPS SHARED
-include::partial$select-private-space.adoc[tag=selectAppsPage]
-include::partial$select-private-space.adoc[tag=clickAppName]
-. In the navigation menu, click *Alerts*.
-. On the *Alerts* page, click the blue plus icon (*+*).
-. On the *Create an Alert* page, configure your custom alert and click *Submit*:
-// +
-// <screenshot>
-// +
-// image::alerts-custom-rtm-create.png[Applications field in the Create an Alert window]
-+
+. From Anypoint Platform, select *Runtime Manager*.
+. In the navigation menu, click *Alerts*.
+. Click the blue plus icon (*+*) to create a new alert.
+. In the *Create an Alert* page, configure your custom alert and click *Submit*:
+
 Name::
 Enter a meaningful name for the custom alert.
 Severity level::
@@ -40,9 +34,9 @@ Select the severity level to apply to the alert:
 Source::
 Select *Applications* for the alert source.
 Application type::
-Select *CloudHub Applications*.
+Select *CloudHub 2.0 and RTF Applications*.
 Applications::
-Select the application that contains the flow that you configured to trigger a custom notification.
+Select the application that contains the flow that you configured to trigger a custom alert.
 Condition::
 Select one of the following:
 ** Deployment success: An app deploys and runs
@@ -57,6 +51,8 @@ Enter the email addresses for notification recipients.
 +
 You can use variables in the alert *Subject* and *Message* fields.
 For information about using variables in alerts, see xref:runtime-manager::alerts-on-runtime-manager.adoc#alert-variables[Alert Variables].
+
+When you trigger the alert, the specified recipients receive an email with the custom message you added to the app.
 
 == See Also
 
