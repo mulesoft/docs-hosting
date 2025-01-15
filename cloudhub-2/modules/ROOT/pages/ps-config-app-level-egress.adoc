@@ -152,6 +152,8 @@ To add application-level egress support to API Manager, add a custom rule group 
 **** `exchange-files.eu1.anypoint.mulesoft.com`
 **** `analytics-ingest.eu1.anypoint.mulesoft.com`
 
+Depending on your use case, you might to add additional the Anypoint Platform hostnames and ports for your application to communicate with the online Anypoint Platform APIs and services that are managed by MuleSoft. See xref:mule-gateway::mule-gateway-hostnames.adoc[].
+
 [NOTE]
 ====
 When configuring application-level egress connections to Anypoint MQ, Object Store v2, or API Manager, you must also allow outbound access to all 443 ports at the private-space level separately. For more information about allowing outbound access to 443 ports, visit xref:ps-config-fw-rules.adoc[]. 
