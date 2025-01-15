@@ -152,7 +152,7 @@ To add application-level egress support to API Manager, add a custom rule group 
 **** `exchange-files.eu1.anypoint.mulesoft.com`
 **** `analytics-ingest.eu1.anypoint.mulesoft.com`
 
-Depending on your use case, you might need to add additional the Anypoint Platform hostnames and ports for your application to communicate with the online Anypoint Platform APIs and services that are managed by MuleSoft. See xref:mule-gateway::mule-gateway-hostnames.adoc[].
+Depending on your use case, add Anypoint Platform hostnames and ports for your application to communicate with the online Anypoint Platform APIs and services that are managed by MuleSoft. See xref:mule-gateway::mule-gateway-hostnames.adoc[].
 
 [NOTE]
 ====
