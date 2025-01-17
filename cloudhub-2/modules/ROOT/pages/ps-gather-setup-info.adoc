@@ -251,6 +251,8 @@ The following internal private DNS domains are not supported:
 * `internal`
 * `local/domain.com`
 
+You can't add MuleSoft domains or public domains as private space internal DNS.
+
 // To specify an internal domain, use the second-level domain name, such as `mulesoft.com`.
 
 [NOTE]

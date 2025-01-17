@@ -14,9 +14,9 @@ Transit gateway connections:: 5 per private space, depending on available networ
 
 HTTP header length (`maxHeaderLength`):: 32K
 
-Firewall rules (inbound):: 180
+Firewall rules (inbound):: 300
 
-Firewall rules (outbound):: 180
+Firewall rules (outbound):: 300
 
 Application size:: Up to 350 MB
 
@@ -40,7 +40,7 @@ Ingress controller `content-length` in POST requests:: 0 or greater. `content-le
 
 Anypoint Platform CloudHub 2.0 API rate limit:: 15 requests per second per remote IP address.
 
-
+For information about limits in Exchange, see xref:exchange::asset-versions.adoc#asset-limits[Asset Limits].
 
 
 [NOTE]

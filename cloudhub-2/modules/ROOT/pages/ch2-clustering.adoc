@@ -47,6 +47,8 @@ If the entire application is updated or redeploying while the batch is running, 
 The main solution for persistent batch jobs in CloudHub 2.0 is to use 
 xref:object-store::index.adoc[].
 
+In Kubernetes, a Horizontal Pod Autoscaler (HPA) automatically updates a workload resource to scale the workload to match demand. Horizontal scaling automatically deploys more pods as a response to an increased load. As a result of these regular autoscaling operations, an application can be changed to a new replica without user action.
+
 == Enable Clustering Features
 
 You can enable and disable either or both features of clustering in one of two ways:

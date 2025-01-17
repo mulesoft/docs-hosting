@@ -12,8 +12,9 @@
         "**/.exchange.xml": true,
         "**/.vscode": true,
         "**/.mvn": true,
+        "**/.tmp": true,
+        "**/.settings": true,
         "**/.exchange_modules_tmp": true,
         ".mule": true
-    },
-    "asciidoc.antora.enableAntoraSupport": false
+    }
 }
