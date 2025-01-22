@@ -140,6 +140,9 @@ http://helloch2:8081/hello
 ```
 If required, replace `http` with `https`.
 
+[NOTE]
+You can't send traffic between applications in different namespaces by using `svc.cluster.local` endpoints.
+
 === Application-to-Application Communication
 
 An application communicates with another application via:

@@ -40,6 +40,14 @@ In US Cloud, the control plane is physically hosted within the United States.
 +
 In the EU Cloud, the control plane is physically hosted within the European Union.
 
+* Canada Cloud
++
+In the Canada Cloud, the control plane is physically hosted in Canada.
+
+* Japan Cloud
++
+In the Japan Cloud, the control plane is physically hosted in Japan.
+
 * MuleSoft Government Cloud
 +
 MuleSoft Government Cloud is a FedRAMP-compliant instance of the control plane that's managed by MuleSoft and is suitable for government agencies.
@@ -61,32 +69,32 @@ Some Anypoint Platform components are not supported in Anypoint Platform PCE. Se
 Not all Anypoint Platform components and features are supported in all cloud environments.
 The following table shows which environments support each component:
 
-[%header,cols="5*a"]
+[%header,cols="7*a"]
 |===
-| Anypoint Platform Component | US control plane | EU control plane | MuleSoft Government Cloud | Anypoint Platform PCE
-| Access management | Y | Y | Y | Y
-| Analytics | Y | Y | N | N
-| Anypoint API Community Manager | Y | Y | Y | N
-| Anypoint API Experience Hub |Y|Y|N|N
-| Anypoint Code Builder | Y | Y | N | N
-| API Designer | Y | Y | Y | Y
-| Anypoint API Manager | Y | Y | Y | Y
-| CloudHub runtimes | Y | Y | Y | N
-| Customer-hosted runtimes | Y | Y | Y | Y
-| Anypoint DataGraph | Y | Y | N | N
-| Anypoint Exchange | Y | Y | Y | Y
-| Anypoint MQ | Y | Y | Y <<mq-support,^***^>> | N
-| Anypoint Monitoring | Y | Y | Y | Y
-| Anypoint Partner Manager | Y | Y | N | N
-| Runtime Fabric | Y | Y | N | N
-| Anypoint Runtime Manager | Y | Y | Y | Y
-| Secrets manager | Y | Y | N | N
-| Anypoint Security edge policies | N | N | N | N
-| Anypoint Security tokenization | N | N | N | N
-| Anypoint Service Mesh| Y | Y | N | N
-| Anypoint Studio | Y | Y | Y | Y
-| Anypoint Visualizer | Y | Y | Y | Y
-| RPA Manager | Y | Y | N | N
+| Anypoint Platform Component | US control plane | EU control plane | MuleSoft Government Cloud | Anypoint Platform PCE | Canada Cloud | Japan Cloud
+| Access management | Y | Y | Y | Y | Y | Y
+| Analytics | Y | Y | N | N | N | N
+| Anypoint API Community Manager | Y | Y | Y | N | Y | Y
+| Anypoint API Experience Hub |Y|Y|N|N | Y | Y
+| Anypoint Code Builder | Y | Y | N | N | Y | Y
+| API Designer | Y | Y | Y | Y | Y | Y
+| Anypoint API Manager | Y | Y | Y | Y | Y | Y
+| CloudHub runtimes | Y | Y | Y | N | Y | Y
+| Customer-hosted runtimes | Y | Y | Y | Y | Y | Y
+| Anypoint DataGraph | Y | Y | N | N | N | N
+| Anypoint Exchange | Y | Y | Y | Y | Y | Y
+| Anypoint MQ | Y | Y | Y <<mq-support,^***^>> | N | Y | Y
+| Anypoint Monitoring | Y | Y | Y | Y | Y | Y
+| Anypoint Partner Manager | Y | Y | N | N | N | N
+| Runtime Fabric | Y | Y | N | N | Y | Y
+| Anypoint Runtime Manager | Y | Y | Y | Y | Y | Y
+| Secrets manager | Y | Y | N | N | Y | Y
+| Anypoint Security edge policies | N | N | N | N | N | N
+| Anypoint Security tokenization | N | N | N | N | N | N
+| Anypoint Service Mesh| Y | Y | N | N | N | N
+| Anypoint Studio | Y | Y | Y | Y | Y | Y
+| Anypoint Visualizer | Y | Y | Y | Y | Y | Y
+| RPA Manager | Y | Y | N | N | N | N
 |===
 
 [[mq-support]]
@@ -127,13 +135,13 @@ Connectors that retrieve and manipulate files on the file system are not support
 
 The following table lists the runtime plane options that are supported in each control plane hosting option.
 
-[%header,cols="5*a"]
+[%header,cols="7*a"]
 |===
-| Runtime Plane | US control plane | EU control plane | MuleSoft Government Cloud | Anypoint Platform PCE
-| CloudHub 2.0 | Y | Y | N | N
-| CloudHub | Y | Y | Y | N
-| Standalone runtimes | Y | Y | Y | Y
-| Runtime Fabric | Y | Y | N | N
+| Runtime Plane | US control plane | EU control plane | MuleSoft Government Cloud | Anypoint Platform PCE | Canada cloud | Japan cloud
+| CloudHub 2.0 | Y | Y | N | N | Y | Y 
+| CloudHub | Y | Y | Y | N | N | N
+| Standalone runtimes | Y | Y | Y | Y | Y | Y
+| Runtime Fabric | Y | Y | N | N | Y | Y
 |===
 
 == See Also

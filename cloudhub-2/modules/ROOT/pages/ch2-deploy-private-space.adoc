@@ -5,6 +5,10 @@ You deploy apps to a private space using Runtime Manager.
 [IMPORTANT]
 include::partial$caveats.adoc[tag=supportedMule]
 
+[NOTE]
+include::partial$caveats.adoc[tag=softDelete]
+
+
 [[deploy-app-private-space]]
 == Deploy an App to a Private Space
 

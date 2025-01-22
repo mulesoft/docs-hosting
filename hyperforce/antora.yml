@@ -1,0 +1,5 @@
+name: hyperforce
+title: Hyperforce
+version: master
+nav:
+- modules/ROOT/nav.adoc

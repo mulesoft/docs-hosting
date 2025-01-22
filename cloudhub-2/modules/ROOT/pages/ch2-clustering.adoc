@@ -32,7 +32,7 @@ This fine-grained control over computing capacity provisioning gives you the fle
 
 
 
-Depending on your subscription, you can deploy your application with up to 8 replicas.
+You can deploy your application with up to 8 replicas, or you can deploy with up to 16 replicas if you have the Anypoint Integration Advanced package or a Platinum or Titanium subscription to Anypoint Platform.
 To ensure that you have sufficient resources, see xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas].
 
 Replica scale-out also adds additional reliability.
@@ -46,6 +46,8 @@ If Mule restarts in the same deployment, the status persists and the batch conti
 If the entire application is updated or redeploying while the batch is running, the rest of the batch job doesn't continue.
 The main solution for persistent batch jobs in CloudHub 2.0 is to use 
 xref:object-store::index.adoc[].
+
+In Kubernetes, a Horizontal Pod Autoscaler (HPA) automatically updates a workload resource to scale the workload to match demand. Horizontal scaling automatically deploys more pods as a response to an increased load. As a result of these regular autoscaling operations, an application can be changed to a new replica without user action.
 
 == Enable Clustering Features
 
