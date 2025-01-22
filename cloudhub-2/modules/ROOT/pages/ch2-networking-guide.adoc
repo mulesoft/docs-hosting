@@ -198,3 +198,9 @@ Anypoint Platform for the EU control plane covers these regions:
 | EU (Ireland) | `<app>.<space-id>.irl-e1.eu1.cloudhub.io`
 | EU (Frankfurt) | `<app>.<space-id>.deu-c1.eu1.cloudhub.io`
 |===
+
+
+= See Also
+
+* xref:ch2-private-space-about.adoc[]
+* xref:ps-config-ssl-endpoints.adoc[]
