@@ -53,7 +53,7 @@ Use this option to upload a JKS file and use TLS default values.
 With this option, you can't change the default values for TLS versions, ciphers, and other TLS configuration options.
 
 [NOTE]
-The PEM keystore type is reccomended over JKS.
+The PEM keystore type is recomended over JKS.
 
 === Truststore
 
