@@ -43,7 +43,7 @@ For PEM, the keystore consists of:
 *** Private key
 *** Certificate Authority (CA) path file (optional)
 
-The keystore in PEM format uses TLS default values.
+The keystore in PEM format uses TLS default values. PEM files are recommended over JKS files.
 --
 JKS (Java Keystore)::
 +
@@ -51,6 +51,9 @@ A JKS file is a repository for authorization or public key certificates and does
 +
 Use this option to upload a JKS file and use TLS default values.
 With this option, you can't change the default values for TLS versions, ciphers, and other TLS configuration options.
+
+[NOTE]
+The PEM keystore type is reccomended over JKS files.
 
 === Truststore
 
