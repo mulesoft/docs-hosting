@@ -52,6 +52,9 @@ A JKS file is a repository for authorization or public key certificates and does
 Use this option to upload a JKS file and use TLS default values.
 With this option, you can't change the default values for TLS versions, ciphers, and other TLS configuration options.
 
+[NOTE]
+If you find any issues with your certificates after uploading a JKS keystore, use a PEM file instead.
+
 === Truststore
 
 A truststore is a set of client certificates that the server checks against to enforce partial client authentication.
