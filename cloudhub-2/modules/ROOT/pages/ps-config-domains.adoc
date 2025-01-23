@@ -43,7 +43,7 @@ For PEM, the keystore consists of:
 *** Private key
 *** Certificate Authority (CA) path file (optional)
 
-The keystore in PEM format uses TLS default values. PEM files are recommended over JKS files.
+The keystore in PEM format uses TLS default values.
 --
 JKS (Java Keystore)::
 +
