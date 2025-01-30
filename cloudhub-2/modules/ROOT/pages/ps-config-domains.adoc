@@ -52,6 +52,9 @@ A JKS file is a repository for authorization or public key certificates and does
 Use this option to upload a JKS file and use TLS default values.
 With this option, you can't change the default values for TLS versions, ciphers, and other TLS configuration options.
 
+[NOTE]
+If you find any issues with your certificates after uploading a JKS keystore, use a PEM file instead.
+
 === Truststore
 
 A truststore is a set of client certificates that the server checks against to enforce partial client authentication.
@@ -75,7 +78,7 @@ When you add the TLS context, you can select the ciphers to use with the TLS con
 
 [NOTE]
 ====
-CloudHub 2.0 private space ingress support for TLS cipher version 1.1 ends starting January 15, 2025. Don’t use the following TLS 1.1 ciphers after that date:
+CloudHub 2.0 private space ingress support for TLS cipher version 1.1 ends starting January 31, 2025. Don’t use the following TLS 1.1 ciphers after that date:
 ```
 TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
 TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA

@@ -143,8 +143,16 @@ To add application-level egress support to API Manager, add a custom rule group 
 * *Protocol*: `HTTPS`
 * *Destination*: `Custom Domains`
 ** With value:
-*** For prod: `anypoint.mulesoft.com`
-*** For prod-eu: `eu1.anypoint.mulesoft.com`
+*** For prod: 
+**** `anypoint.mulesoft.com`
+**** `exchange-files.anypoint.mulesoft.com`
+**** `analytics-ingest.anypoint.mulesoft.com`
+*** For prod-eu: 
+**** `eu1.anypoint.mulesoft.com`
+**** `exchange-files.eu1.anypoint.mulesoft.com`
+**** `analytics-ingest.eu1.anypoint.mulesoft.com`
+
+Depending on your use case, add Anypoint Platform hostnames and ports for your application to communicate with the online Anypoint Platform APIs and services that are managed by MuleSoft. See xref:mule-gateway::mule-gateway-hostnames.adoc[].
 
 [NOTE]
 ====
