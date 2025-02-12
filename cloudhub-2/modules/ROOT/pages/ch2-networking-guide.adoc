@@ -175,8 +175,8 @@ Anypoint Platform for the US control plane covers these regions:
 [%header,cols="3*a"]
 |===
 | Regions in U.S. Control Plane | DNS Record | Internal DNS Record
-| US East (N. Virginia) | `<app>.<space-id>.usa-e1.cloudhub.io`
-| US East (Ohio) | `<app>.<space-id>.usa-e2.cloudhub.io` | `<app>.internal-<space-id>.usa-e1.cloudhub.io`
+| US East (N. Virginia) | `<app>.<space-id>.usa-e1.cloudhub.io` | `<app>.internal-<space-id>.usa-e1.cloudhub.io`
+| US East (Ohio) | `<app>.<space-id>.usa-e2.cloudhub.io` | `<app>.internal-<space-id>.usa-e2.cloudhub.io`
 | US West (N. California) | `<app>.<space-id>.usa-w1.cloudhub.io` | `<app>.internal-<space-id>.usa-w1.cloudhub.io`
 | US West (Oregon) | `<app>.<space-id>.usa-w2.cloudhub.io` | `<app>.internal-<space-id>.usa-w2.cloudhub.io`
 | Canada (Central) | `<app>.<space-id>.can-c1.cloudhub.io` | `<app>.internal-<space-id>.can-c1.cloudhub.io`
