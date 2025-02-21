@@ -51,7 +51,7 @@ In Kubernetes, a Horizontal Pod Autoscaler (HPA) automatically updates a workloa
 
 == Enable Clustering Features
 
-You can enable and disable either or both features of clustering in one of two ways:
+You can enable and disable either or both of cluster mode and horizontal autoscaling in one of two ways:
 
 * When you deploy an application to CloudHub 2.0 for the first time using Runtime Manager:
 ** Use the *Replica Count* and *Replica Size* drop-down menus on the *Runtime* tab to select the vCore options and configure the computing power you need.
