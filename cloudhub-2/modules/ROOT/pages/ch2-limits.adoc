@@ -14,6 +14,10 @@ Transit gateway connections:: 5 per private space, depending on available networ
 
 HTTP header length (`maxHeaderLength`):: 32K
 
+Maximum HTTP request size:: 1 GB
+
+Maximum HTTP request timeout:: 5 minutes
+
 Firewall rules (inbound):: 300
 
 Firewall rules (outbound):: 300
