@@ -44,7 +44,7 @@ The default timeout is 300 seconds.
 . Click *Save Changes* or *Discard Changes*.
 
 [NOTE]
-The request size must be less than 1 GB.
+The maximum request size is 1 GB.
 
 [[configure-ingress-load-balancer-log-levels]]
 == Configure Default Ingress Load Balancer Log Levels 
