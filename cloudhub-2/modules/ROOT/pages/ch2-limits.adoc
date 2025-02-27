@@ -16,7 +16,7 @@ HTTP header length (`maxHeaderLength`):: 32K
 
 Maximum HTTP request size:: 1 GB
 
-Maximum HTTP request timeout:: 5 minutes
+Maximum HTTP request timeout:: 300 seconds
 
 Firewall rules (inbound):: 300
 
