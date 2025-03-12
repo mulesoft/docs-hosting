@@ -22,6 +22,8 @@ To configure the application-level rules in a private space:
 
 By default, the application-level egress rules feature is disabled when you create a new private space. Toggle the feature to enable it.
 
+Add your private DNS IP addresses to the route table if you have a transit gateway to reach your internal DNS servers and the default route is routed to the transit gateway.
+
 [NOTE]
 Ensure that you finished provisioning your private network before enabling the toggle.
 
