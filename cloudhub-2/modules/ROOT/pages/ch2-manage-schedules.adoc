@@ -33,28 +33,28 @@ During service updates or security patching, xref:mule-runtime::global-settings-
 If clustering is enabled, CloudHub 2.0 ensures the schedule is executed on a single replica, regardless of how many replicas are running. Subsequent schedule executions can occur on a different replica. CloudHub 2.0 distributes multiple concurrent schedules across replicas.
 * If clustering isn't enabled, schedules run individually on all replicas.
 * For a fixed frequency, the scheduler’s xref:cloudhub-2::ch2-manage-schedules.adoc#disable-enable-scheduler[minimum recommended start delay is five seconds].
-* If a schedule isn't executed because the application isn't running, Cloudhub 2.0 doesn't trigger it immediately when the application starts. The schedule is executed at its next due date.
+* If a schedule isn't executed because the application isn't running, CloudHub 2.0 doesn't trigger it immediately when the application starts. The schedule is executed at its next due date.
 * The CloudHub 2.0 scheduler reads the job configuration every time it runs.
 +
 When you update the scheduler configuration, the change takes effect the next time the scheduler runs.
 * Changing the schedule redeploys your application.
-* If you scheduled a job for a time that is in the past while your app is not running, the job does not execute when your app is started.
-* Schedules are based in the scheduler's defined timezone.
+* If you scheduled a job for a time that is in the past while your app isn't running, the job doesn't execute when your app is started.
+* Schedules are based in the scheduler's defined time zone.
 * For multi-replica apps, CloudHub 2.0 runs scheduled jobs on all replicas.
 +
 If you run the scheduled job immediately by clicking *Run*, the scheduler runs on a single replica.
 +
 CloudHub 2.0 distributes multiple concurrent schedulers across replicas.
-* You cannot manage CloudHub 2.0 schedules using scripts.
+* You can't manage CloudHub 2.0 schedules using scripts.
 +
 Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules.
 * Flow names can contain only upper and lower case letters, numbers, hyphens (`-`), underscores (`_`), and periods (`.`). The following characters are invalid: `/`, `[`, `]`, `{`, `}`, and `#`.
 * When you create a schedule using a scheduler that has a placeholder, the value that appears when you create a schedule varies based on when the placeholder is discovered. For example:
 ** If the value is available before the app is deployed, the value appears.
 ** If the value is available before deployment and depends on deployment properties, an estimation of the value appears.
-** If the value is a placeholder (such as `${cronExpression}`) that is provided at the time of deployment, the exact value of the placeholder does not appear in the user interface.
+** If the value is a placeholder (such as `${cronExpression}`) that is provided at the time of deployment, the exact value of the placeholder doesn't appear in the user interface.
 ** CloudHub 2.0 uses a default value of `60000`.
-* If you make changes to schedulers, you should reupload the application to Exchange to ensure the expected scheduler behavior occurs.
+* If you change schedulers, reupload the application to Exchange to make sure the expected scheduler behavior occurs.
 * CloudHub 2.0 schedules run concurrently by default. The Scheduler triggers the execution of a schedule flow while a previously-triggered execution is still running. To run schedules sequentially, set the `disallowConcurrentExecution` property as `true` in the xref:mule-runtime::scheduler-concept.adoc#props_scheduler[scheduler] configuration file. 
 
 == Before You Begin
