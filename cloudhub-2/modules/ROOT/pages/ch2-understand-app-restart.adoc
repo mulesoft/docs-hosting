@@ -1,9 +1,9 @@
 = Understanding App Automatic Restart 
 
 
-In some scenarios the platform can restart your Mule application. 
+In some scenarios, the platform can restart your Mule application. 
 
-The CloudHub 2.0 infrastructure performs a graceful shutdown by draining connections before transitioning traffic to a new instance of your application replica and terminating the older instance. If your application configuration explicitly sets the `shutdownTimeout` attribute to a value greater than two minutes and thirty seconds (see example below), the total shutdown grace period is five minutes. Otherwise, the grace period is twice the configured `shutdownTimeout` value. By default, `shutdownTimeout` is five seconds. See xref:3.9@mule-runtime::global-settings-configuration-reference.adoc[].
+The CloudHub 2.0 infrastructure performs a graceful shutdown by draining connections before transitioning traffic to a new instance of your application replica and terminating the older instance. If your application configuration explicitly sets the `shutdownTimeout` attribute to a value greater than two minutes and thirty seconds, the total shutdown grace period is five minutes. Otherwise, the grace period is twice the configured `shutdownTimeout` value. By default, `shutdownTimeout` is five seconds. See xref:3.9@mule-runtime::global-settings-configuration-reference.adoc[].
 
 [source,javascript,linenums]
 ----
@@ -20,16 +20,16 @@ If compute infrastructure suffers a failure, the platform moves and restarts you
 
 == Infrastructure Maintenance
 
-Application replicas running on compute infrastructure which becomes impaired or end-of-life are moved and restarted onto a new infrastructure to ensure availability.
+Application replicas running on compute infrastructures that become impaired or end-of-life are moved and restarted onto a new infrastructure to ensure availability.
 
-== Security patching
+== Security Patching
 
 Applications are patched and restarted every month to mitigate security vulnerabilities. See the https://www.salesforce.com/content/dam/web/en_us/www/documents/legal/Agreements/versioning-back-support-policy.pdf#critical[Critical Security Vulnerabilities] policy.
 
-== Replica crash
+== Replica Crash
 
-If an application replica crashes for any reason, it is automatically restarted. If it continues to fail to start, the platform attempts to restart it following an exponential backoff policy.
+If an application replica crashes for any reason, it is automatically restarted. If it continues to fail to start, the platform attempts to restart it by following an exponential backoff policy.
 
 == Replica Rebalancing 
 
-CloudHub 2.0 infrastructure can perform replica rebalancing to optimize application and infrastructure efficiency. Replica rebalancing involves gracefully moving and restarting replicas. At most 30% of replicas for an application are rebalanced concurrently. This keeps the application configuration the same,including runtime version and infrastructure.
+CloudHub 2.0 infrastructure can perform replica rebalancing to optimize application and infrastructure efficiency. Replica rebalancing involves gracefully moving and restarting replicas. At most 30% of replicas for an application are rebalanced concurrently. This keeps the application configuration the same, including the runtime version and infrastructure.
