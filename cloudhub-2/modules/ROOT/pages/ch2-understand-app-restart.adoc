@@ -1,7 +1,7 @@
 = Understanding App Automatic Restart 
 
 
-In some scenarios the platform can restart your Mule application application. 
+In some scenarios the platform can restart your Mule application. 
 
 The CloudHub 2.0 infrastructure performs a graceful shutdown by draining connections before transitioning traffic to a new instance of your application replica and terminating the older instance. If your application configuration explicitly sets the `shutdownTimeout` attribute to a value greater than two minutes and thirty seconds (see example below), the total shutdown grace period is five minutes. Otherwise, the grace period is twice the configured `shutdownTimeout` value. By default, `shutdownTimeout` is five seconds. See xref:3.9@mule-runtime::global-settings-configuration-reference.adoc[].
 
