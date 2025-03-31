@@ -24,11 +24,16 @@ Runtime Fabric comes bundled with technology such as Docker and Kubernetes, whic
 +
 Runtime Fabric can be managed only by Cloud control planes (US cloud, EU cloud). MuleSoft Government Cloud and Anypoint Platform PCE do not support Runtime Fabric.
 
+* Hybrid Standalone Runtimes
++
+Hybrid standalone runtimes enable you to host the Mule runtime engine in an environment you control. This model provides the control and security of deployments within customer trust boundary combined with the flexibility, scalability, and centralized management of cloud-based services.
++
+With hybrid standalone runtimes, the Mule runtime engine can run on a physical server, a virtual machine, or within a third-party cloud service like Amazon Web Services (AWS) or Microsoft Azure.
+
+
 * Standalone Runtimes
 +
-The standalone option enables you to host Mule runtime engine server and related services in an environment that you manage. Using standalone runtimes, the Mule runtime server can run on a physical server, a virtual machine, or within a third-party cloud installation like Amazon Web Services or Microsoft Azure.
-+
-When using standalone runtimes, you are also responsible for providing the framework for high availability, failover, clustering and load balancing. See xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises].
+Standalone runtimes are useful for isolated environments where connecting to the internet or Anypoint Control Plane isn't feasible. These environments enable you to host Mule runtime engine on a single instance, such as a physical server, virtual machine, or within a third-party cloud service like AWS or Azure. This setup offers simplicity and control, but it requires that you manually manage infrastructure tasks like high availability, failover, clustering, and load balancing. No connection to Anypoint Control Plane is required, and you manage these Mule instances entirely within your own environment.
 +
 You can manage standalone runtimes by using cloud control planes (US Cloud, EU Cloud, MuleSoft Government Cloud) or a customer-hosted control plane (Anypoint Platform PCE).
 // end::runtimePlaneHostingOptions[]
