@@ -33,7 +33,7 @@ With hybrid standalone runtimes, the Mule runtime engine can run on a physical s
 
 * Standalone Runtimes
 +
-Standalone runtimes are useful for isolated environments where connecting to the internet or Anypoint Control Plane isn't feasible. These environments enables you to host Mule runtime engine on a single instance, such as a physical server, virtual machine, or within a third-party cloud service like AWS or Azure. This setup offers simplicity and control, but it requires that you to manually manage infrastructure tasks like high availability, failover, clustering, and load balancing. No connection to Anypoint Control Plane is required, and you manage these Mule instances entirely within your own environment.
+Standalone runtimes are useful for isolated environments where connecting to the internet or Anypoint Control Plane isn't feasible. These environments enable you to host Mule runtime engine on a single instance, such as a physical server, virtual machine, or within a third-party cloud service like AWS or Azure. This setup offers simplicity and control, but it requires that you manually manage infrastructure tasks like high availability, failover, clustering, and load balancing. No connection to Anypoint Control Plane is required, and you manage these Mule instances entirely within your own environment.
 +
 You can manage standalone runtimes by using cloud control planes (US Cloud, EU Cloud, MuleSoft Government Cloud) or a customer-hosted control plane (Anypoint Platform PCE).
 // end::runtimePlaneHostingOptions[]
