@@ -26,7 +26,7 @@ Runtime Fabric can be managed only by Cloud control planes (US cloud, EU cloud).
 
 * Hybrid Standalone Runtimes
 +
-Hybrid standalone runtimes enable you to host the Mule runtime engine in an environment you control. This model provides the control and security of deployments within customer trsut boundary combined with the flexibility, scalability, and centralized management of cloud-based services.
+Hybrid standalone runtimes enable you to host the Mule runtime engine in an environment you control. This model provides the control and security of deployments within customer trust boundary combined with the flexibility, scalability, and centralized management of cloud-based services.
 +
 With hybrid standalone runtimes, the Mule runtime engine can run on a physical server, a virtual machine, or within a third-party cloud service like Amazon Web Services (AWS) or Microsoft Azure.
 
