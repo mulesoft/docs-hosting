@@ -32,7 +32,7 @@ During service updates or security patching, CloudHub 2.0 waits five minutes for
 * Because schedules can be triggered more than once, design them to prevent duplicate data processing.
 If clustering is enabled, CloudHub 2.0 executes the schedule on a single replica, regardless of how many replicas are running. Subsequent schedule executions can occur on a different replica. CloudHub 2.0 distributes multiple concurrent schedules across replicas.
 * If clustering isn't enabled, schedules run individually on all replicas.
-* For a fixed frequency, the scheduler’s xref:cloudhub-2::ch2-manage-schedules.adoc#disable-enable-scheduler[minimum recommended start delay is five seconds].
+* For a fixed-frequency scheduler, the minimum recommended start delay is five seconds. For more information, see xref:cloudhub-2::ch2-manage-schedules.adoc#disable-enable-scheduler[].
 * If a schedule isn't executed because the application isn't running, CloudHub 2.0 doesn't trigger it immediately when the application starts. The schedule is executed at its next due date.
 * The CloudHub 2.0 scheduler reads the job configuration every time it runs.
 +
