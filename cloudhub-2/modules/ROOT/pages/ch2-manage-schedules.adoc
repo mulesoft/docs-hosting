@@ -28,7 +28,7 @@ When designing the schedule, consider the following:
 
 * Plan for high availability during network failures. The CloudHub 2.0 infrastructure restarts due to hardware issues or scheduled maintenance, and security updates.
 +
-During service updates or security patching, xref:mule-runtime::global-settings-configuration.adoc#global-configurations-reference[CloudHub 2.0 waits five minutes] for existing schedules to complete. After a new replica is launched, the schedule runs at its next due. 
+During service updates or security patching, xref:mule-runtime::global-settings-configuration.adoc#global-configurations-reference[CloudHub 2.0 waits five minutes] for existing schedules to complete. After a new replica is launched, the schedule runs at its next scheduled time. 
 * Design your schedules to prevent duplicate data processing, as they can be triggered more than once due to the behavior mentioned previously.
 If clustering is enabled, CloudHub 2.0 ensures the schedule is executed on a single replica, regardless of how many replicas are running. Subsequent schedule executions can occur on a different replica. CloudHub 2.0 distributes multiple concurrent schedules across replicas.
 * If clustering isn't enabled, schedules run individually on all replicas.
