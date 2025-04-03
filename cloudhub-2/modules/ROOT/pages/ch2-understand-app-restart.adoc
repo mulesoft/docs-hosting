@@ -1,4 +1,4 @@
-= Understanding App Automatic Restart 
+= Automatic App Restarts
 
 
 In some scenarios, the platform can restart your Mule application. 
