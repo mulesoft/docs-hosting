@@ -1,7 +1,7 @@
 = Automatic App Restarts
 
 
-In some scenarios, the platform can restart your Mule application. 
+CloudHub 2.0 restarts your Mule applications during infrastructure failure or maintenance, security patching, replica crashes, or replica rebalancing. 
 
 The CloudHub 2.0 infrastructure performs a graceful shutdown by draining connections before transitioning traffic to a new instance of your application replica and terminating the older instance. If your application configuration explicitly sets the `shutdownTimeout` attribute to a value greater than two minutes and thirty seconds, the total shutdown grace period is five minutes. Otherwise, the grace period is twice the configured `shutdownTimeout` value. By default, `shutdownTimeout` is five seconds. See xref:3.9@mule-runtime::global-settings-configuration-reference.adoc[].
 
@@ -14,13 +14,9 @@ The CloudHub 2.0 infrastructure performs a graceful shutdown by draining connect
 
 To ensure business resiliency, design your application to be idempotent and deploy across multiple replicas with xref:ch2-clustering.adoc[clustering] enabled with a layer of persistence (xref:object-store::index.adoc[Object Store v2]). 
 
-== Infrastructure Failure
+== Infrastructure Failure and Maintenance
 
-If the compute infrastructure suffers a failure, the platform moves your application to a healthy infrastructure and restarts the application replicas to ensure availability.
-
-== Infrastructure Maintenance
-
-CloudHub 2.0 moves application replicas running on a compute infrastructure that becomes impaired or end-of-life onto a new infrastructure to ensure availability.
+If the compute infrastructure suffers a failure, CloudHub 2.0 moves your application to a healthy infrastructure and restarts the application replicas. Likewise, during infrastructure maintenance, the platform moves application replicas running on a compute infrastructure that becomes impaired or end-of-life onto a new infrastructure to ensure availability.
 
 == Security Patching
 
