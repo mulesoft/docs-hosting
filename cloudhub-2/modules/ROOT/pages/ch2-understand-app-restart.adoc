@@ -28,7 +28,7 @@ To mitigate security vulnerabilities, CloudHub 2.0 patches and restarts applicat
 
 == Replica Crash
 
-If an application replica crashes for any reason, it is automatically restarted. If it continues to fail to start, the platform attempts to restart it by following an exponential backoff policy.
+If an application replica crashes for any reason, CloudHub 2.0 automatically restarts it. If it continues to fail to start, the platform attempts to restart it using an exponential backoff policy.
 
 == Replica Rebalancing 
 
