@@ -16,7 +16,7 @@ To ensure business resiliency, design your application to be idempotent and depl
 
 == Infrastructure Failure
 
-If the compute infrastructure suffers a failure, the platform moves your application to a healthy node and restarts the application replicas to ensure availability.
+If the compute infrastructure suffers a failure, the platform moves your application to a healthy infrastructure and restarts the application replicas to ensure availability.
 
 == Infrastructure Maintenance
 
