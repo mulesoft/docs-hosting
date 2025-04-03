@@ -32,4 +32,4 @@ If an application replica crashes for any reason, CloudHub 2.0 automatically res
 
 == Replica Rebalancing 
 
-CloudHub 2.0 infrastructure can perform replica rebalancing to optimize application and infrastructure efficiency. Replica rebalancing involves gracefully moving and restarting replicas. At most 30% of replicas for an application are rebalanced concurrently. This keeps the application configuration the same, including the runtime version and infrastructure.
+CloudHub 2.0 infrastructure can perform replica rebalancing to optimize application and infrastructure efficiency. Replica rebalancing involves gracefully moving and restarting replicas. At most, 30% of replicas for an application are rebalanced concurrently. This strategy keeps the application configuration the same, including the runtime version and infrastructure.
