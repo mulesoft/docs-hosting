@@ -8,7 +8,7 @@ The CloudHub 2.0 infrastructure performs a graceful shutdown by draining connect
 [source,javascript,linenums]
 ----
 <mule ...>
-  <configuration shutdownTimeout="150000" /> <!-- This set shutdownTimeout to 2min30s.  Default is 5 seconds -->
+  <configuration shutdownTimeout="150000" /> <!-- This sets shutdownTimeout to 2 minutes, 30 seconds. Default is 5 seconds. -->
 </mule>
 ----
 
