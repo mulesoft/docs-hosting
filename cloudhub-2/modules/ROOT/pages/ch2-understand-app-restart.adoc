@@ -20,7 +20,7 @@ If the compute infrastructure suffers a failure, the platform moves your applica
 
 == Infrastructure Maintenance
 
-Application replicas running on compute infrastructures that become impaired or end-of-life are moved and restarted onto a new infrastructure to ensure availability.
+CloudHub 2.0 moves application replicas running on a compute infrastructure that becomes impaired or end-of-life onto a new infrastructure to ensure availability.
 
 == Security Patching
 
