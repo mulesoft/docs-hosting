@@ -137,7 +137,8 @@ image::ch2-scheduler-cron-rtm.png[cron schedule type]
 . In the schedule editor, change the schedule or deselect *Enabled* (1) to disable the schedule:
 +
 image::ch2-scheduler-editor-cron.png[cron schedule configuration with (1) Enabled option and (2)  Quick Reference link]
-. In the schedule editor, click *Quick Reference* (2) to expand or collapse the table that lists required fields and allowed values.
+. In the schedule editor, select the time zone for your schedule from the *Time Zone* (3) dropdown menu.
+. In the schedule editor, click *Quick Reference* (3) to expand or collapse the table that lists required fields and allowed values.
 +
 The cron expression in this example sets the schedule to every 10 seconds.
 +
