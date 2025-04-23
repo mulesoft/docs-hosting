@@ -229,7 +229,7 @@ Your domain points to the old version of your application until the newly upload
 This allows you to keep servicing requests from your old application while the new version of your application is starting.
 
 [NOTE]
-In some edge cases of applications using the rolling update deployment model, long inflight requests are not completed during the grace period. In this scenarios, zero downtime isn't guaranteed, as the old instance of the application needs to be restarted during the upgrade.
+In some edge cases of applications using the rolling update deployment model, long inflight requests aren't completed during the grace period. In this scenarios, zero downtime isn't guaranteed, as the old instance of the application needs to be restarted during the upgrade.
 
 === Clustering
 
