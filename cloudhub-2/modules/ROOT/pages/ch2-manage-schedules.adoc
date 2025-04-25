@@ -193,7 +193,7 @@ image::ch2-scheduler-enable.png[Enabled toggle in the schedule editor]
 
 During the initial deployment of an application with cluster mode and rolling update deployment model enabled, the application's fixed-frequency scheduler runs alongside the application startup. If you switch from xref:ch2-update-apps.adoc#rolling-update-vs-recreate-deployment-model[rolling update to recreate deployment model], the scheduler is triggered again with the application startup. But if you switch from recreate back to rolling update deployment model, the scheduler no longer runs at startup and instead triggers based on the configured frequency.
 
-This happens because the recreate deployment model turns off the previous instances of the application and starts them again in a new cluster. The previous record of the last run of the scheduler is not saved. In this ase, Mule runs the scheduler unless it is a fixed-date frequency. However,the rolling update deployment model saves the previous configuration.
+This happens because the recreate deployment model turns off the previous instances of the application and starts them again in a new cluster. The previous record of the last run of the scheduler isn't saved. In this case, Mule runs the scheduler unless it's a fixed-date frequency. However, the rolling update deployment model saves the previous configuration.
 
 == See Also
 
