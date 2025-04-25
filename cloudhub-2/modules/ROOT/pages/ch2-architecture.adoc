@@ -11,7 +11,7 @@ image::ch2-architecture.png[CloudHub 2.0 Architecture with four callouts]
 [cols="8a,25a,65a"]
 |===
 |image:blue-1.png[1 Integration Applications,width=50%] |<<integrations-apps>> |Applications that you create and deploy to CloudHub 2.0 to perform integration logic for your business
-|image:blue-2.png[2 Runtime Manager,width=50%] |<<runtime-manager>> |User interface that enables you to deploy and monitor integrations, and configure your account
+|image:blue-2.png[2 Runtime Manager,width=50%] |<<runtime-manager>> |User interface that enables you to deploy and monitor integrations, and setup the runtime plane
 |image:blue-3.png[3 Platform Services,width=50%] |<<platform-services>> |Shared CloudHub 2.0 platform services and APIs, which include Anypoint Monitoring, alerting, logging, account management, private spaces/secure data gateway, and load balancing
 |image:blue-4.png[4 CloudHub 2.0,width=50%] |<<cloudhub-2-replicas,CloudHub 2.0>> |An elastic cloud of _replicas_, Mule instances that run integration applications
 |===
@@ -227,6 +227,9 @@ CloudHub 2.0 supports updating your applications at runtime so end users of your
 If the application uses the rolling update deployment model, CloudHub 2.0 keeps the old version of your application running while your application update is deploying.
 Your domain points to the old version of your application until the newly uploaded version is fully started.
 This allows you to keep servicing requests from your old application while the new version of your application is starting.
+
+[NOTE]
+In some edge cases of applications using the rolling update deployment model, long inflight requests aren't completed during the grace period. In this scenarios, zero downtime isn't guaranteed, as the old instance of the application needs to be restarted during the upgrade.
 
 === Clustering
 
