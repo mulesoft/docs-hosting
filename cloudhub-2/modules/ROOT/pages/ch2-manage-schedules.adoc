@@ -56,9 +56,7 @@ Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules
 ** CloudHub 2.0 uses a default value of `60000`.
 * If you change a scheduler, reupload the application to Exchange to make sure the expected scheduler behavior occurs.
 * CloudHub 2.0 schedules run concurrently by default. The Scheduler triggers the execution of a schedule flow while a previously-triggered execution is still running. To run schedules sequentially, set the `disallowConcurrentExecution` property as `true` in the xref:mule-runtime::scheduler-concept.adoc#props_scheduler[scheduler] configuration file. 
-* 
-Schedulers use the same timezone as the machine on which Mule is running.   if you want to change, add the desired timezone: https://docs.mulesoft.com/anypoint-code-builder/acb-component-scheduler#cron-attributes 
-//check
+* By default, schedulers use the same timezone as the machine on which Mule is running. You can change it by adding the timezone you want. For more information, see xref:docs-code-builder::acb-component-scheduler.adoc#cron-attributes[Cron Attributes]. 
 
 == Before You Begin
 
