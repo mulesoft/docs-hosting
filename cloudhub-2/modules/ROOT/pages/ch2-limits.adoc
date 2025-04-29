@@ -18,6 +18,8 @@ Maximum HTTP request size:: 1 GB
 
 Maximum HTTP request timeout:: 300 seconds
 
+Maximum ingress URI size:: 4 KB
+
 Firewall rules (inbound):: 300
 
 Firewall rules (outbound):: 300
