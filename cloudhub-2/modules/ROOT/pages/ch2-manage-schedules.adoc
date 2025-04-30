@@ -55,6 +55,7 @@ Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules
 ** If the value is a placeholder (such as `${cronExpression}`) that is provided at the time of deployment, the exact value of the placeholder doesn't appear in the user interface.
 ** CloudHub 2.0 uses a default value of `60000`.
 * CloudHub 2.0 schedules run concurrently by default. The Scheduler triggers the execution of a schedule flow while a previously-triggered execution is still running. To run schedules sequentially, set the `disallowConcurrentExecution` property as `true` in the xref:mule-runtime::scheduler-concept.adoc#props_scheduler[scheduler] configuration file. 
+* By default, schedulers use the same time zone as the machine on which Mule is running. You can change it by adding the time zone you want. For more information, see xref:docs-code-builder::acb-component-scheduler.adoc#cron-attributes[Cron Attributes]. 
 
 == Before You Begin
 
@@ -135,7 +136,8 @@ image::ch2-scheduler-cron-rtm.png[cron schedule type]
 . In the schedule editor, change the schedule or deselect *Enabled* (1) to disable the schedule:
 +
 image::ch2-scheduler-editor-cron.png[cron schedule configuration with (1) Enabled option and (2)  Quick Reference link]
-. In the schedule editor, click *Quick Reference* (2) to expand or collapse the table that lists required fields and allowed values.
+. In the schedule editor, select the time zone for your schedule from the *Time Zone* (3) dropdown menu.
+. In the schedule editor, click *Quick Reference* (3) to expand or collapse the table that lists required fields and allowed values.
 +
 The cron expression in this example sets the schedule to every 10 seconds.
 +
