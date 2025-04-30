@@ -93,6 +93,9 @@ To configure additional log levels and categories to include in logs:
 . Optionally, set the log level for specific a Java package class by selecting the log level, entering the `package.name`, and pressing the Enter key.
 . Click *Apply Changes*.
 
+[NOTE]
+Changing the log level and clicking *Apply Changes* restarts the application.
+
 // end::configureLogging[]
 
 
