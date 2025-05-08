@@ -18,3 +18,5 @@ Mule 3.x is not supported.
 //tag::softDelete[]
 Runtime Manager doesn't support deploying an application to CloudHub 2.0 or Runtime Fabric if the asset was previously xref:exchange::to-delete-asset.adoc[soft-deleted] in Exchange.
 // end::softDelete[]
+
+// this is a test
