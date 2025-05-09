@@ -29,6 +29,15 @@ When designing the schedule, consider the following:
 * Plan for high availability during network failures. The CloudHub 2.0 infrastructure restarts due to hardware issues or scheduled maintenance, and security updates.
 +
 During service updates or security patching, CloudHub 2.0 waits five minutes for existing schedules to complete. After a new replica is launched, the schedule runs at its next scheduled time. For more information, see the `shutdownTimeout` attribute in xref:mule-runtime::global-settings-configuration.adoc#global-configurations-reference[Global Configurations Reference].
+* After a security patching, the custom configuration via Runtime Manager takes precedence over the application configuration file. 
++
+You can reset the schedulers and delete the custom configuration via API:
++
+[source,curl,linenums]
+----
+DELETE /organizations/{organizationId}/environments/{environmentId}/deployments/{deploymentId}/schedulers/{flowName}
+----
++
 * Because schedules can be triggered more than once, design them to prevent duplicate data processing.
 If clustering is enabled, CloudHub 2.0 executes the schedule on a single replica, regardless of how many replicas are running. Subsequent schedule executions can occur on a different replica. CloudHub 2.0 distributes multiple concurrent schedules across replicas.
 * For clustered applications, CloudHub 2.0 triggers the schedule exclusively on the primary node.
@@ -50,11 +59,6 @@ CloudHub 2.0 distributes multiple concurrent schedulers across replicas.
 +
 Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules.
 * Flow names can contain only upper and lower case letters, numbers, hyphens (`-`), underscores (`_`), and periods (`.`). The following characters are invalid: `/`, `[`, `]`, `{`, `}`, and `#`.
-* When you create a schedule using a scheduler that has a placeholder, the value that appears when you create a schedule varies based on when the placeholder is discovered. For example:
-** If the value is available before the app is deployed, the value appears.
-** If the value is available before deployment and depends on deployment properties, an estimation of the value appears.
-** If the value is a placeholder (such as `${cronExpression}`) that is provided at the time of deployment, the exact value of the placeholder doesn't appear in the user interface.
-** CloudHub 2.0 uses a default value of `60000`.
 * CloudHub 2.0 schedules run concurrently by default. The Scheduler triggers the execution of a schedule flow while a previously-triggered execution is still running. To run schedules sequentially, set the `disallowConcurrentExecution` property as `true` in the xref:mule-runtime::scheduler-concept.adoc#props_scheduler[scheduler] configuration file. 
 * By default, schedulers use the same time zone as the machine on which Mule is running. You can change it by adding the time zone you want. For more information, see xref:docs-code-builder::acb-component-scheduler.adoc#cron-attributes[Cron Attributes]. 
 
