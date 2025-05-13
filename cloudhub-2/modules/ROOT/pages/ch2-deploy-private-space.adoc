@@ -101,25 +101,21 @@ If the HTTP Listener in your app listens on a different path than the path defin
 Requests sent to your app use the path that you specify here.
 +
 Check these examples to see how the private space rewrites the path:
-+
 *Application endpoint 1:*
 [source,console,linenums]
 ----
 https://sapi-one-o4azsf.2x9yyp.usa-e2.cloudhub.io/acct
 ----
-+
 *Path rewrite 1:*
 [source,console,linenums]
 ----
 /version1
 ----
-+
 *Application endpoint 2:*
 [source,console,linenums]
 ----
 https://sapi-one-o4azsf.2x9yyp.usa-e2.cloudhub.io/acct/moreInfo
 ----
-+
 *Path rewrite 2:*
 [source,console,linenums]
 ----
