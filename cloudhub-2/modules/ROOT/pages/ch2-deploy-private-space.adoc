@@ -101,6 +101,7 @@ If the HTTP Listener in your app listens on a different path than the path defin
 Requests sent to your app use the path that you specify here.
 +
 Check these examples to see how the private space rewrites the path:
+
 *Application endpoint 1:*
 [source,console,linenums]
 ----
