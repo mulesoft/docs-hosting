@@ -107,16 +107,19 @@ Check these examples to see how the private space rewrites the path:
 ----
 https://sapi-one-o4azsf.2x9yyp.usa-e2.cloudhub.io/acct
 ----
++
 *Path rewrite 1:*
 [source,console,linenums]
 ----
 /version1
 ----
++
 *Application endpoint 2:*
 [source,console,linenums]
 ----
 https://sapi-one-o4azsf.2x9yyp.usa-e2.cloudhub.io/acct/moreInfo
 ----
++
 *Path rewrite 2:*
 [source,console,linenums]
 ----
