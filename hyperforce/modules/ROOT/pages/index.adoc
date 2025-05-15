@@ -33,42 +33,46 @@ After you have access to a Hyperforce instance, refer to these topics:
 
 == Features Supported on Hyperforce
 
-The following table provides Anypoint Platform features supported on Hyperforce:
+This table indicates the support status of Anypoint Platform features on Hyperforce:
+
+* Available: Feature is currently available on Hyperforce.
+* Planned: Feature is scheduled for a future release on Hyperforce.
+* Not planned: Feature is not currently planned for release or is not supported on Hyperforce.
 
 [%header%autowidth.spread]
 |===
-| Features/Components|Included | Notes
-| xref:access-management::index.adoc[Access Management]|Yes | -
-| Anypoint Integration Advanced | No | -
-| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]|Yes | For details, refer to xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager on Hyperforce],  xref:api-manager::analytics-landing-page.adoc[Mule API Analytics], and xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
-| xref:api-manager::analytics-landing-page.adoc[Anypoint Mule API Analytics] |No | -
-| xref:visualizer::index.adoc[Anypoint Visualizer] |Yes | For exceptions, refer to xref:visualizer::index.adoc#visualizer-hyperforce[Anypoint Visualizer on Hyperforce]
-| xref:anypoint-code-builder::index.adoc[Anypoint Code Builder (Desktop IDE)] |Yes | For exceptions, refer to xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud IDE].
-| xref:exchange::index.adoc[Anypoint Exchange] |Yes | For exceptions, refer to xref:exchange::index.adoc#exchange-on-hyperforce[Anypoint Exchange on Hyperforce]
-| xref:mq::index.adoc[Anypoint MQ] |Yes |For exceptions, refer to xref:mq::index.adoc#mq-on-hyperforce[Anypoint MQ on Hyperforce]
-| xref:monitoring::index.adoc[Anypoint Monitoring] |Yes | For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
-| xref:partner-manager::index.adoc[Anypoint Partner Manager]|No| -
-| xref:runtime-manager::index.adoc[Anypoint Runtime Manager]|Yes | -
-| xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager]|Yes | -
-| xref:studio::index.adoc[Anypoint Studio]|Yes |-
-| xref:api-community-manager::index.adoc[API Community Manager]|Yes | -
-| xref:design-center::design-create-publish-api-specs.adoc[API Designer]|No | -
-| xref:api-experience-hub::index.adoc[API Experience Hub]|No |-
-| xref:api-functional-monitoring::index.adoc[API Functional Monitoring]|Yes | -
-| xref:api-governance::index.adoc[API Governance]|Yes | -
-| xref:design-center::design-mocking-service.adoc[API Mocking Service]|Yes | -
-| Connectors |Yes | All connectors owned by MuleSoft.
-| xref:cloudhub-2::index.adoc[CloudHub 2.0]|Yes | For exceptions, refer to xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 on Hyperforce] 
-| xref:cloudhub::index.adoc[CloudHub]|No |-
-| Dataloader | No | -
-| xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway] | Yes | For details, refer to xref:gateway::flex-review-prerequisites.adoc#flex-gateway-hyperforce[Flex Gateway on Hyperforce], xref:gateway::flex-use-api-alerts.adoc[Using Flex Gateway API Alerts], and xref:gateway::flex-view-api-metrics.adoc[Viewing Key Metrics for Flex Gateway APIs]
-| xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway] | Yes | For exceptions, refer to xref:mule-gateway::mule-gateway-capabilities-mule4.adoc#mule-gateway-hyperforce[Mule Gateway on Hyperforce]
-| xref:mule-runtime::index.adoc[Mule runtime engine] | Yes | Mule 3 is not supported as it reached EOL.
-| xref:munit::index.adoc[MUnit] | Yes | -
-| xref:object-store::index.adoc[Object Store V2] | Yes | For exceptions, refer to xref:object-store::index.adoc#osv2-on-hyperforce[Object Store V2 on Hyperforce]
-| xref:runtime-fabric::index.adoc[Runtime Fabric] | No | Contact your account manager to unlock this capability.
-| Hybrid Standalone Deployment | No | -
-| xref:general::usage-reports.adoc[Usage Reports] | Yes | -
+| Features/Components|Canada Cloud - Feature Status |Japan Cloud - Feature Status | Notes
+| xref:access-management::index.adoc[Access Management]|Available |Available | -
+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]|Available |Available | For details, refer to xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager on Hyperforce],  xref:api-manager::analytics-landing-page.adoc[Mule API Analytics], and xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
+| xref:anypoint-code-builder::index.adoc[Anypoint Code Builder] | Available |Available | For exceptions, refer to xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud IDE].
+| xref:exchange::index.adoc[Anypoint Exchange] | Available |Available | For exceptions, refer to xref:exchange::index.adoc#exchange-on-hyperforce[Anypoint Exchange on Hyperforce].
+| Anypoint Integration Advanced | Planned | Planned | -
+| xref:monitoring::index.adoc[Anypoint Monitoring] |Available |Available | For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
+| xref:mq::index.adoc[Anypoint MQ] | Available |Available |For exceptions, refer to xref:mq::index.adoc#mq-on-hyperforce[Anypoint MQ on Hyperforce].
+| xref:api-manager::analytics-landing-page.adoc[Anypoint Mule API Analytics] |Not planned | Not planned | -
+| xref:partner-manager::index.adoc[Anypoint Partner Manager]| Planned | Planned| -
+| xref:runtime-manager::index.adoc[Anypoint Runtime Manager]| Available |Available | -
+| xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager]| Available |Available | -
+| xref:studio::index.adoc[Anypoint Studio]|Available |Available |-
+| xref:visualizer::index.adoc[Anypoint Visualizer] | Available |Available | For exceptions, refer to xref:visualizer::index.adoc#visualizer-hyperforce[Anypoint Visualizer on Hyperforce].
+| xref:api-community-manager::index.adoc[API Community Manager]|Available |Available | -
+| xref:design-center::design-create-publish-api-specs.adoc[API Designer]|Not planned | Not planned | -
+| xref:api-experience-hub::index.adoc[API Experience Hub]| Available |Available |-
+| xref:api-functional-monitoring::index.adoc[API Functional Monitoring]| Available |Available | -
+| xref:api-governance::index.adoc[API Governance]| Available |Available | -
+| xref:design-center::design-mocking-service.adoc[API Mocking Service]|Available |Available | -
+| xref:cloudhub::index.adoc[CloudHub]|Not planned |Not planned |-
+| xref:cloudhub-2::index.adoc[CloudHub 2.0]|Available |Available | For exceptions, refer to xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 on Hyperforce]. 
+| Connectors | Available |Available | All connectors owned by MuleSoft.
+| Dataloader | Not planned |Not planned | -
+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway] | Available |Available | For details, refer to xref:gateway::flex-review-prerequisites.adoc#flex-gateway-hyperforce[Flex Gateway on Hyperforce], xref:gateway::flex-use-api-alerts.adoc[Using Flex Gateway API Alerts], and xref:gateway::flex-view-api-metrics.adoc[Viewing Key Metrics for Flex Gateway APIs].
+| Hybrid Standalone Deployment | Not planned |Not planned | -
+| xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway] | Available |Available | For exceptions, refer to xref:mule-gateway::mule-gateway-capabilities-mule4.adoc#mule-gateway-hyperforce[Mule Gateway on Hyperforce]
+| xref:mule-runtime::index.adoc[Mule runtime engine] | Available |Available | Mule 3 is not supported as it reached EOL.
+| xref:munit::index.adoc[MUnit] | Available |Available | -
+| xref:object-store::index.adoc[Object Store V2] | Available |Available | For exceptions, refer to xref:object-store::index.adoc#osv2-on-hyperforce[Object Store V2 on Hyperforce]
+| xref:runtime-fabric::index.adoc[Runtime Fabric] | Available |Available | Contact your account manager to unlock this capability.
+| xref:general::usage-reports.adoc[Usage Reports] | Available |Available | -
 |===
 
 == Hyperforce Supported Regions
