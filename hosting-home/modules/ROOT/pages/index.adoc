@@ -34,9 +34,7 @@ MuleSoft provides the following environments for the control plane:
 
 US Cloud (default)::
 +
-In US Cloud, the control plane is physically hosted within the United States. 
-+
-The MuleSoft US Control Plane servers are located in these AWS regions:
+In US Cloud, the control plane is physically hosted within the United States. The MuleSoft US Control Plane servers are located in these AWS regions:
 +
 * US East (N. Virginia) 
 +
@@ -53,9 +51,7 @@ These regions ensure redundancy and high availability for the MuleSoft Anypoint 
 
 EU Cloud::
 +
-In the EU Cloud, the control plane is physically hosted within the European Union.
-+
-The MuleSoft EU Control Plane servers are located in the following AWS regions:
+In the EU Cloud, the control plane is physically hosted within the European Union. The MuleSoft EU Control Plane servers are located in these AWS regions:
 +
 * Europe (Frankfurt) 
 +
@@ -67,22 +63,39 @@ The MuleSoft EU Control Plane servers are located in the following AWS regions:
 +
 These regions ensure compliance with European Union geo-location based legalities concerning data storage.
 
-
-* Canada Cloud
+Canada Cloud::
 +
-In the Canada Cloud, the control plane is physically hosted in Canada.
-
-* Japan Cloud
+In the Canada Cloud, the control plane is physically hosted in Canada. The MuleSoft Canada Control Plane servers are located in this AWS region:
 +
-In the Japan Cloud, the control plane is physically hosted in Japan.
-
-* MuleSoft Government Cloud
+* Canada (Central) 
 +
-MuleSoft Government Cloud is a FedRAMP-compliant instance of the control plane that's managed by MuleSoft and is suitable for government agencies.
+`cacentral1`
++
+This region ensures redundancy and high availability for the MuleSoft Anypoint Platform in Canada.
+
+Japan Cloud::
++
+In the Japan Cloud, the control plane is physically hosted in Japan. The MuleSoft Japan Control Plane servers are located in this AWS region:
++
+* Asia Pacific (Tokyo) 
++
+`apnortheast1`
++
+This region ensures redundancy and high availability for the MuleSoft Anypoint Platform in Japan.
+
+MuleSoft Government Cloud::
++
+MuleSoft Government Cloud is a FedRAMP-compliant instance of the control plane that's managed by MuleSoft and is suitable for government agencies. The MuleSoft Government Cloud Control Plane servers are located in this AWS region:
++
+* US East (N. Virginia) 
++
+`useast1`
++
+This region ensures redundancy and high availability for the MuleSoft Government Cloud services.
 +
 See xref:gov-cloud::index.adoc[About Government Cloud] for more information.
 
-* Customer-Hosted Control Plane
+Customer-Hosted Control Plane::
 +
 MuleSoft also enables you to host the control plane within your own data center. Anypoint Platform Private Cloud Edition (Anypoint Platform PCE) is a version of Anypoint Platform that supports hosting the control plane within a user-managed data center. This enables you to control the environment where your assets and metadata are stored.
 +
