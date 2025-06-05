@@ -1,0 +1,16 @@
+|===
+| Example DNS Record 
+
+| `myapp.us-e1.cloudhub.io` 
+| `myapp.us-e2.cloudhub.io` 
+|`myapp.us-w1.cloudhub.io` 
+| `myapp.us-w2.cloudhub.io` 
+| `myapp.ca-c1.cloudhub.io` 
+| `myapp.br-s1.cloudhub.io` 
+| `myapp.sg-s1.cloudhub.io` 
+| `myapp.au-s1.cloudhub.io` 
+| `myapp.jp-e1.cloudhub.io` 
+| `myapp.ir-e1.cloudhub.io` 
+| `myapp.de-c1.cloudhub.io` 
+| `myapp.uk-e1.cloudhub.io`
+|===

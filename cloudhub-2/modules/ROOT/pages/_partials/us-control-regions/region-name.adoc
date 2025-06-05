@@ -1,0 +1,16 @@
+|===
+| Region Name
+
+| us-e1
+| us-e2
+| us-w1 
+| us-w2
+| ca-c1
+| br-s1
+| sg-s1
+| au-s1
+| jp-e1
+| ir-e1 
+| de-c1
+| uk-e1 
+|===

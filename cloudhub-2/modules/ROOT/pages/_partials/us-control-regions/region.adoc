@@ -1,0 +1,16 @@
+|===
+| Region
+
+| US East (N. Virginia)
+| US East (Ohio)
+| RUS West (N. California)
+| US West (Oregon)
+| Canada (Central)
+| South America (Sao Paulo)
+| Asia Pacific (Singapore)
+| Asia Pacific (Sydney)
+| Asia Pacific (Tokyo)
+| EU (Ireland)
+| EU (Frankfurt)
+| EU (London)
+|===
