@@ -172,18 +172,6 @@ The DNS record and the load balancer for your integration can change depending o
 
 Anypoint Platform for the US control plane covers these regions:
 
-
-
-
-[cols="1,1,1", options="header"]
-|===
-include::partial$us-control-regions/region.adoc[]
-include::partial$us-control-regions/dns-record.adoc[]
-include::partial$us-control-regions/internal-dns-record.adoc[]
-|===
-
-
-
 [%header,cols="3*a"]
 |===
 | Regions in U.S. Control Plane | DNS Record | Internal DNS Record

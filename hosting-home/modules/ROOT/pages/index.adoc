@@ -32,15 +32,9 @@ See <<Control Plane and Runtime Plane Support Matrix>> for information about whi
 
 MuleSoft provides the following environments for the control plane:
 
-=== US Cloud (default)
+US Cloud (default)::
 
 In US Cloud, the control plane is physically hosted within the United States. The MuleSoft US Control Plane servers are located in these AWS regions:
-
-[cols="20,20", options="header"]
-|===
-include::partial$us-control-regions/region.adoc[]
-include::partial$us-control-regions/region-name.adoc[]
-|===
 
 
 
