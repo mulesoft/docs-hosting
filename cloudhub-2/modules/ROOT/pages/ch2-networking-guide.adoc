@@ -175,7 +175,7 @@ Anypoint Platform for the US control plane covers these regions:
 
 
 
-[cols="20,20", options="header"]
+[cols="20,20,20", options="header"]
 |===
 include::partial$us-control-regions/region.adoc[]
 include::partial$us-control-regions/dns-record.adoc[]
