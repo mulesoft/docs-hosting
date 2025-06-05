@@ -37,6 +37,7 @@ US Cloud (default)::
 In US Cloud, the control plane is physically hosted within the United States. 
 +
 The MuleSoft US Control Plane servers are located in these AWS regions:
++
 * US East (N. Virginia) 
 +
 `useast1`
@@ -55,9 +56,11 @@ EU Cloud::
 In the EU Cloud, the control plane is physically hosted within the European Union.
 +
 The MuleSoft EU Control Plane servers are located in the following AWS regions:
++
 * Europe (Frankfurt) 
 +
 `eucentral1`
++
 * Europe (Ireland) 
 +
 `euwest1`
