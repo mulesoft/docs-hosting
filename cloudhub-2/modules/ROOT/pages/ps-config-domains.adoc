@@ -47,7 +47,7 @@ The keystore in PEM format uses TLS default values.
 --
 JKS (Java Keystore)::
 +
-A JKS file is a repository for authorization or public key certificates and does not store secret keys.
+A JKS file is a repository for authorization or public key certificates.
 +
 Use this option to upload a JKS file and use TLS default values.
 With this option, you can't change the default values for TLS versions, ciphers, and other TLS configuration options.
