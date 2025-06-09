@@ -80,7 +80,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 This table indicates the available and planned cloud regions for Hyperforce:
 
 * Available: Cloud region is available on Hyperforce.
-* Planned: Cloud region is scheduled for a future support on Hyperforce.
+* Planned: Cloud region is scheduled for future support on Hyperforce.
 
 [%header%autowidth.spread]
 |===
