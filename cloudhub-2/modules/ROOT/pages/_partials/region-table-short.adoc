@@ -5,7 +5,7 @@
 |Region Name
 |Control Plane
 
-.5+|North America
+.6+|North America
 |US East (N. Virginia)
 |`us-east`
 |US
@@ -21,6 +21,10 @@
 |US West (Oregon)
 |`us-west-2`
 |US
+
+|US GovCloud (West)
+|`us-gov-west`
+|US Gov
 
 |Canada (Central)
 |`ca-central`
@@ -64,9 +68,4 @@
 |Germany (EU Control Plane)
 |`eu-central`
 |EU
-
-.1+|North America
-|US GovCloud (West)
-|`us-gov-west`
-|US Gov
 |===
