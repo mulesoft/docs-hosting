@@ -94,19 +94,11 @@ This table indicates the available and planned cloud regions for Hyperforce:
 == Mule Runtime Version Compatibility
 
 * Hyperforce is compatible with Mule runtime engine versions under support, 4.4.0 and later.
-* Hyperforce supports the Mule runtime engine LTS and Edge release channels. The recommended customer profile is LTS. For more information, visit xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[].
-
-== Contact Salesforce Support
-
-If you need to contact Salesforce Support, under the Salesforce Help Portal section refer to https://help.salesforce.com/s/articleView?id=000394257&type=1#:~:text=your%20Trailblazer%20profile-,Salesforce%20Help%20Portal,-Logging%20in%20to[Logging in to Salesforce Help Portal Using Trailblazer].
-
-[NOTE]
-Use the single-use code method to open support cases. 
+* Hyperforce supports the Mule runtime engine LTS and Edge release channels. The recommended customer profile is LTS. For more information, visit xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[]. 
 
 
 == See Also
 
 * xref:configure-mule-hyperforce.adoc[Configuring Mule to Access Hyperforce]
 * xref:deploy-mule-apps-hyperforce.adoc[Deploying Mule Apps to Hyperforce]
-
 
