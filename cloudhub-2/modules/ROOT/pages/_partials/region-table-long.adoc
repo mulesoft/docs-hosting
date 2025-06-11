@@ -7,7 +7,7 @@
 |Example DNS Record
 |Example Internal DNS Record
 
-.5+|North America
+.6+|North America
 |US East (N. Virginia)
 |`us-east`
 |US
@@ -31,6 +31,12 @@
 |US
 |`myapp.us-w2.cloudhub.io`
 |`<app>.internal-<space-id>.usa-w2.cloudhub.io`
+
+|US GovCloud (West)
+|`us-gov-west`
+|US Gov
+|`myapp.usg-w1.gov.cloudhub.io`
+| -
 
 |Canada (Central)
 |`ca-central`
@@ -93,12 +99,5 @@
 |`eu-central`
 |EU
 |`myapp.de-c1.eu1.cloudhub.io`
-| -
-
-.1+|North America
-|US GovCloud (West)
-|`us-gov-west`
-|US Gov
-|`myapp.usg-w1.gov.cloudhub.io`
 | -
 |===
