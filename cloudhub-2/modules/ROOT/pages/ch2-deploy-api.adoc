@@ -178,6 +178,11 @@ Updates that include unavailable ports fail. Successful deployments occupy the n
 
 == Access Your TCP App
 
-You can access the app using VPN or a transit gateway and within the private space. Because the apps run on worker nodes, they cannot be accessed directly over the internet. TCP endpoints use wildcard domains. The app-name or prefix is irrelevant. You can access applications on the endpoint: `*.<domain>.<region>.tcp.cloudhub.io:<port>`. 
-
+* You can access the app using VPN or a transit gateway and within the private space. Because the apps run on worker nodes, you can't access them directly over the internet. 
+TCP endpoints use wildcard domains. The app-name or prefix is irrelevant. You can access applications on the endpoint: `*.<domain>.<region>.tcp.cloudhub.io:<port>`. 
++
 A sample URL is `mllp-app-2-mpskt5.q8b5lv.usa-e2.tcp.cloudhub.io:30500`.
+
+* You can't establish a connection directly to the TCP URL, such as: `corvette-azeiuc.internal-yvs7m6.usa-w1.tcp.cloudhub.io.".` 
++
+The TCP URL format has the structure: {application-url}.{environment}.tcp.cloudhub.io:{port}. You can't add "internal-" to the {environment}, as CloudHub 2.0 do not support internal endpoints for TCP applications.
