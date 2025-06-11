@@ -170,34 +170,7 @@ You can remove all ingress and egress rules from and to the internet. In this ca
 
 The DNS record and the load balancer for your integration can change depending on what region you deploy your applications in. This table summarizes what DNS records are available for your applications in each region:
 
-Anypoint Platform for the US control plane covers these regions:
-
-[%header,cols="3*a"]
-|===
-| Regions in U.S. Control Plane | DNS Record | Internal DNS Record
-| US East (N. Virginia) | `<app>.<space-id>.usa-e1.cloudhub.io` | `<app>.internal-<space-id>.usa-e1.cloudhub.io`
-| US East (Ohio) | `<app>.<space-id>.usa-e2.cloudhub.io` | `<app>.internal-<space-id>.usa-e2.cloudhub.io`
-| US West (N. California) | `<app>.<space-id>.usa-w1.cloudhub.io` | `<app>.internal-<space-id>.usa-w1.cloudhub.io`
-| US West (Oregon) | `<app>.<space-id>.usa-w2.cloudhub.io` | `<app>.internal-<space-id>.usa-w2.cloudhub.io`
-| Canada (Central) | `<app>.<space-id>.can-c1.cloudhub.io` | `<app>.internal-<space-id>.can-c1.cloudhub.io`
-| South America (Sao Paulo) | `<app>.<space-id>.bra-s1.cloudhub.io` | `<app>.internal-<space-id>.bra-s1.cloudhub.io`
-| Asia Pacific (Singapore) | `<app>.<space-id>.sgp-s1.cloudhub.io` | `<app>.internal-<space-id>.sgp-s1.cloudhub.io`
-| Asia Pacific (Sydney) | `<app>.<space-id>.aus-s1.cloudhub.io` | `<app>.internal-<space-id>.aus-s1.cloudhub.io`
-| Asia Pacific (Tokyo) | `<app>.<space-id>.jpn-e1.cloudhub.io` | `<app>.internal-<space-id>.jpn-e1.cloudhub.io`
-| EU (Ireland) | `<app>.<space-id>.irl-e1.cloudhub.io` | `<app>.internal-<space-id>.irl-e1.cloudhub.io`
-| EU (Frankfurt) | `<app>.<space-id>.deu-c1.cloudhub.io` | `<app>.internal-<space-id>.deu-c1.cloudhub.io`
-| EU (London) | `<app>.<space-id>.gbr-e1.cloudhub.io` | `<app>.internal-<space-id>.gbr-e1.cloudhub.io`
-|===
-
-
-Anypoint Platform for the EU control plane covers these regions: 
-
-[%header,cols="2*a"]
-|===
-| Regions in EU Control Plane | DNS Record
-| EU (Ireland) | `<app>.<space-id>.irl-e1.eu1.cloudhub.io`
-| EU (Frankfurt) | `<app>.<space-id>.deu-c1.eu1.cloudhub.io`
-|===
+include::partial$region-table-long.adoc[]
 
 
 = See Also
