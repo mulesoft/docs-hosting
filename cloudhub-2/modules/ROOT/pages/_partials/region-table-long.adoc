@@ -1,0 +1,104 @@
+[cols="10,10,15,1,23,22", options="header"]
+|===
+|
+|Region
+|Region Name
+|Control Plane
+|Example DNS Record
+|Example Internal DNS Record
+
+.5+|North America
+|US East (N. Virginia)
+|`us-east`
+|US
+|`myapp.us-e1.cloudhub.io`
+|`<app>.internal-<space-id>.usa-e1.cloudhub.io`
+
+|US East (Ohio)
+|`us-east-2`
+|US
+|`myapp.us-e2.cloudhub.io`
+|`<app>.internal-<space-id>.usa-e2.cloudhub.io`
+
+|US West (N. California)
+|`us-west`
+|US
+|`myapp.us-w1.cloudhub.io`
+|`<app>.internal-<space-id>.usa-w1.cloudhub.io`
+
+|US West (Oregon)
+|`us-west-2`
+|US
+|`myapp.us-w2.cloudhub.io`
+|`<app>.internal-<space-id>.usa-w2.cloudhub.io`
+
+|Canada (Central)
+|`ca-central`
+|US
+|`myapp.ca-c1.cloudhub.io`
+|`<app>.internal-<space-id>.can-c1.cloudhub.io`
+
+.1+|South America
+|Brazil (São Paulo)
+|`br-south`
+|US
+|`myapp.br-s1.cloudhub.io`
+|`<app>.internal-<space-id>.bra-s1.cloudhub.io`
+
+.3+|APAC
+|Singapore
+|`ap-southeast`
+|US
+|`myapp.sg-s1.cloudhub.io`
+|`<app>.internal-<space-id>.sgp-s1.cloudhub.io`
+
+|Australia (Sydney)
+|`ap-southeast-2`
+|US
+|`myapp.au-s1.cloudhub.io`
+|`<app>.internal-<space-id>.aus-s1.cloudhub.io`
+
+|Japan (Tokyo)
+|`ap-northeast`
+|US
+|`myapp.jp-e1.cloudhub.io`
+|`<app>.internal-<space-id>.jpn-e1.cloudhub.io`
+
+.5+|Europe
+|Ireland
+|`eu-west`
+|US
+|`myapp.ir-e1.cloudhub.io`
+|`<app>.internal-<space-id>.irl-e1.cloudhub.io`
+
+|Germany (Frankfurt)
+|`eu-central`
+|US
+|`myapp.de-c1.cloudhub.io`
+|`<app>.internal-<space-id>.deu-c1.cloudhub.io`
+
+|UK (London)
+|`eu-west-2`
+|US
+|`myapp.uk-e1.cloudhub.io`
+|`<app>.internal-<space-id>.gbr-e1.cloudhub.io`
+
+|Ireland (EU Control Plane)
+|`eu-west`
+|EU
+|`myapp.ir-e1.eu1.cloudhub.io`
+| -
+
+|Germany (EU Control Plane)
+|`eu-central`
+|EU
+|`myapp.de-c1.eu1.cloudhub.io`
+| -
+
+.1+|North America
+|US GovCloud (West)
+|`us-gov-west`
+|US Gov
+|`myapp.usg-w1.gov.cloudhub.io`
+| -
+|===
