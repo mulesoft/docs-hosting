@@ -32,17 +32,17 @@
 |`myapp.us-w2.cloudhub.io`
 |`<app>.internal-<space-id>.usa-w2.cloudhub.io`
 
-|US GovCloud (West)
-|`us-gov-west`
-|US Gov
-|`myapp.usg-w1.gov.cloudhub.io`
-| -
-
 |Canada (Central)
 |`ca-central`
 |US
 |`myapp.ca-c1.cloudhub.io`
 |`<app>.internal-<space-id>.can-c1.cloudhub.io`
+
+|US GovCloud (West)
+|`us-gov-west`
+|US Gov
+|`myapp.usg-w1.gov.cloudhub.io`
+| -
 
 .1+|South America
 |Brazil (São Paulo)
