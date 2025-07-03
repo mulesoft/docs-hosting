@@ -257,7 +257,9 @@ You can't add MuleSoft domains or public domains as private space internal DNS.
 // To specify an internal domain, use the second-level domain name, such as `mulesoft.com`.
 
 [NOTE]
-The total number of characters for all configured domains is 229.
+Each domain can have a maximum of 253 characters. Based on this maximum, and the 10 IPs per entry limit, you can add a maximum of 1940 DNS entries. If you use shorter domain names or add less IPs, you can add more than 1940.
+
+
 
 [[connection-type]]
 === Connection Type
