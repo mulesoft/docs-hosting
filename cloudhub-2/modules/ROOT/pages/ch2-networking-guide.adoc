@@ -173,7 +173,7 @@ The DNS record and the load balancer for your integration can change depending o
 include::partial$region-table-long.adoc[]
 
 
-= See Also
+== See Also
 
 * xref:ch2-private-space-about.adoc[]
 * xref:ps-config-ssl-endpoints.adoc[]
