@@ -226,7 +226,7 @@ MuleSoft regularly runs scans to identify security vulnerabilities in JVM and th
 
 After a new update occurs, you can check your xref:ch2-update-apps.adoc#replica-statuses[applications status state] in the *Status* column in Runtime Manager's *Applications* tab.
 
-You can also check your application logs to verify if your application was deployed correctly and take any remediation actions in the event of some auto-minor update-related issue. For more information, visit xref:ch2-view-logs.adoc[View Logs].
+You can also check your application logs to verify if your application was deployed correctly and take any remediation actions in the event of some auto-minor update-related issue. For more information, visit xref:ch2-view-logs.adoc[].
 
 
 == See Also
