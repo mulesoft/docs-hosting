@@ -60,7 +60,7 @@ CloudHub 2.0 distributes multiple concurrent schedulers across replicas.
 Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules.
 * Flow names can contain only upper and lower case letters, numbers, hyphens (`-`), underscores (`_`), and periods (`.`). The following characters are invalid: `/`, `[`, `]`, `{`, `}`, and `#`.
 * CloudHub 2.0 schedules run concurrently by default. The Scheduler triggers the execution of a schedule flow while a previously-triggered execution is still running. To run schedules sequentially, set the `disallowConcurrentExecution` property as `true` in the xref:mule-runtime::scheduler-concept.adoc#props_scheduler[scheduler] configuration file. 
-* By default, schedulers use the same time zone as the machine on which Mule is running. You can change it by adding the time zone you want. For more information, see xref:docs-code-builder::acb-component-scheduler.adoc#cron-expressions[Cron Expressions]. 
+* By default, schedulers use the same time zone as the machine on which Mule is running. You can change it by adding the time zone you want. For more information, see xref:code-builder::acb-component-scheduler.adoc#cron-expressions[Cron Expressions]. 
 
 == Before You Begin
 
