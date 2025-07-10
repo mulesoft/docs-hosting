@@ -141,6 +141,9 @@ include::partial$select-private-space.adoc[tag=clickAdvanced]
 +
 A unique service role name is generated, and you can use this role configure to configure identity and access management for AWS. Role generation might take a few minutes. If the role name does not appear, refresh the page.
 
+[NOTE]
+You can configure only one AWS service role per private space.
+
 == See Also
 
 * https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html[IAM roles^] in the AWS documentation
