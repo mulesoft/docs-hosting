@@ -64,6 +64,12 @@ See xref:private-cloud::index.adoc[About Anypoint Platform PCE] for more informa
 +
 Some Anypoint Platform components are not supported in Anypoint Platform PCE. See the <<Support Matrix for Control Plane Hosting Options>> for details.
 
+This table shows more details about our regional services:
+
+include::cloudhub-2::partial$region-table-short.adoc[]
+
+
+
 === Support Matrix for Control Plane Hosting Options
 
 Not all Anypoint Platform components and features are supported in all cloud environments.
