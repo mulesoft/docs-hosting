@@ -101,7 +101,7 @@ curl -XDELETE https://anypoint.mulesoft.com/runtimefabric/api/{orgId}/privatespa
 ----
 
 
-== Limitations:
+== Limitations
 
 * This configuration supports interface endpoints only
 * This configuration doesn't support CloudHub VPCs or CloudHub 2.0 migrated private spaces
