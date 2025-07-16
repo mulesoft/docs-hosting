@@ -42,8 +42,8 @@ curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}
 .. In the VPC *Endpoint services*, click *Allow principals*
 ... Add `arn:aws:iam::{accountId}:root` as principal
 +
-The `{accountId}`is obtained in the first step step here
-. Gather this information for the API
+The `{accountId}` is obtained in the first step step here
+. Gather this information for the API:
 .. Service Name: the endpoint service name
 +
 For example, customer-hosted endpoint service: `com.amazonaws.vpce.us-east-1.vpce-svc-xxxxxxxxxxxxxxxx`
@@ -53,7 +53,7 @@ For example, AWS hosted service: `com.amazonaws.us-west-2.s3`
 .. Service Owner: the owner of the VPC endpoint service
 ... Account id of the endpoint service 
 ... “amazon”, if it’s an Amazon service
-.. Availability Zone Ids: the id of the availability zones where the customer wishes to establish the private link. Make sure that the AZ Ids are the ones used by the private space (obtained in the first step here), and the VPC endpoint service is hosted in those AZ Ids.
+.. Availability Zone Ids: the id of the availability zones where you wish to establish the private link. Make sure that the AZ Ids are the ones used by the private space (obtained in the first step here), and the VPC endpoint service is hosted in those AZ Ids.
 . Create a VPC endpoint in Cloudhub 2.0 via API
 +
 [source,curl,linenums]
@@ -67,7 +67,7 @@ curl -XPOST https://anypoint.mulesoft.com/runtimefabric/api/{orgId}/privatespace
 }‘
 ----
 +
-If the VPC is successfully created, the API returns a `vpceId`.
+If the VPC endpoint is successfully created, the API returns a `vpceId`.
 . Get the VPC endpoint status in Cloudhub 2.0 using API
 +
 [source,curl,linenums]
@@ -81,7 +81,7 @@ curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/{orgId}/privatespaces
 ... `Valid`: VPCE is being provisioned
 ... `Available`
 ... `PendingAcceptence`
-. Use this command to update a VPC Endpoint
+. Use this command to update a VPC Endpoint:
 +
 [source,curl,linenums]
 ----
@@ -94,7 +94,7 @@ curl -XPATCH https://anypoint.mulesoft.com/runtimefabric/api/{orgId}/privatespac
 }‘
 ----
 +
-. Use this command to delete a VPC Endpoint
+. Use this command to delete a VPC Endpoint:
 [source,curl,linenums]
 ----
 curl -XDELETE https://anypoint.mulesoft.com/runtimefabric/api/{orgId}/privatespaces/{spaceId}/vpces/{vpceid} -H "Authorization:$AUTHTOKEN" 
