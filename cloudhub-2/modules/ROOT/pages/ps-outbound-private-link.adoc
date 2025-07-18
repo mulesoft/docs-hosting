@@ -107,8 +107,7 @@ curl -XDELETE https://anypoint.mulesoft.com/runtimefabric/api/{orgId}/privatespa
 
 
 == Limitations
-* The data rate limit for Private Connect with AWS is managed on an hourly basis. "Outbound connections have a contractual limit of 56.48 GB of data transferred per root organization per hour.
-
+* Outbound connections have a contractual limit of 56.48 GB of data transferred per root organization per hour.
 * This configuration supports interface endpoints only.
 * This configuration doesn't support CloudHub VPCs.
  This configuration doesn't support CloudHub 2.0 private spaces that were xref:cloudhub::vpc-upgrade.adoc[upgraded from CloudHub VPCs].
