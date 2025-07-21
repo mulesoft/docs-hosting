@@ -98,7 +98,8 @@ curl -XDELETE https://anypoint.mulesoft.com/runtimefabric/api/organizations/{org
 ----
 
 == Entitlements
-// each VPC endpoint will consume one of your (customer's) network connection (in the new P&P) and VPN (in the legacy vcore p&p) entitlements.
+
+For UBP organizations, each VPC endpoint consumes one network connection entitlement. For core-based organizations, each VPC endpoint consumes one VPN entitlement.
 
 
 == Limitations
