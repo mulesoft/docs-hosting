@@ -2,16 +2,11 @@
 
 This document describes the steps to configure an outbound private link connection from CloudHub 2.0 private spaces.
 
-// Test in QAX
-// Deploy tf-rtfc-iam to STGX
-// tf issue thread: https://salesforce-internal.slack.com/archives/C03UAEK0TNY/p1752180070663329 - deployed to stgx, need CC for prods
-// CC: https://gus.lightning.force.com/lightning/r/Case/500EE00001ZFcLJYA1/view
-// Test in STGX once RTF API and ARC is ready
 
 == Before You Begin
 
-. Provision a xref:ps-create-configure.adoc[private space] in Cloudhub 2.0.
-. Obtain a bearer token to be used below for calling APIs.
+. Provision a xref:ps-create-configure.adoc[private space] in CloudHub 2.0.
+. Obtain a bearer token for calling APIs.
 +
 Make sure that the owner of the bearer token has permissions to manage private spaces.
 
@@ -19,8 +14,8 @@ Make sure that the owner of the bearer token has permissions to manage private s
 
 Follow these steps to set up an outbound private link connection from your CloudHub 2.0 private space:
 
-. Gather Private Space Availability Zones and AWS Account ID.
-..  Retrieve information about Availability Zones (AZs) for a your private space. 
+. Gather private space Availability Zones and AWS Account ID.
+..  Retrieve information about Availability Zones (AZs) for your private space. 
 +
 [source,curl,linenums]
 ----
@@ -34,12 +29,12 @@ curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/{orgId}/privatespaces
 curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/accounts -H "Authorization:$AUTHTOKEN"
 ----
 +
-. Set up VPC endpoint services (if self-hosted endpoint services).
+. Set up VPC endpoint services (if the endpoint services are self-hosted).
 .. https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html[Create a service powered by AWS PrivateLink]
-.. If the service is hosted the same region as the private space, set up the services in the same availability zone as the private space (obtained in the first step of this section).
-. Share the VPC endpoint Services with your CloudHub 2.0 private space.
+.. If the service is hosted in the same region as the private space, set up the services in the same availability zone as the private space (obtained in the first step of this section).
+. Share the VPC endpoint services with your CloudHub 2.0 private space.
 .. https://docs.aws.amazon.com/vpc/latest/privatelink/configure-endpoint-service.html[Configure an endpoint service].
-.. In the VPC *Endpoint services*, click *Allow principals*.
+.. From VPC *Endpoint services*, select *Allow principals*.
 ... Add `arn:aws:iam::{accountId}:root` as principal.
 +
 The `{accountId}` is obtained in the first step of this section.
@@ -53,14 +48,14 @@ For example, AWS hosted service: `com.amazonaws.us-west-2.s3`.
 .. Service Owner: the owner of the VPC endpoint service.
 ... Account ID of the endpoint service.
 ... “amazon”, if it’s an Amazon service.
-.. Availability Zone IDs: the iIDs of the availability zones where you wish to establish the private link.
+.. Availability Zone IDs: the IDs of the availability zones where you want to establish the private link.
 +
-Make sure that the AZ IDs are the ones used by the private space (obtained in the first step of this section), and the VPC endpoint service is hosted in those AZ IDs.
-. Create a VPC endpoint in Cloudhub 2.0 via API:
+Make sure that the AZ IDs are the ones used by the private space (obtained in the first step of this section), and that the VPC endpoint service is hosted in those AZ IDs.
+. Create a VPC endpoint in CloudHub 2.0 via API:
 +
 [source,curl,linenums]
 ----
-curl -XPOST https://anypoint.mulesoft.com/runtimefabric/api/{orgId}/privatespaces/{spaceId}/vpces -H "Authorization:$AUTHTOKEN"  -H "Content-Type:application/json"  -d '{
+curl -XPOST https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces -H "Authorization:$AUTHTOKEN"  -H "Content-Type:application/json"  -d '{
 	"name": "{any name}",
 	"serviceName": "{service name}",
 	"serviceRegion": "{service region}",
@@ -70,7 +65,7 @@ curl -XPOST https://anypoint.mulesoft.com/runtimefabric/api/{orgId}/privatespace
 ----
 +
 If the VPC endpoint is successfully created, the API returns a `vpceId`.
-. Get the VPC endpoint status in Cloudhub 2.0 using API:
+. Get the VPC endpoint status in CloudHub 2.0 using API:
 +
 [source,curl,linenums]
 ----
@@ -78,16 +73,16 @@ curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/{orgId}/privatespaces
 ----
 +
 .. If successful, it returns the DNS names of the VPC endpoint.
-.. It also returns the the provisioning status:
+.. It also returns the provisioning status:
 ... `Invalid`: VPCE creation failed.
 ... `Valid`: VPCE is being provisioned.
 ... `Available`
 ... `PendingAcceptance`
-. Use this command to update a VPC Endpoint:
+. Use this command to update a VPC endpoint:
 +
 [source,curl,linenums]
 ----
-curl -XPATCH https://anypoint.mulesoft.com/runtimefabric/api/{orgId}/privatespaces/{spaceId}/vpces/{vpceId} -H "Authorization:$AUTHTOKEN"  -H "Content-Type:application/json"  -d '{
+curl -XPATCH https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpceId} -H "Authorization:$AUTHTOKEN"  -H "Content-Type:application/json"  -d '{
 	"name": "{any name}",
 	"serviceName": "{service name}",
 	"serviceRegion": "{service region}",
@@ -96,10 +91,10 @@ curl -XPATCH https://anypoint.mulesoft.com/runtimefabric/api/{orgId}/privatespac
 }‘
 ----
 +
-. Use this command to delete a VPC Endpoint:
+. Use this command to delete a VPC endpoint:
 [source,curl,linenums]
 ----
-curl -XDELETE https://anypoint.mulesoft.com/runtimefabric/api/{orgId}/privatespaces/{spaceId}/vpces/{vpceid} -H "Authorization:$AUTHTOKEN" 
+curl -XDELETE https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpceid} -H "Authorization:$AUTHTOKEN" 
 ----
 
 == Entitlements
@@ -110,7 +105,7 @@ curl -XDELETE https://anypoint.mulesoft.com/runtimefabric/api/{orgId}/privatespa
 * Outbound connections have a contractual limit of 56.48 GB of data transferred per root organization per hour.
 * This configuration supports interface endpoints only.
 * This configuration doesn't support CloudHub VPCs.
- This configuration doesn't support CloudHub 2.0 private spaces that were xref:cloudhub::vpc-upgrade.adoc[upgraded from CloudHub VPCs].
+* This configuration doesn't support CloudHub 2.0 private spaces that are xref:cloudhub::vpc-upgrade.adoc[upgraded from CloudHub VPCs].
 
 
 
