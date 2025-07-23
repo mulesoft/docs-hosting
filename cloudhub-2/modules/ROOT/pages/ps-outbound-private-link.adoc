@@ -99,7 +99,7 @@ curl -XDELETE https://anypoint.mulesoft.com/runtimefabric/api/organizations/{org
 
 == Entitlements
 
-For UBP organizations, each VPC endpoint consumes one network connection entitlement. For core-based organizations, each VPC endpoint consumes one VPN entitlement.
+Each VPC endpoint consumes one network connection entitlement per Availability Zone.
 
 
 == Limitations
