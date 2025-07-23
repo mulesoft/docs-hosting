@@ -9,6 +9,7 @@ This document describes the steps to configure an outbound private link connecti
 . Obtain a bearer token for calling APIs.
 +
 Make sure that the owner of the bearer token has permissions to manage private spaces.
+. Make sure that you have enough IPs available in your private space.
 
 == Configure the Outbound Connections
 
@@ -101,12 +102,21 @@ curl -XDELETE https://anypoint.mulesoft.com/runtimefabric/api/organizations/{org
 
 Each VPC endpoint consumes one network connection entitlement per Availability Zone.
 
+[NOTE]
+If you want to configure high availability, set up the private link connection with at least two availability zones. This consumes two network entitlements.
+
 
 == Limitations
 * Outbound connections have a contractual limit of 56.48 GB of data transferred per root organization per hour.
 * This configuration supports interface endpoints only.
 * This configuration doesn't support CloudHub VPCs.
 * This configuration doesn't support CloudHub 2.0 private spaces that are xref:cloudhub::vpc-upgrade.adoc[upgraded from CloudHub VPCs].
+* Network connections are subject to these limits:
+** VPNs per private space: 10
+** TGW per private space: 5
+** VPC endpoints per AZ per private space: `"N"`
+
+// Also is the limit on Network Connections per private space 10 + 5 + "N"?
 
 
 
