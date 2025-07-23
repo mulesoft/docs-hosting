@@ -14,8 +14,8 @@ Make sure that the owner of the bearer token has permissions to manage private s
 
 Follow these steps to set up an outbound private link connection from your CloudHub 2.0 private space:
 
-. Gather private space Availability Zones and AWS Account ID.
-..  Retrieve information about Availability Zones (AZs) for your private space. 
+. Gather private space availability zones (AZs) and AWS Account ID.
+..  Retrieve information about availability zones for your private space. 
 +
 [source,curl,linenums]
 ----
@@ -30,7 +30,7 @@ curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}
 ----
 +
 . Set up VPC endpoint services (if the endpoint services are self-hosted).
-.. https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html[Create a service powered by AWS PrivateLink]
+.. https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html[Create a service powered by AWS PrivateLink].
 .. If the service is hosted in the same region as the private space, set up the services in the same availability zone as the private space (obtained in the first step of this section).
 . Share the VPC endpoint services with your CloudHub 2.0 private space.
 .. https://docs.aws.amazon.com/vpc/latest/privatelink/configure-endpoint-service.html[Configure an endpoint service].
@@ -50,7 +50,7 @@ For example, AWS hosted service: `com.amazonaws.us-west-2.s3`.
 ... “amazon”, if it’s an Amazon service.
 .. Availability Zone IDs: the IDs of the availability zones where you want to establish the private link.
 +
-Make sure that the AZ IDs are the ones used by the private space (obtained in the first step of this section), and that the VPC endpoint service is hosted in those AZ IDs.
+Make sure that the availability zone IDs are the ones used by the private space (obtained in the first step of this section), and that the VPC endpoint service is hosted in those availability zones.
 . Create a VPC endpoint in CloudHub 2.0 via API:
 +
 [source,curl,linenums]
@@ -99,7 +99,7 @@ curl -XDELETE https://anypoint.mulesoft.com/runtimefabric/api/organizations/{org
 
 == Entitlements
 
-Each VPC endpoint consumes one network connection entitlement per Availability Zone.
+Each VPC endpoint consumes one network connection entitlement per availability zone.
 
 [NOTE]
 If you want to configure high availability, set up the private link connection with at least two availability zones. This consumes two network connection entitlements.
