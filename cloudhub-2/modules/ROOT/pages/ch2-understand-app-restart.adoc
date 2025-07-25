@@ -34,10 +34,10 @@ During rebalancing, a maximum of 30% of an application's replicas are rebalanced
 
 This table shows the potential impact of rebalancing operations on your applications based on the number of replicas.
 
-[cols="1,1", options="header"]
+[cols="15,15", options="header"]
 |===
-|Total application Replicas
-|Maximum Disrupted Replicas
+|Total Application Replicas
+|Maximum Replicas Disrupted
 
 |1
 |1
