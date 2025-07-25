@@ -250,9 +250,14 @@ The following internal private DNS domains are not supported:
 * `com`
 * `net`
 * `internal`
-* `local/domain.com`
+* `local`
+* `domain.com`
 
 You can't add MuleSoft domains or public domains as private space internal DNS.
+
+These restrictions also apply the respective subdomains.
+
+As a workaround, you can create CNAME records on your own DNS servers, redirecting a permitted custom domain (e.g., "mycompany.com") to the desired restricted domain. See https://help.salesforce.com/s/articleView?id=001119691&type=1[Cannot add certain domains to CloudHub VPC Internal DNS].
 
 // To specify an internal domain, use the second-level domain name, such as `mulesoft.com`.
 
