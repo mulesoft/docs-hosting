@@ -19,7 +19,7 @@ Follow these steps to set up an outbound private link connection from your Cloud
 +
 [source,curl,linenums]
 ----
-curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/{orgId}/privatespaces/{spaceId}/azs -H "Authorization:$AUTHTOKEN"
+curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/azs -H "Authorization:$AUTHTOKEN"
 ----
 +
 .. Retrieve information about accounts associated with your private space.
@@ -69,7 +69,7 @@ If the VPC endpoint is successfully created, the API returns a `vpceId`.
 +
 [source,curl,linenums]
 ----
-curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/{orgId}/privatespaces/{spaceId}/vpces/{vpceid} -H "Authorization:$AUTHTOKEN" 
+curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpceid} -H "Authorization:$AUTHTOKEN" 
 ----
 +
 .. If successful, it returns the DNS names of the VPC endpoint.
