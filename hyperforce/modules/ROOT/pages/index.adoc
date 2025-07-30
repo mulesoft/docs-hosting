@@ -56,7 +56,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 | xref:studio::index.adoc[Anypoint Studio]|Available |Available | Planned| Planned| n/a
 | xref:visualizer::index.adoc[Anypoint Visualizer] | Available |Available | Planned| Planned| For exceptions, refer to xref:visualizer::index.adoc#visualizer-hyperforce[Anypoint Visualizer on Hyperforce].
 | xref:api-community-manager::index.adoc[API Community Manager]|Available |Available | Planned| Planned| n/a
-| xref:design-center::design-create-publish-api-specs.adoc[API Designer]|Not planned | Not planned | Not planned| Not planned| n/a
+| xref:design-center::design-create-publish-api-specs.adoc[API Designer]|Not planned | Not planned | Planned| Planned| n/a
 | xref:api-experience-hub::index.adoc[API Experience Hub]| Available |Available | Planned| Planned| n/a
 | xref:api-functional-monitoring::index.adoc[API Functional Monitoring]| Available |Available | Planned| Planned| n/a
 | xref:api-governance::index.adoc[API Governance]| Available |Available | Planned| Planned| n/a
