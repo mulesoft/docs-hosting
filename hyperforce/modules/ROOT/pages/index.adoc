@@ -42,74 +42,42 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 [%header%autowidth.spread,cols=".^a,.^a,.^a,.^a,.^a,.^a,.^a]
 |===
 |Component |Feature Description |US Cloud | EU Cloud | Canada Cloud | Japan Cloud | Notes
-| Access Management | n/a | Planned | Planned | Available | Available |
-.6+|Anypoint API Manager| API Alerts      |  Planned |Planned | Not planned | Not planned .6+|
-                        |API Manager 1.x      |  Not planned |Not planned | Not planned | Not planned 
-                        |API Manager 2.x      |  Not planned |Not planned | Not planned | Not planned 
-                        |API Service Mesh      |  Not planned |Not planned | Not planned | Not planned 
-                        |Key Metrics      |  Planned |Planned | Not planned | Not planned 
-                        |Mule Hybrid and CloudHub Deployment      |  Planned |Planned | Not planned | Not planned 
-|Anypoint Code Builder| n/a | Planned | Planned | Available | Available | For details, refer to 
-.2+|Anypoint Exchange| Amazon Cloud Front      |  Planned |Planned | Available | Available .2+| 
+| xref:access-management::index.adoc[Access Management] | n/a | Planned | Planned | Available | Available | n/a
+|xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]| n/a     |  Planned |Planned | Not planned | Not planned|  For details, refer to xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane],  xref:api-manager::analytics-landing-page.adoc[Mule API Analytics], and xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
+|xref:anypoint-code-builder::index.adoc[Anypoint Code Builder]| n/a | Planned | Planned | Available | Available | For exceptions, refer to xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud IDE]
+.2+|xref:exchange::index.adoc[Anypoint Exchange]| Amazon Cloud Front      |  Planned |Planned | Available | Available .2+| n/a 
                       |Usage and Engagement Metrics      |  Planned | Planned |Available | Available 
-|Anypoint Integration Advanced| n/a | Planned | Planned | Planned | Planned |  
-.11+|Anypoint Monitoring| Alerts      |  Planned |Planned | Planned | Planned .11+| 
-                        |Custom Metrics     | Planned |Planned | Planned | Planned 
-                        |Built-in Dashboard (Not Insights)      |  Not planned |Not planned | Not planned | Not planned  
-                        |Custom Dashboards (Not Insights)      |  Planned |Planned | Planned | Planned
-                        |Notifications      |  Not planned |Not planned | Not planned | Not planned
-                        |Reports      |  Not planned |Not planned | Not planned | Not planned       
-                        |Tools      |  Not planned |Not planned | Not planned | Not planned  
-                        |Anypoints Insights      |  Planned |Planned |Available | Available 
-                        |API Functional Monitoring      |  Planned |Planned |Available | Available 
-                        |Log management/Logs      |  Planned |Planned |Planned | Planned 
-                        |Telemetry Exports      |  Planned |Planned |Planned | Planned 
-.16+|Anypoint MQ| Feature 1      |  Not planned |Not planned | Planned | Planned .16+| 
-                |Feature 1      |  Not planned |Not planned | Planned | Planned 
-                |Feature 3      |  Not planned |Not planned | Planned | Planned
-                |Feature 3      |  Not planned |Not planned | Planned | Planned
-                |Feature 3      |  Not planned |Not planned | Planned | Planned
-                |Feature 3      |  Not planned |Not planned | Planned | Planned
-                |Feature 7      |  Not planned |Not planned | Planned | Planned
-                |Feature 3      |  Not planned |Not planned | Planned | Planned
-                |Feature 3      |  Not planned |Not planned | Planned | Planned
-                |Feature 3      |  Not planned |Not planned | Planned | Planned
-                |Feature 3      |  Not planned |Not planned | Planned | Planned
-                |Feature 3      |  Not planned |Not planned | Planned | Planned
-                |Feature 3      |  Not planned |Not planned | Planned | Planned
-                |Feature 3      |  Not planned |Not planned | Planned | Planned
-                |Feature 3      |  Not planned |Not planned | Planned | Planned
-                |Feature 16      |  Not planned |Not planned | Planned | Planned
-|Anypoint Mule API Analytics| REST APIs | Planned | Planned | Not planned | Not planned | 
-|Anypoint Partner Manager| n/a | Planned | Planned | Planned | Planned |
-|Anypoint Runtime Manager| n/a | Planned | Planned | Available | Available |  
-|Anypoint Security Secrets Manager| n/a | Planned | Planned | Available | Available | 
-|Anypoint Studio| n/a | Planned | Planned | Available | Available |
-|Anypoint Visualizer| n/a | Planned | Planned | Available | Available |
-|API Community Manager| n/a | Planned | Planned | Available | Available |
-|API Designer| n/a | Planned | Planned | Not planned | Not planned |
-|API Experience Hub| n/a | Planned | Planned | Available | Available |
-|API Functional Monitoring| n/a | Planned | Planned | Available | Available |
-|API Governance| n/a | Planned | Planned | Available | Available |
-|API Mocking Service| n/a | Planned | Planned | Available | Available |
-|CloudHub| n/a | Planned | Planned | Not planned | Not planned |
-|CloudHub 2| Anypoint Monitoring | Planned | Planned | Available | Available |
-|Connectors| n/a | Planned | Planned | Available | Available |
-|Dataloader| n/a | Planned | Not planned | Not planned | Not planned|
-.4+|Flex Gateway| API Key Metrics | Available | Available | Planned | Planned .4+|
+|Anypoint Integration Advanced| n/a | Planned | Planned | Planned | Planned |  n/a 
+|xref:monitoring::index.adoc[Anypoint Monitoring]| n/a |  Planned |Planned | Available | Available| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
+|xref:mq::index.adoc[Anypoint MQ]| n/a |  Planned |Planned | Available | Available | For details, refer to xref:mq::index.adoc#mq-features-control-plane[Anypoint MQ Features by Control Plane]
+|xref:api-manager::analytics-landing-page.adoc[Anypoint Mule API Analytics]| REST APIs | Planned | Planned | Not planned | Not planned | n/a
+|xref:partner-manager::index.adoc[Anypoint Partner Manager]| n/a | Planned | Planned | Planned | Planned | n/a
+|xref:runtime-manager::index.adoc[Anypoint Runtime Manager]| n/a | Planned | Planned | Available | Available |  n/a
+|xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager]| n/a | Planned | Planned | Available | Available | n/a
+|xref:studio::index.adoc[Anypoint Studio]| n/a | Planned | Planned | Available | Available | n/a
+|xref:visualizer::index.adoc[Anypoint Visualizer]| n/a | Planned | Planned | Available | Available | For details, refer to xref:visualizer::index.adoc#visualizer-hyperforce[Anypoint Visualizer Features by Control Plane]. 
+|xref:api-community-manager::index.adoc[API Community Manager]| n/a | Planned | Planned | Available | Available | n/a
+|xref:design-center::design-create-publish-api-specs.adoc[API Designer]| n/a | Planned | Planned | Not planned | Not planned | n/a
+|xref:api-experience-hub::index.adoc[API Experience Hub]| n/a | Planned | Planned | Available | Available | n/a
+|xref:api-functional-monitoring::index.adoc[API Functional Monitoring]| n/a | Planned | Planned | Available | Available | n/a
+|xref:api-governance::index.adoc[API Governance]| n/a | Planned | Planned | Available | Available | n/a
+|xref:design-center::design-mocking-service.adoc[API Mocking Service]| n/a | Planned | Planned | Available | Available | n/a
+|xref:cloudhub::index.adoc[CloudHub]| n/a | Planned | Planned | Not planned | Not planned | n/a
+|xref:cloudhub-2::index.adoc[CloudHub 2.0]| n/a | Planned | Planned | Available | Available | For details, refer to xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 Features by Control Plane]. 
+|Connectors| n/a | Planned | Planned | Available | Available | n/a
+|Dataloader| n/a | Planned | Not planned | Not planned | Not planned| n/a
+.4+|xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway]| API Key Metrics | Available | Available | Planned | Planned .4+| n/a
                 | Flex Gateway Running in Connected Mode | Planned | Planned | Available | Available
                 | Flex Gateway Running in Local Mode | Planned | Planned | Available | Available
                 | Managed Flex Gateway | Planned | Planned | Planned | Planned
-|Hybrid Standalone Deployment| n/a | Planned | Planned | Not planned | Not planned|
-.2+|Mule Gateway| Mule Gateway Proxies | Planned | Planned | Available | Available .2+|
+|Hybrid Standalone Deployment| n/a | Planned | Planned | Not planned | Not planned| n/a
+.2+|xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway]| Mule Gateway Proxies | Planned | Planned | Available | Available .2+| n/a
                 | Mule Gateway Policies | Planned | Planned | Available | Available
-|Mule runtime engine| n/a | Planned | Planned | Available | Available|
-|MUnit| n/a | Planned | Planned | Available | Available|
-.3+|Object Store V2| CloudHub Deployment | Planned | Planned | Not planned | Not planned .3+|
-                | Usage Charts | Planned | Planned | Not planned | Not planned
-                | REST APIs |  |  |  | 
-|Runtime Fabric| n/a | Planned | Planned | Available | Available| 
-|Usage Reports| n/a | Planned | Planned | Available | Available|      
+|xref:mule-runtime::index.adoc[Mule runtime engine]| n/a | Planned | Planned | Available | Available| Mule 3 is not supported as it reached EOL.
+|xref:munit::index.adoc[MUnit]| n/a | Planned | Planned | Available | Available| n/a
+|xref:object-store::index.adoc[Object Store V2]| n/a | Planned | Planned | Available | Available| For details, refer to xref:object-store::index.adoc##os-features-control-plane[Object Store Features by Control Plane]
+|xref:runtime-fabric::index.adoc[Runtime Fabric]| n/a | Planned | Planned | Available | Available|  n/a
+|xref:general::usage-reports.adoc[Usage Reports]| n/a | Planned | Planned | Available | Available|   n/a   
 |===
 
 [%header%autowidth.spread]
