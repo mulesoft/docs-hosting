@@ -39,6 +39,79 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 * Planned: Feature is scheduled for a future release on Hyperforce.
 * Not planned: Feature is not currently planned for release or is not supported on Hyperforce.
 
+[%header%autowidth.spread,cols=".^a,.^a,.^a,.^a,.^a,.^a,.^a]
+|===
+|Component |Feature Description |US Cloud | EU Cloud | Canada Cloud | Japan Cloud | Notes
+| Access Management | n/a | Planned | Planned | Available | Available |
+.6+|Anypoint API Manager| API Alerts      |  Planned |Planned | Not planned | Not planned .6+|
+                        |API Manager 1.x      |  Not planned |Not planned | Not planned | Not planned 
+                        |API Manager 2.x      |  Not planned |Not planned | Not planned | Not planned 
+                        |API Service Mesh      |  Not planned |Not planned | Not planned | Not planned 
+                        |Key Metrics      |  Planned |Planned | Not planned | Not planned 
+                        |Mule Hybrid and CloudHub Deployment      |  Planned |Planned | Not planned | Not planned 
+|Anypoint Code Builder| n/a | Planned | Planned | Available | Available | For details, refer to 
+.2+|Anypoint Exchange| Amazon Cloud Front      |  Planned |Planned | Available | Available .2+| 
+                      |Usage and Engagement Metrics      |  Planned | Planned |Available | Available 
+|Anypoint Integration Advanced| n/a | Planned | Planned | Planned | Planned |  
+.11+|Anypoint Monitoring| Alerts      |  Planned |Planned | Planned | Planned .11+| 
+                        |Custom Metrics     | Planned |Planned | Planned | Planned 
+                        |Built-in Dashboard (Not Insights)      |  Not planned |Not planned | Not planned | Not planned  
+                        |Custom Dashboards (Not Insights)      |  Planned |Planned | Planned | Planned
+                        |Notifications      |  Not planned |Not planned | Not planned | Not planned
+                        |Reports      |  Not planned |Not planned | Not planned | Not planned       
+                        |Tools      |  Not planned |Not planned | Not planned | Not planned  
+                        |Anypoints Insights      |  Planned |Planned |Available | Available 
+                        |API Functional Monitoring      |  Planned |Planned |Available | Available 
+                        |Log management/Logs      |  Planned |Planned |Planned | Planned 
+                        |Telemetry Exports      |  Planned |Planned |Planned | Planned 
+.16+|Anypoint MQ| Feature 1      |  Not planned |Not planned | Planned | Planned .16+| 
+                |Feature 1      |  Not planned |Not planned | Planned | Planned 
+                |Feature 3      |  Not planned |Not planned | Planned | Planned
+                |Feature 3      |  Not planned |Not planned | Planned | Planned
+                |Feature 3      |  Not planned |Not planned | Planned | Planned
+                |Feature 3      |  Not planned |Not planned | Planned | Planned
+                |Feature 7      |  Not planned |Not planned | Planned | Planned
+                |Feature 3      |  Not planned |Not planned | Planned | Planned
+                |Feature 3      |  Not planned |Not planned | Planned | Planned
+                |Feature 3      |  Not planned |Not planned | Planned | Planned
+                |Feature 3      |  Not planned |Not planned | Planned | Planned
+                |Feature 3      |  Not planned |Not planned | Planned | Planned
+                |Feature 3      |  Not planned |Not planned | Planned | Planned
+                |Feature 3      |  Not planned |Not planned | Planned | Planned
+                |Feature 3      |  Not planned |Not planned | Planned | Planned
+                |Feature 16      |  Not planned |Not planned | Planned | Planned
+|Anypoint Mule API Analytics| REST APIs | Planned | Planned | Not planned | Not planned | 
+|Anypoint Partner Manager| n/a | Planned | Planned | Planned | Planned |
+|Anypoint Runtime Manager| n/a | Planned | Planned | Available | Available |  
+|Anypoint Security Secrets Manager| n/a | Planned | Planned | Available | Available | 
+|Anypoint Studio| n/a | Planned | Planned | Available | Available |
+|Anypoint Visualizer| n/a | Planned | Planned | Available | Available |
+|API Community Manager| n/a | Planned | Planned | Available | Available |
+|API Designer| n/a | Planned | Planned | Not planned | Not planned |
+|API Experience Hub| n/a | Planned | Planned | Available | Available |
+|API Functional Monitoring| n/a | Planned | Planned | Available | Available |
+|API Governance| n/a | Planned | Planned | Available | Available |
+|API Mocking Service| n/a | Planned | Planned | Available | Available |
+|CloudHub| n/a | Planned | Planned | Not planned | Not planned |
+|CloudHub 2| Anypoint Monitoring | Planned | Planned | Available | Available |
+|Connectors| n/a | Planned | Planned | Available | Available |
+|Dataloader| n/a | Planned | Not planned | Not planned | Not planned|
+.4+|Flex Gateway| API Key Metrics | Available | Available | Planned | Planned .4+|
+                | Flex Gateway Running in Connected Mode | Planned | Planned | Available | Available
+                | Flex Gateway Running in Local Mode | Planned | Planned | Available | Available
+                | Managed Flex Gateway | Planned | Planned | Planned | Planned
+|Hybrid Standalone Deployment| n/a | Planned | Planned | Not planned | Not planned|
+.2+|Mule Gateway| Mule Gateway Proxies | Planned | Planned | Available | Available .2+|
+                | Mule Gateway Policies | Planned | Planned | Available | Available
+|Mule runtime engine| n/a | Planned | Planned | Available | Available|
+|MUnit| n/a | Planned | Planned | Available | Available|
+.3+|Object Store V2| CloudHub Deployment | Planned | Planned | Not planned | Not planned .3+|
+                | Usage Charts | Planned | Planned | Not planned | Not planned
+                | REST APIs |  |  |  | 
+|Runtime Fabric| n/a | Planned | Planned | Available | Available| 
+|Usage Reports| n/a | Planned | Planned | Available | Available|      
+|===
+
 [%header%autowidth.spread]
 |===
 | Features/Components|Canada Cloud Feature Status |Japan Cloud Feature Status | US Cloud Feature Status | EU Cloud Feature Status |Notes
