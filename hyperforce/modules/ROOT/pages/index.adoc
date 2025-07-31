@@ -43,7 +43,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 |===
 |Component |Feature Description |US Cloud | EU Cloud | Canada Cloud | Japan Cloud | Notes
 | xref:access-management::index.adoc[Access Management] | n/a | Planned | Planned | Available | Available | n/a
-|xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]| n/a     |  Planned |Planned | Not planned | Not planned|  For details, refer to xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane],  xref:api-manager::analytics-landing-page.adoc[Mule API Analytics], and xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
+|xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]| n/a     |  Planned |Planned | Available | Available|  For details, refer to xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane],  xref:api-manager::analytics-landing-page.adoc[Mule API Analytics], and xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
 |xref:anypoint-code-builder::index.adoc[Anypoint Code Builder]| n/a | Planned | Planned | Available | Available | For exceptions, refer to xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud IDE]
 .2+|xref:exchange::index.adoc[Anypoint Exchange]| Amazon Cloud Front      |  Planned |Planned | Available | Available .2+| n/a 
                       |Usage and Engagement Metrics      |  Planned | Planned |Available | Available 
@@ -76,7 +76,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 |xref:mule-runtime::index.adoc[Mule runtime engine]| n/a | Planned | Planned | Available | Available| Mule 3 is not supported as it reached EOL.
 |xref:munit::index.adoc[MUnit]| n/a | Planned | Planned | Available | Available| n/a
 |xref:object-store::index.adoc[Object Store V2]| n/a | Planned | Planned | Available | Available| For details, refer to xref:object-store::index.adoc#os-features-control-plane[Object Store Features by Control Plane]
-|xref:runtime-fabric::index.adoc[Runtime Fabric]| n/a | Planned | Planned | Available | Available|  n/a
+|xref:runtime-fabric::index.adoc[Runtime Fabric]| n/a | Planned | Planned | Available | Available|  Contact your account manager to unlock this capability.
 |xref:general::usage-reports.adoc[Usage Reports]| n/a | Planned | Planned | Available | Available|   n/a   
 |===
 
