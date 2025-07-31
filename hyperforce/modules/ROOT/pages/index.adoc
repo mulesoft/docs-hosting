@@ -76,7 +76,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 |xref:mule-runtime::index.adoc[Mule runtime engine]| n/a | Planned | Planned | Available | Available| Mule 3 is not supported as it reached EOL.
 |xref:munit::index.adoc[MUnit]| n/a | Planned | Planned | Available | Available| n/a
 |xref:object-store::index.adoc[Object Store V2]| n/a | Planned | Planned | Available | Available| For details, refer to xref:object-store::index.adoc#os-features-control-plane[Object Store Features by Control Plane]
-|xref:runtime-fabric::index.adoc[Runtime Fabric]| n/a | Planned | Planned | Available | Available|  n/a
+|xref:runtime-fabric::index.adoc[Runtime Fabric]| n/a | Planned | Planned | Available | Available|  Contact your account manager to unlock this capability.
 |xref:general::usage-reports.adoc[Usage Reports]| n/a | Planned | Planned | Available | Available|   n/a   
 |===
 
