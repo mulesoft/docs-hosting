@@ -22,7 +22,7 @@ All features of CloudHub 2.0 are supported on all Control Planes with these exce
 Depending on the Control Plane you are deploying to: 
 
 * Deleting the default egress traffic route, 0.0.0.0, can result in Anypoint Monitoring to not work in CloudHub 2.0.
-* Endpoints URL format uses the region suffix prior to `cloudhub.io`.
+* Endpoints URL format requires the region suffix or not before `cloudhub.io`.
 
 [cols="~,15,20,20,20"]
 |===
