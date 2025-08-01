@@ -88,6 +88,9 @@ Paths support <<placeholder-table,placeholders>>.
 * To add an endpoint, click *Add Endpoint* and specify options.
 * To remove an endpoint, click the *X* in the endpoint row.
 
+[NOTE]
+Depending on the Control Plane you are deploying to, the endpoints URL format uses the region suffix prior to `cloudhub.io`. For applications deployed to the US control plane, dont't add the region suffix, for example: `https://*.10u6w7.usa-e1.cloudhub.io`. For applications deployed to any of the other control planes, use the corresponding region suffx, for example: `https://*.10u6w7.usa-e1.eu1.cloudhub.io`.
+
 --
 
 Path Rewrite::
