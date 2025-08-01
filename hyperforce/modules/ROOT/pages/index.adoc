@@ -45,7 +45,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 | xref:access-management::index.adoc[Access Management] | n/a | Planned | Planned | Available | Available | n/a
 |xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]| n/a     |  Planned |Planned | Available | Available|  For details, refer to xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane],  xref:api-manager::analytics-landing-page.adoc[Mule API Analytics], and xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
 |xref:anypoint-code-builder::index.adoc[Anypoint Code Builder]| n/a | Planned | Planned | Available | Available | For exceptions, refer to xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud IDE]
-.2+|xref:exchange::index.adoc[Anypoint Exchange]| Amazon Cloud Front      |  Planned |Planned | Available | Available .2+| n/a 
+.2+|xref:exchange::index.adoc[Anypoint Exchange]| Amazon Cloud Front      |  Planned |Planned | Planned | Planned .2+| n/a 
                       |Usage and Engagement Metrics      |  Planned | Planned |Available | Available 
 |Anypoint Integration Advanced| n/a | Planned | Planned | Planned | Planned |  n/a 
 |xref:monitoring::index.adoc[Anypoint Monitoring]| n/a |  Planned |Planned | Available | Available| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
