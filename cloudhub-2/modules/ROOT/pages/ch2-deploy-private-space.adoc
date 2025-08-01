@@ -89,7 +89,7 @@ Paths support <<placeholder-table,placeholders>>.
 * To remove an endpoint, click the *X* in the endpoint row.
 
 [NOTE]
-Depending on the Control Plane you are deploying to, the endpoints URL format requires the region suffix before `cloudhub.io` or not. For applications deployed to the US control plane, don't add the region suffix, for example: `https://*.10u6w7.usa-e1.cloudhub.io`. For applications deployed to any of the other control planes, add the corresponding region suffix, for example: `https://*.10u6w7.usa-e1.eu1.cloudhub.io`.
+Depending on the control plane you're deploying to, the endpoint URL format requires the region suffix before `cloudhub.io` or not. For applications deployed to the US control plane, don't add the region suffix, for example: `https://*.10u6w7.usa-e1.cloudhub.io`. For applications deployed to any of the other control planes, add the corresponding region suffix, for example: `https://*.10u6w7.usa-e1.eu1.cloudhub.io`.
 
 --
 
