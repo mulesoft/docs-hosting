@@ -51,7 +51,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 |xref:monitoring::index.adoc[Anypoint Monitoring]| n/a |  Planned |Planned | Available | Available| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
 |xref:mq::index.adoc[Anypoint MQ]| n/a |  Planned |Planned | Available | Available | For details, refer to xref:mq::index.adoc#mq-features-control-plane[Anypoint MQ Features by Control Plane]
 |xref:api-manager::analytics-landing-page.adoc[Anypoint Mule API Analytics]| REST APIs | Planned | Planned | Not planned | Not planned | n/a
-|xref:partner-manager::index.adoc[Anypoint Partner Manager]| n/a | Planned | Planned | Planned | Planned | n/a
+|xref:partner-manager::index.adoc[Anypoint Partner Manager]| n/a | Planned | Planned | Available | Available | n/a
 |xref:runtime-manager::index.adoc[Anypoint Runtime Manager]| n/a | Planned | Planned | Available | Available |  n/a
 |xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager]| n/a | Planned | Planned | Available | Available | n/a
 |xref:studio::index.adoc[Anypoint Studio]| n/a | Planned | Planned | Available | Available | n/a
