@@ -63,7 +63,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 |xref:api-governance::index.adoc[API Governance]| n/a | Planned | Planned | Available | Available | n/a
 |xref:design-center::design-mocking-service.adoc[API Mocking Service]| n/a | Planned | Planned | Available | Available | n/a
 |xref:cloudhub::index.adoc[CloudHub]| n/a | Planned | Planned | Not planned | Not planned | n/a
-|xref:cloudhub-2::index.adoc[CloudHub 2.0]| n/a | Planned | Planned | Available | Available | For details, refer to xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 Features by Control Plane]. 
+|xref:cloudhub-2::index.adoc[CloudHub 2.0]| Deleting the Default Route | Planned | Planned | Available | Available | For details, refer to xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 Features by Control Plane]. 
 |Connectors| n/a | Planned | Planned | Available | Available | n/a
 |Dataloader| n/a | Planned | Not planned | Not planned | Not planned| n/a
 .4+|xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway]| API Key Metrics | Available | Available | Planned | Planned .4+| n/a
