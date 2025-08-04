@@ -17,11 +17,9 @@ For CloudHub 2.0 pricing information, contact either your account executive or y
 [[cloudhub2-hyperforce]]
 == CloudHub 2.0 Features by Control Plane
 
-All features of CloudHub 2.0 are supported on all Control Planes with these exceptions:
+All CloudHub 2.0 features are supported across all control planes, with a few exceptions that vary by deployment region:
 
-Depending on the Control Plane you're deploying to: 
-
-* Deleting the default egress traffic route, 0.0.0.0, can result in Anypoint Monitoring to not work in CloudHub 2.0.
+* Deleting the default egress traffic route (0.0.0.0) can cause Anypoint Monitoring to fail in CloudHub 2.0.
 * The endpoint URL format requires the region suffix or not before `cloudhub.io`.
 
 [cols="~,15,20,20,20"]
