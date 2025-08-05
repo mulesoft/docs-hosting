@@ -21,14 +21,20 @@ Minimizes downtime for releases and maintenance. Additionally, it accelerates de
 * Privacy +
 Provides you privacy standards that give you control and transparency over your users' data.
 
-== Before You Begin
+== Deploy Mule Apps to Control Planes
 
-Before deploying Mule apps to Hyperforce your MuleSoft account must have access to a Hyperforce instance. Contact your MuleSoft account representative to provision a MuleSoft license to a Hyperforce instance.
+To deploy Mule applications to a specific control plane, you must perform certain tasks based on the region.
 
-After you have access to a Hyperforce instance, refer to these topics:
-
-* xref:configure-mule-hyperforce.adoc[Configuring Mule to Access Hyperforce]
-* xref:deploy-mule-apps-hyperforce.adoc[Deploying Mule Apps to Hyperforce]
+[%header%autowidth.spread]
+|===
+| Region Control Plane | Task
+a| * US Cloud | xref:cloudhub-2::ch2-deploy.adoc[Deploy Mule Apps to CloudHub 2.0]
+a| * EU Cloud
+* Canada Cloud
+* Japan Cloud
+    a| . xref:configure-mule-hyperforce.adoc[Configure Mule to Access Control Planes] +
+. xref:deploy-mule-apps-hyperforce.adoc[Deploy Mule Apps to Control Planes]
+|===
 
 
 == Features Supported on Hyperforce
@@ -44,15 +50,23 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 |Component |Feature Description |US Cloud | EU Cloud | Canada Cloud | Japan Cloud | Notes
 | xref:access-management::index.adoc[Access Management] | n/a | Planned | Planned | Available | Available | n/a
 |xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]| n/a     |  Planned |Planned | Available | Available|  For details, refer to xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane],  xref:api-manager::analytics-landing-page.adoc[Mule API Analytics], and xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
-|xref:anypoint-code-builder::index.adoc[Anypoint Code Builder]| n/a | Planned | Planned | Available | Available | For exceptions, refer to xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud IDE]
-.2+|xref:exchange::index.adoc[Anypoint Exchange]| Amazon Cloud Front      |  Planned |Planned | Planned | Planned .2+| n/a 
-                      |Usage and Engagement Metrics      |  Planned | Planned |Available | Available 
+|xref:anypoint-code-builder::index.adoc[Anypoint Code Builder]| n/a | Planned | Planned | Available | Available | For details, refer to xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud Hosts]
+.3+|xref:exchange::index.adoc[Anypoint Exchange]| All other features      |  Planned |Planned | Available | Available .3+| n/a 
+                      | Amazon Cloud Front      |  Planned |Planned | Planned | Planned
+                      |Usage and Engagement Metrics      |  Planned | Planned |Planned | Planned 
 |Anypoint Integration Advanced| n/a | Planned | Planned | Planned | Planned |  n/a 
-|xref:monitoring::index.adoc[Anypoint Monitoring]| n/a |  Planned |Planned | Available | Available| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
+.7+|xref:monitoring::index.adoc[Anypoint Monitoring]| Alerts |  Planned |Planned | Planned | Planned .7+| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
+                                                     |Custom Metrics       |  Planned |Planned | Planned| Planned
+                                                     |Built-in Dashboards (Not Insights)       |  Not planned |Not planned | Not planned| Not planned
+                                                     |Anypoints Insights       |  Planned | Planned | Available| Available
+                                                     |API Functional Monitoring       |  Planned | Planned | Available| Available
+                                                     |Log Management/Logs       |  Planned | Planned | Planned| Planned
+                                                     |Telemetry Exports       |  Planned | Planned | Available| Available
 |xref:mq::index.adoc[Anypoint MQ]| n/a |  Planned |Planned | Available | Available | For details, refer to xref:mq::index.adoc#mq-features-control-plane[Anypoint MQ Features by Control Plane]
 |xref:api-manager::analytics-landing-page.adoc[Anypoint Mule API Analytics]| REST APIs | Planned | Planned | Not planned | Not planned | n/a
 |xref:partner-manager::index.adoc[Anypoint Partner Manager]| n/a | Planned | Planned | Available | Available | n/a
-|xref:runtime-manager::index.adoc[Anypoint Runtime Manager]| n/a | Planned | Planned | Available | Available |  n/a
+.2+|xref:runtime-manager::index.adoc[Anypoint Runtime Manager]| All other features | Planned | Planned | Available | Available .2+|  n/a
+                                                              | Insights | Planned | Planned | Available | Available
 |xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager]| n/a | Planned | Planned | Available | Available | n/a
 |xref:studio::index.adoc[Anypoint Studio]| n/a | Planned | Planned | Available | Available | n/a
 |xref:visualizer::index.adoc[Anypoint Visualizer]| n/a | Planned | Planned | Available | Available | For details, refer to xref:visualizer::index.adoc#visualizer-hyperforce[Anypoint Visualizer Features by Control Plane]. 
@@ -80,7 +94,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 |xref:general::usage-reports.adoc[Usage Reports]| n/a | Planned | Planned | Available | Available|   n/a   
 |===
 
-== Hyperforce Cloud Regions
+== Control Plane Regions
 
 This table indicates the available and planned cloud regions for Hyperforce:
 
@@ -90,10 +104,10 @@ This table indicates the available and planned cloud regions for Hyperforce:
 [%header%autowidth.spread]
 |===
 |Location | Region Control Plane | Anypoint Platform URL | Status
-|North America | Canada Cloud | ca1.platform.mulesoft.com | Available
-|Asia Pacific | Japan Cloud | jp1.platform.mulesoft.com | Available
-|North America | US Cloud | anypoint.mulesoft.com | Planned
-|Europe | EU Cloud | eu1.platform.mulesoft.com | Planned
+|North America | Canada Cloud | `ca1.platform.mulesoft.com` | Available
+|Asia Pacific | Japan Cloud | `jp1.platform.mulesoft.com` | Available
+|North America | US Cloud | `anypoint.mulesoft.com` | Planned
+|Europe | EU Cloud | `eu1.platform.mulesoft.com` | Planned
 |===
 
 == Mule Runtime Version Compatibility
