@@ -21,14 +21,20 @@ Minimizes downtime for releases and maintenance. Additionally, it accelerates de
 * Privacy +
 Provides you privacy standards that give you control and transparency over your users' data.
 
-== Before You Begin
+== Deploy Mule Apps to Control Planes
 
-Before deploying Mule apps to Hyperforce your MuleSoft account must have access to a Hyperforce instance. Contact your MuleSoft account representative to provision a MuleSoft license to a Hyperforce instance.
+To deploy Mule applications to a specific control plane, you must perform certain tasks based on the region.
 
-After you have access to a Hyperforce instance, refer to these topics:
-
-* xref:configure-mule-hyperforce.adoc[Configuring Mule to Access Hyperforce]
-* xref:deploy-mule-apps-hyperforce.adoc[Deploying Mule Apps to Hyperforce]
+[%header%autowidth.spread]
+|===
+| Region Control Plane | Task
+a| * US Cloud | xref:cloudhub-2::ch2-deploy.adoc[Deploying to CloudHub 2.0].
+a| * EU Cloud
+* Canada Cloud
+* Japan Cloud
+    a| . xref:configure-mule-hyperforce.adoc[Configure Mule to Access Control Planes] +
+. xref:deploy-mule-apps-hyperforce.adoc[Deploy Mule Apps to Control Planes]
+|===
 
 
 == Features Supported on Hyperforce
@@ -88,7 +94,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 |xref:general::usage-reports.adoc[Usage Reports]| n/a | Planned | Planned | Available | Available|   n/a   
 |===
 
-== Hyperforce Cloud Regions
+== Control Plane Regions
 
 This table indicates the available and planned cloud regions for Hyperforce:
 
@@ -98,10 +104,10 @@ This table indicates the available and planned cloud regions for Hyperforce:
 [%header%autowidth.spread]
 |===
 |Location | Region Control Plane | Anypoint Platform URL | Status
-|North America | Canada Cloud | ca1.platform.mulesoft.com | Available
-|Asia Pacific | Japan Cloud | jp1.platform.mulesoft.com | Available
-|North America | US Cloud | anypoint.mulesoft.com | Planned
-|Europe | EU Cloud | eu1.platform.mulesoft.com | Planned
+|North America | Canada Cloud | `ca1.platform.mulesoft.com` | Available
+|Asia Pacific | Japan Cloud | `jp1.platform.mulesoft.com` | Available
+|North America | US Cloud | `anypoint.mulesoft.com` | Planned
+|Europe | EU Cloud | `eu1.platform.mulesoft.com` | Planned
 |===
 
 == Mule Runtime Version Compatibility
