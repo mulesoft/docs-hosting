@@ -45,13 +45,13 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 | xref:access-management::index.adoc[Access Management] | n/a | Planned | Planned | Available | Available | n/a
 |xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]| n/a     |  Planned |Planned | Available | Available|  For details, refer to xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane],  xref:api-manager::analytics-landing-page.adoc[Mule API Analytics], and xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
 |xref:anypoint-code-builder::index.adoc[Anypoint Code Builder]| n/a | Planned | Planned | Available | Available | For exceptions, refer to xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud IDE]
-.2+|xref:exchange::index.adoc[Anypoint Exchange]| Amazon Cloud Front      |  Planned |Planned | Available | Available .2+| n/a 
+.2+|xref:exchange::index.adoc[Anypoint Exchange]| Amazon Cloud Front      |  Planned |Planned | Planned | Planned .2+| n/a 
                       |Usage and Engagement Metrics      |  Planned | Planned |Available | Available 
 |Anypoint Integration Advanced| n/a | Planned | Planned | Planned | Planned |  n/a 
 |xref:monitoring::index.adoc[Anypoint Monitoring]| n/a |  Planned |Planned | Available | Available| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
 |xref:mq::index.adoc[Anypoint MQ]| n/a |  Planned |Planned | Available | Available | For details, refer to xref:mq::index.adoc#mq-features-control-plane[Anypoint MQ Features by Control Plane]
 |xref:api-manager::analytics-landing-page.adoc[Anypoint Mule API Analytics]| REST APIs | Planned | Planned | Not planned | Not planned | n/a
-|xref:partner-manager::index.adoc[Anypoint Partner Manager]| n/a | Planned | Planned | Planned | Planned | n/a
+|xref:partner-manager::index.adoc[Anypoint Partner Manager]| n/a | Planned | Planned | Available | Available | n/a
 |xref:runtime-manager::index.adoc[Anypoint Runtime Manager]| n/a | Planned | Planned | Available | Available |  n/a
 |xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager]| n/a | Planned | Planned | Available | Available | n/a
 |xref:studio::index.adoc[Anypoint Studio]| n/a | Planned | Planned | Available | Available | n/a
@@ -63,13 +63,13 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 |xref:api-governance::index.adoc[API Governance]| n/a | Planned | Planned | Available | Available | n/a
 |xref:design-center::design-mocking-service.adoc[API Mocking Service]| n/a | Planned | Planned | Available | Available | n/a
 |xref:cloudhub::index.adoc[CloudHub]| n/a | Planned | Planned | Not planned | Not planned | n/a
-|xref:cloudhub-2::index.adoc[CloudHub 2.0]| n/a | Planned | Planned | Available | Available | For details, refer to xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 Features by Control Plane]. 
+|xref:cloudhub-2::index.adoc[CloudHub 2.0]| Deleting the Default Egress Route | Planned | Planned | Available | Available | For details, refer to xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 Features by Control Plane]. 
 |Connectors| n/a | Planned | Planned | Available | Available | n/a
 |Dataloader| n/a | Planned | Not planned | Not planned | Not planned| n/a
 .4+|xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway]| API Key Metrics | Available | Available | Planned | Planned .4+| n/a
                 | Flex Gateway Running in Connected Mode | Planned | Planned | Available | Available
                 | Flex Gateway Running in Local Mode | Planned | Planned | Available | Available
-                | Managed Flex Gateway | Planned | Planned | Planned | Planned
+                | Managed Flex Gateway | Planned | Planned | Available | Available
 |Hybrid Standalone Deployment| n/a | Planned | Planned | Not planned | Not planned| n/a
 .2+|xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway]| Mule Gateway Proxies | Planned | Planned | Available | Available .2+| n/a
                 | Mule Gateway Policies | Planned | Planned | Available | Available
