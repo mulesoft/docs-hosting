@@ -13,7 +13,7 @@ a| * EU Cloud
     a| To deploy to these regions, follow these tasks: +
 
 . Change the Anypoint Platform endpoints URLs to the region control plane endpoints: +
-* xref:configure-mule-hyperforce.adoc[Configuring Mule to Access Control Planes]
+* xref:configure-mule-hyperforce.adoc[Configure Mule to Access Control Planes]
 * xref:exchange::to-publish-assets-maven.adoc#publish-an-asset-to-exchange-using-maven[Publish an Asset to Exchange Using Maven]
 * xref:anypoint-code-builder::start-acb.adoc#change-clouds[Configure Anypoint Code Builder to a Different Control Plane]
 * xref:studio::hyperforce-configuration.adoc[Configure Anypoint Studio for Control Planes]
