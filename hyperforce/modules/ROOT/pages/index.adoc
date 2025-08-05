@@ -28,7 +28,7 @@ To deploy Mule applications to a specific control plane, you must perform certai
 [%header%autowidth.spread]
 |===
 | Region Control Plane | Task
-a| * US Cloud | xref:cloudhub-2::ch2-deploy.adoc[Deploying to CloudHub 2.0]
+a| * US Cloud | xref:cloudhub-2::ch2-deploy.adoc[Deploy Mule Apps to CloudHub 2.0]
 a| * EU Cloud
 * Canada Cloud
 * Japan Cloud
