@@ -77,7 +77,11 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 |xref:api-governance::index.adoc[API Governance]| n/a | Planned | Planned | Available | Available | n/a
 |xref:design-center::design-mocking-service.adoc[API Mocking Service]| n/a | Planned | Planned | Available | Available | n/a
 |xref:cloudhub::index.adoc[CloudHub]| n/a | Planned | Planned | Not planned | Not planned | n/a
-|xref:cloudhub-2::index.adoc[CloudHub 2.0]| Deleting the Default Egress Route | Planned | Planned | Available | Available | For details, refer to xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 Features by Control Plane]. 
+.5+|xref:cloudhub-2::index.adoc[CloudHub 2.0]| All other features | Available | Available | Available | Available .5+| For details, refer to xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 Features by Control Plane]. 
+                                            | Deleting the Default Egress Route | Available | Available | Planned | Planned
+                                            | Global Cloud Deployment | Available | Available |Not planned | Not planned
+                                            | Private Space | Available | Available |Available | Available
+                                            | Private Space - VPN | Available | Available |Available | Available
 |Connectors| n/a | Planned | Planned | Available | Available | n/a
 |Dataloader| n/a | Planned | Not planned | Not planned | Not planned| n/a
 .4+|xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway]| API Key Metrics | Available | Available | Planned | Planned .4+| n/a
