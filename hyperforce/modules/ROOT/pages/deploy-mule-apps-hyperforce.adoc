@@ -1,16 +1,14 @@
 = Deploying Mule Apps to Control Planes
 
-When deploying Mule apps to any region control plane (US Cloud, EU Cloud, Canada Cloud, Japan Cloud), you deploy on CloudHub 2.0 to a private or shared space. 
+When deploying Mule apps to any region control plane, you deploy on CloudHub 2.0 to a private or shared space. 
 
 
 [%header%autowidth.spread]
 |===
 | Region Control Plane | Deployment Configurations
 a| * US Cloud | Refer to xref:cloudhub-2::ch2-deploy.adoc[Deploying to CloudHub 2.0] and xref:cloudhub-2::ch2-architecture.adoc#shared-global-regions[Shared Global Regions].
-a| * EU Cloud
-* Canada Cloud
-* Japan Cloud
-    a| To deploy to these regions, follow these tasks: +
+a| Other Clouds
+    a| To deploy to other cloud regions, follow these tasks: +
 
 . Change the Anypoint Platform endpoints URLs to the region control plane endpoints: +
 * xref:configure-mule-hyperforce.adoc[Configure Mule to Access Control Planes]
