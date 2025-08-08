@@ -32,6 +32,10 @@ curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}
 . Set up VPC endpoint services (if the endpoint services are self-hosted).
 .. https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html[Create a service powered by AWS PrivateLink].
 .. If the service is hosted in the same region as the private space, set up the services in the same availability zone as the private space (obtained in the first step of this section). For cross-region services, you don’t need AZ alignment.
++
+[NOTE]
+Validation for cross-region connectivity is not yet complete; its success depends on the configuration.
++
 . Share the VPC endpoint services with your CloudHub 2.0 private space.
 .. https://docs.aws.amazon.com/vpc/latest/privatelink/configure-endpoint-service.html[Configure an endpoint service].
 .. From VPC *Endpoint services*, select *Allow principals*.
