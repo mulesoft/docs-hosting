@@ -21,7 +21,6 @@ a| * EU Cloud
 . xref:cloudhub-2::ch2-deploy.adoc[Deploy to CloudHub 2.0]
 |===
 
-Note that deploying to xref:cloudhub::index.adoc[CloudHub] is not supported. 
 
 == See Also
 
