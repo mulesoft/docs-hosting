@@ -1,4 +1,5 @@
 = Salesforce Hyperforce
+:page-aliases: deploy-mule-apps-hyperforce.adoc
 
 Salesforce Hyperforce (Hyperforce) is a modern, scalable, and secure infrastructure designed to support your MuleSoft application deployments. Hyperforce enables you to deliver Mule apps rapidly and reliably to locations worldwide, giving you more choice and control over data residency. Mule apps benefit from its integration of enhanced standards for compliance, scalability, security, agility, and privacy.
 
@@ -20,20 +21,6 @@ Minimizes downtime for releases and maintenance. Additionally, it accelerates de
 
 * Privacy +
 Provides you privacy standards that give you control and transparency over your users' data.
-
-== Deploy Mule Apps to Control Planes
-
-To deploy Mule applications to a specific control plane, you must perform certain tasks based on the region.
-
-[%header%autowidth.spread]
-|===
-| Region Control Plane | Task
-a| US Cloud | xref:cloudhub-2::ch2-deploy.adoc[Deploy Mule Apps to CloudHub 2.0]
-a| Other Clouds
-    a| . xref:configure-mule-hyperforce.adoc[Configure Mule to Access Control Planes] +
-. xref:deploy-mule-apps-hyperforce.adoc[Deploy Mule Apps to Control Planes]
-|===
-
 
 == Features Supported on Hyperforce
 
@@ -144,6 +131,25 @@ This table indicates the available and planned cloud regions for Hyperforce:
 * Hyperforce is compatible with Mule runtime engine versions under support, 4.4.0 and later.
 * Hyperforce supports the Mule runtime engine LTS and Edge release channels. The recommended customer profile is LTS. For more information, visit xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[]. 
 
+== Deploy Mule Apps to Control Planes
+
+When deploying Mule apps to any region control plane, you deploy on CloudHub 2.0 to a private or shared space. 
+
+[%header%autowidth.spread]
+|===
+| Region Control Plane | Deployment Configurations
+a|  US Cloud | Refer to xref:cloudhub-2::ch2-deploy.adoc[Deploying to CloudHub 2.0] and xref:cloudhub-2::ch2-architecture.adoc#shared-global-regions[Shared Global Regions].
+a| Other Clouds
+    a| To deploy to other cloud regions, follow these tasks: +
+
+. Change the Anypoint Platform endpoints URLs to the region control plane endpoints: +
+* xref:configure-mule-hyperforce.adoc[Configure Mule to Access Control Planes]
+* xref:exchange::to-publish-assets-maven.adoc#publish-an-asset-to-exchange-using-maven[Publish an Asset to Exchange Using Maven]
+* xref:anypoint-code-builder::start-acb.adoc#change-clouds[Configure Anypoint Code Builder to a Different Control Plane]
+* xref:studio::hyperforce-configuration.adoc[Configure Anypoint Studio for Control Planes]
+[start=2]
+. xref:cloudhub-2::ch2-deploy.adoc[Deploy to CloudHub 2.0]
+|===
 
 == See Also
 
