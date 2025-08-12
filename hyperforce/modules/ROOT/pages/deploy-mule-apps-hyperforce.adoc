@@ -6,7 +6,7 @@ When deploying Mule apps to any region control plane, you deploy on CloudHub 2.0
 [%header%autowidth.spread]
 |===
 | Region Control Plane | Deployment Configurations
-a| * US Cloud | Refer to xref:cloudhub-2::ch2-deploy.adoc[Deploying to CloudHub 2.0] and xref:cloudhub-2::ch2-architecture.adoc#shared-global-regions[Shared Global Regions].
+a|  US Cloud | Refer to xref:cloudhub-2::ch2-deploy.adoc[Deploying to CloudHub 2.0] and xref:cloudhub-2::ch2-architecture.adoc#shared-global-regions[Shared Global Regions].
 a| Other Clouds
     a| To deploy to other cloud regions, follow these tasks: +
 

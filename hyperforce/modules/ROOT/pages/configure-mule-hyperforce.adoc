@@ -1,6 +1,6 @@
 = Configuring Mule Properties to Access Control Planes
 
-By default, Mule runtime engine (Mule) is configured to connect to the US Cloud control plane. To use Mule in the EU Cloud, Canada Cloud, or Japan Cloud you must:
+By default, Mule runtime engine (Mule) is configured to connect to the US Cloud control plane. To use Mule in other clouds, you must:
 
 * Redefine the configuration properties that enable Mule to point to the correct control plane. 
 * Provide the xref:access-management::managing-business-groups.adoc#client-id-and-secret[client ID and client secret] of the environment belonging to your organization.
