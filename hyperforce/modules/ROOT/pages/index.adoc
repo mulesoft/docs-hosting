@@ -96,6 +96,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                 | Flex Gateway Running in Local Mode | Planned | Planned | Available | Available
                 | Managed Flex Gateway | Planned | Planned | Available | Available
 |Hybrid Standalone Deployment| n/a | Planned | Planned | Not planned | Not planned| n/a
+|xref:idp::index.adoc[IDP]| n/a | Planned | Planned | Not planned | Not planned| n/a
 .2+|xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway]| Mule Gateway Proxies | Planned | Planned | Available | Available .2+| n/a
                 | Mule Gateway Policies | Planned | Planned | Available | Available
 |xref:mule-runtime::index.adoc[Mule runtime engine]| n/a | Planned | Planned | Available | Available| Mule 3 is not supported as it reached EOL.
@@ -106,6 +107,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 |Object Store v2 Stats API| Not planned | Not planned | Available | Available
 |Usage Charts (Access Management)| Planned | Planned | Available | Available
 |Usage Reports (Usage)| Planned | Planned | Available | Available
+|xref:rpa-home::index.adoc[RPA]| n/a | Planned | Planned | Not planned | Not planned| n/a
 |xref:runtime-fabric::index.adoc[Runtime Fabric]| n/a | Planned | Planned | Available | Available|  Contact your account manager to unlock this capability.
 |xref:general::usage-reports.adoc[Usage Reports]| n/a | Planned | Planned | Available | Available|   n/a   
 |===
