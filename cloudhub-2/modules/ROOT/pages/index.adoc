@@ -15,11 +15,22 @@ CloudHub 2.0:
 For CloudHub 2.0 pricing information, contact either your account executive or your account development representative.
 
 [[cloudhub2-hyperforce]]
-== CloudHub 2.0 on Hyperforce
+== CloudHub 2.0 Features by Control Plane
 
-All features of CloudHub 2.0 are supported on Hyperforce with these exceptions:
+All CloudHub 2.0 features are supported across all control planes, with a few exceptions that vary by deployment region:
 
-When deploying to any Hyperforce supported regions, deleting the default egress traffic route, `0.0.0.0`, can result in Anypoint Monitoring to not work in CloudHub 2.0.
+* Deleting the default egress traffic route (0.0.0.0) can cause Anypoint Monitoring to fail in CloudHub 2.0.
+* The endpoint URL format requires the region suffix or not before `cloudhub.io`.
+
+[cols="~,15,20,20,20"]
+|===
+|CloudHub 2.0 Features |US Cloud |EU Cloud |Canada Cloud |Japan Cloud
+
+| Deleting the Default Route| Available | Available | Not Available | Not Available
+
+| Endpoints URL Format| No region suffix: `https://*.10u6w7.usa-e1.cloudhub.io`| Needs region suffix: `https://*.10u6w7.usa-e1.eu1.cloudhub.io` | Needs region suffix: `https://*.10u6w7.ca-c1.cloudhub.io` | Needs region suffix: `https://*.10u6w7.jp-e1.cloudhub.io`
+|=== 
+
 
 
 == See Also
