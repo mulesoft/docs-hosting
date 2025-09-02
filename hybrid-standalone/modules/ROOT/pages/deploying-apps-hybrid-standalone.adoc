@@ -1,0 +1,264 @@
+= Deploying Mule Apps to Hybrid Standalone Instances
+
+Deploying Mule applications to hybrid standalone instances provides the flexibility of on-premises deployment with cloud-based management capabilities.
+
+== Overview
+
+Application deployment to hybrid standalone instances involves:
+
+* Preparing applications for deployment
+* Selecting appropriate deployment targets
+* Configuring deployment parameters
+* Monitoring deployment progress
+* Managing post-deployment validation
+
+== Deployment Options
+
+=== Target Selection
+
+Choose from available deployment targets:
+
+* *Individual Servers* - Deploy to specific server instances
+* *Server Groups* - Deploy to all servers in a group simultaneously
+* *Clusters* - Deploy to cluster members with high availability
+* *Environment-based* - Deploy based on environment configurations
+
+=== Deployment Strategies
+
+Select appropriate deployment approaches:
+
+* *Standard Deployment* - Direct deployment to target instances
+* *Rolling Deployment* - Gradual deployment across multiple instances
+* *Blue-Green Deployment* - Deploy to alternate environment sets
+* *Canary Deployment* - Limited deployment for testing and validation
+
+== Preparing Applications for Deployment
+
+=== Application Packaging
+
+Ensure proper application packaging:
+
+* Validate JAR/ZIP file integrity
+* Include all required dependencies
+* Configure application descriptors
+* Validate resource configurations
+* Test application locally before deployment
+
+=== Configuration Management
+
+Prepare environment-specific configurations:
+
+* Environment variables
+* Property files and settings
+* Database connection configurations
+* Security credentials and certificates
+* External service endpoints
+
+=== Dependency Management
+
+Manage application dependencies:
+
+* Include required libraries
+* Validate version compatibility
+* Resolve dependency conflicts
+* Configure shared libraries
+* Manage external resource connections
+
+== Deployment Process
+
+=== Using Runtime Manager
+
+Deploy through the Runtime Manager interface:
+
+1. Navigate to Runtime Manager
+2. Select *Applications* from the left menu
+3. Click *Deploy Application*
+4. Choose the application file (JAR/ZIP)
+5. Select deployment target:
+   * Server, server group, or cluster
+6. Configure deployment settings:
+   * Application name
+   * Environment variables
+   * Properties
+7. Review and confirm deployment
+8. Monitor deployment progress
+
+=== Deployment Configuration
+
+Configure deployment parameters:
+
+* *Application Name* - Unique identifier for the application
+* *Runtime Version* - Target Mule runtime version
+* *Resource Allocation* - CPU and memory allocation
+* *Environment Variables* - Application-specific variables
+* *Properties* - Configuration properties and settings
+
+=== Advanced Deployment Options
+
+Configure advanced settings:
+
+* *Logging Configuration* - Log levels and output settings
+* *Monitoring Settings* - Health check and monitoring configuration
+* *Security Settings* - Authentication and authorization parameters
+* *Scheduler Configuration* - Scheduled job settings
+* *Network Configuration* - Port and endpoint settings
+
+== Deployment Validation
+
+=== Pre-deployment Checks
+
+Validate before deployment:
+
+* Application artifact integrity
+* Target resource availability
+* Configuration consistency
+* Dependency requirements
+* Security policy compliance
+
+=== Post-deployment Validation
+
+Verify successful deployment:
+
+* Application startup status
+* Health check responses
+* Functional endpoint testing
+* Performance baseline validation
+* Error log review
+
+== Managing Deployment Lifecycle
+
+=== Application Updates
+
+Update deployed applications:
+
+* Upload new application versions
+* Configure rolling update strategies
+* Plan maintenance windows
+* Implement rollback procedures
+* Validate update success
+
+=== Version Management
+
+Manage application versions:
+
+* Version numbering schemes
+* Rollback capabilities
+* Version comparison and tracking
+* Change documentation
+* Environment promotion strategies
+
+=== Deployment Rollback
+
+Implement rollback procedures:
+
+* Identify rollback triggers
+* Execute rollback procedures
+* Validate rollback success
+* Document rollback events
+* Implement prevention measures
+
+== High Availability Deployments
+
+=== Cluster Deployments
+
+Deploy to clusters for high availability:
+
+* Configure cluster-aware applications
+* Implement shared storage for persistent data
+* Set up automatic failover mechanisms
+* Test failover scenarios
+* Monitor cluster health during deployment
+
+=== Load Balancing
+
+Configure load balancing:
+
+* Distribute traffic across instances
+* Configure health checks
+* Implement session affinity if needed
+* Monitor load distribution
+* Adjust balancing algorithms
+
+== Monitoring Deployed Applications
+
+=== Deployment Monitoring
+
+Monitor deployment progress:
+
+* Track deployment status across targets
+* Monitor resource utilization during deployment
+* Validate successful startup
+* Check application health endpoints
+* Review deployment logs
+
+=== Runtime Monitoring
+
+Monitor running applications:
+
+* Performance metrics and trends
+* Error rates and patterns
+* Resource consumption
+* User activity and load patterns
+* Business KPI monitoring
+
+== Troubleshooting Deployments
+
+=== Common Deployment Issues
+
+Address typical problems:
+
+* Application startup failures
+* Configuration errors
+* Dependency conflicts
+* Resource allocation issues
+* Network connectivity problems
+
+=== Diagnostic Procedures
+
+Use systematic troubleshooting:
+
+* Review deployment logs
+* Validate configuration settings
+* Check resource availability
+* Test network connectivity
+* Analyze application dependencies
+
+=== Resolution Strategies
+
+* Fix configuration issues
+* Adjust resource allocation
+* Resolve dependency conflicts
+* Update application code
+* Implement workarounds
+
+== Best Practices
+
+=== Deployment Planning
+
+* Plan deployments during maintenance windows
+* Test deployments in non-production environments
+* Implement automated deployment procedures
+* Document deployment procedures
+* Plan rollback strategies
+
+=== Security Considerations
+
+* Secure application artifacts
+* Implement proper access controls
+* Validate security configurations
+* Monitor for security vulnerabilities
+* Maintain audit trails
+
+=== Performance Optimization
+
+* Optimize application performance
+* Configure appropriate resource allocation
+* Monitor deployment impact on system performance
+* Plan for scaling requirements
+* Implement performance testing
+
+== See Also
+
+* xref:deployment-server-scaling.adoc[Understanding Deployment and Server Scaling]
+* xref:managing-apps-hybrid-standalone.adoc[Managing Mule Apps Deployed to Hybrid Standalone Instances]
+* xref:monitoring-apps-hybrid-standalone.adoc[Monitoring Mule Apps Deployed to Hybrid Standalone Instances]

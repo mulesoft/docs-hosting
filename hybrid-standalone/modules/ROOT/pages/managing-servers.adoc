@@ -1,0 +1,158 @@
+= Managing Servers
+
+Managing individual servers in your hybrid standalone environment involves monitoring, maintaining, and optimizing server performance and configuration.
+
+== Overview
+
+Server management includes:
+
+* Starting, stopping, and restarting servers
+* Monitoring server health and performance
+* Updating server configurations
+* Managing server resources
+* Troubleshooting server issues
+
+== Server Lifecycle Management
+
+=== Starting and Stopping Servers
+
+To manage server states:
+
+1. Navigate to Runtime Manager
+2. Select *Servers* from the left menu
+3. Choose the server you want to manage
+4. Use the available actions:
+   * *Start* - Begin server operations
+   * *Stop* - Halt server operations  
+   * *Restart* - Stop and start the server
+
+=== Server Status Monitoring
+
+Monitor server status indicators:
+
+* *Running* - Server is operational
+* *Stopped* - Server is not running
+* *Starting* - Server is in startup process
+* *Stopping* - Server is shutting down
+* *Error* - Server encountered an issue
+
+== Configuration Management
+
+=== Server Properties
+
+Manage server-specific settings:
+
+* Runtime version and updates
+* Memory allocation settings
+* Network configuration
+* Security settings
+* Environment variables
+
+=== Configuration Updates
+
+To update server configuration:
+
+1. Select the server in Runtime Manager
+2. Navigate to the *Settings* tab
+3. Modify the required properties
+4. Save changes
+5. Restart the server if required
+
+== Performance Monitoring
+
+=== Key Metrics
+
+Monitor these essential metrics:
+
+* CPU utilization
+* Memory usage
+* Network throughput
+* Disk I/O operations
+* Response times
+
+=== Performance Optimization
+
+Optimize server performance by:
+
+* Adjusting memory allocation
+* Tuning garbage collection settings
+* Optimizing network configurations
+* Managing concurrent connections
+* Implementing caching strategies
+
+== Resource Management
+
+=== Memory Management
+
+Configure memory settings:
+
+* Heap size allocation
+* Garbage collection tuning
+* Memory monitoring and alerts
+* Out-of-memory prevention
+
+=== Storage Management
+
+Manage storage resources:
+
+* Log file rotation and cleanup
+* Temporary file management
+* Database connection pooling
+* File system monitoring
+
+== Security Management
+
+=== Access Control
+
+Implement server security:
+
+* Authentication mechanisms
+* Authorization policies
+* Network security configurations
+* SSL/TLS certificate management
+
+=== Security Updates
+
+Maintain security through:
+
+* Regular security patches
+* Runtime version updates
+* Security configuration reviews
+* Vulnerability assessments
+
+== Troubleshooting
+
+=== Common Issues
+
+Address typical server problems:
+
+* Server startup failures
+* Performance degradation
+* Memory leaks
+* Network connectivity issues
+* Configuration errors
+
+=== Diagnostic Tools
+
+Use available diagnostic tools:
+
+* Server logs and monitoring
+* Performance profiling
+* Network connectivity tests
+* Configuration validation
+* Health check endpoints
+
+== Best Practices
+
+* Implement regular monitoring
+* Schedule routine maintenance
+* Document configuration changes
+* Plan for capacity growth
+* Test disaster recovery procedures
+* Maintain security compliance
+
+== See Also
+
+* xref:creating-servers.adoc[Creating Servers]
+* xref:managing-servers-groups.adoc[Managing Server Groups]
+* xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]

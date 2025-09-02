@@ -1,0 +1,221 @@
+= Hybrid Standalone
+
+Hybrid Standalone allows you to deploy and manage Mule applications on your own infrastructure while leveraging cloud-based management and monitoring capabilities through Anypoint Runtime Manager.
+
+== Overview
+
+Hybrid Standalone deployment provides the best of both worlds:
+
+* **On-premises Control** - Deploy Mule applications on your own infrastructure
+* **Cloud Management** - Manage and monitor applications through Anypoint Platform
+* **Security Compliance** - Meet data residency and security requirements
+* **Operational Flexibility** - Scale and configure based on your specific needs
+
+== Key Benefits
+
+=== Infrastructure Control
+
+Maintain full control over your infrastructure:
+
+* Deploy on your own servers or cloud instances
+* Configure network security according to your policies
+* Meet data residency and compliance requirements
+* Integrate with existing infrastructure and monitoring tools
+
+=== Cloud-Based Management
+
+Leverage Anypoint Platform capabilities:
+
+* Centralized application deployment and management
+* Real-time monitoring and analytics
+* Unified dashboard across hybrid and cloud deployments
+* Automated alerts and notifications
+
+=== Scalability and Performance
+
+Optimize for your specific requirements:
+
+* Scale horizontally by adding more servers
+* Create server groups for load distribution
+* Implement clusters for high availability
+* Configure auto-scaling policies
+
+== Architecture Overview
+
+Hybrid Standalone architecture consists of:
+
+* **Mule Runtime Engine** - Deployed on your infrastructure
+* **Runtime Manager Agent** - Communicates with Anypoint Platform
+* **Anypoint Platform** - Cloud-based management and monitoring
+* **Runtime Manager** - Central management interface
+
+== Getting Started
+
+To begin with Hybrid Standalone:
+
+1. **Plan Your Infrastructure** - Determine server requirements and network configuration
+2. **Set Up Servers** - Install and configure Mule runtime instances
+3. **Register with Runtime Manager** - Connect servers to Anypoint Platform
+4. **Deploy Applications** - Deploy and manage Mule applications
+5. **Monitor and Maintain** - Ongoing monitoring and operational management
+
+== Use Cases
+
+Hybrid Standalone is ideal for:
+
+=== Enterprise Integration
+
+* Connect on-premises systems with cloud services
+* Implement enterprise service bus (ESB) architectures
+* Manage complex integration patterns
+* Ensure data governance and security
+
+=== Regulatory Compliance
+
+* Meet data residency requirements
+* Implement audit trails and compliance reporting
+* Maintain data within specific geographic boundaries
+* Comply with industry-specific regulations
+
+=== High-Performance Requirements
+
+* Low-latency processing requirements
+* High-throughput data processing
+* Custom performance optimization
+* Direct database and system access
+
+=== Legacy System Integration
+
+* Connect with legacy systems and databases
+* Modernize existing integration architectures
+* Gradual migration to cloud-based services
+* Maintain existing network and security configurations
+
+== Deployment Options
+
+Choose from flexible deployment options:
+
+=== Individual Servers
+
+Deploy on individual server instances:
+
+* Simple deployment model
+* Direct server management
+* Suitable for development and testing
+* Easy troubleshooting and debugging
+
+=== Server Groups
+
+Group servers for coordinated management:
+
+* Deploy applications to multiple servers simultaneously
+* Simplified management and configuration
+* Load distribution across group members
+* Coordinated maintenance and updates
+
+=== Clusters
+
+Implement clustering for high availability:
+
+* Automatic failover and load balancing
+* Shared memory and persistent queues
+* Zero-downtime deployments
+* Enhanced performance and reliability
+
+== Infrastructure Requirements
+
+=== Server Requirements
+
+Minimum server specifications:
+
+* **CPU**: 2+ cores recommended
+* **Memory**: 4GB RAM minimum, 8GB+ recommended
+* **Storage**: 10GB available disk space
+* **Network**: Reliable internet connectivity
+* **OS**: Supported operating systems (Linux, Windows)
+
+=== Network Requirements
+
+Network configuration needs:
+
+* Outbound HTTPS connectivity to Anypoint Platform
+* Firewall configuration for Runtime Manager Agent
+* Optional VPN for secure communication
+* Load balancer configuration (for clustered deployments)
+
+=== Security Considerations
+
+Important security aspects:
+
+* SSL/TLS encryption for all communications
+* Certificate management and rotation
+* Access control and authentication
+* Network segmentation and firewall rules
+* Audit logging and monitoring
+
+== Management and Operations
+
+=== Application Lifecycle
+
+Manage complete application lifecycle:
+
+* Development and testing
+* Deployment and configuration
+* Monitoring and maintenance
+* Updates and version management
+* Retirement and cleanup
+
+=== Monitoring and Analytics
+
+Comprehensive monitoring capabilities:
+
+* Real-time performance metrics
+* Application health monitoring
+* Business transaction tracking
+* Custom dashboards and alerts
+* Integration with enterprise monitoring tools
+
+=== Maintenance and Support
+
+Ongoing operational support:
+
+* Regular system updates and patches
+* Performance optimization and tuning
+* Capacity planning and scaling
+* Troubleshooting and issue resolution
+* Disaster recovery and backup procedures
+
+== Best Practices
+
+=== Design Principles
+
+* Design for scalability and high availability
+* Implement proper error handling and recovery
+* Use environment-specific configurations
+* Follow security best practices
+* Plan for monitoring and observability
+
+=== Operational Excellence
+
+* Automate deployment and management processes
+* Implement comprehensive monitoring and alerting
+* Maintain documentation and runbooks
+* Regular performance reviews and optimization
+* Continuous improvement and learning
+
+== Next Steps
+
+Ready to get started with Hybrid Standalone? Here's your path forward:
+
+1. **Review Requirements** - Assess your infrastructure and compliance needs
+2. **Plan Architecture** - Design your deployment topology
+3. **Set Up Infrastructure** - Prepare servers and network configuration
+4. **Install and Configure** - Set up Mule runtime and Runtime Manager Agent
+5. **Deploy Applications** - Start deploying and managing your integration solutions
+
+== See Also
+
+* xref:setting-hybrid-standalone.adoc[Setting up Hybrid Standalone Instances]
+* xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]
+* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]
+* xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]

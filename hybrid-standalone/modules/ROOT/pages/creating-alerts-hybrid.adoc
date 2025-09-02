@@ -1,0 +1,258 @@
+= Creating Alerts for Server, Server Groups or Clusters
+
+Setting up comprehensive alerting ensures proactive monitoring and quick response to issues in your hybrid standalone environment.
+
+== Overview
+
+Alert creation involves:
+
+* Defining alert conditions and thresholds
+* Configuring notification channels
+* Setting up escalation procedures
+* Managing alert policies
+* Testing and validating alerts
+
+== Alert Types
+
+=== Performance Alerts
+
+Monitor performance metrics:
+
+* *CPU Utilization* - Alert when CPU usage exceeds thresholds
+* *Memory Usage* - Monitor memory consumption and garbage collection
+* *Response Time* - Alert on slow response times
+* *Throughput* - Monitor message processing rates
+* *Error Rates* - Alert on increased error percentages
+
+=== Availability Alerts
+
+Monitor service availability:
+
+* *Server Down* - Alert when servers become unavailable
+* *Service Failure* - Monitor service health endpoints
+* *Network Connectivity* - Alert on network issues
+* *Application Failure* - Monitor application status
+* *Cluster Node Failure* - Alert on cluster member failures
+
+=== Capacity Alerts
+
+Monitor resource capacity:
+
+* *Disk Space* - Alert when storage capacity is low
+* *Memory Pressure* - Monitor memory allocation limits
+* *Connection Pool* - Alert on connection exhaustion
+* *Queue Depth* - Monitor message queue backlogs
+* *Thread Pool* - Alert on thread pool exhaustion
+
+== Creating Alerts in Runtime Manager
+
+=== Basic Alert Setup
+
+To create a new alert:
+
+1. Navigate to Runtime Manager
+2. Select *Alerts* from the left menu
+3. Click *Create Alert*
+4. Choose the alert type and scope:
+   * Server-level alerts
+   * Server group alerts
+   * Cluster-wide alerts
+5. Configure alert conditions
+6. Set notification preferences
+7. Save the alert configuration
+
+=== Alert Conditions
+
+Configure specific conditions:
+
+* *Threshold Values* - Set upper and lower limits
+* *Duration* - Specify how long conditions must persist
+* *Frequency* - Define evaluation intervals
+* *Severity Levels* - Assign alert priority levels
+* *Dependencies* - Configure alert dependencies
+
+== Alert Configuration Options
+
+=== Server Alerts
+
+Configure server-specific alerts:
+
+* CPU utilization thresholds
+* Memory usage limits
+* Disk space warnings
+* Network connectivity issues
+* Application health status
+
+=== Server Group Alerts
+
+Set up group-wide monitoring:
+
+* Aggregate performance metrics
+* Group availability status
+* Load distribution imbalances
+* Synchronized configuration issues
+* Deployment status across the group
+
+=== Cluster Alerts
+
+Configure cluster-specific alerts:
+
+* Node communication failures
+* Split-brain scenarios
+* Cluster quorum loss
+* Data synchronization issues
+* Failover event notifications
+
+== Notification Channels
+
+=== Email Notifications
+
+Configure email alerts:
+
+* Recipient lists and distribution groups
+* Email templates and formatting
+* Escalation email sequences
+* Frequency limitations
+* Rich content and attachments
+
+=== Integration Channels
+
+Set up integration with external systems:
+
+* *Slack/Teams* - Instant messaging notifications
+* *SMS* - Text message alerts for critical issues
+* *Webhooks* - Custom HTTP endpoint notifications
+* *SNMP* - Integration with network management systems
+* *PagerDuty* - Incident management integration
+
+== Alert Policies and Escalation
+
+=== Escalation Procedures
+
+Define escalation workflows:
+
+* Primary notification recipients
+* Escalation timeframes
+* Secondary and tertiary contacts
+* Automatic ticket creation
+* Management notification procedures
+
+=== Alert Suppression
+
+Manage alert noise:
+
+* Dependency-based suppression
+* Maintenance window silence
+* Duplicate alert filtering
+* Alert grouping and bundling
+* Threshold adjustment based on patterns
+
+== Advanced Alert Features
+
+=== Conditional Alerts
+
+Create complex alert conditions:
+
+* Multi-metric alert conditions
+* Time-based alert rules
+* Percentage-based thresholds
+* Trend-based alerting
+* Predictive alerting based on patterns
+
+=== Custom Metrics
+
+Monitor custom application metrics:
+
+* Business KPI monitoring
+* Custom application counters
+* External system integration metrics
+* Composite health scores
+* User-defined performance indicators
+
+== Alert Testing and Validation
+
+=== Testing Procedures
+
+Validate alert functionality:
+
+* Trigger test alerts manually
+* Verify notification delivery
+* Test escalation procedures
+* Validate alert suppression
+* Check alert acknowledgment
+
+=== Alert Tuning
+
+Optimize alert effectiveness:
+
+* Adjust thresholds based on experience
+* Reduce false positive rates
+* Improve alert accuracy
+* Optimize notification timing
+* Balance sensitivity and noise
+
+== Alert Management
+
+=== Alert Dashboard
+
+Monitor active alerts:
+
+* Current alert status overview
+* Alert history and trends
+* Escalation status tracking
+* Acknowledgment and resolution
+* Performance metrics for alerting
+
+=== Alert Maintenance
+
+Maintain alert effectiveness:
+
+* Regular threshold review
+* Alert rule updates
+* Notification list maintenance
+* Performance optimization
+* Documentation updates
+
+== Best Practices
+
+=== Alert Design
+
+* Set meaningful thresholds based on baselines
+* Avoid alert fatigue with too many notifications
+* Use clear, actionable alert messages
+* Implement proper escalation procedures
+* Test alerts regularly
+
+=== Operational Practices
+
+* Document alert procedures and runbooks
+* Train team members on alert response
+* Review and update alerts regularly
+* Maintain alert inventory and ownership
+* Analyze alert patterns for improvements
+
+== Troubleshooting Alerts
+
+=== Common Issues
+
+Address typical alert problems:
+
+* False positive alerts
+* Missing critical alerts
+* Notification delivery failures
+* Incorrect threshold settings
+* Alert configuration errors
+
+=== Resolution Strategies
+
+* Review and adjust alert thresholds
+* Validate notification channel configuration
+* Test alert trigger conditions
+* Check alert dependencies and suppression rules
+* Update contact information and escalation procedures
+
+== See Also
+
+* xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]
+* xref:monitoring-dashboards-hybrid.adoc[Monitoring Dashboards for Server, Server Groups and Clusters]
+* xref:creating-alerts-hybrid-apps.adoc[Creating Alerts for Mule Apps Deployed to Hybrid Standalone]

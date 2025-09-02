@@ -1,0 +1,177 @@
+= Managing Server Groups
+
+Managing server groups involves coordinating multiple servers as a single logical unit for streamlined operations and deployment.
+
+== Overview
+
+Server group management includes:
+
+* Adding and removing servers from groups
+* Configuring group-wide settings
+* Monitoring group health and performance
+* Managing deployments across the group
+* Coordinating maintenance activities
+
+== Group Membership Management
+
+=== Adding Servers to Groups
+
+To add servers to an existing group:
+
+1. Navigate to Runtime Manager
+2. Select *Servers* from the left menu
+3. Choose the target server group
+4. Click *Add Server*
+5. Select servers to add from the available list
+6. Confirm the addition
+
+=== Removing Servers from Groups
+
+To remove servers from a group:
+
+1. Select the server group
+2. Choose the servers to remove
+3. Click *Remove from Group*
+4. Confirm the removal
+
+Note: Removing servers may affect running applications deployed to the group.
+
+== Group Configuration
+
+=== Group-Wide Settings
+
+Configure settings that apply to all servers in the group:
+
+* Environment variables
+* System properties
+* Security configurations
+* Monitoring settings
+* Deployment policies
+
+=== Configuration Propagation
+
+When you update group settings:
+
+* Changes apply to all servers in the group
+* Servers may require restart for some changes
+* Configuration validation occurs before application
+* Rollback options are available if issues occur
+
+== Deployment Management
+
+=== Group Deployments
+
+Deploy applications to all servers in a group:
+
+1. Select the server group as deployment target
+2. Upload or select the application
+3. Configure deployment settings
+4. Initiate deployment across all group members
+5. Monitor deployment progress
+
+=== Deployment Strategies
+
+Choose appropriate deployment strategies:
+
+* *Simultaneous* - Deploy to all servers at once
+* *Rolling* - Deploy server by server with validation
+* *Blue-Green* - Switch between server sets
+* *Canary* - Test with subset before full deployment
+
+== Monitoring and Health Management
+
+=== Group Health Status
+
+Monitor overall group health:
+
+* Aggregate health across all servers
+* Individual server status within the group
+* Application health across the group
+* Performance metrics and trends
+
+=== Performance Monitoring
+
+Track group-wide performance:
+
+* Load distribution across servers
+* Response times and throughput
+* Resource utilization patterns
+* Error rates and availability
+
+== Load Balancing and Distribution
+
+=== Load Distribution
+
+Manage load across group members:
+
+* Configure load balancing algorithms
+* Monitor traffic distribution
+* Adjust server weights as needed
+* Handle server failures gracefully
+
+=== Capacity Management
+
+Plan and manage group capacity:
+
+* Monitor resource utilization trends
+* Plan for peak load scenarios
+* Scale by adding servers to the group
+* Remove servers during low-demand periods
+
+== Maintenance Operations
+
+=== Coordinated Maintenance
+
+Perform maintenance across the group:
+
+* Schedule maintenance windows
+* Coordinate server updates
+* Manage rolling restarts
+* Minimize service disruption
+
+=== Configuration Synchronization
+
+Ensure consistency across group members:
+
+* Validate configuration alignment
+* Synchronize changes across servers
+* Handle configuration drift
+* Implement configuration management
+
+== Troubleshooting
+
+=== Common Group Issues
+
+Address typical problems:
+
+* Configuration inconsistencies
+* Load imbalance across servers
+* Deployment failures on some servers
+* Communication issues between servers
+* Performance degradation
+
+=== Diagnostic Approaches
+
+Use systematic troubleshooting:
+
+* Check individual server health
+* Validate group configuration
+* Review deployment logs
+* Analyze performance metrics
+* Test network connectivity
+
+== Best Practices
+
+* Maintain consistent configurations
+* Monitor group health continuously
+* Plan maintenance windows carefully
+* Test deployment strategies
+* Document group configurations
+* Implement automated health checks
+* Plan for disaster recovery scenarios
+
+== See Also
+
+* xref:creating-servers-groups.adoc[Creating Server Groups]
+* xref:managing-servers.adoc[Managing Servers]
+* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]

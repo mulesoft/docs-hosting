@@ -1,0 +1,201 @@
+= Managing Clusters
+
+Managing clusters involves coordinating multiple Mule runtime instances working together to provide high availability and load distribution.
+
+== Overview
+
+Cluster management encompasses:
+
+* Adding and removing nodes from clusters
+* Monitoring cluster health and synchronization
+* Managing cluster-wide deployments
+* Coordinating maintenance and updates
+* Troubleshooting cluster communication issues
+
+== Cluster Membership Management
+
+=== Adding Nodes to Clusters
+
+To add nodes to an existing cluster:
+
+1. Ensure the new server meets cluster requirements
+2. Navigate to Runtime Manager
+3. Select the target cluster
+4. Click *Add Server*
+5. Choose the server to add from available options
+6. Configure node-specific settings
+7. Confirm the addition
+
+The new node will synchronize with existing cluster members.
+
+=== Removing Nodes from Clusters
+
+To remove nodes from a cluster:
+
+1. Select the cluster in Runtime Manager
+2. Choose the node to remove
+3. Click *Remove from Cluster*
+4. Wait for graceful shutdown and data synchronization
+5. Confirm the removal
+
+Warning: Removing nodes may affect cluster quorum and high availability.
+
+== Cluster Health Monitoring
+
+=== Node Status Monitoring
+
+Monitor individual node health:
+
+* *Active* - Node is participating in cluster operations
+* *Standby* - Node is connected but not actively processing
+* *Disconnected* - Node has lost cluster communication
+* *Failed* - Node has encountered errors
+
+=== Cluster Synchronization
+
+Monitor cluster-wide synchronization:
+
+* Data replication status across nodes
+* Queue synchronization state
+* Cache coherence across the cluster
+* Configuration consistency
+
+== Performance Management
+
+=== Load Distribution
+
+Monitor and manage load across cluster nodes:
+
+* Traffic distribution patterns
+* Processing capacity utilization
+* Response time consistency
+* Failover behavior and timing
+
+=== Capacity Planning
+
+Plan cluster capacity needs:
+
+* Monitor resource utilization trends
+* Plan for peak load scenarios
+* Scale by adding nodes when needed
+* Optimize existing node configurations
+
+== Deployment Management
+
+=== Cluster Deployments
+
+Deploy applications across the cluster:
+
+1. Select the cluster as deployment target
+2. Configure deployment settings
+3. Choose deployment strategy:
+   * *Synchronized* - Deploy to all nodes simultaneously
+   * *Rolling* - Deploy node by node with validation
+4. Monitor deployment progress across all nodes
+5. Validate successful deployment cluster-wide
+
+=== Application High Availability
+
+Ensure application availability:
+
+* Configure application clustering settings
+* Implement shared storage for persistent data
+* Set up automatic failover mechanisms
+* Test disaster recovery procedures
+
+== Maintenance Operations
+
+=== Cluster Maintenance
+
+Coordinate maintenance across cluster nodes:
+
+* Schedule maintenance windows
+* Plan rolling updates to minimize downtime
+* Coordinate restarts to maintain quorum
+* Validate cluster health after maintenance
+
+=== Configuration Management
+
+Maintain configuration consistency:
+
+* Synchronize configuration changes across nodes
+* Validate configuration compatibility
+* Handle configuration drift detection
+* Implement configuration backup and restore
+
+== Network and Communication
+
+=== Network Configuration
+
+Ensure proper cluster networking:
+
+* Verify multicast or unicast discovery settings
+* Monitor network latency between nodes
+* Check firewall and port configurations
+* Validate network interface settings
+
+=== Communication Monitoring
+
+Monitor inter-node communication:
+
+* Heartbeat status between nodes
+* Data replication performance
+* Message passing efficiency
+* Network partition detection
+
+== Troubleshooting
+
+=== Common Cluster Issues
+
+Address typical problems:
+
+* Split-brain scenarios
+* Node communication failures
+* Data synchronization issues
+* Performance degradation
+* Quorum loss situations
+
+=== Diagnostic Procedures
+
+Use systematic troubleshooting:
+
+* Check network connectivity between nodes
+* Validate cluster configuration consistency
+* Review cluster logs for error patterns
+* Test failover and recovery procedures
+* Monitor resource utilization patterns
+
+=== Recovery Procedures
+
+Implement recovery strategies:
+
+* Node replacement procedures
+* Cluster reformation processes
+* Data recovery and synchronization
+* Service restoration protocols
+
+== Best Practices
+
+* Maintain odd number of nodes for quorum
+* Monitor cluster health continuously
+* Plan maintenance windows carefully
+* Test failover scenarios regularly
+* Document cluster configurations
+* Implement automated health checks
+* Plan for disaster recovery
+* Monitor network performance
+
+== Security Considerations
+
+* Secure inter-node communication
+* Implement proper authentication
+* Manage cluster access controls
+* Monitor for security vulnerabilities
+* Regular security assessments
+
+== See Also
+
+* xref:creating-clusters.adoc[Creating Clusters]
+* xref:managing-servers.adoc[Managing Servers]
+* xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]
+* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]

@@ -1,0 +1,295 @@
+= Monitoring Dashboards for Server, Server Groups and Clusters
+
+Monitoring dashboards provide centralized visibility into the health, performance, and status of your hybrid standalone infrastructure.
+
+== Overview
+
+Monitoring dashboards offer:
+
+* Real-time visibility into system health
+* Historical performance trend analysis
+* Customizable metric displays
+* Interactive data exploration
+* Centralized infrastructure monitoring
+
+== Dashboard Types
+
+=== Server Dashboards
+
+Individual server monitoring displays:
+
+* CPU, memory, and disk utilization
+* Network throughput and connectivity
+* Application performance metrics
+* Service health indicators
+* Error rates and response times
+
+=== Server Group Dashboards
+
+Group-level monitoring views:
+
+* Aggregate performance across group members
+* Load distribution visualization
+* Group health status overview
+* Deployment status across servers
+* Comparative performance analysis
+
+=== Cluster Dashboards
+
+Cluster-wide monitoring displays:
+
+* Node health and synchronization status
+* Data replication metrics
+* Failover and availability indicators
+* Cluster communication health
+* Distributed performance metrics
+
+== Runtime Manager Dashboards
+
+=== Built-in Dashboard Features
+
+Access standard monitoring views:
+
+* Server status overview
+* Performance metric charts
+* Real-time health indicators
+* Historical trend graphs
+* Alert status displays
+
+=== Navigation and Layout
+
+Navigate dashboard interfaces:
+
+* Main dashboard overview
+* Drill-down capability to specific servers
+* Tabbed views for different metric categories
+* Customizable time range selection
+* Interactive chart exploration
+
+== Key Metrics and Visualizations
+
+=== Performance Metrics
+
+Monitor critical performance indicators:
+
+* *CPU Utilization* - Processor usage over time
+* *Memory Usage* - RAM consumption and GC activity
+* *Disk I/O* - Read/write operations and latency
+* *Network Throughput* - Bandwidth utilization
+* *Response Times* - Application response performance
+
+=== Health Indicators
+
+Track system health status:
+
+* Service availability indicators
+* Error rate trending
+* Connection pool status
+* Queue depth monitoring
+* Thread pool utilization
+
+=== Capacity Metrics
+
+Monitor resource capacity:
+
+* Storage utilization trends
+* Memory allocation patterns
+* Network bandwidth consumption
+* Processing capacity limits
+* Scalability indicators
+
+== Dashboard Customization
+
+=== Metric Selection
+
+Customize displayed metrics:
+
+* Choose relevant performance indicators
+* Configure metric collection intervals
+* Set up custom metric calculations
+* Filter metrics by time periods
+* Group related metrics together
+
+=== Visualization Options
+
+Select appropriate chart types:
+
+* Line charts for trend analysis
+* Bar charts for comparative data
+* Gauge displays for current status
+* Heat maps for performance patterns
+* Tables for detailed metric listings
+
+=== Time Range Configuration
+
+Configure time-based views:
+
+* Real-time monitoring displays
+* Historical analysis periods
+* Custom date range selection
+* Automatic refresh intervals
+* Time zone considerations
+
+== Advanced Dashboard Features
+
+=== Comparative Analysis
+
+Compare performance across components:
+
+* Side-by-side server comparisons
+* Group performance benchmarking
+* Cluster node analysis
+* Historical period comparisons
+* Performance baseline comparisons
+
+=== Drill-down Capabilities
+
+Navigate from high-level to detailed views:
+
+* Click-through to detailed metrics
+* Server-specific performance views
+* Application-level monitoring
+* Component-specific analysis
+* Root cause investigation paths
+
+=== Data Export and Reporting
+
+Export dashboard data:
+
+* CSV data export options
+* PDF report generation
+* Scheduled report delivery
+* Custom report templates
+* Data integration with external tools
+
+== Custom Dashboards
+
+=== Creating Custom Views
+
+Build specialized monitoring displays:
+
+* Business-specific KPI monitoring
+* Custom metric combinations
+* Specialized alert displays
+* Performance trending views
+* Capacity planning dashboards
+
+=== Dashboard Sharing
+
+Share dashboard configurations:
+
+* Team-specific dashboard views
+* Role-based access controls
+* Dashboard template sharing
+* Collaborative monitoring setups
+* Standardized monitoring views
+
+== Integration with External Tools
+
+=== Third-party Monitoring Platforms
+
+Integrate with enterprise monitoring:
+
+* Datadog, New Relic, AppDynamics integration
+* Grafana dashboard creation
+* Prometheus metrics collection
+* ELK stack integration
+* Custom monitoring tool connections
+
+=== API-based Integrations
+
+Access monitoring data programmatically:
+
+* REST API for metric retrieval
+* Real-time data streaming
+* Custom application integration
+* Automated report generation
+* Data warehouse integration
+
+== Dashboard Maintenance
+
+=== Regular Review
+
+Maintain dashboard effectiveness:
+
+* Review dashboard relevance
+* Update metric thresholds
+* Adjust visualization types
+* Remove obsolete metrics
+* Add new monitoring requirements
+
+=== Performance Optimization
+
+Optimize dashboard performance:
+
+* Minimize data refresh frequencies
+* Optimize query performance
+* Reduce unnecessary metrics
+* Implement data aggregation
+* Cache frequently accessed data
+
+== Best Practices
+
+=== Dashboard Design
+
+* Focus on actionable metrics
+* Use clear, intuitive visualizations
+* Organize related metrics together
+* Implement consistent color schemes
+* Provide contextual information
+
+=== Operational Usage
+
+* Train teams on dashboard navigation
+* Establish monitoring procedures
+* Document dashboard purposes
+* Regular dashboard review sessions
+* Continuous improvement processes
+
+== Troubleshooting Dashboard Issues
+
+=== Common Problems
+
+Address typical dashboard issues:
+
+* Slow loading times
+* Missing or incomplete data
+* Incorrect metric calculations
+* Display formatting problems
+* Access permission issues
+
+=== Resolution Strategies
+
+* Check data source connectivity
+* Verify metric collection configuration
+* Validate time range settings
+* Review access permissions
+* Test dashboard functionality
+
+== Mobile and Remote Access
+
+=== Mobile Dashboard Access
+
+Access dashboards remotely:
+
+* Mobile-responsive dashboard layouts
+* Simplified mobile metric views
+* Push notification integration
+* Offline dashboard capabilities
+* Mobile alert management
+
+=== Security Considerations
+
+Secure remote dashboard access:
+
+* VPN or secure connection requirements
+* Multi-factor authentication
+* Role-based access controls
+* Session timeout configuration
+* Audit trail maintenance
+
+== See Also
+
+* xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]
+* xref:creating-alerts-hybrid.adoc[Creating Alerts for Server, Server Groups or Clusters]
+* xref:monitoring-dashboards-hybrid-apps.adoc[Monitoring Dashboard for Mule Apps Deployed to Hybrid Standalone]

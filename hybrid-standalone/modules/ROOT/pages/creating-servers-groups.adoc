@@ -1,0 +1,59 @@
+= Creating Server Groups
+
+Creating server groups allows you to organize your hybrid standalone servers for easier management and deployment.
+
+== Overview
+
+Server groups provide a way to logically group multiple servers together, making it easier to:
+
+* Deploy applications to multiple servers simultaneously
+* Manage configuration across related servers
+* Monitor performance at the group level
+
+== Prerequisites
+
+Before creating server groups, ensure that you have:
+
+* At least one hybrid standalone server configured
+* Appropriate permissions to create and manage server groups
+* Access to Runtime Manager
+
+== Creating a Server Group
+
+To create a new server group:
+
+1. Navigate to Runtime Manager
+2. In the left navigation menu, select *Servers*
+3. Click *Create Group* 
+4. Enter a name for your server group
+5. Optionally add a description
+6. Select the servers you want to include in the group
+7. Click *Create Group*
+
+== Managing Server Group Membership
+
+You can add or remove servers from a group after creation:
+
+* To add servers: Select the group and use the *Add Server* option
+* To remove servers: Select individual servers within the group and choose *Remove from Group*
+
+== Best Practices
+
+* Use descriptive names for your server groups
+* Group servers with similar purposes or environments
+* Regularly review group membership to ensure optimal organization
+* Consider geographical or functional groupings for large deployments
+
+== Next Steps
+
+After creating server groups, you can:
+
+* Deploy applications to the entire group
+* Configure monitoring and alerts at the group level
+* Manage properties and settings across all servers in the group
+
+== See Also
+
+* xref:creating-servers.adoc[Creating Servers]
+* xref:managing-servers-groups.adoc[Managing Server Groups]
+* xref:creating-clusters.adoc[Creating Clusters]

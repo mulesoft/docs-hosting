@@ -1,0 +1,327 @@
+= Managing Mule Apps Deployed to Hybrid Standalone Instances
+
+Managing deployed Mule applications involves ongoing operations including monitoring, updates, configuration changes, and lifecycle management.
+
+== Overview
+
+Application management encompasses:
+
+* Application lifecycle management
+* Configuration and property management
+* Performance monitoring and optimization
+* Troubleshooting and diagnostics
+* Updates and version management
+
+== Application Lifecycle Management
+
+=== Application States
+
+Monitor and manage application states:
+
+* *Started* - Application is running and processing requests
+* *Stopped* - Application is deployed but not processing
+* *Deploying* - Application deployment is in progress
+* *Failed* - Application deployment or startup failed
+* *Undeployed* - Application has been removed from the server
+
+=== State Management
+
+Control application states:
+
+1. Navigate to Runtime Manager
+2. Select *Applications* from the left menu
+3. Choose the target application
+4. Use state control actions:
+   * *Start* - Begin application processing
+   * *Stop* - Halt application processing
+   * *Restart* - Stop and start the application
+   * *Redeploy* - Deploy new version or configuration
+
+=== Deployment Management
+
+Manage application deployments:
+
+* Deploy new versions
+* Rollback to previous versions
+* Schedule deployment windows
+* Coordinate updates across instances
+* Validate deployment success
+
+== Application Configuration
+
+=== Environment Variables
+
+Manage environment-specific variables:
+
+* Configure application-specific variables
+* Set environment-based configurations
+* Manage secure variables and secrets
+* Update variables without redeployment
+* Version control for configuration changes
+
+=== Property Management
+
+Manage application properties:
+
+* Runtime properties configuration
+* Environment-specific property files
+* Secure property handling
+* Property precedence and override
+* Configuration validation
+
+=== Resource Configuration
+
+Configure application resources:
+
+* Memory allocation settings
+* Thread pool configurations
+* Connection pool settings
+* Timeout configurations
+* Caching parameters
+
+== Performance Monitoring
+
+=== Application Metrics
+
+Monitor key application metrics:
+
+* *Throughput* - Messages processed per second
+* *Response Time* - Average and percentile response times
+* *Error Rate* - Percentage of failed transactions
+* *Resource Usage* - CPU, memory, and thread utilization
+* *Queue Depth* - Message queue backlogs
+
+=== Performance Analysis
+
+Analyze application performance:
+
+* Identify performance trends
+* Detect performance degradation
+* Compare performance across instances
+* Analyze performance patterns
+* Identify optimization opportunities
+
+=== Capacity Management
+
+Manage application capacity:
+
+* Monitor resource utilization
+* Plan for scaling requirements
+* Optimize resource allocation
+* Balance load across instances
+* Implement capacity alerts
+
+== Troubleshooting and Diagnostics
+
+=== Log Management
+
+Manage application logs:
+
+* Configure log levels and categories
+* Access and download log files
+* Search and filter log entries
+* Correlate logs across instances
+* Implement log retention policies
+
+=== Error Analysis
+
+Analyze application errors:
+
+* Monitor error patterns and trends
+* Investigate specific error instances
+* Correlate errors with system events
+* Implement error prevention measures
+* Document error resolution procedures
+
+=== Diagnostic Tools
+
+Use diagnostic capabilities:
+
+* Thread dump analysis for performance issues
+* Memory heap analysis for memory leaks
+* Performance profiling for optimization
+* Network connectivity testing
+* Configuration validation
+
+== Updates and Version Management
+
+=== Application Updates
+
+Manage application updates:
+
+* Plan update schedules
+* Test updates in staging environments
+* Implement rolling update strategies
+* Validate update success
+* Plan rollback procedures
+
+=== Version Control
+
+Implement version management:
+
+* Track application versions
+* Maintain version history
+* Document version changes
+* Implement version naming conventions
+* Coordinate updates across environments
+
+=== Change Management
+
+Implement change management processes:
+
+* Document all changes
+* Review and approve changes
+* Test changes before implementation
+* Implement change rollback procedures
+* Maintain change audit trails
+
+== Security Management
+
+=== Access Control
+
+Manage application access:
+
+* Configure authentication mechanisms
+* Implement authorization policies
+* Manage user access and permissions
+* Monitor access attempts
+* Implement security auditing
+
+=== Security Configuration
+
+Configure application security:
+
+* SSL/TLS configuration
+* API security settings
+* Data encryption configuration
+* Security policy enforcement
+* Vulnerability management
+
+=== Compliance
+
+Ensure security compliance:
+
+* Meet security policy requirements
+* Implement audit controls
+* Maintain security documentation
+* Perform security assessments
+* Report security incidents
+
+== High Availability Management
+
+=== Failover Management
+
+Implement failover capabilities:
+
+* Configure automatic failover
+* Test failover procedures
+* Monitor failover events
+* Implement failback procedures
+* Document failover protocols
+
+=== Load Balancing
+
+Manage load distribution:
+
+* Configure load balancing rules
+* Monitor traffic distribution
+* Adjust load balancing weights
+* Handle server failures
+* Optimize performance across instances
+
+=== Data Consistency
+
+Maintain data consistency:
+
+* Implement data synchronization
+* Manage shared resources
+* Handle distributed transactions
+* Implement consistency checks
+* Plan for data recovery
+
+== Operational Procedures
+
+=== Routine Maintenance
+
+Implement regular maintenance:
+
+* Schedule maintenance windows
+* Perform system updates
+* Clean up logs and temporary files
+* Review performance metrics
+* Update documentation
+
+=== Backup and Recovery
+
+Implement backup procedures:
+
+* Back up application configurations
+* Maintain deployment artifacts
+* Document recovery procedures
+* Test recovery procedures
+* Plan for disaster scenarios
+
+=== Documentation
+
+Maintain operational documentation:
+
+* Application architecture documentation
+* Configuration management procedures
+* Troubleshooting guides
+* Operational runbooks
+* Change management records
+
+== Monitoring and Alerting
+
+=== Alert Configuration
+
+Set up application alerts:
+
+* Performance threshold alerts
+* Error rate alerts
+* Availability alerts
+* Resource utilization alerts
+* Custom business metric alerts
+
+=== Dashboard Management
+
+Create monitoring dashboards:
+
+* Application performance dashboards
+* Business metric dashboards
+* Operational status dashboards
+* Custom visualization dashboards
+* Real-time monitoring displays
+
+== Best Practices
+
+=== Application Design
+
+* Design for observability
+* Implement health check endpoints
+* Use structured logging
+* Implement proper error handling
+* Design for scalability
+
+=== Operational Excellence
+
+* Implement automated monitoring
+* Use infrastructure as code
+* Maintain comprehensive documentation
+* Implement continuous improvement
+* Plan for disaster recovery
+
+=== Performance Optimization
+
+* Regular performance reviews
+* Optimize resource utilization
+* Implement caching strategies
+* Optimize database queries
+* Monitor and tune configurations
+
+== See Also
+
+* xref:managing-schedulers-hybrid.adoc[Managing Schedulers]
+* xref:managing-properties-hybrid.adoc[Managing Properties]
+* xref:monitoring-apps-hybrid-standalone.adoc[Monitoring Mule Apps Deployed to Hybrid Standalone Instances]
+* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]

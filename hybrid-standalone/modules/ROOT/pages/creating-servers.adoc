@@ -1,0 +1,619 @@
+= Creating Servers
+
+Creating servers in a hybrid standalone environment involves setting up individual Mule runtime instances that can be managed through Anypoint Runtime Manager.
+
+== Overview
+
+Server creation encompasses:
+
+* Physical or virtual server provisioning
+* Mule runtime installation and configuration
+* Runtime Manager Agent setup
+* Server registration with Anypoint Platform
+* Initial configuration and optimization
+
+== Server Planning
+
+=== Infrastructure Requirements
+
+Plan server specifications based on your needs:
+
+**Minimum Requirements:**
+* **CPU**: 2 cores, 2.0 GHz
+* **Memory**: 4 GB RAM
+* **Storage**: 10 GB available disk space
+* **Network**: Reliable internet connectivity
+* **OS**: Supported operating system
+
+**Recommended Specifications:**
+* **CPU**: 4+ cores, 2.5+ GHz
+* **Memory**: 8+ GB RAM
+* **Storage**: 50+ GB SSD storage
+* **Network**: High-bandwidth, low-latency connection
+* **OS**: Enterprise-grade operating system
+
+=== Sizing Guidelines
+
+Size servers based on expected workload:
+
+**Development Servers:**
+* 2-4 CPU cores
+* 4-8 GB RAM
+* Basic network connectivity
+* Standard storage
+
+**Production Servers:**
+* 4-8+ CPU cores
+* 8-16+ GB RAM
+* High-performance network
+* SSD storage with redundancy
+
+**High-Volume Servers:**
+* 8-16+ CPU cores
+* 16-32+ GB RAM
+* Multiple network interfaces
+* High-performance storage arrays
+
+== Server Provisioning
+
+=== Physical Server Setup
+
+For physical server deployment:
+
+**Hardware Configuration:**
+* Install and configure server hardware
+* Set up network connections
+* Configure RAID and storage
+* Install operating system
+* Apply security hardening
+
+**Network Configuration:**
+* Configure static IP addresses
+* Set up DNS resolution
+* Configure firewall rules
+* Establish network connectivity
+* Test network performance
+
+=== Virtual Machine Setup
+
+For virtual server deployment:
+
+**VM Configuration:**
+[source,bash]
+----
+# Example VM creation (VMware vSphere)
+# Allocate resources
+CPU: 4 vCPUs
+Memory: 8 GB
+Storage: 100 GB
+Network: Production VLAN
+
+# Configure VM settings
+Enable virtualization features
+Configure resource reservations
+Set up backup and monitoring
+----
+
+**Cloud Instance Setup:**
+[source,bash]
+----
+# Example AWS EC2 instance
+aws ec2 run-instances \
+  --image-id ami-12345678 \
+  --instance-type t3.large \
+  --key-name my-key-pair \
+  --security-group-ids sg-12345678 \
+  --subnet-id subnet-12345678
+----
+
+== Operating System Preparation
+
+=== Linux Server Setup
+
+Prepare Linux servers for Mule installation:
+
+**System Updates:**
+[source,bash]
+----
+# Update system packages
+sudo yum update -y  # RHEL/CentOS
+sudo apt update && sudo apt upgrade -y  # Ubuntu/Debian
+
+# Install required packages
+sudo yum install -y java-1.8.0-openjdk wget unzip
+sudo apt install -y openjdk-8-jdk wget unzip
+----
+
+**User Account Setup:**
+[source,bash]
+----
+# Create dedicated Mule user
+sudo useradd -m -s /bin/bash mule
+sudo usermod -aG wheel mule  # RHEL/CentOS
+sudo usermod -aG sudo mule   # Ubuntu/Debian
+
+# Set up SSH access
+sudo mkdir -p /home/mule/.ssh
+sudo cp ~/.ssh/authorized_keys /home/mule/.ssh/
+sudo chown -R mule:mule /home/mule/.ssh
+sudo chmod 700 /home/mule/.ssh
+sudo chmod 600 /home/mule/.ssh/authorized_keys
+----
+
+**System Configuration:**
+[source,bash]
+----
+# Configure file limits
+echo "mule soft nofile 32768" | sudo tee -a /etc/security/limits.conf
+echo "mule hard nofile 65536" | sudo tee -a /etc/security/limits.conf
+
+# Configure system parameters
+echo "net.ipv4.tcp_keepalive_time = 120" | sudo tee -a /etc/sysctl.conf
+echo "net.core.somaxconn = 1024" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+----
+
+=== Windows Server Setup
+
+Prepare Windows servers for Mule installation:
+
+**System Configuration:**
+[source,powershell]
+----
+# Install Java
+# Download and install OpenJDK 8 or Oracle JDK
+
+# Set JAVA_HOME environment variable
+[Environment]::SetEnvironmentVariable("JAVA_HOME", "C:\Program Files\Java\jdk1.8.0_XXX", "Machine")
+
+# Update PATH
+$path = [Environment]::GetEnvironmentVariable("PATH", "Machine")
+[Environment]::SetEnvironmentVariable("PATH", "$path;%JAVA_HOME%\bin", "Machine")
+----
+
+**Service Account Setup:**
+[source,powershell]
+----
+# Create service account for Mule
+New-LocalUser -Name "MuleService" -Password (ConvertTo-SecureString "SecurePassword123!" -AsPlainText -Force) -FullName "Mule Service Account"
+
+# Grant necessary permissions
+Add-LocalGroupMember -Group "Log on as a service" -Member "MuleService"
+----
+
+== Mule Runtime Installation
+
+=== Download and Install Runtime
+
+Install Mule runtime on your server:
+
+**Linux Installation:**
+[source,bash]
+----
+# Switch to mule user
+sudo su - mule
+
+# Download Mule runtime
+wget https://repository.mulesoft.org/nexus/content/repositories/releases/org/mule/distributions/mule-standalone/4.4.0/mule-standalone-4.4.0.tar.gz
+
+# Extract and install
+tar -xzf mule-standalone-4.4.0.tar.gz
+mv mule-standalone-4.4.0 /opt/mule
+ln -s /opt/mule /home/mule/mule
+
+# Set permissions
+chown -R mule:mule /opt/mule
+chmod +x /opt/mule/bin/mule
+----
+
+**Windows Installation:**
+[source,cmd]
+----
+# Download Mule runtime ZIP file
+# Extract to C:\mule
+
+# Set MULE_HOME environment variable
+set MULE_HOME=C:\mule
+setx MULE_HOME "C:\mule" /M
+
+# Update system PATH
+setx PATH "%PATH%;%MULE_HOME%\bin" /M
+----
+
+=== Configure Runtime Environment
+
+Set up the Mule runtime environment:
+
+**Environment Variables:**
+[source,bash]
+----
+# Add to ~/.bashrc or /etc/environment
+export MULE_HOME=/opt/mule
+export MULE_BASE=$MULE_HOME
+export PATH=$PATH:$MULE_HOME/bin
+
+# Java configuration
+export JAVA_OPTS="-Xms1024m -Xmx2048m -XX:+UseG1GC"
+----
+
+**Wrapper Configuration:**
+[source,properties]
+----
+# conf/wrapper.conf
+wrapper.java.command=%JAVA_HOME%/bin/java
+wrapper.java.initmemory=1024
+wrapper.java.maxmemory=2048
+
+# Additional JVM parameters
+wrapper.java.additional.1=-Dfile.encoding=UTF-8
+wrapper.java.additional.2=-Dmule.encoding=UTF-8
+wrapper.java.additional.3=-XX:+UseG1GC
+----
+
+== Runtime Manager Agent Installation
+
+=== Agent Setup
+
+Install and configure the Runtime Manager Agent:
+
+**Download Agent Installer:**
+[source,bash]
+----
+# Navigate to Mule bin directory
+cd $MULE_HOME/bin
+
+# Download agent installer
+curl -O https://anypoint.mulesoft.com/runtimemanager/api/v1/agent/installer
+
+# Make executable
+chmod +x installer
+----
+
+**Install Agent:**
+[source,bash]
+----
+# Install agent
+./installer install
+
+# Verify installation
+ls -la $MULE_HOME/plugins/
+ls -la $MULE_HOME/server-plugins/
+----
+
+=== Agent Configuration
+
+Configure the agent for your environment:
+
+**Basic Configuration:**
+[source,yaml]
+----
+# conf/mule-agent.yml
+muleInstanceUniqueId: mule-server-01
+organizationId: 12345678-1234-1234-1234-123456789012
+
+transports:
+  rest.agent.transport:
+    port: 9999
+    host: 0.0.0.0
+  websocket.transport:
+    consoleUri: wss://runtime-manager.anypoint.mulesoft.com
+----
+
+**Advanced Configuration:**
+[source,yaml]
+----
+# conf/mule-agent.yml with proxy support
+globalConfiguration:
+  proxy:
+    host: proxy.company.com
+    port: 8080
+    username: proxyuser
+    password: proxypass
+
+security:
+  keyStore:
+    path: keystore.jks
+    password: keystorepass
+    keyPassword: keypass
+  trustStore:
+    path: truststore.jks
+    password: truststorepass
+----
+
+== Server Registration
+
+=== Register with Runtime Manager
+
+Register your server with Anypoint Platform:
+
+**Obtain Registration Token:**
+1. Log in to Anypoint Platform
+2. Navigate to Runtime Manager
+3. Go to Servers section
+4. Click "Add Server"
+5. Copy the registration token
+
+**Execute Registration:**
+[source,bash]
+----
+# Register server
+./installer register \
+  --mule-home $MULE_HOME \
+  --server-name "ProductionServer01" \
+  --organization-id "12345678-1234-1234-1234-123456789012" \
+  --environment "Production" \
+  --token "your-registration-token-here"
+----
+
+**Verify Registration:**
+[source,bash]
+----
+# Check agent status
+curl http://localhost:9999/mule/agent/status
+
+# Verify in Runtime Manager
+# Check that server appears in the Servers list
+----
+
+=== Registration Options
+
+Configure additional registration options:
+
+**Custom Server Name:**
+[source,bash]
+----
+./installer register \
+  --server-name "WebServices-Prod-01" \
+  --organization-id "your-org-id" \
+  --environment "Production" \
+  --token "your-token"
+----
+
+**Proxy Configuration:**
+[source,bash]
+----
+./installer register \
+  --proxy-host proxy.company.com \
+  --proxy-port 8080 \
+  --proxy-user proxyuser \
+  --proxy-password proxypass \
+  --server-name "ServerBehindProxy" \
+  --organization-id "your-org-id" \
+  --environment "Production" \
+  --token "your-token"
+----
+
+== Server Configuration
+
+=== Performance Tuning
+
+Optimize server performance:
+
+**Memory Configuration:**
+[source,properties]
+----
+# wrapper.conf
+wrapper.java.initmemory=2048
+wrapper.java.maxmemory=4096
+
+# GC tuning
+wrapper.java.additional.1=-XX:+UseG1GC
+wrapper.java.additional.2=-XX:MaxGCPauseMillis=200
+wrapper.java.additional.3=-XX:+PrintGC
+wrapper.java.additional.4=-XX:+PrintGCDetails
+----
+
+**Thread Pool Configuration:**
+[source,xml]
+----
+<!-- conf/mule-configuration.xml -->
+<configuration>
+    <default-threading-profile maxThreadsActive="100" 
+                               maxThreadsIdle="10" 
+                               threadTTL="60000"/>
+</configuration>
+----
+
+=== Security Hardening
+
+Implement security best practices:
+
+**File Permissions:**
+[source,bash]
+----
+# Secure configuration files
+chmod 600 $MULE_HOME/conf/mule-agent.yml
+chmod 600 $MULE_HOME/conf/wrapper.conf
+chown -R mule:mule $MULE_HOME/conf/
+
+# Secure log directories
+chmod 750 $MULE_HOME/logs/
+chown -R mule:mule $MULE_HOME/logs/
+----
+
+**Firewall Configuration:**
+[source,bash]
+----
+# Allow only necessary ports
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT    # SSH
+iptables -A INPUT -p tcp --dport 9999 -j ACCEPT  # Agent (internal only)
+iptables -A OUTPUT -p tcp --dport 443 -j ACCEPT  # HTTPS outbound
+
+# Block all other traffic
+iptables -A INPUT -j DROP
+iptables -A OUTPUT -j DROP
+----
+
+== Service Setup
+
+=== Linux Service Configuration
+
+Set up Mule as a system service:
+
+**Create Service File:**
+[source,bash]
+----
+# /etc/systemd/system/mule.service
+[Unit]
+Description=Mule ESB
+After=network.target
+
+[Service]
+Type=forking
+User=mule
+Group=mule
+ExecStart=/opt/mule/bin/mule start
+ExecStop=/opt/mule/bin/mule stop
+ExecReload=/opt/mule/bin/mule restart
+PIDFile=/opt/mule/logs/mule_ee.pid
+
+[Install]
+WantedBy=multi-user.target
+----
+
+**Enable and Start Service:**
+[source,bash]
+----
+# Reload systemd and enable service
+sudo systemctl daemon-reload
+sudo systemctl enable mule
+sudo systemctl start mule
+
+# Check service status
+sudo systemctl status mule
+----
+
+=== Windows Service Configuration
+
+Set up Mule as a Windows service:
+
+**Install Windows Service:**
+[source,cmd]
+----
+# Navigate to Mule bin directory
+cd C:\mule\bin
+
+# Install as Windows service
+mule.bat install
+
+# Configure service
+sc config mule start= auto
+sc config mule obj= ".\MuleService" password= "SecurePassword123!"
+
+# Start service
+sc start mule
+----
+
+== Validation and Testing
+
+=== Server Health Checks
+
+Verify server functionality:
+
+**Basic Health Check:**
+[source,bash]
+----
+# Check if Mule is running
+ps aux | grep mule
+
+# Check agent status
+curl http://localhost:9999/mule/agent/status
+
+# Verify log files
+tail -f $MULE_HOME/logs/mule_ee.log
+----
+
+**Connectivity Tests:**
+[source,bash]
+----
+# Test Runtime Manager connectivity
+curl -k https://anypoint.mulesoft.com/hybrid/api/v1/servers
+
+# Test agent communication
+curl http://localhost:9999/mule/agent/applications
+----
+
+=== Performance Baseline
+
+Establish performance baselines:
+
+**System Metrics:**
+[source,bash]
+----
+# Monitor CPU usage
+top -p $(pgrep -f mule)
+
+# Monitor memory usage
+free -h
+
+# Monitor disk I/O
+iostat -x 1
+----
+
+**Application Metrics:**
+* Response time benchmarks
+* Throughput measurements
+* Resource utilization patterns
+* Error rate baselines
+
+== Best Practices
+
+=== Security
+
+* Use dedicated service accounts
+* Implement proper file permissions
+* Regular security updates
+* Network segmentation
+* SSL/TLS encryption
+
+=== Performance
+
+* Right-size server resources
+* Optimize JVM settings
+* Monitor resource utilization
+* Plan for peak loads
+* Implement caching strategies
+
+=== Operational
+
+* Automate server provisioning
+* Implement configuration management
+* Maintain documentation
+* Regular backup procedures
+* Disaster recovery planning
+
+== Troubleshooting
+
+=== Common Issues
+
+Address typical server problems:
+
+* Java version compatibility issues
+* Network connectivity problems
+* Permission and security errors
+* Resource allocation problems
+* Service startup failures
+
+=== Diagnostic Tools
+
+Use diagnostic capabilities:
+
+[source,bash]
+----
+# Check Java version
+java -version
+
+# Test network connectivity
+telnet anypoint.mulesoft.com 443
+
+# Review system resources
+df -h
+free -m
+----
+
+== See Also
+
+* xref:setting-hybrid-standalone.adoc[Setting up Hybrid Standalone Instances]
+* xref:creating-servers-groups.adoc[Creating Server Groups]
+* xref:creating-clusters.adoc[Creating Clusters]
+* xref:managing-servers.adoc[Managing Servers]

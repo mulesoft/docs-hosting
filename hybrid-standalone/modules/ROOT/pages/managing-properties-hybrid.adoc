@@ -1,0 +1,388 @@
+= Managing Properties
+
+Managing properties in hybrid standalone environments involves configuring, securing, and maintaining application properties and environment variables across your deployment infrastructure.
+
+== Overview
+
+Property management encompasses:
+
+* Application property configuration
+* Environment variable management
+* Secure property handling
+* Property inheritance and precedence
+* Configuration lifecycle management
+
+== Property Types
+
+=== Application Properties
+
+Manage application-specific configuration:
+
+* *System Properties* - JVM and Mule runtime settings
+* *Application Properties* - Custom application configuration
+* *Environment Properties* - Environment-specific settings
+* *Runtime Properties* - Dynamic runtime configuration
+* *Integration Properties* - External system configuration
+
+=== Environment Variables
+
+Configure environment-specific variables:
+
+* *Deployment Environment* - Development, staging, production
+* *Infrastructure Settings* - Database connections, service URLs
+* *Feature Flags* - Enable/disable application features
+* *Performance Settings* - Timeouts, pool sizes, cache settings
+* *Security Configuration* - API keys, certificates, tokens
+
+=== Secure Properties
+
+Handle sensitive configuration data:
+
+* *Passwords and Secrets* - Database passwords, API keys
+* *Certificates* - SSL certificates and private keys
+* *Tokens* - Authentication and authorization tokens
+* *Encryption Keys* - Data encryption configuration
+* *Private Configuration* - Proprietary system settings
+
+== Property Configuration in Runtime Manager
+
+=== Setting Application Properties
+
+Configure properties through Runtime Manager:
+
+1. Navigate to Runtime Manager
+2. Select the target application
+3. Click on the *Properties* tab
+4. Add or modify properties:
+   * Key-value pairs
+   * Property descriptions
+   * Property types (String, Number, Boolean)
+5. Save configuration changes
+6. Restart application if required
+
+=== Environment Variables
+
+Manage environment variables:
+
+1. Access application settings
+2. Navigate to *Environment Variables* section
+3. Configure variables:
+   * Variable name and value
+   * Environment-specific overrides
+   * Variable descriptions
+4. Apply changes to target environments
+
+=== Property Sources
+
+Configure property source precedence:
+
+1. *System Properties* - Highest precedence
+2. *Environment Variables* - Operating system level
+3. *Application Properties* - Application-specific files
+4. *Default Properties* - Built-in default values
+
+== Secure Property Management
+
+=== Property Encryption
+
+Implement property encryption:
+
+* Encrypt sensitive values at rest
+* Use encryption keys for decryption
+* Implement key rotation procedures
+* Secure key storage and management
+* Validate encryption implementation
+
+=== Access Control
+
+Control property access:
+
+* Role-based property access
+* Environment-specific permissions
+* Secure property modification
+* Audit property changes
+* Implement approval workflows
+
+=== Secure Property Files
+
+Manage secure property files:
+
+[source,properties]
+----
+# secure.properties
+database.password=![encrypted_value]
+api.key=![encrypted_value]
+----
+
+Configure secure property provider:
+
+[source,xml]
+----
+<secure-properties:config name="Secure_Properties_Config" 
+    file="secure.properties" 
+    key="encryption.key" />
+----
+
+== Property Inheritance and Override
+
+=== Property Hierarchy
+
+Understand property precedence:
+
+1. *Command Line Arguments* - Highest priority
+2. *System Properties* - JVM level properties
+3. *Environment Variables* - OS level variables
+4. *Application Properties* - Application configuration
+5. *Default Properties* - Framework defaults
+
+=== Environment-Specific Overrides
+
+Implement environment overrides:
+
+[source,properties]
+----
+# application.properties
+database.host=localhost
+database.port=5432
+
+# application-prod.properties
+database.host=prod-db-server
+database.port=5432
+----
+
+=== Dynamic Property Resolution
+
+Configure dynamic property resolution:
+
+[source,xml]
+----
+<configuration-properties file="application-${mule.env}.properties"/>
+----
+
+== Property Management Best Practices
+
+=== Naming Conventions
+
+Implement consistent naming:
+
+* Use descriptive property names
+* Follow hierarchical naming patterns
+* Implement environment prefixes
+* Use consistent case conventions
+* Document property purposes
+
+Example naming conventions:
+[source,properties]
+----
+# Database configuration
+db.connection.host=localhost
+db.connection.port=5432
+db.connection.username=admin
+
+# API configuration
+api.external.service.url=https://api.example.com
+api.external.service.timeout=30000
+----
+
+=== Property Organization
+
+Organize properties effectively:
+
+* Group related properties together
+* Use consistent property categories
+* Implement property documentation
+* Maintain property inventories
+* Version control property files
+
+=== Configuration Validation
+
+Validate property configurations:
+
+* Implement property validation rules
+* Check property format and types
+* Validate property dependencies
+* Test configuration combinations
+* Implement configuration testing
+
+== Environment-Specific Configuration
+
+=== Multi-Environment Management
+
+Manage properties across environments:
+
+* Development environment configuration
+* Testing environment settings
+* Staging environment properties
+* Production environment configuration
+* Disaster recovery settings
+
+=== Environment Promotion
+
+Implement environment promotion:
+
+* Property migration procedures
+* Configuration validation processes
+* Environment-specific testing
+* Rollback procedures
+* Change management workflows
+
+=== Configuration Templates
+
+Use configuration templates:
+
+[source,properties]
+----
+# template.properties
+database.host=${DB_HOST:localhost}
+database.port=${DB_PORT:5432}
+database.name=${DB_NAME:myapp}
+api.timeout=${API_TIMEOUT:30000}
+----
+
+== Property Monitoring and Auditing
+
+=== Configuration Changes
+
+Monitor property changes:
+
+* Track property modifications
+* Log configuration changes
+* Implement change notifications
+* Maintain change history
+* Generate audit reports
+
+=== Property Usage Tracking
+
+Track property usage:
+
+* Monitor property access patterns
+* Identify unused properties
+* Track property performance impact
+* Analyze configuration effectiveness
+* Optimize property management
+
+=== Compliance and Governance
+
+Ensure compliance:
+
+* Implement property governance policies
+* Maintain configuration documentation
+* Conduct regular audits
+* Ensure regulatory compliance
+* Implement security assessments
+
+== Troubleshooting Property Issues
+
+=== Common Problems
+
+Address typical property issues:
+
+* Property resolution failures
+* Configuration conflicts
+* Missing required properties
+* Incorrect property types
+* Environment-specific issues
+
+=== Diagnostic Approaches
+
+Use systematic troubleshooting:
+
+* Validate property syntax
+* Check property precedence
+* Verify environment settings
+* Test property resolution
+* Review configuration logs
+
+=== Resolution Strategies
+
+* Fix property configuration errors
+* Resolve precedence conflicts
+* Update environment settings
+* Implement proper validation
+* Document resolution procedures
+
+== Advanced Property Features
+
+=== Dynamic Property Updates
+
+Implement dynamic updates:
+
+* Runtime property modification
+* Hot configuration reloading
+* Configuration refresh endpoints
+* Property change notifications
+* Zero-downtime updates
+
+=== Property Expressions
+
+Use property expressions:
+
+[source,xml]
+----
+<set-variable variableName="dbUrl" 
+    value="jdbc:mysql://${db.host}:${db.port}/${db.name}" />
+----
+
+=== Conditional Properties
+
+Implement conditional configuration:
+
+[source,properties]
+----
+# Conditional based on environment
+%dev.database.host=localhost
+%prod.database.host=prod-server
+
+# Conditional based on profile
+logging.level.root=${logging.level:INFO}
+----
+
+== Integration with External Systems
+
+=== Configuration Management Tools
+
+Integrate with configuration tools:
+
+* HashiCorp Vault for secrets
+* Kubernetes ConfigMaps and Secrets
+* AWS Parameter Store
+* Azure Key Vault
+* Google Secret Manager
+
+=== CI/CD Integration
+
+Integrate with deployment pipelines:
+
+* Automated property deployment
+* Configuration validation in pipelines
+* Environment-specific property injection
+* Configuration drift detection
+* Automated compliance checking
+
+== Security Considerations
+
+=== Property Security
+
+Implement security measures:
+
+* Encrypt sensitive properties
+* Implement access controls
+* Secure property transmission
+* Regular security assessments
+* Incident response procedures
+
+=== Secrets Management
+
+Manage secrets effectively:
+
+* Use dedicated secret management systems
+* Implement secret rotation
+* Limit secret access and scope
+* Monitor secret usage
+* Implement secret scanning
+
+== See Also
+
+* xref:managing-apps-hybrid-standalone.adoc[Managing Mule Apps Deployed to Hybrid Standalone Instances]
+* xref:managing-schedulers-hybrid.adoc[Managing Schedulers]
+* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]

@@ -1,0 +1,94 @@
+= Creating Clusters
+
+Creating clusters enables high availability and load distribution across multiple Mule runtime instances in your hybrid standalone environment.
+
+== Overview
+
+Clusters provide:
+
+* High availability through automatic failover
+* Load distribution across multiple nodes
+* Shared persistent queues and caches
+* Coordinated deployment and management
+
+== Prerequisites
+
+Before creating clusters, ensure you have:
+
+* Multiple hybrid standalone servers available
+* Network connectivity between all cluster nodes
+* Proper firewall configuration for cluster communication
+* Sufficient resources on each node
+
+== Creating a Cluster
+
+To create a new cluster:
+
+1. Navigate to Runtime Manager
+2. In the left navigation menu, select *Servers*
+3. Click *Create Cluster*
+4. Enter a cluster name
+5. Select the servers to include in the cluster
+6. Configure cluster settings:
+   * Multicast options
+   * Port configurations
+   * Network interfaces
+7. Click *Create Cluster*
+
+== Cluster Configuration
+
+=== Network Configuration
+
+Ensure proper network setup:
+
+* All nodes must be able to communicate with each other
+* Configure multicast or unicast discovery
+* Open required ports for cluster communication
+
+=== Resource Requirements
+
+Each cluster node should have:
+
+* Adequate CPU and memory resources
+* Sufficient disk space for shared storage
+* Reliable network connectivity
+
+== Monitoring Cluster Health
+
+Monitor your cluster status through:
+
+* Runtime Manager dashboard
+* Individual node health checks
+* Cluster-wide performance metrics
+* Communication status between nodes
+
+== Best Practices
+
+* Use an odd number of nodes to avoid split-brain scenarios
+* Ensure consistent configuration across all nodes
+* Plan for capacity and failover scenarios
+* Regularly monitor cluster health and performance
+* Test failover procedures periodically
+
+== Troubleshooting
+
+Common cluster issues:
+
+* Network connectivity problems
+* Port conflicts
+* Insufficient resources
+* Configuration mismatches between nodes
+
+== Next Steps
+
+After creating clusters, you can:
+
+* Deploy applications with high availability
+* Configure cluster-wide monitoring
+* Set up automated scaling policies
+
+== See Also
+
+* xref:creating-servers.adoc[Creating Servers]
+* xref:creating-servers-groups.adoc[Creating Server Groups]
+* xref:managing-clusters.adoc[Managing Clusters]

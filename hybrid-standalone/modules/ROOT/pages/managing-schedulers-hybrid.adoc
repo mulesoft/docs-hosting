@@ -1,0 +1,303 @@
+= Managing Schedulers
+
+Managing schedulers in hybrid standalone environments involves configuring, monitoring, and maintaining scheduled jobs and automated processes within your Mule applications.
+
+== Overview
+
+Scheduler management includes:
+
+* Creating and configuring scheduled jobs
+* Managing scheduler execution and timing
+* Monitoring scheduler performance and status
+* Troubleshooting scheduler issues
+* Implementing scheduler best practices
+
+== Scheduler Types
+
+=== Fixed Frequency Schedulers
+
+Configure schedulers that run at fixed intervals:
+
+* *Fixed Delay* - Delay between completion and next execution
+* *Fixed Rate* - Fixed interval between execution starts
+* *Initial Delay* - Delay before first execution
+* *Time Unit* - Units for interval specification (seconds, minutes, hours)
+
+=== Cron Expression Schedulers
+
+Use cron expressions for complex scheduling:
+
+* *Complex Timing Patterns* - Specific times and dates
+* *Recurring Patterns* - Daily, weekly, monthly schedules
+* *Business Hours* - Schedule within specific time windows
+* *Multiple Execution Times* - Multiple times per day/week
+
+=== Event-driven Schedulers
+
+Configure schedulers triggered by events:
+
+* *File-based Triggers* - Execute when files appear
+* *Database Triggers* - Execute based on database changes
+* *Message Queue Triggers* - Execute when messages arrive
+* *API-triggered Scheduling* - Remote schedule control
+
+== Scheduler Configuration
+
+=== Basic Configuration
+
+Configure basic scheduler settings:
+
+[source,xml]
+----
+<scheduler doc:name="Fixed Frequency Scheduler" >
+    <scheduling-strategy >
+        <fixed-frequency frequency="30" timeUnit="SECONDS"/>
+    </scheduling-strategy>
+</scheduler>
+----
+
+=== Cron Configuration
+
+Configure cron-based scheduling:
+
+[source,xml]
+----
+<scheduler doc:name="Cron Scheduler" >
+    <scheduling-strategy >
+        <cron expression="0 0 8 * * MON-FRI" timeZone="America/New_York"/>
+    </scheduling-strategy>
+</scheduler>
+----
+
+=== Advanced Configuration
+
+Configure advanced scheduler options:
+
+* *Timezone Settings* - Specify timezone for execution
+* *Concurrency Control* - Limit concurrent executions
+* *Error Handling* - Define error handling strategies
+* *Logging Configuration* - Enable scheduler logging
+* *Resource Management* - Configure resource allocation
+
+== Scheduler Management in Runtime Manager
+
+=== Viewing Schedulers
+
+Access scheduler information:
+
+1. Navigate to Runtime Manager
+2. Select the target application
+3. Click on the *Schedulers* tab
+4. View scheduler status and configuration
+
+=== Scheduler Controls
+
+Manage scheduler execution:
+
+* *Enable/Disable* - Control scheduler activation
+* *Run Now* - Trigger immediate execution
+* *View History* - Review execution history
+* *Monitor Status* - Check scheduler health
+* *Update Configuration* - Modify scheduler settings
+
+=== Scheduler Status
+
+Monitor scheduler states:
+
+* *Enabled* - Scheduler is active and running
+* *Disabled* - Scheduler is configured but not executing
+* *Running* - Scheduler is currently executing
+* *Error* - Scheduler encountered an error
+* *Suspended* - Scheduler execution is temporarily suspended
+
+== Monitoring and Performance
+
+=== Execution Monitoring
+
+Monitor scheduler execution:
+
+* *Execution Count* - Number of executions
+* *Success Rate* - Percentage of successful executions
+* *Average Duration* - Average execution time
+* *Last Execution* - Timestamp of last execution
+* *Next Execution* - Scheduled next execution time
+
+=== Performance Metrics
+
+Track scheduler performance:
+
+* CPU utilization during execution
+* Memory consumption patterns
+* Resource usage trends
+* Execution duration trends
+* Error rate patterns
+
+=== Health Monitoring
+
+Monitor scheduler health:
+
+* Execution success rates
+* Error patterns and frequency
+* Resource consumption monitoring
+* Dependency availability
+* System resource impact
+
+== Error Handling and Recovery
+
+=== Error Scenarios
+
+Handle common scheduler errors:
+
+* *Execution Timeouts* - Long-running job management
+* *Resource Unavailability* - Database or service outages
+* *Concurrent Execution* - Multiple instance conflicts
+* *Configuration Errors* - Invalid cron expressions
+* *System Resource Issues* - Memory or CPU constraints
+
+=== Recovery Strategies
+
+Implement recovery mechanisms:
+
+* *Retry Logic* - Automatic retry on failures
+* *Circuit Breaker* - Prevent cascade failures
+* *Graceful Degradation* - Fallback processing
+* *Dead Letter Queue* - Failed execution handling
+* *Manual Intervention* - Administrative controls
+
+=== Error Notification
+
+Configure error alerting:
+
+* Email notifications for failures
+* System monitoring integration
+* Log aggregation and analysis
+* Dashboard alert displays
+* Escalation procedures
+
+== High Availability Considerations
+
+=== Cluster Coordination
+
+Manage schedulers in clustered environments:
+
+* *Cluster-aware Scheduling* - Single execution across cluster
+* *Load Distribution* - Distribute scheduled tasks
+* *Failover Handling* - Handle node failures
+* *State Synchronization* - Maintain scheduler state
+* *Coordination Mechanisms* - Prevent duplicate executions
+
+=== Multi-instance Management
+
+Handle multiple application instances:
+
+* Configure scheduler leadership election
+* Implement distributed locking
+* Coordinate execution across instances
+* Handle instance failure scenarios
+* Maintain execution consistency
+
+== Security and Compliance
+
+=== Access Control
+
+Secure scheduler management:
+
+* Role-based access to scheduler controls
+* Authentication for scheduler APIs
+* Audit trails for scheduler changes
+* Secure configuration management
+* Encryption of sensitive scheduler data
+
+=== Compliance Requirements
+
+Meet compliance standards:
+
+* Audit logging of scheduler activities
+* Data retention policies
+* Change management procedures
+* Security assessments
+* Regulatory compliance validation
+
+== Best Practices
+
+=== Design Practices
+
+* Use appropriate scheduler types for use cases
+* Implement proper error handling
+* Design for idempotency
+* Consider resource consumption
+* Plan for scaling requirements
+
+=== Operational Practices
+
+* Monitor scheduler performance continuously
+* Implement comprehensive logging
+* Document scheduler configurations
+* Test scheduler behavior thoroughly
+* Plan for maintenance windows
+
+=== Performance Optimization
+
+* Optimize scheduler execution efficiency
+* Minimize resource consumption
+* Implement caching where appropriate
+* Use appropriate concurrency settings
+* Monitor and tune performance
+
+== Troubleshooting
+
+=== Common Issues
+
+Address typical scheduler problems:
+
+* Schedulers not executing as expected
+* Performance degradation during execution
+* Resource contention issues
+* Configuration errors
+* Timezone and timing issues
+
+=== Diagnostic Approaches
+
+Use systematic troubleshooting:
+
+* Review scheduler logs and metrics
+* Validate cron expressions
+* Check system resource availability
+* Test scheduler execution manually
+* Analyze execution patterns
+
+=== Resolution Strategies
+
+* Adjust scheduler configuration
+* Optimize application code
+* Resolve resource constraints
+* Fix configuration errors
+* Implement error handling improvements
+
+== Advanced Features
+
+=== Dynamic Scheduling
+
+Implement dynamic scheduler management:
+
+* Runtime scheduler configuration changes
+* API-driven scheduler control
+* Conditional scheduling logic
+* Adaptive scheduling based on load
+* Event-driven schedule modifications
+
+=== Integration Patterns
+
+Integrate schedulers with other systems:
+
+* Message queue integration
+* Database trigger integration
+* External system coordination
+* Workflow orchestration
+* Event streaming integration
+
+== See Also
+
+* xref:managing-apps-hybrid-standalone.adoc[Managing Mule Apps Deployed to Hybrid Standalone Instances]
+* xref:managing-properties-hybrid.adoc[Managing Properties]
+* xref:monitoring-apps-hybrid-standalone.adoc[Monitoring Mule Apps Deployed to Hybrid Standalone Instances]

@@ -1,0 +1,370 @@
+= Monitoring Mule Apps Deployed to Hybrid Standalone Instances
+
+Comprehensive monitoring of Mule applications deployed to hybrid standalone instances ensures optimal performance, early issue detection, and effective troubleshooting.
+
+== Overview
+
+Application monitoring encompasses:
+
+* Real-time application performance tracking
+* Business transaction monitoring
+* Error detection and analysis
+* Resource utilization monitoring
+* Custom metrics and KPI tracking
+
+== Key Monitoring Areas
+
+=== Application Performance
+
+Monitor critical application metrics:
+
+* *Throughput* - Messages or transactions processed per unit time
+* *Response Time* - Average, median, and percentile response times
+* *Error Rate* - Percentage of failed transactions or requests
+* *Concurrent Users* - Number of active users or connections
+* *Queue Depth* - Message backlog in queues and processing pipelines
+
+=== Business Metrics
+
+Track business-specific indicators:
+
+* *Transaction Volume* - Business transaction counts
+* *Revenue Metrics* - Financial performance indicators
+* *Conversion Rates* - Success rates for business processes
+* *SLA Compliance* - Service level agreement adherence
+* *Custom KPIs* - Organization-specific performance indicators
+
+=== Resource Utilization
+
+Monitor application resource consumption:
+
+* *Memory Usage* - Heap utilization and garbage collection
+* *CPU Utilization* - Processing capacity consumption
+* *Thread Usage* - Thread pool utilization and concurrency
+* *Connection Pools* - Database and service connection usage
+* *Cache Performance* - Cache hit rates and memory usage
+
+== Monitoring Tools and Platforms
+
+=== Runtime Manager Monitoring
+
+Use built-in Runtime Manager capabilities:
+
+* Application dashboard views
+* Real-time performance charts
+* Historical trend analysis
+* Alert configuration and management
+* Log aggregation and search
+
+=== External Monitoring Integration
+
+Integrate with enterprise monitoring tools:
+
+* *APM Solutions* - New Relic, Datadog, AppDynamics
+* *Log Management* - Splunk, ELK Stack, Fluentd
+* *Metrics Platforms* - Prometheus, Grafana, InfluxDB
+* *Custom Dashboards* - Business intelligence tools
+* *Alert Management* - PagerDuty, Opsgenie
+
+=== Custom Monitoring Solutions
+
+Implement custom monitoring:
+
+* Application-specific metrics collection
+* Business process monitoring
+* Custom dashboard development
+* Integration with existing tools
+* Specialized analytics platforms
+
+== Application Health Monitoring
+
+=== Health Check Endpoints
+
+Implement health monitoring endpoints:
+
+[source,xml]
+----
+<flow name="health-check-flow">
+    <http:listener config-ref="HTTP_Listener_Config" path="/health"/>
+    <set-payload value='{"status": "healthy", "timestamp": "#[now()]}'/>
+</flow>
+----
+
+=== Service Dependencies
+
+Monitor external service dependencies:
+
+* Database connectivity and performance
+* External API availability and response times
+* Message queue health and capacity
+* File system and storage accessibility
+* Network connectivity and latency
+
+=== Synthetic Monitoring
+
+Implement synthetic monitoring:
+
+* Automated functional testing
+* End-to-end transaction testing
+* Critical path validation
+* Performance baseline testing
+* Availability monitoring
+
+== Performance Metrics Collection
+
+=== Application Metrics
+
+Collect application-specific metrics:
+
+[source,xml]
+----
+<flow name="metrics-collection-flow">
+    <meter:counter name="transaction.count" value="1"/>
+    <meter:timer name="processing.time">
+        <!-- Processing logic -->
+    </meter:timer>
+</flow>
+----
+
+=== Custom Metrics
+
+Implement custom business metrics:
+
+* Transaction success rates
+* Business process completion times
+* Error categorization and tracking
+* User activity patterns
+* Resource consumption trends
+
+=== Metrics Aggregation
+
+Aggregate metrics for analysis:
+
+* Time-based aggregation (hourly, daily, weekly)
+* Statistical aggregation (average, percentiles, totals)
+* Geographical aggregation (by region, data center)
+* Business dimension aggregation (by customer, product)
+* Environmental aggregation (by environment, version)
+
+== Real-time Monitoring Dashboards
+
+=== Dashboard Design
+
+Create effective monitoring dashboards:
+
+* Key performance indicators (KPIs) overview
+* Real-time status indicators
+* Performance trend visualizations
+* Error rate and alert displays
+* Resource utilization charts
+
+=== Dashboard Customization
+
+Customize dashboards for different audiences:
+
+* *Executive Dashboards* - High-level business metrics
+* *Operations Dashboards* - Technical performance metrics
+* *Development Dashboards* - Application health and errors
+* *Business Dashboards* - Transaction and revenue metrics
+* *Security Dashboards* - Security events and compliance
+
+=== Interactive Features
+
+Implement interactive dashboard features:
+
+* Drill-down capabilities for detailed analysis
+* Time range selection and filtering
+* Comparative analysis across environments
+* Export capabilities for reporting
+* Alert integration and notifications
+
+== Alerting and Notification
+
+=== Alert Configuration
+
+Set up comprehensive alerting:
+
+* Performance threshold alerts
+* Error rate monitoring alerts
+* Availability monitoring alerts
+* Business metric alerts
+* Custom condition alerts
+
+=== Alert Severity Levels
+
+Implement alert severity classification:
+
+* *Critical* - Service outages or major issues
+* *Warning* - Performance degradation or approaching thresholds
+* *Information* - Status changes or notifications
+* *Debug* - Detailed troubleshooting information
+
+=== Notification Channels
+
+Configure multiple notification channels:
+
+* Email notifications for alerts
+* SMS alerts for critical issues
+* Slack/Teams integration
+* Webhook notifications
+* Mobile app notifications
+
+== Log Management and Analysis
+
+=== Log Collection
+
+Implement comprehensive log collection:
+
+* Application logs with structured formats
+* Error logs with stack traces and context
+* Performance logs with timing information
+* Audit logs for security and compliance
+* Business process logs for transaction tracking
+
+=== Log Analysis
+
+Analyze logs for insights:
+
+* Error pattern identification
+* Performance bottleneck detection
+* User behavior analysis
+* Security incident investigation
+* Trend analysis and reporting
+
+=== Log Correlation
+
+Correlate logs across components:
+
+* Transaction tracing across services
+* Request ID tracking through systems
+* Error correlation and root cause analysis
+* Performance impact analysis
+* End-to-end process tracking
+
+== Performance Baselining and Trending
+
+=== Baseline Establishment
+
+Establish performance baselines:
+
+* Normal operating performance ranges
+* Peak performance characteristics
+* Seasonal variation patterns
+* Growth trend projections
+* Capacity planning baselines
+
+=== Trend Analysis
+
+Analyze performance trends:
+
+* Long-term performance evolution
+* Seasonal and cyclical patterns
+* Performance degradation detection
+* Capacity utilization trends
+* Predictive performance modeling
+
+=== Anomaly Detection
+
+Implement anomaly detection:
+
+* Statistical anomaly identification
+* Machine learning-based detection
+* Threshold-based alerting
+* Pattern deviation monitoring
+* Automated incident creation
+
+== Business Transaction Monitoring
+
+=== Transaction Tracking
+
+Track end-to-end business transactions:
+
+* Transaction correlation IDs
+* Multi-step process monitoring
+* Cross-system transaction tracking
+* Transaction success and failure rates
+* Business process completion times
+
+=== Business Process Analytics
+
+Analyze business process performance:
+
+* Process efficiency metrics
+* Bottleneck identification
+* Success rate analysis
+* Customer experience metrics
+* Revenue impact analysis
+
+=== SLA Monitoring
+
+Monitor service level agreements:
+
+* Response time SLA compliance
+* Availability SLA tracking
+* Throughput SLA monitoring
+* Error rate SLA compliance
+* Custom SLA metrics
+
+== Troubleshooting and Diagnostics
+
+=== Performance Issue Investigation
+
+Investigate performance problems:
+
+* Identify performance bottlenecks
+* Analyze resource utilization patterns
+* Correlate performance with system events
+* Review error logs and patterns
+* Test performance under different conditions
+
+=== Root Cause Analysis
+
+Perform systematic root cause analysis:
+
+* Timeline analysis of events
+* Correlation of metrics and logs
+* System dependency analysis
+* Performance impact assessment
+* Solution validation and testing
+
+=== Diagnostic Tools
+
+Use diagnostic tools and techniques:
+
+* Thread dump analysis for concurrency issues
+* Memory heap analysis for memory leaks
+* Network analysis for connectivity issues
+* Database performance analysis
+* Application profiling for optimization
+
+== Best Practices
+
+=== Monitoring Strategy
+
+* Monitor what matters to the business
+* Implement end-to-end monitoring
+* Use appropriate monitoring tools
+* Balance monitoring overhead with value
+* Regular monitoring strategy reviews
+
+=== Operational Excellence
+
+* Automate monitoring where possible
+* Implement comprehensive alerting
+* Maintain monitoring documentation
+* Train teams on monitoring tools
+* Continuous monitoring improvement
+
+=== Performance Optimization
+
+* Use monitoring data for optimization
+* Implement proactive performance management
+* Regular performance reviews
+* Capacity planning based on monitoring data
+* Performance testing aligned with monitoring
+
+== See Also
+
+* xref:monitoring-dashboards-hybrid-apps.adoc[Monitoring Dashboard for Mule Apps Deployed to Hybrid Standalone]
+* xref:creating-alerts-hybrid-apps.adoc[Creating Alerts for Mule Apps Deployed to Hybrid Standalone]
+* xref:managing-apps-hybrid-standalone.adoc[Managing Mule Apps Deployed to Hybrid Standalone Instances]
