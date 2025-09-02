@@ -125,7 +125,7 @@ This table indicates the available and planned cloud regions for Hyperforce:
 |North America | Canada Cloud | `ca1.platform.mulesoft.com` | Available
 |Asia Pacific | Japan Cloud | `jp1.platform.mulesoft.com` | Available
 |North America | US Cloud | `anypoint.mulesoft.com` | Planned
-|Europe | EU Cloud | `eu1.platform.mulesoft.com` | Planned
+|Europe | EU Cloud | `eu1.anypoint.mulesoft.com` | Planned
 |===
 
 == Mule Runtime Version Compatibility
