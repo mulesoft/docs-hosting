@@ -33,8 +33,9 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 [%header%autowidth.spread,cols=".^a,.^a,.^a,.^a,.^a,.^a,.^a]
 |===
 |Component |Feature Description |US Cloud | EU Cloud | Canada Cloud | Japan Cloud | Notes
-.2+| xref:access-management::index.adoc[Access Management] | All other features | Planned | Planned | Available | Available .2+| n/a
+.3+| xref:access-management::index.adoc[Access Management] | All other features | Planned | Planned | Available | Available .2+| n/a
 | Audit Logging | Planned | Planned | Available | Available
+| Business Groups | Planned | Planned | Available | Available
 .3+|xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]| API Manager 1.x     |  Planned |Planned | Not planned | Not planned .3+|  For details, refer to xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane],  xref:api-manager::analytics-landing-page.adoc[Mule API Analytics], and xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
 | API Manager 2.x | Planned | Planned | Available | Available
 | API Service Mesh | Planned | Planned | Not planned | Not planned
