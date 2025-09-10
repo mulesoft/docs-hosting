@@ -43,13 +43,20 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                       | Amazon Cloud Front      |  Planned |Planned | Planned | Planned
                       |Usage and Engagement Metrics      |  Planned | Planned |Planned | Planned 
 |Anypoint Integration Advanced| n/a | Planned | Planned | Planned | Planned |  n/a 
-.7+|xref:monitoring::index.adoc[Anypoint Monitoring]| Alerts |  Planned |Planned | Planned | Planned .7+| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
-                                                     |Custom Metrics       |  Planned |Planned | Planned| Planned
-                                                     |Built-in Dashboards (Not Insights)       |  Not planned |Not planned | Not planned| Not planned
-                                                     |Anypoints Insights       |  Planned | Planned | Available| Available
-                                                     |API Functional Monitoring       |  Planned | Planned | Available| Available
-                                                     |Log Management/Logs       |  Planned | Planned | Planned| Planned
-                                                     |Telemetry Exports       |  Planned | Planned | Available| Available
+.13+|xref:monitoring::index.adoc[Anypoint Monitoring]| Advanced Alerts |  Planned |Planned | Planned | Planned .13+| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
+                                                     
+                                                     |Basic Alerts       |  Planned |Planned | Planned| Planned
+                                                     |Archive API       |  Planned |Planned | Planned| Planned
+                                                     |Configurable Sampling for Traces       |  Not planned |Not planned | Not planned| Not planned
+                                                     |Distributed Tracing Experience       |  Not planned |Not planned | Not planned| Not planned
+                                                     |Log-Points      |  Planned |Planned | Planned| Planned
+                                                     |Log-Search       |  Planned |Planned | Planned| Planned
+                                                     |Log-Tailing       |  Planned |Planned | Available| Available
+                                                     |OTel Exporter for Audit Logs       |  Planned |Planned | Planned| Planned
+                                                     |OTel Exporter for Traces       |  Not planned |Not planned | Not planned| Not planned
+                                                     |Raw Data Download       |  Planned | Planned | Planned| Planned
+                                                     |Reports       |  Planned | Planned | Planned| Planned
+                                                     |Tools       |  Planned | Planned | Planned| Planned
 .18+|xref:mq::index.adoc[Anypoint MQ]| All other features |  Planned |Planned | Available | Available .18+| For details, refer to xref:mq::index.adoc#mq-features-control-plane[Anypoint MQ Features by Control Plane]
                                     | Anypoint MQ Admin API |  Planned |Planned | Available | Available
                                     | Anypoint MQ Broker API |  Planned |Planned | Available | Available
@@ -74,7 +81,9 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                                                               | Insights | Planned | Planned | Available | Available
 |xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager]| n/a | Planned | Planned | Available | Available | n/a
 |xref:studio::index.adoc[Anypoint Studio]| n/a | Planned | Planned | Available | Available | n/a
-|xref:visualizer::index.adoc[Anypoint Visualizer]| n/a | Planned | Planned | Available | Available | For details, refer to xref:visualizer::index.adoc#visualizer-hyperforce[Anypoint Visualizer Features by Control Plane]. 
+.3+|xref:visualizer::index.adoc[Anypoint Visualizer]| Architecture | Planned | Planned | Available | Available .3+| n/a
+                                                    | Policies | Planned | Planned | Available | Available  
+                                                    | Troubleshooting | Planned | Planned | Available | Available 
 |xref:api-community-manager::index.adoc[API Community Manager]| n/a | Planned | Planned | Available | Available | n/a
 |xref:design-center::design-create-publish-api-specs.adoc[API Designer]| n/a | Planned | Planned | Not planned | Not planned | n/a
 |xref:api-experience-hub::index.adoc[API Experience Hub]| n/a | Planned | Planned | Available | Available | n/a
