@@ -45,17 +45,15 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                       | Amazon Cloud Front      |  Planned |Planned | Planned | Planned
                       |Usage and Engagement Metrics      |  Planned | Planned |Planned | Planned 
 |Anypoint Integration Advanced| n/a | Planned | Planned | Planned | Planned |  n/a 
-.13+|xref:monitoring::index.adoc[Anypoint Monitoring]| Advanced Alerts |  Planned |Planned | Planned | Planned .13+| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
+.10+|xref:monitoring::index.adoc[Anypoint Monitoring]| Advanced Alerts |  Planned |Planned | Planned | Planned .10+| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
                                                      
                                                      |Basic Alerts       |  Planned |Planned | Planned| Planned
                                                      |Archive API       |  Planned |Planned | Planned| Planned
-                                                     |Configurable Sampling for Traces       |  Not planned |Not planned | Not planned| Not planned
-                                                     |Distributed Tracing Experience       |  Not planned |Not planned | Not planned| Not planned
                                                      |Log-Points      |  Planned |Planned | Planned| Planned
                                                      |Log-Search       |  Planned |Planned | Planned| Planned
                                                      |Log-Tailing       |  Planned |Planned | Available| Available
                                                      |OTel Exporter for Audit Logs       |  Planned |Planned | Planned| Planned
-                                                     |OTel Exporter for Traces       |  Not planned |Not planned | Not planned| Not planned
+                                            
                                                      |Raw Data Download       |  Planned | Planned | Planned| Planned
                                                      |Reports       |  Planned | Planned | Planned| Planned
                                                      |Tools       |  Planned | Planned | Planned| Planned
