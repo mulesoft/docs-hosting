@@ -99,7 +99,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                                             | Private Space | Available | Available |Available | Available
                                             | Private Space - VPN | Available | Available |Available | Available
 |Connectors| n/a | Planned | Planned | Available | Available | n/a
-|Dataloader| n/a | Planned | Not planned | Not planned | Not planned| n/a
+|Dataloader| n/a | Planned | Not planned | Not planned | Not planned| https://dataloader.io/[Dataloader.io] will remain accessible globally, while its infrastructure will be hosted within the US Control Plane.
 .4+|xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway]| API Key Metrics | Available | Available | Planned | Planned .4+| n/a
                 | Flex Gateway Running in Connected Mode | Planned | Planned | Available | Available
                 | Flex Gateway Running in Local Mode | Planned | Planned | Available | Available
