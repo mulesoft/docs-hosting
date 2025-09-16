@@ -16,6 +16,9 @@ You can also configure inbound firewall rules that use TCP as the protocol.
 
 To support Anypoint MQ, API Manager, and ObjectStore v2, you must allow outbound traffic on port 443 (HTTPS).
 
+[NOTE]
+CloudHub 2.0 doesn't support IPv6 firewall rules.
+
 == Configure Firewall Rules
 
 //SELECT PRIVATE SPACE SHARED
