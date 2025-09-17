@@ -57,7 +57,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                                                      |Raw Data Download       |  Planned | Planned | Planned| Planned
                                                      |Reports       |  Planned | Planned | Planned| Planned
                                                      |Tools       |  Planned | Planned | Planned| Planned
-.18+|xref:mq::index.adoc[Anypoint MQ]| All other features |  Planned |Planned | Available | Available .18+| For details, refer to xref:mq::index.adoc#mq-features-control-plane[Anypoint MQ Features by Control Plane]
+.17+|xref:mq::index.adoc[Anypoint MQ]| All other features |  Planned |Planned | Available | Available .17+| For details, refer to xref:mq::index.adoc#mq-features-control-plane[Anypoint MQ Features by Control Plane]
                                     | Anypoint MQ Admin API |  Planned |Planned | Available | Available
                                     | Anypoint MQ Broker API |  Planned |Planned | Available | Available
                                     | Anypoint MQ Connector earlier than 4.x |  Planned |Planned | Not planned | Not planned
@@ -72,7 +72,6 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                                     | FIFO Exchange |  Planned |Planned | Planned | Planned
                                     | Message Exchanges |  Planned |Planned | Available | Available
                                     | Message Routing |  Planned |Planned | Available | Available
-                                    | Unencrypted Queus |  Not planned |Not planned | Not planned | Not planned
                                     | Usage Charts (Access Management) |  Planned |Planned | Available | Available
                                     | Usage Reports (Usage) |  Planned |Planned | Available | Available
 |xref:api-manager::analytics-landing-page.adoc[Anypoint Mule API Analytics]| REST APIs | Planned | Planned | Not planned | Not planned | n/a
