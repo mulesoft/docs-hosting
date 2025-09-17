@@ -1,389 +1,85 @@
 = Setting up Hybrid Standalone Instances
 
-Setting up hybrid standalone instances involves installing, configuring, and registering Mule runtime engines with Anypoint Runtime Manager for cloud-based management.
+Set up hybrid standalone instances to enable centralized management and deployment of Mule applications through Anypoint Platform while maintaining control over your infrastructure.
 
 == Overview
 
 The setup process includes:
 
-* Infrastructure preparation and planning
-* Mule runtime installation and configuration
-* Runtime Manager Agent installation and setup
-* Server registration with Anypoint Platform
-* Initial configuration and validation
+* Prepare infrastructure and plan deployment
+* Install and configure Mule runtime
+* Install and set up Runtime Manager Agent
+* Register servers with Anypoint Platform
+* Configure and validate initial setup
 
-== Prerequisites
+== Prepare Infrastructure
 
-Before setting up hybrid standalone instances, ensure you have:
+Before setting up hybrid standalone instances, make sure your infrastructure meets these requirements:
 
-=== Infrastructure Requirements
+* Allocate adequate CPU, memory, and storage for your Mule runtime instances
+*  Configure outbound HTTPS connectivity (port 443) and firewall rules for Runtime Manager Agent
+* Use supported OS versions (Linux, Windows, macOS) with compatible Java versions
+* Obtain Anypoint Platform subscription
 
-* **Server Resources**: Adequate CPU, memory, and storage
-* **Network Connectivity**: Reliable internet access to Anypoint Platform
-* **Operating System**: Supported OS (Linux, Windows, macOS)
-* **Java**: Supported Java version installed
-* **Permissions**: Administrative access for installation and configuration
-
-=== Anypoint Platform Access
-
-* Valid Anypoint Platform subscription
-* Runtime Manager access permissions
-* Organization administrator or deployment permissions
-* Hybrid deployment entitlements
-
-=== Network Configuration
-
-* Outbound HTTPS connectivity (port 443)
-* Firewall rules configured for Runtime Manager Agent
-* DNS resolution for Anypoint Platform domains
-* Optional proxy configuration if required
+== Install and Configure Mule Runtime
 
-== Installation Process
-
-=== Step 1: Download Mule Runtime
-
-Download the appropriate Mule runtime version:
-
-1. Log in to Anypoint Exchange
-2. Navigate to Mule Runtime downloads
-3. Select the appropriate version for your environment
-4. Download the runtime package (ZIP or TAR.GZ)
-
-=== Step 2: Install Mule Runtime
-
-Install the Mule runtime on your target server:
-
-**Linux/macOS Installation:**
-[source,bash]
-----
-# Extract the runtime package
-tar -xzf mule-enterprise-standalone-4.x.x.tar.gz
-
-# Move to installation directory
-sudo mv mule-enterprise-standalone-4.x.x /opt/mule
-
-# Set ownership and permissions
-sudo chown -R mule:mule /opt/mule
-sudo chmod +x /opt/mule/bin/mule
-----
-
-**Windows Installation:**
-[source,cmd]
-----
-# Extract the ZIP file to C:\mule
-# Set environment variables
-set MULE_HOME=C:\mule
-set PATH=%PATH%;%MULE_HOME%\bin
-----
-
-=== Step 3: Configure Mule Runtime
-
-Configure basic runtime settings:
-
-**Create wrapper.conf configuration:**
-[source,properties]
-----
-# wrapper.conf
-wrapper.java.additional.1=-Danypoint.platform.client_id=your_client_id
-wrapper.java.additional.2=-Danypoint.platform.client_secret=your_client_secret
-wrapper.java.additional.3=-Danypoint.platform.base_uri=https://anypoint.mulesoft.com
-
-# Memory settings
-wrapper.java.initmemory=1024
-wrapper.java.maxmemory=2048
-----
-
-**Set environment variables:**
-[source,bash]
-----
-export MULE_HOME=/opt/mule
-export MULE_BASE=$MULE_HOME
-export PATH=$PATH:$MULE_HOME/bin
-----
-
-=== Step 4: Install Runtime Manager Agent
-
-Install and configure the Runtime Manager Agent:
-
-**Download and install the agent:**
-[source,bash]
-----
-# Navigate to Mule bin directory
-cd $MULE_HOME/bin
-
-# Download the agent installer
-wget https://anypoint.mulesoft.com/runtimemanager/api/v1/agent/installer
-
-# Make executable and run
-chmod +x installer
-./installer install
-----
-
-**Configure agent registration:**
-[source,bash]
-----
-# Register with Runtime Manager
-./installer register \
-  --mule-home $MULE_HOME \
-  --server-name "MyHybridServer" \
-  --organization-id "your-org-id" \
-  --environment "Production" \
-  --token "your-registration-token"
-----
-
-== Configuration Options
-
-=== Server Registration
-
-Configure server registration settings:
-
-**Basic Registration:**
-[source,bash]
-----
-./installer register \
-  --mule-home /opt/mule \
-  --server-name "ProductionServer01" \
-  --organization-id "12345678-1234-1234-1234-123456789012" \
-  --environment "Production" \
-  --token "abcd1234-5678-90ef-ghij-klmnopqrstuv"
-----
-
-**Advanced Registration Options:**
-[source,bash]
-----
-./installer register \
-  --mule-home /opt/mule \
-  --server-name "ProductionServer01" \
-  --organization-id "12345678-1234-1234-1234-123456789012" \
-  --environment "Production" \
-  --token "abcd1234-5678-90ef-ghij-klmnopqrstuv" \
-  --proxy-host proxy.company.com \
-  --proxy-port 8080 \
-  --proxy-user proxyuser \
-  --proxy-password proxypass
-----
-
-=== Network Configuration
-
-Configure network settings for your environment:
-
-**Proxy Configuration:**
-[source,properties]
-----
-# mule-agent.yml
-transports:
-  rest.agent.transport:
-    port: 9999
-    host: 0.0.0.0
-  websocket.transport:
-    consoleUri: wss://runtime-manager.anypoint.mulesoft.com
-    
-globalConfiguration:
-  proxy:
-    host: proxy.company.com
-    port: 8080
-    username: proxyuser
-    password: proxypass
-----
-
-**SSL Configuration:**
-[source,properties]
-----
-# SSL settings
-javax.net.ssl.trustStore=/path/to/truststore.jks
-javax.net.ssl.trustStorePassword=changeit
-javax.net.ssl.keyStore=/path/to/keystore.jks
-javax.net.ssl.keyStorePassword=changeit
-----
-
-=== Security Configuration
-
-Implement security best practices:
-
-**File Permissions:**
-[source,bash]
-----
-# Set secure file permissions
-chmod 600 $MULE_HOME/conf/mule-agent.yml
-chmod 600 $MULE_HOME/conf/wrapper.conf
-chown mule:mule $MULE_HOME/conf/*
-----
-
-**Firewall Configuration:**
-[source,bash]
-----
-# Allow outbound HTTPS
-iptables -A OUTPUT -p tcp --dport 443 -j ACCEPT
-
-# Allow agent administration (internal only)
-iptables -A INPUT -p tcp --dport 9999 -s 192.168.1.0/24 -j ACCEPT
-----
-
-== Validation and Testing
-
-=== Verify Installation
-
-Confirm successful installation:
-
-**Check Mule Runtime:**
-[source,bash]
-----
-# Test Mule startup
-$MULE_HOME/bin/mule start
-
-# Check process status
-ps aux | grep mule
-
-# Review logs
-tail -f $MULE_HOME/logs/mule_ee.log
-----
-
-**Verify Agent Registration:**
-[source,bash]
-----
-# Check agent status
-curl http://localhost:9999/mule/agent/status
-
-# Verify connectivity to Runtime Manager
-curl -k https://anypoint.mulesoft.com/hybrid/api/v1/servers
-----
-
-=== Runtime Manager Verification
-
-Confirm server appears in Runtime Manager:
-
-1. Log in to Anypoint Platform
-2. Navigate to Runtime Manager
-3. Check *Servers* section
-4. Verify your server appears with "Running" status
-5. Test basic management operations
-
-=== Connectivity Testing
-
-Test network connectivity:
-
-**Test Platform Connectivity:**
-[source,bash]
-----
-# Test HTTPS connectivity
-curl -I https://anypoint.mulesoft.com
-
-# Test WebSocket connectivity
-curl -I https://runtime-manager.anypoint.mulesoft.com
-
-# Verify DNS resolution
-nslookup anypoint.mulesoft.com
-----
-
-**Test Agent Communication:**
-[source,bash]
-----
-# Check agent logs
-tail -f $MULE_HOME/logs/mule_agent.log
-
-# Test agent endpoints
-curl http://localhost:9999/mule/agent/applications
-curl http://localhost:9999/mule/agent/domains
-----
-
-== Troubleshooting
-
-=== Common Issues
-
-Address typical setup problems:
-
-**Registration Failures:**
-* Verify organization ID and token
-* Check network connectivity
-* Validate proxy configuration
-* Review firewall settings
-
-**Agent Communication Issues:**
-* Check SSL certificate configuration
-* Verify DNS resolution
-* Test network connectivity
-* Review agent logs
-
-**Runtime Startup Problems:**
-* Verify Java version compatibility
-* Check memory allocation settings
-* Review file permissions
-* Validate configuration files
-
-=== Diagnostic Commands
-
-Use diagnostic tools for troubleshooting:
-
-[source,bash]
-----
-# Check Java version
-java -version
-
-# Test network connectivity
-telnet anypoint.mulesoft.com 443
-
-# Verify agent configuration
-cat $MULE_HOME/conf/mule-agent.yml
-
-# Check system resources
-free -h
-df -h
-----
-
-=== Log Analysis
-
-Analyze logs for issues:
-
-**Key log files:**
-* `$MULE_HOME/logs/mule_ee.log` - Mule runtime logs
-* `$MULE_HOME/logs/mule_agent.log` - Agent communication logs
-* `$MULE_HOME/logs/wrapper.log` - Runtime wrapper logs
-
-**Common error patterns:**
-* Connection timeout errors
-* SSL handshake failures
-* Authentication errors
-* Registration token issues
-
-== Best Practices
-
-=== Security
-
-* Use dedicated service accounts for Mule processes
-* Implement proper file permissions
-* Secure configuration files containing credentials
-* Regular security updates and patches
-* Network segmentation and firewall rules
-
-=== Performance
-
-* Allocate appropriate memory and CPU resources
-* Configure optimal garbage collection settings
-* Monitor resource utilization
-* Plan for peak load requirements
-* Implement performance baselines
-
-=== Operational
-
-* Automate installation and configuration
-* Implement configuration management
-* Maintain documentation and runbooks
-* Regular backup of configuration files
-* Plan for disaster recovery scenarios
-
-== Next Steps
-
-After successful setup:
-
-1. **Create Server Groups** - Organize servers for easier management
-2. **Configure Clusters** - Set up high availability if needed
-3. **Deploy Applications** - Start deploying Mule applications
-4. **Set Up Monitoring** - Configure alerts and dashboards
-5. **Implement Maintenance** - Plan ongoing operational procedures
+Set up your Mule runtime environment:
+
+* Get the appropriate Mule runtime version from Anypoint Exchange for your environment
+* Extract and install the runtime package in your target directory with proper file permissions
+* Configure memory settings, environment variables, and connection properties
+* Configure Mule as a system service for automatic startup and management
+
+== Install and Set Up Runtime Manager Agent
+
+The Runtime Manager Agent is a lightweight component that enables communication between your on-premises Mule runtime instances and Anypoint Platform in the cloud.
+
+With the Runtime Manager Agent, you can:
+
+* Register servers with Anypoint Platform for centralized management
+* Deploy and manage applications remotely through Runtime Manager
+* Monitor server health, performance metrics, and application status
+* Configure server properties and environment variables
+* Receive real-time alerts and notifications
+* Access application logs and diagnostic information
+
+For detailed configuration and setup instructions, refer to xref:runtime-manager-agent.adoc[Runtime Manager Agent].
+
+== Register Servers with Anypoint Platform
+
+Use Runtime Manager to register your servers with Anypoint Platform, enabling centralized management and deployment. Once registered, you can organize servers into groups or clusters and deploy applications to them.
+
+=== Deployment Target Options
+
+Choose from three deployment configurations:
+
+* xref:creating-servers.adoc[Creating Servers] +
+Individual server instances for simple deployments, ideal for development and testing
+* xref:creating-servers-groups.adoc[Creating Server Groups] +
+Multiple servers managed together for load distribution with completely isolated application instances
+* xref:creating-clusters.adoc[Creating Clusters] +
+High-availability configuration with automatic failover, load balancing, and synchronized node communication
+
+All servers within a server group or cluster must have identical versions of:
+
+* Mule runtime engine
+* Runtime Manager agent
+
+=== Registration Workflow
+
+. Use Runtime Manager to register each server and configure its properties
+. Add registered servers to a server group or cluster based on your requirements  
+. Select the individual server, server group, or cluster for your application deployments
+
+== Configure and Validate Initial Setup
+
+Verify your hybrid standalone configuration:
+
+* Test network connectivity to Anypoint Platform and verify DNS resolution
+* Confirm Runtime Manager Agent is running and communicating with Anypoint Platform
+* Verify servers appear in Runtime Manager with "Running" status
+* Test server management operations and application deployment capabilities
 
 == See Also
 
-* xref:creating-servers.adoc[Creating Servers]
-* xref:creating-servers-groups.adoc[Creating Server Groups]
-* xref:creating-clusters.adoc[Creating Clusters]
 * xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]

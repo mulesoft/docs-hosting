@@ -4,7 +4,6 @@ Hybrid standalone instances enable you to host the Mule runtime engin (Mule) in 
 
 With hybrid standalone instances, Mule can run on a physical server, a virtual machine, or within a third-party cloud service like Amazon Web Services (AWS) or Microsoft Azure.
 
-
 == Key Benefits
 
 * Infrastructure control +
@@ -51,29 +50,6 @@ Hybrid Standalone is ideal for:
 * Legacy system integration and modernization efforts that require gradual migration to cloud-based services while maintaining existing network configurations.
 * Custom performance optimization scenarios requiring full control over infrastructure, network security policies, and direct system access.
 
-== Deployment Options
-
-You can deploy your Mule applications to three types of deployment targets:
-
-* Servers +
-Deploy applications on single server instances for simple deployment models, suitable for development and testing.
-* Server groups +
-Group multiple servers for coordinated management and load distribution across members. Application instances run in complete isolation from each other, providing independent processing across multiple servers. 
-* Clusters +
-Implement clustering for high availability with automatic failover, load balancing, and zero-downtime deployments. Nodes communicate with each other, share common information, and synchronize statuses for coordinated processing
-
-All servers within a server group or cluster must have identical versions of:
-
-* Mule runtime engine
-* Runtime Manager agent
-
-=== Setup Workflow
-
-. Use Runtime Manager to register and configure properties for server, server groups, or clusters.
-. Add servers to a server group or cluster based on your requirements
-. Select the individual server, server group, or cluster for your application deployment
-
-
 == Infrastructure Requirements
 
 === Server Requirements
@@ -104,21 +80,6 @@ Important security aspects:
 * Access control and authentication
 * Network segmentation and firewall rules
 * Audit logging and monitoring
-
-== Runtime Manager Agent
-
-The Runtime Manager Agent is a lightweight component that enables communication between your on-premises Mule runtime instances and Anypoint Platform in the cloud.
-
-With the Runtime Manager Agent, you can:
-
-* Register servers with Anypoint Platform for centralized management
-* Deploy and manage applications remotely through Runtime Manager
-* Monitor server health, performance metrics, and application status
-* Configure server properties and environment variables
-* Receive real-time alerts and notifications
-* Access application logs and diagnostic information
-
-For detailed configuration and setup instructions, refer to xref:runtime-manager-agent.adoc[Runtime Manager Agent].
 
 == See Also
 
