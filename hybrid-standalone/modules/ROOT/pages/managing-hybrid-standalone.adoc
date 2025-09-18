@@ -2,19 +2,8 @@
 
 This section covers the comprehensive management of your hybrid standalone runtime instances, including servers, server groups, and clusters.
 
-== Overview
 
-Managing hybrid standalone instances involves:
-
-* Server lifecycle management
-* Performance monitoring and optimization  
-* Configuration updates and maintenance
-* Scaling and capacity planning
-* Security and compliance management
-
-== Management Tasks
-
-=== Server Management
+== Managing Servers
 
 Regular server management tasks include:
 
@@ -24,7 +13,9 @@ Regular server management tasks include:
 * Managing server resources and capacity
 * Applying security updates and patches
 
-=== Group and Cluster Management
+For details, refer to xref:managing-servers.adoc[Managing Servers].
+
+=== Managing Server Groups and Clusters
 
 For server groups and clusters:
 
@@ -34,89 +25,14 @@ For server groups and clusters:
 * Managing shared resources
 * Monitoring collective health
 
-== Operational Procedures
+For details, refer to:
 
-=== Routine Maintenance
+* xref:managing-servers-groups.adoc[Managing Server Groups]
+*  xref:managing-clusters.adoc[Managing Clusters].
 
-Schedule regular maintenance activities:
-
-* System updates and patches
-* Performance monitoring reviews
-* Capacity planning assessments
-* Security audits and compliance checks
-* Backup and disaster recovery testing
-
-=== Configuration Management
-
-Maintain consistent configurations:
-
-* Use version control for configuration files
-* Document all configuration changes
-* Test configurations in non-production environments
-* Implement change management processes
-
-== Performance Optimization
-
-=== Resource Monitoring
-
-Monitor key metrics:
-
-* CPU and memory utilization
-* Network throughput and latency
-* Disk I/O and storage capacity
-* Application performance indicators
-
-=== Scaling Decisions
-
-Determine when to scale:
-
-* Add servers for increased capacity
-* Create clusters for high availability
-* Optimize existing configurations
-* Implement load balancing strategies
-
-== Security Management
-
-=== Access Control
-
-Implement proper access controls:
-
-* User authentication and authorization
-* Role-based permissions
-* Network security configurations
-* API security measures
-
-=== Compliance
-
-Ensure compliance with:
-
-* Organizational security policies
-* Industry regulations and standards
-* Data protection requirements
-* Audit and reporting obligations
-
-== Troubleshooting
-
-Common management challenges:
-
-* Performance degradation
-* Configuration conflicts
-* Network connectivity issues
-* Resource constraints
-* Security vulnerabilities
-
-== Best Practices
-
-* Maintain detailed documentation
-* Implement monitoring and alerting
-* Plan for capacity and growth
-* Regular security assessments
-* Automated deployment processes
-* Disaster recovery planning
 
 == See Also
 
-* xref:managing-servers.adoc[Managing Servers]
-* xref:managing-servers-groups.adoc[Managing Server Groups]
-* xref:managing-clusters.adoc[Managing Clusters]
+* xref:setting-hybrid-standalone.adoc[Setting up Hybrid Standalone Instances]
 * xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]
+* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]
