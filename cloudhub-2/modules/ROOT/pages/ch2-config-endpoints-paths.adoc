@@ -75,8 +75,8 @@ For information, see <<placeholder-table,placeholders>>.
 .. Enter the path that the client requests, for example `/api`.
 .. Optionally enter, the path rewrite where the HTTP Listener in the app is listening, for example `/v1/api`.
 .. Configure the *Access*:
-... External endpoints are accessible externally, and enable clients outside the network to reach the app.
-... Internal endpoints are only accessible within your private network or via your VPN or Transit Gateway connection. 
+*** External endpoints are accessible externally, and enable clients outside the network to reach the app.
+*** Internal endpoints are only accessible within your private network or via your VPN or Transit Gateway connection. 
 . If you want to configure additional endpoints, click *Add Endpoint* and repeat steps 2.1 through 2.3.
 . Depending on the deployment status, choose either:
 ** If you're ready to deploy the application, click *Deploy*.
