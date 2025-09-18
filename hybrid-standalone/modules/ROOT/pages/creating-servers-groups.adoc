@@ -4,11 +4,6 @@ Creating server groups allows you to organize your hybrid standalone servers for
 
 A server group is a set of servers that act as a single deployment target for applications so that you don’t have to deploy applications to each server individually.
 
-Server groups provide a way to logically group multiple servers together, making it easier to:
-
-* Deploy applications to multiple servers simultaneously
-* Manage configuration across related servers
-* Monitor performance at the group level
 
 == Understanding Server Groups
 
@@ -37,7 +32,7 @@ Additionally, review these requirements and limitations:
 
 * To add a server on which existing applications are currently running to a server group, first stop and delete the applications from the server.
 
-== Creating a Server Group
+== Create a Server Group
 
 When creating a server group, you can either:
 
