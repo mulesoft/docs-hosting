@@ -16,7 +16,6 @@ High-availability cluster administration with member coordination and shared res
 
 == Management Operations
 
-* Monitor server health, performance metrics, and resource utilization through Runtime Manager
 * Update server configurations, properties, and environment variables as needed
 * Add or remove members from server groups and clusters to scale your infrastructure
 * Apply security updates, patches, and maintenance across your managed instances
