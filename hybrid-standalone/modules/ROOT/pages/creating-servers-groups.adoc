@@ -2,7 +2,7 @@
 
 Creating server groups allows you to organize your hybrid standalone servers for easier management and deployment.
 
-== Overview
+A server group is a set of servers that act as a single deployment target for applications so that you don’t have to deploy applications to each server individually.
 
 Server groups provide a way to logically group multiple servers together, making it easier to:
 
@@ -10,7 +10,13 @@ Server groups provide a way to logically group multiple servers together, making
 * Manage configuration across related servers
 * Monitor performance at the group level
 
-== Prerequisites
+== Understanding Server Groups
+
+Deploying applications to servers in server groups provides redundancy so you can restore applications more seamlessly and quickly, with less downtime.
+
+Unlike clusters, application instances in a server group run in isolation from the application instances running on the other servers in the group. If you experience concurrency issues with server groups, consider grouping servers in clusters.
+
+== Before You Begin
 
 Before creating server groups, ensure that you have:
 
@@ -18,31 +24,41 @@ Before creating server groups, ensure that you have:
 * Appropriate permissions to create and manage server groups
 * Access to Runtime Manager
 
+Additionally, review these requirements and limitations:
+
+* All servers in a server group must be running the same versions of:
+** Mule runtime engine
+** Runtime Manager agent
+**Java
+
+* You can create a server group with servers with the `Running` or the `Disconnected` status, but these can’t be in the same group as servers with the `Created` status.
+
+* You can create a server group with servers with the `Created` status.
+
+* To add a server on which existing applications are currently running to a server group, first stop and delete the applications from the server.
+
 == Creating a Server Group
 
-To create a new server group:
+When creating a server group, you can either:
 
-1. Navigate to Runtime Manager
-2. In the left navigation menu, select *Servers*
-3. Click *Create Group* 
-4. Enter a name for your server group
-5. Optionally add a description
-6. Select the servers you want to include in the group
-7. Click *Create Group*
+* Add the servers to Runtime Manager first and then create the server group.
+* Create the group and add servers to it later.
 
-== Managing Server Group Membership
+To create a server group:
 
-You can add or remove servers from a group after creation:
+. From Anypoint Platform, select *Runtime Manager*.
+. Select *Servers*.
+. Click *Create Group*.
+. In the *Create Server Group* page, enter the name for the server group.
++
+Group names can contain between 3-40 alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-). They cannot start or end with a hyphen and cannot contain spaces or other characters.
+. Select the servers to include in your new server group.
+. Click *Create Group*.
 
-* To add servers: Select the group and use the *Add Server* option
-* To remove servers: Select individual servers within the group and choose *Remove from Group*
+* The new server group appears in the *Servers* list. 
+* The servers no longer appear in the *Servers* list. 
 
-== Best Practices
-
-* Use descriptive names for your server groups
-* Group servers with similar purposes or environments
-* Regularly review group membership to ensure optimal organization
-* Consider geographical or functional groupings for large deployments
+To see the list of servers in the group, select the server group name.
 
 == Next Steps
 
