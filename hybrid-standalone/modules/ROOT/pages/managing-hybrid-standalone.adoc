@@ -1,34 +1,25 @@
 = Managing Hybrid Standalone Instances
 
-This section covers the comprehensive management of your hybrid standalone runtime instances, including servers, server groups, and clusters.
+Manage your hybrid standalone runtime instances to maintain optimal performance, ensure high availability, and scale your infrastructure as your business requirements evolve.
 
 
-== Managing Servers
+== Manage Servers, Server Groups, and Clusters
 
-Regular server management tasks include:
+Use Runtime Manager to manage your existing servers, server groups, and clusters, enabling ongoing administration, monitoring, and maintenance of your hybrid standalone infrastructure.
 
-* Starting and stopping server instances
-* Updating server configurations
-* Monitoring server health and performance
-* Managing server resources and capacity
-* Applying security updates and patches
+* xref:managing-servers.adoc[Managing Servers] +
+Individual server administration including health monitoring, configuration updates, and resource management
+* xref:managing-servers-groups.adoc[Managing Server Groups] +
+Coordinated management of multiple servers for load distribution and workload balancing
+* xref:managing-clusters.adoc[Managing Clusters] +
+High-availability cluster administration with member coordination and shared resource management
 
-For details, refer to xref:managing-servers.adoc[Managing Servers].
+== Management Operations
 
-=== Managing Server Groups and Clusters
-
-For server groups and clusters:
-
-* Adding or removing members
-* Balancing workloads across instances
-* Coordinating updates and maintenance
-* Managing shared resources
-* Monitoring collective health
-
-For details, refer to:
-
-* xref:managing-servers-groups.adoc[Managing Server Groups]
-*  xref:managing-clusters.adoc[Managing Clusters].
+* Monitor server health, performance metrics, and resource utilization through Runtime Manager
+* Update server configurations, properties, and environment variables as needed
+* Add or remove members from server groups and clusters to scale your infrastructure
+* Apply security updates, patches, and maintenance across your managed instances
 
 
 == See Also

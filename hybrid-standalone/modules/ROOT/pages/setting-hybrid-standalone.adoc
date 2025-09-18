@@ -9,7 +9,7 @@ The setup process includes:
 * Prepare infrastructure and plan deployment
 * Install and configure Mule runtime
 * Install and set up Runtime Manager Agent
-* Register servers with Anypoint Platform
+* Create servers, server groups, and clusters with Anypoint Platform
 * Configure and validate initial setup
 
 == Prepare Infrastructure
@@ -45,13 +45,9 @@ With the Runtime Manager Agent, you can:
 
 For detailed configuration and setup instructions, refer to xref:runtime-manager-agent.adoc[Runtime Manager Agent].
 
-== Register Servers with Anypoint Platform
+== Create Servers, Server Groups, and Clusters
 
-Use Runtime Manager to register your servers with Anypoint Platform, enabling centralized management and deployment. Once registered, you can organize servers into groups or clusters and deploy applications to them.
-
-=== Deployment Target Options
-
-Choose from three deployment configurations:
+Use Runtime Manager to create your servers with Anypoint Platform, enabling centralized management and deployment. Once registered, you can organize servers into groups or clusters and deploy applications to them.
 
 * xref:creating-servers.adoc[Creating Servers] +
 Individual server instances for simple deployments, ideal for development and testing
