@@ -2,50 +2,55 @@
 
 Create and manage individual Mule runtime engine instances (servers) through Anypoint Runtime Manager to deploy and monitor your applications in hybrid standalone environments. You can manage servers either individually or in server groups or clusters
 
-Servers communicate with Runtime Manager using the Runtime Manager agent. After adding a server, use Runtime Manager to deploy applications to the Mule instance and view information about the environment where you installed Mule.
+== Understanding Servers
+
+Servers communicate with Runtime Manager using the Runtime Manager Agent. After creating a server, use Runtime Manager to deploy applications to the Mule instance and view information about the environment where you installed Mule.
 
 For each Mule instance that you want to manage, add a server to Runtime Manager. In environments with multiple Mule instances, use server groups and clusters for redundancy, high availability, and ease of management.
 
-== Prerequisites
+== Before You Begin
 
 Before adding a server to Runtime Manager:
 
-* Your enterprise license is current
-* You are running Mule 3.6.0 or later, and API gateway 2.1 or later
-* For Mule 3.6.x, install the Runtime Manager agent
-* For Mule 3.7.x and later Mule 3.x versions, you can optionally update the Runtime Manager agent to the latest version to take advantage of all bug fixes and new features
-* If you must download the agent, you have an Enterprise support account
-* If the server is already registered with another Runtime Manager instance, remove that registration first
+* Have a current enterprise license.
+* Run Mule 3.6.0 or later and API Gateway 2.1 or later.
+* Install the Runtime Manager Agent for Mule 3.6.x.
+* Update the agent for Mule 3.7.x and later (optional).
+* Have an Enterprise support account if downloading the agent.
+* Remove existing server registration if already registered in another Runtime Manager instance.
 
-For information about installing or updating the Runtime Manager agent, see xref:runtime-manager-agent.adoc[Runtime Manager Agent].
+For details, refer to xref:runtime-manager-agent.adoc[Install or Update the Runtime Manager Agent].
 
-== Add a Server
+== Create a Server
 
-To add a Mule server to Runtime Manager:
+To create a server, add it to Runtime Manager:
 
-. From Anypoint Platform, select *Runtime Manager*
-. Click *Servers* in the left menu
-. Click the *Add Server* button
-. Enter a name for your server
+. From Anypoint Platform, select *Runtime Manager*.
+. Click *Servers* in the left menu.
+. Click the *Add Server* button.
+. Enter a name for your server.
 +
-Server names can contain only letters, numbers, and dashes. They cannot contain spaces or other characters, and cannot start with a dash.
+include::partial$cluster-server.adoc[tag=ServerNameReqs]
 +
-Server names are unique across the organization and environment. You cannot have two servers with the same name in the same environment, even if they are in different business groups.
+include::partial$cluster-server.adoc[tag=ServerNameUnique]
 +
-After you type a valid server name, the `amc_setup` command appears with the server name and a generated token. You use this command to register your server with Runtime Manager.
+include::partial$cluster-server.adoc[tag=AMCsetupInfo]
 +
-. Click *Copy command* to copy the `amc_setup` command
+.The arrow shows the `amc_setup` command in the *Add Server* window.
+image::rtm-add-server.png[amc_setup command in the Add Server window]
++
+. Click *Copy command* to copy the `amc_setup` command.
 +
 This button appears only if the server name you specify is valid.
-. In a terminal window, change to the `$MULE_HOME/bin` directory for the Mule instance that you're registering
-. Paste the command on the command line
-. Include any other parameters on the `amc_setup` command line
+. In a terminal window, change to the `$MULE_HOME/bin` directory for the Mule instance that you're registering.
+. Paste the command on the command line.
+. Include any other parameters on the `amc_setup` command line.
 +
-For information about additional parameters, see xref:runtime-manager-agent.adoc[Runtime Manager Agent].
-. If your environment requires all outbound calls to go through a proxy, specify proxy settings in either the `$MULE_HOME/conf/mule-agent.yml` file or the `$MULE_HOME/conf/wrapper.conf` file
+For information, see xref:installing-and-configuring-runtime-manager-agent.adoc#amc_setup-parameters[amc_setup Parameters].
+. If your environment requires all outbound calls to go through a proxy, specify proxy settings in either the `$MULE_HOME/conf/mule-agent.yml` file or the `$MULE_HOME/conf/wrapper.conf` file.
 +
-See xref:rtm-agent-allowlist.adoc[Runtime Manager Agent Allowlists].
-. If you are using the IBM JVM, see <<IBM JVM>>
+See xref:rtm-agent-proxy-config.adoc[Connect the Agent Through a Proxy Server].
+. If you are using the IBM JVM, see <<configure-ibm-jvm,Configure IBM JVM>>.
 
 When the `amc_setup` command completes successfully, you see:
 
@@ -59,11 +64,12 @@ After the script completes successfully, the name of your server appears on the 
 
 If the server was running when you ran the `amc_setup` script, restart the server to reconnect with Runtime Manager.
 
-== IBM JVM
+[[configure-ibm-jvm]]
+== Configure IBM JVM
 
 When creating a server using the IBM Java Virtual Machine (JVM), you must use a different truststore file than the default truststore installed by the Runtime Manager agent.
 
-. Download the custom truststore from this knowledgebase article:
+. Download the custom truststore from this knowledge base article:
 +
 https://help.mulesoft.com/s/article/Connectivity-issues-between-Mule-Runtime-and-Anypoint-Runtime-manager-using-an-IBM-JVM[Connectivity issues between Mule and Anypoint Runtime Manager using an IBM JVM]
 . Depending on your Mule version, rename the `truststore` file in `$MULE_HOME/conf` to one of these file names:
@@ -74,13 +80,15 @@ https://help.mulesoft.com/s/article/Connectivity-issues-between-Mule-Runtime-and
 
 == Remove a Server from Another Runtime Manager Instance
 
-If the server you want to add is already registered with a different instance of Runtime Manager, you must remove it before you can register.
+If the server you want to add is already registered with a different instance of Runtime Manager, you must remove it before you can register the new one.
 
-To remove the server from Runtime Manager:
+To remove the server:
 
-. In Runtime Manager, delete the server from the *Server* tab
-+
-See xref:managing-servers.adoc[Managing Servers].
+. From Anypoint Platform, select *Runtime Manager*.
+. Select *Servers*.
+. Click the server name.
+. Click *Settings*.
+. From the *Actions* menu, select *Delete*.
 . In the `$MULE_HOME/conf` directory, delete the `mule-agent.yaml` and `mule-agent.jks` files
 
 == See Also
