@@ -7,7 +7,7 @@ Set up hybrid standalone instances to enable centralized management and deployme
 The setup process includes:
 
 * Prepare infrastructure and plan deployment
-* Install and configure Mule runtime
+* Install and configure Mule runtime engine (Mule)
 * Install and set up Runtime Manager Agent
 * Create servers, server groups, and clusters with Anypoint Platform
 * Configure and validate initial setup
@@ -17,7 +17,7 @@ The setup process includes:
 Before setting up hybrid standalone instances, make sure your infrastructure meets these requirements:
 
 * Allocate adequate CPU, memory, and storage for your Mule runtime instances
-*  Configure outbound HTTPS connectivity (port 443) and firewall rules for Runtime Manager Agent
+* Configure outbound HTTPS connectivity (port 443) and firewall rules for Runtime Manager Agent
 * Use supported OS versions (Linux, Windows, macOS) with compatible Java versions
 * Obtain Anypoint Platform subscription
 
@@ -25,7 +25,7 @@ Before setting up hybrid standalone instances, make sure your infrastructure mee
 
 Set up your Mule runtime environment:
 
-* Get the appropriate Mule runtime version from Anypoint Exchange for your environment
+* Get the appropriate Mule version from Anypoint Exchange for your environment
 * Extract and install the runtime package in your target directory with proper file permissions
 * Configure memory settings, environment variables, and connection properties
 * Configure Mule as a system service for automatic startup and management
