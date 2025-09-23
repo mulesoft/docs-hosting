@@ -1,174 +1,68 @@
 = Managing Server Groups
 
-Managing server groups involves coordinating multiple servers as a single logical unit for streamlined operations and deployment.
+Manage server groups in your hybrid standalone environment to coordinate multiple servers as unified deployment targets. Server group management includes adding and removing servers from groups, maintaining group membership, and performing administrative operations like group deletion while preserving individual server integrity.
 
-== Overview
+== Add Servers to a Group
 
-Server group management includes:
+Add individual servers to an existing server group to expand your deployment capacity and enable load distribution across multiple runtime instances.
 
-* Adding and removing servers from groups
-* Configuring group-wide settings
-* Monitoring group health and performance
-* Managing deployments across the group
-* Coordinating maintenance activities
+Make sure that you follow these requirements:
 
-== Group Membership Management
+* The target server group already exists
+* At least one server is configured and available
+* No applications are currently deployed on servers you want to add to the group
 
-=== Adding Servers to Groups
+To add servers to a server group:
 
-To add servers to an existing group:
+. From Anypoint Platform, select *Runtime Manager*.
+. Select *Servers*.
+. Click *Group* in the *Type* column to display the details pane.
+. Click the *Add Server* button:
++
+.The arrow shows the *Add Server* button in the details pane.
+image::rtm-group-add-server-to-group.png[Add Server button]
++
+A list of available servers appears.
+. Select the servers to add to the group, and click the *Add Servers* button.
 
-1. Navigate to Runtime Manager
-2. Select *Servers* from the left menu
-3. Choose the target server group
-4. Click *Add Server*
-5. Select servers to add from the available list
-6. Confirm the addition
+* The servers no longer appear in the *Servers* list. 
+* To see the list of servers in the server group, click the group name.
 
-=== Removing Servers from Groups
+== Remove Servers from a Server Group
 
-To remove servers from a group:
+To remove a server from a group:
 
-1. Select the server group
-2. Choose the servers to remove
-3. Click *Remove from Group*
-4. Confirm the removal
+. From Anypoint Platform, select *Runtime Manager*.
+. Select *Servers*.
+. Click *Group* in the *Type* column to display the details pane.
+. Click the *X* icon to the next to the server to remove the server from the server group:
++
+.The arrow shows the *X* icon in the details pane.
+image::rtm-remove-server-from-group.png[X icon]
 
-Note: Removing servers may affect running applications deployed to the group.
+. In the *Remove* confirmation window, select the checkbox to verify that you want to remove the server from the group.
+. Click *Remove*.
 
-== Group Configuration
+== Delete Server Groups
 
-=== Group-Wide Settings
+When you delete a server group, the following actions occur:
 
-Configure settings that apply to all servers in the group:
+* Alert definitions and history for the server group are deleted.
+* Applications deployed to each server in the server group are cloned on each server.
 
-* Environment variables
-* System properties
-* Security configurations
-* Monitoring settings
-* Deployment policies
+The servers assigned to the deleted server group are not deleted, restarted, or shut down. Servers that belong to the deleted group appear on the *Servers* page. You can deploy applications to them individually or add them to other server groups or clusters.
 
-=== Configuration Propagation
+To delete a server group:
 
-When you update group settings:
-
-* Changes apply to all servers in the group
-* Servers may require restart for some changes
-* Configuration validation occurs before application
-* Rollback options are available if issues occur
-
-== Deployment Management
-
-=== Group Deployments
-
-Deploy applications to all servers in a group:
-
-1. Select the server group as deployment target
-2. Upload or select the application
-3. Configure deployment settings
-4. Initiate deployment across all group members
-5. Monitor deployment progress
-
-=== Deployment Strategies
-
-Choose appropriate deployment strategies:
-
-* *Simultaneous* - Deploy to all servers at once
-* *Rolling* - Deploy server by server with validation
-* *Blue-Green* - Switch between server sets
-* *Canary* - Test with subset before full deployment
-
-== Monitoring and Health Management
-
-=== Group Health Status
-
-Monitor overall group health:
-
-* Aggregate health across all servers
-* Individual server status within the group
-* Application health across the group
-* Performance metrics and trends
-
-=== Performance Monitoring
-
-Track group-wide performance:
-
-* Load distribution across servers
-* Response times and throughput
-* Resource utilization patterns
-* Error rates and availability
-
-== Load Balancing and Distribution
-
-=== Load Distribution
-
-Manage load across group members:
-
-* Configure load balancing algorithms
-* Monitor traffic distribution
-* Adjust server weights as needed
-* Handle server failures gracefully
-
-=== Capacity Management
-
-Plan and manage group capacity:
-
-* Monitor resource utilization trends
-* Plan for peak load scenarios
-* Scale by adding servers to the group
-* Remove servers during low-demand periods
-
-== Maintenance Operations
-
-=== Coordinated Maintenance
-
-Perform maintenance across the group:
-
-* Schedule maintenance windows
-* Coordinate server updates
-* Manage rolling restarts
-* Minimize service disruption
-
-=== Configuration Synchronization
-
-Ensure consistency across group members:
-
-* Validate configuration alignment
-* Synchronize changes across servers
-* Handle configuration drift
-* Implement configuration management
-
-== Troubleshooting
-
-=== Common Group Issues
-
-Address typical problems:
-
-* Configuration inconsistencies
-* Load imbalance across servers
-* Deployment failures on some servers
-* Communication issues between servers
-* Performance degradation
-
-=== Diagnostic Approaches
-
-Use systematic troubleshooting:
-
-* Check individual server health
-* Validate group configuration
-* Review deployment logs
-* Analyze performance metrics
-* Test network connectivity
-
-== Best Practices
-
-* Maintain consistent configurations
-* Monitor group health continuously
-* Plan maintenance windows carefully
-* Test deployment strategies
-* Document group configurations
-* Implement automated health checks
-* Plan for disaster recovery scenarios
+. From Anypoint Platform, select *Runtime Manager*.
+. Select *Servers*
+. Click *Group* in the *Type* column to display the details pane.
+. Click the group status and select *Delete* from the menu:
++
+.The arrow shows the *Delete* option in the details pane.
+image::rtm-group-delete.png[Delete option]
+. In the *Delete* confirmation window, select the checkbox to verify that you want to delete the server group.
+. Click *Delete Server Group*.
 
 == See Also
 
