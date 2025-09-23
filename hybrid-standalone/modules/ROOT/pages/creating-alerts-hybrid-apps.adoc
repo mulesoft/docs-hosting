@@ -1,380 +1,381 @@
 = Creating Alerts for Mule Apps Deployed to Hybrid Standalone
 
-Creating comprehensive alerts for Mule applications ensures proactive monitoring, early issue detection, and rapid response to application problems.
+Configure proactive monitoring alerts for your Mule applications deployed to hybrid standalone instances to ensure optimal performance, detect issues early, and maintain application reliability across your distributed integration environment.
 
 == Overview
 
-Alert creation for Mule applications involves:
+Runtime Manager provides comprehensive alerting capabilities for monitoring your Mule applications deployed to hybrid standalone instances, including:
+
+* Application performance monitoring (response time, throughput, resource usage)
+* Business transaction tracking and error detection
+* Custom application metrics and notifications
+* Deployment lifecycle event monitoring
+* Integration-specific health and availability monitoring
+
+[NOTE]
+====
+Runtime Manager retains 30 days of alert history for audit and analysis.
+
+Alerts retrigger when conditions continuously exceed specified thresholds, ensuring persistent notification of ongoing issues.
+====
+
+You can also create custom alerts for applications deployed to CloudHub and CloudHub 2.0.
+
+Custom alerts in CloudHub are triggered when your application sends notifications to the Runtime Manager console
+using Anypoint Connector for CloudHub (CloudHub Connector). See xref:custom-application-alerts.adoc[Custom Application Alerts] for information.
+
+For applications deployed to CloudHub 2.0, custom alerts indicate whether an app was successfully deployed and whether it is behaving as expected. See xref:cloudhub-2::ch2-config-app-alerts.adoc[] for more information.
+
+[NOTE]
+For CloudHub 2.0, Alerts apply to applications only, not servers.
+
+== Rate Limits on Alerts
+
+Anypoint Platform enforces rate limits that determine how often an alert is triggered and prevent excessive emails from being sent.
+At present, there is no defined limit to the number of Runtime Manager alerts.
+
+== Create an Alert
+
+Configure alerts to monitor your Mule applications with customizable thresholds and notification settings.
+
+. In Runtime Manager, click *Alerts*.
++
+** If no alerts exist, you see the initial setup page:
++
+.The arrow shows the *Create your first alert* option.
+image::alerts-no-alerts.png[Alerts page with no alerts set up]
+** For existing alert configurations, use the add button:
++
+.The arrow shows the blue plus (*+*) icon on the *Alerts* page.
+image::alerts-create-additional-alert.png[Alerts page with blue plus (+) icon]
+
+. Click the blue plus (*+*) icon to create a new alert.
++
+image::alerts-create-alert.png[Create an Alert page]
+
+. Complete the required fields:
+
+* *Name*
++
+Unique and meaningful name for the alert
++
+The *Name* is limited to 256 characters.
+* *Severity level*
++
+Severity of the alert: *Critical*, *Warning*, or *Info*
++
+* *Source*
++
+The source of the alert: applications
++
+* *Application type*
++
+When the source is *Applications*, applications deployed to either CloudHub or local servers. Runtime Fabric application alerts are supported only using Anypoint Monitoring.
++
+You can't create an alert that applies to both applications deployed to CloudHub and local servers.
+You must create separate alerts for each deployment type.
++
+* *Applications*
++
+The application to apply the alert to
+* *Condition*
++
+The condition that triggers the alert
++
+The available options depend on whether your alert is linked to an application running on CloudHub, or an application running locally.
+Some conditions require additional data.
+See <<Alert Conditions>>.
+* *Subject*
++
+The subject of the alert email to send when the alert is triggered
++
+The subject can include variables.
+See <<Alert Variables>>.
+* *Message*
++
+The body text for the email to send when the alert is triggered.
+The message body can include variables.
+See <<Alert Variables>>.
+* *Recipients*
++
+The recipients of the alert email
++
+You can select up to 20 platform user IDs and enter up to 20 email addresses.
+. Click *Create Alert*.
 
-* Defining application-specific alert conditions
-* Configuring business metric alerts
-* Setting up performance threshold alerts
-* Implementing error tracking alerts
-* Managing alert escalation and notification
+When an alert condition is triggered, Runtime Manager sends email notifications similar to the following:
 
-== Alert Categories
+image::alerts-alert-email.png[Anypoint Platform Alert Notification email]
 
-=== Performance Alerts
 
-Monitor application performance metrics:
+== Alert Conditions
 
-* *Response Time Alerts* - Alert when response times exceed thresholds
-* *Throughput Alerts* - Monitor transaction volume drops or spikes
-* *Resource Utilization Alerts* - Track CPU, memory, and connection usage
-* *Queue Depth Alerts* - Monitor message backlogs and processing delays
-* *Concurrency Alerts* - Alert on thread pool exhaustion or contention
+Configure specific conditions that trigger notifications based on your application monitoring requirements. Alert conditions range from simple status notifications to complex performance threshold monitoring.
 
-=== Business Metric Alerts
+=== Conditions for Applications Deployed to CloudHub
 
-Track business-specific indicators:
 
-* *Transaction Success Rate* - Alert on declining success rates
-* *Revenue Impact Alerts* - Monitor financial transaction issues
-* *SLA Breach Alerts* - Alert on service level agreement violations
-* *Customer Experience Alerts* - Track user satisfaction metrics
-* *Business Process Alerts* - Monitor critical business workflow health
+For applications deployed to CloudHub, the following alert conditions apply:
 
-=== Error and Exception Alerts
+CPU usage - CloudHub::
++
+--
+The CPU usage of the CloudHub workers that run the application is above or below the percentage for the specified period of time.
 
-Monitor application errors:
+image::alerts-conditions-apps-cpu.png[CPU usage - Cloudhub]
 
-* *Error Rate Alerts* - Alert on increasing error percentages
-* *Critical Error Alerts* - Immediate notification for severe errors
-* *Exception Pattern Alerts* - Alert on specific error patterns
-* *Timeout Alerts* - Monitor timeout and connectivity issues
-* *Data Quality Alerts* - Track data validation and integrity issues
+To enable this condition, specify the percentage and duration that triggers the alert.
 
-=== Availability Alerts
+--
 
-Monitor application availability:
+Custom application alert::
++
+--
+The custom notification contains the specified text.
 
-* *Service Outage Alerts* - Alert when applications become unavailable
-* *Health Check Alerts* - Monitor endpoint health and responsiveness
-* *Dependency Alerts* - Track external service availability
-* *Failover Alerts* - Monitor high availability and clustering events
-* *Maintenance Alerts* - Planned maintenance and update notifications
+image::alerts-conditions-custom.png[Custom application alerts]
 
-== Creating Alerts in Runtime Manager
+To enable this condition, specify the notification text from the CloudHub Connector
+in your Mule application.
+When the text in one of the notifications matches the specified string, an alert is sent.
+See xref:custom-application-alerts.adoc[Custom Application Alerts] for more information.
+--
 
-=== Basic Alert Setup
+Exceeds event traffic threshold::
++
+--
+The number of events of any type exceeds the threshold for the specified period of time.
 
-Create application-specific alerts:
+image::alerts-conditions-exceeds-traffic.png[Exceeds event traffic threshold]
 
-1. Navigate to Runtime Manager
-2. Select the target application
-3. Click on *Alerts* from the application menu
-4. Click *Create Alert*
-5. Configure alert parameters:
-   * Alert name and description
-   * Alert condition and thresholds
-   * Evaluation period and frequency
-   * Notification settings
-6. Save and activate the alert
+To enable this condition, specify the capacity threshold and duration that triggers the alert.
+This alert condition depends on the events you are tracking in your application.
+For information, see xref:mule-runtime::business-events.adoc[Business Events].
+--
 
-=== Alert Condition Configuration
+Memory usage - CloudHub::
++
+--
+Memory usage is a percentage that represents the JVM heap-used/JVM total memory. The alert triggers if the memory usage is above or below the limit for the specified period of time.
 
-Configure specific alert conditions:
+image::alerts-conditions-apps-memory.png[Memory usage - Cloudhub]
 
-* *Threshold-based Conditions* - Set upper and lower limits
-* *Rate-based Conditions* - Monitor rate of change
-* *Comparison Conditions* - Compare with baseline values
-* *Composite Conditions* - Combine multiple metrics
-* *Time-based Conditions* - Time-dependent alert logic
+To enable this condition, specify the percentage and duration that triggers the alert.
 
-=== Advanced Alert Configuration
+--
 
-Configure advanced alert features:
 
-* *Alert Dependencies* - Prevent cascade alerting
-* *Suppression Rules* - Avoid alert flooding
-* *Escalation Policies* - Progressive notification escalation
-* *Conditional Logic* - Complex alert conditions
-* *Custom Metrics* - Application-specific measurements
+The following alerts for applications deployed to CloudHub require no additional parameters:
 
-== Business Metric Alerts
+* Deployment failed
+* Deployment success
+* Secure data gateway connected
+* Secure data gateway disconnected
+* Worker not responding
 
-=== Transaction Monitoring
 
-Create transaction-based alerts:
+=== Conditions for Applications Deployed to Local Servers
 
-[source,yaml]
-----
-alert:
-  name: "Low Transaction Success Rate"
-  condition: "transaction_success_rate < 95%"
-  evaluation_period: "5 minutes"
-  notification:
-    - email: business-team@company.com
-    - slack: "#operations"
-----
 
-=== Revenue Impact Alerts
+For applications deployed to local servers, the following alert conditions apply:
 
-Monitor financial performance:
+Number of errors::
++
+--
+The number of messaging errors reported by Mule runtime server in one minute reaches the specified limit.
+The number of errors reported depends on error handling configuration in the app.
+For information about Mule errors, see
+xref:mule-runtime::mule-error-concept.adoc[Mule Errors].
 
-* Revenue per transaction thresholds
-* Payment processing failure rates
-* Billing system performance alerts
-* Financial reconciliation alerts
-* Compliance and audit alerts
+image::alerts-conditions-number-errors.png[Number of errors]
 
-=== Customer Experience Alerts
+To enable this condition, specify the number of errors per minute that triggers the alert.
 
-Track user experience metrics:
+--
 
-* User session duration alerts
-* Customer complaint rate monitoring
-* Service response time from user perspective
-* User engagement metric alerts
-* Customer satisfaction score tracking
+Number of Mule messages::
++
+--
+The number of Mule messages since the application started reaches the specified limit.
 
-== Performance Threshold Alerts
+image::alerts-conditions-number-mule-messages.png[Number of Mule messages]
 
-=== Response Time Monitoring
+To enable this condition, specify the number of Mule messages that triggers the alert.
+--
 
-Configure response time alerts:
+Response time::
++
+--
+The response time reaches the specified limit.
 
-[source,yaml]
-----
-alert:
-  name: "High Response Time"
-  condition: "avg_response_time > 2000ms"
-  evaluation_period: "3 minutes"
-  severity: "warning"
-  threshold:
-    critical: "5000ms"
-    warning: "2000ms"
-----
+image::alerts-conditions-response-time.png[Response time]
 
-=== Throughput Monitoring
+To enable this condition, specify the maximum response time that triggers the alert.
+--
 
-Set up throughput alerts:
 
-* Messages per second thresholds
-* Request volume monitoring
-* Batch processing rate alerts
-* Peak load handling alerts
-* Capacity utilization warnings
+The following alerts for applications deployed to local servers require no additional parameters:
 
-=== Resource Usage Alerts
+* Application undeployed
+* Deployment failure
+* Deployment success
 
-Monitor resource consumption:
+== Alert Variables
 
-* Memory usage threshold alerts
-* CPU utilization monitoring
-* Connection pool exhaustion alerts
-* Disk space and I/O alerts
-* Network bandwidth utilization
+Customize alert email subjects and messages using dynamic variables that provide contextual information about triggered events.
 
-== Error and Exception Alerting
+[NOTE]
+You cannot use the character combination `$&` in variable expressions.
 
-=== Error Rate Monitoring
+[%header,cols="25a,50a,25a"]
+.Application Alert Variables
+|===
+| Alert Category | Alert Type | Available Variables
 
-Configure error rate alerts:
+2+| All Alerts | `${resource}` `${severity}` `${state}`
+.7+| CloudHub App Alerts |*CPU usage - CloudHub* .2+|`${operator}` `${value}`
+| *Memory usage - CloudHub*
+| *Custom application notification* | `${user}` `${priority}` `${transactionId}` `${message}`
+| *Deployment failed* |  `${user}` `${message}`
+| *Deployment success* .2+| `${user}`
+| *Worker not responding*
+| *Exceeds event traffic threshold* | `${period}` `${periodTimeUnit}`
 
-[source,yaml]
-----
-alert:
-  name: "High Error Rate"
-  condition: "error_rate > 5%"
-  evaluation_period: "2 minutes"
-  notification:
-    severity: "critical"
-    immediate: true
-----
 
-=== Specific Error Pattern Alerts
+.4+|Hybrid App Alerts | All Hybrid App Alerts| `${name}`
+| *Number of Mule messages* .3+| `${currentValue}` `${threshold}` `${location}`
+| *Number of errors*
+| *Response time*
+|===
 
-Monitor specific error conditions:
 
-* Database connection errors
-* External service timeouts
-* Authentication failures
-* Data validation errors
-* Security-related exceptions
+[%header%autowidth.spread]
+[[var-defs]]
+.Variable Definitions
+|===
+|Variable |Definition
+|`${currentValue}` |Current value of metric that triggers the alert
+|`${location}`| Where to find more information about the alert
+|`${message}` |Message from the notification that trigger the alert
+|`${name}` a|Name of the app that triggers the alert
+|`${operator}` | An operator, such as `< > =`
+|`${period}` |Period of time over which to measure
+|`${periodTimeUnit}` |Period of time unit
+|`${priority}` |Priority of the notification that triggers the alert
+|`${resource}` a| Name of the app that triggers the alert
+|`${severity}` | Severity of the alert
+|`${state}` | State of the resource that triggers the alert, such as Running or Disconnected
+|`${threshold}` |Count over the period of time that triggers the alert
+|`${transactionId}` | Transaction ID defined in the app or assigned by Mule
+|`${user}` | Anypoint Platform organization name
+|`${value}` | A value associated with an element
+|===
 
-=== Exception Correlation Alerts
 
-Implement correlated error alerting:
+== Access and View Alerts
 
-* Multiple related error patterns
-* Error cascade detection
-* Root cause identification
-* Impact assessment alerts
-* Recovery process notifications
+Runtime Manager provides multiple ways to access and monitor your application alert configurations and history.
 
-== Notification and Escalation
+=== Global Alert Management
 
-=== Notification Channels
+Access all application alerts from the main alerts dashboard:
 
-Configure multiple notification methods:
+. In Runtime Manager, click *Alerts*:
++
+.The arrow shows the *Alerts* menu.
+image::alerts-view-all-alerts-tab.png[Alerts menu]
 
-* *Email Notifications* - Detailed alert information
-* *SMS Alerts* - Critical issue notifications
-* *Slack/Teams Integration* - Team collaboration channels
-* *Webhook Notifications* - Custom system integration
-* *Mobile App Notifications* - On-the-go alerts
+From the alerts dashboard, you can:
 
-=== Escalation Procedures
+* Create new application alerts
+* Search alerts by name or configuration
+* Filter alerts by source, condition, severity, or status
+* Modify alert configurations by clicking alert names
+* View alert status, settings, and trigger history in the details pane:
++
+.The arrow shows the alert history in the details pane.
+image::alerts-history.png[Alert history in the details pane]
 
-Implement alert escalation:
+=== Application-Specific Alert Views
 
-1. *Primary Notification* - Initial alert to responsible team
-2. *Escalation Timing* - Time-based escalation triggers
-3. *Secondary Contacts* - Escalation to management or specialists
-4. *Emergency Procedures* - Critical issue escalation paths
-5. *Resolution Tracking* - Alert acknowledgment and resolution
+View alerts associated with specific applications:
 
-=== Alert Prioritization
+. In the *Applications* list, click the *Status* column for your target application.
+. Click the *View Associated Alerts* link in the details pane:
++
+.The arrow shows the *View Associated Alerts* link in the details pane.
+image::alerts-view-details-pane.png[View Associated Alerts link in the details pane]
 
-Implement alert priority levels:
+=== Alert History by Application
 
-* *P1 Critical* - Service outages and critical business impact
-* *P2 High* - Performance degradation and error increases
-* *P3 Medium* - Warning conditions and trending issues
-* *P4 Low* - Informational alerts and maintenance notifications
+Review historical alert activity for specific applications:
 
-== Custom Metrics and Alerts
+. In the *Applications* list, click the name of your application.
+. Click *Settings*.
+. Click *Alerts History* :
++
+.The arrow shows the *Alerts History* tab on the *Settings* page.
+image::alerts-settings-alerts-history-tab.png[Alerts History tab on the Settings page]
 
-=== Application-Specific Metrics
 
-Create custom application metrics:
 
-[source,xml]
-----
-<flow name="custom-metrics-flow">
-    <meter:counter name="business.transaction.count" value="1"/>
-    <meter:timer name="process.duration">
-        <!-- Business process logic -->
-    </meter:timer>
-    <meter:gauge name="inventory.level" value="#[vars.currentInventory]"/>
-</flow>
-----
+== Manage Alerts
 
-=== Business KPI Alerts
+Efficiently manage your application alert configurations through Runtime Manager's alert management interface.
 
-Implement business KPI monitoring:
+=== Alert Management Operations
 
-* Order fulfillment rate alerts
-* Customer acquisition cost monitoring
-* Service quality indicator alerts
-* Compliance metric tracking
-* Operational efficiency alerts
+From the *Alerts* page, select one or more alerts and use the management controls:
 
-=== Integration-Specific Alerts
+.The screenshot shows (*1*) the select toggle, (*2*) the alert state switch, (*3*) the *Duplicate* icon, and (*4*) the *Delete* icon.
+image::alerts-multi-select-manage.png["Select toggle, alert state switch, Duplicate icon, and Delete icon"]
 
-Create integration monitoring alerts:
+==== Enable and Disable Alerts
 
-* API response time alerts
-* Data synchronization failure alerts
-* Message queue processing alerts
-* File processing status alerts
-* External service availability alerts
+Control alert notification delivery for application monitoring:
 
-== Alert Management and Tuning
+* *Disable alerts*: Click the toggle switch to turn off notifications:
++
+.The arrow shows the alert switch on.
+image::alerts-switch-on.png[Alert switch on]
++
+The *Active* column changes from *Yes* to *No*.
 
-=== Alert Tuning
+* *Enable alerts*: Click the toggle switch to turn on notifications:
++
+.The arrow shows the alert switch off.
+image::alerts-switch-off.png[Alert switch off]
++
+The *Active* column changes from *No* to *Yes*.
 
-Optimize alert effectiveness:
+[NOTE]
+Alert state changes affect all recipients of the alert notifications.
 
-* Adjust thresholds based on historical data
-* Reduce false positive rates
-* Improve alert accuracy and relevance
-* Balance sensitivity with noise reduction
-* Regular alert performance review
+==== Duplicate Alerts
 
-=== Alert Suppression
+Create copies of existing alert configurations for similar applications:
 
-Manage alert noise:
+. Select one or more alerts from the list.
+. Click the *Duplicate* icon in the details pane:
++
+.The arrow shows the *Duplicate* alert icon.
+image::alerts-duplicate.png[Duplicate alert icon]
 
-* Maintenance window suppression
-* Dependency-based suppression
-* Time-based alert filtering
-* Duplicate alert prevention
-* Smart alert grouping
+Runtime Manager creates alert copies with `-copy` appended to the original alert names.
 
-=== Alert Analytics
+==== Delete Alerts
 
-Analyze alert patterns:
+Remove unnecessary alert configurations:
 
-* Alert frequency and trends
-* False positive rate analysis
-* Alert resolution time tracking
-* Team response performance
-* Alert effectiveness metrics
-
-== Integration with External Systems
-
-=== ITSM Integration
-
-Integrate with IT Service Management:
-
-* Automatic ticket creation
-* Incident tracking and status updates
-* Knowledge base integration
-* Change management correlation
-* Service catalog integration
-
-=== Monitoring Platform Integration
-
-Connect with monitoring platforms:
-
-* SIEM integration for security alerts
-* APM platform correlation
-* Log management system integration
-* Network monitoring correlation
-* Infrastructure monitoring alignment
-
-== Best Practices
-
-=== Alert Design
-
-* Create actionable alerts
-* Avoid alert fatigue
-* Use clear, descriptive alert messages
-* Implement proper alert prioritization
-* Regular alert review and optimization
-
-=== Operational Practices
-
-* Document alert procedures and runbooks
-* Train teams on alert response
-* Regular alert testing and validation
-* Maintain alert inventory and ownership
-* Continuous improvement processes
-
-=== Business Alignment
-
-* Align alerts with business priorities
-* Include business stakeholders in alert design
-* Regular business impact assessment
-* Cost-benefit analysis of alerting
-* Strategic alerting roadmap planning
-
-== Troubleshooting Alert Issues
-
-=== Common Problems
-
-Address typical alert challenges:
-
-* False positive alerts
-* Missing critical alerts
-* Alert delivery failures
-* Incorrect threshold settings
-* Alert configuration errors
-
-=== Resolution Approaches
-
-Resolve alert issues systematically:
-
-* Review historical alert data
-* Validate alert logic and thresholds
-* Test alert delivery mechanisms
-* Check notification channel configuration
-* Update contact information and escalation paths
+. Select one or more alerts from the list.
+. Click the *Delete* (trash can) icon in the details pane:
++
+.The arrow shows the *Delete* alert (trash can) icon.
+image::alerts-delete.png[Delete (trash can) icon]
+. Click *OK*.
 
 == See Also
 
-* xref:monitoring-apps-hybrid-standalone.adoc[Monitoring Mule Apps Deployed to Hybrid Standalone Instances]
-* xref:monitoring-dashboards-hybrid-apps.adoc[Monitoring Dashboard for Mule Apps Deployed to Hybrid Standalone]
-* xref:managing-apps-hybrid-standalone.adoc[Managing Mule Apps Deployed to Hybrid Standalone Instances]
+* xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]
+* xref:creating-alerts-hybrid.adoc[Creating Alerts for Servers, Server Groups, and Clusters]
+* xref:monitoring-dashboards-hybrid.adoc[Monitoring Dashboards for Server, Server Groups and Clusters]

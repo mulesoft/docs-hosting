@@ -1,249 +1,30 @@
 = Monitoring Hybrid Standalone Instances
 
-Comprehensive monitoring of hybrid standalone instances ensures optimal performance, early problem detection, and proactive maintenance.
+Monitor your hybrid standalone instances to ensure optimal performance, maintain system health, and enable proactive problem resolution across your distributed Mule runtime environment.
 
-== Overview
+Runtime Manager provides comprehensive monitoring capabilities for your hybrid standalone infrastructure through integrated dashboards and alerting systems.
 
-Monitoring hybrid standalone instances involves:
+== Creating Alerts
 
-* Real-time performance tracking
-* Health status monitoring
-* Alert configuration and management
-* Trend analysis and capacity planning
-* Troubleshooting and diagnostics
+Configure proactive monitoring through automated alerts that notify you of critical events, performance thresholds, and system anomalies.
 
-== Key Monitoring Areas
+* xref:creating-alerts-hybrid.adoc[Creating Alerts for Server, Server Groups or Clusters] +
+Set up email notifications for critical events such as server downtime, high resource usage, application failures, or custom business metrics to enable rapid response to issues.
 
-=== System Performance
 
-Monitor essential system metrics:
+== Monitoring Dashboards
 
-* *CPU Utilization* - Processor usage across all cores
-* *Memory Usage* - RAM consumption and garbage collection
-* *Disk I/O* - Read/write operations and storage capacity
-* *Network Throughput* - Bandwidth utilization and latency
-* *Thread Usage* - Active thread pools and concurrency
+Monitor real-time and historical performance data for your servers, server groups, and clusters through comprehensive dashboards.
 
-=== Application Performance
+* xref:monitoring-dashboards-hybrid.adoc[Monitoring Dashboards for Server, Server Groups and Clusters] +
+Track key performance indicators including CPU usage, memory consumption, JVM metrics, and application-specific statistics to understand system health and identify optimization opportunities.
 
-Track application-specific metrics:
+[IMPORTANT]
+When running Mule on Windows systems, the Mule service must be started by a user account that belongs to the *Performance Log Users* group to enable proper dashboard functionality.
 
-* Response times and throughput
-* Error rates and exception patterns
-* Message processing rates
-* Queue depths and processing delays
-* Connection pool utilization
-
-=== Infrastructure Health
-
-Monitor infrastructure components:
-
-* Server uptime and availability
-* Network connectivity and stability
-* Storage health and capacity
-* Security status and compliance
-* Backup and recovery status
-
-== Monitoring Tools and Dashboards
-
-=== Runtime Manager Monitoring
-
-Use built-in Runtime Manager features:
-
-* Server status dashboards
-* Performance metric charts
-* Real-time monitoring views
-* Historical trend analysis
-* Custom metric filtering
-
-=== External Monitoring Integration
-
-Integrate with external tools:
-
-* Enterprise monitoring platforms
-* Log aggregation systems
-* APM (Application Performance Monitoring) tools
-* Custom monitoring solutions
-* Third-party analytics platforms
-
-== Alert Configuration
-
-=== Alert Types
-
-Configure different alert categories:
-
-* *Threshold Alerts* - Trigger when metrics exceed limits
-* *Availability Alerts* - Notify when services become unavailable
-* *Performance Alerts* - Detect performance degradation
-* *Error Alerts* - Trigger on specific error conditions
-* *Capacity Alerts* - Warn about resource constraints
-
-=== Alert Channels
-
-Set up notification channels:
-
-* Email notifications
-* SMS alerts
-* Slack or Teams integration
-* Webhook notifications
-* SNMP traps for enterprise systems
-
-== Performance Baseline and Trending
-
-=== Establishing Baselines
-
-Create performance baselines:
-
-* Collect initial performance data
-* Identify normal operating ranges
-* Document expected behavior patterns
-* Establish threshold values
-* Review and update baselines regularly
-
-=== Trend Analysis
-
-Analyze performance trends:
-
-* Identify seasonal patterns
-* Detect gradual performance degradation
-* Plan for capacity requirements
-* Optimize resource allocation
-* Predict maintenance needs
-
-== Capacity Planning
-
-=== Resource Utilization Analysis
-
-Analyze resource consumption:
-
-* Peak usage patterns
-* Growth trend projections
-* Resource bottleneck identification
-* Scaling requirement assessment
-* Cost optimization opportunities
-
-=== Scaling Decisions
-
-Make informed scaling decisions:
-
-* Horizontal scaling (adding servers)
-* Vertical scaling (increasing resources)
-* Load balancing adjustments
-* Performance optimization
-* Infrastructure upgrades
-
-== Log Management
-
-=== Log Collection
-
-Implement comprehensive logging:
-
-* System logs collection
-* Application logs aggregation
-* Security audit logs
-* Performance logs
-* Error and exception logs
-
-=== Log Analysis
-
-Analyze log data for insights:
-
-* Error pattern identification
-* Performance bottleneck detection
-* Security incident investigation
-* Troubleshooting support
-* Compliance reporting
-
-== Health Checks and Diagnostics
-
-=== Automated Health Checks
-
-Implement automated monitoring:
-
-* Service availability checks
-* Application health endpoints
-* Database connectivity tests
-* Network connectivity validation
-* Security status verification
-
-=== Diagnostic Tools
-
-Use diagnostic capabilities:
-
-* Thread dump analysis
-* Memory heap analysis
-* Performance profiling
-* Network diagnostics
-* Configuration validation
-
-== Monitoring Best Practices
-
-=== Proactive Monitoring
-
-Implement proactive strategies:
-
-* Set up comprehensive alerting
-* Monitor leading indicators
-* Establish escalation procedures
-* Automate routine checks
-* Plan for seasonal variations
-
-=== Documentation and Reporting
-
-Maintain monitoring documentation:
-
-* Document monitoring procedures
-* Create performance reports
-* Track incident patterns
-* Maintain runbooks
-* Review and update monitoring strategies
-
-== Troubleshooting Support
-
-=== Performance Issues
-
-Use monitoring data for troubleshooting:
-
-* Identify performance bottlenecks
-* Correlate metrics with issues
-* Analyze historical patterns
-* Validate fix effectiveness
-* Prevent issue recurrence
-
-=== Root Cause Analysis
-
-Perform systematic analysis:
-
-* Collect relevant monitoring data
-* Correlate multiple data sources
-* Identify contributing factors
-* Document findings and solutions
-* Implement preventive measures
-
-== Security Monitoring
-
-=== Security Metrics
-
-Monitor security-related metrics:
-
-* Authentication failure rates
-* Unauthorized access attempts
-* Network intrusion detection
-* Compliance violations
-* Security patch status
-
-=== Incident Response
-
-Prepare for security incidents:
-
-* Define incident response procedures
-* Set up security alerting
-* Maintain audit trails
-* Plan communication strategies
-* Document lessons learned
 
 == See Also
 
-* xref:creating-alerts-hybrid.adoc[Creating Alerts for Server, Server Groups or Clusters]
-* xref:monitoring-dashboards-hybrid.adoc[Monitoring Dashboards for Server, Server Groups and Clusters]
 * xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]
+* xref:setting-hybrid-standalone.adoc[Setting up Hybrid Standalone Instances]
+* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]
