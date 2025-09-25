@@ -1,295 +1,362 @@
-= Monitoring Dashboards for Server, Server Groups and Clusters
+= Monitoring Dashboards for Servers, Server Groups, and Clusters
 
-Monitoring dashboards provide centralized visibility into the health, performance, and status of your hybrid standalone infrastructure.
+Monitor your hybrid standalone infrastructure through comprehensive performance dashboards that provide real-time visibility into server health, resource utilization, and system performance across your distributed runtime environment.
 
 == Overview
 
-Monitoring dashboards offer:
+Runtime Manager provides comprehensive infrastructure monitoring dashboards for your hybrid standalone environment, enabling you to:
 
-* Real-time visibility into system health
-* Historical performance trend analysis
-* Customizable metric displays
-* Interactive data exploration
-* Centralized infrastructure monitoring
+* Monitor real-time server performance metrics and resource utilization
+* Analyze historical trends for capacity planning and optimization
+* Track JVM performance including memory usage, garbage collection, and thread activity
+* View aggregated metrics across server groups and clusters
+* Identify performance bottlenecks and system health issues
+* Make data-driven decisions for infrastructure scaling and maintenance
 
-== Dashboard Types
+[NOTE]
+====
+To view infrastructure dashboards, you must have the Runtime Manager Read Servers permission for the target servers.
 
-=== Server Dashboards
+Anypoint Platform Private Cloud Edition doesn't support the Anypoint Monitoring dashboard feature.
+====
 
-Individual server monitoring displays:
+Runtime Manager provides these infrastructure monitoring dashboards:
 
-* CPU, memory, and disk utilization
-* Network throughput and connectivity
-* Application performance metrics
-* Service health indicators
-* Error rates and response times
+* <<Server Monitoring Dashboard,Server Monitoring Dashboard>> +
+Individual server performance metrics including CPU, memory, JVM heap usage, garbage collection, and detailed memory breakdown
+* <<Server Group or Cluster Monitoring Dashboard,Server Group and Cluster Monitoring Dashboard>> +
+Aggregated performance metrics for servers organized in groups or clusters with comparative analysis capabilities
 
-=== Server Group Dashboards
 
-Group-level monitoring views:
+== Server Monitoring Dashboard
 
-* Aggregate performance across group members
-* Load distribution visualization
-* Group health status overview
-* Deployment status across servers
-* Comparative performance analysis
+Monitor individual server performance through comprehensive dashboards that provide real-time visibility into system resources, JVM metrics, and operational health indicators.
 
-=== Cluster Dashboards
+=== Overview
 
-Cluster-wide monitoring displays:
+The server monitoring dashboard provides detailed insights into your hybrid standalone server performance, including:
 
-* Node health and synchronization status
-* Data replication metrics
-* Failover and availability indicators
-* Cluster communication health
-* Distributed performance metrics
+* System resource utilization (CPU, memory, disk I/O)
+* JVM heap and non-heap memory allocation and usage
+* Garbage collection performance and frequency
+* Thread management and execution metrics
+* Memory breakdown by allocation pools (Eden, Survivor, Old Generation)
+* Class loading and code cache utilization
 
-== Runtime Manager Dashboards
+=== Access Server Dashboard
 
-=== Built-in Dashboard Features
+To access the server monitoring dashboard:
 
-Access standard monitoring views:
+. In Runtime Manager, click *Servers*.
+. Click the name of the server to monitor.
++
+The server dashboard displays with comprehensive performance metrics:
++
+image::monitoring-dashboards-server.png[Monitoring dashboard for a server]
 
-* Server status overview
-* Performance metric charts
-* Real-time health indicators
-* Historical trend graphs
-* Alert status displays
+You can also navigate to individual server dashboards from the <<Server Group or Cluster Monitoring Dashboard,server group or cluster dashboard>> by clicking individual server names.
 
-=== Navigation and Layout
+=== Dashboard Navigation and Features
 
-Navigate dashboard interfaces:
+The server monitoring dashboard provides two complementary tab views for comprehensive performance analysis:
 
-* Main dashboard overview
-* Drill-down capability to specific servers
-* Tabbed views for different metric categories
-* Customizable time range selection
-* Interactive chart exploration
+* *Overview* +
+High-level system metrics including CPU usage, heap memory, and overall server health
+* *Breakdown* +
+Detailed JVM memory analysis with individual allocation pools and garbage collection metrics
 
-== Key Metrics and Visualizations
+==== Time Range Selection
 
-=== Performance Metrics
+Monitor performance across different time periods using the time range selector:
 
-Monitor critical performance indicators:
+image::monitoring-dashboards-cbd92.png[]
 
-* *CPU Utilization* - Processor usage over time
-* *Memory Usage* - RAM consumption and GC activity
-* *Disk I/O* - Read/write operations and latency
-* *Network Throughput* - Bandwidth utilization
-* *Response Times* - Application response performance
+Available time ranges include:
+* *3 Hours*: Real-time monitoring with minute-level granularity
+* *24 Hours*: Recent performance with 8-minute averaging
+* *7 Days*: Weekly trends with hourly data points  
+* *2 Weeks*: Historical analysis with 2-hour averaging
 
-=== Health Indicators
+==== Interactive Data Exploration
 
-Track system health status:
+Enhance your analysis with interactive dashboard features:
 
-* Service availability indicators
-* Error rate trending
-* Connection pool status
-* Queue depth monitoring
-* Thread pool utilization
+* Display numerical values and timestamps by hovering over graph points
+* When multiple applications run on the server, filter performance data by specific applications using the application checkboxes
 
-=== Capacity Metrics
+image::monitoring-dashboards-hover.png[]
 
-Monitor resource capacity:
+The memory usage graphs on the dashboards track these values:
 
-* Storage utilization trends
-* Memory allocation patterns
-* Network bandwidth consumption
-* Processing capacity limits
-* Scalability indicators
+* *Usage* +
+Current memory consumption (MB) - indicates active memory allocation
+* *Total* +
+Maximum available memory (MB) - represents the upper limit for memory allocation  
+* *Committed* +
+Memory guaranteed by the JVM (MB) - always greater than or equal to used memory
 
-== Dashboard Customization
+[NOTE]
+ If the JVM attempts to increase used memory beyond committed memory, allocation fails even when total memory is available. Monitor committed vs. used memory ratios for optimal performance.
 
-=== Metric Selection
 
-Customize displayed metrics:
+=== Overview Tab
 
-* Choose relevant performance indicators
-* Configure metric collection intervals
-* Set up custom metric calculations
-* Filter metrics by time periods
-* Group related metrics together
+The Overview tab provides essential system health metrics for rapid assessment of server performance and resource utilization.
 
-=== Visualization Options
+**Heap Memory**
 
-Select appropriate chart types:
-
-* Line charts for trend analysis
-* Bar charts for comparative data
-* Gauge displays for current status
-* Heat maps for performance patterns
-* Tables for detailed metric listings
-
-=== Time Range Configuration
-
-Configure time-based views:
-
-* Real-time monitoring displays
-* Historical analysis periods
-* Custom date range selection
-* Automatic refresh intervals
-* Time zone considerations
-
-== Advanced Dashboard Features
-
-=== Comparative Analysis
-
-Compare performance across components:
-
-* Side-by-side server comparisons
-* Group performance benchmarking
-* Cluster node analysis
-* Historical period comparisons
-* Performance baseline comparisons
-
-=== Drill-down Capabilities
-
-Navigate from high-level to detailed views:
-
-* Click-through to detailed metrics
-* Server-specific performance views
-* Application-level monitoring
-* Component-specific analysis
-* Root cause investigation paths
-
-=== Data Export and Reporting
-
-Export dashboard data:
-
-* CSV data export options
-* PDF report generation
-* Scheduled report delivery
-* Custom report templates
-* Data integration with external tools
-
-== Custom Dashboards
-
-=== Creating Custom Views
-
-Build specialized monitoring displays:
-
-* Business-specific KPI monitoring
-* Custom metric combinations
-* Specialized alert displays
-* Performance trending views
-* Capacity planning dashboards
-
-=== Dashboard Sharing
-
-Share dashboard configurations:
-
-* Team-specific dashboard views
-* Role-based access controls
-* Dashboard template sharing
-* Collaborative monitoring setups
-* Standardized monitoring views
-
-== Integration with External Tools
-
-=== Third-party Monitoring Platforms
-
-Integrate with enterprise monitoring:
-
-* Datadog, New Relic, AppDynamics integration
-* Grafana dashboard creation
-* Prometheus metrics collection
-* ELK stack integration
-* Custom monitoring tool connections
-
-=== API-based Integrations
-
-Access monitoring data programmatically:
-
-* REST API for metric retrieval
-* Real-time data streaming
-* Custom application integration
-* Automated report generation
-* Data warehouse integration
-
-== Dashboard Maintenance
-
-=== Regular Review
-
-Maintain dashboard effectiveness:
-
-* Review dashboard relevance
-* Update metric thresholds
-* Adjust visualization types
-* Remove obsolete metrics
-* Add new monitoring requirements
-
-=== Performance Optimization
-
-Optimize dashboard performance:
-
-* Minimize data refresh frequencies
-* Optimize query performance
-* Reduce unnecessary metrics
-* Implement data aggregation
-* Cache frequently accessed data
-
-== Best Practices
-
-=== Dashboard Design
-
-* Focus on actionable metrics
-* Use clear, intuitive visualizations
-* Organize related metrics together
-* Implement consistent color schemes
-* Provide contextual information
-
-=== Operational Usage
-
-* Train teams on dashboard navigation
-* Establish monitoring procedures
-* Document dashboard purposes
-* Regular dashboard review sessions
-* Continuous improvement processes
-
-== Troubleshooting Dashboard Issues
-
-=== Common Problems
-
-Address typical dashboard issues:
-
-* Slow loading times
-* Missing or incomplete data
-* Incorrect metric calculations
-* Display formatting problems
-* Access permission issues
-
-=== Resolution Strategies
-
-* Check data source connectivity
-* Verify metric collection configuration
-* Validate time range settings
-* Review access permissions
-* Test dashboard functionality
-
-== Mobile and Remote Access
-
-=== Mobile Dashboard Access
-
-Access dashboards remotely:
-
-* Mobile-responsive dashboard layouts
-* Simplified mobile metric views
-* Push notification integration
-* Offline dashboard capabilities
-* Mobile alert management
-
-=== Security Considerations
-
-Secure remote dashboard access:
-
-* VPN or secure connection requirements
-* Multi-factor authentication
-* Role-based access controls
-* Session timeout configuration
-* Audit trail maintenance
+Monitor JVM heap memory allocation and usage patterns to optimize application performance:
+
+image::monitoring-dashboards-heap.png[]
+
+* Heap Memory Usage: Current heap allocation in MB
+* Total Heap Memory: Maximum heap size configured for the JVM
+* Heap Committed Memory: Memory guaranteed by the JVM for heap operations
+
+Use heap memory metrics to:
+* Identify memory leaks and excessive allocation patterns
+* Optimize JVM heap size configuration (`-Xmx` and `-Xms` parameters)
+* Plan capacity for application deployment and scaling
+
+[NOTE]
+ If heap usage consistently approaches total memory, consider increasing heap size or analyzing application memory usage patterns. See the <<Breakdown Tab>> for detailed memory pool analysis.
+
+**CPU**
+
+Track processor utilization and system load to ensure optimal server performance:
+
+image::monitoring-dashboards-cpu.png[Monitoring dashboard for CPU]
+
+[NOTE]
+CPU metrics are not available on Windows environments due to platform-specific monitoring constraints.
+
+* *CPU Usage* +
+ Percentage of processing capacity utilized
+* *Available Processors* +
+Number of CPU cores available to the JVM
+* *Load Average* +
+ Average number of processes waiting for CPU execution
+
+Load Average Interpretation: +
+
+* Load < CPU Count: System has spare processing capacity
+* Load = CPU Count: System is optimally utilized
+* Load > CPU Count: System is experiencing processing pressure and potential performance degradation
+
+=== Breakdown Tab
+
+The Breakdown tab provides detailed JVM memory analysis with granular metrics for each memory pool, enabling precise performance tuning and troubleshooting.
+
+==== JVM Memory Architecture
+
+Understanding JVM memory organization is essential for effective performance monitoring:
+
+* Heap Memory Pools
+** <<eden,Eden Space>>
+** <<survivor,Survivor Space>>
+** <<old_gen,Old Generation>>
+
+* Non-Heap Memory Areas
+** <<code_cache,Code Cache>>
+** <<compressed_class,Compressed Class Space>>
+** <<metaspace,Metaspace>>
+
+[[eden]]
+Eden Space::
+Monitor the primary object allocation area for young generation garbage collection optimization:
++
+image::monitoring-dashboards-eden.png[Monitoring dashboard for Eden Space]
++
+Eden space metrics help you:
+* Optimize object allocation patterns
+* Tune young generation garbage collection frequency
+* Identify excessive short-term object creation
+
+[[survivor]]
+Survivor Space::
+Track intermediate object storage for garbage collection lifecycle analysis:
++
+image::monitoring-dashboards-survivor.png[Monitoring dashboard for Survivor Space]
++
+Survivor space monitoring enables:
+* Analysis of object promotion patterns to old generation
+* Optimization of survivor space sizing for GC efficiency
+* Detection of objects with intermediate lifespans
+
+[[old_gen]]
+Old Generation::
+Monitor long-term object storage and major garbage collection patterns:
++
+image::monitoring-dashboards-tenure.png[Monitoring dashboard for Old Generation]
++
+Old generation metrics provide insight into:
+* Long-lived object accumulation patterns
+* Major garbage collection frequency and impact
+* Memory leak detection through trend analysis
+
+[[code_cache]]
+Code Cache::
+Monitor JIT compiler performance and native code storage:
++
+image::monitoring-dashboards-cache.png[Monitoring dashboard for Code Cache]
++
+Code cache metrics help optimize:
+* JIT compilation effectiveness
+* Native code storage allocation
+* Application startup and runtime performance
+
+[[compressed_class]]
+Compressed Class Space::
+Track compressed ordinary object pointer (OOP) storage efficiency:
++
+This metric is available only when using JDK 8+.
++
+image::monitoring-dashboards-class-space.png[Monitoring dashboard for Compressed Class Space]
++
+Monitor compressed class space for:
+* Memory efficiency of compressed OOPs
+* Class metadata storage optimization
+* JVM memory footprint reduction
+
+[[metaspace]]
+Metaspace::
+Monitor class metadata storage using native memory allocation:
++
+This metric is available only when using JDK 8+.
++
+image::monitoring-dashboards-meta.png[Monitoring dashboard for Metaspace]
++
+Key Considerations:
+* 256 MB metaspace allocation
+* Uses system memory outside JVM heap
+* Grows automatically based on class loading requirements
++
+Metaspace monitoring helps:
+* Prevent class metadata memory exhaustion
+* Optimize class loading and unloading patterns
+* Manage application deployment in memory-constrained environments
+
+
+==== System Performance Metrics
+
+Monitor JVM runtime performance and system behavior through these key performance indicators:
+
+* <<thread_count,Thread Count>>
+* <<garbage_collection,Garbage Collection>>  
+* <<class_loading,Class Loading>>
+
+[[thread_count]]
+Thread Count::
+Track JVM thread usage to identify concurrency issues and optimize thread pool configuration:
++
+image::monitoring-dashboards-threads.png[Monitoring dashboard for Thread Count]
++
+Monitor thread count to:
+* Detect thread leaks and excessive thread creation
+* Optimize application concurrency settings
+* Identify potential deadlock conditions
+
+[[garbage_collection]]
+Garbage Collection::
+Monitor garbage collection efficiency across different heap generations:
++
+image::monitoring-dashboards-garbage.png[Monitoring dashboard for Garbage Collection]
++
+Garbage Collection Areas:
+* Young Generation: Collection frequency for short-lived objects in Eden and Survivor spaces
+* Old Generation: Collection patterns for long-lived objects requiring more intensive cleanup
++
+Use GC metrics to:
+* Optimize heap size allocation between generations
+* Identify memory allocation patterns causing excessive GC pressure
+* Tune garbage collection algorithms for application performance
+
+[[class_loading]]
+Class Loading::
+Track dynamic class loading across all applications in the JVM:
++
+image::monitoring-dashboards-classloading.png[Monitoring dashboard for Class Loading]
++
+Monitor class loading to:
+* Identify classloader memory leaks
+* Optimize application startup performance
+* Analyze dynamic code loading patterns
+
+
+== Server Group and Cluster Monitoring Dashboard
+
+Monitor distributed infrastructure performance through aggregated dashboards that provide unified visibility across multiple servers organized in groups or clusters.
+
+=== Overview
+
+Server group and cluster monitoring enables centralized performance analysis across your distributed hybrid standalone infrastructure, providing:
+
+* Combined view of CPU, memory, and heap utilization across all servers
+* Side-by-side performance comparison between individual servers
+* Load distribution patterns across server infrastructure
+* Collective resource utilization for infrastructure planning
+
+The group and cluster dashboard displays essential aggregated infrastructure metrics:
+
+* CPU Usage: Aggregate processing capacity utilization across all servers (percentage)
+* Memory Usage: Combined memory consumption across the infrastructure (MB)
+* Heap Total: Aggregate JVM heap allocation for all servers (MB)
+* Individual Server Breakdown: Per-server performance within the group context
+
+Aggregated metrics appear as unified plot lines representing the collective performance of selected servers.
+
+=== Access Group and Cluster Dashboards
+
+To monitor aggregated performance metrics for your server infrastructure:
+
+. In Runtime Manager, click *Servers*.
+. Click the server group or cluster name to display the aggregated dashboard.
+. Select specific servers from the list to display comparative metrics in the details pane.
+
+=== Dashboard Navigation
+
+* Time Range Selection
+
+Monitor performance trends across different time periods:
+
+image::monitoring-dashboards-cbd92.png[Monitoring dashboard for a server group or cluster]
+
+Choose from available time ranges:
+* **3 Hours**: Real-time infrastructure monitoring
+* **24 Hours**: Recent performance analysis  
+* **7 Days**: Weekly infrastructure trends
+* **2 Weeks**: Historical capacity analysis
+
+* Server-Focused View
+
+Access server-specific performance data within the group context:
+
+image::monitoring-dashboards-6fe9f.png[Monitoring dashboard for a server group or cluster]
+
+From the group dashboard, navigate to individual server dashboards by clicking server names to access detailed performance metrics and troubleshooting information.
+
+
+=== Troubleshooting Server Group Monitoring
+
+If monitoring metrics do not appear immediately after configuring Anypoint Monitoring for servers in a server group, follow this systematic installation process:
+
+. In Anypoint Platform go to *Runtime Manager* > *Servers* > *Add Server* to create an Anypoint Runtime Manager token.
+. Execute the command provided in the *Add Server* screen.
+. In Anypoint Platform go to *Runtime Manager* > *Servers* > *Create Group* to create the server group.
+. Start Mule for all the servers to be added to the server group by using the command `./mule start` from the `$MULE_HOME/bin` directory.
+. In Anypoint Platform go to *Runtime Manager* > *Servers*, click the server group name, and *Add Server* to add all the servers to the group.
+. Deploy an API to the server group.
+. Stop any running filebeat process in all the servers of the server group and run the `./install` command from the `$MULE_HOME/am/bin` directory in all the servers of the server group.
+. In Anypoint Platform go to *Runtime Manager* > *Servers*, click the server group name, and restart all the servers in the server group via *Actions* > *Restart*.
+. Run `./setup` from the `$MULE_HOME/am/bin` for all the servers in the server group.
++
+If after this step the metrics don't show up, repeat the last two steps.
 
 == See Also
 
 * xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]
-* xref:creating-alerts-hybrid.adoc[Creating Alerts for Server, Server Groups or Clusters]
-* xref:monitoring-dashboards-hybrid-apps.adoc[Monitoring Dashboard for Mule Apps Deployed to Hybrid Standalone]
+* xref:creating-alerts-hybrid.adoc[Creating Alerts for Servers, Server Groups, and Clusters]
+* xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]
+* xref:managing-servers.adoc[Managing Servers]
+* xref:managing-servers-groups.adoc[Managing Server Groups]
+* xref:managing-clusters.adoc[Managing Clusters]

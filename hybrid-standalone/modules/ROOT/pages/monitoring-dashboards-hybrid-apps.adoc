@@ -1,357 +1,139 @@
-= Monitoring Dashboard for Mule Apps Deployed to Hybrid Standalone
+= Monitoring Dashboards for Mule Apps Deployed to Hybrid Standalone
 
-Monitoring dashboards provide centralized visibility into the performance, health, and business metrics of Mule applications deployed to hybrid standalone instances.
+Monitor your Mule applications deployed to hybrid standalone instances through comprehensive performance dashboards that provide real-time visibility into application health, business metrics, and integration performance across your distributed runtime environment.
 
 == Overview
 
-Application monitoring dashboards offer:
+Runtime Manager provides comprehensive application monitoring dashboards for your Mule applications deployed to hybrid standalone environments, enabling you to:
 
-* Real-time application performance visibility
-* Business transaction monitoring and analysis
-* Custom metric displays and visualizations
-* Interactive data exploration capabilities
-* Centralized application health monitoring
+* Monitor real-time application performance metrics and transaction flow
+* Analyze business transaction patterns and message processing rates
+* Track application-specific KPIs and custom business metrics
+* Identify performance bottlenecks and integration failures
+* Monitor resource consumption and optimize application efficiency
+* Correlate application performance with business outcomes
 
-== Dashboard Types
+[NOTE]
+====
+To view application dashboards, you must have the Runtime Manager Read Applications permission for the target applications.
 
-=== Application Performance Dashboards
+Anypoint Platform Private Cloud Edition doesn't support the Anypoint Monitoring dashboard feature.
+====
 
-Monitor application-specific performance:
+Runtime Manager provides comprehensive application monitoring through multiple dashboard interfaces designed for different use cases and deployment scenarios.
 
-* Response time trends and distributions
-* Throughput and transaction volume
-* Error rates and failure analysis
-* Resource utilization patterns
-* Application health indicators
+== Application Monitoring Dashboards
 
-=== Business Metrics Dashboards
+Monitor your Mule applications through specialized dashboards that provide insights into integration performance, business transactions, and operational health.
 
-Track business-specific indicators:
+=== Overview
 
-* Transaction success rates
-* Revenue and financial metrics
-* Customer experience indicators
-* SLA compliance monitoring
-* Business process performance
+Application monitoring dashboards help you understand critical aspects of your integration performance:
 
-=== Operational Dashboards
+* Performance Analysis: When did usage peaks occur and how did they impact system performance?
+* Response Time Correlation: What effect do traffic spikes have on application response times?
+* Resource Utilization: How effectively are your applications using available processing resources?
+* Error Analysis: What impact do high traffic volumes have on message failure rates?
+* Multi-Application Impact: How do resource-intensive applications affect the performance of other applications on shared infrastructure?
 
-Monitor operational aspects:
+=== Dashboard Types
 
-* System resource utilization
-* Infrastructure health status
-* Deployment and version information
-* Alert status and incident tracking
-* Maintenance and uptime monitoring
+Runtime Manager provides two application dashboard interfaces optimized for different monitoring needs:
 
-== Runtime Manager Application Dashboards
+* Built-in Anypoint Monitoring Dashboard +
+Advanced metrics and comprehensive monitoring capabilities
+* Classic Application Monitoring Dashboard +
+Essential metrics for basic application monitoring
 
-=== Built-in Dashboard Features
+The dashboard interface displayed depends on your application's version, deployment target, and monitoring configuration.
 
-Access standard application monitoring views:
+[NOTE]
+After application restarts, CPU and memory information may not be immediately available in dashboards. To retain historical statistics, use the `dashboardStats` API or enable Anypoint Monitoring for persistent data storage.
 
-* Application overview and status
-* Performance metrics visualization
-* Error tracking and analysis
-* Log access and search capabilities
-* Alert management integration
 
-=== Navigation and Usage
+=== Built-in Anypoint Monitoring Dashboard
 
-Navigate application dashboards effectively:
+The built-in Anypoint Monitoring dashboard provides comprehensive application monitoring with advanced metrics, custom visualizations, and multiple analytical views for in-depth performance analysis
 
-* Application-specific dashboard access
-* Multi-application comparative views
-* Time range selection and filtering
-* Metric drill-down capabilities
-* Export and sharing options
+The dashboard is available for applications that meet these criteria:
+* Deployed to CloudHub, Runtime Fabric, or configured hybrid environments
+* Running on Mule 3.8.7-AM or 3.9.0 and later versions
+* Anypoint Monitoring enabled and properly configured
 
-=== Key Metrics Display
 
-Monitor essential application metrics:
+For detailed configuration and usage information, refer to xref:monitoring::app-dashboards.adoc[Built-in Application Dashboard] in the Anypoint Monitoring documentation.
 
-* *Throughput Metrics* - Messages/transactions per second
-* *Response Time Metrics* - Average, median, 95th percentile
-* *Error Metrics* - Error count, error rate, error types
-* *Resource Metrics* - CPU, memory, connection usage
-* *Availability Metrics* - Uptime, health check status
+=== Classic Application Monitoring Dashboard
 
-== Custom Dashboard Creation
+The classic application monitoring dashboard provides essential application metrics focusing on core integration performance indicators: message processing, resource utilization, and system health.
 
-=== Business Metric Dashboards
 
-Create business-focused dashboards:
+The dashboard is available for applications in these scenarios:
+* Deployed to CloudHub and running Mule versions earlier than 3.8.7
+* Deployed to hybrid standalone instances with basic monitoring enabled
+* Applications without Anypoint Monitoring configured
+* Environments where only essential monitoring is required
 
-* Revenue per transaction
-* Customer satisfaction scores
-* Business process completion rates
-* Compliance metrics tracking
-* ROI and efficiency indicators
 
-=== Technical Performance Dashboards
+[NOTE]
+The Mule Messages graph displays comprehensive message processing data for the application during the selected time frame, including successful processing, errors, and throughput patterns.
 
-Build technical monitoring dashboards:
 
-* Application architecture performance
-* Service dependency health
-* Database performance metrics
-* External API performance
-* Security and audit metrics
+=== Access Application Dashboards
 
-=== Executive Summary Dashboards
+Access application monitoring dashboards directly from Runtime Manager for real-time performance analysis and troubleshooting.
 
-Design executive-level dashboards:
+To access application monitoring dashboards:
 
-* High-level KPI summaries
-* Business impact metrics
-* Trend analysis and projections
-* Cost and efficiency indicators
-* Strategic performance indicators
+. In Runtime Manager, click *Applications*.
+. Click the name of the application you want to monitor.
 
-== Advanced Visualization Features
+The dashboard interface displayed depends on your application's configuration, deployment target, and monitoring setup.
 
-=== Interactive Charts and Graphs
+=== Dashboard Navigation and Features
 
-Implement interactive visualizations:
+Navigate application dashboards effectively using comprehensive time range selection and interactive data exploration features.
 
-* Time-series charts for trend analysis
-* Heat maps for performance patterns
-* Gauge displays for current status
-* Bar charts for comparative analysis
-* Scatter plots for correlation analysis
+==== Time Range Selection
 
-=== Real-time Data Updates
+Monitor application performance across different time periods using the time range selector:
 
-Configure real-time dashboard updates:
+**Built-in Anypoint Monitoring Dashboard:**
 
-* Live metric streaming
-* Auto-refresh capabilities
-* Real-time alert integration
-* Dynamic threshold adjustment
-* Instant notification displays
+image::monitoring-dashboards-time-ranges.png[Time range selector for Anypoint Monitoring dashboard]
 
-=== Comparative Analysis Views
+**Classic Application Monitoring Dashboard:**
 
-Create comparative analysis capabilities:
+image::monitoring-dashboards-cbd92.png[Time range selector for classic application dashboard]
 
-* Environment comparison (dev, test, prod)
-* Application version comparisons
-* Time period comparisons
-* Performance baseline comparisons
-* Multi-instance performance analysis
+==== Data Aggregation by Time Range
 
-== Dashboard Customization
+Application metrics are aggregated differently based on the selected time range to optimize performance and provide meaningful insights:
 
-=== Layout and Design
+[%header,cols="15,15,15,15"]
+|===
+| *Time Range* | *Mule Messages* | *Error Count* | *Response Time (milliseconds)*
+| *3 Hours* | Per minute | Per minute | Per minute
+| *24 Hours* | Per 8 minutes | Per 8 minutes | Per 8 minutes
+| *7 Days*  | Per hour | Per hour | Per hour
+| *2 Weeks* | Per 2 hours | Per 2 hours | Per 2 hours
+|===
 
-Customize dashboard layout:
+Data Visualization Patterns: +
 
-* Widget placement and sizing
-* Color schemes and themes
-* Dashboard organization and grouping
-* Navigation and menu design
-* Responsive design for mobile access
+* Multi-Worker Applications +
+When applications run on multiple workers, each worker appears as a separate curve on graphs, differentiated by color coding
+* Shared Infrastructure +
+Applications deployed to server groups or clusters display aggregated performance metrics as unified trend lines
+* Performance Correlation +
+Dashboard data enables correlation between application performance and underlying infrastructure utilization
 
-=== Metric Selection and Configuration
 
-Configure displayed metrics:
 
-* Select relevant performance indicators
-* Configure metric collection intervals
-* Set up calculated and derived metrics
-* Implement metric filtering and grouping
-* Configure metric thresholds and targets
-
-=== User-specific Views
-
-Create personalized dashboard views:
-
-* Role-based dashboard access
-* User-specific metric preferences
-* Customizable alert thresholds
-* Personal dashboard favorites
-* Collaborative dashboard sharing
-
-== Integration with External Tools
-
-=== Third-party Monitoring Platforms
-
-Integrate with external monitoring solutions:
-
-* Grafana dashboard integration
-* Datadog custom dashboards
-* New Relic application monitoring
-* Splunk analytics dashboards
-* Custom BI tool integration
-
-=== Data Export and API Access
-
-Enable data export and programmatic access:
-
-* CSV/Excel data export
-* API access for custom integrations
-* Real-time data streaming
-* Scheduled report generation
-* Webhook integration capabilities
-
-=== Alerting Integration
-
-Integrate dashboard alerts with external systems:
-
-* PagerDuty incident management
-* Slack/Teams notifications
-* Email alert distribution
-* SMS critical alerts
-* Custom webhook notifications
-
-== Performance and Scalability
-
-=== Dashboard Performance Optimization
-
-Optimize dashboard performance:
-
-* Efficient data queries and aggregation
-* Caching strategies for frequently accessed data
-* Lazy loading for complex visualizations
-* Data compression and optimization
-* Asynchronous data loading
-
-=== Scalability Considerations
-
-Design for scalability:
-
-* Support for high-volume data
-* Distributed dashboard architecture
-* Load balancing for dashboard access
-* Data retention and archiving strategies
-* Performance monitoring of dashboards themselves
-
-== Mobile and Remote Access
-
-=== Mobile Dashboard Design
-
-Design for mobile access:
-
-* Responsive dashboard layouts
-* Touch-friendly interface elements
-* Simplified mobile metric views
-* Offline dashboard capabilities
-* Mobile-specific alert notifications
-
-=== Remote Access Security
-
-Secure remote dashboard access:
-
-* VPN requirements for sensitive data
-* Multi-factor authentication
-* Role-based access controls
-* Session timeout configurations
-* Audit trails for dashboard access
-
-== Dashboard Maintenance and Operations
-
-=== Regular Maintenance
-
-Maintain dashboard effectiveness:
-
-* Review dashboard relevance and accuracy
-* Update metric thresholds and targets
-* Optimize dashboard performance
-* Clean up obsolete dashboards
-* Update user access permissions
-
-=== Dashboard Lifecycle Management
-
-Manage dashboard lifecycle:
-
-* Dashboard version control
-* Change approval processes
-* Testing dashboard changes
-* Rollback capabilities
-* Documentation and training updates
-
-=== User Training and Adoption
-
-Ensure effective dashboard usage:
-
-* User training on dashboard features
-* Best practices documentation
-* Regular user feedback collection
-* Dashboard usage analytics
-* Continuous improvement processes
-
-== Troubleshooting Dashboard Issues
-
-=== Common Problems
-
-Address typical dashboard issues:
-
-* Slow loading times
-* Inaccurate or missing data
-* Visualization display problems
-* Access permission issues
-* Alert configuration problems
-
-=== Resolution Strategies
-
-Resolve dashboard problems:
-
-* Check data source connectivity
-* Validate metric collection configuration
-* Review dashboard permissions
-* Test visualization configurations
-* Verify alert setup and delivery
-
-== Best Practices
-
-=== Dashboard Design Principles
-
-* Focus on actionable insights
-* Use clear and intuitive visualizations
-* Organize information logically
-* Implement consistent design patterns
-* Provide contextual information
-
-=== Operational Best Practices
-
-* Regular dashboard reviews and updates
-* User feedback incorporation
-* Performance monitoring and optimization
-* Security and access control maintenance
-* Documentation and knowledge sharing
-
-=== Business Alignment
-
-* Align dashboards with business objectives
-* Include relevant stakeholders in design
-* Regular business value assessment
-* Continuous improvement based on usage
-* Strategic dashboard roadmap planning
-
-== Advanced Features
-
-=== Predictive Analytics
-
-Implement predictive dashboard features:
-
-* Trend prediction and forecasting
-* Anomaly detection and alerting
-* Capacity planning projections
-* Performance optimization recommendations
-* Risk assessment and mitigation
-
-=== Machine Learning Integration
-
-Integrate ML capabilities:
-
-* Automated pattern recognition
-* Intelligent alerting and noise reduction
-* Performance optimization suggestions
-* Predictive maintenance indicators
-* Automated root cause analysis
 
 == See Also
 
-* xref:monitoring-apps-hybrid-standalone.adoc[Monitoring Mule Apps Deployed to Hybrid Standalone Instances]
+* xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]
 * xref:creating-alerts-hybrid-apps.adoc[Creating Alerts for Mule Apps Deployed to Hybrid Standalone]
-* xref:managing-apps-hybrid-standalone.adoc[Managing Mule Apps Deployed to Hybrid Standalone Instances]
+* xref:monitoring-dashboards-hybrid.adoc[Monitoring Dashboards for Servers, Server Groups, and Clusters]
+* xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]

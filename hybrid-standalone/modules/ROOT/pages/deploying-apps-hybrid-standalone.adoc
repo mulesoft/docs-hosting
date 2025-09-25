@@ -1,264 +1,322 @@
 = Deploying Mule Apps to Hybrid Standalone Instances
 
-Deploying Mule applications to hybrid standalone instances provides the flexibility of on-premises deployment with cloud-based management capabilities.
+Deploy your Mule applications to hybrid standalone instances for on-premises execution with centralized cloud-based management, enabling secure integration within your infrastructure while maintaining operational visibility and control.
 
 == Overview
 
-Application deployment to hybrid standalone instances involves:
+Deploy Mule applications to your hybrid standalone infrastructure through Runtime Manager's centralized console, which provides comprehensive deployment management including target selection, configuration management, and operational monitoring.
 
-* Preparing applications for deployment
-* Selecting appropriate deployment targets
-* Configuring deployment parameters
-* Monitoring deployment progress
-* Managing post-deployment validation
+Key deployment capabilities include:
 
-== Deployment Options
+* Multi-target deployment: servers, server groups, and clusters
+* Application source flexibility: Exchange, local files, and environment promotion
+* Configuration management: properties, logging, and monitoring settings
+* Real-time deployment tracking and status monitoring
+* Post-deployment management and update capabilities
 
-=== Target Selection
+== Deployment Targets
 
-Choose from available deployment targets:
+Select deployment targets based on your application's availability requirements, load distribution needs, and infrastructure architecture.
 
-* *Individual Servers* - Deploy to specific server instances
-* *Server Groups* - Deploy to all servers in a group simultaneously
-* *Clusters* - Deploy to cluster members with high availability
-* *Environment-based* - Deploy based on environment configurations
+=== Individual Servers
 
-=== Deployment Strategies
+Deploy to specific server instances for development, testing, or applications requiring dedicated resources:
 
-Select appropriate deployment approaches:
+* **Use Case**: Development environments, specialized applications, resource-intensive workloads
+* **Benefits**: Dedicated resources, simplified troubleshooting, isolation from other applications
+* **Considerations**: Single point of failure, manual scaling requirements
 
-* *Standard Deployment* - Direct deployment to target instances
-* *Rolling Deployment* - Gradual deployment across multiple instances
-* *Blue-Green Deployment* - Deploy to alternate environment sets
-* *Canary Deployment* - Limited deployment for testing and validation
+=== Server Groups
 
-== Preparing Applications for Deployment
+Deploy to multiple servers simultaneously for load distribution and horizontal scaling:
 
-=== Application Packaging
+* **Use Case**: Load balancing, horizontal scaling, shared resource pools
+* **Benefits**: Automatic load distribution, simplified management, coordinated deployments
+* **Considerations**: Shared resources, potential resource contention between applications
 
-Ensure proper application packaging:
+=== Clusters
 
-* Validate JAR/ZIP file integrity
-* Include all required dependencies
-* Configure application descriptors
-* Validate resource configurations
-* Test application locally before deployment
+Deploy to high-availability clusters for mission-critical applications requiring fault tolerance:
 
-=== Configuration Management
+* **Use Case**: Production applications, high-availability requirements, stateful applications
+* **Benefits**: Automatic failover, shared memory, coordinated state management
+* **Considerations**: Network overhead, configuration complexity, resource sharing
 
-Prepare environment-specific configurations:
+=== Deployment Methods
 
-* Environment variables
-* Property files and settings
-* Database connection configurations
-* Security credentials and certificates
-* External service endpoints
+Choose from multiple deployment approaches based on your development workflow and integration requirements:
 
-=== Dependency Management
+* **Runtime Manager Console** +
+Web-based deployment through Anypoint Platform with visual deployment management
+* **Runtime Manager API** +
+Programmatic deployment for CI/CD pipelines and automated workflows
+* **Maven Plugin** +
+Integration with build processes for developer-centric deployment workflows
 
-Manage application dependencies:
+[IMPORTANT]
+When you use Runtime Manager to manage a server, you cannot use other deployment methods or tools to manage that server. This ensures consistent state management and prevents configuration conflicts.
 
-* Include required libraries
-* Validate version compatibility
-* Resolve dependency conflicts
-* Configure shared libraries
-* Manage external resource connections
+== Prerequisites
 
-== Deployment Process
+Ensure your hybrid standalone environment meets the deployment requirements before initiating application deployment.
 
-=== Using Runtime Manager
+=== Infrastructure Requirements
 
-Deploy through the Runtime Manager interface:
+Complete the following infrastructure setup:
 
-1. Navigate to Runtime Manager
-2. Select *Applications* from the left menu
-3. Click *Deploy Application*
-4. Choose the application file (JAR/ZIP)
-5. Select deployment target:
-   * Server, server group, or cluster
-6. Configure deployment settings:
-   * Application name
-   * Environment variables
-   * Properties
-7. Review and confirm deployment
-8. Monitor deployment progress
+. **Mule Runtime Installation** +
+xref:mule-runtime::runtime-installation-task.adoc[Download and install Mule] on target servers with appropriate Java version compatibility
+. **Server Registration** +
+xref:servers-create.adoc[Add servers to Runtime Manager] for centralized management and deployment capabilities
+. **Network Configuration** +
+Ensure servers have connectivity to Anypoint Platform for management communication
+
+=== Environment Promotion Requirements
+
+When promoting applications across environments (sandbox to production), verify these requirements:
+
+* **Access Permissions** +
+Valid permissions on both source and target environments for deployment operations
+* **Version Compatibility** +
+Identical or compatible Mule runtime versions across environments to prevent deployment failures
+* **Target Architecture** +
+Matching deployment target types (server, server group, cluster) between source and destination
+* **Java Version Consistency** +
+All servers in clusters must use the same Java version that matches application requirements
+
+[NOTE]
+You can verify Java version compatibility by checking server details in *Runtime Manager* > *Servers* before deployment.
+
+=== Application Compatibility
+
+Verify your application meets these deployment criteria:
+
+* Application built for target Mule runtime version
+* All dependencies available in target environment
+* Configuration properties aligned with target environment requirements
+* Resource requirements compatible with target server capacity
+
+
+
+== Deploy Applications Through Runtime Manager
+
+Deploy Mule applications to your hybrid standalone infrastructure using Runtime Manager's web console for comprehensive deployment management and monitoring.
+
+=== Access the Deployment Interface
+
+. Sign in to Anypoint Platform
+. Navigate to *Runtime Manager*
+. In the *Applications* page, click *Deploy application*
+
+=== Configure Application Identity
+
+**Application Name**
+
+Provide a unique application name that identifies your deployment across environments:
+
+* **Naming Rules**: 3-42 alphanumeric characters (a-z, A-Z, 0-9) and dashes (-) only
+* **Uniqueness**: Must be unique within the target environment (Runtime Manager validates automatically)
+* **Immutability**: Application names cannot be changed after deployment
+
+[IMPORTANT]
+Choose meaningful application names that reflect functionality or environment (e.g., `customer-api-prod`, `inventory-sync-dev`) for easier identification in operational dashboards.
+
+**Deployment Target Selection**
+
+Select your deployment target based on application requirements:
+
+* Target must be in *Running* status to accept deployments
+* Available options depend on your configured infrastructure (servers, server groups, clusters)
+* Target selection determines available Mule runtime version for deployment
+
+=== Application Source Configuration
+
+Choose your application source based on development workflow and artifact management practices:
+
+**Exchange Integration**
+
+Deploy applications directly from Anypoint Exchange for centralized artifact management:
+
+. Click *Choose file* > *Import file from Exchange*
+. Select *Application* as the asset type
+. Search for your application by name
+. Select the target application and choose the desired version
+. Click *Select* to confirm
+
+Benefits: Version control, dependency management, organizational sharing
+
+**Local File Upload**
+
+Deploy applications from local development builds:
+
+. Click *Choose file* > *Upload file*
+. Browse and select your application JAR file
+. Click *Open* to upload
+
+Best for: Development testing, custom builds, hotfixes
+
+**Environment Promotion**
+
+Promote applications from non-production environments to maintain consistency:
+
+. Click *Get from sandbox* (available when non-production environments exist)
+. Select the source environment (e.g., Sandbox, QA)
+. Search and select the application to promote
+. Click *Apply* to inherit configuration
+
+[NOTE]
+Only applications deployed to hybrid standalone infrastructure can be promoted to other hybrid deployments. CloudHub applications require separate CloudHub-to-CloudHub promotion.
 
 === Deployment Configuration
 
-Configure deployment parameters:
+Configure application settings through specialized configuration tabs before initiating deployment:
 
-* *Application Name* - Unique identifier for the application
-* *Runtime Version* - Target Mule runtime version
-* *Resource Allocation* - CPU and memory allocation
-* *Environment Variables* - Application-specific variables
-* *Properties* - Configuration properties and settings
+.The arrow shows the configuration tabs on the *Deploy Application* page.
+image::rtm-deploy-to-own-servers.png[Configuration tabs on the Deploy Application page]
 
-=== Advanced Deployment Options
+**Deployment Target Configuration**
 
-Configure advanced settings:
+Verify runtime compatibility between your application and target infrastructure:
 
-* *Logging Configuration* - Log levels and output settings
-* *Monitoring Settings* - Health check and monitoring configuration
-* *Security Settings* - Authentication and authorization parameters
-* *Scheduler Configuration* - Scheduled job settings
-* *Network Configuration* - Port and endpoint settings
+* **Runtime Version**: Target selection automatically determines available Mule version
+* **Compatibility Check**: Ensure this matches your application's development runtime version
+* **Version Mismatch**: Incompatible versions cause deployment failures
 
-== Deployment Validation
+**Insight Analytics Configuration**
 
-=== Pre-deployment Checks
+Configure application analytics and monitoring metadata:
 
-Validate before deployment:
+* **Business Events**: Enable tracking for business transaction monitoring
+* **Custom Events**: Configure application-specific monitoring points
+* **Performance Analysis**: Enable detailed transaction flow analysis
 
-* Application artifact integrity
-* Target resource availability
-* Configuration consistency
-* Dependency requirements
-* Security policy compliance
+For comprehensive analytics configuration, see xref:insight.adoc[Insight].
 
-=== Post-deployment Validation
+**Application Properties Configuration**
 
-Verify successful deployment:
+Define runtime properties that control application behavior:
 
-* Application startup status
-* Health check responses
-* Functional endpoint testing
-* Performance baseline validation
-* Error log review
+* **Environment Variables**: Configure environment-specific settings (endpoints, credentials, timeouts)
+* **Property Inheritance**: Promoted applications retain original properties (editable before deployment)
+* **Security Considerations**: Use secure property management for sensitive configuration data
 
-== Managing Deployment Lifecycle
+Property Management Resources:
+* xref:hybrid-manage-props.adoc[Manage Properties for Applications On-Premises]
+* xref:secure-application-properties.adoc[Safely Hide Application Properties]
 
-=== Application Updates
+**Logging Configuration**
 
-Update deployed applications:
+Set application-specific logging levels for operational visibility:
 
-* Upload new application versions
-* Configure rolling update strategies
-* Plan maintenance windows
-* Implement rollback procedures
-* Validate update success
+* **Available Levels**: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`
+* **Runtime Override**: Logging configuration overrides application defaults
+* **Alternative Configuration**: Modify `log4j2.xml` for advanced logging scenarios
 
-=== Version Management
+Advanced Logging Resources:
+* xref:mule-runtime::logging-in-mule.adoc#configuring-custom-logging-settings[Configuring Custom Logging Settings]
+* https://logging.apache.org/log4j/2.x/manual/configuration.html[Apache Logging Services]
 
-Manage application versions:
+=== Post-Deployment Configuration Access
 
-* Version numbering schemes
-* Rollback capabilities
-* Version comparison and tracking
-* Change documentation
-* Environment promotion strategies
+Additional configuration tabs become available after successful deployment:
 
-=== Deployment Rollback
+* **Flow Monitoring** +
+Enable individual flow performance tracking and analysis
+* **Alerts History** +
+Access historical alert data and notification patterns
 
-Implement rollback procedures:
+=== Execute Deployment
 
-* Identify rollback triggers
-* Execute rollback procedures
-* Validate rollback success
-* Document rollback events
-* Implement prevention measures
+. Click *Deploy Application* to initiate the deployment process
+. Monitor deployment status in the Applications dashboard
+. Verify successful deployment through application status indicators
 
-== High Availability Deployments
+The new application appears in the deployed applications list with a status indicator showing deployment progress and final state.
 
-=== Cluster Deployments
+== Update Deployed Applications
 
-Deploy to clusters for high availability:
+Perform application updates through Runtime Manager to deploy new versions or apply configuration changes with minimal service disruption.
 
-* Configure cluster-aware applications
-* Implement shared storage for persistent data
-* Set up automatic failover mechanisms
-* Test failover scenarios
-* Monitor cluster health during deployment
+=== Application Version Updates
 
-=== Load Balancing
+Update application artifacts while preserving existing configuration:
 
-Configure load balancing:
+. Navigate to *Applications* page and select your deployed application
+. Click *Choose File* to access update options
+. Select new application version through the same source options:
+   * Exchange version update
+   * Local file upload
+   * Environment promotion
+. Review configuration changes if needed
+. Click *Deploy Application* to apply updates
 
-* Distribute traffic across instances
-* Configure health checks
-* Implement session affinity if needed
-* Monitor load distribution
-* Adjust balancing algorithms
+**Update Considerations:**
 
-== Monitoring Deployed Applications
+* **Downtime**: Brief service interruption occurs during application restart
+* **Configuration Preservation**: Application properties and settings are retained
+* **Version Rollback**: Keep previous versions available for quick rollback if needed
+* **Testing**: Validate updates in non-production environments before production deployment
 
-=== Deployment Monitoring
+=== Configuration Updates
 
-Monitor deployment progress:
+Modify application properties and settings without changing the application artifact:
 
-* Track deployment status across targets
-* Monitor resource utilization during deployment
-* Validate successful startup
-* Check application health endpoints
-* Review deployment logs
+. Select the deployed application from the Applications list
+. Access configuration tabs (Properties, Logging, Insight)
+. Make necessary configuration changes
+. Apply changes to trigger configuration reload
 
-=== Runtime Monitoring
+== Troubleshooting Deployment Issues
 
-Monitor running applications:
+Resolve deployment failures through systematic troubleshooting of common issues and error patterns.
 
-* Performance metrics and trends
-* Error rates and patterns
-* Resource consumption
-* User activity and load patterns
-* Business KPI monitoring
+=== Deployment Status Monitoring
 
-== Troubleshooting Deployments
+Monitor deployment progress through application status indicators:
 
-=== Common Deployment Issues
+* **Deploying**: Application upload and installation in progress
+* **Started**: Application successfully deployed and running
+* **Failed**: Deployment encountered errors requiring attention
+* **Stopped**: Application deployed but not currently running
 
-Address typical problems:
+=== Common Deployment Failures
 
-* Application startup failures
-* Configuration errors
-* Dependency conflicts
-* Resource allocation issues
-* Network connectivity problems
+**Runtime Version Mismatch**
 
-=== Diagnostic Procedures
+* **Symptom**: Deployment fails with compatibility errors
+* **Resolution**: Verify application and target runtime versions match
+* **Prevention**: Use consistent runtime versions across development and deployment environments
 
-Use systematic troubleshooting:
+**Resource Constraints**
 
-* Review deployment logs
-* Validate configuration settings
-* Check resource availability
-* Test network connectivity
-* Analyze application dependencies
+* **Symptom**: Deployment timeout or memory errors
+* **Resolution**: Check server resource availability and application requirements
+* **Prevention**: Monitor server capacity and plan resource allocation
 
-=== Resolution Strategies
+**Configuration Errors**
 
-* Fix configuration issues
-* Adjust resource allocation
-* Resolve dependency conflicts
-* Update application code
-* Implement workarounds
+* **Symptom**: Application starts but fails during initialization
+* **Resolution**: Review application logs for configuration issues
+* **Prevention**: Validate properties and connectivity before deployment
 
-== Best Practices
+=== Error Investigation
 
-=== Deployment Planning
-
-* Plan deployments during maintenance windows
-* Test deployments in non-production environments
-* Implement automated deployment procedures
-* Document deployment procedures
-* Plan rollback strategies
-
-=== Security Considerations
-
-* Secure application artifacts
-* Implement proper access controls
-* Validate security configurations
-* Monitor for security vulnerabilities
-* Maintain audit trails
-
-=== Performance Optimization
-
-* Optimize application performance
-* Configure appropriate resource allocation
-* Monitor deployment impact on system performance
-* Plan for scaling requirements
-* Implement performance testing
+. **Check Application Status** +
+Review status indicator and error messages in the Applications dashboard
+. **Examine Deployment Logs** +
+Access detailed error information through the application's log view
+. **Verify Prerequisites** +
+Confirm all deployment prerequisites are met (runtime version, connectivity, permissions)
+. **Test Configuration** +
+Validate application properties and external system connectivity
+. **Retry Deployment** +
+Correct identified issues and redeploy the application
 
 == See Also
 
-* xref:deployment-server-scaling.adoc[Understanding Deployment and Server Scaling]
-* xref:managing-apps-hybrid-standalone.adoc[Managing Mule Apps Deployed to Hybrid Standalone Instances]
-* xref:monitoring-apps-hybrid-standalone.adoc[Monitoring Mule Apps Deployed to Hybrid Standalone Instances]
+* xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]
+* xref:creating-servers.adoc[Creating Servers] 
+* xref:creating-servers-groups.adoc[Creating Server Groups]
+* xref:creating-clusters.adoc[Creating Clusters]
+* xref:monitoring-dashboards-hybrid-apps.adoc[Monitoring Dashboards for Mule Apps Deployed to Hybrid Standalone]
+* xref:creating-alerts-hybrid-apps.adoc[Creating Alerts for Mule Apps Deployed to Hybrid Standalone]
