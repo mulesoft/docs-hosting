@@ -178,7 +178,7 @@ CloudHub 2.0 supports various multi-region disaster recovery strategies based on
 [%header%autowidth.spread]
 |===
 |API Type |Configuration
-|High-Impact Stateless API |* Use an active-active setup with active replicas in two regions and an external load balancer.
+|High-Impact Stateless API | Use an active-active setup with active replicas in two regions and an external load balancer.
 |High-Impact Stateful API a|
 * Use a Hot Standby setup with Mule apps deployed and started in both regions but processing requests only in one.
 * Use an external load balancer to route traffic, and health checks to determine DR and switch traffic.
