@@ -1,388 +1,117 @@
 = Managing Properties
 
-Managing properties in hybrid standalone environments involves configuring, securing, and maintaining application properties and environment variables across your deployment infrastructure.
+Manage application properties for your Mule applications deployed to hybrid standalone instances through centralized configuration management, enabling dynamic property updates, environment-specific settings, and secure property handling across your infrastructure.
 
 == Overview
 
-Property management encompasses:
+Runtime Manager provides comprehensive property management capabilities for applications deployed to hybrid standalone instances, enabling you to:
 
-* Application property configuration
-* Environment variable management
-* Secure property handling
-* Property inheritance and precedence
-* Configuration lifecycle management
+* Define and manage application properties centrally through Runtime Manager
+* Override application-bundled properties without redeployment
+* Configure environment-specific settings for different deployment stages
+* Secure sensitive configuration data through encrypted property storage
+* Manage properties across individual servers, server groups, and clusters
 
-== Property Types
+**Property Management Approaches:**
 
-=== Application Properties
+* **Properties Files**: Include property placeholder YAML files in application deployment archives
+* **Runtime Manager Properties**: Override and manage properties through the Runtime Manager console
+* **System Variables**: Configure properties at deployment time using Java system environment variables
+* **External Configuration**: Use external property sources for advanced configuration management
 
-Manage application-specific configuration:
+**Property Precedence:**
 
-* *System Properties* - JVM and Mule runtime settings
-* *Application Properties* - Custom application configuration
-* *Environment Properties* - Environment-specific settings
-* *Runtime Properties* - Dynamic runtime configuration
-* *Integration Properties* - External system configuration
+Properties defined in Runtime Manager take precedence over application-bundled properties, enabling environment-specific configuration without modifying application code.
 
-=== Environment Variables
+== Property Security
 
-Configure environment-specific variables:
+Runtime Manager implements comprehensive security measures for property management:
 
-* *Deployment Environment* - Development, staging, production
-* *Infrastructure Settings* - Database connections, service URLs
-* *Feature Flags* - Enable/disable application features
-* *Performance Settings* - Timeouts, pool sizes, cache settings
-* *Security Configuration* - API keys, certificates, tokens
+* **Transmission Security**: All property values are encrypted over HTTPS during transmission between Runtime Manager and Mule runtime
+* **Storage Security**: Properties are encrypted when stored in the Runtime Manager internal database
+* **Access Control**: Property values are displayed only through the Runtime Manager Settings page with appropriate permissions
+* **Audit Trail**: Property modifications are tracked for compliance and security auditing
 
-=== Secure Properties
+[IMPORTANT]
+====
+**Restart Requirement**: Modifying properties after application deployment requires restarting the application and any associated server groups or clusters to apply changes.
+====
 
-Handle sensitive configuration data:
 
-* *Passwords and Secrets* - Database passwords, API keys
-* *Certificates* - SSL certificates and private keys
-* *Tokens* - Authentication and authorization tokens
-* *Encryption Keys* - Data encryption configuration
-* *Private Configuration* - Proprietary system settings
+== Add Application Properties by Using a Properties File
 
-== Property Configuration in Runtime Manager
 
-=== Setting Application Properties
+Include property placeholder YAML files in your deployable application archive to provide default configuration values. For comprehensive property file configuration guidance, see xref:mule-runtime::configuring-properties.adoc[Configuring Properties].
 
-Configure properties through Runtime Manager:
+Mule runtime engine loads file-based properties during application initialization.
 
-1. Navigate to Runtime Manager
-2. Select the target application
-3. Click on the *Properties* tab
-4. Add or modify properties:
-   * Key-value pairs
-   * Property descriptions
-   * Property types (String, Number, Boolean)
-5. Save configuration changes
-6. Restart application if required
+== Manage Properties Through Runtime Manager
 
-=== Environment Variables
+Configure and manage application properties dynamically through Runtime Manager's centralized property management interface, enabling environment-specific configuration without application code changes.
 
-Manage environment variables:
 
-1. Access application settings
-2. Navigate to *Environment Variables* section
-3. Configure variables:
-   * Variable name and value
-   * Environment-specific overrides
-   * Variable descriptions
-4. Apply changes to target environments
+=== Add Application properties in Runtime Manager
 
-=== Property Sources
+Navigate to the property management interface for your deployed application:
 
-Configure property source precedence:
+. From Anypoint Platform, select *Runtime Manager*.
+. Click the *Applications* tab.
+. Click the *Status* column to display the details pane.
+. Click *Manage Application*
+. On the *Settings* page, click the *Properties* tab.
 
-1. *System Properties* - Highest precedence
-2. *Environment Variables* - Operating system level
-3. *Application Properties* - Application-specific files
-4. *Default Properties* - Built-in default values
+.The screenshot shows (*1*) the *Properties* tab, (*2*) the *Key* and *Value* fields, and (*3*) the *...* menu on the application *Settings* page.
+image::rtm-manage-props.png[*Properties* tab, *Key* and *Value* fields, and *...* menu on the *Settings* page]
 
-== Secure Property Management
+=== Property Configuration Operations
 
-=== Property Encryption
+**Create New Properties**
 
-Implement property encryption:
+. Enter the property name in the *Key* field
+. Enter the property value in the *Value* field  
+. Click *Save* > *Redeploy Application*
 
-* Encrypt sensitive values at rest
-* Use encryption keys for decryption
-* Implement key rotation procedures
-* Secure key storage and management
-* Validate encryption implementation
+**Modify Existing Properties**
 
-=== Access Control
+. Locate the property in the properties list
+. Click the *...* menu for property-specific actions
+. Select *Edit* to modify the property value
+. Click *Save* > *Redeploy Application*
 
-Control property access:
+**Delete Properties**
 
-* Role-based property access
-* Environment-specific permissions
-* Secure property modification
-* Audit property changes
-* Implement approval workflows
+. Locate the property in the properties list
+. Click the *...* menu for the target property
+. Select *Delete* to remove the property
+. Click *Save* > *Redeploy Application*
 
-=== Secure Property Files
+[IMPORTANT]
+All property changes require application redeployment to take effect. Plan property modifications during appropriate maintenance windows to minimize service disruption.
 
-Manage secure property files:
 
-[source,properties]
+== Advanced Property Configuration Methods
+
+These are some alternative methods for overriding app properties:
+
+* Configure an external location to add property placeholders or secure property placeholder files to override properties.
+
+* Set Java system environment variables at deployment time to override properties.
++
+To do this, deploy the app using the following command:
++
 ----
-# secure.properties
-database.password=![encrypted_value]
-api.key=![encrypted_value]
+mule -M-Dsecret.key=toSecretPassword -M-Denv=prod -M-Ddb.password=secretPassword -app myApp.zip
 ----
++
+In this case, all the values typed into the command are stored only in memory and must be provided every time. The values are never stored in any file.
 
-Configure secure property provider:
 
-[source,xml]
-----
-<secure-properties:config name="Secure_Properties_Config" 
-    file="secure.properties" 
-    key="encryption.key" />
-----
-
-== Property Inheritance and Override
-
-=== Property Hierarchy
-
-Understand property precedence:
-
-1. *Command Line Arguments* - Highest priority
-2. *System Properties* - JVM level properties
-3. *Environment Variables* - OS level variables
-4. *Application Properties* - Application configuration
-5. *Default Properties* - Framework defaults
-
-=== Environment-Specific Overrides
-
-Implement environment overrides:
-
-[source,properties]
-----
-# application.properties
-database.host=localhost
-database.port=5432
-
-# application-prod.properties
-database.host=prod-db-server
-database.port=5432
-----
-
-=== Dynamic Property Resolution
-
-Configure dynamic property resolution:
-
-[source,xml]
-----
-<configuration-properties file="application-${mule.env}.properties"/>
-----
-
-== Property Management Best Practices
-
-=== Naming Conventions
-
-Implement consistent naming:
-
-* Use descriptive property names
-* Follow hierarchical naming patterns
-* Implement environment prefixes
-* Use consistent case conventions
-* Document property purposes
-
-Example naming conventions:
-[source,properties]
-----
-# Database configuration
-db.connection.host=localhost
-db.connection.port=5432
-db.connection.username=admin
-
-# API configuration
-api.external.service.url=https://api.example.com
-api.external.service.timeout=30000
-----
-
-=== Property Organization
-
-Organize properties effectively:
-
-* Group related properties together
-* Use consistent property categories
-* Implement property documentation
-* Maintain property inventories
-* Version control property files
-
-=== Configuration Validation
-
-Validate property configurations:
-
-* Implement property validation rules
-* Check property format and types
-* Validate property dependencies
-* Test configuration combinations
-* Implement configuration testing
-
-== Environment-Specific Configuration
-
-=== Multi-Environment Management
-
-Manage properties across environments:
-
-* Development environment configuration
-* Testing environment settings
-* Staging environment properties
-* Production environment configuration
-* Disaster recovery settings
-
-=== Environment Promotion
-
-Implement environment promotion:
-
-* Property migration procedures
-* Configuration validation processes
-* Environment-specific testing
-* Rollback procedures
-* Change management workflows
-
-=== Configuration Templates
-
-Use configuration templates:
-
-[source,properties]
-----
-# template.properties
-database.host=${DB_HOST:localhost}
-database.port=${DB_PORT:5432}
-database.name=${DB_NAME:myapp}
-api.timeout=${API_TIMEOUT:30000}
-----
-
-== Property Monitoring and Auditing
-
-=== Configuration Changes
-
-Monitor property changes:
-
-* Track property modifications
-* Log configuration changes
-* Implement change notifications
-* Maintain change history
-* Generate audit reports
-
-=== Property Usage Tracking
-
-Track property usage:
-
-* Monitor property access patterns
-* Identify unused properties
-* Track property performance impact
-* Analyze configuration effectiveness
-* Optimize property management
-
-=== Compliance and Governance
-
-Ensure compliance:
-
-* Implement property governance policies
-* Maintain configuration documentation
-* Conduct regular audits
-* Ensure regulatory compliance
-* Implement security assessments
-
-== Troubleshooting Property Issues
-
-=== Common Problems
-
-Address typical property issues:
-
-* Property resolution failures
-* Configuration conflicts
-* Missing required properties
-* Incorrect property types
-* Environment-specific issues
-
-=== Diagnostic Approaches
-
-Use systematic troubleshooting:
-
-* Validate property syntax
-* Check property precedence
-* Verify environment settings
-* Test property resolution
-* Review configuration logs
-
-=== Resolution Strategies
-
-* Fix property configuration errors
-* Resolve precedence conflicts
-* Update environment settings
-* Implement proper validation
-* Document resolution procedures
-
-== Advanced Property Features
-
-=== Dynamic Property Updates
-
-Implement dynamic updates:
-
-* Runtime property modification
-* Hot configuration reloading
-* Configuration refresh endpoints
-* Property change notifications
-* Zero-downtime updates
-
-=== Property Expressions
-
-Use property expressions:
-
-[source,xml]
-----
-<set-variable variableName="dbUrl" 
-    value="jdbc:mysql://${db.host}:${db.port}/${db.name}" />
-----
-
-=== Conditional Properties
-
-Implement conditional configuration:
-
-[source,properties]
-----
-# Conditional based on environment
-%dev.database.host=localhost
-%prod.database.host=prod-server
-
-# Conditional based on profile
-logging.level.root=${logging.level:INFO}
-----
-
-== Integration with External Systems
-
-=== Configuration Management Tools
-
-Integrate with configuration tools:
-
-* HashiCorp Vault for secrets
-* Kubernetes ConfigMaps and Secrets
-* AWS Parameter Store
-* Azure Key Vault
-* Google Secret Manager
-
-=== CI/CD Integration
-
-Integrate with deployment pipelines:
-
-* Automated property deployment
-* Configuration validation in pipelines
-* Environment-specific property injection
-* Configuration drift detection
-* Automated compliance checking
-
-== Security Considerations
-
-=== Property Security
-
-Implement security measures:
-
-* Encrypt sensitive properties
-* Implement access controls
-* Secure property transmission
-* Regular security assessments
-* Incident response procedures
-
-=== Secrets Management
-
-Manage secrets effectively:
-
-* Use dedicated secret management systems
-* Implement secret rotation
-* Limit secret access and scope
-* Monitor secret usage
-* Implement secret scanning
 
 == See Also
 
+* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]
 * xref:managing-apps-hybrid-standalone.adoc[Managing Mule Apps Deployed to Hybrid Standalone Instances]
 * xref:managing-schedulers-hybrid.adoc[Managing Schedulers]
-* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]
+* xref:monitoring-apps-hybrid-standalone.adoc[Monitoring Mule Apps Deployed to Hybrid Standalone Instances]
+* xref:creating-alerts-hybrid-apps.adoc[Creating Alerts for Mule Apps Deployed to Hybrid Standalone]
+* xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]
