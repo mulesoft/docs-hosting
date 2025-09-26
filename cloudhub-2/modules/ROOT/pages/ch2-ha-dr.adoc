@@ -77,7 +77,7 @@ For more information on how to deploy for HA and DR strategies, see xref:mule-ru
 
 == Disaster Recovery Use Cases and Architecture for the Runtime Plane
 
-CloudHub 2.0 supports various multiregion disaster recovery strategies based on application impact and statefulness. These strategies typically involve a Bring-Your-Own (BYO) global load balancer to manage traffic distribution and failover across regions.
+CloudHub 2.0 supports various multi-region disaster recovery strategies based on application impact and statefulness. These strategies typically involve a Bring-Your-Own (BYO) global load balancer to manage traffic distribution and failover across regions.
 
 === Use Case 1: Active-Active Configuration
 
@@ -224,7 +224,7 @@ Use caching in ObjectStore to store the tokens among various calls. Object store
 
 === Rate Limiting API Policies
 
-Rate-limiting policies are currently set at the replica level. If you require rate limiting for in-flight transactions during DR, define custom policies using an external multiregion shared Object Store. Include a DR playbook with steps to adjust rate limits during and after DR.
+Rate-limiting policies are currently set at the replica level. If you require rate limiting for in-flight transactions during DR, define custom policies using an external multi-region shared Object Store. Include a DR playbook with steps to adjust rate limits during and after DR.
 
 === Schedulers
 
@@ -244,7 +244,7 @@ There's no impact on IP allowlists and firewall rules during a hot standby DR sc
 
 == Regional Differences and DR for Specific Regions
 
-Some regions present unique challenges for multiregion DR.
+Some regions present unique challenges for multi-region DR.
 
 === Control Plane to Runtime Plane Ratio
 
