@@ -1,327 +1,265 @@
 = Managing Mule Apps Deployed to Hybrid Standalone Instances
 
-Managing deployed Mule applications involves ongoing operations including monitoring, updates, configuration changes, and lifecycle management.
+Manage your deployed Mule applications through Runtime Manager's centralized console to control application lifecycle, monitor performance, and maintain operational health across your hybrid standalone instances.
 
 == Overview
 
-Application management encompasses:
+Runtime Manager provides comprehensive application management capabilities for Mule applications deployed to hybrid standalone instances, enabling you to:
 
-* Application lifecycle management
-* Configuration and property management
-* Performance monitoring and optimization
-* Troubleshooting and diagnostics
-* Updates and version management
+* Monitor application health and performance metrics in real-time
+* Control application lifecycle operations (start, stop, delete, update)
+* Manage individual flow states within deployed applications
+* Configure application properties and logging settings
+* Access detailed application analytics and transaction insights
+* Perform application updates and version management
 
-== Application Lifecycle Management
+**Application Management Scope:**
 
-=== Application States
+This documentation focuses exclusively on managing applications deployed to hybrid standalone instances (individual servers, server groups, and clusters). All management operations are performed through Runtime Manager's web console or REST APIs.
 
-Monitor and manage application states:
+[IMPORTANT]
+====
+**Deployment Method Restriction**: When using Runtime Manager to manage your hybrid standalone servers, you cannot manually deploy applications directly to the server filesystem. All deployments must go through Runtime Manager to maintain proper application tracking and management capabilities.
 
-* *Started* - Application is running and processing requests
-* *Stopped* - Application is deployed but not processing
-* *Deploying* - Application deployment is in progress
-* *Failed* - Application deployment or startup failed
-* *Undeployed* - Application has been removed from the server
+**Application Discovery**: Manually deployed applications are not auto-discovered by Runtime Manager and will not appear in the management console.
+====
 
-=== State Management
+== Applications Dashboard
 
-Control application states:
+Access comprehensive application information and management controls through the Applications dashboard in Runtime Manager.
 
-1. Navigate to Runtime Manager
-2. Select *Applications* from the left menu
-3. Choose the target application
-4. Use state control actions:
-   * *Start* - Begin application processing
-   * *Stop* - Halt application processing
-   * *Restart* - Stop and start the application
-   * *Redeploy* - Deploy new version or configuration
+=== Dashboard Access
 
-=== Deployment Management
+. In Runtime Manager, navigate to the *Applications* tab
+. Select any deployed application to open the application details panel
+. Review application status, deployment information, and available management actions
 
-Manage application deployments:
+image::managing-applications-on-your-own-servers-26ef4.png[]
 
-* Deploy new versions
-* Rollback to previous versions
-* Schedule deployment windows
-* Coordinate updates across instances
-* Validate deployment success
+=== Dashboard Information
 
-== Application Configuration
+The application dashboard displays deployment-specific information based on your target infrastructure:
 
-=== Environment Variables
+**Individual Server Deployments:**
+* Application status (Running, Stopped, Failed)
+* Last modification timestamp
+* Deployed application file (JAR/ZIP) with update capability
+* Server resource utilization
 
-Manage environment-specific variables:
+**Server Group and Cluster Deployments:**
+* Aggregated application status across all members
+* Individual server status within the group or cluster
+* Load distribution and member health indicators
+* Collective resource consumption metrics
 
-* Configure application-specific variables
-* Set environment-based configurations
-* Manage secure variables and secrets
-* Update variables without redeployment
-* Version control for configuration changes
+[TIP]
+Click any server name in the deployment panel to access detailed server information and diagnostics. See xref:managing-servers.adoc[Managing Servers] for comprehensive server management guidance.
 
-=== Property Management
+=== Application Management Actions
 
-Manage application properties:
+The dashboard provides access to key management functions through dedicated buttons:
 
-* Runtime properties configuration
-* Environment-specific property files
-* Secure property handling
-* Property precedence and override
-* Configuration validation
+**Manage Application**
+* Access comprehensive application settings and configuration options
+* Review detailed deployment information and runtime parameters
+* Configure application properties, logging, and monitoring settings
+* Access performance dashboards and metrics analysis
 
-=== Resource Configuration
+image::managing-applications-on-your-own-servers-b0e6f.png[]
 
-Configure application resources:
+**Insight**
+* Analyze transaction-level data for business and technical insights
+* Track message flow patterns and performance characteristics
+* Investigate errors and performance bottlenecks
+* Monitor business process execution and outcomes
 
-* Memory allocation settings
-* Thread pool configurations
-* Connection pool settings
-* Timeout configurations
-* Caching parameters
+image::managing-applications-on-your-own-servers-ba927.png[]
 
-== Performance Monitoring
+[NOTE]
+Insight features may have limited availability in Anypoint Platform Private Cloud Edition environments.
 
-=== Application Metrics
+== Application Settings Management
 
-Monitor key application metrics:
+Access comprehensive application configuration and monitoring options through the application settings interface.
 
-* *Throughput* - Messages processed per second
-* *Response Time* - Average and percentile response times
-* *Error Rate* - Percentage of failed transactions
-* *Resource Usage* - CPU, memory, and thread utilization
-* *Queue Depth* - Message queue backlogs
+=== Accessing Application Settings
 
-=== Performance Analysis
+. Navigate to Runtime Manager and select the *Applications* tab.
+. Choose your deployed hybrid standalone application to open the details panel.
+. Click *Manage Application* to access the full settings interface.
 
-Analyze application performance:
+image::managing-applications-on-your-own-servers-1fd39.png[]
 
-* Identify performance trends
-* Detect performance degradation
-* Compare performance across instances
-* Analyze performance patterns
-* Identify optimization opportunities
+=== Settings Interface
 
-=== Capacity Management
+The application settings interface provides access to all dashboard information plus additional management capabilities:
 
-Manage application capacity:
+**Configuration Tabs:**
+* **Flow Monitoring**: Individual flow performance and management controls
+* **Insight**: Transaction analytics and business process monitoring
+* **Alerts History**: Historical record of triggered application alerts
+* **Properties**: Application runtime properties and environment variables
+* **Logging**: Log level configuration and output management
 
-* Monitor resource utilization
-* Plan for scaling requirements
-* Optimize resource allocation
-* Balance load across instances
-* Implement capacity alerts
 
-== Troubleshooting and Diagnostics
+The *Alerts History* tab provides comprehensive visibility into application monitoring even*ts, including:
+* Alert trigger timestamps and conditions
+* Alert severity levels and notification status
+* Resolution tracking and acknowledgment records
+* Performance threshold violations and recovery events
 
-=== Log Management
+For comprehensive alerting configuration, see xref:creating-alerts-hybrid-apps.adoc[Creating Alerts for Mule Apps Deployed to Hybrid Standalone].
 
-Manage application logs:
 
-* Configure log levels and categories
-* Access and download log files
-* Search and filter log entries
-* Correlate logs across instances
-* Implement log retention policies
+== Flow Management
 
-=== Error Analysis
+Control individual flow states within your deployed applications to enable granular application behavior management and troubleshooting capabilities.
 
-Analyze application errors:
+=== Flow Management Overview
 
-* Monitor error patterns and trends
-* Investigate specific error instances
-* Correlate errors with system events
-* Implement error prevention measures
-* Document error resolution procedures
+Runtime Manager provides flow-level control for applications deployed to hybrid standalone instances, enabling you to:
 
-=== Diagnostic Tools
+* Start and stop individual flows within running applications
+* Override application-defined flow management logic
+* Troubleshoot specific integration flows without affecting entire applications
+* Implement maintenance workflows for specific business processes
 
-Use diagnostic capabilities:
+**Prerequisites:**
+* Applications must be deployed to hybrid standalone instances (not available for CloudHub or Runtime Fabric)
+* User account must have *Manage Applications* permission for target applications
+* Target applications must be in Running status
 
-* Thread dump analysis for performance issues
-* Memory heap analysis for memory leaks
-* Performance profiling for optimization
-* Network connectivity testing
-* Configuration validation
+=== Flow State Management
 
-== Updates and Version Management
+**Default Flow Behavior**
 
-=== Application Updates
+All flows within deployed applications start in *Unmanaged* state by default, allowing application logic to control flow activation and deactivation based on business requirements or runtime conditions.
 
-Manage application updates:
+**Start and Stop Flows**
 
-* Plan update schedules
-* Test updates in staging environments
-* Implement rolling update strategies
-* Validate update success
-* Plan rollback procedures
+. Navigate to your application settings in Runtime Manager
+. Access the *Flow Monitoring* tab
+. Select one or more flows to manage
+. Use *Start* or *Stop* buttons to control flow states
 
-=== Version Control
+image::flow-management-983fd.png[]
 
-Implement version management:
+[IMPORTANT]
+Starting a flow activates its processing capability but does not trigger endpoints or initiate message processing. The flow becomes available to process messages when triggered by configured sources.
 
-* Track application versions
-* Maintain version history
-* Document version changes
-* Implement version naming conventions
-* Coordinate updates across environments
+=== Managed vs Unmanaged Flow States
 
-=== Change Management
+**Unmanaged State (Default)**
 
-Implement change management processes:
+Flows operate under application control, allowing custom logic within the Mule application to start and stop flows based on:
+* Business conditions and requirements
+* External system availability
+* Scheduled operations and maintenance windows
+* Error recovery and failover scenarios
 
-* Document all changes
-* Review and approve changes
-* Test changes before implementation
-* Implement change rollback procedures
-* Maintain change audit trails
+**Managed State (Runtime Manager Control)**
 
-== Security Management
+When you manually start or stop a flow, Runtime Manager overrides application logic and enforces the specified state:
+* **Active**: Flow remains active regardless of application logic attempts to stop it
+* **Inactive**: Flow remains stopped regardless of application logic attempts to start it
 
-=== Access Control
+**Returning to Unmanaged State**
 
-Manage application access:
+Click *Unmanage* for any flow to restore application-controlled behavior and remove Runtime Manager state enforcement.
 
-* Configure authentication mechanisms
-* Implement authorization policies
-* Manage user access and permissions
-* Monitor access attempts
-* Implement security auditing
+image::flow-management-unmanage.png[]
 
-=== Security Configuration
 
-Configure application security:
+== Monitor Applications
 
-* SSL/TLS configuration
-* API security settings
-* Data encryption configuration
-* Security policy enforcement
-* Vulnerability management
+Manage application deployment lifecycle through Runtime Manager's centralized controls for updates, monitoring, and removal operations.
 
-=== Compliance
+Runtime Manager provides comprehensive monitoring capabilities for applications deployed to hybrid standalone instances:
 
-Ensure security compliance:
+* **Performance Dashboards**: Real-time application metrics and resource utilization
+* **Transaction Analytics**: Business process monitoring and message flow analysis  
+* **Alert Management**: Proactive notification for application and infrastructure events
+* **Log Management**: Centralized logging aggregation and analysis
 
-* Meet security policy requirements
-* Implement audit controls
-* Maintain security documentation
-* Perform security assessments
-* Report security incidents
+For detailed monitoring configuration and usage, see xref:monitoring-apps-hybrid-standalone.adoc[Monitoring Mule Apps Deployed to Hybrid Standalone Instances].
 
-== High Availability Management
+== Delete Applications
 
-=== Failover Management
+Remove deployed applications from your hybrid standalone infrastructure through Runtime Manager's application management interface.
 
-Implement failover capabilities:
+**Deletion Requirements:**
 
-* Configure automatic failover
-* Test failover procedures
-* Monitor failover events
-* Implement failback procedures
-* Document failover protocols
+* **Servers**: Target server must be in Running status
+* **Server Groups**: At least one server in the group must be running
+* **Clusters**: At least one cluster member must be active and accessible
 
-=== Load Balancing
+**Delete Application Process:**
 
-Manage load distribution:
+. Navigate to the *Applications* tab in Runtime Manager
+. Locate the application you want to remove
+. Click the status dropdown arrow next to the application
+. Select *Delete* from the available actions menu
 
-* Configure load balancing rules
-* Monitor traffic distribution
-* Adjust load balancing weights
-* Handle server failures
-* Optimize performance across instances
+image::managing-applications-on-your-own-servers-96463.png[]
 
-=== Data Consistency
 
-Maintain data consistency:
+[WARNING]
+Application deletion is immediate and cannot be undone. Ensure you have application backups or source code access before deletion.
 
-* Implement data synchronization
-* Manage shared resources
-* Handle distributed transactions
-* Implement consistency checks
-* Plan for data recovery
+== Redeploy Deleted Applications
 
-== Operational Procedures
+Runtime Manager implements automatic recovery mechanisms to maintain application deployment consistency across your hybrid standalone infrastructure.
 
-=== Routine Maintenance
+**Manual File System Modifications**
 
-Implement regular maintenance:
+When application files are manually modified on the server filesystem while Mule runtime is running:
+* Affected applications are automatically undeployed from the local server
+* Applications on other servers in groups or clusters remain unaffected
+* Only Runtime Manager UI or REST API deletions permanently remove applications
 
-* Schedule maintenance windows
-* Perform system updates
-* Clean up logs and temporary files
-* Review performance metrics
-* Update documentation
+**Runtime Restart Synchronization**
 
-=== Backup and Recovery
+During Mule runtime restart, Runtime Manager performs automatic synchronization:
+* Detects applications missing from expected deployment targets
+* Automatically redeploys missing applications to restore desired state
+* Applies to individual servers, server groups, and clusters
+* Synchronization occurs only during runtime restart events
 
-Implement backup procedures:
+**New Server Integration**
 
-* Back up application configurations
-* Maintain deployment artifacts
-* Document recovery procedures
-* Test recovery procedures
-* Plan for disaster scenarios
+When adding servers to existing server groups or clusters:
+* Runtime Manager automatically deploys all group/cluster applications to new members
+* Deployment occurs regardless of other member availability
+* Ensures deployment consistency across all infrastructure components
 
-=== Documentation
+== Download an Application Archive
 
-Maintain operational documentation:
+Runtime Manager doesn't support downloading the application archive (ZIP or JAR file) from the application *Settings* page for an application deployed to hybrid standalone instances.
 
-* Application architecture documentation
-* Configuration management procedures
-* Troubleshooting guides
-* Operational runbooks
-* Change management records
+However, you can download the archive using programmatic access methods:
 
-== Monitoring and Alerting
+* **Runtime Manager REST API**: Use API endpoints to retrieve application artifacts
+* **Anypoint CLI**: Download archives through command-line interface tools
 
-=== Alert Configuration
+For detailed CLI usage, see xref:anypoint-cli::standalone-apps.adoc#runtime-mgr-standalone-application-artifact[Runtime Manager Application Artifacts].
 
-Set up application alerts:
 
-* Performance threshold alerts
-* Error rate alerts
-* Availability alerts
-* Resource utilization alerts
-* Custom business metric alerts
+== Download CloudHub 2.0, CloudHub, and Runtime Fabric Application Archives
 
-=== Dashboard Management
+For comparison with other deployment targets, applications deployed to CloudHub 2.0, CloudHub, and Runtime Fabric do support direct archive downloads through the Runtime Manager UI.
 
-Create monitoring dashboards:
+. From Anypoint Platform, select *Runtime Manager*.
+. Click the *Applications* tab.
+. Click the name of the cloud-deployed application.
+. Click the archive file name in the *Application File* field to download.
 
-* Application performance dashboards
-* Business metric dashboards
-* Operational status dashboards
-* Custom visualization dashboards
-* Real-time monitoring displays
-
-== Best Practices
-
-=== Application Design
-
-* Design for observability
-* Implement health check endpoints
-* Use structured logging
-* Implement proper error handling
-* Design for scalability
-
-=== Operational Excellence
-
-* Implement automated monitoring
-* Use infrastructure as code
-* Maintain comprehensive documentation
-* Implement continuous improvement
-* Plan for disaster recovery
-
-=== Performance Optimization
-
-* Regular performance reviews
-* Optimize resource utilization
-* Implement caching strategies
-* Optimize database queries
-* Monitor and tune configurations
+image::download-archive-file.png[]
 
 == See Also
 
-* xref:managing-schedulers-hybrid.adoc[Managing Schedulers]
-* xref:managing-properties-hybrid.adoc[Managing Properties]
-* xref:monitoring-apps-hybrid-standalone.adoc[Monitoring Mule Apps Deployed to Hybrid Standalone Instances]
 * xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]
+* xref:monitoring-apps-hybrid-standalone.adoc[Monitoring Mule Apps Deployed to Hybrid Standalone Instances]
+* xref:creating-alerts-hybrid-apps.adoc[Creating Alerts for Mule Apps Deployed to Hybrid Standalone]
+* xref:monitoring-dashboards-hybrid-apps.adoc[Monitoring Dashboards for Mule Apps Deployed to Hybrid Standalone]
+* xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]
+* xref:managing-servers.adoc[Managing Servers]
