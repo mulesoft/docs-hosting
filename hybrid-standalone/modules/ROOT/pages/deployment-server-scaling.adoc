@@ -1,280 +1,42 @@
 = Understanding Deployment and Server Scaling
 
-This guide explains the concepts and strategies for scaling deployments and servers in hybrid standalone environments to meet performance and availability requirements.
+Plan and architect your hybrid standalone infrastructure within Anypoint Platform's deployment and scaling limits to ensure optimal performance, system stability, and successful application delivery across your distributed environment.
 
-== Overview
+[NOTE]
+A target represents any deployment destination for Mule applications, including individual servers, server groups, or clusters. For example, a server group containing 8 servers constitutes a single target for deployment purposes.
 
-Deployment and server scaling involves:
+== Deployment Limits
 
-* Understanding scaling concepts and strategies
-* Planning capacity and performance requirements
-* Implementing horizontal and vertical scaling
-* Managing resource allocation and optimization
-* Monitoring and adjusting scaling decisions
+Plan your application deployment strategy within these tested and recommended limits to ensure reliable performance and avoid platform constraints.
 
-== Scaling Concepts
+[%header%autowidth.spread]
+|===
+| Component | Tested/Recommended Limit
+| Maximum number of deployments per environment | 1000
+| Maximum number of deployments per hybrid target (not Runtime Fabric) | 200
+| Maximum number of properties per application | 300
+| Maximum deployment size for CloudHub and standalone | 200 MB
+| Maximum deployment size for CloudHub 2.0 and Runtime Fabric | 350 MB
+|===
 
-=== Horizontal Scaling
+== Infrastructure Limits
 
-Horizontal scaling (scale out) involves adding more servers:
+Design your server infrastructure within these hard limits to ensure scalable and manageable hybrid standalone deployments.
 
-* *Benefits*:
-  - Increased total capacity
-  - Improved fault tolerance
-  - Better load distribution
-  - Cost-effective for high-volume scenarios
+[%header%autowidth.spread]
+|===
+| Component | Hard Limit
+| Maximum number of servers (not Runtime Fabric) | 500
+| Maximum number of servers per server group | 20
+| Maximum number of servers per cluster | 8
+|===
 
-* *Considerations*:
-  - Application must support distributed deployment
-  - Load balancing configuration required
-  - Data consistency across instances
-  - Network bandwidth requirements
-
-=== Vertical Scaling
-
-Vertical scaling (scale up) involves increasing server resources:
-
-* *Benefits*:
-  - Simpler application architecture
-  - No data distribution complexity
-  - Immediate performance improvement
-  - Easier monitoring and management
-
-* *Considerations*:
-  - Hardware limitations and costs
-  - Single point of failure risks
-  - Diminishing returns at higher scales
-  - Downtime required for upgrades
-
-== Scaling Strategies
-
-=== Reactive Scaling
-
-Scale in response to current conditions:
-
-* Monitor performance metrics
-* Identify bottlenecks and constraints
-* Add resources when thresholds are exceeded
-* Remove resources when demand decreases
-
-=== Proactive Scaling
-
-Scale based on predicted demand:
-
-* Analyze historical usage patterns
-* Plan for seasonal variations
-* Scale before demand increases
-* Implement predictive scaling algorithms
-
-=== Auto-scaling
-
-Implement automated scaling responses:
-
-* Configure scaling policies and triggers
-* Define performance thresholds
-* Automate resource provisioning
-* Monitor and adjust scaling behavior
-
-== Server Scaling Implementation
-
-=== Adding Servers
-
-Scale by adding server instances:
-
-1. Provision new server hardware or VMs
-2. Install and configure Mule runtime
-3. Register servers with Runtime Manager
-4. Add servers to appropriate groups or clusters
-5. Deploy applications to new servers
-6. Configure load balancing
-7. Test and validate scaling results
-
-=== Server Group Scaling
-
-Scale using server groups:
-
-* Add servers to existing groups
-* Create additional server groups
-* Distribute applications across groups
-* Balance load across group members
-* Monitor group performance
-
-=== Cluster Scaling
-
-Scale cluster deployments:
-
-* Add nodes to existing clusters
-* Create additional clusters
-* Implement cluster-aware applications
-* Configure data replication
-* Test failover scenarios
-
-== Application Deployment Scaling
-
-=== Multi-instance Deployment
-
-Deploy applications to multiple instances:
-
-* Deploy to server groups for load distribution
-* Configure session management
-* Implement data consistency strategies
-* Monitor performance across instances
-* Balance workload distribution
-
-=== Resource Allocation Scaling
-
-Adjust resource allocation per instance:
-
-* Increase memory allocation
-* Adjust CPU allocation
-* Optimize thread pool settings
-* Configure connection pools
-* Tune garbage collection
-
-== Performance Considerations
-
-=== Bottleneck Identification
-
-Identify scaling bottlenecks:
-
-* *CPU Bottlenecks* - High processor utilization
-* *Memory Bottlenecks* - Memory pressure and GC issues
-* *Network Bottlenecks* - Bandwidth limitations
-* *Storage Bottlenecks* - Disk I/O constraints
-* *Application Bottlenecks* - Code-level performance issues
-
-=== Load Distribution
-
-Optimize load distribution:
-
-* Configure load balancing algorithms
-* Implement session affinity when needed
-* Monitor traffic patterns
-* Adjust server weights
-* Handle server failures gracefully
-
-=== Resource Optimization
-
-Optimize resource utilization:
-
-* Right-size server configurations
-* Optimize application configurations
-* Implement caching strategies
-* Optimize database connections
-* Tune network settings
-
-== Monitoring and Metrics
-
-=== Scaling Metrics
-
-Monitor key scaling indicators:
-
-* *Throughput* - Requests processed per second
-* *Response Time* - Average and percentile response times
-* *Resource Utilization* - CPU, memory, network, disk usage
-* *Error Rates* - Application and system error percentages
-* *Availability* - Service uptime and reliability
-
-=== Capacity Planning
-
-Plan for future capacity needs:
-
-* Analyze usage trends and growth patterns
-* Model capacity requirements
-* Plan for peak load scenarios
-* Budget for infrastructure costs
-* Schedule capacity reviews
-
-== Cost Optimization
-
-=== Resource Efficiency
-
-Optimize costs through efficiency:
-
-* Right-size server instances
-* Implement auto-scaling policies
-* Use resource scheduling
-* Optimize application performance
-* Monitor and eliminate waste
-
-=== Cost-Performance Balance
-
-Balance cost and performance:
-
-* Evaluate cost per transaction
-* Optimize for peak vs. average load
-* Consider reserved vs. on-demand resources
-* Plan for seasonal variations
-* Implement cost monitoring
-
-== High Availability Scaling
-
-=== Fault Tolerance
-
-Design for fault tolerance:
-
-* Implement redundant server deployments
-* Configure automatic failover
-* Distribute across multiple availability zones
-* Implement health monitoring
-* Plan disaster recovery procedures
-
-=== Geographic Distribution
-
-Scale across geographic regions:
-
-* Deploy servers in multiple regions
-* Implement geo-load balancing
-* Consider data locality requirements
-* Plan for network latency
-* Comply with data residency requirements
-
-== Best Practices
-
-=== Planning and Design
-
-* Start with performance requirements
-* Design for scalability from the beginning
-* Plan for both horizontal and vertical scaling
-* Consider application architecture impacts
-* Document scaling procedures
-
-=== Implementation
-
-* Test scaling procedures thoroughly
-* Implement gradual scaling approaches
-* Monitor during scaling operations
-* Validate performance after scaling
-* Document lessons learned
-
-=== Operational Management
-
-* Establish scaling thresholds and policies
-* Implement automated monitoring and alerting
-* Plan maintenance windows for scaling
-* Train teams on scaling procedures
-* Regular capacity planning reviews
-
-== Troubleshooting Scaling Issues
-
-=== Common Problems
-
-* Uneven load distribution
-* Resource contention
-* Configuration inconsistencies
-* Network bottlenecks
-* Application limitations
-
-=== Resolution Approaches
-
-* Analyze performance metrics
-* Review configuration settings
-* Test load balancing effectiveness
-* Optimize application code
-* Adjust resource allocation
 
 == See Also
 
 * xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]
+* xref:creating-servers.adoc[Creating Servers]
+* xref:creating-servers-groups.adoc[Creating Server Groups]
+* xref:creating-clusters.adoc[Creating Clusters]
 * xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]
 * xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]

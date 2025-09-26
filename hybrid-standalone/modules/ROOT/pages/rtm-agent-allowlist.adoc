@@ -1,333 +1,152 @@
 = Adding Ports, IPs, and Hostnames for Runtime Manager Agent
 
-Configuring network access for the Runtime Manager Agent ensures secure communication between your hybrid standalone instances and the Anypoint Platform.
+Configure network access for the Runtime Manager Agent to establish secure communication between your hybrid standalone instances and Anypoint Platform services.
 
 == Overview
 
-Runtime Manager Agent (RTM Agent) network configuration involves:
+To enable Runtime Manager agent connectivity in your customer-hosted Mule runtime environment, you must configure your network infrastructure to allow communication with Anypoint Platform APIs and services. This configuration involves adding specific hostnames, ports, and IP addresses to your network allowlists and firewall rules.
+
+These sections provide the specific network configuration details required for each communication protocol and regional deployment.
 
-* Understanding agent communication requirements
-* Configuring firewall rules and allowlists
-* Setting up network ports and protocols
-* Managing secure connections
-* Troubleshooting connectivity issues
 
-== Network Architecture
+== Mutual TLS Authentication Endpoints
 
-=== Communication Flow
+These endpoints require SSL passthrough configuration to allow mutual TLS certificate authentication:
 
-The RTM Agent communicates with Anypoint Platform through:
+* runtime-manager.anypoint.mulesoft.com
+* runtime-manager.eu1.anypoint.mulesoft.com
+* runtime-manager.gov.anypoint.mulesoft.com
+* data-authenticator.anypoint.mulesoft.com
+* data-authenticator.gov.anypoint.mulesoft.com
+* us1.ingest.mulesoft.com 
+* eu1.ingest.mulesoft.com 
+
+Configure your firewall or proxy to allow SSL passthrough for these endpoints rather than SSL termination, as the agent requires direct certificate authentication with Anypoint Platform.
+
+== WebSocket Endpoints
+
+The following endpoints use WebSocket connections for real-time communication between the agent and Runtime Manager:
+
+* runtime-manager.anypoint.mulesoft.com
+* runtime-manager.eu1.anypoint.mulesoft.com
+* runtime-manager.gov.anypoint.mulesoft.com
+
+Ensure your firewall supports WebSocket protocol upgrades and persistent connections for these endpoints.
+
+[NOTE]
+====
+All connectivity requirements are for outbound connections from your network to Anypoint Platform. No inbound connectivity to your network or servers is required.
 
-* *Outbound HTTPS connections* to Anypoint Platform services
-* *WebSocket connections* for real-time monitoring
-* *REST API calls* for management operations
-* *Secure tunneling* for remote administration
-
-=== Network Components
-
-Key network components include:
-
-* *Runtime Manager Agent* - Installed on each Mule server
-* *Anypoint Platform Services* - Cloud-based management services
-* *Load Balancers* - Traffic distribution and SSL termination
-* *Firewalls* - Network security and access control
-* *Proxy Servers* - Optional proxy for outbound connections
-
-== Required Network Configuration
-
-=== Outbound Ports
-
-Configure outbound access for these ports:
-
-* *Port 443 (HTTPS)* - Primary communication with Anypoint Platform
-* *Port 5672 (AMQP)* - Message queue communication (if applicable)
-* *Port 8883 (MQTT over SSL)* - IoT and event streaming (if applicable)
-* *Port 22 (SSH)* - Secure remote access (if enabled)
-
-=== Hostnames and Domains
-
-Allow outbound access to these domains:
-
-* *anypoint.mulesoft.com* - Primary Anypoint Platform domain
-* *runtime-manager.anypoint.mulesoft.com* - Runtime Manager services
-* *analytics.anypoint.mulesoft.com* - Analytics and monitoring services
-* *eu1.anypoint.mulesoft.com* - EU region (if applicable)
-* *gov.anypoint.mulesoft.com* - Government cloud (if applicable)
-
-=== IP Address Ranges
-
-Configure allowlist for Anypoint Platform IP ranges:
-
-NOTE: IP addresses may change. Contact MuleSoft Support for current IP ranges.
-
-* North America: Contact support for current ranges
-* Europe: Contact support for current ranges
-* Government Cloud: Contact support for current ranges
-
-== Firewall Configuration
-
-=== Outbound Rules
-
-Configure outbound firewall rules:
-
-[source]
-----
-# HTTPS traffic to Anypoint Platform
-ALLOW tcp:443 to anypoint.mulesoft.com
-ALLOW tcp:443 to runtime-manager.anypoint.mulesoft.com
-ALLOW tcp:443 to analytics.anypoint.mulesoft.com
-
-# WebSocket connections (if used)
-ALLOW tcp:443 to ws.anypoint.mulesoft.com
-
-# Regional endpoints (if applicable)
-ALLOW tcp:443 to eu1.anypoint.mulesoft.com
-ALLOW tcp:443 to gov.anypoint.mulesoft.com
-----
-
-=== Inbound Rules
-
-Configure inbound access (if required):
-
-* *Port 9999* - RTM Agent administration (internal network only)
-* *Port 8080/8443* - Application endpoints (as needed)
-* *Custom Ports* - Application-specific requirements
-
-=== Network Segmentation
-
-Implement network segmentation:
-
-* Isolate Mule servers in secure network zones
-* Restrict cross-zone communication
-* Implement DMZ for external-facing services
-* Use VPNs for remote administration
-
-== Proxy Configuration
-
-=== HTTP Proxy Setup
-
-Configure HTTP proxy for outbound connections:
-
-[source,properties]
-----
-# proxy.properties
-http.proxyHost=proxy.company.com
-http.proxyPort=8080
-http.proxyUser=username
-http.proxyPassword=password
-
-https.proxyHost=proxy.company.com
-https.proxyPort=8080
-https.proxyUser=username
-https.proxyPassword=password
-----
-
-=== Proxy Authentication
-
-Configure proxy authentication:
-
-* Basic authentication with username/password
-* NTLM authentication for Windows environments
-* Kerberos authentication for enterprise environments
-* Certificate-based authentication
-
-=== Proxy Bypass
-
-Configure proxy bypass for internal resources:
-
-[source,properties]
-----
-http.nonProxyHosts=localhost|127.*|[::1]|*.company.com|*.internal
-----
-
-== SSL/TLS Configuration
-
-=== Certificate Management
-
-Manage SSL certificates:
-
-* Install trusted root certificates
-* Configure certificate stores
-* Manage certificate expiration
-* Implement certificate rotation
-* Validate certificate chains
-
-=== SSL Configuration
-
-Configure SSL settings:
-
-[source,properties]
-----
-# SSL configuration
-javax.net.ssl.trustStore=/path/to/truststore.jks
-javax.net.ssl.trustStorePassword=changeit
-javax.net.ssl.keyStore=/path/to/keystore.jks
-javax.net.ssl.keyStorePassword=changeit
-----
-
-=== TLS Version Support
-
-Configure TLS version requirements:
-
-* TLS 1.2 minimum (recommended)
-* TLS 1.3 support (preferred)
-* Disable deprecated protocols (SSL 3.0, TLS 1.0, TLS 1.1)
-
-== Agent Configuration
-
-=== Network Settings
-
-Configure agent network settings:
-
-[source,yaml]
-----
-# mule-agent.yml
-transports:
-  websocket.transport:
-    consoleUri: wss://runtime-manager.anypoint.mulesoft.com
-  rest.agent.transport:
-    port: 9999
-    host: 0.0.0.0
-----
-
-=== Connection Timeouts
-
-Configure connection timeout settings:
-
-[source,yaml]
-----
-# Connection timeout configuration
-connection:
-  timeout: 30000
-  readTimeout: 60000
-  keepAlive: true
-----
-
-=== Retry Configuration
-
-Configure retry behavior:
-
-[source,yaml]
-----
-# Retry configuration
-retry:
-  maxAttempts: 3
-  backoffMultiplier: 2
-  initialDelay: 1000
-----
-
-== Security Considerations
-
-=== Access Control
-
-Implement access control measures:
-
-* Restrict agent administration access
-* Use strong authentication mechanisms
-* Implement role-based access controls
-* Monitor access attempts and failures
-* Regular security audits
-
-=== Network Monitoring
-
-Monitor network activity:
-
-* Log all agent communications
-* Monitor for suspicious connections
-* Implement intrusion detection
-* Set up network anomaly detection
-* Regular security assessments
-
-== Troubleshooting Connectivity
-
-=== Common Issues
-
-Address typical connectivity problems:
-
-* Firewall blocking outbound connections
-* Proxy configuration errors
-* Certificate validation failures
-* DNS resolution problems
-* Network timeout issues
-
-=== Diagnostic Tools
-
-Use diagnostic tools for troubleshooting:
-
-[source,bash]
-----
-# Test connectivity
-telnet anypoint.mulesoft.com 443
-curl -I https://anypoint.mulesoft.com
-
-# Check DNS resolution
-nslookup anypoint.mulesoft.com
-dig anypoint.mulesoft.com
-
-# Test proxy connectivity
-curl --proxy proxy.company.com:8080 https://anypoint.mulesoft.com
-----
-
-=== Log Analysis
-
-Analyze agent logs for connectivity issues:
-
-* Connection establishment failures
-* SSL handshake errors
-* Proxy authentication failures
-* Timeout and retry patterns
-* DNS resolution errors
-
-== Best Practices
-
-=== Security
-
-* Use least privilege access principles
-* Implement defense in depth
-* Regular security updates and patches
-* Monitor and audit network access
-* Implement secure configuration management
-
-=== Performance
-
-* Optimize network configurations
-* Monitor connection performance
-* Implement connection pooling
-* Configure appropriate timeouts
-* Plan for network capacity
-
-=== Operational
-
-* Document network configurations
-* Implement change management
-* Test connectivity regularly
-* Plan for failover scenarios
-* Maintain up-to-date contact information
-
-== Compliance and Governance
-
-=== Network Policies
-
-Ensure compliance with:
-
-* Corporate network policies
-* Security compliance requirements
-* Data residency regulations
-* Industry security standards
-* Government security requirements
-
-=== Documentation
-
-Maintain comprehensive documentation:
-
-* Network architecture diagrams
-* Configuration procedures
-* Troubleshooting guides
-* Change management records
-* Security assessment reports
+Runtime Manager agent establishes persistent WebSocket connections that remain active for ongoing communication with Anypoint Platform services.
+====
+
+== Required Ports and Hostnames
+
+Configure your firewall to allow outbound connections to these specific ports and hostnames based on your Anypoint Platform region.
+
+[%header,cols="10a,50a,10a"]
+|===
+|Region |Name |Port
+|*US*|anypoint.mulesoft.com | 443
+|*US*|runtime-manager.anypoint.mulesoft.com | 443
+|*US*|analytics-ingest.anypoint.mulesoft.com |  443
+|*US*|data-authenticator.anypoint.mulesoft.com |  443
+|*US*|exchange-files.anypoint.mulesoft.com | 443
+|*US*|exchange2-asset-manager-kprod.s3.amazonaws.com |  443
+|*US*|us1.ingest.mulesoft.com |  8443
+|*US-GOV*|runtime-manager.gov.anypoint.mulesoft.com | 443
+|*US-GOV*|data-authenticator.gov.anypoint.mulesoft.com |  443
+|*US-GOV*|gov.anypoint.mulesoft.com | 443
+|*US-GOV*|exchange-files.gov.anypoint.mulesoft.com | 443
+|*US-GOV*|exchange2-asset-manager-kgprod.s3.us-gov-west-1.amazonaws.com | 443
+|*EU*|eu1.anypoint.mulesoft.com | 443
+|*EU*|runtime-manager.eu1.anypoint.mulesoft.com | 443
+|*EU*|analytics-ingest.eu1.anypoint.mulesoft.com |  443
+|*EU*|data-authenticator.eu1.anypoint.mulesoft.com |  443
+|*EU*|exchange2-asset-manager-kprod-eu.s3.eu-central-1.amazonaws.com |  443
+|*EU*|eu1.ingest.mulesoft.com |  8443
+|===
+
+
+== Static IP Addresses
+
+For network environments that require IP-based firewall rules, use these static IP addresses to allow Runtime Manager connectivity.
+
+[IMPORTANT]
+====
+As part of continuous infrastructure improvement, MuleSoft introduces new static IP addresses in Runtime Manager to augment existing ones. To avoid service disruption, configure your firewall to allow these IP addresses before February 1st, 2024.
+
+For detailed information, see https://help.mulesoft.com/s/article/New-IP-addresses-in-Runtime-Manager-2024-February[KB: New IP addresses in Runtime Manager 2024 February ^].
+====
+
+* Allowlist these static IPs in the `US` region to access the `runtime-manager` hosts:
++
+[%header,cols="10a,60a,30a"]
+|===
+|Region |Name |IP Address
+|*US*|runtime-manager.anypoint.mulesoft.com |18.214.68.14
+|*US*|runtime-manager.anypoint.mulesoft.com |35.174.151.175
+|*US*|runtime-manager.anypoint.mulesoft.com |18.213.137.40 (Starting Feb 2024)
+|*US*|runtime-manager.anypoint.mulesoft.com |34.232.255.44 (Starting Feb 2024)
+|*US*|runtime-manager.anypoint.mulesoft.com |44.209.29.79 (Starting Feb 2024)
+|===
+
+* Allowlist these static IPs in the `EU` region to access the `runtime-manager` hosts:
++
+[%header,cols="10a,60a,30a"]
+|===
+|Region |Name |IP Address
+|*EU*|runtime-manager.eu1.anypoint.mulesoft.com |18.185.141.77
+|*EU*|runtime-manager.eu1.anypoint.mulesoft.com |3.123.216.217
+|*EU*|runtime-manager.eu1.anypoint.mulesoft.com |3.127.253.183 (Starting Feb 2024)
+|===
+
+== Dynamic IP Addresses
+
+Configure hostname-based firewall rules for Anypoint Platform services that use dynamically assigned IP addresses.
+
+=== Layer 7 Firewall Configuration
+
+Some Anypoint Platform services use IP addresses that are dynamically assigned by cloud infrastructure. For these services, configure Layer 7 firewall rules based on fully qualified domain names (FQDNs) rather than static IP addresses.
+
+Configure your Layer 7 firewall rules to include these hostnames:
+
+[%header,cols="10a,60a"]
+|===
+|Region |Hostname
+|*US*|anypoint.mulesoft.com
+|*US*|analytics-ingest.anypoint.mulesoft.com
+|*US*|data-authenticator.anypoint.mulesoft.com
+|*US*| us1.ingest.mulesoft.com
+|*US-GOV*|runtime-manager.gov.anypoint.mulesoft.com
+|*US-GOV*|data-authenticator.gov.anypoint.mulesoft.com
+|*US-GOV*|gov.anypoint.mulesoft.com
+|*EU*|eu1.anypoint.mulesoft.com
+|*EU*|analytics-ingest.eu1.anypoint.mulesoft.com
+|*EU*|data-authenticator.eu1.anypoint.mulesoft.com
+|*EU*|eu1.ingest.mulesoft.com  
+|===
+
+=== Agent-Specific Allowlist
+
+Configure these specific URLs for Runtime Manager agent connectivity based on your agent version.
+
+**Agent Version Requirements:**
+
+* **Mule 3.x**: Runtime Manager agent 1.12.0 or later
+* **Mule 4.x**: Runtime Manager agent 2.2.0 or later
+
+[%header,cols="30a,60a"]
+|===
+|URL |Description
+|runtime-manager.anypoint.mulesoft.com| Connection for ARM management capabilities (*public-cert agents*)
+|data-authenticator.anypoint.mulesoft.com| Connection to the metrics ingestion service of arm-monitoring stack (*public-cert agents*)
+|===
 
 == See Also
 
-* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]
+* xref:setting-hybrid-standalone.adoc[Setting up Hybrid Standalone Instances]
+* xref:creating-servers.adoc[Creating Servers]
 * xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]
+* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]
 * xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]
