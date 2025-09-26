@@ -7,7 +7,7 @@ CloudHub 2.0 leverages Amazon AWS for its cloud infrastructure, so availability 
 
 While the control plane is unavailable, the runtime plane continues to locally buffer log data and other telemetry data until control plane availability is restored.
 
-CloudHub 2.0 leverages external messaging services, such as Anypoint MQ, to ensure message reliability through persistent queues. Although these external queues are highly available within a region, they can‌ be inaccessible for short periods, generally seconds to minutes, during a regional outage leading to some data loss. Communication with the queues resumes after the region becomes available.
+CloudHub 2.0 leverages external messaging services, such as Anypoint MQ, to ensure message reliability through persistent queues. These external queues are highly available within a region, but they can‌ be inaccessible for short periods, generally seconds to minutes, during a regional outage leading to some data loss. Communication with the queues resumes after the region becomes available.
 
 Anypoint Object Store v2 allows CloudHub 2.0 applications to store data and states across various components and applications. Object Store v2 is maintained in the same region as the deployed CloudHub 2.0 application. Data persists and becomes available after the region returns to service. However, Object Store v2 is a regional service. It doesn't provide any region failover functionality. You can't access data in Object Store v2 from an application in a different region. Implement your own external storage solution for cross-region data persistence and access. Object Store v2 doesn't provide periodic backups.
 
@@ -15,7 +15,7 @@ Anypoint Object Store v2 allows CloudHub 2.0 applications to store data and stat
 
 High availability (HA) is the measure of a system’s ability to remain accessible despite a system component failure. You generally implement HA by building in multiple levels of fault tolerance or load balancing capabilities into a system. In CloudHub 2.0, you can achieve high availability by distributing multiple replicas across three Availability Zones (AZs) without requiring additional configuration.
 
-Disaster recovery (DR) refers to the process of restoring a system to an acceptable previous state after a natural or a man-made disaster, such as flooding, tornadoes, earthquakes, fires, power failures, server failures, and misconfigurations.
+Disaster recovery (DR) refers to the process of restoring a system to an acceptable previous state after a natural or man-made disaster, such as flooding, tornadoes, earthquakes, fires, power failures, server failures, and misconfigurations.
 
 While they both increase overall availability, the difference is that with HA there's generally no loss of service. HA retains the service, and DR retains the data, but with DR, there's usually a slight loss of service while the DR plan executes and the system restores.
 
@@ -37,7 +37,7 @@ MuleSoft Anypoint works with instances from one place. This mechanism copies tra
 
 === Regular Switching
 
-MuleSoft regularly switches among locations for maintenance, compliance, and disaster recovery purposes. This ensures that all locations stay up-to-date and can handle the load if required.
+MuleSoft regularly switches among locations for maintenance, compliance, and disaster recovery purposes. This keeps all locations up-to-date and able to handle the load if required.
 
 === Ingress and Egress Traffic Management
 
@@ -45,9 +45,9 @@ CloudHub 2.0 uses a sophisticated ingress and egress traffic management system t
 
 === VPN Tunnel Updates
 
-During VPN tunnel updates, the system sets a lower outbound multi-exit discriminator (MED) value on the other tunnel. This maintains connectivity.
+During VPN tunnel updates, the system sets a lower outbound multiexit discriminator (MED) value on the other tunnel. This maintains connectivity.
 
-=== Out-of-the-Box (OOTB) HA
+=== Out-of-the-Box (OOTB) High Availability
 
 High availability is possible out-of-the-box by configuring multiple replicas across three Availability Zones (AZs).
 
@@ -57,7 +57,7 @@ Disaster recovery in CloudHub 2.0 focuses on the process of restoring systems af
 
 === Global Distribution
 
-CloudHub 2.0 lets you deploy your applications in various global regions, including North America, South America, the European Union, and Asia-Pacific. This global distribution helps reduce latency by allowing you to host integrations closer to services.
+CloudHub 2.0 lets you deploy applications in various global regions, including North America, South America, the European Union, and Asia-Pacific. This global distribution helps reduce latency by allowing you to host integrations closer to services.
 
 For a list of regions where you can deploy your CloudHub 2.0 applications, see: xref:ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records].
 
@@ -77,7 +77,7 @@ For more information on how to deploy for HA and DR strategies, see xref:mule-ru
 
 == Disaster Recovery Use Cases and Architecture for the Runtime Plane
 
-CloudHub 2.0 supports various multi-region disaster recovery strategies based on application impact and statefulness. These strategies typically involve a Bring-Your-Own (BYO) global load balancer to manage traffic distribution and failover across regions.
+CloudHub 2.0 supports various multiregion disaster recovery strategies based on application impact and statefulness. These strategies typically involve a Bring-Your-Own (BYO) global load balancer to manage traffic distribution and failover across regions.
 
 === Use Case 1: Active-Active Configuration
 
@@ -96,8 +96,7 @@ CloudHub 2.0 supports various multi-region disaster recovery strategies based on
 
 *Licensing:*
 
-* For organizations using UBP, this configuration distributes messages and throughput between two regions. It consumes flows based on the
-number of running replicas per application deployment.
+* For organizations using UBP, this configuration distributes messages and throughput between the two regions. It consumes flows based on the number of running replicas per application deployment.
 * For organizations not using UBP, this configuration consumes additional vCores.
 
 
@@ -108,7 +107,7 @@ number of running replicas per application deployment.
 *Application State:*
 
 * Set up the infrastructure, but scale down your Mule applications using low vCores in the passive region.
-* Scale up the application only when you detect an outage.
+* Scale up the application only if you detect an outage.
 * If your organization uses UBP, configure your applications with HPA where applicable.
 
 *Traffic Management:*
@@ -119,7 +118,7 @@ number of running replicas per application deployment.
 
 *Licensing:*
 
-* For organizations using UBP, this configuration doesn’t consume messages and throughput. The configuration consumes flows while the application is running, and consumes fewer flows if you configure HPA.
+* For organizations using UBP, this configuration doesn’t consume messages or throughput. The configuration consumes flows while the application is running, and consumes fewer flows if you configure HPA.
 * For organizations not using UBP, this configuration consumes lower vCores.
 
 *Recovery Time Objective (RTO)*
@@ -195,7 +194,7 @@ CloudHub 2.0 Improvements over CloudHub include:
 * Region and Control plane decoupling from the runtime plane.
 * Clustering allows you to configure HA while running the process on a single primary replica.
 * Horizontal Pod Autoscaling (HPA) for warm standby optimizes usage by elastic scaling if failover is required, even if the control plane is down.
-* Active/Passive applications: schedulers, listening connectors, such as MQ listener, DB listener, FTP listeners and Salesforce listener, must be in a stopped or inactive state. 
+* Active/Passive applications: Schedulers, listening connectors, such as MQ listener, DB listener, FTP listeners, and Salesforce listener, must be in a stopped or inactive state. 
 +
 Externalize DR flag and expose REST endpoints to enable and disable flows via Groovy script as needed.
 
@@ -209,11 +208,11 @@ This is a regional service that runs in the same region as the application. It p
 
 === Object Store v2 (OSv2)
 
-This is a regional service running in the same region as the application. OSv2 doesn't provide any region failover functionality. An application deployed in a different region can't access it. You must bring your own external storage if you need to access or backup data from different regions. OSv2 doesn't have a way to retrieve data for regular backups. Caching in Object Store, used for token management between calls, is region-specific, and you can't transfer it to a secondary region.
+This is a regional service running in the same region as the application. OSv2 doesn't provide any region failover functionality. An application deployed in a different region can't access it. Bring your own external storage to access or backup data from different regions. OSv2 doesn't have a way to retrieve data for regular backups. Caching in Object Store, used for token management between calls, is region-specific, and you can't transfer it to a secondary region.
 
 == Considerations for Disaster Recovery Implementations
 
-Implementing a robust Disaster Recovery (DR) strategy for MuleSoft applications requires careful consideration of several key factors.
+Implementing a Disaster Recovery (DR) strategy for MuleSoft applications requires careful consideration of several key factors.
 
 === Control Plane Availability
 
@@ -225,7 +224,7 @@ Use caching in ObjectStore to store the tokens among various calls. Object store
 
 === Rate Limiting API Policies
 
-Rate limiting policies are currently set at the replica level. If you require rate limiting for in-flight transactions during DR, define custom policies using an external multi-region shared object store. Include a DR playbook with steps to adjust rate limits during and after DR.
+Rate-limiting policies are currently set at the replica level. If you require rate limiting for in-flight transactions during DR, define custom policies using an external multiregion shared Object Store. Include a DR playbook with steps to adjust rate limits during and after DR.
 
 === Schedulers
 
@@ -245,7 +244,7 @@ There's no impact on IP allowlists and firewall rules during a hot standby DR sc
 
 == Regional Differences and DR for Specific Regions
 
-Some regions present unique challenges for multi-region DR.
+Some regions present unique challenges for multiregion DR.
 
 === Control Plane to Runtime Plane Ratio
 
