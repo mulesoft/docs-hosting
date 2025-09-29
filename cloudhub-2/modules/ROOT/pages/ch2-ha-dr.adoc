@@ -49,7 +49,7 @@ During VPN tunnel updates, the system sets a lower outbound multiexit discrimina
 
 === Out-of-the-Box (OOTB) High Availability
 
-High availability is possible out-of-the-box by configuring multiple replicas across three Availability Zones (AZs).
+High availability is possible out-of-the-box by configuring multiple replicas across three availability zones (AZs).
 
 == Disaster Recovery in CloudHub 2.0
 
@@ -57,13 +57,13 @@ Disaster recovery in CloudHub 2.0 focuses on the process of restoring systems af
 
 === Global Distribution
 
-CloudHub 2.0 lets you deploy applications in various global regions, including North America, South America, the European Union, and Asia-Pacific. This global distribution helps reduce latency by allowing you to host integrations closer to services.
+You can deploy applications to CloudHub 2.0 in various global regions, including North America, South America, the European Union, and Asia-Pacific. This global distribution helps reduce latency by allowing you to host integrations closer to services.
 
 For a list of regions where you can deploy your CloudHub 2.0 applications, see: xref:ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records].
 
 === Regional Infrastructure
 
-You can create your private space in a region of your choice, and the system provisions the corresponding Elastic Kubernetes Service (EKS) cluster in the private space. The US-EAST-1 region, for instance, has more than five Availability Zones, each with multiple data centers, redundant power sources, and internet connectivity.
+You can create your private space in a region of your choice, and the system provisions the corresponding Elastic Kubernetes Service (EKS) cluster in the private space. The us-east-1 region, for instance, has more than five availability zones, each with multiple data centers, redundant power sources, and internet connectivity.
 
 === Disaster Recovery Assessment
 
@@ -73,11 +73,11 @@ In the event of a disaster impacting an entire AWS region, MuleSoft, in conjunct
 
 MuleSoft manages platform HA. If your organization has significant DR requirements, build your applications accordingly and consider spreading them across multiple regions.
 
-For more information on how to deploy for HA and DR strategies, see xref:mule-runtime::hadr-guide.adoc[High Availability and Disaster Recovery].
+For more information about how to deploy for HA and DR strategies, see xref:mule-runtime::hadr-guide.adoc[High Availability and Disaster Recovery].
 
 == Disaster Recovery Use Cases and Architecture for the Runtime Plane
 
-CloudHub 2.0 supports various multi-region disaster recovery strategies based on application impact and statefulness. These strategies typically involve a Bring-Your-Own (BYO) global load balancer to manage traffic distribution and failover across regions.
+CloudHub 2.0 supports various multi-region disaster recovery strategies based on application impact and statefulness. These strategies typically involve a bring-your-own (BYO) global load balancer to manage traffic distribution and failover across regions.
 
 === Use Case 1: Active-Active Configuration
 
@@ -85,8 +85,8 @@ CloudHub 2.0 supports various multi-region disaster recovery strategies based on
 
 *Application State*:
 
-* Set up the infrastructure with backup Mule applications running and fully scaled up.
-* Organizations using a usage-based pricing (UBP) package can enable Horizontal Pod Autoscaling (HPA) on their Mule applications to scale dynamically in response to DR events.
+* Set up the infrastructure with backup applications running and fully scaled up.
+* Organizations using a usage-based pricing (UBP) package can enable Horizontal Pod Autoscaling (HPA) on their applications to scale dynamically in response to DR events.
 
 *Traffic Management:*
 
@@ -106,8 +106,8 @@ CloudHub 2.0 supports various multi-region disaster recovery strategies based on
 
 *Application State:*
 
-* Set up the infrastructure, but scale down your Mule applications using low vCores in the passive region.
-* Scale up the application only if you detect an outage.
+* Set up the infrastructure, but scale down your applications using low vCores in the passive region.
+* Scale up the applications only if you detect an outage.
 * If your organization uses UBP, configure your applications with HPA where applicable.
 
 *Traffic Management:*
@@ -131,13 +131,13 @@ CloudHub 2.0 supports various multi-region disaster recovery strategies based on
 
 *Application State:*
 
-* Set up the infrastructure, but configure your Mule application to a stopped state in the passive region.
+* Set up the infrastructure, but configure your application to a stopped state in the passive region.
 * Start the application only if you detect an outage.
 
 *Traffic Management:*
 
 * Use a BYO global load balancer to route traffic only to the region that is up.
-* Use health checks to determine DR, and scripts to start the app in backup and switch traffic routing.
+* Use health checks to determine DR, and scripts to start your applications in backup state and switch traffic routing.
 * If the control plane is down, the runtime plane DR is impacted.
 
 *Licensing:*
@@ -155,7 +155,7 @@ CloudHub 2.0 supports various multi-region disaster recovery strategies based on
 
 *Application State:*
 
-* Set up the infrastructure and keep the backup Mule application running and fully scaled up.
+* Set up the infrastructure and keep the backup applications running and fully scaled up.
 
 *Traffic Management:*
 
@@ -180,21 +180,21 @@ CloudHub 2.0 supports various multi-region disaster recovery strategies based on
 |API Type |Configuration
 |High-Impact Stateless API | Use an active-active setup with active replicas in two regions and an external load balancer.
 |High-Impact Stateful API a|
-* Use a Hot Standby setup with Mule apps deployed and started in both regions but processing requests only in one.
-* Use an external load balancer to route traffic, and health checks to determine DR and switch traffic.
+* Use a hot standby setup with applications deployed and started in both regions but processing requests only in one.
+* Use an external load balancer to route traffic, and perform health checks to determine DR and switch traffic.
 |Medium-Impact Stateless and Stateful API a|
-* Use Cold/Warm Standby, with Mule apps deployed to both regions.
-* Stop or scale down the apps or replicas in the secondary region.
+* Use cold/warm standby, with applications deployed to both regions.
+* Stop or scale down the applications or replicas in the secondary region.
 |===
 
 == CloudHub 2.0 High Availability and Disaster Recovery Improvements
 
 CloudHub 2.0 Improvements over CloudHub include:
 
-* Region and Control plane decoupling from the runtime plane.
+* Region and control plane decoupling from the runtime plane.
 * Clustering allows you to configure HA while running the process on a single primary replica.
-* Horizontal Pod Autoscaling (HPA) for warm standby optimizes usage by elastic scaling if failover is required, even if the control plane is down.
-* Active/Passive applications: Schedulers, listening connectors, such as MQ listener, DB listener, FTP listeners, and Salesforce listener, must be in a stopped or inactive state. 
+* Horizontal Pod Autoscaling (HPA) for warm standby optimizes usage by elastic scaling if a failover is required, even if the control plane is down.
+* Active/Passive applications: Configure schedulers, listening connectors, such as MQ listener, DB listener, FTP listeners, and Salesforce listener, to be in a stopped or inactive state. 
 +
 Externalize DR flag and expose REST endpoints to enable and disable flows via Groovy script as needed.
 
@@ -208,7 +208,7 @@ This is a regional service that runs in the same region as the application. It p
 
 === Object Store v2 (OSv2)
 
-This is a regional service running in the same region as the application. OSv2 doesn't provide any region failover functionality. An application deployed in a different region can't access it. Bring your own external storage to access or backup data from different regions. OSv2 doesn't have a way to retrieve data for regular backups. Caching in Object Store, used for token management between calls, is region-specific, and you can't transfer it to a secondary region.
+This is a regional service running in the same region as the application. OSv2 doesn't provide any region failover functionality. An application deployed in a different region can't access it. Bring your own external storage to access or backup data from different regions. OSv2 doesn't retrieve data for regular backups. Caching in ObjectStore, used for token management between calls, is region-specific, and you can't transfer it to a secondary region.
 
 == Considerations for Disaster Recovery Implementations
 
@@ -224,11 +224,11 @@ Use caching in ObjectStore to store the tokens among various calls. Object store
 
 === Rate Limiting API Policies
 
-Rate-limiting policies are currently set at the replica level. If you require rate limiting for in-flight transactions during DR, define custom policies using an external multi-region shared Object Store. Include a DR playbook with steps to adjust rate limits during and after DR.
+Rate-limiting policies are currently set at the replica level. If you require rate limiting for in-flight transactions during DR, define custom policies using an external multi-region shared object store. Include a DR playbook with steps to adjust rate limits during and after DR.
 
 === Schedulers
 
-Many applications are scheduler-based, running on a scheduled basis to read from databases or files. Schedulers continue to run even if the control plane is down.
+Many run on a scheduled basis to read from databases or files. In this case, schedulers continue to run even if the control plane is down.
 
 === Listeners and Watermarks
 
@@ -236,7 +236,7 @@ For listeners like DB Table Row and Salesforce Events, use an external persisten
 
 === Recommended Primary Runtime Region
 
-For DR, use US-East-1 runtime plane as the primary region, and US-East-2 (Ohio) as the hot standby region. Even if US-East-1 is down, applications deployed in US-East-2 continue to run. Use an external load balancer to route traffic to the active region and provide transparent failover. For a warm standby scenario, use US-East-2 (Ohio) as the primary region, and US-East-1 as the secondary region, with an external load balancer for transparent failover.
+For DR, set us-east-1 runtime plane as the primary region, and us-east-2 as the hot standby region. Even if us-east-1 is down, applications deployed in us-east-2 continue to run. Use an external load balancer to route traffic to the active region and provide transparent failover. For a warm standby scenario, use us-east-2 as the primary region, and us-east-1 as the secondary region, with an external load balancer for transparent failover.
 
 === IP Allowlist and Firewall Rules
 
@@ -257,7 +257,7 @@ Some regions present unique challenges for multi-region DR.
 
 == Disaster Recovery for the Control Plane
 
-The CloudHub 2.0 control plane's high availability and disaster recovery capabilities depend on cross-Availability Zone (AZ) redundancy within the same AWS region, rather than providing cross-region failover capabilities. The control plane can handle individual data center failures within a region. However, it can't automatically fail over to a different AWS region if the entire region is down.
+The CloudHub 2.0 control plane's high availability and disaster recovery capabilities depend on cross-availability zone (AZ) redundancy within the same AWS region, rather than providing cross-region failover capabilities. The control plane can handle individual data center failures within a region. However, it can't automatically fail over to a different AWS region if the entire region is down.
 
 Recovery time is up to 72 hours, with potential data loss of up to 24 hours during regional outages.
 
