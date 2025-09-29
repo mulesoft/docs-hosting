@@ -196,7 +196,7 @@ CloudHub 2.0 Improvements over CloudHub include:
 * Horizontal Pod Autoscaling (HPA) for warm standby optimizes usage by elastic scaling if a failover is required, even if the control plane is down.
 * Active/Passive applications: Configure schedulers, listening connectors, such as MQ listener, DB listener, FTP listeners, and Salesforce listener, to be in a stopped or inactive state. 
 +
-Externalize DR flag and expose REST endpoints to enable and disable flows via Groovy script as needed.
+Externalize DR flags and expose REST endpoints to enable and disable flows via Groovy script as needed.
 
 == Disaster Recovery for Regional Services
 
