@@ -127,7 +127,7 @@ Low-impact, stateless, or stateful applications that tolerate longer downtime du
 * Set up the infrastructure, but configure your application to a stopped state in the passive region.
 * Start the application only if you detect an outage.
 
-==== Traffic Management:
+==== Traffic Management
 
 * Use a BYO global load balancer to route traffic only to the region that is up.
 * Use health checks to determine DR, and scripts to start your applications in backup state and switch traffic routing.
