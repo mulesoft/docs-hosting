@@ -6,18 +6,16 @@ Runtime Manager provides comprehensive monitoring capabilities for your hybrid s
 
 == Creating Alerts
 
-Configure proactive monitoring through automated alerts that notify you of critical events, performance thresholds, and system anomalies.
+Set up alerts to get email notifications when servers go down, use too much memory or CPU, or when applications fail. This helps you fix problems quickly.
 
-* xref:creating-alerts-hybrid.adoc[Creating Alerts for Server, Server Groups or Clusters] +
-Set up email notifications for critical events such as server downtime, high resource usage, application failures, or custom business metrics to enable rapid response to issues.
+xref:creating-alerts-hybrid.adoc[Creating Alerts for Server, Server Groups or Clusters]
 
 
 == Monitoring Dashboards
 
-Monitor real-time and historical performance data for your servers, server groups, and clusters through comprehensive dashboards.
+View charts and graphs to see how much CPU and memory your servers are using, check application performance, and spot problems before they become serious.
 
-* xref:monitoring-dashboards-hybrid.adoc[Monitoring Dashboards for Server, Server Groups and Clusters] +
-Track key performance indicators including CPU usage, memory consumption, JVM metrics, and application-specific statistics to understand system health and identify optimization opportunities.
+xref:monitoring-dashboards-hybrid.adoc[Monitoring Dashboards for Server, Server Groups and Clusters]
 
 [IMPORTANT]
 When running Mule on Windows systems, the Mule service must be started by a user account that belongs to the *Performance Log Users* group to enable proper dashboard functionality.
