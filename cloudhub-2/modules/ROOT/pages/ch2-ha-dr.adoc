@@ -215,7 +215,7 @@ An application deployed in a different region can't access it. Bring your own ex
 
 == Considerations for Disaster Recovery Implementations
 
-Implementing a Disaster Recovery (DR) strategy for MuleSoft applications requires careful consideration of several key factors.
+Implementing a Disaster Recovery (DR) strategy for applications deployed to CloudHub 2.0 requires careful consideration of several key factors.
 
 === Control Plane Availability
 
