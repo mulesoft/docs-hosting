@@ -1,6 +1,6 @@
 = Creating Servers
 
-Create and manage individual Mule runtime engine instances (servers) through Anypoint Runtime Manager to deploy and monitor your applications in hybrid standalone environments. You can manage servers either individually or in server groups or clusters.
+Create and manage individual Mule runtime engine instances (servers) through Anypoint Runtime Manager to deploy and monitor your applications in hybrid standalone environments. Manage servers either individually or in server groups or clusters.
 
 == Understanding Servers
 
