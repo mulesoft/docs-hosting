@@ -8,7 +8,7 @@ While the control plane is unavailable, the runtime plane continues to locally b
 
 CloudHub 2.0 leverages external messaging services, such as Anypoint MQ, to ensure message reliability through persistent queues. These external queues are highly available within a region, but they can‌ be inaccessible for short periods, generally seconds to minutes, during a regional outage leading to some data loss. Communication with the queues resumes after the region becomes available.
 
-Anypoint Object Store v2 allows CloudHub 2.0 applications to store data and states across various components and applications. Object Store v2 is maintained in the same region as the deployed CloudHub 2.0 application. Data persists and becomes available after the region returns to service. However, Object Store v2 is a regional service. It doesn't provide any region failover functionality. You can't access data in Object Store v2 from an application in a different region. Implement your own external storage solution for cross-region data persistence and access. Object Store v2 doesn't provide periodic backups.
+Anypoint Object Store v2 enables CloudHub 2.0 applications to store data and states across various components and applications. Object Store v2 is maintained in the same region as the deployed CloudHub 2.0 application. Data persists and becomes available after the region returns to service. However, Object Store v2 is a regional service. It doesn't provide any region failover functionality. You can't access data in Object Store v2 from an application in a different region. Implement your own external storage solution for cross-region data persistence and access. Object Store v2 doesn't provide periodic backups.
 
 == High Availability Versus Disaster Recovery
 
