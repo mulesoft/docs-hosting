@@ -1,6 +1,6 @@
 = Creating Server Groups
 
-Creating server groups allows you to organize your hybrid standalone servers for easier management and deployment.
+Create server groups to organize your hybrid standalone servers for easier management and deployment.
 
 A server group is a set of servers that act as a single deployment target for applications so that you don’t have to deploy applications to each server individually.
 
