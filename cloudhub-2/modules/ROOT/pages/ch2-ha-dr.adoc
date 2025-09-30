@@ -190,7 +190,7 @@ CloudHub 2.0 supports various multi-region disaster recovery strategies based on
 
 CloudHub 2.0 improvements over CloudHub include:
 
-* Region and control plane decoupling from the runtime plane.
+* Region and control plane are decoupled from the runtime plane.
 * Clustering allows you to configure HA while running the process on a single primary replica.
 * Horizontal Pod Autoscaling (HPA) for warm standby optimizes usage by elastic scaling if a failover is required, even if the control plane is down.
 * Active/Passive applications: Configure schedulers, listening connectors, such as MQ listener, DB listener, FTP listeners, and Salesforce listener, to be in a stopped or inactive state. 
