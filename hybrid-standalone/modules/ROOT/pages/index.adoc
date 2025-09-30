@@ -15,7 +15,7 @@ Scale horizontally by adding more servers, creating server groups for load distr
 * Compliance and security +
 Meet regulatory compliance requirements and integrate seamlessly with existing infrastructure and monitoring tools.
 * Hybrid flexibility +
-Combine the control and security of on-premises deployments with the flexibility and management capabilities of cloud-based services
+Combine the control and security of on-premises deployments with the flexibility and management capabilities of cloud-based services.
 
 == Architecture Overview
 
