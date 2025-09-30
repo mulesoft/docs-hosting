@@ -23,7 +23,7 @@ Hybrid Standalone architecture consists of:
 
 * Mule runtime engine +
 Setup on your infrastructure
-* Runtime Manager Agent +
+* Runtime Manager agent +
 Communicates with Anypoint Platform
 * Anypoint Platform +
 Cloud-based management and monitoring
