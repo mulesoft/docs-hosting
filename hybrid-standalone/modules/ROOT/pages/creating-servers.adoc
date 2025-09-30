@@ -26,7 +26,7 @@ For details, refer to xref:runtime-manager-agent.adoc[Install or Update the Runt
 To create a server, add it to Runtime Manager:
 
 . From Anypoint Platform, select *Runtime Manager*.
-. Click *Servers* in the left menu.
+. Click *Servers* in the menu.
 . Click the *Add Server* button.
 . Enter a name for your server.
 +
