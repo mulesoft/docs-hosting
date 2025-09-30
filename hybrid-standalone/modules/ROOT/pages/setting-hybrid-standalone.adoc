@@ -8,7 +8,7 @@ The setup process includes:
 
 * Prepare infrastructure and plan deployment
 * Install and configure Mule runtime engine (Mule)
-* Install and set up Runtime Manager Agent
+* Install and set up Runtime Manager agent
 * Create servers, server groups, and clusters with Anypoint Platform
 * Configure and validate initial setup
 
