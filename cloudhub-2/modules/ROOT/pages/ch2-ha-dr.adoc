@@ -249,7 +249,7 @@ There's no impact on IP allowlists and firewall rules during a hot standby DR sc
 
 == Regional Differences and DR for Specific Regions
 
-Some regions present unique challenges for multi-region DR.
+Some regions present unique challenges for multiregion DR.
 
 === Control Plane to Runtime Plane Ratio
 
