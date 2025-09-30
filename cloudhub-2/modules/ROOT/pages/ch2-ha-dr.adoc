@@ -227,7 +227,7 @@ Use caching in the object store to share the tokens among various calls. Object 
 
 === Rate-Limiting API Policies
 
-Rate-limiting policies are currently set at the replica level. If you require rate limiting for in-flight transactions during DR, define custom policies using an external multi-region shared object store. Include a DR playbook with steps to adjust rate limits during and after DR.
+Rate-limiting policies are currently set at the replica level. If you require rate limiting for in-flight transactions during DR, define custom policies using an external multiregion shared object store. Include a DR playbook with steps to adjust rate limits during and after DR.
 
 === Schedulers
 
