@@ -207,7 +207,7 @@ This regional service runs in the same region as the application and provides OO
 
 If an application's RTO tolerates processing in-flight messages only after the primary site is backed up, Anypoint MQ failover is sufficient. Otherwise, configure a backup application in an active/passive setup, and resend in-flight events and data to the failover queue during a traffic switch. During backup with VM Queues and Anypoint MQ, data can be lost for a few minutes, depending on the configuration.
 
-=== Object Store v2 (OSv2)
+=== Object Store v2
 
 This is a regional service running in the same region as the application. OSv2 doesn't provide any region failover functionality. An application deployed in a different region can't access it. Bring your own external storage to access or backup data from different regions. OSv2 doesn't retrieve data for regular backups. Caching in ObjectStore, used for token management between calls, is region-specific, and you can't transfer it to a secondary region.
 
