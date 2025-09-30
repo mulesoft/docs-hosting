@@ -225,7 +225,7 @@ The CloudHub 2.0 management UI and control plane are only available in the US Ea
 
 Use caching in the object store to share the tokens among various calls. Object stores are only region-specific, and you can't transfer them to a secondary region.
 
-=== Rate Limiting API Policies
+=== Rate-Limiting API Policies
 
 Rate-limiting policies are currently set at the replica level. If you require rate limiting for in-flight transactions during DR, define custom policies using an external multi-region shared object store. Include a DR playbook with steps to adjust rate limits during and after DR.
 
