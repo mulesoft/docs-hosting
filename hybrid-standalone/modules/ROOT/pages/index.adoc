@@ -45,7 +45,7 @@ To begin with Hybrid Standalone:
 Hybrid Standalone is ideal for:
 
 * Enterprise integration requiring connectivity between on-premises systems and cloud services while implementing enterprise service bus (ESB) architectures.
-* Regulatory compliance scenarios where data residency requirements, audit trails, and industry-specific regulations must be maintained within specific geographic boundaries.
+* Regulatory compliance scenarios that maintain data residency requirements, audit trails, and industry-specific regulations within specific geographic boundaries.
 * High-performance applications with low-latency processing requirements, high-throughput data processing, and direct database access needs.
 * Legacy system integration and modernization efforts that require gradual migration to cloud-based services while maintaining existing network configurations.
 * Custom performance optimization scenarios requiring full control over infrastructure, network security policies, and direct system access.
