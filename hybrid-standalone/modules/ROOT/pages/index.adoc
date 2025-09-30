@@ -48,7 +48,7 @@ Hybrid Standalone is ideal for:
 * Regulatory compliance scenarios that maintain data residency requirements, audit trails, and industry-specific regulations within specific geographic boundaries.
 * High-performance applications with low-latency processing requirements, high-throughput data processing, and direct database access needs.
 * Legacy system integration and modernization efforts that enable gradual migration to cloud-based services while maintaining existing network configurations.
-* Custom performance optimization scenarios requiring full control over infrastructure, network security policies, and direct system access.
+* Custom performance optimization scenarios that provide full control over infrastructure, network security policies, and direct system access.
 
 == Infrastructure Requirements
 
