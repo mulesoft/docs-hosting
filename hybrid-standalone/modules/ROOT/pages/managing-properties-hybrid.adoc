@@ -12,14 +12,14 @@ Runtime Manager provides comprehensive property management capabilities for appl
 * Secure sensitive configuration data through encrypted property storage
 * Manage properties across individual servers, server groups, and clusters
 
-**Property Management Approaches:**
+**Property Management Approaches**
 
 * **Properties Files**: Include property placeholder YAML files in application deployment archives
 * **Runtime Manager Properties**: Override and manage properties through the Runtime Manager console
 * **System Variables**: Configure properties at deployment time using Java system environment variables
 * **External Configuration**: Use external property sources for advanced configuration management
 
-**Property Precedence:**
+**Property Precedence**
 
 Properties defined in Runtime Manager take precedence over application-bundled properties, enabling environment-specific configuration without modifying application code.
 

@@ -98,11 +98,11 @@ Navigate application dashboards effectively using comprehensive time range selec
 
 Monitor application performance across different time periods using the time range selector:
 
-**Built-in Anypoint Monitoring Dashboard:**
+**Built-in Anypoint Monitoring Dashboard**
 
 image::monitoring-dashboards-time-ranges.png[Time range selector for Anypoint Monitoring dashboard]
 
-**Classic Application Monitoring Dashboard:**
+**Classic Application Monitoring Dashboard**
 
 image::monitoring-dashboards-cbd92.png[Time range selector for classic application dashboard]
 

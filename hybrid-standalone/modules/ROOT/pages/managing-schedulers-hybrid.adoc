@@ -12,11 +12,11 @@ Runtime Manager provides comprehensive scheduler management capabilities for app
 * Monitor scheduler execution status and performance
 * Manage multiple schedulers across application flows simultaneously
 
-**Scheduler Management Scope:**
+**Scheduler Management Scope**
 
 Scheduler management is available for applications deployed to hybrid standalone instances (individual servers, server groups, and clusters). This feature provides runtime control over Scheduler components defined in your Mule application flows.
 
-**Scheduler Identification:**
+**Scheduler Identification**
 
 Runtime Manager identifies each Scheduler component using the naming convention `polling://{flow_name}`, where `{flow_name}` represents the name of the flow containing the Scheduler element.
 
@@ -72,7 +72,7 @@ Navigate to the scheduler management interface for your deployed application:
 .The screenshot shows (*1*) the *Schedulers* option and (*2*) the checkbox on the *Schedulers* page.
 image::hybrid-scheduler-rtm.png[Schedulers option and checkbox on the Schedulers page]
 
-**Scheduler Display Information:**
+**Scheduler Display Information**
 
 * **Name**: Shows the flow name containing each Scheduler element
 * **Status**: Displays current state (enabled/disabled) for each scheduler

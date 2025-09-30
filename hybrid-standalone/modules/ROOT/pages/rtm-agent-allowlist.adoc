@@ -131,7 +131,7 @@ Configure your Layer 7 firewall rules to include these hostnames:
 
 Configure these specific URLs for Runtime Manager agent connectivity based on your agent version.
 
-**Agent Version Requirements:**
+**Agent Version Requirements**
 
 * **Mule 3.x**: Runtime Manager agent 1.12.0 or later
 * **Mule 4.x**: Runtime Manager agent 2.2.0 or later
