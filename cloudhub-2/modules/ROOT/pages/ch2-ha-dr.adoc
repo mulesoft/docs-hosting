@@ -1,5 +1,4 @@
 = CloudHub 2.0 High Availability and Disaster Recovery
-:page-alias:
 
 CloudHub 2.0 provides high availability (HA) and disaster recovery (DR) capabilities for applications and protection against hardware failures.
 
