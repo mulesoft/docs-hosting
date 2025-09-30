@@ -231,7 +231,7 @@ Rate-limiting policies are currently set at the replica level. If you require ra
 
 === Schedulers
 
-Many run on a scheduled basis to read from databases or files. In this case, schedulers continue to run even if the control plane is down.
+Many applications run on a scheduled basis to read from databases or files. In this case, schedulers continue to run even if the control plane is down.
 
 === Listeners and Watermarks
 
