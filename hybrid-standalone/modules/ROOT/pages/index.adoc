@@ -11,7 +11,7 @@ Deploy on your own servers or cloud instances while maintaining full control ove
 * Centralized management +
 Leverage Anypoint Platform for centralized application deployment, real-time monitoring, and unified dashboards across all deployments.
 * Scalability +
-Scale horizontally by adding more servers, creating server groups for load distribution, and implementing clusters for high availability
+Scale horizontally by adding more servers, creating server groups for load distribution, and implementing clusters for high availability.
 * Compliance and security +
 Meet regulatory compliance requirements and integrate seamlessly with existing infrastructure and monitoring tools
 * Hybrid flexibility +
