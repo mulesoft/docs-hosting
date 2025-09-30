@@ -36,7 +36,7 @@ CloudHub 2.0 works with servers in one location and copies transactions in real 
 
 === Regular Switching
 
-MuleSoft regularly switches among locations for maintenance, compliance, and disaster recovery purposes. This keeps all locations up-to-date and able to handle the load if required.
+CloudHub 2.0 regularly switches among locations for maintenance, compliance, and disaster recovery purposes. This keeps all locations up-to-date and able to handle the load if required.
 
 === Ingress and Egress Traffic Management
 
