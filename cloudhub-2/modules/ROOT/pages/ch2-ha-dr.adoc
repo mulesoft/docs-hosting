@@ -32,7 +32,7 @@ CloudHub 2.0 implements high availability through several built-in mechanisms, w
 
 === Redundant Locations
 
-MuleSoft Anypoint works with instances from one place. This mechanism copies transactions in near real time across two or more availability zones in completely different, separate locations. This ensures service continuity if one location fails.
+CloudHub 2.0 works with servers in one location and copies transactions in real time across two or more availability zones in completely different, separated locations. This ensures service continuity if one location fails.
 
 === Regular Switching
 
