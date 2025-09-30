@@ -203,7 +203,9 @@ Certain MuleSoft services are regional, which impacts their DR strategy.
 
 === Anypoint MQ
 
-This is a regional service that runs in the same region as the application. It provides out-of-the-box (OOTB) region failover to a fallback region for standard queues. If an application's RTO tolerates processing in-flight messages only after the primary site is backed up, MQ failover is sufficient. Otherwise, configure a backup application in an Active/Passive setup, and resend in-flight events and data to the failover queue during a traffic switch. During backup with VM Queues and Anypoint MQ, data can be lost for a few minutes, depending on the configuration.
+This regional service runs in the same region as the application and provides OOTB region failover to a fallback region for standard queues.
+
+If an application's RTO tolerates processing in-flight messages only after the primary site is backed up, Anypoint MQ failover is sufficient. Otherwise, configure a backup application in an active/passive setup, and resend in-flight events and data to the failover queue during a traffic switch. During backup with VM Queues and Anypoint MQ, data can be lost for a few minutes, depending on the configuration.
 
 === Object Store v2 (OSv2)
 
