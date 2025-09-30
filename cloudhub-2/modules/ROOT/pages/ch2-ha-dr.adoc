@@ -199,7 +199,7 @@ Externalize DR flags and expose REST endpoints to enable and disable flows via G
 
 == Disaster Recovery for Regional Services
 
-Certain MuleSoft services are regional. This impacts their DR strategy.
+Certain MuleSoft services are regional, which impacts their DR strategy.
 
 === Anypoint MQ
 
