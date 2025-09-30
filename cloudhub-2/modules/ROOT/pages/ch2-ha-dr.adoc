@@ -66,7 +66,7 @@ You can create your private space in a region of your choice, and the system pro
 
 === Disaster Recovery Assessment
 
-In the event of a disaster impacting an entire AWS region, MuleSoft, in conjunction with AWS, performs an assessment to determine which region has the required capacity for the affected workload.
+In the event of a disaster impacting an entire AWS region, CloudHub 2.0, in conjunction with AWS, performs an assessment to determine which region has the required capacity for the affected workload.
 
 === Customer Responsibility for Disaster Recovery
 
