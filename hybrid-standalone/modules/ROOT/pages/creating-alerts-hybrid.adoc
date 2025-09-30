@@ -34,7 +34,7 @@ Configure alerts to monitor your servers, server groups, and clusters with custo
 ** If no alerts exist, you see the initial setup page:
 +
 .The arrow shows the *Create your first alert* option.
-image::alerts-no-alerts.png[Alerts page with no alerts set up]
+image::alerts-no-alerts.png["Alerts page with no alerts set up"]
 ** For existing alert configurations, use the add button:
 +
 .The arrow shows the blue plus (*+*) icon on the *Alerts* page.
