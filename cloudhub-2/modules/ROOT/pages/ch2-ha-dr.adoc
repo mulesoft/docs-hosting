@@ -188,7 +188,7 @@ CloudHub 2.0 supports various multi-region disaster recovery strategies based on
 
 == CloudHub 2.0 High Availability and Disaster Recovery Improvements
 
-CloudHub 2.0 Improvements over CloudHub include:
+CloudHub 2.0 improvements over CloudHub include:
 
 * Region and control plane decoupling from the runtime plane.
 * Clustering allows you to configure HA while running the process on a single primary replica.
