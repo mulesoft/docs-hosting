@@ -223,7 +223,7 @@ The CloudHub 2.0 management UI and control plane are only available in the US Ea
 
 === Caching
 
-Use caching in ObjectStore to store the tokens among various calls. Object stores are only region-specific, and you can't transfer them to a secondary region.
+Use caching in the object store to share the tokens among various calls. Object stores are only region-specific, and you can't transfer them to a secondary region.
 
 === Rate Limiting API Policies
 
