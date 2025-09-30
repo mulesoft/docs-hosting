@@ -83,7 +83,7 @@ High-impact, stateless applications that require continuous availability with mi
 * Perform health checks to detect disasters.
 * Traffic continues even if the control plane is down.
 
-==== Licensing:
+==== Licensing
 
 * For organizations using UBP, this configuration distributes messages and throughput between the two regions. It consumes flows based on the number of running replicas per application deployment.
 * For organizations not using UBP, this configuration consumes additional vCores.
