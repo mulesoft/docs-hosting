@@ -1,6 +1,6 @@
 = Hybrid Standalone
 
-Hybrid standalone instances enable you to host the Mule runtime engin (Mule) in an environment you control. This model provides the control and security of deployments within customer trust boundary combined with the flexibility, scalability, and centralized management of cloud-based services.
+Hybrid standalone instances enable you to host the Mule runtime engine (Mule) in an environment you control. This model provides the control and security of deployments within customer trust boundary combined with the flexibility, scalability, and centralized management of cloud-based services.
 
 With hybrid standalone instances, Mule can run on a physical server, a virtual machine, or within a third-party cloud service like Amazon Web Services (AWS) or Microsoft Azure.
 
