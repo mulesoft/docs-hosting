@@ -70,7 +70,7 @@ Discovered properties are automatically detected configuration values from the r
 ** Environment properties
 ** System properties
 
-Runtime Manager retrieves these values through the Runtime Manager agent, which queries the `System` Java class on the remote server. By default, auto-discovery is disabled for security. When enabled, Runtime Manager stores an encrypted version of these properties in its internal database.
+Runtime Manager retrieves these values through the Runtime Manager agent, which queries the `System` Java class on the remote server. By default, auto-discovery is disabled for security reasons. When enabled, Runtime Manager stores an encrypted version of these properties in its internal database.
 
 To fully disable this feature, contact your MuleSoft customer success representative.
 
