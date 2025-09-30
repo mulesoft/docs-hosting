@@ -209,7 +209,9 @@ If an application's RTO tolerates processing in-flight messages only after the p
 
 === Object Store v2
 
-This is a regional service running in the same region as the application. OSv2 doesn't provide any region failover functionality. An application deployed in a different region can't access it. Bring your own external storage to access or backup data from different regions. OSv2 doesn't retrieve data for regular backups. Caching in ObjectStore, used for token management between calls, is region-specific, and you can't transfer it to a secondary region.
+This regional service runs in the same region as the application and doesn't provide any region failover functionality.
+
+An application deployed in a different region can't access it. Bring your own external storage to access or backup data from different regions. Object Store v2 doesn't retrieve data for regular backups. Caching in the object store, used for token management between calls, is region-specific, and you can't transfer it to a secondary region.
 
 == Considerations for Disaster Recovery Implementations
 
