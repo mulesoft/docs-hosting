@@ -229,7 +229,7 @@ Some regions present unique challenges for multiregion DR.
 
 Control Plane to Runtime Plane Ratio:: Unlike the US (1:12) and EU (1:2) regions, Canada, Japan, and India have a 1:1 control plane region to runtime plane region ratio.
 
-Cross-Region Disaster Recovery Limitations::
+== Cross-Region Disaster Recovery Limitations
 +
 * Cross-region runtime plane DR isn't possible in Canada, Japan, and India.
 * Availability Zones are typically 50 miles apart, not the 200 miles required for a true cross-region failover.
