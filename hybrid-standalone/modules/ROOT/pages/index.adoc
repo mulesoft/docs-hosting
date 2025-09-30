@@ -67,7 +67,7 @@ Minimum server specifications:
 Network configuration needs:
 
 * Outbound HTTPS connectivity to Anypoint Platform
-* Firewall configuration for Runtime Manager Agent
+* Firewall configuration for Runtime Manager agent
 * Optional VPN for secure communication
 * Load balancer configuration (for clustered deployments)
 
