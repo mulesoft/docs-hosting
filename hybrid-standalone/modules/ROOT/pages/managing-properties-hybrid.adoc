@@ -61,7 +61,7 @@ Navigate to the property management interface for your deployed application:
 . On the *Settings* page, click the *Properties* tab.
 
 .The screenshot shows (*1*) the *Properties* tab, (*2*) the *Key* and *Value* fields, and (*3*) the *...* menu on the application *Settings* page.
-image::rtm-manage-props.png[*Properties* tab, *Key* and *Value* fields, and *...* menu on the *Settings* page]
+image::rtm-manage-props.png["*Properties* tab, *Key* and *Value* fields, and *...* menu on the *Settings* page"]
 
 === Property Configuration Operations
 
@@ -97,7 +97,7 @@ These are some alternative methods for overriding app properties:
 
 * Set Java system environment variables at deployment time to override properties.
 +
-To do this, deploy the app using the following command:
+To do this, deploy the app using this command:
 +
 ----
 mule -M-Dsecret.key=toSecretPassword -M-Denv=prod -M-Ddb.password=secretPassword -app myApp.zip

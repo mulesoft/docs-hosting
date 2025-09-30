@@ -1,6 +1,6 @@
 = Adding Ports, IPs, and Hostnames for Runtime Manager Agent
 
-Configure network access for the Runtime Manager Agent to establish secure communication between your hybrid standalone instances and Anypoint Platform services.
+Configure network access for the Runtime Manager agent to establish secure communication between your hybrid standalone instances and Anypoint Platform services.
 
 == Overview
 
@@ -25,7 +25,7 @@ Configure your firewall or proxy to allow SSL passthrough for these endpoints ra
 
 == WebSocket Endpoints
 
-The following endpoints use WebSocket connections for real-time communication between the agent and Runtime Manager:
+These endpoints use WebSocket connections for real-time communication between the agent and Runtime Manager:
 
 * runtime-manager.anypoint.mulesoft.com
 * runtime-manager.eu1.anypoint.mulesoft.com
@@ -133,7 +133,6 @@ Configure these specific URLs for Runtime Manager agent connectivity based on yo
 
 **Agent Version Requirements**
 
-* **Mule 3.x**: Runtime Manager agent 1.12.0 or later
 * **Mule 4.x**: Runtime Manager agent 2.2.0 or later
 
 [%header,cols="30a,60a"]

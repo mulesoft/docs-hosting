@@ -57,7 +57,7 @@ The built-in Anypoint Monitoring dashboard provides comprehensive application mo
 
 The dashboard is available for applications that meet these criteria:
 * Deployed to CloudHub, Runtime Fabric, or configured hybrid environments
-* Running on Mule 3.8.7-AM or 3.9.0 and later versions
+* Running on Mule 4.x or later versions
 * Anypoint Monitoring enabled and properly configured
 
 
@@ -100,11 +100,11 @@ Monitor application performance across different time periods using the time ran
 
 **Built-in Anypoint Monitoring Dashboard**
 
-image::monitoring-dashboards-time-ranges.png[Time range selector for Anypoint Monitoring dashboard]
+image::monitoring-dashboards-time-ranges.png["Time range selector for Anypoint Monitoring dashboard"]
 
 **Classic Application Monitoring Dashboard**
 
-image::monitoring-dashboards-cbd92.png[Time range selector for classic application dashboard]
+image::monitoring-dashboards-cbd92.png["Time range selector for classic application dashboard"]
 
 ==== Data Aggregation by Time Range
 

@@ -36,7 +36,7 @@ To begin with Hybrid Standalone:
 
 . Plan your infrastructure by determining server requirements and network configuration
 . Set up servers by installing and configuring Mule runtime instances
-. Register your Runtime Manager Agent to connect servers to Anypoint Platform
+. Register your Runtime Manager agent to connect servers to Anypoint Platform
 . Deploy and manage Mule applications
 . Monitor and maintain your servers and Mule applications
 

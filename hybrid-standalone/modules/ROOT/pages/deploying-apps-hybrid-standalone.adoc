@@ -38,7 +38,7 @@ Programmatic deployment for CI/CD pipelines and automated workflows
 Integration with build processes for developer-centric deployment workflows
 
 [IMPORTANT]
-When you use Runtime Manager to manage a server, you cannot use other deployment methods or tools to manage that server. This ensures consistent state management and prevents configuration conflicts.
+When you use Runtime Manager to manage a server, you can't use other deployment methods or tools to manage that server. This ensures consistent state management and prevents configuration conflicts.
 
 == Before You Begin
 
@@ -46,7 +46,7 @@ Ensure your hybrid standalone environment meets the deployment requirements befo
 
 === Infrastructure Requirements
 
-Complete the following infrastructure setup:
+Complete this infrastructure setup:
 
 . xref:mule-runtime::runtime-installation-task.adoc[Download and install Mule] on target servers with appropriate Java version compatibility
 . xref:servers-create.adoc[Add servers to Runtime Manager] for centralized management and deployment capabilities
@@ -93,7 +93,7 @@ Provide a unique application name that identifies your deployment across environ
 
 * 3-42 alphanumeric characters (a-z, A-Z, 0-9) and dashes (-) only
 * Must be unique within the target environment (Runtime Manager validates automatically)
-* Application names cannot be changed after deployment
+* Application names can't be changed after deployment
 
 [IMPORTANT]
 Choose meaningful application names that reflect functionality or environment (e.g., `customer-api-prod`, `inventory-sync-dev`) for easier identification in operational dashboards.
@@ -231,7 +231,7 @@ Modify application properties and settings without changing the application arti
 
 === Troubleshoot Deployment Errors
 
-Use the following steps to troubleshoot deployment errors:
+Use these steps to troubleshoot deployment errors:
 
 . Review status indicator and error messages in the Applications dashboard
 . Access detailed error information through the application's log view

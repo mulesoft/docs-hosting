@@ -15,11 +15,11 @@ To access the *Settings* page:
 ** Click the *Type* column to display the details pane and click *Manage Server*, *Manage Group*, or *Manage Cluster*:
 +
 .The arrow shows the *Manage Server* button in the details pane.
-image::rtm-view-server-settings.png[Manage Server button]
+image::rtm-view-server-settings.png["Manage Server button"]
 ** Click the name of the server, server group, or cluster on the *Servers* page and then click *Settings*:
 +
 .The arrow shows the option to navigate to the *Settings* page.
-image::rtm-server-settings-page.png[Settings page]
+image::rtm-server-settings-page.png["Settings page"]
 
 == Shut Down, Restart, or Delete Servers
 
@@ -37,7 +37,7 @@ To shut down, restart, or delete a server:
 . Click *Settings*:
 +
 .The arrow shows the *Actions* menu on the *Settings* page.
-image::rtm-servers-actions-menu.png[*Actions* menu]
+image::rtm-servers-actions-menu.png["*Actions* menu"]
 . From the *Actions* menu, select:
 +
 * *Delete*
@@ -85,7 +85,7 @@ To view server properties:
 . On the *Settings* page, click *Properties*:
 +
 .The arrow shows the *Properties* tab on the *Settings* page.
-image::rtm-server-properties-tab.png[Properties tab]
+image::rtm-server-properties-tab.png["Properties tab"]
 
 From the *Properties* tab, you can:
 
@@ -99,7 +99,7 @@ From the *Properties* tab, you can:
 To view discovered properties, select *Discovered Properties* and then click *Enable Auto-Discovery*:
 
 .The screen shows the *Discovered Properties* and *Enable Auto-Discovery* buttons on the *Properties* tab.
-image::rtm-server-enable-autodiscovery.png[Discovered Properties and Enable Auto-Discovery buttons]
+image::rtm-server-enable-autodiscovery.png["Discovered Properties and Enable Auto-Discovery buttons"]
 
 The server must be running to auto-discover server properties.
 
@@ -127,15 +127,7 @@ The certificate ensures secure communication between Runtime Manager and the Run
 
 When a server certificate expires, Runtime Manager displays `Disconnected` in the *Status* column
 for the server on the *Servers* page.
-The `mule_agent.log` file displays a message like the following:
-
-* For Mule 3:
-
-----
-com.mulesoft.agent.transport.WSConnection: Failed attempt to connect nro. 1 to the web socket client at mule-manager.anypoint.mulesoft.com: Connection refused.
-----
-
-* For Mule 4:
+The `mule_agent.log` file displays a message like this:
 
 ----
 com.mulesoft.agent.transport.WSConnection: Failed attempt to connect nro. 1 to the web socket client at runtime-manager.anypoint.mulesoft.com: Connection refused.
@@ -156,7 +148,7 @@ For servers in a server group or cluster, click the server group or cluster name
 The certificate expiration date appears on the server dashboard:
 +
 .The arrow shows the *Certificate expiration date* on the *Dashboard* page.
-image::rtm-server-certificate.png[Certificate expiration date on the Dashboard page]
+image::rtm-server-certificate.png["Certificate expiration date on the Dashboard page"]
 
 
 === Renew a Certificate from Runtime Manager
@@ -174,14 +166,14 @@ To renew a certificate for a standalone server:
 . Verify that the server status is `Running`.
 . Click the server name.
 +
-image::rtm-server-standalone-name.png[Select Server]
+image::rtm-server-standalone-name.png["Select Server"]
 . Click *Settings*.
 . From the *Actions* menu, select *Renew Certificate*.
 +
-image::rtm-server-standalone-settings.png[Settings Tab]
+image::rtm-server-standalone-settings.png["Settings Tab"]
 . Select the checkbox to confirm your choice, and then click *Renew*.
 +
-image::rtm-server-standalone-renew.png[Confirm Renewal]
+image::rtm-server-standalone-renew.png["Confirm Renewal"]
 . Check *Certificate expiration date* to verify that the certificate is renewed successfully, and restart Mule runtime to start using the new certificates.
 
 To renew a certificate for servers in a cluster or group:
@@ -191,14 +183,14 @@ To renew a certificate for servers in a cluster or group:
 . Verify that the server status is `Running`.
 . Click the group or cluster name.
 +
-image::rtm-server-certificate-group-name.png[Select Group or Cluster]
+image::rtm-server-certificate-group-name.png["Select Group or Cluster"]
 . Check the radio button to select the server or servers you want to update.
 . From the *Actions* menu, select *Renew Certificate*.
 +
-image::rtm-server-certificate-group-select-server.png[Select Server]
+image::rtm-server-certificate-group-select-server.png["Select Server"]
 . Select the checkbox to confirm your choice, and then click *Renew*.
 +
-image::rtm-server-certificate-group-renew.png[Confirm Renewal]
+image::rtm-server-certificate-group-renew.png["Confirm Renewal"]
 . Check *Certificate expiration date* to verify that the certificate renewed successfully.
 
 If the *Renew Certificate* option in the *Actions* pull-down menu isn't available after performing the previous steps, xref:installing-and-configuring-runtime-manager-agent#update-the-agent.adoc[update your *Agent* version].
@@ -229,7 +221,7 @@ To renew the agent key pair:
 For example, on Linux, enter `chmod +xx agent-certificate-renewer-{version}.jar`.
 . Stop Mule.
 . Create a backup copy of the `$MULE_HOME/conf` directory.
-. From `$MULE_HOME/bin`, run one of the following commands, depending on how you authenticate with Anypoint Platform:
+. From `$MULE_HOME/bin`, run one of these commands, depending on how you authenticate with Anypoint Platform:
 +
 --
 ** Nonfederated
@@ -241,9 +233,9 @@ Use your Anypoint Platform credentials on the command line:
 +
 Copy the registration token for the server from the *Runtime Manager > Servers > Add Server* popup screen and include it on the command line:
 +
-image::rtm-server-certificate-external-identity.png[Add Registration Token]
+image::rtm-server-certificate-external-identity.png["Add Registration Token"]
 +
-And execute the following command:
+And execute this command:
 +
 `java -jar ./agent-certificate-renewer-{version}.jar -H <ServerToken>`
 ** Proxy connection
@@ -253,17 +245,17 @@ Use your Anypoint Platform and proxy server credentials on the command line:
 `java -jar agent-certificate-renewer-{version}.jar -u <username> -p <password> -P <host> <port> <username> <password>`
 ** US MuleSoft Government Cloud Control Plane
 +
-Use the following -r flag:
+Use this -r flag:
 +
 `java -jar ./agent-certificate-renewer-{version}.jar -H <ServerToken> -r us_gov`
 ** EU Control Plane
 +
-Use the following -r flag:
+Use this -r flag:
 +
 `java -jar ./agent-certificate-renewer-{version}.jar -u <username> -p <password> -r eu1`
 --
 +
-The command displays the following messages:
+The command displays these messages:
 +
 ----
 INFO: Connecting to Core Services to extract authentication token.

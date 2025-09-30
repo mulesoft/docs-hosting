@@ -27,7 +27,7 @@ Timezone configuration for cron schedulers is available only for hybrid standalo
 
 == Use Cases
 
-Schedule management is useful in the following contexts:
+Schedule management is useful in these contexts:
 
 * You want to change the schedulers in your application at runtime without redeploying.
 * You want to disable a scheduled job while one of the applications you are connecting to is undergoing maintenance.
@@ -36,9 +36,9 @@ Schedule management is useful in the following contexts:
 
 == Considerations and Limitations
 
-When using the *Schedulers* tab, consider the following:
+When using the *Schedulers* tab, consider this:
 
-* If a scheduled job is not triggered because the application is not running,
+* If a scheduled job isn't triggered because the application isn't running,
 Runtime Manager triggers the job as soon as the application restarts.
 * The scheduler reads the job configuration every time it runs.
 +
@@ -65,7 +65,7 @@ image::hybrid-scheduler-studio.png[Scheduler component in the Anypoint Studio ca
 
 Navigate to the scheduler management interface for your deployed application:
 
-. In Runtime Manager, click *Applications* in the left navigation pane
+. In Runtime Manager, click *Applications* in the navigation pane
 . Select your deployed application from the applications list
 . Click the *Schedulers* tab to access scheduler management controls
 

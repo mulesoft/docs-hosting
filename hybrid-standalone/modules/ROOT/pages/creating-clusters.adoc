@@ -71,11 +71,11 @@ To create a new cluster:
 . Click *Create Cluster*:
 +
 .The arrow shows the *Create Cluster* button on the *Servers* page.
-image::rtm-cluster-create.png[Create Cluster button]
+image::rtm-cluster-create.png["Create Cluster button"]
 
 . In the *Create Cluster* page, enter the name for the cluster.
 +
-Cluster names can contain between 3-40 alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-). They cannot start or end with a hyphen and cannot contain spaces or other characters.
+Cluster names can contain between 3-40 alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-). They can't start or end with a hyphen and can't contain spaces or other characters.
 . Select *Unicast* or *Multicast*.
 . Select the servers to include in your new cluster.
 . Click *Create Cluster*.

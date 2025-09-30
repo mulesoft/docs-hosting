@@ -104,15 +104,15 @@ Configure specific conditions that trigger notifications based on your infrastru
 
 === Performance and Resource Monitoring
 
-The following performance alerts apply to all infrastructure types (servers, server groups, and clusters):
+These performance alerts apply to all infrastructure types (servers, server groups, and clusters):
 
 
 Server CPU Usage::
 +
 --
-Monitor CPU utilization across your infrastructure. Triggers when CPU usage exceeds or falls below the specified percentage for the configured duration.
+Monitor CPU utilization across your infrastructure. Triggers when CPU usage exceeds the specified percentage for the configured duration.
 
-image::alerts-conditions-servers-cpu.png[Server CPU usage alert condition]
+image::alerts-conditions-servers-cpu.png["Server CPU usage alert condition"]
 
 *Configuration:* Set the CPU percentage threshold and monitoring duration.
 --
@@ -120,22 +120,22 @@ image::alerts-conditions-servers-cpu.png[Server CPU usage alert condition]
 Server Load Average::
 +
 --
-Monitor system processing load. Triggers when the average processing load exceeds or falls below the specified threshold for the configured duration.
+Monitor system processing load. Triggers when the average processing load exceeds the specified threshold for the configured duration.
 
-image::alerts-conditions-servers-load-avg.png[Server load average alert condition]
+image::alerts-conditions-servers-load-avg.png["Server load average alert condition"]
 
 *Configuration:* Set the load average threshold and monitoring duration.
 
 [NOTE]
-This metric is not available on Windows environments.
+This metric isn't available on Windows environments.
 --
 
 Server Memory Usage::
 +
 --
-Track memory consumption across your infrastructure. Triggers when memory usage (in MB) exceeds or falls below the specified threshold for the configured duration.
+Track memory consumption across your infrastructure. Triggers when memory usage (in MB) exceeds the specified threshold for the configured duration.
 
-image::alerts-conditions-servers-memory.png[Server memory usage alert condition]
+image::alerts-conditions-servers-memory.png["Server memory usage alert condition"]
 
 *Configuration:* Set the memory usage threshold (MB) and monitoring duration.
 --
@@ -143,14 +143,14 @@ image::alerts-conditions-servers-memory.png[Server memory usage alert condition]
 Server Thread Count::
 +
 --
-Monitor JVM thread utilization. Triggers when the thread count exceeds or falls below the specified level for the configured duration.
+Monitor JVM thread utilization. Triggers when the thread count exceeds the specified level for the configured duration.
 
 image::alerts-conditions-servers-thread-count.png[Server thread count alert condition]
 
 *Configuration:* Set the thread count threshold and monitoring duration.
 --
 
-The following alerts vary according to the target type (server, server groups, or clusters)
+These alerts vary according to the target type (server, server groups, or clusters)
 and require no additional parameters:
 
 Servers::
@@ -194,7 +194,7 @@ Clusters::
 Customize alert email subjects and messages using dynamic variables that provide contextual information about triggered events.
 
 [NOTE]
-You cannot use the character combination `$&` in variable expressions.
+You can't use the character combination `$&` in variable expressions.
 
 [%header,cols="25a,50a,25a"]
 .Variables for Alerts

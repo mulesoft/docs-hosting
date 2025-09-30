@@ -43,15 +43,15 @@ Configure alerts to monitor your Mule applications with customizable thresholds 
 ** If no alerts exist, you see the initial setup page:
 +
 .The arrow shows the *Create your first alert* option.
-image::alerts-no-alerts.png[Alerts page with no alerts set up]
+image::alerts-no-alerts.png["Alerts page with no alerts set up"]
 ** For existing alert configurations, use the add button:
 +
 .The arrow shows the blue plus (*+*) icon on the *Alerts* page.
-image::alerts-create-additional-alert.png[Alerts page with blue plus (+) icon]
+image::alerts-create-additional-alert.png["Alerts page with blue plus (+) icon"]
 
 . Click the blue plus (*+*) icon to create a new alert.
 +
-image::alerts-create-alert.png[Create an Alert page]
+image::alerts-create-alert.png["Create an Alert page"]
 
 . Complete the required fields:
 
@@ -103,9 +103,9 @@ The recipients of the alert email
 You can select up to 20 platform user IDs and enter up to 20 email addresses.
 . Click *Create Alert*.
 
-When an alert condition is triggered, Runtime Manager sends email notifications similar to the following:
+When an alert condition is triggered, Runtime Manager sends email notifications similar to this:
 
-image::alerts-alert-email.png[Anypoint Platform Alert Notification email]
+image::alerts-alert-email.png["Anypoint Platform Alert Notification email"]
 
 
 == Alert Conditions
@@ -115,14 +115,14 @@ Configure specific conditions that trigger notifications based on your applicati
 === Conditions for Applications Deployed to CloudHub
 
 
-For applications deployed to CloudHub, the following alert conditions apply:
+For applications deployed to CloudHub, these alert conditions apply:
 
 CPU usage - CloudHub::
 +
 --
 The CPU usage of the CloudHub workers that run the application is above or below the percentage for the specified period of time.
 
-image::alerts-conditions-apps-cpu.png[CPU usage - Cloudhub]
+image::alerts-conditions-apps-cpu.png["CPU usage - Cloudhub"]
 
 To enable this condition, specify the percentage and duration that triggers the alert.
 
@@ -133,7 +133,7 @@ Custom application alert::
 --
 The custom notification contains the specified text.
 
-image::alerts-conditions-custom.png[Custom application alerts]
+image::alerts-conditions-custom.png["Custom application alerts"]
 
 To enable this condition, specify the notification text from the CloudHub Connector
 in your Mule application.
@@ -146,7 +146,7 @@ Exceeds event traffic threshold::
 --
 The number of events of any type exceeds the threshold for the specified period of time.
 
-image::alerts-conditions-exceeds-traffic.png[Exceeds event traffic threshold]
+image::alerts-conditions-exceeds-traffic.png["Exceeds event traffic threshold"]
 
 To enable this condition, specify the capacity threshold and duration that triggers the alert.
 This alert condition depends on the events you are tracking in your application.
@@ -158,14 +158,14 @@ Memory usage - CloudHub::
 --
 Memory usage is a percentage that represents the JVM heap-used/JVM total memory. The alert triggers if the memory usage is above or below the limit for the specified period of time.
 
-image::alerts-conditions-apps-memory.png[Memory usage - Cloudhub]
+image::alerts-conditions-apps-memory.png["Memory usage - Cloudhub"]
 
 To enable this condition, specify the percentage and duration that triggers the alert.
 
 --
 
 
-The following alerts for applications deployed to CloudHub require no additional parameters:
+These alerts for applications deployed to CloudHub require no additional parameters:
 
 * Deployment failed
 * Deployment success
@@ -177,7 +177,7 @@ The following alerts for applications deployed to CloudHub require no additional
 === Conditions for Applications Deployed to Local Servers
 
 
-For applications deployed to local servers, the following alert conditions apply:
+For applications deployed to local servers, these alert conditions apply:
 
 Number of errors::
 +
@@ -187,7 +187,7 @@ The number of errors reported depends on error handling configuration in the app
 For information about Mule errors, see
 xref:mule-runtime::mule-error-concept.adoc[Mule Errors].
 
-image::alerts-conditions-number-errors.png[Number of errors]
+image::alerts-conditions-number-errors.png["Number of errors"]
 
 To enable this condition, specify the number of errors per minute that triggers the alert.
 
@@ -214,7 +214,7 @@ To enable this condition, specify the maximum response time that triggers the al
 --
 
 
-The following alerts for applications deployed to local servers require no additional parameters:
+These alerts for applications deployed to local servers require no additional parameters:
 
 * Application undeployed
 * Deployment failure
@@ -225,7 +225,7 @@ The following alerts for applications deployed to local servers require no addit
 Customize alert email subjects and messages using dynamic variables that provide contextual information about triggered events.
 
 [NOTE]
-You cannot use the character combination `$&` in variable expressions.
+You can't use the character combination `$&` in variable expressions.
 
 [%header,cols="25a,50a,25a"]
 .Application Alert Variables

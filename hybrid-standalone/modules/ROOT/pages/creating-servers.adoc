@@ -13,13 +13,12 @@ For each Mule instance that you want to manage, add a server to Runtime Manager.
 Before adding a server to Runtime Manager:
 
 * Have a current enterprise license.
-* Run Mule 3.6.0 or later and API Gateway 2.1 or later.
-* Install the Runtime Manager agent for Mule 3.6.x.
-* Update the agent for Mule 3.7.x and later (optional).
+* Run Mule 4.x or later.
+* Install the Runtime Manager agent.
 * Have an Enterprise support account if downloading the agent.
 * Remove existing server registration if already registered in another Runtime Manager instance.
 
-For details, refer to xref:runtime-manager-agent.adoc[Install or Update the Runtime Manager Agent].
+For details, refer to xref:runtime-manager-agent.adoc[Install or Update the Runtime Manager agent].
 
 == Create a Server
 
@@ -108,5 +107,5 @@ After creating servers, you can:
 * xref:creating-servers-groups.adoc[Creating Server Groups]
 * xref:creating-clusters.adoc[Creating Clusters]
 * xref:managing-servers.adoc[Managing Servers]
-* xref:runtime-manager-agent.adoc[Runtime Manager Agent]
+* xref:runtime-manager-agent.adoc[Runtime Manager agent]
 

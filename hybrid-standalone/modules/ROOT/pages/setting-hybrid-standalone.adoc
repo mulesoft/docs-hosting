@@ -17,7 +17,7 @@ The setup process includes:
 Before setting up hybrid standalone instances, make sure your infrastructure meets these requirements:
 
 * Allocate adequate CPU, memory, and storage for your Mule runtime instances
-* Configure outbound HTTPS connectivity (port 443) and firewall rules for Runtime Manager Agent
+* Configure outbound HTTPS connectivity (port 443) and firewall rules for Runtime Manager agent
 * Use supported OS versions (Linux, Windows, macOS) with compatible Java versions
 * Obtain Anypoint Platform subscription
 
@@ -32,9 +32,9 @@ Set up your Mule runtime environment:
 
 == Install and Set Up Runtime Manager Agent
 
-The Runtime Manager Agent is a lightweight component that enables communication between your on-premises Mule runtime instances and Anypoint Platform in the cloud.
+The Runtime Manager agent is a lightweight component that enables communication between your on-premises Mule runtime instances and Anypoint Platform in the cloud.
 
-With the Runtime Manager Agent, you can:
+With the Runtime Manager agent, you can:
 
 * Register servers with Anypoint Platform for centralized management
 * Deploy and manage applications remotely through Runtime Manager
@@ -72,7 +72,7 @@ All servers within a server group or cluster must have identical versions of:
 Verify your hybrid standalone configuration:
 
 * Test network connectivity to Anypoint Platform and verify DNS resolution
-* Confirm Runtime Manager Agent is running and communicating with Anypoint Platform
+* Confirm Runtime Manager agent is running and communicating with Anypoint Platform
 * Verify servers appear in Runtime Manager with "Running" status
 * Test server management operations and application deployment capabilities
 

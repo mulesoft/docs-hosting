@@ -19,7 +19,7 @@ This documentation focuses exclusively on managing applications deployed to hybr
 
 [IMPORTANT]
 ====
-**Deployment Method Restriction**: When using Runtime Manager to manage your hybrid standalone servers, you cannot manually deploy applications directly to the server filesystem. All deployments must go through Runtime Manager to maintain proper application tracking and management capabilities.
+**Deployment Method Restriction**: When using Runtime Manager to manage your hybrid standalone servers, you can't manually deploy applications directly to the server filesystem. All deployments must go through Runtime Manager to maintain proper application tracking and management capabilities.
 
 **Application Discovery**: Manually deployed applications are not auto-discovered by Runtime Manager and will not appear in the management console.
 ====
@@ -210,7 +210,7 @@ image::managing-applications-on-your-own-servers-96463.png[]
 
 
 [WARNING]
-Application deletion is immediate and cannot be undone. Ensure you have application backups or source code access before deletion.
+Application deletion is immediate and can't be undone. Ensure you have application backups or source code access before deletion.
 
 == Redeploy Deleted Applications
 
