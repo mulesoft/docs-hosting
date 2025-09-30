@@ -266,7 +266,7 @@ The CloudHub 2.0 control plane's high availability and disaster recovery capabil
 
 Recovery time is up to 72 hours, with potential data loss of up to 24 hours during regional outages.
 
-== See also
+== See Also
 
 * xref:mule-runtime::hadr-guide.adoc[]
 * xref:ch2-networking-guide.adoc[]
