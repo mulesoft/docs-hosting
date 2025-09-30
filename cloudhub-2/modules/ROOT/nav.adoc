@@ -13,7 +13,7 @@
 ** xref:ch2-patch-updates.adoc[CloudHub 2.0 Operating System Patch Updates]
 ** xref:ch2-penetration-testing-policies.adoc[Run Vulnerability Assessment and Penetration Tests]
 * xref:ch2-networking-guide.adoc[CloudHub 2.0 Networking Architecture]
-* xref:ch2-ha-dr.adoc[CloudHub 2.0 High Availability and Disaster Recovery]
+* xref:ch2-ha-dr.adoc[]
 * xref:ps-setup.adoc[Extending Your Network to Anypoint Platform]
 ** xref:ps-assign-permissions.adoc[Assigning Permissions]
 ** xref:ps-gather-setup-info.adoc[Gathering Required Setup Information]
