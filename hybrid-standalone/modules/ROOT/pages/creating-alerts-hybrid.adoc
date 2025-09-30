@@ -93,7 +93,7 @@ The recipients of the alert email
 You can select up to 20 platform user IDs and enter up to 20 email addresses.
 . Click *Create Alert*.
 
-When an alert condition is triggered, Runtime Manager sends email notifications similar to the following:
+When an alert condition is triggered, Runtime Manager sends email notifications similar to this:
 
 image::alerts-alert-email.png[Anypoint Platform Alert Notification email]
 
