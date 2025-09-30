@@ -263,7 +263,7 @@ Runtime Manager provides multiple ways to access and monitor your infrastructure
 
 Access all infrastructure alerts from the main alerts dashboard:
 
-. Click *Alerts* in the Runtime Manager left navigation pane:
+. Click *Alerts* in the Runtime Manager navigation pane:
 +
 .The arrow shows the *Alerts* menu.
 image::alerts-view-all-alerts-tab.png[Alerts menu]
