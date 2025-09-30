@@ -24,7 +24,7 @@ These key terms are essential to understanding HA and DR strategies in CloudHub 
 
 Recovery Time Objective (RTO):: The maximum amount of downtime a business can tolerate. The RTO represents the time it takes for the system to recover after a business disruption.
 
-Recovery Point Objective (RPO):: This is the maximum amount of time acceptable for data loss after a disaster. The RPO influences the frequency of data backups.
+Recovery Point Objective (RPO):: The maximum amount of time acceptable for data loss after a disaster. The RPO influences the frequency of data backups.
 
 == High Availability in CloudHub 2.0
 
