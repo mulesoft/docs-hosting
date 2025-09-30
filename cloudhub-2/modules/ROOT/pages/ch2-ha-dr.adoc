@@ -239,7 +239,9 @@ For listeners like DB Table Row and Salesforce Events, use an external persisten
 
 === Recommended Primary Runtime Region
 
-For DR, set us-east-1 runtime plane as the primary region, and us-east-2 as the hot standby region. Even if us-east-1 is down, applications deployed in us-east-2 continue to run. Use an external load balancer to route traffic to the active region and provide transparent failover. For a warm standby scenario, use us-east-2 as the primary region, and us-east-1 as the secondary region, with an external load balancer for transparent failover.
+For DR, set us-east-1 runtime plane as the primary region, and us-east-2 as the hot standby region. Even if us-east-1 is down, applications deployed in us-east-2 continue to run. Use an external load balancer to route traffic to the active region and provide transparent failover.
+
+For a warm standby scenario, use us-east-2 as the primary region, and us-east-1 as the secondary region, with an external load balancer for transparent failover.
 
 === IP Allowlist and Firewall Rules
 
