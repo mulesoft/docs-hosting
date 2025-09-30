@@ -89,7 +89,7 @@ To remove the server:
 . Click the server name.
 . Click *Settings*.
 . From the *Actions* menu, select *Delete*.
-. In the `$MULE_HOME/conf` directory, delete the `mule-agent.yaml` and `mule-agent.jks` files
+. In the `$MULE_HOME/conf` directory, delete the `mule-agent.yaml` and `mule-agent.jks` files.
 
 For details, refer to xref:managing-servers.adoc[Managing Servers].
 
