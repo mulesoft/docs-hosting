@@ -13,7 +13,7 @@ Leverage Anypoint Platform for centralized application deployment, real-time mon
 * Scalability +
 Scale horizontally by adding more servers, creating server groups for load distribution, and implementing clusters for high availability.
 * Compliance and security +
-Meet regulatory compliance requirements and integrate seamlessly with existing infrastructure and monitoring tools
+Meet regulatory compliance requirements and integrate seamlessly with existing infrastructure and monitoring tools.
 * Hybrid flexibility +
 Combine the control and security of on-premises deployments with the flexibility and management capabilities of cloud-based services
 
