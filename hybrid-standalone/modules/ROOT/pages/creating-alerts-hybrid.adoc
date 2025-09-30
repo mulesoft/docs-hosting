@@ -294,7 +294,7 @@ image::alerts-view-details-pane.png[View Associated Alerts link in the details p
 Review historical alert activity for specific servers, server groups, or clusters:
 
 . In the *Servers* list, click the name of your server, server group, or cluster.
-. Click *Settings* in the left navigation pane.
+. Click *Settings* in the navigation pane.
 . Click the *Alerts History* tab:
 +
 .The arrow shows the *Alerts History* tab on the *Settings* page.
