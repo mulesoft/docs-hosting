@@ -46,7 +46,7 @@ CloudHub 2.0 uses a sophisticated ingress and egress traffic management system t
 
 During VPN tunnel updates, the system sets a lower outbound multiexit discriminator (MED) value on the other tunnel. This maintains connectivity.
 
-=== Multiple-Replica Configuration
+=== Multiple-Replica Deployment
 
 If an application uses multiple replicas, CloudHub 2.0 deploys these replicas across two or more availability zones (AZs) by default. In case of an AZ failure, CloudHub 2.0 automatically restarts the application in a different AZ to maintain availability.
 
