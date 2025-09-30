@@ -2,7 +2,7 @@
 
 CloudHub 2.0 provides high availability (HA) and disaster recovery (DR) capabilities for applications and protection against hardware failures.
 
-CloudHub 2.0 leverages Amazon AWS for its cloud infrastructure, so availability is directly dependent on Amazon's services. CloudHub 2.0 deployments and availability are region-based. CloudHub 2.0 regions, in turn, point to the corresponding Amazon regions. If an Amazon region goes down, the applications within that region are unavailable and not automatically replicated in other regions.
+CloudHub 2.0 leverages Amazon AWS for its cloud infrastructure, so availability is directly dependent on Amazon services. CloudHub 2.0 deployments and availability are region-based and correspond to Amazon regions. If an Amazon region goes down, the applications within that region are unavailable and not automatically replicated in other regions.
 
 While the control plane is unavailable, the runtime plane continues to locally buffer log data and other telemetry data until control plane availability is restored.
 
