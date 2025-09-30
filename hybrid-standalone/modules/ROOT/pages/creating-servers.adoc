@@ -76,7 +76,7 @@ https://help.mulesoft.com/s/article/Connectivity-issues-between-Mule-Runtime-and
 * `anypoint-truststore.jks` (Mule 4.1.3 with Agent 2.1.4 and later)
 * `truststore.jks` (Mule 4.1.2 with Agent 2.1.3)
 . Copy the custom truststore into the `$MULE_HOME/conf` folder
-. Restart Mule
+. Restart Mule.
 
 == Remove a Server from Another Runtime Manager Instance
 
