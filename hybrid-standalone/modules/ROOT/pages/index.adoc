@@ -7,7 +7,7 @@ With hybrid standalone instances, Mule can run on a physical server, a virtual m
 == Key Benefits
 
 * Infrastructure control +
-Deploy on your own servers or cloud instances while maintaining full control over network security and meeting data residency requirements
+Deploy on your own servers or cloud instances while maintaining full control over network security and meeting data residency requirements.
 * Centralized management +
 Leverage Anypoint Platform for centralized application deployment, real-time monitoring, and unified dashboards across all deployments
 * Scalability +
