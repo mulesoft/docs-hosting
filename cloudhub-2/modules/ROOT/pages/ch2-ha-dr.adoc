@@ -122,7 +122,7 @@ Low-impact, stateless, or stateful applications that tolerate longer downtime du
 ==== Traffic Management
 
 * Use a BYO global load balancer to route traffic only to the region that is up.
-* Use health checks to determine DR, and scripts to start your applications in backup state and switch traffic routing.
+* Perform health checks to determine DR, and scripts to start your applications in backup state and switch traffic routing.
 * If the control plane is down, the runtime plane DR is impacted.
 
 ==== Licensing
@@ -134,41 +134,12 @@ Low-impact, stateless, or stateful applications that tolerate longer downtime du
 
 The RTO depends on the time it takes to start applications via the control plane.
 
-=== Use Case 4: Hot Standby Configuration
-
-==== When to Use
-
-High-impact, stateful applications that require immediate failover with minimal data loss.
-
-==== Application State
-
-Set up the infrastructure and keep the backup applications running and fully scaled up.
-
-==== Traffic Management
-
-* Use a BYO global load balancer to route traffic only to one region at a time.
-* Perform health checks to determine DR and flag configuration.
-* Even if the control plane is down, the runtime plane continues to run.
-* For non-HTTP use cases, you can externalize a DR flag and use a Groovy script to enable and disable scheduler flows.
-
-==== Licensing
-
-* For organizations using UBP, this configuration doesn't consume messages or throughput. It consumes flows if the application is running.
-* For organizations not using UBP, this configuration consumes additional vCores.
-
-==== Recovery Point
-
-For integrating systems to resend event or data of in-flight transactions, capture recovery points in logs and monitoring.
-
 == Runtime Plane High Availability and Disaster Recovery Summary
 
 
 High-Impact Stateless API:: Use an active-active setup with active replicas in two regions and an external load balancer.
 
-High-Impact Stateful API::
-+
-* Use a hot standby setup with applications deployed and started in both regions but processing requests only in one.
-* Use an external load balancer to route traffic, and perform health checks to determine DR and switch traffic.
+High-Impact Stateful API:: Use an external load balancer to route traffic, and perform health checks to determine DR and switch traffic.
 
 Medium-Impact Stateless and Stateful API::
 +
