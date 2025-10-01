@@ -4,7 +4,7 @@ CloudHub 2.0 provides high availability (HA) and disaster recovery (DR) capabili
 
 CloudHub 2.0 leverages Amazon AWS for its cloud infrastructure, so availability is directly dependent on Amazon services. CloudHub 2.0 deployments and availability are region-based and correspond to Amazon regions. If an Amazon region goes down, the applications within that region are unavailable and not automatically replicated in other regions.
 
-While the control plane is unavailable, the runtime plane continues to locally buffer log data and other telemetry data until control plane availability is restored.
+In the event of a network partition between the control plane and the runtime plane, applications in the runtime plane continue to run. The runtime plane continues to locally buffer log and telemetry data until control plane availability is restored.
 
 CloudHub 2.0 leverages external messaging services, such as Anypoint MQ, to ensure message reliability through persistent queues. These external queues are highly available within a region, but they can‌ be inaccessible for short periods, generally seconds to minutes, during a regional outage leading to some data loss. Communication with the queues resumes after the region becomes available.
 
