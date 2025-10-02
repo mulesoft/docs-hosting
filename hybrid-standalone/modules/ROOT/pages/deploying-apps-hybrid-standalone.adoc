@@ -17,7 +17,7 @@ Key deployment capabilities include:
 Select deployment targets based on your application's availability requirements, load distribution needs, and infrastructure architecture.
 
 * Servers +
-Deploy to specific server instances for development, testing, or applications requiring dedicated resources
+Deploy to specific server instances for development, testing, or applications requiring dedicated resources.
 
 * Server Groups +
 Deploy to multiple servers simultaneously for load distribution and horizontal scaling.
