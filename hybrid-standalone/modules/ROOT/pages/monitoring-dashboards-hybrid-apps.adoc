@@ -48,7 +48,7 @@ Essential metrics for basic application monitoring
 The dashboard interface displayed depends on your application's version, deployment target, and monitoring configuration.
 
 [NOTE]
-After application restarts, CPU and memory information may not be immediately available in dashboards. To retain historical statistics, use the `dashboardStats` API or enable Anypoint Monitoring for persistent data storage.
+CPU and memory information isn’t immediately available in dashboards after an application restarts. To retain historical statistics, use the `dashboardStats` API or enable Anypoint Monitoring for persistent data storage.
 
 
 === Built-in Anypoint Monitoring Dashboard
