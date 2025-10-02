@@ -23,7 +23,7 @@ To add servers to a server group:
 image::rtm-group-add-server-to-group.png["Add Server button"]
 +
 A list of available servers appears.
-. Select the servers to add to the group, and click the *Add Servers* button.
+. Select the servers to add to the group, and click *Add Servers*.
 
 * The servers no longer appear in the *Servers* list. 
 * To see the list of servers in the server group, click the group name.
