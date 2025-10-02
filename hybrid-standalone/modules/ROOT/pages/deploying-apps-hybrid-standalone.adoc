@@ -136,10 +136,10 @@ Best for: Development testing, custom builds, hotfixes
 
 Promote applications from non-production environments to maintain consistency:
 
-. Click *Get from sandbox* (available when non-production environments exist)
-. Select the source environment (for example, Sandbox, QA)
-. Search and select the application to promote
-. Click *Apply* to inherit configuratio.
+. Click *Get from sandbox* (available when non-production environments exist).
+. Select the source environment (for example, Sandbox, QA).
+. Search and select the application to promote.
+. Click *Apply*.
 
 [NOTE]
 Only applications deployed to hybrid standalone infrastructure can be promoted to other hybrid deployments. CloudHub applications require separate CloudHub-to-CloudHub promotion.
