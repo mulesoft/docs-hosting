@@ -13,7 +13,7 @@ Make sure that you follow these requirements:
 * All servers being added must run identical versions of:
 ** Mule runtime
 ** Runtime Manager agent  
-* Java
+** Java
 
 [IMPORTANT]
 Adding servers to a unicast cluster triggers an automatic restart of all existing servers in the cluster. Plan cluster modifications during maintenance windows to minimize service disruption.
