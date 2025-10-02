@@ -8,7 +8,7 @@ Add individual servers to an existing server group to expand your deployment cap
 
 Make sure that you follow these requirements:
 
-* The target server group already exists
+* The target server group already exists.
 * At least one server is configured and available
 * No applications are currently deployed on servers you want to add to the group
 
