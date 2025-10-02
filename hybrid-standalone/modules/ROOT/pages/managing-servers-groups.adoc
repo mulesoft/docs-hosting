@@ -50,7 +50,7 @@ When you delete a server group, these actions occur:
 * Alert definitions and history for the server group are deleted.
 * Applications deployed to each server in the server group are cloned on each server.
 
-The servers assigned to the deleted server group are not deleted, restarted, or shut down. Servers that belong to the deleted group appear on the *Servers* page. You can deploy applications to them individually or add them to other server groups or clusters.
+Deleting a server group doesn't delete, restart, or shut down the assigned servers. The servers appear on the Servers page. You can deploy applications to them individually or add them to other server groups or clusters.
 
 To delete a server group:
 
