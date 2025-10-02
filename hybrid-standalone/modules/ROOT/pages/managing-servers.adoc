@@ -204,7 +204,7 @@ If renewing the unexpired certificate via Runtime Manager fails, follow the step
 
 === Renew a Certificate via the Command Line
 
-You can use this method to renew a certificate even after it has expired.
+Use this method to renew a certificate even after it has expired.
 
 The agent connects with Runtime Manager using mutual SSL authentication and stores the key pair
 in the `$MULE_HOME/conf/mule-agent.jks` file.
