@@ -196,9 +196,9 @@ For details, refer to:
 
 === Execute Deployment
 
-. Click *Deploy Application* to initiate the deployment process
-. Monitor deployment status in the Applications dashboard
-. Verify successful deployment through application status indicators
+. Click *Deploy Application* to initiate the deployment process.
+. Monitor deployment status in the Applications dashboard.
+. Verify successful deployment through application status indicators.
 
 The new application appears in the deployed applications list with a status indicator showing deployment progress and final state.
 
