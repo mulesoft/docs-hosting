@@ -56,7 +56,7 @@ Before managing schedulers, make sure that your application deployment meets the
 
 * Application contains one or more Scheduler components defined in Mule flows
 * Application is successfully deployed to hybrid standalone instances (servers, server groups, or clusters)
-* User account has appropriate application management permissions in Runtime Manager
+* Your user account has appropriate application management permissions in Runtime Manager
 
 .The arrow shows the *Scheduler* component in the Anypoint Studio canvas.
 image::hybrid-scheduler-studio.png[Scheduler component in the Anypoint Studio canvas]
