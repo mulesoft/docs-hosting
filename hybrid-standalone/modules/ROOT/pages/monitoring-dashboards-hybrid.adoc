@@ -4,7 +4,7 @@ Monitor your hybrid standalone infrastructure through comprehensive performance 
 
 == Overview
 
-Runtime Manager provides comprehensive infrastructure monitoring dashboards for your hybrid standalone environment, enabling you to:
+Runtime Manager provides comprehensive infrastructure monitoring dashboards for your hybrid standalone environment, so you can:
 
 * Monitor real-time server performance metrics and resource utilization
 * Analyze historical trends for capacity planning and optimization
