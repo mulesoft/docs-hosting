@@ -210,14 +210,14 @@ Perform application updates through Runtime Manager to deploy new versions or ap
 
 Update application artifacts while preserving existing configuration:
 
-. Navigate to *Applications* page and select your deployed application
-. Click *Choose File* to access update options
+. Navigate to *Applications* page and select your deployed application.
+. Click *Choose File*.
 . Select new application version through the same source options:
    * Exchange version update
    * Local file upload
    * Environment promotion
-. Review configuration changes if needed
-. Click *Deploy Application* to apply updates
+. Review configuration changes if needed.
+. Click *Deploy Application*.
 
 === Configuration Updates
 
