@@ -223,10 +223,10 @@ Update application artifacts while preserving existing configuration:
 
 Modify application properties and settings without changing the application artifact:
 
-. Select the deployed application from the Applications list
-. Access configuration tabs (Properties, Logging, Insight)
-. Make necessary configuration changes
-. Apply changes to trigger configuration reload
+. Select the deployed application from the Applications list.
+. Access configuration tabs (Properties, Logging, Insight).
+. Make necessary configuration changes.
+. Apply changes to trigger configuration reload.
 
 
 === Troubleshoot Deployment Errors
