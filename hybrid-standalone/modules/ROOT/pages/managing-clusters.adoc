@@ -12,7 +12,7 @@ Make sure that you follow these requirements:
 * At least one server is configured and available.
 * All servers being added must run identical versions of:
 ** Mule runtime
-* Runtime Manager agent  
+** Runtime Manager agent  
 * Java
 
 [IMPORTANT]
