@@ -6,13 +6,13 @@ CloudHub 2.0 leverages Amazon AWS for its cloud infrastructure, so availability 
 
 In the event of a network partition between the control plane and the runtime plane, applications in the runtime plane continue to run. The runtime plane continues to locally buffer log and telemetry data until control plane availability is restored.
 
-CloudHub 2.0 leverages external messaging services, such as Anypoint MQ, to ensure message reliability through persistent queues. These external queues are highly available within a region, but they can‌ be inaccessible for short periods, generally seconds to minutes, during a regional outage leading to some data loss. Communication with the queues resumes after the region becomes available.
+CloudHub 2.0 leverages external messaging services, such as Anypoint MQ, to ensure message reliability through persistent queues. These external queues are highly available within a region, but they can‌ be inaccessible for short periods, generally seconds to minutes, during a regional outage leading to some data loss. Communication with the queues resumes after the region becomes available. For more information, see xref:mq::mq-failover.adoc[].
 
 Anypoint Object Store v2 enables CloudHub 2.0 applications to store data and states across various components and applications. Object Store v2 is maintained in the same region as the deployed CloudHub 2.0 application. Data persists and becomes available after the region returns to service. However, Object Store v2 is a regional service. It doesn't provide any region failover functionality. You can't access data in Object Store v2 from an application in a different region. Implement your own external storage solution for cross-region data persistence and access. Object Store v2 doesn't provide periodic backups.
 
 == High Availability Versus Disaster Recovery
 
-High availability (HA) is the measure of a system’s ability to remain accessible despite a system component failure. You generally implement HA by building in multiple levels of fault tolerance or load balancing capabilities into a system. In CloudHub 2.0, you can achieve high availability by distributing multiple replicas across three Availability Zones (AZs) without requiring additional configuration.
+High availability (HA) is the measure of a system’s ability to remain accessible despite a system component failure. You generally implement HA by building in multiple levels of fault tolerance or load balancing capabilities into a system. In CloudHub 2.0, you can achieve high availability by deploying your application with multiple replicas.
 
 Disaster recovery (DR) refers to the process of restoring a system to an acceptable previous state after a natural or man-made disaster, such as flooding, tornadoes, earthquakes, fires, power failures, server failures, and misconfigurations.
 
@@ -36,27 +36,31 @@ Disaster recovery in CloudHub 2.0 focuses on the process of restoring systems af
 
 === Global Distribution
 
-You can deploy applications to CloudHub 2.0 in various global regions, including North America, South America, the European Union, and Asia-Pacific. This global distribution helps reduce latency by allowing you to host integrations closer to services.
+You can deploy applications to CloudHub 2.0 in various global regions, including North America, South America, the European Union, and Asia-Pacific. 
 
-For a list of regions where you can deploy your CloudHub 2.0 applications, see: xref:ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records].
+If you have the Global Deployment entitlement, and are in the US Cloud or EU cloud, you can deploy applications to CloudHub 2.0 in more than one runtime plane region. 
+
+You can host integrations in a runtime plane region that is closer to your services to reduce latency.
+
+For a list of available runtime plane regions based on the control plane region where your organization is provisioned, see: xref:ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records]. 
+
+The runtime plane region is the region where you deploy your CloudHub 2.0 applications and create CloudHub 2.0 Private Spaces.
 
 === Regional Infrastructure
 
-You can create your private space in a region of your choice, and the system provisions the corresponding Elastic Kubernetes Service (EKS) cluster in the private space. The us-east-1 region, for instance, has more than five availability zones, each with multiple data centers, redundant power sources, and internet connectivity.
-
-=== Disaster Recovery Assessment
-
-In the event of a disaster impacting an entire AWS region, CloudHub 2.0, in conjunction with AWS, performs an assessment to determine which region has the required capacity for the affected workload.
+You can create your private space in a region of your choice. The us-east-1 region, for instance, has more than five availability zones, each with multiple data centers, redundant power sources, and internet connectivity.
 
 === Customer Responsibility for Disaster Recovery
 
-MuleSoft manages platform HA. If your organization has significant DR requirements, build your applications accordingly and consider spreading them across multiple regions.
+If your organization has cross-region DR requirements for your applications, build your applications accordingly, and consider deploying them across multiple regions. You can use a load balancer, either cloud-based or on-premises, for applications deployed to different regions to switch traffic to your backup region as part of your DR strategy.
 
 For more information about how to deploy for HA and DR strategies, see xref:mule-runtime::hadr-guide.adoc[High Availability and Disaster Recovery].
 
 == Disaster Recovery Use Cases and Architecture for the Runtime Plane
 
 CloudHub 2.0 supports various multi-region disaster recovery strategies based on application impact and statefulness. These strategies typically involve a bring-your-own (BYO) global load balancer to manage traffic distribution and failover across regions.
+
+To decouple your runtime plane application availability from the control plane region, configure your primary and backup runtime plane regions to be different from the region where your Anypoint Platform control plane is located.
 
 === Use Case 1: Active-Active Configuration
 
@@ -66,18 +70,17 @@ High-impact, stateless applications that require continuous availability with mi
 
 ==== Application State
 
-* Set up the infrastructure with backup applications running and fully scaled up.
-* Organizations using a usage-based pricing (UBP) package can enable Horizontal Pod Autoscaling (HPA) on their applications to scale dynamically in response to DR events.
+* Set up the infrastructure with applications in different regions, with these applications running simultaneously and fully scaled up.
 
 ==== Traffic Management
 
 * Use a BYO global load balancer to distribute traffic between both regions.
 * Perform health checks to detect disasters.
-* Traffic continues even if the control plane is down.
+* Applications continue to run even if the control plane region is unavailable, as long as these applications are deployed in different regions than the control plane.
 
 ==== Licensing
 
-* For organizations using UBP, this configuration distributes messages and throughput between the two regions. It consumes flows based on the number of running replicas per application deployment.
+* For organizations using UBP, this configuration distributes xref:general::usage-metrics.adoc[Mule messages and Data throughput] between the two regions. It consumes Mule flows based on the number of running replicas per application deployment.
 * For organizations not using UBP, this configuration consumes additional vCores.
 
 
@@ -85,28 +88,29 @@ High-impact, stateless applications that require continuous availability with mi
 
 ==== When to Use
 
-Medium-impact stateless or stateful APIs that tolerate brief downtime during failover.
+Medium-impact stateless APIs that tolerate brief downtime during failover or stateful APIs.
 
 ==== Application State
 
-* Set up the infrastructure, but scale down your applications using low vCores in the passive region.
-* Scale up the applications only if you detect an outage.
-* If your organization uses UBP, configure your applications with HPA where applicable.
+* Set up the infrastructure across multiple regions. In the passive region, you can deploy your backup applications either in a fully scaled-up state or in a scaled-down state, with fewer replicas or smaller replica sizes. Scaled-down applications increase reliance on the control plane to redeploy and scale up during an outage in the primary runtime plane region.
+* You can configure CPU-based Horizontal Pod Autoscaling (HPA) where applicable if available to your organization. For more information, see xref:ch2-configure-horizontal-autoscaling.adoc[].
 
 ==== Traffic Management
 
 * Use a BYO global load balancer to route traffic to only one region at a time.
 * Perform health checks to determine DR and switch routing.
-* If you configure HPA, the runtime plane continues to run even if the control plane is down.
+* For non-HTTP use cases, such as Schedulers, externalize a DR flag in your application and use a Groovy script to enable and disable scheduler flows directly in the runtime plane. This reduces reliance on the control plane to trigger your backup applications via a cold standby approach.
 
 ==== Licensing
 
-* For organizations using UBP, this configuration doesn’t consume messages or throughput. The configuration consumes flows while the application is running, and consumes fewer flows if you configure HPA.
-* For organizations not using UBP, this configuration consumes lower vCores.
+* For organizations using UBP, this configuration doesn’t consume messages or throughput. The configuration consumes fewer flows if you configure the application with xref:ch2-configure-horizontal-autoscaling.adoc[CPU-based HPA].
+* For organizations not using UBP, this configuration consumes lower vCores if the backup deployment is in a scaled-down state before it scales up in response to an outage in the primary region.
 
 ==== Recovery Time Objective
 
-The RTO depends on the time it takes to scale applications via HPA. HPA is available only to organizations using UBP.
+If the backup application is in a fully scaled state, you experience lower disruption in the event of an outage. If the backup application is in a scaled-down state, the RTO depends on the time it takes to scale the application up either through control-plane-triggered redeployments, or through xref:ch2-configure-horizontal-autoscaling.adoc[CPU-based HPA].
+
+For integrating systems to resend events or data of in-flight transactions, capture recovery points in logs and monitoring. This builds reliability in your applications.
 
 === Use Case 3: Cold Standby Configuration
 
@@ -123,12 +127,11 @@ Low-impact, stateless, or stateful applications that tolerate longer downtime du
 
 * Use a BYO global load balancer to route traffic only to the region that is up.
 * Perform health checks to determine DR, and scripts to start your applications in backup state and switch traffic routing.
-* If the control plane is down, the runtime plane DR is impacted.
+* If the control plane is unavailable, you can't start the backup application in the runtime plane.
 
 ==== Licensing
 
-* For organizations using UBP, This configuration doesn't consume flows, messages, or throughput.
-* For organizations not using UBP, this configuration doesn’t consume vCores if the app is stopped.
+Because the backup application is in a stopped state, this configuration doesn't consume additional vCores, Mule flows, Mule messages or Data throughput until the backup application starts in the event of a disaster.
 
 ==== Recovery Time Objective
 
@@ -151,9 +154,9 @@ Medium-Impact Stateless and Stateful API::
 
 CloudHub 2.0 improvements over CloudHub include:
 
-* Region and control plane are decoupled from the runtime plane.
+* The runtime plane region and the control plane region are loosely coupled due to a service-oriented architecture.
 * Clustering allows you to configure HA while running the process on a single primary replica.
-* Horizontal Pod Autoscaling (HPA) for warm standby optimizes usage by elastic scaling if a failover is required, even if the control plane is down.
+* Horizontal Pod Autoscaling (HPA) for warm standby optimizes usage by elastic scaling if a failover is required.
 * Active/passive applications: Configure schedulers, listening connectors, such as Anypoint MQ listener, DB listener, FTP listeners, and Salesforce listener, to be in a stopped or inactive state. 
 +
 Externalize DR flags and expose REST endpoints to enable and disable flows via Groovy script as needed.
@@ -170,38 +173,29 @@ Object Store v2:: This regional service runs in the same region as the applicati
 
 Implementing a Disaster Recovery (DR) strategy for applications deployed to CloudHub 2.0 requires careful consideration of several key factors.
 
-Control Plane Availability:: The CloudHub 2.0 management UI and control plane are only available in the US East region of North America. You can't deploy applications while the US East region is down.
+Control Plane Availability:: The CloudHub 2.0 management UI and control plane are available in the US East region of North America. It is also available in EU West and Central, Canada, and Japan. For more information, see xref:hosting::index.adoc#control-plane-and-runtime-plane-support-matrix[Control Plane and Runtime Plane Support Matrix].
 
 Caching:: Use caching in the object store to share the tokens among various calls. Object stores are only region-specific, and you can't transfer them to a secondary region.
 
 Rate-Limiting API Policies:: Rate-limiting policies are currently set at the replica level. If you require rate limiting for in-flight transactions during DR, define custom policies using an external multiregion shared object store. Include a DR playbook with steps to adjust rate limits during and after DR.
 
-Schedulers:: Many applications run on a scheduled basis to read from databases or files. In this case, schedulers continue to run even if the control plane is down.
+Schedulers:: Many applications run on a scheduled basis to read from databases or files. In this case, schedulers continue to run even if the control plane is briefly unavailable.
 
 Listeners and Watermarks:: For listeners like DB Table Row and Salesforce Events, use an external persistent store, like DB or Redis, across replicas and regions for polling and watermarks. This is crucial only if connectors use watermarks directly or indirectly.
 
-Recommended Primary Runtime Region:: For DR, set us-east-1 runtime plane as the primary region, and us-east-2 as the hot standby region. Even if us-east-1 is down, applications deployed in us-east-2 continue to run. Use an external load balancer to route traffic to the active region and provide transparent failover.
-+
-For a warm standby scenario, use us-east-2 as the primary region, and us-east-1 as the secondary region, with an external load balancer for transparent failover.
+== Regional Differences and Disaster Recovery for Specific Regions
 
-IP Allowlist and Firewall Rules:: There's no impact on IP allowlists and firewall rules during a hot standby DR scenario. For a warm standby scenario, update IP allowlists and firewalls as part of the DR playbook.
-
-== Regional Differences and DR for Specific Regions
-
-Some regions present unique challenges for multiregion DR.
+Some control plane regions have limitations for multiregion DR.
 
 Control Plane to Runtime Plane Ratio:: Unlike the US (1:12) and EU (1:2) regions, Canada, Japan, and India have a 1:1 control plane region to runtime plane region ratio.
 
 == Cross-Region Disaster Recovery Limitations
-+
+
 * Cross-region runtime plane DR isn't possible in Canada, Japan, and India.
-* Availability Zones are typically 50 miles apart, not the 200 miles required for a true cross-region failover.
 
-== Disaster Recovery for the Control Plane
+== Disaster Recovery for the Anypoint Platform Control Plane
 
-The CloudHub 2.0 control plane's high availability and disaster recovery capabilities depend on cross-availability zone (AZ) redundancy within the same AWS region, rather than providing cross-region failover capabilities. The control plane can handle individual data center failures within a region. However, it can't automatically fail over to a different AWS region if the entire region is down.
-
-Recovery time is up to 72 hours, with potential data loss of up to 24 hours during regional outages.
+The Anypoint Control Plane encompasses additional Anypoint services apart from CloudHub 2.0. For more details, refer to the https://compliance.salesforce.com/en/documents/a005A00000vvLBjQAM[DR Test Summary].
 
 == See Also
 
@@ -209,3 +203,4 @@ Recovery time is up to 72 hours, with potential data loss of up to 24 hours duri
 * xref:ch2-networking-guide.adoc[]
 * xref:ch2-architecture.adoc[]
 * xref:cloudhub::cloudhub-hadr.adoc[]
+* xref:general::usage-metrics.adoc[]
