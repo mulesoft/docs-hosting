@@ -9,7 +9,7 @@ Add individual servers to an existing cluster to increase processing capacity an
 Make sure that you follow these requirements:
 
 * The target cluster already exists.
-* At least one server is configured and available
+* At least one server is configured and available.
 * All servers being added must run identical versions of:
 * Mule runtime
 * Runtime Manager agent  
