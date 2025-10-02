@@ -338,7 +338,7 @@ From the group dashboard, navigate to individual server dashboards by clicking s
 
 === Troubleshooting Server Group Monitoring
 
-If monitoring metrics do not appear immediately after configuring Anypoint Monitoring for servers in a server group, follow this systematic installation process:
+If monitoring metrics don't appear immediately after configuring Anypoint Monitoring for servers in a server group, follow this systematic installation process:
 
 . In Anypoint Platform go to *Runtime Manager* > *Servers* > *Add Server* to create an Anypoint Runtime Manager token.
 . Execute the command provided in the *Add Server* screen.
