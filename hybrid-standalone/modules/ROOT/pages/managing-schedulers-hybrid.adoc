@@ -55,7 +55,7 @@ Manage scheduler configurations and runtime behavior through Runtime Manager's S
 Before managing schedulers, make sure that your application deployment meets these requirements:
 
 * Your application contains one or more Scheduler components defined in Mule flows
-* Application is successfully deployed to hybrid standalone instances (servers, server groups, or clusters)
+* Your application is successfully deployed to hybrid standalone instances (servers, server groups, or clusters)
 * Your user account has appropriate application management permissions in Runtime Manager
 
 .The arrow shows the *Scheduler* component in the Anypoint Studio canvas.
