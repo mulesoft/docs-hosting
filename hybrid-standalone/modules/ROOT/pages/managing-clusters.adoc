@@ -61,7 +61,7 @@ When deleting a cluster, consider this:
 
 * Alert definitions and history for the cluster are deleted.
 * Servers assigned to the cluster are not deleted.
-* Servers assigned to the cluster are restarted.
+* Servers assigned to the cluster restart.
 * Applications deployed to the servers in the cluster are removed.
 
 To delete a cluster:
