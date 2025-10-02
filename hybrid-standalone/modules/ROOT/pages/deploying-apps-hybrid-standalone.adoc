@@ -165,7 +165,7 @@ Configure application analytics and monitoring metadata:
 
 * Enable tracking for business transaction monitoring
 * Configure application-specific monitoring points
-*  Enable detailed transaction flow analysis
+* Enable detailed transaction flow analysis
 
 For comprehensive analytics configuration, see xref:insight.adoc[Insight].
 
