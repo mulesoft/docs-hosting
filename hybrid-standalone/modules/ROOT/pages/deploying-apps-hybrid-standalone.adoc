@@ -96,7 +96,7 @@ Provide a unique application name that identifies your deployment across environ
 * Application names can't be changed after deployment
 
 [IMPORTANT]
-Choose meaningful application names that reflect functionality or environment (e.g., `customer-api-prod`, `inventory-sync-dev`) for easier identification in operational dashboards.
+Choose meaningful application names that reflect functionality or environment for easier identification in operational dashboards. For example, `customer-api-prod` or `inventory-sync-dev`.
 
 * Deployment Target Selection
 
