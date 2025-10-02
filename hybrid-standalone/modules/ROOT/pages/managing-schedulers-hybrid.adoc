@@ -67,7 +67,7 @@ Go to the scheduler management interface for your deployed application:
 
 . In Runtime Manager, click *Applications* in the navigation pane.
 . Select your deployed application from the applications list.
-. Click the *Schedulers* tab to access scheduler management controls
+. Click the *Schedulers* tab to access scheduler management controls.
 
 .The screenshot shows (*1*) the *Schedulers* option and (*2*) the checkbox on the *Schedulers* page.
 image::hybrid-scheduler-rtm.png[Schedulers option and checkbox on the Schedulers page]
