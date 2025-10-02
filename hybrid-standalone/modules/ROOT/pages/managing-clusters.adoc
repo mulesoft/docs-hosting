@@ -41,7 +41,7 @@ You can remove a server from a cluster without changing the server or cluster.
 Remove servers from a cluster to reduce processing capacity, perform maintenance, or reallocate servers to other deployment configurations.
 
 [IMPORTANT]
-When you remove a server from a unicast cluster, all existing servers in the cluster are restarted.
+When you remove a server from a unicast cluster, all existing servers in the cluster restart.
 
 To remove a server from a cluster:
 
