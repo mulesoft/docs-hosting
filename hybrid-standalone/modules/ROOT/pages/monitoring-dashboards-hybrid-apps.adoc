@@ -4,7 +4,7 @@ Monitor your Mule applications deployed to hybrid standalone instances through c
 
 == Overview
 
-Runtime Manager provides comprehensive application monitoring dashboards for your Mule applications deployed to hybrid standalone environments, enabling you to:
+Runtime Manager provides comprehensive application monitoring dashboards for your Mule applications deployed to hybrid standalone environments, so you can:
 
 * Monitor real-time application performance metrics and transaction flow
 * Analyze business transaction patterns and message processing rates
