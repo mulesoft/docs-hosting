@@ -111,7 +111,7 @@ Adjust fixed-frequency scheduler settings for regular interval execution:
 . Select a single fixed-frequency scheduler checkbox
 . Update schedule configuration in the details pane:
    * **Frequency**: Set the execution interval (seconds, minutes, hours)
-   * **Frequency Units**: Choose the time unit for the frequency value
+   * **Frequency Units**: Select the time unit for the frequency value.
    * **Start Delay**: Configure initial delay before first execution
 
 .The arrow shows the fixed-frequency schedule configuration in the details pane.
