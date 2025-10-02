@@ -35,7 +35,7 @@ To remove a server from a group:
 . From Anypoint Platform, select *Runtime Manager*.
 . Select *Servers*.
 . Click *Group* in the *Type* column to display the details pane.
-. Click the *X* icon to the next to the server to remove the server from the server group:
+. Click the *X* icon next to the server to remove the server:
 +
 .The arrow shows the *X* icon in the details pane.
 image::rtm-remove-server-from-group.png["X icon"]
