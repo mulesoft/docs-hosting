@@ -22,7 +22,7 @@ Runtime Manager identifies each Scheduler component using the naming convention 
 
 [IMPORTANT]
 ====
-Timezone configuration for cron schedulers is available only for hybrid standalone deployments. CloudHub and Government Cloud deployments do not support custom timezone settings.
+Timezone configuration for cron schedulers is available only for hybrid standalone deployments. CloudHub and Government Cloud deployments don't support custom timezone settings.
 ====
 
 == Use Cases
