@@ -122,7 +122,7 @@ Application metrics are aggregated differently based on the selected time range 
 Data Visualization Patterns: +
 
 * Multi-Worker Applications +
-When applications run on multiple workers, each worker appears as a separate curve on graphs, differentiated by color coding
+When applications run on multiple workers, each worker appears as a separate curve on graphs, differentiated by color coding.
 * Shared Infrastructure +
 Applications deployed to server groups or clusters display aggregated performance metrics as unified trend lines
 * Performance Correlation +
