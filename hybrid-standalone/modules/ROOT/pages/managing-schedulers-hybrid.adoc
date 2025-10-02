@@ -30,7 +30,7 @@ Timezone configuration for cron schedulers is available only for hybrid standalo
 Schedule management is useful in these contexts:
 
 * You want to change the schedulers in your application at runtime without redeploying.
-* You want to disable a scheduled job while one of the applications you are connecting to is undergoing maintenance.
+* You want to disable a scheduled job while one of the applications you're connecting to is undergoing maintenance.
 * You want runtime visibility into the schedulers in your application.
 
 
