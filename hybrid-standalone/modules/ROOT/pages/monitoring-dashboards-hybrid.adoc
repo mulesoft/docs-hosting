@@ -32,7 +32,6 @@ Aggregated performance metrics for servers organized in groups or clusters with 
 
 Monitor individual server performance through comprehensive dashboards that provide real-time visibility into system resources, JVM metrics, and operational health indicators.
 
-=== Overview
 
 The server monitoring dashboard provides detailed insights into your hybrid standalone server performance, including:
 
