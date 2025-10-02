@@ -7,7 +7,7 @@ Deploy your Mule applications to hybrid standalone instances for on-premises exe
 Key deployment capabilities include:
 
 * Multi-target deployment: servers, server groups, and clusters
-* Application source flexibility: Exchange, local files, and environment promotion
+* Application source flexibility: Anypoint Exchange, local files, and environment promotion
 * Configuration management: properties, logging, and monitoring settings
 * Real-time deployment tracking and status monitoring
 * Post-deployment management and update capabilities
