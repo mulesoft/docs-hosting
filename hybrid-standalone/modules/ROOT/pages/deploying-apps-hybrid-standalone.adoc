@@ -233,11 +233,11 @@ Modify application properties and settings without changing the application arti
 
 Use these steps to troubleshoot deployment errors:
 
-. Review status indicator and error messages in the Applications dashboard
-. Access detailed error information through the application's log view
-. Confirm all deployment prerequisites are met (runtime version, connectivity, permissions)
-. Validate application properties and external system connectivity
-. Correct identified issues and redeploy the application
+. Review status indicator and error messages in the Applications dashboard.
+. Access detailed error information through the application's log view.
+. Confirm all deployment prerequisites are met (runtime version, connectivity, permissions).
+. Validate application properties and external system connectivity.
+. Correct identified issues and redeploy the application.
 
 == See Also
 
