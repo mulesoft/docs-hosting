@@ -99,7 +99,7 @@ Modify cron-based scheduler settings for complex scheduling patterns:
 . Update schedule configuration in the details pane:
    * **Cron Expression**: Define minute, hour, day, month, and day-of-week patterns
    * **Timezone**: Configure timezone for execution (hybrid standalone only)
-   * **Start Time**: Specify when the scheduler should begin execution
+   * **Start Time**: Set the execution start time.
 
 .The arrow shows the cron schedule configuration in the details pane.
 image::hybrid-scheduler-cron.png[Schedule configuration in the details pane]
