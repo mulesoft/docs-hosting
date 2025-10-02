@@ -52,7 +52,7 @@ Manage scheduler configurations and runtime behavior through Runtime Manager's S
 
 === Prerequisites
 
-Before managing schedulers, ensure your application deployment meets these requirements:
+Before managing schedulers, make sure that your application deployment meets these requirements:
 
 * Application contains one or more Scheduler components defined in Mule flows
 * Application is successfully deployed to hybrid standalone instances (servers, server groups, or clusters)
