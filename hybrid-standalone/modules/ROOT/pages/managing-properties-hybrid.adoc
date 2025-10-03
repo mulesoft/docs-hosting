@@ -57,7 +57,7 @@ Navigate to the property management interface for your deployed application:
 . From Anypoint Platform, select *Runtime Manager*.
 . Click the *Applications* tab.
 . Click the *Status* column to display the details pane.
-. Click *Manage Application*
+. Click *Manage Application*.
 . On the *Settings* page, click the *Properties* tab.
 
 .The screenshot shows (*1*) the *Properties* tab, (*2*) the *Key* and *Value* fields, and (*3*) the *...* menu on the application *Settings* page.
@@ -67,23 +67,23 @@ image::rtm-manage-props.png["*Properties* tab, *Key* and *Value* fields, and *..
 
 **Create New Properties**
 
-. Enter the property name in the *Key* field
-. Enter the property value in the *Value* field  
-. Click *Save* > *Redeploy Application*
+. Enter the property name in the *Key* field.
+. Enter the property value in the *Value* field.  
+. Click *Save* > *Redeploy Application*.
 
 **Modify Existing Properties**
 
-. Locate the property in the properties list
-. Click the *...* menu for property-specific actions
-. Select *Edit* to modify the property value
-. Click *Save* > *Redeploy Application*
+. Locate the property in the properties list.  
+. Click the *...* menu for property-specific actions.
+. Select *Edit* to modify the property value.
+. Click *Save* > *Redeploy Application*.
 
 **Delete Properties**
 
-. Locate the property in the properties list
-. Click the *...* menu for the target property
-. Select *Delete* to remove the property
-. Click *Save* > *Redeploy Application*
+. Locate the property in the properties list.
+. Click the *...* menu for the target property.
+. Select *Delete* to remove the property.
+. Click *Save* > *Redeploy Application*.
 
 [IMPORTANT]
 All property changes require application redeployment to take effect. Plan property modifications during appropriate maintenance windows to minimize service disruption.

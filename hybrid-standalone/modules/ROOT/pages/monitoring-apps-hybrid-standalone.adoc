@@ -6,18 +6,16 @@ Runtime Manager provides comprehensive application monitoring capabilities for y
 
 == Creating Alerts
 
-Configure proactive monitoring through automated alerts that notify you of critical application events, performance thresholds, and integration anomalies.
-
-* xref:creating-alerts-hybrid-apps.adoc[Creating Alerts for Mule Apps Deployed to Hybrid Standalone] +
 Set up email notifications for critical application events such as deployment failures, high error rates, response time degradation, or custom business metrics to enable rapid response to integration issues.
+
+xref:creating-alerts-hybrid-apps.adoc[Creating Alerts for Mule Apps Deployed to Hybrid Standalone]
 
 
 == Monitoring Dashboards
 
-Monitor real-time and historical performance data for your Mule applications through comprehensive application dashboards.
-
-* xref:monitoring-dashboards-hybrid-apps.adoc[Monitoring Dashboards for Mule Apps Deployed to Hybrid Standalone] +
 Track key application performance indicators including message throughput, error rates, response times, and resource consumption to understand application health and identify optimization opportunities.
+
+xref:monitoring-dashboards-hybrid-apps.adoc[Monitoring Dashboards for Mule Apps Deployed to Hybrid Standalone]
 
 == See Also
 

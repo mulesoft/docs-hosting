@@ -30,9 +30,9 @@ Access comprehensive application information and management controls through the
 
 === Dashboard Access
 
-. In Runtime Manager, navigate to the *Applications* tab
-. Select any deployed application to open the application details panel
-. Review application status, deployment information, and available management actions
+. In Runtime Manager, navigate to the *Applications* tab.
+. Select any deployed application to open the application details panel.
+. Review application status, deployment information, and available management actions.
 
 image::managing-applications-on-your-own-servers-26ef4.png[]
 
@@ -108,6 +108,7 @@ The application settings interface provides access to all dashboard information 
 
 
 The *Alerts History* tab provides comprehensive visibility into application monitoring even*ts, including:
+
 * Alert trigger timestamps and conditions
 * Alert severity levels and notification status
 * Resolution tracking and acknowledgment records
@@ -143,10 +144,10 @@ All flows within deployed applications start in *Unmanaged* state by default, al
 
 **Start and Stop Flows**
 
-. Navigate to your application settings in Runtime Manager
-. Access the *Flow Monitoring* tab
-. Select one or more flows to manage
-. Use *Start* or *Stop* buttons to control flow states
+. Navigate to your application settings in Runtime Manager.
+. Access the *Flow Monitoring* tab.
+. Select one or more flows to manage.
+. Use *Start* or *Stop* buttons to control flow states.
 
 image::flow-management-983fd.png[]
 
@@ -158,6 +159,7 @@ Starting a flow activates its processing capability but does not trigger endpoin
 **Unmanaged State (Default)**
 
 Flows operate under application control, allowing custom logic within the Mule application to start and stop flows based on:
+
 * Business conditions and requirements
 * External system availability
 * Scheduled operations and maintenance windows
@@ -166,6 +168,7 @@ Flows operate under application control, allowing custom logic within the Mule a
 **Managed State (Runtime Manager Control)**
 
 When you manually start or stop a flow, Runtime Manager overrides application logic and enforces the specified state:
+
 * **Active**: Flow remains active regardless of application logic attempts to stop it
 * **Inactive**: Flow remains stopped regardless of application logic attempts to start it
 
@@ -201,10 +204,10 @@ Remove deployed applications from your hybrid standalone infrastructure through 
 
 **Delete Application Process**
 
-. Navigate to the *Applications* tab in Runtime Manager
-. Locate the application you want to remove
-. Click the status dropdown arrow next to the application
-. Select *Delete* from the available actions menu
+. Navigate to the *Applications* tab in Runtime Manager.
+. Locate the application you want to remove.
+. Click the status dropdown arrow next to the application.
+. Select *Delete* from the available actions menu.
 
 image::managing-applications-on-your-own-servers-96463.png[]
 
@@ -219,6 +222,7 @@ Runtime Manager implements automatic recovery mechanisms to maintain application
 **Manual File System Modifications**
 
 When application files are manually modified on the server filesystem while Mule runtime is running:
+
 * Affected applications are automatically undeployed from the local server
 * Applications on other servers in groups or clusters remain unaffected
 * Only Runtime Manager UI or REST API deletions permanently remove applications
@@ -226,6 +230,7 @@ When application files are manually modified on the server filesystem while Mule
 **Runtime Restart Synchronization**
 
 During Mule runtime restart, Runtime Manager performs automatic synchronization:
+
 * Detects applications missing from expected deployment targets
 * Automatically redeploys missing applications to restore desired state
 * Applies to individual servers, server groups, and clusters
@@ -234,6 +239,7 @@ During Mule runtime restart, Runtime Manager performs automatic synchronization:
 **New Server Integration**
 
 When adding servers to existing server groups or clusters:
+
 * Runtime Manager automatically deploys all group/cluster applications to new members
 * Deployment occurs regardless of other member availability
 * Ensures deployment consistency across all infrastructure components
