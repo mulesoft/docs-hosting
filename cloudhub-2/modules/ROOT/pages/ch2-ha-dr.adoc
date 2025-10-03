@@ -160,7 +160,7 @@ CloudHub 2.0 improvements over CloudHub include:
 
 * Loose coupling of the runtime plane region and control plane region due to a service-oriented architecture.
 * Clustering, which allows you to configure HA while running the process on a single primary replica.
-* Horizontal Pod Autoscaling (HPA) for warm standby optimizes usage by elastic scaling if a failover is required.
+* Usage optimization by elastic scaling with Horizontal Pod Autoscaling (HPA) for warm standby if a failover is required.
 * Active/passive applications: Configure schedulers, listening connectors, such as Anypoint MQ listener, DB listener, FTP listeners, and Salesforce listener, to be in a stopped or inactive state. 
 +
 Externalize DR flags and expose REST endpoints to enable and disable flows via Groovy script as needed.
