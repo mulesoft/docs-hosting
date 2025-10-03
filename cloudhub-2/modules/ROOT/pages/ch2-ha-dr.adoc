@@ -112,7 +112,7 @@ Medium-impact stateless APIs that tolerate brief downtime during failover or sta
 
 ==== Recovery Time Objective
 
-If the backup application is in a fully scaled state, you experience lower disruption in the event of an outage. If the backup application is in a scaled-down state, the RTO depends on the time it takes to scale the application up either through control-plane-triggered redeployments, or through xref:ch2-configure-horizontal-autoscaling.adoc[CPU-based HPA].
+If the backup application is in a fully scaled state, you experience lower disruption in the event of an outage. If the backup application is in a scaled-down state, the RTO depends on the time it takes to scale the application up either through control-plane-triggered redeployments or through xref:ch2-configure-horizontal-autoscaling.adoc[CPU-based HPA].
 
 For integrating systems to resend events or data of in-flight transactions, capture recovery points in logs and monitoring. This builds reliability in your applications.
 
