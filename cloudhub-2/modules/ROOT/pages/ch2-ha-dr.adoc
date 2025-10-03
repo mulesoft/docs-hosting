@@ -130,7 +130,7 @@ Low-impact, stateless, or stateful applications that tolerate longer downtime du
 ==== Traffic Management
 
 * Use a BYO global load balancer to route traffic only to the region that is up.
-* Perform health checks to determine DR, and scripts to start your applications in backup state and switch traffic routing.
+* Perform health checks to determine DR, and use scripts to start your applications in backup state and switch traffic routing.
 * If the control plane is unavailable, you can't start the backup application in the runtime plane.
 
 ==== Licensing
