@@ -44,7 +44,7 @@ You can host integrations in a runtime plane region that is closer to your servi
 
 For a list of available runtime plane regions based on the control plane region where your organization is provisioned, see: xref:ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records]. 
 
-The runtime plane region is the region where you deploy your CloudHub 2.0 applications and create CloudHub 2.0 Private Spaces.
+The runtime plane region is the region where you deploy your CloudHub 2.0 applications and create CloudHub 2.0 private spaces.
 
 === Regional Infrastructure
 
