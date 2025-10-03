@@ -51,7 +51,7 @@ To access the server monitoring dashboard:
 +
 The server dashboard displays with comprehensive performance metrics:
 +
-image::monitoring-dashboards-server.png[Monitoring dashboard for a server]
+image::monitoring-dashboards-server.png["Monitoring dashboard for a server"]
 
 You can also navigate to individual server dashboards from the <<Server Group or Cluster Monitoring Dashboard,server group or cluster dashboard>> by clicking individual server names.
 
@@ -68,7 +68,7 @@ Detailed JVM memory analysis with individual allocation pools and garbage collec
 
 Monitor performance across different time periods using the time range selector:
 
-image::monitoring-dashboards-cbd92.png[]
+image::monitoring-dashboards-cbd92.png["Time range selector for monitoring dashboards"]
 
 Available time ranges include:
 * *3 Hours*: Real-time monitoring with minute-level granularity
@@ -83,7 +83,7 @@ Enhance your analysis with interactive dashboard features:
 * Display numerical values and timestamps by hovering over graph points
 * When multiple applications run on the server, filter performance data by specific applications using the application checkboxes
 
-image::monitoring-dashboards-hover.png[]
+image::monitoring-dashboards-hover.png["Hover tooltip showing detailed metrics information"]
 
 The memory usage graphs on the dashboards track these values:
 
@@ -106,7 +106,7 @@ The Overview tab provides essential system health metrics for rapid assessment o
 
 Monitor JVM heap memory allocation and usage patterns to optimize application performance:
 
-image::monitoring-dashboards-heap.png[]
+image::monitoring-dashboards-heap.png["Heap Memory monitoring dashboard with usage metrics"]
 
 * Heap Memory Usage: Current heap allocation in MB
 * Total Heap Memory: Maximum heap size configured for the JVM
@@ -124,7 +124,7 @@ Use heap memory metrics to:
 
 Track processor utilization and system load to ensure optimal server performance:
 
-image::monitoring-dashboards-cpu.png[Monitoring dashboard for CPU]
+image::monitoring-dashboards-cpu.png["Monitoring dashboard for CPU"]
 
 [NOTE]
 CPU metrics are not available on Windows environments due to platform-specific monitoring constraints.
@@ -164,7 +164,7 @@ Understanding JVM memory organization is essential for effective performance mon
 Eden Space::
 Monitor the primary object allocation area for young generation garbage collection optimization:
 +
-image::monitoring-dashboards-eden.png[Monitoring dashboard for Eden Space]
+image::monitoring-dashboards-eden.png["Monitoring dashboard for Eden Space"]
 +
 Eden space metrics help you:
 * Optimize object allocation patterns
@@ -175,7 +175,7 @@ Eden space metrics help you:
 Survivor Space::
 Track intermediate object storage for garbage collection lifecycle analysis:
 +
-image::monitoring-dashboards-survivor.png[Monitoring dashboard for Survivor Space]
+image::monitoring-dashboards-survivor.png["Monitoring dashboard for Survivor Space"]
 +
 Survivor space monitoring enables:
 * Analysis of object promotion patterns to old generation
@@ -186,7 +186,7 @@ Survivor space monitoring enables:
 Old Generation::
 Monitor long-term object storage and major garbage collection patterns:
 +
-image::monitoring-dashboards-tenure.png[Monitoring dashboard for Old Generation]
+image::monitoring-dashboards-tenure.png["Monitoring dashboard for Old Generation"]
 +
 Old generation metrics provide insight into:
 * Long-lived object accumulation patterns
@@ -197,7 +197,7 @@ Old generation metrics provide insight into:
 Code Cache::
 Monitor JIT compiler performance and native code storage:
 +
-image::monitoring-dashboards-cache.png[Monitoring dashboard for Code Cache]
+image::monitoring-dashboards-cache.png["Monitoring dashboard for Code Cache"]
 +
 Code cache metrics help optimize:
 * JIT compilation effectiveness
@@ -210,7 +210,7 @@ Track compressed ordinary object pointer (OOP) storage efficiency:
 +
 This metric is available only when using JDK 8+.
 +
-image::monitoring-dashboards-class-space.png[Monitoring dashboard for Compressed Class Space]
+image::monitoring-dashboards-class-space.png["Monitoring dashboard for Compressed Class Space"]
 +
 Monitor compressed class space for:
 * Memory efficiency of compressed OOPs
@@ -223,7 +223,7 @@ Monitor class metadata storage using native memory allocation:
 +
 This metric is available only when using JDK 8+.
 +
-image::monitoring-dashboards-meta.png[Monitoring dashboard for Metaspace]
+image::monitoring-dashboards-meta.png["Monitoring dashboard for Metaspace"]
 +
 Key Considerations:
 * 256 MB metaspace allocation
@@ -248,7 +248,7 @@ Monitor JVM runtime performance and system behavior through these key performanc
 Thread Count::
 Track JVM thread usage to identify concurrency issues and optimize thread pool configuration:
 +
-image::monitoring-dashboards-threads.png[Monitoring dashboard for Thread Count]
+image::monitoring-dashboards-threads.png["Monitoring dashboard for Thread Count"]
 +
 Monitor thread count to:
 * Detect thread leaks and excessive thread creation
@@ -259,7 +259,7 @@ Monitor thread count to:
 Garbage Collection::
 Monitor garbage collection efficiency across different heap generations:
 +
-image::monitoring-dashboards-garbage.png[Monitoring dashboard for Garbage Collection]
+image::monitoring-dashboards-garbage.png["Monitoring dashboard for Garbage Collection"]
 +
 Garbage Collection Areas:
 * Young Generation: Collection frequency for short-lived objects in Eden and Survivor spaces
@@ -274,7 +274,7 @@ Use GC metrics to:
 Class Loading::
 Track dynamic class loading across all applications in the JVM:
 +
-image::monitoring-dashboards-classloading.png[Monitoring dashboard for Class Loading]
+image::monitoring-dashboards-classloading.png["Monitoring dashboard for Class Loading"]
 +
 Monitor class loading to:
 * Identify classloader memory leaks
@@ -318,7 +318,7 @@ To monitor aggregated performance metrics for your server infrastructure:
 
 Monitor performance trends across different time periods:
 
-image::monitoring-dashboards-cbd92.png[Monitoring dashboard for a server group or cluster]
+image::monitoring-dashboards-cbd92.png["Monitoring dashboard for a server group or cluster"]
 
 Choose from available time ranges:
 * **3 Hours**: Real-time infrastructure monitoring
@@ -330,7 +330,7 @@ Choose from available time ranges:
 
 Access server-specific performance data within the group context:
 
-image::monitoring-dashboards-6fe9f.png[Monitoring dashboard for a server group or cluster]
+image::monitoring-dashboards-6fe9f.png["Monitoring dashboard for a server group or cluster"]
 
 From the group dashboard, navigate to individual server dashboards by clicking server names to access detailed performance metrics and troubleshooting information.
 

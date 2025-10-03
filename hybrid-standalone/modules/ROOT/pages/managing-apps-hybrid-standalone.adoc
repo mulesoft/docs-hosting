@@ -34,7 +34,7 @@ Access comprehensive application information and management controls through the
 . Select any deployed application to open the application details panel.
 . Review application status, deployment information, and available management actions.
 
-image::managing-applications-on-your-own-servers-26ef4.png[]
+image::managing-applications-on-your-own-servers-26ef4.png["Applications dashboard showing deployed applications list"]
 
 === Dashboard Information
 
@@ -68,7 +68,7 @@ The dashboard provides access to key management functions through dedicated butt
 * Configure application properties, logging, and monitoring settings
 * Access performance dashboards and metrics analysis
 
-image::managing-applications-on-your-own-servers-b0e6f.png[]
+image::managing-applications-on-your-own-servers-b0e6f.png["Manage Application button on application details panel"]
 
 **Insight**
 
@@ -77,7 +77,7 @@ image::managing-applications-on-your-own-servers-b0e6f.png[]
 * Investigate errors and performance bottlenecks
 * Monitor business process execution and outcomes
 
-image::managing-applications-on-your-own-servers-ba927.png[]
+image::managing-applications-on-your-own-servers-ba927.png["Insight button for application analytics"]
 
 [NOTE]
 Insight features may have limited availability in Anypoint Platform Private Cloud Edition environments.
@@ -92,7 +92,7 @@ Access comprehensive application configuration and monitoring options through th
 . Choose your deployed hybrid standalone application to open the details panel.
 . Click *Manage Application* to access the full settings interface.
 
-image::managing-applications-on-your-own-servers-1fd39.png[]
+image::managing-applications-on-your-own-servers-1fd39.png["Application settings interface with configuration tabs"]
 
 === Settings Interface
 
@@ -149,7 +149,7 @@ All flows within deployed applications start in *Unmanaged* state by default, al
 . Select one or more flows to manage.
 . Use *Start* or *Stop* buttons to control flow states.
 
-image::flow-management-983fd.png[]
+image::flow-management-983fd.png["Flow Monitoring tab with Start and Stop flow controls"]
 
 [IMPORTANT]
 Starting a flow activates its processing capability but does not trigger endpoints or initiate message processing. The flow becomes available to process messages when triggered by configured sources.
@@ -176,7 +176,7 @@ When you manually start or stop a flow, Runtime Manager overrides application lo
 
 Click *Unmanage* for any flow to restore application-controlled behavior and remove Runtime Manager state enforcement.
 
-image::flow-management-unmanage.png[]
+image::flow-management-unmanage.png["Unmanage button to restore application-controlled flow behavior"]
 
 
 == Monitor Applications
@@ -209,7 +209,7 @@ Remove deployed applications from your hybrid standalone infrastructure through 
 . Click the status dropdown arrow next to the application.
 . Select *Delete* from the available actions menu.
 
-image::managing-applications-on-your-own-servers-96463.png[]
+image::managing-applications-on-your-own-servers-96463.png["Delete option in application status dropdown menu"]
 
 
 [WARNING]
@@ -265,7 +265,7 @@ For comparison with other deployment targets, applications deployed to CloudHub 
 . Click the name of the cloud-deployed application.
 . Click the archive file name in the *Application File* field to download.
 
-image::download-archive-file.png[]
+image::download-archive-file.png["Application File field with downloadable archive link"]
 
 == See Also
 

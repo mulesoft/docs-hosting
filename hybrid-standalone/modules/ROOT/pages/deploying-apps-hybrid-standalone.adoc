@@ -98,7 +98,7 @@ Provide a unique application name that identifies your deployment across environ
 [IMPORTANT]
 Choose meaningful application names that reflect functionality or environment for easier identification in operational dashboards. For example, `customer-api-prod` or `inventory-sync-dev`.
 
-* Deployment Target Selection
+* *Deployment Target Selection*
 
 Select your deployment target based on application requirements:
 
@@ -149,7 +149,7 @@ Only applications deployed to hybrid standalone infrastructure can be promoted t
 Configure application settings through specialized configuration tabs before initiating deployment:
 
 .The arrow shows the configuration tabs on the *Deploy Application* page.
-image::rtm-deploy-to-own-servers.png[Configuration tabs on the Deploy Application page]
+image::rtm-deploy-to-own-servers.png["Configuration tabs on the Deploy Application page"]
 
 **Deployment Target**
 

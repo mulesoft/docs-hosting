@@ -198,7 +198,7 @@ Number of Mule messages::
 --
 The number of Mule messages since the application started reaches the specified limit.
 
-image::alerts-conditions-number-mule-messages.png[Number of Mule messages]
+image::alerts-conditions-number-mule-messages.png["Number of Mule messages"]
 
 To enable this condition, specify the number of Mule messages that triggers the alert.
 --
@@ -208,7 +208,7 @@ Response time::
 --
 The response time reaches the specified limit.
 
-image::alerts-conditions-response-time.png[Response time]
+image::alerts-conditions-response-time.png["Response time"]
 
 To enable this condition, specify the maximum response time that triggers the alert.
 --
@@ -283,7 +283,7 @@ Access all application alerts from the main alerts dashboard:
 . In Runtime Manager, click *Alerts*:
 +
 .The arrow shows the *Alerts* menu.
-image::alerts-view-all-alerts-tab.png[Alerts menu]
+image::alerts-view-all-alerts-tab.png["Alerts menu"]
 
 From the alerts dashboard, you can:
 
@@ -294,7 +294,7 @@ From the alerts dashboard, you can:
 * View alert status, settings, and trigger history in the details pane:
 +
 .The arrow shows the alert history in the details pane.
-image::alerts-history.png[Alert history in the details pane]
+image::alerts-history.png["Alert history in the details pane"]
 
 === Application-Specific Alert Views
 
@@ -304,7 +304,7 @@ View alerts associated with specific applications:
 . Click the *View Associated Alerts* link in the details pane:
 +
 .The arrow shows the *View Associated Alerts* link in the details pane.
-image::alerts-view-details-pane.png[View Associated Alerts link in the details pane]
+image::alerts-view-details-pane.png["View Associated Alerts link in the details pane"]
 
 === Alert History by Application
 
@@ -315,7 +315,7 @@ Review historical alert activity for specific applications:
 . Click *Alerts History* :
 +
 .The arrow shows the *Alerts History* tab on the *Settings* page.
-image::alerts-settings-alerts-history-tab.png[Alerts History tab on the Settings page]
+image::alerts-settings-alerts-history-tab.png["Alerts History tab on the Settings page"]
 
 
 
@@ -337,14 +337,14 @@ Control alert notification delivery for application monitoring:
 * *Disable alerts*: Click the toggle switch to turn off notifications:
 +
 .The arrow shows the alert switch on.
-image::alerts-switch-on.png[Alert switch on]
+image::alerts-switch-on.png["Alert switch on"]
 +
 The *Active* column changes from *Yes* to *No*.
 
 * *Enable alerts*: Click the toggle switch to turn on notifications:
 +
 .The arrow shows the alert switch off.
-image::alerts-switch-off.png[Alert switch off]
+image::alerts-switch-off.png["Alert switch off"]
 +
 The *Active* column changes from *No* to *Yes*.
 
@@ -359,7 +359,7 @@ Create copies of existing alert configurations for similar applications:
 . Click the *Duplicate* icon in the details pane:
 +
 .The arrow shows the *Duplicate* alert icon.
-image::alerts-duplicate.png[Duplicate alert icon]
+image::alerts-duplicate.png["Duplicate alert icon"]
 
 Runtime Manager creates alert copies with `-copy` appended to the original alert names.
 
@@ -371,7 +371,7 @@ Remove unnecessary alert configurations:
 . Click the *Delete* (trash can) icon in the details pane:
 +
 .The arrow shows the *Delete* alert (trash can) icon.
-image::alerts-delete.png[Delete (trash can) icon]
+image::alerts-delete.png["Delete (trash can) icon"]
 . Click *OK*.
 
 == See Also

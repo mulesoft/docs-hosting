@@ -38,11 +38,11 @@ image::alerts-no-alerts.png["Alerts page with no alerts set up"]
 ** For existing alert configurations, use the add button:
 +
 .The arrow shows the blue plus (*+*) icon on the *Alerts* page.
-image::alerts-create-additional-alert.png[Alerts page with blue plus (+) icon]
+image::alerts-create-additional-alert.png["Alerts page with blue plus (+) icon"]
 
 . Click the blue plus (*+*) icon to create a new alert.
 +
-image::alerts-create-alert.png[Create an Alert page]
+image::alerts-create-alert.png["Create an Alert page"]
 
 . Complete the required fields:
 
@@ -95,7 +95,7 @@ You can select up to 20 platform user IDs and enter up to 20 email addresses.
 
 When an alert condition is triggered, Runtime Manager sends email notifications similar to this:
 
-image::alerts-alert-email.png[Anypoint Platform Alert Notification email]
+image::alerts-alert-email.png["Anypoint Platform Alert Notification email"]
 
 
 == Alert Conditions
@@ -145,7 +145,7 @@ Server Thread Count::
 --
 Monitor JVM thread utilization. Triggers when the thread count exceeds the specified level for the configured duration.
 
-image::alerts-conditions-servers-thread-count.png[Server thread count alert condition]
+image::alerts-conditions-servers-thread-count.png["Server thread count alert condition"]
 
 *Configuration:* Set the thread count threshold and monitoring duration.
 --
@@ -266,7 +266,7 @@ Access all infrastructure alerts from the main alerts dashboard:
 . Click *Alerts* in the Runtime Manager navigation pane:
 +
 .The arrow shows the *Alerts* menu.
-image::alerts-view-all-alerts-tab.png[Alerts menu]
+image::alerts-view-all-alerts-tab.png["Alerts menu"]
 
 From the alerts dashboard, you can:
 
@@ -277,7 +277,7 @@ From the alerts dashboard, you can:
 * View alert status, settings, and trigger history in the details pane:
 +
 .The arrow shows the alert history in the details pane.
-image::alerts-history.png[Alert history in the details pane]
+image::alerts-history.png["Alert history in the details pane"]
 
 === Servers, Server Groups, and Clusters Alert Views
 
@@ -287,7 +287,7 @@ View alerts associated with specific servers, server groups, or clusters:
 . Click the *View Associated Alerts* link in the details pane:
 +
 .The arrow shows the *View Associated Alerts* link in the details pane.
-image::alerts-view-details-pane.png[View Associated Alerts link in the details pane]
+image::alerts-view-details-pane.png["View Associated Alerts link in the details pane"]
 
 === Alert History by Servers, Server Groups, and Clusters
 
@@ -298,7 +298,7 @@ Review historical alert activity for specific servers, server groups, or cluster
 . Click the *Alerts History* tab:
 +
 .The arrow shows the *Alerts History* tab on the *Settings* page.
-image::alerts-settings-alerts-history-tab.png[Alerts History tab on the Settings page]
+image::alerts-settings-alerts-history-tab.png["Alerts History tab on the Settings page"]
 
 
 
@@ -320,14 +320,14 @@ Control alert notification delivery for infrastructure monitoring:
 * *Disable alerts*: Click the toggle switch to turn off notifications:
 +
 .The arrow shows the alert switch on.
-image::alerts-switch-on.png[Alert switch on]
+image::alerts-switch-on.png["Alert switch on"]
 +
 The *Active* column changes from *Yes* to *No*.
 
 * *Enable alerts*: Click the toggle switch to turn on notifications:
 +
 .The arrow shows the alert switch off.
-image::alerts-switch-off.png[Alert switch off]
+image::alerts-switch-off.png["Alert switch off"]
 +
 The *Active* column changes from *No* to *Yes*.
 
@@ -342,7 +342,7 @@ Create copies of existing alert configurations for similar infrastructure compon
 . Click the *Duplicate* icon in the details pane:
 +
 .The arrow shows the *Duplicate* alert icon.
-image::alerts-duplicate.png[Duplicate alert icon]
+image::alerts-duplicate.png["Duplicate alert icon"]
 
 Runtime Manager creates alert copies with `-copy` appended to the original alert names.
 
@@ -354,7 +354,7 @@ Remove unnecessary alert configurations:
 . Click the *Delete* (trash can) icon in the details pane:
 +
 .The arrow shows the *Delete* alert (trash can) icon.
-image::alerts-delete.png[Delete (trash can) icon]
+image::alerts-delete.png["Delete (trash can) icon"]
 . Click *OK*.
 
 == See Also

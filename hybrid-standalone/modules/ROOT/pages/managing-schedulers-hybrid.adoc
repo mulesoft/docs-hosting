@@ -59,7 +59,7 @@ Before managing schedulers, make sure that your application deployment meets the
 * Your user account has appropriate application management permissions in Runtime Manager
 
 .The arrow shows the *Scheduler* component in the Anypoint Studio canvas.
-image::hybrid-scheduler-studio.png[Scheduler component in the Anypoint Studio canvas]
+image::hybrid-scheduler-studio.png["Scheduler component in the Anypoint Studio canvas"]
 
 === Access Scheduler Management
 
@@ -70,7 +70,7 @@ Go to the scheduler management interface for your deployed application:
 . Click the *Schedulers* tab to access scheduler management controls.
 
 .The screenshot shows (*1*) the *Schedulers* option and (*2*) the checkbox on the *Schedulers* page.
-image::hybrid-scheduler-rtm.png[Schedulers option and checkbox on the Schedulers page]
+image::hybrid-scheduler-rtm.png["Schedulers option and checkbox on the Schedulers page"]
 
 **Scheduler Display Information**
 
@@ -79,7 +79,7 @@ image::hybrid-scheduler-rtm.png[Schedulers option and checkbox on the Schedulers
 * **Schedule**: Lists schedulers in the order they appear in your application
 
 .The screenshot shows (*1*) the checkbox, (*2*) the *Disable* button, and (*3*) the schedule in the details pane.
-image::hybrid-scheduler-rtm-detail.png[Checkbox, Disable button, and schedule in the details pane]
+image::hybrid-scheduler-rtm-detail.png["Checkbox, Disable button, and schedule in the details pane"]
 
 === Scheduler Configuration Operations
 
@@ -102,7 +102,7 @@ Modify cron-based scheduler settings for complex scheduling patterns:
    * **Start Time**: Set the execution start time.
 
 .The arrow shows the cron schedule configuration in the details pane.
-image::hybrid-scheduler-cron.png[Schedule configuration in the details pane]
+image::hybrid-scheduler-cron.png["Schedule configuration in the details pane"]
 
 **Fixed-Frequency Scheduler Configuration**
 
@@ -115,7 +115,7 @@ Adjust fixed-frequency scheduler settings for regular interval execution:
    * **Start Delay**: Configure initial delay before first execution
 
 .The arrow shows the fixed-frequency schedule configuration in the details pane.
-image::hybrid-scheduler-fixed-frequency.png[Schedule configuration in the details pane]
+image::hybrid-scheduler-fixed-frequency.png["Schedule configuration in the details pane"]
 
 **Apply Configuration Changes**
 

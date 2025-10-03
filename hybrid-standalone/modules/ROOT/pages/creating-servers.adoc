@@ -36,7 +36,7 @@ include::partial$cluster-server.adoc[tag=ServerNameUnique]
 include::partial$cluster-server.adoc[tag=AMCsetupInfo]
 +
 .The arrow shows the `amc_setup` command in the *Add Server* window.
-image::rtm-add-server.png[amc_setup command in the Add Server window]
+image::rtm-add-server.png["amc_setup command in the Add Server window"]
 +
 . Click *Copy command* to copy the `amc_setup` command.
 +
