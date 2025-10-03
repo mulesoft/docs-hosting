@@ -177,7 +177,7 @@ Object Store v2:: This regional service runs in the same region as the applicati
 
 Implementing a Disaster Recovery (DR) strategy for applications deployed to CloudHub 2.0 requires careful consideration of several key factors.
 
-Control Plane Availability:: The CloudHub 2.0 management UI and control plane are available in the US East region of North America. It is also available in EU West and Central, Canada, and Japan. For more information, see xref:hosting::index.adoc#control-plane-and-runtime-plane-support-matrix[Control Plane and Runtime Plane Support Matrix].
+Control Plane Availability:: The CloudHub 2.0 management UI and control plane are available in the US East region of North America. It is also available in EU West and Central, Canada, and Japan. For more information, see xref:hosting-home::index.adoc#control-plane-and-runtime-plane-support-matrix[Control Plane and Runtime Plane Support Matrix].
 
 Caching:: Use caching in the object store to share the tokens among various calls. Object stores are only region-specific, and you can't transfer them to a secondary region.
 
