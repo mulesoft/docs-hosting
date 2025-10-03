@@ -64,7 +64,7 @@ To decouple your runtime plane application availability from the control plane r
 
 You can use a load balancer, either cloud-based or on-premises, for applications deployed to different regions to provide a better disaster recovery strategy.
 
-image::hadr-load-balancer.png[Diagram showing basic disaster recovery configuration]
+image::hadr-load-balancer.png["Diagram showing basic disaster recovery configuration"]
 
 === Use Case 1: Active-Active Configuration
 
