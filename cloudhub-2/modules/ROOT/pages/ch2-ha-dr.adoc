@@ -52,7 +52,7 @@ You can create your private space in a region of your choice. The us-east-1 regi
 
 === Customer Responsibility for Disaster Recovery
 
-If your organization has cross-region DR requirements for your applications, build your applications accordingly, and consider deploying them across multiple regions. You can use a load balancer, either cloud-based or on-premises, for applications deployed to different regions to switch traffic to your backup region as part of your DR strategy.
+If your organization has cross-region DR requirements for your applications, build your applications accordingly and consider deploying them across multiple regions. You can use a load balancer, either cloud-based or on-premises, for applications deployed to different regions to switch traffic to your backup region as part of your DR strategy.
 
 For more information about how to deploy for HA and DR strategies, see xref:mule-runtime::hadr-guide.adoc[High Availability and Disaster Recovery].
 
