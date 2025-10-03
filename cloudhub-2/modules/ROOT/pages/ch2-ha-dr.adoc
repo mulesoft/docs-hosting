@@ -135,7 +135,7 @@ Low-impact, stateless, or stateful applications that tolerate longer downtime du
 
 ==== Licensing
 
-Because the backup application is in a stopped state, this configuration doesn't consume additional vCores, Mule flows, Mule messages or Data throughput until the backup application starts in the event of a disaster.
+Because the backup application is in a stopped state, this configuration doesn't consume additional vCores, Mule flows, Mule messages, or Data throughput until the backup application starts in the event of a disaster.
 
 ==== Recovery Time Objective
 
