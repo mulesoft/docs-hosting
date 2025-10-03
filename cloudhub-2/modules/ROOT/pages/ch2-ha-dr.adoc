@@ -62,7 +62,7 @@ CloudHub 2.0 supports various multi-region disaster recovery strategies based on
 
 To decouple your runtime plane application availability from the control plane region, configure your primary and backup runtime plane regions to be different from the region where your Anypoint Platform control plane is located.
 
-You can use a load balancer, euther cloud-based or on-premises, for applications deployed to different regions to provide a better disaster recovery strategy.
+You can use a load balancer, either cloud-based or on-premises, for applications deployed to different regions to provide a better disaster recovery strategy.
 
 image::hadr-load-balancer.png[Diagram showing basic disaster recovery configuration]
 
