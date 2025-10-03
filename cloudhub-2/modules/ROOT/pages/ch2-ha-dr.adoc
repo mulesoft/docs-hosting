@@ -158,8 +158,8 @@ Medium-Impact Stateless and Stateful API::
 
 CloudHub 2.0 improvements over CloudHub include:
 
-* The runtime plane region and the control plane region are loosely coupled due to a service-oriented architecture.
-* Clustering allows you to configure HA while running the process on a single primary replica.
+* Loose coupling of the runtime plane region and control plane region due to a service-oriented architecture.
+* Clustering, which allows you to configure HA while running the process on a single primary replica.
 * Horizontal Pod Autoscaling (HPA) for warm standby optimizes usage by elastic scaling if a failover is required.
 * Active/passive applications: Configure schedulers, listening connectors, such as Anypoint MQ listener, DB listener, FTP listeners, and Salesforce listener, to be in a stopped or inactive state. 
 +
