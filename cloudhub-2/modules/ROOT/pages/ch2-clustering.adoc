@@ -128,7 +128,7 @@ Number of Replicas: One +
 Clustering not enabled 
 
 |
-* Application performance is not affected by message queue latency.
+* Application performance isn't affected by message queue latency.
 * You don't need to configure your application to support Anypoint MQ.
 * Application schedules are executed once on a single replica.
 * Object Stores are replicated and shared with each replica.
