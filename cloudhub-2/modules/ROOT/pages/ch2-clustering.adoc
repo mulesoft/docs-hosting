@@ -94,7 +94,7 @@ Clustering not enabled
 
 
 |
-* Application performance is not affected by message queue latency.
+* Application performance isn't affected by message queue latency.
 * No need to configure your application to support xref:mq::index.adoc[Anypoint MQ].
 * Application schedules are executed on all replicas independently.
 * Object Stores are not shared between replicas. 
