@@ -4,9 +4,9 @@ Manage your deployed Mule applications through Runtime Manager's centralized con
 
 == Overview
 
-Runtime Manager provides comprehensive application management capabilities for Mule applications deployed to hybrid standalone instances, enabling you to:
+Runtime Manager provides comprehensive application management capabilities for Mule applications deployed to hybrid standalone instances. You can:
 
-* Monitor application health and performance metrics in real-time
+* Monitor application health and performance metrics in real time
 * Control application lifecycle operations (start, stop, delete, update)
 * Manage individual flow states within deployed applications
 * Configure application properties and logging settings
@@ -15,14 +15,15 @@ Runtime Manager provides comprehensive application management capabilities for M
 
 **Application Management Scope**
 
-This documentation focuses exclusively on managing applications deployed to hybrid standalone instances (individual servers, server groups, and clusters). All management operations are performed through Runtime Manager's web console or REST APIs.
+This documentation focuses on managing applications deployed to hybrid standalone instances (individual servers, server groups, and clusters). All management operations are performed through Runtime Manager's web console or REST APIs.
 
-[IMPORTANT]
-====
-**Deployment Method Restriction**: When using Runtime Manager to manage your hybrid standalone servers, you can't manually deploy applications directly to the server filesystem. All deployments must go through Runtime Manager to maintain proper application tracking and management capabilities.
+== Before You Begin
 
-**Application Discovery**: Manually deployed applications are not auto-discovered by Runtime Manager and will not appear in the management console.
-====
+
+When using Runtime Manager to manage your hybrid standalone servers, you can't manually deploy applications directly to the server filesystem. All deployments must go through Runtime Manager to maintain proper application tracking and management capabilities.
+
+Manually deployed applications are not auto-discovered by Runtime Manager and will not appear in the management console.
+
 
 == Applications Dashboard
 
@@ -38,7 +39,7 @@ image::managing-applications-on-your-own-servers-26ef4.png["Applications dashboa
 
 === Dashboard Information
 
-The application dashboard displays deployment-specific information based on your target infrastructure:
+The application dashboard displays deployment-specific information based on your target infrastructure.
 
 **Individual Server Deployments**
 
@@ -55,11 +56,11 @@ The application dashboard displays deployment-specific information based on your
 * Collective resource consumption metrics
 
 [TIP]
-Click any server name in the deployment panel to access detailed server information and diagnostics. See xref:managing-servers.adoc[Managing Servers] for comprehensive server management guidance.
+Click any server name in the deployment panel to access detailed server information and diagnostics. For comprehensive server management guidance, refer to xref:managing-servers.adoc[Managing Servers].
 
 === Application Management Actions
 
-The dashboard provides access to key management functions through dedicated buttons:
+The dashboard provides access to key management functions through buttons:
 
 **Manage Application**
 
@@ -84,7 +85,7 @@ Insight features may have limited availability in Anypoint Platform Private Clou
 
 == Application Settings Management
 
-Access comprehensive application configuration and monitoring options through the application settings interface.
+Access comprehensive application configuration and monitoring options.
 
 === Accessing Application Settings
 
@@ -96,7 +97,7 @@ image::managing-applications-on-your-own-servers-1fd39.png["Application settings
 
 === Settings Interface
 
-The application settings interface provides access to all dashboard information plus additional management capabilities:
+The application settings interface provides access to all dashboard information plus additional management capabilities.
 
 **Configuration Tabs**
 
@@ -130,7 +131,7 @@ Runtime Manager provides flow-level control for applications deployed to hybrid 
 * Troubleshoot specific integration flows without affecting entire applications
 * Implement maintenance workflows for specific business processes
 
-**Prerequisites**
+=== Before you Begin
 
 * Applications must be deployed to hybrid standalone instances (not available for CloudHub or Runtime Fabric)
 * User account must have *Manage Applications* permission for target applications
@@ -144,6 +145,8 @@ All flows within deployed applications start in *Unmanaged* state by default, al
 
 **Start and Stop Flows**
 
+Starting a flow activates its processing capability but does not trigger endpoints or initiate message processing. The flow becomes available to process messages when triggered by configured sources.
+
 . Navigate to your application settings in Runtime Manager.
 . Access the *Flow Monitoring* tab.
 . Select one or more flows to manage.
@@ -151,8 +154,6 @@ All flows within deployed applications start in *Unmanaged* state by default, al
 
 image::flow-management-983fd.png["Flow Monitoring tab with Start and Stop flow controls"]
 
-[IMPORTANT]
-Starting a flow activates its processing capability but does not trigger endpoints or initiate message processing. The flow becomes available to process messages when triggered by configured sources.
 
 === Managed vs Unmanaged Flow States
 
@@ -174,7 +175,7 @@ When you manually start or stop a flow, Runtime Manager overrides application lo
 
 **Returning to Unmanaged State**
 
-Click *Unmanage* for any flow to restore application-controlled behavior and remove Runtime Manager state enforcement.
+Click *Unmanage* to restore application-controlled behavior and remove Runtime Manager state enforcement from a flow.
 
 image::flow-management-unmanage.png["Unmanage button to restore application-controlled flow behavior"]
 
@@ -204,6 +205,8 @@ Remove deployed applications from your hybrid standalone infrastructure through 
 
 **Delete Application Process**
 
+Application deletion is immediate and can't be undone. Ensure you have application backups or source code access before deletion.
+
 . Navigate to the *Applications* tab in Runtime Manager.
 . Locate the application you want to remove.
 . Click the status dropdown arrow next to the application.
@@ -212,8 +215,6 @@ Remove deployed applications from your hybrid standalone infrastructure through 
 image::managing-applications-on-your-own-servers-96463.png["Delete option in application status dropdown menu"]
 
 
-[WARNING]
-Application deletion is immediate and can't be undone. Ensure you have application backups or source code access before deletion.
 
 == Redeploy Deleted Applications
 
@@ -229,11 +230,11 @@ When application files are manually modified on the server filesystem while Mule
 
 **Runtime Restart Synchronization**
 
-During Mule runtime restart, Runtime Manager performs automatic synchronization:
+During Mule runtime restart, Runtime Manager performs automatic synchronization as follows.
 
 * Detects applications missing from expected deployment targets
 * Automatically redeploys missing applications to restore desired state
-* Applies to individual servers, server groups, and clusters
+* Applies configurations to individual servers, server groups, and clusters
 * Synchronization occurs only during runtime restart events
 
 **New Server Integration**
@@ -248,7 +249,7 @@ When adding servers to existing server groups or clusters:
 
 Runtime Manager doesn't support downloading the application archive (ZIP or JAR file) from the application *Settings* page for an application deployed to hybrid standalone instances.
 
-However, you can download the archive using programmatic access methods:
+However, you can download the archive using these programmatic access methods.
 
 * **Runtime Manager REST API**: Use API endpoints to retrieve application artifacts
 * **Anypoint CLI**: Download archives through command-line interface tools
@@ -258,7 +259,7 @@ For detailed CLI usage, see xref:anypoint-cli::standalone-apps.adoc#runtime-mgr-
 
 == Download CloudHub 2.0, CloudHub, and Runtime Fabric Application Archives
 
-For comparison with other deployment targets, applications deployed to CloudHub 2.0, CloudHub, and Runtime Fabric do support direct archive downloads through the Runtime Manager UI.
+Applications deployed to CloudHub 2.0, CloudHub, and Runtime Fabric support direct archive downloads through the Runtime Manager UI.
 
 . From Anypoint Platform, select *Runtime Manager*.
 . Click the *Applications* tab.

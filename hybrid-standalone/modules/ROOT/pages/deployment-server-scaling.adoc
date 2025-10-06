@@ -2,7 +2,6 @@
 
 Plan and architect your hybrid standalone infrastructure within Anypoint Platform's deployment and scaling limits to ensure optimal performance, system stability, and successful application delivery across your distributed environment.
 
-[NOTE]
 A target represents any deployment destination for Mule applications, including individual servers, server groups, or clusters. For example, a server group containing 8 servers constitutes a single target for deployment purposes.
 
 == Deployment Limits
@@ -11,9 +10,9 @@ Plan your application deployment strategy within these tested and recommended li
 
 [%header%autowidth.spread]
 |===
-| Component | Tested/Recommended Limit
+| Component | Tested Recommended Limit
 | Maximum number of deployments per environment | 1000
-| Maximum number of deployments per hybrid target (not Runtime Fabric) | 200
+| Maximum number of deployments per hybrid target  | 200
 | Maximum number of properties per application | 300
 | Maximum deployment size for CloudHub and standalone | 200 MB
 | Maximum deployment size for CloudHub 2.0 and Runtime Fabric | 350 MB
