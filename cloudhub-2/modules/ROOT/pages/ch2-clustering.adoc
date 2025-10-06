@@ -118,7 +118,7 @@ Clustering enabled
 
 |
 * The application can experience some message queue latency.
-* You need to configure your application to support Anypoint MQ before deploying.
+* Configure your application to support Anypoint MQ before deploying.
 * Application schedules are executed only once on the primary replica.
 * Application schedules can be missed during the lead election.
 * If one data center experiences an outage, your replicas are automatically distributed to ensure redundancy.
