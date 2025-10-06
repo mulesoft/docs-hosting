@@ -8,6 +8,10 @@ To enable Runtime Manager agent connectivity in your customer-hosted Mule runtim
 
 These sections provide the specific network configuration details required for each communication protocol and regional deployment.
 
+All connectivity requirements are for outbound connections from your network to Anypoint Platform. No inbound connectivity to your network or servers is required.
+
+Runtime Manager agent establishes persistent WebSocket connections that remain active for ongoing communication with Anypoint Platform services.
+
 
 == Mutual TLS Authentication Endpoints
 
@@ -21,28 +25,20 @@ These endpoints require SSL passthrough configuration to allow mutual TLS certif
 * us1.ingest.mulesoft.com 
 * eu1.ingest.mulesoft.com 
 
-Configure your firewall or proxy to allow SSL passthrough for these endpoints rather than SSL termination, as the agent requires direct certificate authentication with Anypoint Platform.
+Configure your firewall or proxy to allow SSL passthrough for these endpoints to ensure that the Runtime Manager agent has direct certificate authentication with Anypoint Platform. 
 
 == WebSocket Endpoints
 
-These endpoints use WebSocket connections for real-time communication between the agent and Runtime Manager:
+These endpoints use WebSocket connections for real-time communication between the agent and Runtime Manager. Ensure your firewall supports WebSocket protocol upgrades and persistent connections for these endpoints.
 
 * runtime-manager.anypoint.mulesoft.com
 * runtime-manager.eu1.anypoint.mulesoft.com
 * runtime-manager.gov.anypoint.mulesoft.com
 
-Ensure your firewall supports WebSocket protocol upgrades and persistent connections for these endpoints.
-
-[NOTE]
-====
-All connectivity requirements are for outbound connections from your network to Anypoint Platform. No inbound connectivity to your network or servers is required.
-
-Runtime Manager agent establishes persistent WebSocket connections that remain active for ongoing communication with Anypoint Platform services.
-====
 
 == Required Ports and Hostnames
 
-Configure your firewall to allow outbound connections to these specific ports and hostnames based on your Anypoint Platform region.
+Configure your firewall to allow outbound connections to these ports and hostnames based on your Anypoint Platform region.
 
 [%header,cols="10a,50a,10a"]
 |===
@@ -129,7 +125,7 @@ Configure your Layer 7 firewall rules to include these hostnames:
 
 === Agent-Specific Allowlist
 
-Configure these specific URLs for Runtime Manager agent connectivity based on your agent version.
+Configure these URLs for Runtime Manager agent connectivity based on your agent version.
 
 **Agent Version Requirements**
 
