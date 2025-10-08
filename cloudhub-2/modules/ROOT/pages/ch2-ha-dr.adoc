@@ -177,7 +177,7 @@ Object Store v2:: This regional service runs in the same region as the applicati
 
 Implementing a Disaster Recovery (DR) strategy for applications deployed to CloudHub 2.0 requires careful consideration of several key factors.
 
-Control Plane Availability:: The CloudHub 2.0 management UI and control plane are available in the US East region of North America. It is also available in EU West and Central, Canada, and Japan. For more information, see xref:hosting-home::index.adoc#control-plane-and-runtime-plane-support-matrix[Control Plane and Runtime Plane Support Matrix].
+Control Plane Availability:: The CloudHub 2.0 management UI and control plane are available in the US East region of North America. They're also available in EU, Canada, and Japan. For more information, see xref:hosting-home::index.adoc#control-plane-and-runtime-plane-support-matrix[Control Plane and Runtime Plane Support Matrix].
 
 Caching:: Use caching in the object store to share the tokens among various calls. Object stores are only region-specific, and you can't transfer them to a secondary region.
 
@@ -191,11 +191,11 @@ Listeners and Watermarks:: For listeners like DB Table Row and Salesforce Events
 
 Some control plane regions have limitations for multiregion DR.
 
-Control Plane to Runtime Plane Ratio:: Unlike the US (1:12) and EU (1:2) regions, Canada, Japan, and India have a 1:1 control plane region to runtime plane region ratio.
+Control Plane to Runtime Plane Ratio:: Unlike the US (1:12) and EU (1:2) regions, Canada and Japan have a 1:1 control plane region to runtime plane region ratio.
 
 == Cross-Region Disaster Recovery Limitations
 
-* Cross-region runtime plane DR isn't possible in Canada, Japan, and India.
+* Cross-region runtime plane DR isn't possible in Canada and Japan.
 
 == Disaster Recovery for the Anypoint Platform Control Plane
 
