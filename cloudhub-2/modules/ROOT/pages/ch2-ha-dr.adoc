@@ -195,7 +195,7 @@ Control Plane to Runtime Plane Ratio:: Unlike the US (1:12) and EU (1:2) regions
 
 == Cross-Region Disaster Recovery Limitations
 
-* Cross-region runtime plane DR isn't possible in Canada, and Japan.
+* Cross-region runtime plane DR isn't possible in Canada and Japan.
 
 == Disaster Recovery for the Anypoint Platform Control Plane
 
