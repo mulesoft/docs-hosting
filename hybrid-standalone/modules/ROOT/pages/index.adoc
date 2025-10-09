@@ -50,36 +50,7 @@ Hybrid Standalone is ideal for:
 * Legacy system integration and modernization efforts that enable gradual migration to cloud-based services while maintaining existing network configurations.
 * Custom performance optimization scenarios that provide full control over infrastructure, network security policies, and direct system access.
 
-== Infrastructure Requirements
 
-=== Server Requirements
-
-Minimum server specifications:
-
-* **CPU**: 2+ cores recommended
-* **Memory**: 4GB RAM minimum, 8GB+ recommended
-* **Storage**: 10GB available disk space
-* **Network**: Reliable internet connectivity
-* **OS**: Supported operating systems (Linux, Windows)
-
-=== Network Requirements
-
-Network configuration needs:
-
-* Outbound HTTPS connectivity to Anypoint Platform
-* Firewall configuration for Runtime Manager agent
-* Optional VPN for secure communication
-* Load balancer configuration (for clustered deployments)
-
-=== Security Considerations
-
-Important security aspects:
-
-* SSL/TLS encryption for all communications
-* Certificate management and rotation
-* Access control and authentication
-* Network segmentation and firewall rules
-* Audit logging and monitoring
 
 == See Also
 

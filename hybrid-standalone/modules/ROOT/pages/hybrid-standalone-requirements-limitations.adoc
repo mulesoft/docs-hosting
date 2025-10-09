@@ -1,0 +1,63 @@
+= Requirements and Limitations for Hybrid Standalone Instances
+
+Plan and configure your hybrid standalone infrastructure by understanding the licensing requirements, infrastructure specifications, and operational limitations that govern hybrid standalone deployments.
+
+== MuleSoft License Compliance
+
+You are responsible for ensuring that you remain compliant with your MuleSoft licensing. To remain compliant, ensure one of the following:
+
+. The sum of CPU Limits allocated to each Mule application replica is less than or equal to the total license quantity.
+
+. The total CPU capacity provided by Runtime Fabric worker nodes running Mule applications is less than or equal to the licensed quantity.
+
+
+== Requirements
+
+Ensure your infrastructure meets the minimum specifications and configuration requirements for successful hybrid standalone deployment and operation.
+
+=== Server Requirements
+
+Minimum server specifications:
+
+* **CPU**: 2+ cores recommended
+* **Memory**: 4GB RAM minimum, 8GB+ recommended
+* **Storage**: 10GB available disk space
+* **Network**: Reliable internet connectivity
+* **OS**: Supported operating systems (Linux, Windows)
+
+=== Network Requirements
+
+Network configuration needs:
+
+* Outbound HTTPS connectivity to Anypoint Platform
+* Firewall configuration for Runtime Manager agent
+* Optional VPN for secure communication
+* Load balancer configuration (for clustered deployments)
+
+=== Security Considerations
+
+Important security aspects:
+
+* SSL/TLS encryption for all communications
+* Certificate management and rotation
+* Access control and authentication
+* Network segmentation and firewall rules
+* Audit logging and monitoring
+
+== Limitations
+
+Be aware of the constraints and limitations that affect hybrid standalone deployments to plan your infrastructure accordingly.
+
+=== Infrastructure Scaling Limits
+
+Hybrid standalone deployments are subject to specific infrastructure limits that affect server capacity, server group size, and cluster configuration. These limits ensure optimal performance and system stability across your distributed environment.
+
+For detailed information, refer to xref:deployment-server-scaling.adoc#infrastructure-limits[Infrastructure Limits].
+
+=== Network Configuration Requirements
+
+Proper network configuration is essential for Runtime Manager agent connectivity and secure communication with Anypoint Platform services. Network allowlists, firewall rules, and port configurations must be properly configured to ensure reliable hybrid standalone operations.
+
+For comprehensive network configuration guidance, refer to xref:configure-ports-ips.adoc[Adding Ports, IPs, and Hostnames for Runtime Manager Agent].
+
+
