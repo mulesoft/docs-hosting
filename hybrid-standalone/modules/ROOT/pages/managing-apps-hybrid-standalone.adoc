@@ -14,11 +14,11 @@ Runtime Manager provides comprehensive application management capabilities for M
 * Perform application updates and version management
 
 [NOTE]
-This doc covers deployments on hybrid standalone instances that are deployed both through the cloud based or the Private Cloud Edition of Anypoint Platform. Some of the features described in this page are not yet available on the Anypoint Platform Private Cloud Edition. If you’re interested in requesting the Anypoint Platform Private Cloud Edition, contact your sales representative.
+This page covers deployments on hybrid standalone instances that are deployed both through the cloud based or the Private Cloud Edition of Anypoint Platform. Some of the features described in this page are not yet available on the Anypoint Platform Private Cloud Edition. If you’re interested in requesting the Anypoint Platform Private Cloud Edition, contact your sales representative.
 
 [NOTE]
-MuleSoft does not support manually deploying apps if you are managing your hybrid standalone servers with Runtime Manager.
-If you manually deploy applications on your on-premises servers, you can't see or manage them in Runtime Manager because the applications are not auto-discovered.
+MuleSoft doesn't support manually deploying apps if you are managing your hybrid standalone servers with Runtime Manager.
+If you manually deploy applications on your hyrbid standalone servers, you can't see or manage them in Runtime Manager because the applications are not auto-discovered.
 
 == Applications Dashboard
 
