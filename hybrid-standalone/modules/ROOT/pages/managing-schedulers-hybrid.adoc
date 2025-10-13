@@ -1,4 +1,5 @@
 = Managing Schedulers
+:page-aliases: runtime-manager::hybrid-schedule-mgmt.adoc
 
 Manage Scheduler components within your deployed Mule applications through Runtime Manager's centralized controls to dynamically adjust scheduled jobs, automated processes, and time-based integrations without requiring application redeployment.
 

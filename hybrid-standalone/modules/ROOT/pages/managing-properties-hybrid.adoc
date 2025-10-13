@@ -1,4 +1,5 @@
 = Managing Properties
+:page-aliases: runtime-manager::hybrid-manage-props.adoc
 
 Manage application properties for your Mule applications deployed to hybrid standalone instances through centralized configuration management, enabling dynamic property updates, environment-specific settings, and secure property handling across your infrastructure.
 

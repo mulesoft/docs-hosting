@@ -1,4 +1,5 @@
 = Managing Servers
+:page-aliases: runtime-manager::servers-settings.adoc, runtime-manager::servers-actions.adoc, runtime-manager::servers-properties-view.adoc, runtime-manager::servers-properties-create.adoc runtime-manager::servers-cert-renewal.adoc
 
 Manage individual servers in your hybrid standalone environment through Runtime Manager's centralized administration interface. Server management includes accessing configuration settings, controlling server lifecycle operations, managing custom and discovered properties, and maintaining security certificates to ensure optimal performance and secure communication.
 

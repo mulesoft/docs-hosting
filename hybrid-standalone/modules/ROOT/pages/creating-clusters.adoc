@@ -1,4 +1,5 @@
 = Creating Clusters
+:page-aliases: runtime-manager::cluster-about.adoc, runtime-manager::cluster-create.adoc
 
 Creating clusters enables high availability and load distribution across multiple Mule runtime instances in your hybrid standalone environment.
 

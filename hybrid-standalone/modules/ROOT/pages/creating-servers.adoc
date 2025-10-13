@@ -1,4 +1,5 @@
 = Creating Servers
+:page-aliases: runtime-manager::servers-about.adoc, runtime-manager::servers-create.adoc
 
 Create and manage individual Mule runtime engine instances (servers) through Anypoint Runtime Manager to deploy and monitor your applications in hybrid standalone environments. Manage servers either individually or in server groups or clusters.
 
