@@ -48,7 +48,7 @@ The runtime plane region is the region where you deploy your CloudHub 2.0 applic
 
 === Regional Infrastructure
 
-You can create your private space in a region of your choice. The us-east-1 region, for instance, has more than five availability zones, each with multiple data centers, redundant power sources, and internet connectivity.
+You can create your private space in a region of your choice.
 
 === Customer Responsibility for Disaster Recovery
 
@@ -60,7 +60,7 @@ For more information about how to deploy for HA and DR strategies, see xref:mule
 
 CloudHub 2.0 supports various multi-region disaster recovery strategies based on application impact and statefulness. These strategies typically involve a bring-your-own (BYO) global load balancer to manage traffic distribution and failover across regions.
 
-To decouple your runtime plane application availability from the control plane region, configure your primary and backup runtime plane regions to be different from the region where your Anypoint Platform control plane is located.
+To decouple your runtime plane application availability from the control plane region, configure your primary and backup runtime plane regions to be different from the region where your Anypoint Platform control plane is located. This is applicable to EU, with the control plane in eu-central-1, and US, with the control plane in us-east-1.
 
 You can use a load balancer, either cloud-based or on-premises, for applications deployed to different regions to provide a better disaster recovery strategy.
 
