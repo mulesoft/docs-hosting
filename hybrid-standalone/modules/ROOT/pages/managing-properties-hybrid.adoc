@@ -4,7 +4,7 @@ Manage application properties for your Mule applications deployed to hybrid stan
 
 == Overview
 
-Runtime Manager provides comprehensive property management capabilities for applications deployed to hybrid standalone instances, enabling you to:
+Runtime Manager offers comprehensive property management for applications deployed to hybrid standalone instances. Use Runtime Manager to:
 
 * Define and manage application properties centrally through Runtime Manager
 * Override application-bundled properties without redeployment
@@ -12,14 +12,14 @@ Runtime Manager provides comprehensive property management capabilities for appl
 * Secure sensitive configuration data through encrypted property storage
 * Manage properties across individual servers, server groups, and clusters
 
-**Property Management Approaches**
+=== Property Management Approaches
 
 * **Properties Files**: Include property placeholder YAML files in application deployment archives
 * **Runtime Manager Properties**: Override and manage properties through the Runtime Manager console
 * **System Variables**: Configure properties at deployment time using Java system environment variables
 * **External Configuration**: Use external property sources for advanced configuration management
 
-**Property Precedence**
+=== Property Precedence
 
 Properties defined in Runtime Manager take precedence over application-bundled properties, enabling environment-specific configuration without modifying application code.
 
@@ -52,7 +52,7 @@ Configure and manage application properties dynamically through Runtime Manager'
 
 === Add Application properties in Runtime Manager
 
-Navigate to the property management interface for your deployed application:
+To configure properties, open the property management interface for your deployed application:
 
 . From Anypoint Platform, select *Runtime Manager*.
 . Click the *Applications* tab.
@@ -65,20 +65,20 @@ image::rtm-manage-props.png["*Properties* tab, *Key* and *Value* fields, and *..
 
 === Property Configuration Operations
 
-**Create New Properties**
+To create properties:
 
 . Enter the property name in the *Key* field.
 . Enter the property value in the *Value* field.  
 . Click *Save* > *Redeploy Application*.
 
-**Modify Existing Properties**
+To modify existing properties:
 
 . Locate the property in the properties list.  
 . Click the *...* menu for property-specific actions.
 . Select *Edit* to modify the property value.
 . Click *Save* > *Redeploy Application*.
 
-**Delete Properties**
+To delete properties:
 
 . Locate the property in the properties list.
 . Click the *...* menu for the target property.
@@ -103,7 +103,7 @@ To do this, deploy the app using this command:
 mule -M-Dsecret.key=toSecretPassword -M-Denv=prod -M-Ddb.password=secretPassword -app myApp.zip
 ----
 +
-In this case, all the values typed into the command are stored only in memory and must be provided every time. The values are never stored in any file.
+In this case, the system stores the input values only in memory. Because these values are never saved to a file, you must provide them for every command execution.
 
 
 
