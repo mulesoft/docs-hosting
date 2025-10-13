@@ -18,6 +18,7 @@ Plan your application deployment strategy within these tested and recommended li
 | Maximum deployment size for CloudHub 2.0 and Runtime Fabric | 350 MB
 |===
 
+[[infrastructure-limits]]
 == Infrastructure Limits
 
 Design your server infrastructure within these hard limits to ensure scalable and manageable hybrid standalone deployments.
