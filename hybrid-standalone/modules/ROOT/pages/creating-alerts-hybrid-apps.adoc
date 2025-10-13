@@ -21,18 +21,18 @@ Alerts retrigger when conditions continuously exceed specified thresholds, ensur
 
 You can also create custom alerts for applications deployed to CloudHub and CloudHub 2.0.
 
-Custom alerts in CloudHub are triggered when your application sends notifications to the Runtime Manager console
+CloudHub  triggers custom alerts when your application sends notifications to the Runtime Manager console
 using Anypoint Connector for CloudHub (CloudHub Connector). See xref:custom-application-alerts.adoc[Custom Application Alerts] for information.
 
-For applications deployed to CloudHub 2.0, custom alerts indicate whether an app was successfully deployed and whether it is behaving as expected. See xref:cloudhub-2::ch2-config-app-alerts.adoc[] for more information.
+For applications deployed to CloudHub 2.0, custom alerts indicate whether an app deploys successfully and whether it's behaving as expected. See xref:cloudhub-2::ch2-config-app-alerts.adoc[] for more information.
 
 [NOTE]
 For CloudHub 2.0, Alerts apply to applications only, not servers.
 
 == Rate Limits on Alerts
 
-Anypoint Platform enforces rate limits that determine how often an alert is triggered and prevent excessive emails from being sent.
-At present, there is no defined limit to the number of Runtime Manager alerts.
+Anypoint Platform enforces rate limits to control alert frequency and prevent excessive email notifications.
+There's no defined limit to the number of Runtime Manager alerts.
 
 == Create an Alert
 
@@ -70,7 +70,7 @@ The source of the alert: applications
 +
 * *Application type*
 +
-When the source is *Applications*, applications deployed to either CloudHub or local servers. Runtime Fabric application alerts are supported only using Anypoint Monitoring.
+When the source is *Applications*, applications deploy to either CloudHub or local servers. Runtime Fabric application alerts are supported only using Anypoint Monitoring.
 +
 You can't create an alert that applies to both applications deployed to CloudHub and local servers.
 You must create separate alerts for each deployment type.
