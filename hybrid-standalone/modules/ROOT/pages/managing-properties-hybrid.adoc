@@ -27,14 +27,14 @@ Properties defined in Runtime Manager take precedence over application-bundled p
 
 Runtime Manager implements comprehensive security measures for property management:
 
-* **Transmission Security**: All property values are encrypted over HTTPS during transmission between Runtime Manager and Mule runtime
-* **Storage Security**: Properties are encrypted when stored in the Runtime Manager internal database
-* **Access Control**: Property values are displayed only through the Runtime Manager Settings page with appropriate permissions
-* **Audit Trail**: Property modifications are tracked for compliance and security auditing
+* Transmission Security: All property values are encrypted over HTTPS during transmission between Runtime Manager and Mule runtime.
+* Storage Security: Properties are encrypted when stored in the Runtime Manager internal database.
+* Access Control: Property values are displayed only through the Runtime Manager Settings page with appropriate permissions.
+* Audit Trail: Property modifications are tracked for compliance and security auditing.
 
 [IMPORTANT]
 ====
-**Restart Requirement**: Modifying properties after application deployment requires restarting the application and any associated server groups or clusters to apply changes.
+Modifying properties after application deployment requires restarting the application and any associated server groups or clusters to apply changes.
 ====
 
 
@@ -47,7 +47,7 @@ Mule runtime engine loads file-based properties during application initializatio
 
 == Manage Properties Through Runtime Manager
 
-Configure and manage application properties dynamically through Runtime Manager's centralized property management interface, enabling environment-specific configuration without application code changes.
+Runtime Manager provides a centralized interface to configure and manage application properties. This capability supports environment-specific configuration without requiring application code changes.
 
 
 === Add Application properties in Runtime Manager
