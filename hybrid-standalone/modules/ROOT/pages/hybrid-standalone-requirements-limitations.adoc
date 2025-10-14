@@ -8,22 +8,55 @@ You are responsible for ensuring that you remain compliant with your MuleSoft li
 
 . The sum of CPU Limits allocated to each Mule application replica is less than or equal to the total license quantity.
 
-. The total CPU capacity provided by Runtime Fabric worker nodes running Mule applications is less than or equal to the licensed quantity.
+. Use your license within purchased core (CPU power).
 
 
 == Requirements
 
 Ensure your infrastructure meets the minimum specifications and configuration requirements for successful hybrid standalone deployment and operation.
 
-=== Server Requirements
+=== Hardware Requirements
 
-Minimum server specifications:
+Minimum hardware specifications for Mule runtime engine on hybrid standalone instances:
 
-* **CPU**: 2+ cores recommended
-* **Memory**: 4GB RAM minimum, 8GB+ recommended
-* **Storage**: 10GB available disk space
-* **Network**: Reliable internet connectivity
-* **OS**: Supported operating systems (Linux, Windows)
+* 2 GHz CPU or 1 virtual CPU in virtualized environments, 2+ cores recommended for production workloads.
+* 1 GB RAM minimum (Mule runtime), 4GB RAM minimum recommended for hybrid deployments, 8GB+ recommended for production environments.
+* 4 GB minimum (Mule runtime), 10GB+ available disk space recommended for applications and logs.
+* x86 and x64 architectures supported.
+* Reliable internet connectivity for Anypoint Platform communication.
+
+[NOTE]
+Adjust RAM allocation to match your latency requirements and the size and number of simultaneous messages that applications process.
+
+=== Software Requirements
+
+Verify that you use a supported version of Java before installing Mule runtime engine:
+
+[%header,cols="20a,80a"]
+|===
+|Software |Version
+| JDK | JDK 17
+|===
+
+[NOTE]
+Though you can run a different JDK of choice, MuleSoft doesn't support or take action to fix issues if they are traced back to the JDK.
+
+=== Supported Operating Systems
+
+Mule is supported on any operating system that runs a Java Runtime Environment (JRE) from a supported JDK.
+
+Mule runtime engine passed functional testing against these software and operating systems:
+
+* MacOS 10.15
+* HP-UX 11i V3
+* AIX 7.2
+* Windows Server 2019
+* Windows 10
+* Solaris 11.3
+* Red Hat Enterprise Linux 9.4
+* Ubuntu Server 20.04
+* Adoptium OpenJDK distribution
+
 
 === Network Requirements
 
@@ -50,9 +83,15 @@ Be aware of the constraints and limitations that affect hybrid standalone deploy
 
 === Infrastructure Scaling Limits
 
-Hybrid standalone deployments are subject to specific infrastructure limits that affect server capacity, server group size, and cluster configuration. These limits ensure optimal performance and system stability across your distributed environment.
+Design your server infrastructure within these hard limits to ensure scalable and manageable hybrid standalone deployments.
 
-For detailed information, refer to xref:deployment-server-scaling.adoc#infrastructure-limits[Infrastructure Limits].
+[%header%autowidth.spread]
+|===
+| Component | Hard Limit
+| Maximum number of servers (not Runtime Fabric) | 500
+| Maximum number of servers per server group | 20
+| Maximum number of servers per cluster | 8
+|===
 
 === Network Configuration Requirements
 
