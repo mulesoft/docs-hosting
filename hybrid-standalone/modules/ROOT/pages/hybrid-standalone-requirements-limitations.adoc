@@ -4,11 +4,19 @@ Plan and configure your hybrid standalone infrastructure by understanding the li
 
 == MuleSoft License Compliance
 
-You are responsible for ensuring that you remain compliant with your MuleSoft licensing. To remain compliant, ensure one of the following:
+You are responsible for ensuring compliance with your MuleSoft licensing for hybrid standalone deployments.
 
-. The sum of CPU Limits allocated to each Mule application replica is less than or equal to the total license quantity.
 
-. Use your license within purchased core (CPU power).
+Licensing is based on the maximum allocated cores consumed by your Mule runtime instances:
+
+* Core calculation is based on logical or allocated cores available to the Mule instance or server.
+* Allocated cores are configured through OS, VM, container, or Mule configuration settings.
+* Core count is determined by the number of cores visible to the Java Virtual Machine running Mule.
+* Physical cores are not considered in licensing; only logical or virtual cores as reported by the OS are counted.
+* Each VM or container instance is metered separately, even if multiple instances run on the same physical host.
+* Fractional cores are always rounded up to the nearest integer value.
+
+If cores are not explicitly allocated to Mule, the number of logical or virtual cores available on the physical or virtual machine or container as informed by the OS determines the core count.
 
 
 == Requirements
