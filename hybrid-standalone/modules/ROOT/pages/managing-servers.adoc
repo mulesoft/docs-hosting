@@ -22,6 +22,85 @@ image::rtm-view-server-settings.png["Manage Server button"]
 .The arrow shows the option to navigate to the *Settings* page.
 image::rtm-server-settings-page.png["Settings page"]
 
+== View Server Information
+
+Runtime Manager provides multiple views to monitor and manage your hybrid standalone servers. Access server information through the servers list, details pane, or comprehensive dashboard views.
+
+=== Access the Servers List
+
+View all servers, server groups, clusters, and API gateways in your environment:
+
+. From Anypoint Platform, select *Runtime Manager*.
+. Click the *Servers* tab.
+
+The servers list displays key information for each component:
+
+*Name*:: The name of the server, API gateway, server group, or cluster.
+*Status*:: Current operational status (Running, Disconnected, Created, etc.).
+*Type*:: Component type: Mule server, API gateway, server group, or cluster.
+*Version*:: Mule runtime engine or API gateway version number.
+
+=== View the Details Pane
+
+Access detailed information and quick actions for a specific server:
+
+. From the *Servers* list, click the *Type* column for the server you want to view.
+. The details pane displays on the right side of the screen.
+
+The details pane provides:
+
+**Overview Information**
+
+* Current status indicator
+* Mule runtime engine or API gateway version
+* Runtime Manager agent version
+* For clusters: cluster type (unicast or multicast)
+
+**Quick Actions**
+
+* *Manage Server*, *Manage Group*, or *Manage Cluster* button to access the Settings page
+* *View Dashboard* button to open the server dashboard
++
+//DASHBOARD SHARED
+include::partial$cluster-server.adoc[tag=viewServerinClusterOrGroup]
+
+**Tabbed Details**
+
+Access additional information through the tabs at the bottom of the details pane:
+
+* *Servers* tab (for groups and clusters): Lists all member servers and their current statuses.
+* *Applications* tab: Shows all deployed applications and their operational status.
+* *Plugins* tab: Displays configured integrations such as Splunk and ELK.
+
+.The screen shows the *Applications* tab, servers list, and *Plugins* tab.
+image::rtm-cluster-details-pane.png[ *Applications* tab, servers list, and *Plugins* tab]
+
+=== View the Server Dashboard
+
+Access comprehensive performance metrics and application information through the server dashboard:
+
+. From the *Servers* list, click the server name.
+. The dashboard displays detailed real-time metrics.
+
+**Performance Metrics**
+
+The dashboard provides visual graphs for:
+
+* *Heap Memory*: JVM memory usage over time
+* *CPU*: Processor utilization and performance trends
+
+.The screen shows the *Heap Memory* graph, applications list, and *CPU* graph.
+image::rtm-server-dashboards-page.png[*Heap Memory* graph, applications list, and *CPU* graph]
+
+**Application Information**
+
+The dashboard displays for each deployed application:
+
+* Application name and deployment status
+* Mule messages processed
+* Error messages and exceptions
+* Resource utilization details
+
 == Shut Down, Restart, or Delete Servers
 
 In Runtime Manager, you can shut down, restart, or delete a server.
