@@ -1,5 +1,4 @@
 = Monitoring Hybrid Standalone Instances
-:page-aliases: runtime-manager::monitoring.adoc, runtime-manager::alerts-on-runtime-manager.adoc, runtime-manager::monitoring-dashboards.adoc
 
 Monitor your hybrid standalone instances to ensure optimal performance, maintain system health, and enable proactive problem resolution across your distributed Mule runtime environment.
 

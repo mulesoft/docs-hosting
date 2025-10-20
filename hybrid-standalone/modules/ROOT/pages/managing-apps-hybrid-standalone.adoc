@@ -1,5 +1,4 @@
 = Managing Mule Apps Deployed to Hybrid Standalone Instances
-:page-aliases: runtime-manager::managing-applications-on-your-own-servers.adoc, runtime-manager::flow-management.adoc
 
 Manage your deployed Mule applications through Runtime Manager's centralized console to control application lifecycle, monitor performance, and maintain operational health across your hybrid standalone instances.
 

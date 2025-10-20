@@ -1,5 +1,4 @@
 = Managing Cluster
-:page-aliases: runtime-manager::cluster-add-srv.adoc, runtime-manager::cluster-del-srv.adoc, runtime-manager::cluster-delete.adoc
 
 
 Managing clusters involves coordinating multiple Mule runtime instances working together to provide high availability and load distribution.

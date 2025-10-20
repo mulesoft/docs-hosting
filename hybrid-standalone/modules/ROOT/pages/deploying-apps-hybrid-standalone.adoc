@@ -1,5 +1,4 @@
 = Deploying Mule Apps to Hybrid Standalone Instances
-:page-aliases: runtime-manager::deploying-to-your-own-servers.adoc
 
 Deploy your Mule applications to hybrid standalone instances for on-premises execution with centralized cloud-based management, enabling secure integration within your infrastructure while maintaining operational visibility and control.
 

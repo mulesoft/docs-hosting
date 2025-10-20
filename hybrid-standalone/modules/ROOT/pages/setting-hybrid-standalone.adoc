@@ -1,5 +1,4 @@
 = Setting up Hybrid Standalone Instances
-:page-aliases: runtime-manager::managing-servers.adoc
 
 Set up hybrid standalone instances to enable centralized management and deployment of Mule applications through Anypoint Platform while maintaining control over your infrastructure.
 

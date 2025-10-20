@@ -1,5 +1,4 @@
 = Understanding Deployment and Server Scaling
-:page-aliases: runtime-manager::runtime-dep-serv-limits.adoc
 
 Plan and architect your hybrid standalone infrastructure within Anypoint Platform's deployment and scaling limits to ensure optimal performance, system stability, and successful application delivery across your distributed environment.
 

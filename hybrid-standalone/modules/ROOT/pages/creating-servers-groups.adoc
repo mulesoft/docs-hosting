@@ -1,5 +1,4 @@
 = Creating Server Groups
-:page-aliases: runtime-manager::server-group-about.adoc, runtime-manager::server-group-create.adoc
 
 
 Create server groups to organize your hybrid standalone servers for easier management and deployment.

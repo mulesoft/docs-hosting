@@ -1,5 +1,4 @@
 = Managing Server Groups
-:page-aliases: runtime-manager::server-group-add.adoc, runtime-manager::server-group-remove.adoc, runtime-manager::server-group-delete.adoc
 
 Manage server groups in your hybrid standalone environment to coordinate multiple servers as unified deployment targets. Server group management includes adding and removing servers from groups, maintaining group membership, and performing administrative operations like group deletion while preserving individual server integrity.
 

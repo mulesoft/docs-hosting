@@ -1,5 +1,4 @@
 = Adding Ports, IPs, and Hostnames for Runtime Manager Agent
-:page-aliases: runtime-manager::rtm-agent-allowlists.adoc
 
 Configure network access for the Runtime Manager agent to establish secure communication between your hybrid standalone instances and Anypoint Platform services.
 
