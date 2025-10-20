@@ -37,7 +37,7 @@ image::managing-applications-on-your-own-servers-26ef4.png["Applications dashboa
 
 The application dashboard displays deployment-specific information based on your target infrastructure.
 
-**Individual Server Deployments**
+**Server Deployments**
 
 * Application status (Running, Stopped, Failed)
 * Last modification timestamp
@@ -176,18 +176,102 @@ Click *Unmanage* to restore application-controlled behavior and remove Runtime M
 image::flow-management-unmanage.png["Unmanage button to restore application-controlled flow behavior"]
 
 
-== Monitor Applications
+== Start, Stop, and Restart Applications
 
-Manage application deployment lifecycle through Runtime Manager's centralized controls for updates, monitoring, and removal operations.
+Control application lifecycle operations through Runtime Manager's centralized interface for hybrid standalone deployments.
 
-Runtime Manager provides comprehensive monitoring capabilities for applications deployed to hybrid standalone instances:
+**Operation Requirements**
 
-* **Performance Dashboards**: Real-time application metrics and resource utilization
-* **Transaction Analytics**: Business process monitoring and message flow analysis  
-* **Alert Management**: Proactive notification for application and infrastructure events
-* **Log Management**: Centralized logging aggregation and analysis
+* **Servers**: Target server must be accessible and running
+* **Server Groups**: At least one server in the group must be running
+* **Clusters**: At least one cluster member must be active and accessible
 
-For detailed monitoring configuration and usage, see xref:monitoring-apps-hybrid-standalone.adoc[Monitoring Mule Apps Deployed to Hybrid Standalone Instances].
+**Start, Stop, and Restart Process**
+
+. Navigate to the *Applications* tab in Runtime Manager.
+. Select your deployed application to open the management panel.
+. Click the status dropdown arrow next to the application name.
+. Choose the desired action from the available options:
+
+**Available Actions**
+
+* *Start*: Activates stopped applications
+* *Restart*: Resets applications that are already running
+* *Stop*: Stops running applications
+
+image::amc-restartapp.png[AMC_StopStartDeleteApp]
+
+**Operation Behavior**
+
+**Start Applications**
+
+* Activates stopped applications on target servers
+* Applies to individual servers, server groups, and clusters
+* Ensures proper application initialization and endpoint activation
+
+**Stop Applications**
+
+* Gracefully stops running applications
+* Preserves application state and in-flight message processing
+* Maintains application configuration for future restarts
+
+**Restart Applications**
+
+* Performs complete application restart cycle
+* Redeploys application artifacts if needed
+* Refreshes application configuration and connections
+
+**Cluster and Server Group Operations**
+
+For applications deployed to server groups or clusters:
+
+* Operations apply simultaneously to all target servers
+* Status indicators show aggregated results across all members
+* Individual server status is visible in the deployment details panel
+
+[IMPORTANT]
+Application operations are immediate and affect all target servers. Ensure proper coordination for production environments.
+
+== Update Applications
+
+Deploy new versions of your applications to hybrid standalone instances through Runtime Manager's update interface.
+
+=== Application Update Process
+
+. Navigate to the *Applications* tab in Runtime Manager.
+. Select your deployed application to open the management panel.
+. Click *Choose file* to select a new application version.
+. Choose your update source:
+
+**Update Sources**
+
+* *Import file from Exchange*: Deploy from Anypoint Exchange
+* *Upload file*: Deploy from local development builds
+
+. Click *Apply changes* to initiate the update process.
+
+=== Update Behavior
+
+**Update Process**
+
+* Application status indicator changes to blue during update
+* Status returns to green when deployment completes successfully
+* Update process typically completes within a few seconds
+
+**Cluster and Server Group Updates**
+
+* New application versions deploy simultaneously to all target servers
+* Ensures consistent application state across all infrastructure members
+* Maintains deployment synchronization across server groups and clusters
+
+=== Grace Period
+
+When stopping, restarting, or updating applications, Runtime Manager implements a grace period to ensure proper message processing:
+
+* **Two-minute timeout** for in-flight message delivery
+* **Five-second runtime grace period** for application shutdown
+* Graceful handling of ongoing transactions and business processes
+
 
 == Delete Applications
 
@@ -209,8 +293,6 @@ Application deletion is immediate and can't be undone. Ensure you have applicati
 . Select *Delete* from the available actions menu.
 
 image::managing-applications-on-your-own-servers-96463.png["Delete option in application status dropdown menu"]
-
-
 
 == Redeploy Deleted Applications
 
@@ -253,16 +335,102 @@ However, you can download the archive using these programmatic access methods.
 For detailed CLI usage, see xref:anypoint-cli::standalone-apps.adoc#runtime-mgr-standalone-application-artifact[Runtime Manager Application Artifacts].
 
 
-== Download CloudHub 2.0, CloudHub, and Runtime Fabric Application Archives
+== Application Status
 
-Applications deployed to CloudHub 2.0, CloudHub, and Runtime Fabric support direct archive downloads through the Runtime Manager UI.
+Understand the various status indicators for applications deployed to hybrid standalone instances to monitor application health and deployment progress.
 
-. From Anypoint Platform, select *Runtime Manager*.
-. Click the *Applications* tab.
-. Click the name of the cloud-deployed application.
-. Click the archive file name in the *Application File* field to download.
 
-image::download-archive-file.png["Application File field with downloadable archive link"]
+The information in the *Status* column depends on the context:
+
+=== Application Status States
+
+
+[%header,cols="10a,30a,60a"]
+|===
+|Icon|State|Description
+|image::managing-deployed-applications-a665b.png[]
+a|
+
+* *Stopped*
+* *Not Running*
+* *Undeployed*
+
+
+|The application is not running.
+|image::managing-deployed-applications-515a4.png[]
+a|
+
+* *Starting*
+* *Stopping*
+* *Undeploying*
+|Application is in the process of transitioning to another state.
+
+|image:console-overview-green-circle.png[console_overview_green_circle]
+a|
+
+* *Started*
+* *Running*
+* *Updated*
+|Application is running or the update succeeded.
+
+The Application shows Started when running on at least one of the Cluster nodes.
+
+|image:console-overview-red-circle.png[console_overview_red_circle]
+a|
+
+* *Deployment Failed*
+
+|Application deployment failed.
+
+The cause of the failure appears in the console.
+
+| image::managing-deployed-applications-ab70d.png[] |  |Application update failed.
+
+
+|===
+
+[[application_deploy_states]]
+=== Application Deployment States
+
+[%header,cols="10a,30a,60a"]
+|===
+|Icon|State|Description
+|image::managing-deployed-applications-a665b.png[]
+|*Deleted*
+|Application is deleted.
+|image::managing-deployed-applications-515a4.png[]
+|*Applying*
+|Application is in the process of transitioning to another state.
+
+|image:console-overview-green-circle.png[console_overview_green_circle]
+|*Applied*
+|Application is running or the update succeeded.
+
+|image:console-overview-red-circle.png[console_overview_red_circle]
+|*Failed*
+|Application deployment failed.
+
+The cause of the failure appears in the console.
+
+| image::managing-deployed-applications-de1b7.png[]
+|*Unknown*
+|Application's status is unknown because the server is not responding to the platform (on-premises deployments only).
+
+|===
+
+== Monitor Applications
+
+Manage application deployment lifecycle through Runtime Manager's centralized controls for updates, monitoring, and removal operations.
+
+Runtime Manager provides comprehensive monitoring capabilities for applications deployed to hybrid standalone instances:
+
+* **Performance Dashboards**: Real-time application metrics and resource utilization
+* **Transaction Analytics**: Business process monitoring and message flow analysis  
+* **Alert Management**: Proactive notification for application and infrastructure events
+* **Log Management**: Centralized logging aggregation and analysis
+
+For detailed monitoring configuration and usage, see xref:monitoring-apps-hybrid-standalone.adoc[Monitoring Mule Apps Deployed to Hybrid Standalone Instances].
+
 
 == See Also
 
