@@ -18,7 +18,7 @@ include::partial$diagnostics-agent.adoc[tag=prerequisites]
 ... Click *View Analysis* to open the analysis page.
 
 === Generate Mule Diagnostics
-If you download the generated Mule diagnostics, you receive a .tar archive containing two key assets:
+If you download the generated Mule diagnostics, you receive a `.tar` archive containing two key assets:
 
 Mule Thread Dumps::
 +

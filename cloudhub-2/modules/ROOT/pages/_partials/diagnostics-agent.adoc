@@ -17,8 +17,10 @@ The DIAF is a structured, standardized plain-text file. It centralizes diagnosti
 
 // tag::considerationsLimitations[]
 The MuleSoft diagnostics agent uses Einstein generative AI. Limits for running analyses apply per application and per organization:
+
 * 10 analyses per application, per hour
 * 50 analyses per organization, per hour
 * 50 analyses per application, per day
 * 200 analyses per organization, per day
+
 // end::considerationsLimitations[]
