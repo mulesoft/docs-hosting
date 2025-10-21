@@ -2,6 +2,10 @@
 
 Use the MuleSoft diagnostics agent to troubleshoot your Mule applications deployed to CloudHub 2.0. This feature leverages Einstein generative AI to automate diagnostics collection and provide intelligent, actionable insights.
 
+== Before you Begin
+
+Before running the MuleSoft diagnostics agent:
+
 include::partial$diagnostics-agent.adoc[tag=prerequisites]
 
 
