@@ -2,7 +2,7 @@
 
 Use the MuleSoft diagnostics agent to troubleshoot your Mule applications deployed to CloudHub 2.0. This feature leverages Einstein generative AI to automate diagnostics collection and provide intelligent, actionable insights.
 
-include::partial$diagnostic-agent.adoc[tag=prerequisites]
+include::partial$diagnostics-agent.adoc[tag=prerequisites]
 
 
 == Run the MuleSoft Diagnostics Agent
@@ -26,7 +26,7 @@ A thread dump is a snapshot of all the threads in a replica that indicates the c
 
 Diagnostic Information Analysis File (DIAF)::
 +
-include::partial$diagnostic-agent.adoc[tag=diafFile]
+include::partial$diagnostics-agent.adoc[tag=diafFile]
 +
 [NOTE]
 The DIAF doesn’t replace application logs.
@@ -36,7 +36,7 @@ If you select *Analyze with Einstein*, the system generates the Mule diagnostics
 
 == Considerations and Limitations
 
-include::partial$diagnostic-agent.adoc[tag=considerationsLimitations]
+include::partial$diagnostics-agent.adoc[tag=considerationsLimitations]
 
 CloudHub 2.0 retains Mule diagnostics for 30 days or up to 150 MB.
 
