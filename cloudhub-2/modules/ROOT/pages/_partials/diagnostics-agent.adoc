@@ -1,7 +1,5 @@
 
 // tag::prerequisites[]
-== Before you Begin
-
 * Connect your MuleSoft organization to a Salesforce account. 
 * Enable Agentforce for your organization. See xref:access-management::enabling-agentforce.adoc#enable-einstein-anypoint[Enable Agentforce for Your Anypoint Platform Organization]. 
 * Enable Einstein entitlement for your Anypoint Platform organization. See https://help.salesforce.com/s/articleView?id=platform.mulesoft_enable_einstein_anypoint_platform.htm&type=5[Enable Einstein Entitlement and Routing in Anypoint Platform].
