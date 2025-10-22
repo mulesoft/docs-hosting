@@ -71,6 +71,7 @@ Monitor performance across different time periods using the time range selector:
 image::monitoring-dashboards-cbd92.png["Time range selector for monitoring dashboards"]
 
 Available time ranges include:
+
 * *3 Hours*: Real-time monitoring with minute-level granularity
 * *24 Hours*: Recent performance with 8-minute averaging
 * *7 Days*: Weekly trends with hourly data points  
@@ -113,6 +114,7 @@ image::monitoring-dashboards-heap.png["Heap Memory monitoring dashboard with usa
 * Heap Committed Memory: Memory guaranteed by the JVM for heap operations
 
 Use heap memory metrics to:
+
 * Identify memory leaks and excessive allocation patterns
 * Optimize JVM heap size configuration (`-Xmx` and `-Xms` parameters)
 * Plan capacity for application deployment and scaling
@@ -167,6 +169,7 @@ Monitor the primary object allocation area for young generation garbage collecti
 image::monitoring-dashboards-eden.png["Monitoring dashboard for Eden Space"]
 +
 Eden space metrics help you:
+
 * Optimize object allocation patterns
 * Tune young generation garbage collection frequency
 * Identify excessive short-term object creation
@@ -178,6 +181,7 @@ Track intermediate object storage for garbage collection lifecycle analysis:
 image::monitoring-dashboards-survivor.png["Monitoring dashboard for Survivor Space"]
 +
 Survivor space monitoring enables:
+
 * Analysis of object promotion patterns to old generation
 * Optimization of survivor space sizing for GC efficiency
 * Detection of objects with intermediate lifespans
@@ -189,6 +193,7 @@ Monitor long-term object storage and major garbage collection patterns:
 image::monitoring-dashboards-tenure.png["Monitoring dashboard for Old Generation"]
 +
 Old generation metrics provide insight into:
+
 * Long-lived object accumulation patterns
 * Major garbage collection frequency and impact
 * Memory leak detection through trend analysis
@@ -200,6 +205,7 @@ Monitor JIT compiler performance and native code storage:
 image::monitoring-dashboards-cache.png["Monitoring dashboard for Code Cache"]
 +
 Code cache metrics help optimize:
+
 * JIT compilation effectiveness
 * Native code storage allocation
 * Application startup and runtime performance
@@ -213,6 +219,7 @@ This metric is available only when using JDK 8+.
 image::monitoring-dashboards-class-space.png["Monitoring dashboard for Compressed Class Space"]
 +
 Monitor compressed class space for:
+
 * Memory efficiency of compressed OOPs
 * Class metadata storage optimization
 * JVM memory footprint reduction
@@ -226,11 +233,13 @@ This metric is available only when using JDK 8+.
 image::monitoring-dashboards-meta.png["Monitoring dashboard for Metaspace"]
 +
 Key Considerations:
+
 * 256 MB metaspace allocation
 * Uses system memory outside JVM heap
 * Grows automatically based on class loading requirements
 +
 Metaspace monitoring helps:
+
 * Prevent class metadata memory exhaustion
 * Optimize class loading and unloading patterns
 * Manage application deployment in memory-constrained environments
@@ -251,6 +260,7 @@ Track JVM thread usage to identify concurrency issues and optimize thread pool c
 image::monitoring-dashboards-threads.png["Monitoring dashboard for Thread Count"]
 +
 Monitor thread count to:
+
 * Detect thread leaks and excessive thread creation
 * Optimize application concurrency settings
 * Identify potential deadlock conditions
@@ -262,10 +272,12 @@ Monitor garbage collection efficiency across different heap generations:
 image::monitoring-dashboards-garbage.png["Monitoring dashboard for Garbage Collection"]
 +
 Garbage Collection Areas:
+
 * Young Generation: Collection frequency for short-lived objects in Eden and Survivor spaces
 * Old Generation: Collection patterns for long-lived objects requiring more intensive cleanup
 +
 Use GC metrics to:
+
 * Optimize heap size allocation between generations
 * Identify memory allocation patterns causing excessive GC pressure
 * Tune garbage collection algorithms for application performance
@@ -277,6 +289,7 @@ Track dynamic class loading across all applications in the JVM:
 image::monitoring-dashboards-classloading.png["Monitoring dashboard for Class Loading"]
 +
 Monitor class loading to:
+
 * Identify classloader memory leaks
 * Optimize application startup performance
 * Analyze dynamic code loading patterns
