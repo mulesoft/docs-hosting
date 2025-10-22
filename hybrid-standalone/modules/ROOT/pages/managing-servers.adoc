@@ -72,7 +72,7 @@ Access additional information through the tabs at the bottom of the details pane
 * *Plugins* tab: Displays configured integrations such as Splunk and ELK.
 
 .The screen shows the *Applications* tab, servers list, and *Plugins* tab.
-image::rtm-cluster-details-pane.png[ *Applications* tab, servers list, and *Plugins* tab]
+image::rtm-cluster-details-pane.png["Applications tab, servers list, and Plugins tab"]
 
 === View the Server Dashboard
 
@@ -89,7 +89,7 @@ The dashboard provides visual graphs for:
 * *CPU*: Processor utilization and performance trends
 
 .The screen shows the *Heap Memory* graph, applications list, and *CPU* graph.
-image::rtm-server-dashboards-page.png[*Heap Memory* graph, applications list, and *CPU* graph]
+image::rtm-server-dashboards-page.png["Heap Memory graph, applications list, and CPU graph"]
 
 **Application Information**
 

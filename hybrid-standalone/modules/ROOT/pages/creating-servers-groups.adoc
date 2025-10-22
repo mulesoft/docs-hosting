@@ -20,12 +20,15 @@ Before creating server groups, ensure that you have:
 * Appropriate permissions to create and manage server groups
 * Access to Runtime Manager
 
+== Requirements and Limitations
+
 Additionally, review these requirements and limitations:
 
-* All servers in a server group must be running the same versions of:
-** Mule runtime engine
-** Runtime Manager agent
-**Java
+All servers in a server group must be running the same versions of:
+
+* Mule runtime engine
+* Runtime Manager agent
+* Java
 
 * You can create a server group with servers with the `Running` or the `Disconnected` status, but these can’t be in the same group as servers with the `Created` status.
 
