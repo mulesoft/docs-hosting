@@ -15,77 +15,86 @@ Key characteristics of clusters:
 * A single cluster can run multiple applications simultaneously
 * Provides continuous service even when individual nodes fail
 
-== Shared Memory in Clusters
+== Understanding Shared Memory in Clusters
 
 Clusters use distributed shared memory grids to enable data sharing and coordination between cluster nodes. This shared memory system allows applications to maintain state and share information across all nodes in the cluster.
 
 === How Shared Memory Works
 
-The distributed shared memory grid provides:
+The distributed shared memory grid enables:
 
-* **Replicated State**: Data is automatically replicated across all cluster nodes
-* **Memory-Based Storage**: Uses in-memory distributed storage for optimal performance
-* **Automatic Synchronization**: Changes are automatically synchronized across all nodes
-* **High Availability**: Data remains available even if individual nodes fail
+* Data is automatically replicated across all cluster nodes
+* Uses in-memory distributed storage for optimal performance
+* Changes are automatically synchronized across all nodes
+* Data remains available even if individual nodes fail
 
 === Shared Memory Components
 
 The shared memory grid manages several key components:
 
-**Object Stores**
-* Persistent and non-persistent Object stores are replicated across the cluster
-* Data survives application redeploys and individual node restarts
-* Maintains consistency across all cluster nodes
+* Object Stores
 
-**VM Queues**
-* Persistent and transient VM queues are shared across the cluster
-* Messages can be processed by any available node
-* Ensures message delivery even during node failures
+** Persistent and non-persistent Object stores are replicated across the cluster.
+** Data survives application redeploys and individual node restarts.
+** Maintains consistency across all cluster nodes.
 
-**Lock Factory**
-* Distributed locking mechanism for cluster coordination
-* Prevents race conditions in multi-node environments
-* Manages concurrent access to shared resources
+* VM Queues
+
+** Persistent and transient VM queues are shared across the cluster
+** Messages can be processed by any available node
+** Ensures message delivery even during node failures
+
+* Lock Factory
+
+** Distributed locking mechanism for cluster coordination
+** Prevents race conditions in multi-node environments
+** Manages concurrent access to shared resources
 
 === Memory vs Database Storage
 
-**Memory-Based Storage (Recommended)**
-* **Performance**: Fastest access times with in-memory operations
-* **Scalability**: Automatically scales with cluster size
-* **Simplicity**: No external database configuration required
-* **Consistency**: Built-in replication and synchronization
+* Memory-Based Storage (Recommended)
 
-**Database-Based Storage (Alternative)**
-* **Persistence**: Data survives complete cluster shutdown
-* **External Dependencies**: Requires JDBC database configuration
-* **Performance Impact**: Slower than memory-based storage
-* **Complexity**: Additional configuration and maintenance
+** Fastest access times with in-memory operations
+** Automatically scales with cluster size
+** No external database configuration required
+* Built-in replication and synchronization
+
+* Database-Based Storage (Alternative)
+
+** Data survives complete cluster shutdown
+** Requires JDBC database configuration
+** Slower than memory-based storage
+** Additional configuration and maintenance
 
 === Performance Considerations
 
-**Memory-Based Storage Benefits:**
-* Optimal performance for most use cases
-* Automatic load distribution across nodes
-* Built-in high availability features
-* No external database dependencies
+* Memory-Based Storage Benefits:
 
-**When to Use Database Storage:**
-* Long-term data persistence requirements
-* Compliance with data retention policies
-* Integration with existing database infrastructure
-* Audit and logging requirements
+** Optimal performance for most use cases
+** Automatic load distribution across nodes
+** Built-in high availability features
+** No external database dependencies
+
+* When to Use Database Storage:
+
+** Long-term data persistence requirements
+** Compliance with data retention policies
+** Integration with existing database infrastructure
+** Audit and logging requirements
 
 === Configuration Options
 
-**Default Memory Grid Configuration:**
-* Automatic replication across all nodes
-* In-memory storage for optimal performance
-* Built-in failover and recovery mechanisms
+* Default Memory Grid Configuration
 
-**Custom Database Configuration:**
-* Configure Object Store to use JDBC-based storage
-* Requires external database setup and maintenance
-* Provides persistent storage beyond cluster lifecycle
+** Automatic replication across all nodes
+** In-memory storage for optimal performance
+** Built-in failover and recovery mechanisms
+
+* Custom Database Configuration
+
+** Configure Object Store to use JDBC-based storage
+** Requires external database setup and maintenance
+** Provides persistent storage beyond cluster lifecycle
 
 [NOTE]
 For most hybrid standalone deployments, memory-based shared storage provides the best balance of performance, simplicity, and reliability. Use database-based storage only when long-term persistence is required beyond cluster restarts.
