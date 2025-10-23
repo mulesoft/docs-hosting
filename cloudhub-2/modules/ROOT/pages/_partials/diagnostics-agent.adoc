@@ -10,7 +10,7 @@
 
 
 // tag::diafFile[]
-The DIAF is a structured, standardized plain-text file. It centralizes diagnostic data and organizes it for improved automated and manual analysis. The DIAF captures the state of events, operations, and critical application data. For more information, see xref:mule-runtime::mule-troubleshooting-plugin.adoc[Mule Troubleshooting Plugin]. 
+The DIAF is a structured, standardized plain-text file. It centralizes diagnostic data and organizes it for improved automated and manual analysis. The DIAF captures the state of events, operations, and critical application data. See xref:mule-runtime::mule-troubleshooting-plugin.adoc[Mule Troubleshooting Plugin]. 
 // end::diafFile[]
 
 // tag::considerationsLimitations[]
