@@ -15,7 +15,7 @@ include::partial$diagnostics-agent.adoc[tag=prerequisites]
 . Select the app name.
 . In the navigation menu, select *Diagnostics*.
 . Select an active replica from the dropdown list.
-. Click the *Analyze & Troubleshoot* dropdown. You have two options:
+. Click the *Analyze & Troubleshoot* dropdown. You have these options:
 ** Select *Generate Mule Diagnostics* to generate and download the diagnostics for manual inspection.
 ... Click *Download* to download the Mule diagnostics files.
 ** Select *Analyze with Einstein* to generate the Mule diagnostics and run the analysis simultaneously. 
