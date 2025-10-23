@@ -26,7 +26,7 @@ If you download the generated Mule diagnostics, you receive a `.tar` archive con
 
 Mule Thread Dumps::
 +
-A thread dump is a snapshot of all the threads in a replica that indicates the current state of the server.
+A thread dump is a snapshot of all the threads in a replica that shows the current state of the server.
 
 Diagnostic Information Analysis File (DIAF)::
 +
