@@ -49,12 +49,43 @@ For detailed configuration and setup instructions, refer to xref:runtime-manager
 
 Use Runtime Manager to create your servers with Anypoint Platform, enabling centralized management and deployment. Once registered, you can organize servers into groups or clusters and deploy applications to them.
 
-* xref:creating-servers.adoc[Creating Servers] +
-Individual server instances for simple deployments, ideal for development and testing
-* xref:creating-servers-groups.adoc[Creating Server Groups] +
-Multiple servers managed together for load distribution with completely isolated application instances
-* xref:creating-clusters.adoc[Creating Clusters] +
-High-availability configuration with automatic failover, load balancing, and synchronized node communication
+=== Servers
+
+xref:creating-servers.adoc[Creating Servers] +
+Individual server instances that provide a single deployment target for Mule applications. Servers are ideal for:
+
+* Development and testing environments
+* Simple deployments with minimal complexity
+* Scenarios where you need direct control over individual server instances
+* Applications that don't require high availability or load distribution
+
+Each server runs independently and can be managed separately through Runtime Manager.
+
+=== Server Groups
+
+xref:creating-servers-groups.adoc[Creating Server Groups] +
+Multiple servers organized together to act as a single deployment target. Server groups are ideal for:
+
+* Production environments requiring redundancy without cluster complexity
+* Scenarios where you need to deploy applications to multiple servers simultaneously
+* Load distribution across multiple servers for increased traffic handling
+* Centralized management of properties, monitoring, and alerts
+* Applications that can run independently on each server without shared state
+
+Each server in the group runs its own copy of the application, providing redundancy if one server fails.
+
+=== Clusters
+
+xref:creating-clusters.adoc[Creating Clusters] +
+High-availability configuration where multiple servers work together as a unified system. Clusters are ideal for:
+
+* Mission-critical applications requiring maximum availability and performance
+* Scenarios where automatic failover and load balancing are essential
+* Applications that need synchronized communication and shared state
+* Zero-downtime deployments and rolling updates
+* High-traffic environments requiring automatic traffic distribution
+
+Cluster members work together as a unified system with automatic failover and load balancing.
 
 All servers within a server group or cluster must have identical versions of:
 
