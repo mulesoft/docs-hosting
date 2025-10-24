@@ -64,6 +64,66 @@ image::rtm-group-delete.png["Delete option"]
 . In the *Delete* confirmation window, select the checkbox to verify that you want to delete the server group.
 . Click *Delete Server Group*.
 
+
+== Upgrade the Mule Runtime Version in a Runtime Manager Server Group
+
+Follow these steps to upgrade the Mule version in a Runtime Manager server group:
+
+. Go to Anypoint Runtime Manager.
+. Switch to the corresponding environment.
+. Select *Servers* in the navigation menu.
+. Select the server group to update.
+.. In the server group dashboard, select the *Servers* tab and select the server to upgrade.
+.. In the actions dropdown menu, select *Shutdown*.
+.. Repeat the previous two steps for each server in your server group.
+. Open a terminal in the local machine that hosts your Mule instance.
+. If your Runtime Manager agent version is earlier than 2.2.0, upgrade to the latest version. +
+Go to the current Mule Home directory and run the following commands:
++
+`cd ${MULE-4.1.5_HOME}/bin` +
+`cp ~/Downloads/agent-setup-2.4.20.zip .` +
+`unzip agent-setup-2.4.20.zip` +
+`./amc_setup -U` +   
+. Go to the target directory for the new Mule runtime version and install it: +
+`cd ${MULE-4.3.0_DIRECTORY}` +
+`cp ~/Downloads/mule-ee-distribution-standalone-4.3.0.zip .` +
+`unzip mule-ee-distribution-standalone-4.3.0.zip` +
+
+. Install the latest agent version: +
++
+`cd mule-enterprise-standalone-4.3.0/bin` +
+`cp ~/Downloads/agent-setup-2.4.20.zip .` +
+`unzip agent-setup-2.4.20.zip` +    
+`./amc_setup -I` +  
+`rm ../conf/mule-agent.yml` +   
+
+. Copy the following files from the previous Mule runtime /conf directory to the new Mule runtime /conf directory:
+
+* All YAML files (`*.yml`)
+
+* All keystore files (`*.jks`)
+
+. Confirm that the DNS configured in mule-agent.yml has the following values: 
++
+----
+websocket.transport:
+  consoleUri: wss://runtime-manager.anypoint.mulesoft.com:443/mule
+
+authenticationProxy:
+  endpoint: https://data-authenticator.anypoint.mulesoft.com
+----
+. If you installed domains in your previous Mule instance, copy those domains to your new Mule instance: 
++
+`cp -R ${MULE-4.1.5_HOME}/domains${MULE-4.3.0_HOME}/domains`
+
+. Start Mule: +
+`cd ${MULE-4.3.0_HOME}/bin` +
+`./mule start` +
+. Go to Runtime Manager to confirm that your Mule applications are deployed and displayed as Running.
+
+
+
+
 == See Also
 
 * xref:creating-servers-groups.adoc[Creating Server Groups]
