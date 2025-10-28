@@ -12,28 +12,23 @@ Deploying applications to servers in server groups provides redundancy so you ca
 
 Unlike clusters, application instances in a server group run in isolation from the application instances running on the other servers in the group. If you experience concurrency issues with server groups, consider grouping servers in clusters.
 
-== Working with Mule Applications in Server Groups
+=== Understanding Server Groups and Mule Apps Behavior
 
 When you deploy Mule applications to a server group, these behaviors apply:
 
-=== Application Deployment and Updates
+==== Application Deployment and Updates
 
-* Deploying applications +
-When you add a Mule application to a server group, it deploys to all servers in the group automatically.
+* When you add a Mule application to a server group, it deploys to all servers in the group automatically.
 
-* Updating applications +
-When you update a Mule application in a server group, the update applies to all servers in the group. Review these considerations for server updates:
+* When you update a Mule application in a server group, the update applies to all servers in the group. Review these considerations for server updates:
 
 ** Servers with `Unknown` status are not updated until they reconnect to the MuleSoft control plane.
 ** You can only update a Mule application once if servers in the group have `Unknown` status.
-** If you update a Mule application (for example, from version 1 to version 2) while servers have `Unknown` status, you can't perform additional updates (such as from version 2 to version 3) until you either:
-  *** Remove the unknown servers from the server group, or
-  *** Start and reconnect the unknown servers to the control plane
+** If you update a Mule application (for example, from version 1 to version 2) while servers have `Unknown` status, you can't perform additional updates (such as from version 2 to version 3) until you remove the unknown servers from the server group or start and reconnect the unknown servers to the control plane.
 
-* Deleting applications +
-When you delete a Mule application from a server group, it removes the application from all servers in the group.
+* When you delete a Mule application from a server group, it removes the application from all servers in the group.
 
-=== Manual Application Management (Not Recommended)
+==== Manual Application Management (Not Recommended)
 
 Manually managing Mule applications directly on servers that belong to a server group is not recommended and defeats the purpose of using server groups.
 
