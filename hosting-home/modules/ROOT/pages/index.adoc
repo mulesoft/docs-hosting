@@ -1,8 +1,7 @@
-= Anypoint Platform Hosting Overview
+= Anypoint Platform Hosting Options
 :page-aliases: general::intro-platform-hosting.adoc
 
-
-You can host different parts of Anypoint Platform in different locations, either in the cloud or in a physical data center. The best hosting option for your Anypoint Platform environment depends on your security, data privacy, and legal requirements. Different hosting options enable you to control the location where your and your customer's data is stored, processed, and managed. The data remains segregated within the physical location required by your companies IT policies and requirements.
+Anypoint Platform enables you to host the control plane and runtime plane in different locations based on your security, data privacy, and compliance requirements. Choose from cloud-managed options or self-hosted environments to control where your data is stored, processed, and managed. Host components in MuleSoft-managed cloud regions or deploy them in your own data centers. Each option keeps your data segregated within the physical location required by your company's IT policies.
 
 == Control Plane vs Runtime Plane
 
