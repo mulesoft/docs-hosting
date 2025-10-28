@@ -1,9 +1,7 @@
-= Salesforce Hyperforce
+= Salesforce Hyperforce Overview
 :page-aliases: deploy-mule-apps-hyperforce.adoc
 
-Salesforce Hyperforce (Hyperforce) is a modern, scalable, and secure infrastructure designed to support your MuleSoft application deployments. Hyperforce enables you to deliver Mule apps rapidly and reliably to locations worldwide, giving you more choice and control over data residency. Mule apps benefit from its integration of enhanced standards for compliance, scalability, security, agility, and privacy.
-
-With Hyperforce, you can use a globally distributed and reliable platform to ensure optimal performance and reliability for your integrations and APIs.
+Salesforce Hyperforce (Hyperforce) provides a modern infrastructure that lets you deploy MuleSoft applications globally with control over data residency and compliance. Deploy your Mule apps rapidly and reliably to locations worldwide while benefiting from enhanced security, scalability, and privacy standards. Hyperforce offers a globally distributed platform that ensures optimal performance for your integrations and APIs.
 
 Some key benefits:
 
