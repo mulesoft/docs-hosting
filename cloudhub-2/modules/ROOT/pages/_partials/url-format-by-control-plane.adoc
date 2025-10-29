@@ -2,9 +2,9 @@
 ====
 URL formats vary by control plane:
 
-US Cloud control plane:: URLs do not include a region suffix before `cloudhub.io`. +
+US Cloud Control Plane:: URLs don't include a region suffix before `cloudhub.io`. +
 Example: `myapp.usa-e1.cloudhub.io`
-Non-US control planes:: (EU, Canada, Japan): URLs include a region suffix (such as `eu1`, `ca1`, or `jp1`) before `cloudhub.io`. +
+Non-US Control Planes:: (EU, Canada, Japan): URLs include a region suffix (such as `eu1`, `ca1`, or `jp1`) before `cloudhub.io`. +
 Examples: `myapp.irl-e1.eu1.cloudhub.io`, `myapp.can-c1.ca1.cloudhub.io`, `myapp.jpn-e1.jp1.cloudhub.io`
 ====
 
