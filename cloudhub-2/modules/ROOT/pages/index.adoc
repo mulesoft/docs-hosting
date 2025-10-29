@@ -33,6 +33,9 @@ All CloudHub 2.0 features are supported across all control planes, with a few ex
 
 
 
+include::partial$url-format-by-control-plane.adoc[]
+
+
 == See Also
 
 * xref:ch2-features.adoc[]
