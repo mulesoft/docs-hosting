@@ -172,6 +172,8 @@ The DNS record and the load balancer for your integration can change depending o
 
 include::partial$region-table-long.adoc[]
 
+include::partial$url-format-by-control-plane.adoc[]
+
 
 == See Also
 
