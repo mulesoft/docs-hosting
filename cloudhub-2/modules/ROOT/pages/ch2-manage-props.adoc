@@ -129,7 +129,7 @@ CloudHub 2.0 runtime release updates might change the reserved properties.
 
 CloudHub 2.0 provides environment and organization identifiers through environment variables. Reference these variables to retrieve the deployment environment ID and organization ID.
 
-The following environment variables are available:
+These environment variables are available:
 
 [%header,cols="2*a"]
 |===
