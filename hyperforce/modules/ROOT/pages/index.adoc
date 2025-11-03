@@ -1,9 +1,7 @@
-= Salesforce Hyperforce
+= Salesforce Hyperforce Overview
 :page-aliases: deploy-mule-apps-hyperforce.adoc
 
-Salesforce Hyperforce (Hyperforce) is a modern, scalable, and secure infrastructure designed to support your MuleSoft application deployments. Hyperforce enables you to deliver Mule apps rapidly and reliably to locations worldwide, giving you more choice and control over data residency. Mule apps benefit from its integration of enhanced standards for compliance, scalability, security, agility, and privacy.
-
-With Hyperforce, you can use a globally distributed and reliable platform to ensure optimal performance and reliability for your integrations and APIs.
+Salesforce Hyperforce (Hyperforce) provides a modern infrastructure that lets you deploy MuleSoft applications globally with control over data residency and compliance. Deploy your Mule apps rapidly and reliably to locations worldwide while benefiting from enhanced security, scalability, and privacy standards. Hyperforce offers a globally distributed platform that ensures optimal performance for your integrations and APIs.
 
 Some key benefits:
 
@@ -33,8 +31,10 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 [%header%autowidth.spread,cols=".^a,.^a,.^a,.^a,.^a,.^a,.^a]
 |===
 |Component |Feature Description |US Cloud | EU Cloud | Canada Cloud | Japan Cloud | Notes
-.2+| xref:access-management::index.adoc[Access Management] | All other features | Planned | Planned | Available | Available .2+| n/a
+.4+| xref:access-management::index.adoc[Access Management] | All other features | Planned | Planned | Available | Available .4+| n/a
 | Audit Logging | Planned | Planned | Available | Available
+| Business Groups | Planned | Planned | Available | Available
+| External Identity Management Integration | Planned | Planned | Available | Available
 .3+|xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]| API Manager 1.x     |  Planned |Planned | Not planned | Not planned .3+|  For details, refer to xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane],  xref:api-manager::analytics-landing-page.adoc[Mule API Analytics], and xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
 | API Manager 2.x | Planned | Planned | Available | Available
 | API Service Mesh | Planned | Planned | Not planned | Not planned
@@ -43,14 +43,19 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                       | Amazon Cloud Front      |  Planned |Planned | Planned | Planned
                       |Usage and Engagement Metrics      |  Planned | Planned |Planned | Planned 
 |Anypoint Integration Advanced| n/a | Planned | Planned | Planned | Planned |  n/a 
-.7+|xref:monitoring::index.adoc[Anypoint Monitoring]| Alerts |  Planned |Planned | Planned | Planned .7+| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
-                                                     |Custom Metrics       |  Planned |Planned | Planned| Planned
-                                                     |Built-in Dashboards (Not Insights)       |  Not planned |Not planned | Not planned| Not planned
-                                                     |Anypoints Insights       |  Planned | Planned | Available| Available
-                                                     |API Functional Monitoring       |  Planned | Planned | Available| Available
-                                                     |Log Management/Logs       |  Planned | Planned | Planned| Planned
-                                                     |Telemetry Exports       |  Planned | Planned | Available| Available
-.18+|xref:mq::index.adoc[Anypoint MQ]| All other features |  Planned |Planned | Available | Available .18+| For details, refer to xref:mq::index.adoc#mq-features-control-plane[Anypoint MQ Features by Control Plane]
+.10+|xref:monitoring::index.adoc[Anypoint Monitoring]| Advanced Alerts |  Planned |Planned | Planned | Planned .10+| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
+                                                     
+                                                     |Basic Alerts       |  Planned |Planned | Planned| Planned
+                                                     |Archive API       |  Planned |Planned | Planned| Planned
+                                                     |Log-Points      |  Planned |Planned | Planned| Planned
+                                                     |Log-Search       |  Planned |Planned | Planned| Planned
+                                                     |Log-Tailing       |  Planned |Planned | Available| Available
+                                                     |OTel Exporter for Audit Logs       |  Planned |Planned | Planned| Planned
+                                            
+                                                     |Raw Data Download       |  Planned | Planned | Planned| Planned
+                                                     |Reports       |  Planned | Planned | Planned| Planned
+                                                     |Tools       |  Planned | Planned | Planned| Planned
+.17+|xref:mq::index.adoc[Anypoint MQ]| All other features |  Planned |Planned | Available | Available .17+| For details, refer to xref:mq::index.adoc#mq-features-control-plane[Anypoint MQ Features by Control Plane]
                                     | Anypoint MQ Admin API |  Planned |Planned | Available | Available
                                     | Anypoint MQ Broker API |  Planned |Planned | Available | Available
                                     | Anypoint MQ Connector earlier than 4.x |  Planned |Planned | Not planned | Not planned
@@ -65,7 +70,6 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                                     | FIFO Exchange |  Planned |Planned | Planned | Planned
                                     | Message Exchanges |  Planned |Planned | Available | Available
                                     | Message Routing |  Planned |Planned | Available | Available
-                                    | Unencrypted Queus |  Not planned |Not planned | Not planned | Not planned
                                     | Usage Charts (Access Management) |  Planned |Planned | Available | Available
                                     | Usage Reports (Usage) |  Planned |Planned | Available | Available
 |xref:api-manager::analytics-landing-page.adoc[Anypoint Mule API Analytics]| REST APIs | Planned | Planned | Not planned | Not planned | n/a
@@ -74,7 +78,9 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                                                               | Insights | Planned | Planned | Available | Available
 |xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager]| n/a | Planned | Planned | Available | Available | n/a
 |xref:studio::index.adoc[Anypoint Studio]| n/a | Planned | Planned | Available | Available | n/a
-|xref:visualizer::index.adoc[Anypoint Visualizer]| n/a | Planned | Planned | Available | Available | For details, refer to xref:visualizer::index.adoc#visualizer-hyperforce[Anypoint Visualizer Features by Control Plane]. 
+.3+|xref:visualizer::index.adoc[Anypoint Visualizer]| Architecture | Planned | Planned | Available | Available .3+| n/a
+                                                    | Policies | Planned | Planned | Available | Available  
+                                                    | Troubleshooting | Planned | Planned | Available | Available 
 |xref:api-community-manager::index.adoc[API Community Manager]| n/a | Planned | Planned | Available | Available | n/a
 |xref:design-center::design-create-publish-api-specs.adoc[API Designer]| n/a | Planned | Planned | Not planned | Not planned | n/a
 |xref:api-experience-hub::index.adoc[API Experience Hub]| n/a | Planned | Planned | Available | Available | n/a
@@ -90,7 +96,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                                             | Private Space | Available | Available |Available | Available
                                             | Private Space - VPN | Available | Available |Available | Available
 |Connectors| n/a | Planned | Planned | Available | Available | n/a
-|Dataloader| n/a | Planned | Not planned | Not planned | Not planned| n/a
+|Dataloader| n/a | Planned | Not planned | Not planned | Not planned| https://dataloader.io/[Dataloader.io] will remain accessible globally, while its infrastructure will be hosted within the US Control Plane.
 .4+|xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway]| API Key Metrics | Available | Available | Planned | Planned .4+| n/a
                 | Flex Gateway Running in Connected Mode | Planned | Planned | Available | Available
                 | Flex Gateway Running in Local Mode | Planned | Planned | Available | Available
@@ -125,7 +131,7 @@ This table indicates the available and planned cloud regions for Hyperforce:
 |North America | Canada Cloud | `ca1.platform.mulesoft.com` | Available
 |Asia Pacific | Japan Cloud | `jp1.platform.mulesoft.com` | Available
 |North America | US Cloud | `anypoint.mulesoft.com` | Planned
-|Europe | EU Cloud | `eu1.platform.mulesoft.com` | Planned
+|Europe | EU Cloud | `eu1.anypoint.mulesoft.com` | Planned
 |===
 
 == Mule Runtime Version Compatibility
