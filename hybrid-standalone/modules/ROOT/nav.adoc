@@ -1,5 +1,6 @@
 .xref:index.adoc[Hybrid Standalone]
 * xref:index.adoc[Overview]
+* xref:hybrid-standalone-release-notes.adoc[Release Notes]
 * xref:hybrid-standalone-requirements-limitations.adoc[Requirements and Limitations]
 * xref:setting-hybrid-standalone.adoc[Setting up Hybrid Standalone Instances]
 ** xref:creating-servers.adoc[Creating Servers]
