@@ -138,7 +138,6 @@ image::alerts-conditions-custom.png["Custom application alerts"]
 To enable this condition, specify the notification text from the CloudHub Connector
 in your Mule application.
 When the text in one of the notifications matches the specified string, an alert is sent.
-See xref:custom-application-alerts.adoc[Custom Application Alerts] for more information.
 --
 
 Exceeds event traffic threshold::

@@ -49,8 +49,7 @@ Ensure your hybrid standalone environment meets the deployment requirements befo
 Complete this infrastructure setup:
 
 . xref:mule-runtime::runtime-installation-task.adoc[Download and install Mule] on target servers with appropriate Java version compatibility
-. xref:servers-create.adoc[Add servers to Runtime Manager] for centralized management and deployment capabilities
-xref:servers-create.adoc[Add servers to Runtime Manager] for centralized management and deployment capabilities
+. xref:creating-servers.adoc[Add servers to Runtime Manager] for centralized management and deployment capabilities
 . Ensure servers have connectivity to Anypoint Platform for management communication
 
 === Environment Promotion Requirements
@@ -167,7 +166,6 @@ Configure application analytics and monitoring metadata:
 * Configure application-specific monitoring points
 * Enable detailed transaction flow analysis
 
-For comprehensive analytics configuration, see xref:insight.adoc[Insight].
 
 **Properties**
 
@@ -178,8 +176,8 @@ Define runtime properties that control application behavior:
 * Use secure property management for sensitive configuration data
 
 Property Management Resources:
-* xref:hybrid-manage-props.adoc[Manage Properties for Applications On-Premises]
-* xref:secure-application-properties.adoc[Safely Hide Application Properties]
+* xref:runtime-manager::hybrid-manage-props.adoc[Manage Properties for Applications On-Premises]
+* xref:cloudhub::secure-application-properties.adoc[Safely Hide Application Properties]
 
 **Logging**
 

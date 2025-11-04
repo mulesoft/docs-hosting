@@ -272,7 +272,7 @@ image::rtm-server-certificate-group-select-server.png["Select Server"]
 image::rtm-server-certificate-group-renew.png["Confirm Renewal"]
 . Check *Certificate expiration date* to verify that the certificate renewed successfully.
 
-If the *Renew Certificate* option in the *Actions* pull-down menu isn't available after performing the previous steps, xref:installing-and-configuring-runtime-manager-agent#update-the-agent.adoc[update your *Agent* version].
+If the *Renew Certificate* option in the *Actions* pull-down menu isn't available after performing the previous steps, xref:runtime-manager::installing-and-configuring-runtime-manager-agent#update-the-agent.adoc[update your *Agent* version].
 The *Server certificate renewal* feature, which enables you to renew server certificates directly from Runtime Manager, was introduced by Runtime Manager 2.8.4. This feature requires Runtime Manager Agent 1.10.0 or later.
 Hover over the *Renew Certificate* option in the *Actions* pull-down menu, and a tooltip in the UI indicates you the minimum required Runtime Agent version.
 

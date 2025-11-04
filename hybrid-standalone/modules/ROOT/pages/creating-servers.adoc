@@ -18,7 +18,7 @@ Before adding a server to Runtime Manager:
 * Have an Enterprise support account if downloading the agent.
 * Remove existing server registration if already registered in another Runtime Manager instance.
 
-For details, refer to xref:runtime-manager-agent.adoc[Install or Update the Runtime Manager agent].
+For details, refer to xref:runtime-manager::runtime-manager-agent.adoc[Install or Update the Runtime Manager agent].
 
 == Create a Server
 
@@ -45,10 +45,10 @@ This button appears only if the server name you specify is valid.
 . Paste the command on the command line.
 . Include any other parameters on the `amc_setup` command line.
 +
-For information, see xref:installing-and-configuring-runtime-manager-agent.adoc#amc_setup-parameters[amc_setup Parameters].
+For information, see xref:runtime-manager::installing-and-configuring-runtime-manager-agent.adoc#amc_setup-parameters[amc_setup Parameters].
 . If your environment requires all outbound calls to go through a proxy, specify proxy settings in either the `$MULE_HOME/conf/mule-agent.yml` file or the `$MULE_HOME/conf/wrapper.conf` file.
 +
-See xref:rtm-agent-proxy-config.adoc[Connect the Agent Through a Proxy Server].
+See xref:runtime-manager::rtm-agent-proxy-config.adoc[Connect the Agent Through a Proxy Server].
 . If you are using the IBM JVM, see <<configure-ibm-jvm,Configure IBM JVM>>.
 
 When the `amc_setup` command completes successfully, you see:

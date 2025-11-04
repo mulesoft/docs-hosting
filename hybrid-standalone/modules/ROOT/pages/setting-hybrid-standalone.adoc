@@ -43,7 +43,7 @@ With the Runtime Manager agent, you can:
 * Receive real-time alerts and notifications
 * Access application logs and diagnostic information
 
-For detailed configuration and setup instructions, refer to xref:runtime-manager-agent.adoc[Runtime Manager Agent].
+For detailed configuration and setup instructions, refer to xref:runtime-manager::runtime-manager-agent.adoc[Runtime Manager Agent].
 
 == Create Servers, Server Groups, and Clusters
 
