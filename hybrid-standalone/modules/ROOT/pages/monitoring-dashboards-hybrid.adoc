@@ -24,7 +24,7 @@ Runtime Manager provides these infrastructure monitoring dashboards:
 
 * <<Server Monitoring Dashboard,Server Monitoring Dashboard>> +
 Individual server performance metrics including CPU, memory, JVM heap usage, garbage collection, and detailed memory breakdown
-* <<Server Group or Cluster Monitoring Dashboard,Server Group and Cluster Monitoring Dashboard>> +
+* <<Server Group and Cluster Monitoring Dashboard,Server Group and Cluster Monitoring Dashboard>> +
 Aggregated performance metrics for servers organized in groups or clusters with comparative analysis capabilities
 
 
@@ -53,7 +53,7 @@ The server dashboard displays with comprehensive performance metrics:
 +
 image::monitoring-dashboards-server.png["Monitoring dashboard for a server"]
 
-You can also navigate to individual server dashboards from the <<Server Group or Cluster Monitoring Dashboard,server group or cluster dashboard>> by clicking individual server names.
+You can also navigate to individual server dashboards from the <<Server Group and Cluster Monitoring Dashboard,server group or cluster dashboard>> by clicking individual server names.
 
 === Dashboard Navigation and Features
 
