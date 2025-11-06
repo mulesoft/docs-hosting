@@ -126,9 +126,9 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSettings]
 . Click the *Ingress* tab.
-. Hover over *internal endpoint*.
-// +
-// <screenshot>
+. In the *Endpoint* section, view or copy the endpoint labeled *Default* and *Internal*.
++
+image::default-internal-endpoint.png[Endpoint section showing the default internal endpoint for an application]
 
 == Send Application-to-Application Requests within a Private Space
 
