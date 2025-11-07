@@ -72,6 +72,8 @@ Configure a DNS target to allow clients to reach your applications from within o
 _Public DNS targets_ allow external clients to reach your applications at custom domains.
 _Private DNS targets_ can only be reached from inside a private network, or through VPN or transit gateway connections. Use them with internal DNS or allowlists in your connected external networks, so clients in those networks may make requests to your applications.
 
+Private DNS targets use private static IP addresses that don't change during the lifetime of the private space. For more information about IP addresses and ranges, see xref:ch2-networking-guide.adoc#ip-ranges[IP Ranges].
+
 === Ciphers
 
 When you add the TLS context, you can select the ciphers to use with the TLS context.
