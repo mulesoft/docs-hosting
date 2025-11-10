@@ -82,7 +82,7 @@ The following table shows which environments support each component:
 | Anypoint API Community Manager | Y | Y | Y | N | Y | Y
 | Anypoint API Experience Hub |Y|Y|N|N | Y | Y
 | Anypoint Code Builder | Y | Y | N | N | Y | Y
-| API Designer | Y | Y | Y | Y | Y | Y
+| API Designer | Y | Y | Y | Y | N | N
 | Anypoint API Manager | Y | Y | Y | Y | Y | Y
 | CloudHub runtimes | Y | Y | Y | N | Y | Y
 | Customer-hosted runtimes | Y | Y | Y | Y | Y | Y

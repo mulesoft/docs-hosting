@@ -100,7 +100,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 .4+|xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway]| API Key Metrics | Available | Available | Planned | Planned .4+| n/a
                 | Flex Gateway Running in Connected Mode | Planned | Planned | Available | Available
                 | Flex Gateway Running in Local Mode | Planned | Planned | Available | Available
-                | Managed Flex Gateway | Planned | Planned | Available | Available
+                | Managed Flex Gateway | Planned | Planned | Planned | Planned
 |Hybrid Standalone Deployment| n/a | Planned | Planned | Not planned | Not planned| n/a
 |xref:idp::index.adoc[IDP]| n/a | Planned | Planned | Not planned | Not planned| n/a
 .2+|xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway]| Mule Gateway Proxies | Planned | Planned | Available | Available .2+| n/a
