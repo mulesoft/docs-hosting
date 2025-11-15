@@ -61,7 +61,7 @@ Anypoint Platform PCE supports deploying to Mule runtime servers hosted in a sta
 +
 See xref:private-cloud::index.adoc[About Anypoint Platform PCE] for more information.
 +
-Some Anypoint Platform components are not supported in Anypoint Platform PCE. See the <<Support Matrix for Control Plane Hosting Options>> for details.
+Some Anypoint Platform components are not supported in Anypoint Platform PCE. See the <<support-matrix-control-plane>> for details.
 
 This table shows more details about our regional services:
 
@@ -79,6 +79,7 @@ include::mq::partial$mq-in-govcloud.adoc[tag=mqSupportInGovCloud]
 
 include::cloudhub-2::partial$index-runtime-plane-hosting-options.adoc[tag=runtimePlaneHostingOptions]
 
+[[support-matrix-runtime]]
 === Support Matrix for Runtime Plane Hosting Options
 
 Not all Anypoint Platform components are supported in each of the Runtime Plane hosting options:
@@ -104,6 +105,7 @@ See xref:mule-runtime::choosing-the-right-clustering-topology.adoc[Cluster Runti
 +
 Connectors that retrieve and manipulate files on the file system are not supported, for example Anypoint Connector for File (File Connector). Mule applications deployed to Runtime Fabric do not have access to the file system of the virtual machine or the network mount.
 
+[[support-matrix-control-plane]]
 == Control Plane and Runtime Plane Support Matrix
 
 The following table lists the runtime plane options that are supported in each control plane hosting option.
