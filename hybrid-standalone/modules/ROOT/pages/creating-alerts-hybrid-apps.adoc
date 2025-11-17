@@ -22,7 +22,7 @@ Alerts retrigger when conditions continuously exceed specified thresholds, ensur
 You can also create custom alerts for applications deployed to CloudHub and CloudHub 2.0.
 
 CloudHub  triggers custom alerts when your application sends notifications to the Runtime Manager console
-using Anypoint Connector for CloudHub (CloudHub Connector). See xref:custom-application-alerts.adoc[Custom Application Alerts] for information.
+using Anypoint Connector for CloudHub (CloudHub Connector). See xref:cloudhub::custom-application-alerts.adoc[] for information.
 
 For applications deployed to CloudHub 2.0, custom alerts indicate whether an app deploys successfully and whether it's behaving as expected. See xref:cloudhub-2::ch2-config-app-alerts.adoc[] for more information.
 
