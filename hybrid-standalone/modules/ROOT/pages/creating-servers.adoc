@@ -107,4 +107,4 @@ After creating servers, you can:
 * xref:creating-servers-groups.adoc[Creating Server Groups]
 * xref:creating-clusters.adoc[Creating Clusters]
 * xref:managing-servers.adoc[Managing Servers]
-* xref:runtime-manager::runtime-manager-agent.adoc[Runtime Manager Agent].
+* xref:runtime-manager::runtime-manager-agent.adoc[Runtime Manager Agent]
