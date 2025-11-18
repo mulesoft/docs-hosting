@@ -2,7 +2,7 @@
 
 Private link in AWS provides private connectivity between a CloudHub 2.0 private space and services hosted on AWS and supported AWS services.
 
-CloudHub 2.0 supports two private connectivity options: virtual private network (VPN) and transit gateway (TGW). Both operate at Open Systems Interconnection (OSI) layer 3, the network layer. 
+CloudHub 2.0 supports two private connectivity options: Virtual Private Network (VPN) and Transit Gateway (TGW). Both operate at Open Systems Interconnection (OSI) layer 3, the network layer. 
 
 Private link operates at OSI layer 4 and offers better isolation. The virtual service appears inside the same network, but the CloudHub 2.0 private space network and your on-prem network aren't interconnected. Private link is also service specific. Each service must be explicitly defined in the private space to prevent accidental exposure of sensitive applications.
 
@@ -16,7 +16,7 @@ The advantages of private link are:
 Typical use cases for private link are:
 
 * Private link from CloudHub 2.0 private space to a service hosted in AWS by your organization
-* Private link from CloudHub 2.0 private space to a supported AWS service (e.g. S3, Kinesis)
+* Private link from CloudHub 2.0 private space to a supported AWS service (for example, S3 and Kinesis)
 * Private link from CloudHub 2.0 private space to third-party services hosted in AWS
 ** For example, https://help.salesforce.com/s/articleView?id=xcloud.private_connect_overview.htm&type=5[Private Connect], which enables private connectivity between CloudHub 2.0 and Salesforce
 
@@ -68,7 +68,7 @@ Example output:
 +
 . Make your services private link ready.
 +
-Ensure your services are properly configured for private link connectivity before establishing connections.
+Verify that your services are properly configured for private link connectivity before establishing connections.
 
 === AWS S3 Service
 
@@ -135,7 +135,7 @@ Here are specific examples for different service types:
 
 === AWS S3 Endpoint
 
-To configure an S3 endpoint for your private space, the `serviceOwner` is `amazon`. Configure at least two AZs. Since AWS services are available in all its AZs, you can pick any AZs from your private space.
+To configure an S3 endpoint for your private space, the `serviceOwner` is `amazon`. Configure at least two AZs. Because AWS services are available in all its AZs, you can pick any AZs from your private space.
 
 [source,curl,linenums]
 ----
