@@ -1,23 +1,23 @@
 = Setting Up an Outbound Private Link Connection
 
-Private link in AWS provides private connectivity between a CloudHub 2.0 private space and services hosted on AWS and supported AWS services.
+AWS Private Link provides private connectivity between a CloudHub 2.0 private space and services hosted on AWS and supported AWS services.
 
 CloudHub 2.0 supports two private connectivity options: Virtual Private Network (VPN) and Transit Gateway (TGW). Both operate at Open Systems Interconnection (OSI) layer 3, the network layer. 
 
-Private link operates at OSI layer 4 and offers better isolation. The virtual service appears inside the same network, but the CloudHub 2.0 private space network and your on-prem network aren't interconnected. Private link is also service specific. Each service must be explicitly defined in the private space to prevent accidental exposure of sensitive applications.
+Private Link operates at OSI layer 4 and offers better isolation. The virtual service appears inside the same network, but the CloudHub 2.0 private space network and your on-prem network aren't interconnected. Private Link is also service specific. Each service must be explicitly defined in the private space to prevent accidental exposure of sensitive applications.
 
-The advantages of private link are:
+The advantages of Private Link are:
 
 * Secure access to services without going through the internet
 * Better isolation between your network and CloudHub 2.0
 * Smaller blast radius if something goes wrong
 * Service level control on what services available to CloudHub 2.0
 
-Typical use cases for private link are:
+Typical use cases for Private Link are:
 
-* Private link from CloudHub 2.0 private space to a service hosted in AWS by your organization
-* Private link from CloudHub 2.0 private space to a supported AWS service (for example, S3 and Kinesis)
-* Private link from CloudHub 2.0 private space to third-party services hosted in AWS
+* Private Link from CloudHub 2.0 private space to a service hosted in AWS by your organization
+* Private Link from CloudHub 2.0 private space to a supported AWS service (for example, S3 and Kinesis)
+* Private Link from CloudHub 2.0 private space to third-party services hosted in AWS
 ** For example, https://help.salesforce.com/s/articleView?id=xcloud.private_connect_overview.htm&type=5[Private Connect], which enables private connectivity between CloudHub 2.0 and Salesforce
 
 == Before You Begin
@@ -31,7 +31,7 @@ The token owner must have permissions to manage private spaces.
 
 == Configure the Outbound Connections
 
-Follow these steps to set up an outbound private link connection from your CloudHub 2.0 private space:
+Follow these steps to set up an outbound Private Link connection from your CloudHub 2.0 private space:
 
 . Gather private space availability zones (AZs) and AWS Account ID.
 ..  Retrieve information about availability zones for your private space. 
@@ -66,13 +66,13 @@ Example output:
 328752079326
 ----
 +
-. Make your services private link ready.
+. Make your services Private Link ready.
 +
-Verify that your services are properly configured for private link connectivity before establishing connections.
+Verify that your services are properly configured for Private Link connectivity before establishing connections.
 
 === AWS S3 Service
 
-AWS S3 service is already private link ready with regional VPC endpoints and a global access endpoint. For cross-region connections, use the global access endpoint.
+AWS S3 service is already Private Link ready with regional VPC endpoints and a global access endpoint. For cross-region connections, use the global access endpoint.
 
 [source,text,linenums]
 ----
@@ -84,7 +84,7 @@ For a complete list of AWS services ready for private link, see https://docs.aws
 
 === Salesforce Private Connect
 
-Salesforce private connect requires activation as an add-on. After activation:
+Salesforce Private Connect requires activation as an add-on. After activation:
 
 . In salesforce, go to *Setup*, enter *Private Connect* in the *Quick Find* box, and select *Private Connect*.
 . On the *Private Connect* page, click *AWS Regions* to reveal available regions.
@@ -150,7 +150,7 @@ curl -XPOST https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId
 
 === Salesforce Private Connect Endpoint
 
-To create a private connect endpoint, provide the `serviceName`, `serviceRegion`, and the account ID hosting the VPC endpoint service.
+To create a Private Connect endpoint, provide the `serviceName`, `serviceRegion`, and the account ID hosting the VPC endpoint service.
 
 [source,curl,linenums]
 ----
@@ -266,7 +266,7 @@ Because AWS manages these services, it establishes the connection automatically.
 
 === Salesforce Private Connect
 
-To establish the private connect connection, retrieve the endpoint ID using this API command:
+To establish the Private Connect connection, retrieve the endpoint ID using this API command:
 
 [source,curl,linenums]
 ----
@@ -305,7 +305,7 @@ The endpoint status shows *Pending Acceptance*. Complete the connection:
 . Select *AWS* and configure the connection using the `awsId` (VPC Endpoint ID).
 . Click *Save*.
 
-Within a few minutes, the endpoints sync and the status changes to *Ready* in private connect and *Available* in CloudHub 2.0.	
+Within a few minutes, the endpoints sync and the status changes to *Ready* in Private Connect and *Available* in CloudHub 2.0.	
 
 === Custom Services
 
@@ -348,7 +348,7 @@ The custom service VPC endpoint status shows *Pending Acceptance*. Accept the co
 
 == Use the Private Link
 
-After establishing private link connections with *Available* status, the VPC endpoint API returns DNS entries for the service.
+After establishing Private Link connections with *Available* status, the VPC endpoint API returns DNS entries for the service.
 
 To talk to the S3 endpoint, use this DNS entry:
 
@@ -389,7 +389,7 @@ To talk to the custom service, use this DNS entry:
 Each VPC endpoint consumes one network connection entitlement per AZ.
 
 [NOTE]
-To configure high availability, set up the private link connection with at least two availability zones. This consumes two network connection entitlements.
+To configure high availability, set up the Private Link connection with at least two availability zones. This consumes two network connection entitlements.
 
 
 == Limitations
