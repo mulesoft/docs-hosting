@@ -32,5 +32,61 @@ The CloudHub 2.0 infrastructure optimizes application efficiency through replica
 
 During rebalancing, a maximum of 30% of an application's replicas are rebalanced concurrently. The system rounds up this percentage to the number of replicas that can be disrupted. For example, if your application has two replicas, a disruption affects one replica, exceeding the configured 30%.
 
-This method ensures that the application's configuration, including the Mule runtime version and the infrastructure, remains consistent after all restarts, except for restarts occurring after a security patching. For more details about security patching, see xref:ch2-patch-updates.adoc[].
+This table shows the potential impact of rebalancing operations on your applications based on the number of replicas.
 
+[cols="~,~", options="header"]
+|===
+|Total Application Replicas
+|Maximum Replicas Disrupted
+
+|1
+|1
+
+|2
+|1
+
+|3
+|1
+
+|4
+|2
+
+|5
+|2
+
+|6
+|2
+
+|7
+|3
+
+|8
+|3
+
+|9
+|3
+
+|10
+|3
+
+|11
+|4
+
+|12
+|4
+
+|13
+|4
+
+|14
+|5
+
+|15
+|5
+
+|16
+|5
+|===
+
+
+This method ensures that the application's configuration, including the Mule runtime version and the infrastructure, remains consistent after all restarts, except for restarts occurring after a security patching. For more details about security patching, see xref:ch2-patch-updates.adoc[].

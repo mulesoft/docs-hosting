@@ -1,0 +1,5 @@
+name: hybrid-standalone
+title: Hybrid Standalone
+version: master
+nav:
+- modules/ROOT/nav.adoc

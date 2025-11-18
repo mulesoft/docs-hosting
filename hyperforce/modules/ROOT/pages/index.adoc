@@ -1,8 +1,7 @@
-= Salesforce Hyperforce
+= Salesforce Hyperforce Overview
+:page-aliases: deploy-mule-apps-hyperforce.adoc
 
-Salesforce Hyperforce (Hyperforce) is a modern, scalable, and secure infrastructure designed to support your MuleSoft application deployments. Hyperforce enables you to deliver Mule apps rapidly and reliably to locations worldwide, giving you more choice and control over data residency. Mule apps benefit from its integration of enhanced standards for compliance, scalability, security, agility, and privacy.
-
-With Hyperforce, you can use a globally distributed and reliable platform to ensure optimal performance and reliability for your integrations and APIs.
+Salesforce Hyperforce (Hyperforce) provides a modern infrastructure that lets you deploy MuleSoft applications globally with control over data residency and compliance. Deploy your Mule apps rapidly and reliably to locations worldwide while benefiting from enhanced security, scalability, and privacy standards. Hyperforce offers a globally distributed platform that ensures optimal performance for your integrations and APIs.
 
 Some key benefits:
 
@@ -21,16 +20,6 @@ Minimizes downtime for releases and maintenance. Additionally, it accelerates de
 * Privacy +
 Provides you privacy standards that give you control and transparency over your users' data.
 
-== Before You Begin
-
-Before deploying Mule apps to Hyperforce your MuleSoft account must have access to a Hyperforce instance. Contact your MuleSoft account representative to provision a MuleSoft license to a Hyperforce instance.
-
-After you have access to a Hyperforce instance, refer to these topics:
-
-* xref:configure-mule-hyperforce.adoc[Configuring Mule to Access Hyperforce]
-* xref:deploy-mule-apps-hyperforce.adoc[Deploying Mule Apps to Hyperforce]
-
-
 == Features Supported on Hyperforce
 
 This table indicates the support status of Anypoint Platform features on Hyperforce:
@@ -42,45 +31,95 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 [%header%autowidth.spread,cols=".^a,.^a,.^a,.^a,.^a,.^a,.^a]
 |===
 |Component |Feature Description |US Cloud | EU Cloud | Canada Cloud | Japan Cloud | Notes
-| xref:access-management::index.adoc[Access Management] | n/a | Planned | Planned | Available | Available | n/a
-|xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]| n/a     |  Planned |Planned | Available | Available|  For details, refer to xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane],  xref:api-manager::analytics-landing-page.adoc[Mule API Analytics], and xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
-|xref:anypoint-code-builder::index.adoc[Anypoint Code Builder]| n/a | Planned | Planned | Available | Available | For exceptions, refer to xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud IDE]
-.2+|xref:exchange::index.adoc[Anypoint Exchange]| Amazon Cloud Front      |  Planned |Planned | Planned | Planned .2+| n/a 
-                      |Usage and Engagement Metrics      |  Planned | Planned |Available | Available 
+| xref:private-cloud::index.adoc[Anypoint Private Cloud] | n/a | Not planned | Not planned | Not planned | Not planned | AnypointPrivate Cloud (PCE) is a complete software package that you install and manage entirely within your private network. PCE runs exclusively on your infrastructure and isn't hosted or managed on any public cloud by MuleSoft.
+.4+| xref:access-management::index.adoc[Access Management] | All other features | Planned | Planned | Available | Available .4+| n/a
+| Audit Logging | Planned | Planned | Available | Available
+| Business Groups | Planned | Planned | Available | Available
+| External Identity Management Integration | Planned | Planned | Available | Available
+.3+|xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]| API Manager 1.x     |  Planned |Planned | Not planned | Not planned .3+|  For details, refer to xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane],  xref:api-manager::analytics-landing-page.adoc[Mule API Analytics], and xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
+| API Manager 2.x | Planned | Planned | Available | Available
+| API Service Mesh | Planned | Planned | Not planned | Not planned
+|xref:anypoint-code-builder::index.adoc[Anypoint Code Builder]| n/a | Planned | Planned | Available | Available | For details, refer to xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud Hosts]
+.3+|xref:exchange::index.adoc[Anypoint Exchange]| All other features      |  Planned |Planned | Available | Available .3+| n/a 
+                      | Amazon Cloud Front      |  Planned |Planned | Planned | Planned
+                      |Usage and Engagement Metrics      |  Planned | Planned |Planned | Planned 
 |Anypoint Integration Advanced| n/a | Planned | Planned | Planned | Planned |  n/a 
-|xref:monitoring::index.adoc[Anypoint Monitoring]| n/a |  Planned |Planned | Available | Available| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
-|xref:mq::index.adoc[Anypoint MQ]| n/a |  Planned |Planned | Available | Available | For details, refer to xref:mq::index.adoc#mq-features-control-plane[Anypoint MQ Features by Control Plane]
+.10+|xref:monitoring::index.adoc[Anypoint Monitoring]| Advanced Alerts |  Planned |Planned | Planned | Planned .10+| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
+                                                     
+                                                     |Basic Alerts       |  Planned |Planned | Planned| Planned
+                                                     |Archive API       |  Planned |Planned | Planned| Planned
+                                                     |Log-Points      |  Planned |Planned | Planned| Planned
+                                                     |Log-Search       |  Planned |Planned | Planned| Planned
+                                                     |Log-Tailing       |  Planned |Planned | Available| Available
+                                                     |OTel Exporter for Audit Logs       |  Planned |Planned | Planned| Planned
+                                            
+                                                     |Raw Data Download       |  Planned | Planned | Planned| Planned
+                                                     |Reports       |  Planned | Planned | Planned| Planned
+                                                     |Tools       |  Planned | Planned | Planned| Planned
+.17+|xref:mq::index.adoc[Anypoint MQ]| All other features |  Planned |Planned | Available | Available .17+| For details, refer to xref:mq::index.adoc#mq-features-control-plane[Anypoint MQ Features by Control Plane]
+                                    | Anypoint MQ Admin API |  Planned |Planned | Available | Available
+                                    | Anypoint MQ Broker API |  Planned |Planned | Available | Available
+                                    | Anypoint MQ Connector earlier than 4.x |  Planned |Planned | Not planned | Not planned
+                                    | Anypoint MQ Connector versions 4.x and later |  Planned |Planned | Available | Available
+                                    | Anypoint MQ Stats API (Anypont MQ Stats only) |  Planned |Planned | Available | Available
+                                    | Anypoint MQ Stats API (Usage Metrics) |  Planned |Planned | Not planned | Not planned
+                                    | Client Apps |  Planned |Planned | Not planned | Not planned
+                                    | CloudHub 1.0 Deployments |  Planned |Planned | Available | Available
+                                    | Connected Apps|  Planned |Planned | Available | Available
+                                    | Cross-Region Failover |  Planned |Planned | Not planned | Not planned
+                                    | Encrypted Queues |  Planned |Planned | Available | Available
+                                    | FIFO Exchange |  Planned |Planned | Planned | Planned
+                                    | Message Exchanges |  Planned |Planned | Available | Available
+                                    | Message Routing |  Planned |Planned | Available | Available
+                                    | Usage Charts (Access Management) |  Planned |Planned | Available | Available
+                                    | Usage Reports (Usage) |  Planned |Planned | Available | Available
 |xref:api-manager::analytics-landing-page.adoc[Anypoint Mule API Analytics]| REST APIs | Planned | Planned | Not planned | Not planned | n/a
 |xref:partner-manager::index.adoc[Anypoint Partner Manager]| n/a | Planned | Planned | Available | Available | n/a
-|xref:runtime-manager::index.adoc[Anypoint Runtime Manager]| n/a | Planned | Planned | Available | Available |  n/a
+.2+|xref:runtime-manager::index.adoc[Anypoint Runtime Manager]| All other features | Planned | Planned | Available | Available .2+|  n/a
+                                                              | Insights | Planned | Planned | Available | Available
 |xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager]| n/a | Planned | Planned | Available | Available | n/a
 |xref:studio::index.adoc[Anypoint Studio]| n/a | Planned | Planned | Available | Available | n/a
-|xref:visualizer::index.adoc[Anypoint Visualizer]| n/a | Planned | Planned | Available | Available | For details, refer to xref:visualizer::index.adoc#visualizer-hyperforce[Anypoint Visualizer Features by Control Plane]. 
+.3+|xref:visualizer::index.adoc[Anypoint Visualizer]| Architecture | Planned | Planned | Available | Available .3+| n/a
+                                                    | Policies | Planned | Planned | Available | Available  
+                                                    | Troubleshooting | Planned | Planned | Available | Available 
 |xref:api-community-manager::index.adoc[API Community Manager]| n/a | Planned | Planned | Available | Available | n/a
 |xref:design-center::design-create-publish-api-specs.adoc[API Designer]| n/a | Planned | Planned | Not planned | Not planned | n/a
 |xref:api-experience-hub::index.adoc[API Experience Hub]| n/a | Planned | Planned | Available | Available | n/a
 |xref:api-functional-monitoring::index.adoc[API Functional Monitoring]| n/a | Planned | Planned | Available | Available | n/a
 |xref:api-governance::index.adoc[API Governance]| n/a | Planned | Planned | Available | Available | n/a
 |xref:design-center::design-mocking-service.adoc[API Mocking Service]| n/a | Planned | Planned | Available | Available | n/a
-|xref:cloudhub::index.adoc[CloudHub]| n/a | Planned | Planned | Not planned | Not planned | n/a
-|xref:cloudhub-2::index.adoc[CloudHub 2.0]| Deleting the Default Egress Route | Planned | Planned | Available | Available | For details, refer to xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 Features by Control Plane]. 
+.2+|xref:cloudhub::index.adoc[CloudHub]| All other features | Planned | Planned | Not planned | Not planned .2+| n/a
+| Global CloudHub Deployment | Planned | Planned | Not planned | Not planned
+
+.5+|xref:cloudhub-2::index.adoc[CloudHub 2.0]| All other features | Available | Available | Available | Available .5+| For details, refer to xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 Features by Control Plane]. 
+                                            | Deleting the Default Egress Route | Available | Available | Planned | Planned
+                                            | Global Cloud Deployment | Available | Available |Not planned | Not planned
+                                            | Private Space | Available | Available |Available | Available
+                                            | Private Space - VPN | Available | Available |Available | Available
 |Connectors| n/a | Planned | Planned | Available | Available | n/a
-|Dataloader| n/a | Planned | Not planned | Not planned | Not planned| n/a
+|Dataloader| n/a | Planned | Not planned | Not planned | Not planned| https://dataloader.io/[Dataloader.io] will remain accessible globally, while its infrastructure will be hosted within the US Control Plane.
 .4+|xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway]| API Key Metrics | Available | Available | Planned | Planned .4+| n/a
                 | Flex Gateway Running in Connected Mode | Planned | Planned | Available | Available
                 | Flex Gateway Running in Local Mode | Planned | Planned | Available | Available
-                | Managed Flex Gateway | Planned | Planned | Available | Available
+                | Managed Flex Gateway | Planned | Planned | Planned | Planned
 |Hybrid Standalone Deployment| n/a | Planned | Planned | Not planned | Not planned| n/a
+|xref:idp::index.adoc[IDP]| n/a | Planned | Planned | Not planned | Not planned| n/a
 .2+|xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway]| Mule Gateway Proxies | Planned | Planned | Available | Available .2+| n/a
                 | Mule Gateway Policies | Planned | Planned | Available | Available
 |xref:mule-runtime::index.adoc[Mule runtime engine]| n/a | Planned | Planned | Available | Available| Mule 3 is not supported as it reached EOL.
 |xref:munit::index.adoc[MUnit]| n/a | Planned | Planned | Available | Available| n/a
-|xref:object-store::index.adoc[Object Store V2]| n/a | Planned | Planned | Available | Available| For details, refer to xref:object-store::index.adoc#os-features-control-plane[Object Store Features by Control Plane]
+.6+|xref:object-store::index.adoc[Object Store V2]| All other features | Planned | Planned | Available | Available .6+| For details, refer to xref:object-store::index.adoc#os-features-control-plane[Object Store Features by Control Plane]
+|Connected Apps| Planned | Planned | Available | Available
+|CloudHub 1.0 Deployments| Planned | Planned | Not planned | Not planned
+|Object Store v2 Stats API| Not planned | Not planned | Available | Available
+|Usage Charts (Access Management)| Planned | Planned | Available | Available
+|Usage Reports (Usage)| Planned | Planned | Available | Available
+|xref:rpa-home::index.adoc[RPA]| n/a | Planned | Planned | Not planned | Not planned| n/a
 |xref:runtime-fabric::index.adoc[Runtime Fabric]| n/a | Planned | Planned | Available | Available|  Contact your account manager to unlock this capability.
 |xref:general::usage-reports.adoc[Usage Reports]| n/a | Planned | Planned | Available | Available|   n/a   
 |===
 
-== Hyperforce Cloud Regions
+== Control Plane Regions
 
 This table indicates the available and planned cloud regions for Hyperforce:
 
@@ -90,10 +129,10 @@ This table indicates the available and planned cloud regions for Hyperforce:
 [%header%autowidth.spread]
 |===
 |Location | Region Control Plane | Anypoint Platform URL | Status
-|North America | Canada Cloud | ca1.platform.mulesoft.com | Available
-|Asia Pacific | Japan Cloud | jp1.platform.mulesoft.com | Available
-|North America | US Cloud | anypoint.mulesoft.com | Planned
-|Europe | EU Cloud | eu1.platform.mulesoft.com | Planned
+|North America | Canada Cloud | `ca1.platform.mulesoft.com` | Available
+|Asia Pacific | Japan Cloud | `jp1.platform.mulesoft.com` | Available
+|North America | US Cloud | `anypoint.mulesoft.com` | Planned
+|Europe | EU Cloud | `eu1.anypoint.mulesoft.com` | Planned
 |===
 
 == Mule Runtime Version Compatibility
@@ -101,6 +140,25 @@ This table indicates the available and planned cloud regions for Hyperforce:
 * Hyperforce is compatible with Mule runtime engine versions under support, 4.4.0 and later.
 * Hyperforce supports the Mule runtime engine LTS and Edge release channels. The recommended customer profile is LTS. For more information, visit xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[]. 
 
+== Deploy Mule Apps to Control Planes
+
+When deploying Mule apps to any region control plane, you deploy on CloudHub 2.0 to a private or shared space. 
+
+[%header%autowidth.spread]
+|===
+| Region Control Plane | Deployment Configurations
+a|  US Cloud | Refer to xref:cloudhub-2::ch2-deploy.adoc[Deploying to CloudHub 2.0] and xref:cloudhub-2::ch2-architecture.adoc#shared-global-regions[Shared Global Regions].
+a| Other Clouds
+    a| To deploy to other cloud regions, follow these tasks: +
+
+. Change the Anypoint Platform endpoints URLs to the region control plane endpoints: +
+* xref:configure-mule-hyperforce.adoc[Configure Mule to Access Control Planes]
+* xref:exchange::to-publish-assets-maven.adoc#publish-an-asset-to-exchange-using-maven[Publish an Asset to Exchange Using Maven]
+* xref:anypoint-code-builder::start-acb.adoc#change-clouds[Configure Anypoint Code Builder to a Different Control Plane]
+* xref:studio::hyperforce-configuration.adoc[Configure Anypoint Studio for Control Planes]
+[start=2]
+. xref:cloudhub-2::ch2-deploy.adoc[Deploy to CloudHub 2.0]
+|===
 
 == See Also
 

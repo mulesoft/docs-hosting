@@ -162,6 +162,8 @@ The following table summarizes what DNS records are available for your applicati
 
 For example, if you deploy an application named `myapp` to Canada (Central), the domain used to access the application is `myapp-_uniq-id_._shard_.can-c1.cloudhub.io`.
 
+include::partial$url-format-by-control-plane.adoc[]
+
 CloudHub 2.0 backend services determine the values of:
 
 `uniq-id`::
