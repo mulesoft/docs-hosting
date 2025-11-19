@@ -129,6 +129,8 @@ The account ID is in the *Owner* field.
 .. Availability Zone IDs: the IDs of the availability zones where you want to establish the private link.
 +
 Make sure that the availability zone IDs are the ones used by the private space obtained in <<_configure_the_outbound_connections, Configure the Outbound Connections>>, and that the VPC endpoint service is hosted in those availability zones.
++
+Alternatively, specify `countOfAzs` with an integer value to have the backend service automatically assign the required number of availability zones. Provide either `azIds` or `countOfAzs`, not both.
 . Create a VPC endpoint in CloudHub 2.0 via API:
 +
 Here are specific examples for different service types:
@@ -202,8 +204,10 @@ curl -XPATCH https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgI
 	"serviceRegion": "{service region}",
 	"serviceOwner": "{service owner}",
 	"azIds": [{aws-az-id1}, {aws-az-id2}]
-}‘
+}'
 ----
++
+You can use `"countOfAzs": 2` instead of the `azIds` array. Provide either `azIds` or `countOfAzs`, not both.
 +
 . Use this command to delete a VPC endpoint:
 [source,curl,linenums]
