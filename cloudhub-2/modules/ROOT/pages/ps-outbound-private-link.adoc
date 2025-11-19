@@ -25,7 +25,7 @@ Typical use cases for Private Link are:
 . Provision a xref:ps-create-configure.adoc[private space] in CloudHub 2.0.
 . Obtain a bearer token for calling APIs.
 +
-Follow the instructions from xref:access-management::saml-bearer-token.adoc[Anypoint Identity] or https://help.salesforce.com/s/articleView?id=001115323&type=1[external Identity] to get a bearer access token for your Anypoint organization.
+Follow the instructions from xref:access-management::saml-bearer-token.adoc[Anypoint identity] or https://help.salesforce.com/s/articleView?id=001115323&type=1[external identity] to get a bearer access token for your Anypoint organization.
 +
 The token owner must have permissions to manage private spaces.
 
