@@ -31,7 +31,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 [%header%autowidth.spread,cols=".^a,.^a,.^a,.^a,.^a,.^a,.^a]
 |===
 |Component |Feature Description |US Cloud | EU Cloud | Canada Cloud | Japan Cloud | Notes
-| xref:private-cloud::index.adoc[Anypoint Private Cloud] | n/a | Not planned | Not planned | Not planned | Not planned | AnypointPrivate Cloud (PCE) is a complete software package that you install and manage entirely within your private network. PCE runs exclusively on your infrastructure and isn't hosted or managed on any public cloud by MuleSoft.
+| xref:private-cloud::index.adoc[Anypoint Private Cloud Edition] | n/a | Not planned | Not planned | Not planned | Not planned | Anypoint Private Cloud Edition (Anypoint PlatformPCE) is a complete software package that you install and manage entirely within your private network. PCE runs exclusively on your infrastructure and isn't hosted or managed on any public cloud by MuleSoft.
 .4+| xref:access-management::index.adoc[Access Management] | All other features | Planned | Planned | Available | Available .4+| n/a
 | Audit Logging | Planned | Planned | Available | Available
 | Business Groups | Planned | Planned | Available | Available
