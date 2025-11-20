@@ -86,6 +86,7 @@ Salesforce Private Connect::
 +
 Salesforce Private Connect requires activation as an add-on. After activation:
 +
+[#]
 . In Salesforce, go to *Setup*, enter *Private Connect* in the *Quick Find* box, and select *Private Connect*.
 . On the *Private Connect* page, click *AWS Regions* to reveal available regions.
 . Select the AWS region that matches your private space region.
@@ -95,6 +96,7 @@ Custom Services (Self-Hosted)::
 +
 To prepare custom services:
 +
+[#]
 . Deploy your service in at least one private space AZ. For high availability, configure 2 AZs.
 . Expose the service via a network load balancer or application load balancer.
 . https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html[Create an endpoint service] following AWS guidance.
