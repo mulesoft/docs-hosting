@@ -86,7 +86,7 @@ For a complete list of AWS services ready for private link, see https://docs.aws
 
 Salesforce Private Connect requires activation as an add-on. After activation:
 
-. In salesforce, go to *Setup*, enter *Private Connect* in the *Quick Find* box, and select *Private Connect*.
+. In Salesforce, go to *Setup*, enter *Private Connect* in the *Quick Find* box, and select *Private Connect*.
 . On the *Private Connect* page, click *AWS Regions* to reveal available regions.
 . Select the AWS region that matches your private space region.
 . Copy the service name for later use.
@@ -100,7 +100,7 @@ To prepare custom services:
 . https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html[Create an endpoint service] following AWS guidance.
 . Set *Acceptance required* to *Yes* to prevent unauthorized connections.
 . Optionally, configure a private DNS name for your service. CloudHub 2.0 private space automatically picks up the private DNS and makes it available to Mule applications.
-
++
 [NOTE]
 If the service is hosted in the same region as the private space, set up the services in the same availability zone as the private space obtained in <<_configure_the_outbound_connections, Configure the Outbound Connections>>. For cross-region services, you don't need AZ alignment. Validation for cross-region connectivity isn't yet complete; its success depends on the configuration.
 +
@@ -125,7 +125,7 @@ aws ec2 describe-vpc-endpoint-services --service-names {your-service-name} --reg
 ----
 +
 The account ID is in the *Owner* field.
-... "amazon", if it's an Amazon service.
+... `amazon`, if it's an Amazon service.
 .. Availability Zone IDs: the IDs of the availability zones where you want to establish the private link.
 +
 Make sure that the availability zone IDs are the ones used by the private space obtained in <<_configure_the_outbound_connections, Configure the Outbound Connections>>, and that the VPC endpoint service is hosted in those availability zones.
@@ -179,23 +179,24 @@ curl -XPOST https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId
   "azIds": ["use1-az1", "use1-az2"]
 }'
 ----
-+
+
 If the VPC endpoint is successfully created, the API returns a `vpceId`.
-. Get the VPC endpoint status in CloudHub 2.0 using the API:
-+
+Get the VPC endpoint status in CloudHub 2.0 using the API:
+
 [source,curl,linenums]
 ----
 curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpceid} -H "Authorization:$AUTHTOKEN" 
 ----
-+
-.. If successful, it returns the DNS names of the VPC endpoint.
-.. It also returns the provisioning status:
-... `Invalid`: VPCE creation failed.
-... `Valid`: VPCE is being provisioned.
-... `Available`
-... `PendingAcceptance`
-. Use this command to update a VPC endpoint:
-+
+
+If successful, it returns the DNS names of the VPC endpoint.
+It also returns the provisioning status:
+* `Invalid`: VPCE creation failed.
+* `Valid`: VPCE is being provisioned.
+* `Available`
+* `PendingAcceptance`
+
+Use this command to update a VPC endpoint:
+
 [source,curl,linenums]
 ----
 curl -XPATCH https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpceId} -H "Authorization:$AUTHTOKEN"  -H "Content-Type:application/json"  -d '{
@@ -206,10 +207,11 @@ curl -XPATCH https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgI
 	"azIds": [{aws-az-id1}, {aws-az-id2}]
 }'
 ----
-+
+
 You can use `"countOfAzs": 2` instead of the `azIds` array. Provide either `azIds` or `countOfAzs`, not both.
-+
-. Use this command to delete a VPC endpoint:
+
+Use this command to delete a VPC endpoint:
+
 [source,curl,linenums]
 ----
 curl -XDELETE https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpceid} -H "Authorization:$AUTHTOKEN" 
