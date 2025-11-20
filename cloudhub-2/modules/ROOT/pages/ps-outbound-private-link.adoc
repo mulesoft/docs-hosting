@@ -135,10 +135,10 @@ Alternatively, specify `countOfAzs` with an integer value to have the backend se
 +
 Here are specific examples for different service types:
 
-=== AWS S3 Endpoint
-
+AWS S3 Endpoint::
++
 To configure an S3 endpoint for your private space, the `serviceOwner` is `amazon`. Configure at least two AZs. Because AWS services are available in all its AZs, you can pick any AZs from your private space.
-
++
 [source,curl,linenums]
 ----
 curl -XPOST https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces -H "Authorization:bearer {your-token}" -H "Content-Type:application/json" -d '{
@@ -150,10 +150,10 @@ curl -XPOST https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId
 }'
 ----
 
-=== Salesforce Private Connect Endpoint
-
+Salesforce Private Connect Endpoint::
++
 To create a Private Connect endpoint, provide the `serviceName`, `serviceRegion`, and the account ID hosting the VPC endpoint service.
-
++
 [source,curl,linenums]
 ----
 curl -XPOST https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces -H "Authorization:bearer {your-token}" -H "Content-Type:application/json" -d '{
@@ -165,10 +165,10 @@ curl -XPOST https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId
 }'
 ----
 
-=== Custom Service Endpoint
-
+Custom Service Endpoint::
++
 For custom services, if you didn't create your service in the same AZs as the CloudHub 2.0 private space, make sure that the chosen AZs exist in both your service network and the private space.
-
++
 [source,curl,linenums]
 ----
 curl -XPOST https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces -H "Authorization:bearer {your-token}" -H "Content-Type:application/json" -d '{
@@ -179,24 +179,24 @@ curl -XPOST https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId
   "azIds": ["use1-az1", "use1-az2"]
 }'
 ----
-
++
 If the VPC endpoint is successfully created, the API returns a `vpceId`.
 Get the VPC endpoint status in CloudHub 2.0 using the API:
-
++
 [source,curl,linenums]
 ----
 curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpceid} -H "Authorization:$AUTHTOKEN" 
 ----
-
++
 If successful, it returns the DNS names of the VPC endpoint.
 It also returns the provisioning status:
 * `Invalid`: VPCE creation failed.
 * `Valid`: VPCE is being provisioned.
 * `Available`
 * `PendingAcceptance`
-
++
 Use this command to update a VPC endpoint:
-
++
 [source,curl,linenums]
 ----
 curl -XPATCH https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpceId} -H "Authorization:$AUTHTOKEN"  -H "Content-Type:application/json"  -d '{
@@ -207,11 +207,11 @@ curl -XPATCH https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgI
 	"azIds": [{aws-az-id1}, {aws-az-id2}]
 }'
 ----
-
++
 You can use `"countOfAzs": 2` instead of the `azIds` array. Provide either `azIds` or `countOfAzs`, not both.
-
++
 Use this command to delete a VPC endpoint:
-
++
 [source,curl,linenums]
 ----
 curl -XDELETE https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpceid} -H "Authorization:$AUTHTOKEN" 
