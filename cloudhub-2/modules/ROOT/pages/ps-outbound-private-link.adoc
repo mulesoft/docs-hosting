@@ -193,7 +193,7 @@ If successful, it returns the DNS names of the VPC endpoint. It also returns the
 * `Invalid`: VPCE creation failed.
 * `Valid`: VPCE is being provisioned.
 * `Available`
-* `PendingAcceptance`
+* `PendingAcceptance` +
 Use this command to update a VPC endpoint:
 +
 [source,curl,linenums]
