@@ -112,10 +112,10 @@ The following table lists the runtime plane options that are supported in each c
 
 [%header,cols="7*a"]
 |===
-| Runtime Plane | US control plane | EU control plane | MuleSoft Government Cloud | Anypoint Platform PCE | Canada cloud | Japan cloud
+| Runtime Plane | US Cloud | EU Cloud | MuleSoft Government Cloud | Anypoint Platform PCE | Canada Cloud | Japan Cloud
 | CloudHub 2.0 | Y | Y | N | N | Y | Y 
 | CloudHub | Y | Y | Y | N | N | N
-| Standalone runtimes | Y | Y | Y | Y | Y | Y
+| Hybrid Standalone runtimes | Y | Y | Y | Y | N | N
 | Runtime Fabric | Y | Y | N | N | Y | Y
 |===
 
