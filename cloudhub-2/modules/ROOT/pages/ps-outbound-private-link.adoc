@@ -106,7 +106,7 @@ To prepare custom services:
 [NOTE]
 If the service is hosted in the same region as the private space, set up the services in the same availability zone as the private space obtained in <<_configure_the_outbound_connections, Configure the Outbound Connections>>. For cross-region services, you don't need AZ alignment. Validation for cross-region connectivity isn't yet complete; its success depends on the configuration.
 +
-. Share the VPC endpoint services with your CloudHub 2.0 private space.
+. Share the VPC endpoint services with your CloudHub 2.0 private space:
 .. https://docs.aws.amazon.com/vpc/latest/privatelink/configure-endpoint-service.html[Configure an endpoint service].
 .. From VPC *Endpoint services*, select *Allow principals*. Add `arn:aws:iam::{accountId}:root` as principal.
 +
@@ -266,21 +266,21 @@ Example output:
 ]
 ----
 
-=== AWS S3 Service
-
+AWS S3 Service::
++
 Because AWS manages these services, it establishes the connection automatically.
 
-=== Salesforce Private Connect
-
+Salesforce Private Connect::
++
 To establish the Private Connect connection, retrieve the endpoint ID using this API command:
-
++
 [source,curl,linenums]
 ----
 curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpce-id} -H "Authorization:bearer {your-token}"
 ----
-
++
 Example output:
-
++
 [source,json,linenums]
 ----
 {
@@ -303,27 +303,28 @@ Example output:
   ]
 }
 ----
-
++
 The endpoint status shows *Pending Acceptance*. Complete the connection:
-
++
+[#]
 . Note the `awsId` from the endpoint.
 . Go to Private Connect and click *create inbound connections*.
 . Select *AWS* and configure the connection using the `awsId` (VPC Endpoint ID).
 . Click *Save*.
-
++
 Within a few minutes, the endpoints sync and the status changes to *Ready* in Private Connect and *Available* in CloudHub 2.0.	
 
-=== Custom Services
-
+Custom Services::
++
 Fetch the endpoint information:
-
++
 [source,curl,linenums]
 ----
 curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpce-id} -H "Authorization:bearer {your-token}"
 ----
-
++
 Example output:
-
++
 [source,json,linenums]
 ----
 {
@@ -344,9 +345,10 @@ Example output:
   ]
 }
 ----
-
++
 The custom service VPC endpoint status shows *Pending Acceptance*. Accept the connection:
-
++
+[#]
 . In the AWS console go to *VPC* > *Endpoint Services*.
 . Select your service and open the *Endpoint Connection* tab.
 . Verify the *Endpoint ID* and *Owner* match your private space in CloudHub 2.0.
