@@ -68,33 +68,33 @@ Example output:
 +
 . Make your services Private Link ready.
 +
-Verify that your services are properly configured for Private Link connectivity before establishing connections.
+Verify that your services are properly configured for Private Link connectivity before establishing connections:
 
-=== AWS S3 Service
-
+AWS S3 Service::
++
 AWS S3 service is already Private Link ready with regional VPC endpoints and a global access endpoint. For cross-region connections, use the global access endpoint.
-
++
 [source,text,linenums]
 ----
 Regional Endpoint: com.amazonaws.{region}.s3
 Global Access Endpoint: com.amazonaws.s3-global.accesspoint
 ----
-
++
 For a complete list of AWS services ready for private link, see https://docs.aws.amazon.com/vpc/latest/privatelink/aws-services-privatelink-support.html[AWS PrivateLink-supported services].
 
-=== Salesforce Private Connect
-
+Salesforce Private Connect::
++
 Salesforce Private Connect requires activation as an add-on. After activation:
-
++
 . In Salesforce, go to *Setup*, enter *Private Connect* in the *Quick Find* box, and select *Private Connect*.
 . On the *Private Connect* page, click *AWS Regions* to reveal available regions.
 . Select the AWS region that matches your private space region.
 . Copy the service name for later use.
 
-=== Custom Services (Self-Hosted)
-
+Custom Services (Self-Hosted)::
++
 To prepare custom services:
-
++
 . Deploy your service in at least one private space AZ. For high availability, configure 2 AZs.
 . Expose the service via a network load balancer or application load balancer.
 . https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html[Create an endpoint service] following AWS guidance.
@@ -110,14 +110,12 @@ If the service is hosted in the same region as the private space, set up the ser
 +
 The `{accountId}` is the account ID obtained in <<_configure_the_outbound_connections, Configure the Outbound Connections>>.
 . Gather this information for the API:
-.. Service Name: the endpoint service name.
-+
-For example, customer-hosted endpoint service: `com.amazonaws.vpce.us-east-1.vpce-svc-xxxxxxxxxxxxxxxx`.
-+
-For example, AWS hosted service: `com.amazonaws.us-west-2.s3`.
-.. Service Region: the region where the VPC endpoint service is located.
-.. Service Owner: the owner of the VPC endpoint service.
-... Account ID of the endpoint service. For services like Salesforce private connect, you can acquire the service owner account ID using the AWS CLI command:
+.. Service Name: The endpoint service name, for example: 
+... Customer-hosted endpoint service: `com.amazonaws.vpce.us-east-1.vpce-svc-xxxxxxxxxxxxxxxx`
+... AWS hosted service: `com.amazonaws.us-west-2.s3`
+.. Service Region: The region where the VPC endpoint service is located.
+.. Service Owner: The owner of the VPC endpoint service.
+... Account ID of the endpoint service. For services like Salesforce Private Connect, you can acquire the service owner account ID using the AWS CLI command:
 +
 [source,bash,linenums]
 ----
@@ -126,14 +124,14 @@ aws ec2 describe-vpc-endpoint-services --service-names {your-service-name} --reg
 +
 The account ID is in the *Owner* field.
 ... `amazon`, if it's an Amazon service.
-.. Availability Zone IDs: the IDs of the availability zones where you want to establish the private link.
+.. Availability Zone IDs: The IDs of the availability zones where you want to establish the private link.
 +
-Make sure that the availability zone IDs are the ones used by the private space obtained in <<_configure_the_outbound_connections, Configure the Outbound Connections>>, and that the VPC endpoint service is hosted in those availability zones.
+Check that the AZ IDs match those obtained in <<_configure_the_outbound_connections, Configure the Outbound Connections>>, and verify the VPC endpoint service uses those AZs.
 +
 Alternatively, specify `countOfAzs` with an integer value to have the backend service automatically assign the required number of availability zones. Provide either `azIds` or `countOfAzs`, not both.
-. Create a VPC endpoint in CloudHub 2.0 via API:
+. Create a VPC endpoint in CloudHub 2.0 via API.
 +
-Here are specific examples for different service types:
+See these specific examples for different service types:
 
 AWS S3 Endpoint::
 +
