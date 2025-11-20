@@ -188,8 +188,8 @@ Get the VPC endpoint status in CloudHub 2.0 using the API:
 curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpceid} -H "Authorization:$AUTHTOKEN" 
 ----
 +
-If successful, it returns the DNS names of the VPC endpoint.
-It also returns the provisioning status:
+If successful, it returns the DNS names of the VPC endpoint. It also returns the provisioning status:
++
 * `Invalid`: VPCE creation failed.
 * `Valid`: VPCE is being provisioned.
 * `Available`
