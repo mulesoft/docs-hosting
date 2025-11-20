@@ -306,7 +306,7 @@ Example output:
 
 The endpoint status shows *Pending Acceptance*. Complete the connection:
 
-. Note the *awsId* from the endpoint.
+. Note the `awsId` from the endpoint.
 . Go to Private Connect and click *create inbound connections*.
 . Select *AWS* and configure the connection using the `awsId` (VPC Endpoint ID).
 . Click *Save*.
