@@ -5,9 +5,9 @@ Use options on the *Advanced* tab to:
 * Configure how the ingress load balancer handles HTTP requests.
 * Specify the read-response timeout.
 +
-This value is the amount of time CloudHub 2.0 waits for a response from the Mule application.
-// If no data is sent or received in the specified time, CloudHub 2.0 closes the client and private space connections.
-If no data is sent or received in the specified time, CloudHub 2.0 drops the request with a 504 error.
+This value is the amount of time the CloudHub 2.0 ingress load balancer (Edge) waits for the Mule application to send response data back to Edge. If the Mule application does not send response data within the specified time, CloudHub 2.0 drops the request with a 504 error.
++
+This timeout applies to the Mule application processing time and sending the response, not to the time it takes for the client to send the request to Edge. For information about request timeouts, see xref:ch2-limits.adoc[].
 * Configure ingress load balancer logs levels and download logs.
 * Configure Amazon Web Services (AWS) service roles.
 
@@ -39,12 +39,18 @@ Silently drops HTTP requests.
 --
 . Specify the read response timeout value.
 +
-The default timeout is 300 seconds.
+The default timeout is 300 seconds. You can configure this value up to 3600 seconds (1 hour).
++
+This timeout controls how long Edge waits for the Mule application to send response data. If your Mule application requires more than 300 seconds to process a request before sending the response, increase this value accordingly.
 +
 . Click *Save Changes* or *Discard Changes*.
 
 [NOTE]
+====
 The maximum request size is 1 GB.
+
+If you are uploading large files (such as CSV files) that take longer than 300 seconds to transfer from the client to Edge, you might encounter a timeout even if you increase the read response timeout. This is because the read request timeout (the time Edge waits for the client to send the request) is hardcoded to 300 seconds and cannot be configured. For long-running data transfers, consider breaking up the request into smaller chunks or implementing asynchronous processing. For more information, see xref:ch2-limits.adoc[].
+===="
 
 [[configure-ingress-load-balancer-log-levels]]
 == Configure Default Ingress Load Balancer Log Levels 

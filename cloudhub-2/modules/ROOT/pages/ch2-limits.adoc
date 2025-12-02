@@ -17,6 +17,15 @@ HTTP header length (`maxHeaderLength`):: 32K
 Maximum HTTP request size:: 1 GB
 
 Maximum HTTP request timeout:: 300 seconds
++
+This timeout applies to the time it takes for a client to send request data to the CloudHub 2.0 ingress load balancer (Edge). This value is not configurable and applies to both shared spaces and private spaces.
++
+If the client takes longer than 300 seconds to send the complete request (for example, when uploading large files), the connection is dropped. To handle large data transfers that exceed this limit, break up the request into smaller chunks or implement asynchronous processing.
++
+[NOTE]
+====
+Private spaces allow you to configure a separate read response timeout (the time Edge waits for the Mule application to send response data) up to 3600 seconds. For more information, see xref:ps-config-advanced.adoc#configure-http-requests-and-read-response-timeout[Configure HTTP Requests and Read-Response Timeout].
+====
 
 Maximum ingress URI size:: 4 KB
 
