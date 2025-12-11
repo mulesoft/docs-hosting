@@ -77,7 +77,7 @@
 |`myapp.irl-e1.cloudhub.io`
 |`<app>.internal-<space-id>.irl-e1.cloudhub.io`
 
-|Germany (Frankfurt)
+|EU (Frankfurt)
 |`eu-central`
 |US
 |`myapp.deu-c1.cloudhub.io`
