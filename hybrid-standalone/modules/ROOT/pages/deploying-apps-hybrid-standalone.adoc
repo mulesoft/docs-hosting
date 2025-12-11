@@ -178,6 +178,7 @@ Define runtime properties that control application behavior:
 * Use secure property management for sensitive configuration data
 
 Property Management Resources:
+
 * xref:runtime-manager::hybrid-manage-props.adoc[Manage Properties for Applications On-Premises]
 * xref:cloudhub::secure-application-properties.adoc[Safely Hide Application Properties]
 
@@ -190,6 +191,7 @@ Set application-specific logging levels for operational visibility:
 *  Modify `log4j2.xml` for advanced logging scenarios
 
 For details, refer to:
+
 * xref:mule-runtime::logging-in-mule.adoc#configuring-custom-logging-settings[Configuring Custom Logging Settings]
 * https://logging.apache.org/log4j/2.x/manual/configuration.html[Apache Logging Services]
 
