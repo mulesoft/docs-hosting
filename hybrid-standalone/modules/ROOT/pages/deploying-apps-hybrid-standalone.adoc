@@ -42,7 +42,7 @@ When you use Runtime Manager to manage a server, you can't use other deployment 
 
 == Before You Begin
 
-Ensure your hybrid standalone environment meets the deployment requirements before initiating application deployment.
+Make sure your hybrid standalone environment meets the deployment requirements before initiating application deployment.
 
 Review xref:hybrid-standalone-requirements-limitations.adoc[Requirements and Limitations] to understand deployment and server scaling limits and plan your infrastructure within platform constraints.
 
