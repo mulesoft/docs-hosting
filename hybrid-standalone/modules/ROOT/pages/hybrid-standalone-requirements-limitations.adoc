@@ -115,7 +115,7 @@ For comprehensive network configuration guidance, refer to xref:configure-ports-
 
 === Deployment Limits
 
-Plan your application deployment strategy within these tested and recommended limits to ensure reliable performance and avoid platform constraints.
+Plan your application deployment strategy within these tested and recommended limits to make sure reliable performance and avoid platform constraints.
 
 [%header%autowidth.spread]
 |===
