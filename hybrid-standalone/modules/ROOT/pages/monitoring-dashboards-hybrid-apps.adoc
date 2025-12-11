@@ -56,6 +56,7 @@ CPU and memory information isn’t immediately available in dashboards after an 
 The built-in Anypoint Monitoring dashboard provides comprehensive application monitoring with advanced metrics, custom visualizations, and multiple analytical views for in-depth performance analysis
 
 The dashboard is available for applications that meet these criteria:
+
 * Deployed to CloudHub, Runtime Fabric, or configured hybrid environments
 * Running on Mule 4.x or later versions
 * Anypoint Monitoring enabled and properly configured
@@ -69,6 +70,7 @@ The classic application monitoring dashboard provides essential application metr
 
 
 The dashboard is available for applications in these scenarios:
+
 * Deployed to CloudHub and running Mule versions earlier than 3.8.7
 * Deployed to hybrid standalone instances with basic monitoring enabled
 * Applications without Anypoint Monitoring configured
