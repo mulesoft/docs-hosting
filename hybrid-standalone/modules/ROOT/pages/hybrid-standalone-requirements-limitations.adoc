@@ -92,7 +92,7 @@ Important security aspects:
 
 Be aware of the constraints and limitations that affect hybrid standalone deployments to plan your infrastructure accordingly.
 
-A target represents any deployment destination for Mule applications, including individual servers, server groups, or clusters. For example, a server group containing 8 servers constitutes a single target for deployment purposes.
+A target represents any deployment destination for Mule applications, including individual servers, server groups, or clusters. For example, a server group with eight servers is a single target for deployment purposes.
 
 
 === Infrastructure Scaling Limits
