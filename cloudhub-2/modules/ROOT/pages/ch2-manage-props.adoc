@@ -125,6 +125,21 @@ For proprietary reasons, MuleSoft doesn't make public all internal, reserved pro
 CloudHub 2.0 runtime release updates might change the reserved properties.
 --
 
+== Access Environment and Organization IDs
+
+CloudHub 2.0 provides environment and organization identifiers through environment variables. Reference these variables to retrieve the deployment environment ID and organization ID.
+
+These environment variables are available:
+
+[%header,cols="2*a"]
+|===
+|Environment Variable|Description
+|`ENV_ID`|Environment ID where the application is deployed
+|`ORG_ID`|Organization ID (business group ID) associated with the application
+|===
+
+To access these values, reference them using the standard property placeholder syntax: `${ENV_ID}` or `${ORG_ID}`.
+
 == See Also
 
 * xref:mule-runtime::configuring-properties.adoc[]

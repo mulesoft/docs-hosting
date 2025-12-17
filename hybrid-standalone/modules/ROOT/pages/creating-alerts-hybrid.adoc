@@ -1,0 +1,364 @@
+= Creating Alerts for Servers, Server Groups, and Clusters
+
+Configure proactive monitoring alerts for your hybrid standalone infrastructure to ensure optimal performance, detect issues early, and maintain system reliability across your distributed Mule runtime environment.
+
+== Overview
+
+Runtime Manager provides comprehensive alerting capabilities for monitoring your hybrid standalone infrastructure, including:
+
+* Individual server health and performance monitoring
+* Server group coordination and member status tracking
+* Cluster connectivity and node health supervision
+* Resource utilization threshold monitoring (CPU, memory, load average, thread count)
+* Infrastructure lifecycle event notifications (connections, disconnections, deletions)
+
+[NOTE]
+====
+Runtime Manager retains 30 days of alert history for audit and analysis.
+
+Alerts retrigger when conditions continuously exceed specified thresholds, ensuring persistent notification of ongoing issues.
+====
+
+== Rate Limits on Alerts
+
+Anypoint Platform enforces rate limits that determine how often an alert is triggered and prevent excessive emails from being sent.
+At present, there is no defined limit to the number of Runtime Manager alerts.
+
+== Create an Alert
+
+Configure alerts to monitor your servers, server groups, and clusters with customizable thresholds and notification settings.
+
+
+. In Runtime Manager, click *Alerts*.
++
+** If no alerts exist, you see the initial setup page:
++
+.The arrow shows the *Create your first alert* option.
+image::alerts-no-alerts.png["Alerts page with no alerts set up"]
+** For existing alert configurations, use the add button:
++
+.The arrow shows the blue plus (*+*) icon on the *Alerts* page.
+image::alerts-create-additional-alert.png["Alerts page with blue plus (+) icon"]
+
+. Click the blue plus (*+*) icon to create a new alert.
++
+image::alerts-create-alert.png["Create an Alert page"]
+
+. Complete the required fields:
+
+* *Name*
++
+Unique and meaningful name for the alert
++
+The *Name* is limited to 256 characters.
+* *Severity level*
++
+Severity of the alert: *Critical*, *Warning*, or *Info*
++
+* *Source*
++
+The source of the alert: servers
++
+This field appears only if your Anypoint Platform account supports local servers.
+* *Server type*
++
+When the source is *Servers*, the type of server: single server, server group, or cluster.
++
+If your servers aren't available on your menu, see xref:managing-servers.adoc[Servers, Server Groups, and Clusters].
+* *Servers*
++
+The server to apply the alert to
+* *Condition*
++
+The condition that triggers the alert
++
+The available options depend on whether your alert is linked to a server.
+Some conditions require additional data.
+See <<Alert Conditions>>.
+* *Subject*
++
+The subject of the alert email to send when the alert is triggered
++
+The subject can include variables.
+See <<Alert Variables>>.
+* *Message*
++
+The body text for the email to send when the alert is triggered.
+The message body can include variables.
+See <<Alert Variables>>.
+* *Recipients*
++
+The recipients of the alert email
++
+You can select up to 20 platform user IDs and enter up to 20 email addresses.
+. Click *Create Alert*.
+
+When an alert condition is triggered, Runtime Manager sends email notifications similar to this:
+
+image::alerts-alert-email.png["Anypoint Platform Alert Notification email"]
+
+
+== Alert Conditions
+
+Configure specific conditions that trigger notifications based on your infrastructure monitoring requirements. Alert conditions range from simple status notifications to complex performance threshold monitoring.
+
+=== Performance and Resource Monitoring
+
+These performance alerts apply to all infrastructure types (servers, server groups, and clusters):
+
+
+Server CPU Usage::
++
+--
+Monitor CPU utilization across your infrastructure. Triggers when CPU usage exceeds the specified percentage for the configured duration.
+
+image::alerts-conditions-servers-cpu.png["Server CPU usage alert condition"]
+
+*Configuration:* Set the CPU percentage threshold and monitoring duration.
+--
+
+Server Load Average::
++
+--
+Monitor system processing load. Triggers when the average processing load exceeds the specified threshold for the configured duration.
+
+image::alerts-conditions-servers-load-avg.png["Server load average alert condition"]
+
+*Configuration:* Set the load average threshold and monitoring duration.
+
+[NOTE]
+This metric isn't available on Windows environments.
+--
+
+Server Memory Usage::
++
+--
+Track memory consumption across your infrastructure. Triggers when memory usage (in MB) exceeds the specified threshold for the configured duration.
+
+image::alerts-conditions-servers-memory.png["Server memory usage alert condition"]
+
+*Configuration:* Set the memory usage threshold (MB) and monitoring duration.
+--
+
+Server Thread Count::
++
+--
+Monitor JVM thread utilization. Triggers when the thread count exceeds the specified level for the configured duration.
+
+image::alerts-conditions-servers-thread-count.png["Server thread count alert condition"]
+
+*Configuration:* Set the thread count threshold and monitoring duration.
+--
+
+These alerts vary according to the target type (server, server groups, or clusters)
+and require no additional parameters:
+
+Servers::
++
+--
+* *Agent version changed*
+* *Runtime version changed*
+* *Server connected*
+* *Server deleted*
+* *Server disconnected*
+--
+
+Server Groups::
++
+--
+* *Server Group connected*
+* *Server Group deleted*
+* *Server Group disconnected*
+* *Server Group's node connected*
+* *Server Group's node disconnected*
+* *Server added to Server Group*
+* *Server removed from Server Group*
+--
+
+Clusters::
++
+--
+
+* *Cluster connected*
+* *Cluster deleted*
+* *Cluster disconnected*
+* *Cluster presents visibility issues*
+* *Cluster's node connected*
+* *Cluster's node disconnected*
+* *Server added to Cluster*
+* *Server removed from Cluster*
+--
+
+== Alert Variables
+
+Customize alert email subjects and messages using dynamic variables that provide contextual information about triggered events.
+
+[NOTE]
+You can't use the character combination `$&` in variable expressions.
+
+[%header,cols="25a,50a,25a"]
+.Variables for Alerts
+|===
+| Alert Category | Alert Type | Available Variables
+2+| All Alerts | `${resource}` `${severity}` `${state}`
+
+.7+|Server Alerts | All Server Alerts | `${name}`
+| *Agent version changed* .2+|  `${oldVersion}` `${newVersion}`
+| *Runtime version changed*
+| *Server CPU usage* .4+|  `${currentValue}` `${comparison}` `${threshold}` `${location}`
+| *Server Load average*
+| *Server Memory average*
+| *Server Thread count*
+
+.9+| Server Group Alerts| All Server Group Alerts | `${name}`
+| *Server Group's node CPU usage* .4+|  `${memberName}` `${groupName}` `${currentValue}` `${comparison}` `${threshold}` `${location}` `${parentResource}` `${parentLocation}`
+| *Server Group's node Load average*
+| *Server Group's node Memory usage*
+| *Server Group's node Thread count*
+| *Server Group's node connected* .4+| `${memberName}` `${groupName}`
+| *Server Group's node disconnected*
+| *Server added to Server Group*
+| *Server removed from Server Group*
+
+.9+| Cluster Alerts |All Cluster Alerts| `${name}`
+| *Cluster's node CPU usage* .4+| `${memberName}` `${clusterName}` `${currentValue}` `${comparison}` `${threshold}` `${location}` `${parentResource}` `${parentLocation}`
+| *Cluster's node Load average*
+| *Cluster's node Memory usage*
+| *Cluster's node Thread count*
+| *Cluster's node disconnected* | `${resource}` `${memberName}` `${clusterName}`
+| *Cluster's node connected* .3+| `${memberName}` `${clusterName}`
+| *Server added to Cluster*
+| *Server removed from Cluster*
+|===
+
+
+[%header%autowidth.spread]
+[[var-defs]]
+.Variable Definitions
+|===
+|Variable |Definition
+|`${clusterName}`|Name of the cluster
+|`${currentValue}` |Current value of metric that triggers the alert
+|`${comparison}`| Above or Below
+|`${groupName}`|Name of the server group
+|`${location}`| Where to find more information about the alert
+|`${memberName}`|Name of the node in a server group or cluster
+|`${name}` |Name of the target (server, server group, or cluster) that triggers the alert
+|`${newVersion}`|New version number for the agent or runtime
+|`${oldVersion}`|Previous version number for the agent or runtime
+|`${parentLocation}` |Where to find more information about the alert on the node's parent cluster
+|`${parentResource}` |Name of the resource, such as server or app, on the node's parent cluster that triggers the alert
+|`${resource}` |Name of the infrastructure resource that triggers the alert
+|`${severity}` | Severity of the alert
+|`${state}` | State of the resource that triggers the alert, such as Running or Disconnected
+|`${threshold}` |Count over the period of time that triggers the alert
+|===
+
+
+== Access and View Alerts
+
+Runtime Manager provides multiple ways to access and monitor your infrastructure alert configurations and history.
+
+=== Global Alert Management
+
+Access all infrastructure alerts from the main alerts dashboard:
+
+. Click *Alerts* in the Runtime Manager navigation pane:
++
+.The arrow shows the *Alerts* menu.
+image::alerts-view-all-alerts-tab.png["Alerts menu"]
+
+From the alerts dashboard, you can:
+
+* Create new infrastructure alerts
+* Search alerts by name or configuration
+* Filter alerts by source, condition, severity, or status
+* Modify alert configurations by clicking alert names
+* View alert status, settings, and trigger history in the details pane:
++
+.The arrow shows the alert history in the details pane.
+image::alerts-history.png["Alert history in the details pane"]
+
+=== Servers, Server Groups, and Clusters Alert Views
+
+View alerts associated with specific servers, server groups, or clusters:
+
+. In the *Servers* list, click the *Status* column for your target server, server group, or cluster.
+. Click the *View Associated Alerts* link in the details pane:
++
+.The arrow shows the *View Associated Alerts* link in the details pane.
+image::alerts-view-details-pane.png["View Associated Alerts link in the details pane"]
+
+=== Alert History by Servers, Server Groups, and Clusters
+
+Review historical alert activity for specific servers, server groups, or clusters:
+
+. In the *Servers* list, click the name of your server, server group, or cluster.
+. Click *Settings* in the navigation pane.
+. Click the *Alerts History* tab:
++
+.The arrow shows the *Alerts History* tab on the *Settings* page.
+image::alerts-settings-alerts-history-tab.png["Alerts History tab on the Settings page"]
+
+
+
+== Manage Alerts
+
+Efficiently manage your alert configurations through Runtime Manager's alert management interface.
+
+=== Alert Management Operations
+
+From the *Alerts* page, select one or more alerts and use the management controls:
+
+.The screenshot shows (*1*) the select toggle, (*2*) the alert state switch, (*3*) the *Duplicate* icon, and (*4*) the *Delete* icon.
+image::alerts-multi-select-manage.png["Select toggle, alert state switch, Duplicate icon, and Delete icon"]
+
+==== Enable and Disable Alerts
+
+Control alert notification delivery for infrastructure monitoring:
+
+* *Disable alerts*: Click the toggle switch to turn off notifications:
++
+.The arrow shows the alert switch on.
+image::alerts-switch-on.png["Alert switch on"]
++
+The *Active* column changes from *Yes* to *No*.
+
+* *Enable alerts*: Click the toggle switch to turn on notifications:
++
+.The arrow shows the alert switch off.
+image::alerts-switch-off.png["Alert switch off"]
++
+The *Active* column changes from *No* to *Yes*.
+
+[NOTE]
+Alert state changes affect all recipients of the alert notifications.
+
+==== Duplicate Alerts
+
+Create copies of existing alert configurations for similar infrastructure components:
+
+. Select one or more alerts from the list.
+. Click the *Duplicate* icon in the details pane:
++
+.The arrow shows the *Duplicate* alert icon.
+image::alerts-duplicate.png["Duplicate alert icon"]
+
+Runtime Manager creates alert copies with `-copy` appended to the original alert names.
+
+==== Delete Alerts
+
+Remove unnecessary alert configurations:
+
+. Select one or more alerts from the list.
+. Click the *Delete* (trash can) icon in the details pane:
++
+.The arrow shows the *Delete* alert (trash can) icon.
+image::alerts-delete.png["Delete (trash can) icon"]
+. Click *OK*.
+
+== See Also
+
+* xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]
+* xref:monitoring-dashboards-hybrid.adoc[Monitoring Dashboards for Server, Server Groups and Clusters]
+* xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]
