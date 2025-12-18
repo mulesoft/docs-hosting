@@ -57,16 +57,16 @@ The maximum request size is 1 GB.
 CloudHub 2.0 uses multiple timeout settings to manage different phases of request handling:
 
 Read Request Timeout (hardcoded at 300 seconds)::
-The time Edge waits to receive the complete request from the client. If the client takes longer than 300 seconds to send the entire request payload (for example, uploading a large CSV file), Edge drops the connection. This timeout is not user-configurable and applies to both shared and private spaces.
+The time the CloudHub 2.0 ingress controller waits to receive the complete request from the client. If the client takes longer than 300 seconds to send the entire request payload (for example, uploading a large CSV file), CloudHub 2.0 drops the connection. This timeout is not user-configurable and applies to both shared and private spaces.
 
 Read Response Timeout (user-configurable)::
-The time Edge waits to receive a response from your Mule application after the request has been forwarded. You can configure this timeout in the *Advanced* tab of your private space settings. This setting controls how long your Mule application has to process the request and begin sending a response.
+The time the CloudHub 2.0 ingress controller waits to receive a response from your Mule application after the request has been forwarded. You can configure this timeout in the *Advanced* tab of your private space settings. This setting controls how long your Mule application has to process the request and begin sending a response.
 
 Write Response Timeout (hardcoded at 310 seconds)::
-The time Edge waits to send the response back to the client.
+The time the CloudHub 2.0 ingress controller waits to send the response back to the client.
 
 Connection Idle Timeout (hardcoded at 15 seconds)::
-The time Edge waits before closing an idle connection when no data is being transferred.
+The time the CloudHub 2.0 ingress controller waits before closing an idle connection when no data is being transferred.
 
 For long-running operations that exceed these timeout limits, consider implementing one of the following approaches:
 
