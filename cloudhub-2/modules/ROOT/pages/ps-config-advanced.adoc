@@ -5,11 +5,11 @@ Use options on the *Advanced* tab to:
 * Configure how the ingress load balancer handles HTTP requests.
 * Specify the read-response timeout.
 +
-This value is the amount of time the CloudHub 2.0 ingress controller (Edge) waits to receive a response from your Mule application after forwarding the request. If your application takes longer than the configured time to process the request and start sending the response, CloudHub 2.0 drops the connection with a 504 error.
+This value is the amount of time the CloudHub 2.0 ingress controller waits to receive a response from your Mule application after forwarding the request. If your application takes longer than the configured time to process the request and start sending the response, CloudHub 2.0 drops the connection with a 504 error.
 +
 [IMPORTANT]
 ====
-This timeout setting is separate from the read-request timeout, which controls how long Edge waits to receive the full request from the client. The read-request timeout is hardcoded to 300 seconds and cannot be configured. If your client takes longer than 300 seconds to send the complete request (for example, when uploading large files), the connection will be dropped even if you have configured a longer read-response timeout.
+This timeout setting is separate from the read-request timeout, which controls how long the CloudHub 2.0 ingress controller waits to receive the full request from the client. The read-request timeout is hardcoded to 300 seconds and cannot be configured. If your client takes longer than 300 seconds to send the complete request (for example, when uploading large files), the connection will be dropped even if you have configured a longer read-response timeout.
 
 For data transfers that exceed 300 seconds, consider breaking the request into smaller chunks or implementing asynchronous processing patterns.
 ====
