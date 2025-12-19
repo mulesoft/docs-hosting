@@ -22,19 +22,19 @@ Combine the control and security of on-premises deployments with the flexibility
 Hybrid Standalone architecture consists of:
 
 * Mule runtime engine +
-Setup on your infrastructure
+Runs on your infrastructure to execute applications and integrations.
 * Runtime Manager agent +
-Communicates with Anypoint Platform
+Connects your Mule instances to Anypoint Platform management plane.
 * Anypoint Platform +
-Cloud-based management and monitoring
+Provides cloud-based services for application lifecycle management and observability.
 * Anypoint Runtime Manager +
-Central management interface
+Delivers the central interface for deploying and managing your applications.
 
 == Use Cases
 
 Hybrid Standalone is ideal for:
 
-* Enterprise integration requiring connectivity between on-premises systems and cloud services while implementing enterprise service bus (ESB) architectures.
+* Enterprise integration requiring connectivity between on-premises systems and cloud services.
 * Regulatory compliance scenarios that maintain data residency requirements, audit trails, and industry-specific regulations within specific geographic boundaries.
 * High-performance applications with low-latency processing requirements, high-throughput data processing, and direct database access needs.
 * Legacy system integration and modernization efforts that enable gradual migration to cloud-based services while maintaining existing network configurations.
@@ -79,7 +79,7 @@ Create and register your servers, server groups, or clusters in Runtime Manager:
 * xref:creating-servers-groups.adoc[Create server groups] for load distribution across multiple servers.
 * xref:creating-clusters.adoc[Create clusters] for high-availability deployments with automatic failover.
 
-Review xref:deployment-server-scaling.adoc[Understanding Deployment and Server Scaling] to plan your infrastructure within platform limits.
+Review xref:hybrid-standalone-requirements-limitations.adoc[Requirements and Limitations] to understand deployment and server scaling limits and plan your infrastructure within platform constraints.
 
 === Deploy Applications
 

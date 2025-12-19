@@ -263,7 +263,8 @@ As a workaround, create CNAME records on your own DNS servers to redirect a perm
 // To specify an internal domain, use the second-level domain name, such as `mulesoft.com`.
 
 [NOTE]
-The total number of characters for all configured domains is 229.
+Each domain can contain up to 253 characters. When configured with 10 IP addresses (IPs) per entry, the maximum supported capacity is 1940 entries. The system supports more than 1940 entries if you use shorter domain names or fewer IPs in entries.
+
 
 [[connection-type]]
 === Connection Type

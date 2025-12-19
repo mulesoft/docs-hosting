@@ -16,7 +16,7 @@ This grace period applies only to application restarts triggered by infrastructu
 
 To ensure business resiliency, design your application to be idempotent and deploy across multiple replicas with xref:ch2-clustering.adoc[clustering] enabled with a layer of persistence (xref:object-store::index.adoc[Object Store v2]). 
 
-=== Considerations:
+== Considerations
 
 Review these details about how each replica strategy manages application optimization:
 
