@@ -9,7 +9,7 @@ This value is the amount of time the CloudHub 2.0 ingress controller waits to re
 +
 [IMPORTANT]
 ====
-This timeout setting is separate from the read-request timeout, which controls how long the CloudHub 2.0 ingress controller waits to receive the full request from the client. The read-request timeout is hardcoded to 300 seconds and cannot be configured. If your client takes longer than 300 seconds to send the complete request (for example, when uploading large files), the connection will be dropped even if you have configured a longer read-response timeout.
+This timeout setting is separate from the read-request timeout, which controls how long the CloudHub 2.0 ingress controller waits to receive the full request from the client. The read-request timeout is hardcoded to 300 seconds, and you can't configure it. If your client takes longer than 300 seconds to send the complete request (for example, when uploading large files), CloudHub 2.0 drops the connection even if you have configured a longer read-response timeout.
 
 For data transfers that exceed 300 seconds, consider breaking the request into smaller chunks or implementing asynchronous processing patterns.
 ====
@@ -61,9 +61,6 @@ The time the CloudHub 2.0 ingress controller waits to receive the complete reque
 
 Read Response Timeout (user-configurable)::
 The time the CloudHub 2.0 ingress controller waits to receive a response from your Mule application after the request has been forwarded. You can configure this timeout in the *Advanced* tab of your private space settings. This setting controls how long your Mule application has to process the request and begin sending a response.
-
-Write Response Timeout (hardcoded at 310 seconds)::
-The time the CloudHub 2.0 ingress controller waits to send the response back to the client.
 
 Connection Idle Timeout (hardcoded at 15 seconds)::
 The time the CloudHub 2.0 ingress controller waits before closing an idle connection when no data is being transferred.
