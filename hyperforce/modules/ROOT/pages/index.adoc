@@ -79,9 +79,9 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                                                               | Insights | Planned | Planned | Available | Available
 |xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager]| n/a | Planned | Planned | Available | Available | n/a
 |xref:studio::index.adoc[Anypoint Studio]| n/a | Planned | Planned | Available | Available | n/a
-.3+|xref:visualizer::index.adoc[Anypoint Visualizer]| Architecture | Planned | Planned | Available | Available .3+| n/a
-                                                    | Policies | Planned | Planned | Available | Available  
-                                                    | Troubleshooting | Planned | Planned | Available | Available 
+.3+|xref:visualizer::index.adoc[Anypoint Visualizer]| Architecture | Available | Available | Planned | Planned .3+| n/a
+                                                    | Policies | Available | Available | Planned | Planned  
+                                                    | Troubleshooting | Available | Available | Planned | Planned 
 |xref:api-community-manager::index.adoc[API Community Manager]| n/a | Planned | Planned | Available | Available | n/a
 |xref:design-center::design-create-publish-api-specs.adoc[API Designer]| n/a | Planned | Planned | Not planned | Not planned | n/a
 |xref:api-experience-hub::index.adoc[API Experience Hub]| n/a | Planned | Planned | Available | Available | n/a
@@ -164,4 +164,3 @@ a| Other Clouds
 
 * xref:configure-mule-hyperforce.adoc[Configuring Mule to Access Hyperforce]
 * xref:deploy-mule-apps-hyperforce.adoc[Deploying Mule Apps to Hyperforce]
-
