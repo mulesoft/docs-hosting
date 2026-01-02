@@ -156,7 +156,7 @@ CIDR block sizing depends on several factors related to how IP addresses are all
 * xref:ch2-patch-updates.adoc[Auto-upgrades] that update multiple applications simultaneously
 * Platform internal operations or services that require IP headroom
 
-Use the following reference table to select the appropriate CIDR block size for your private space:
+Use this reference table to select the appropriate CIDR block size for your private space:
 
 [%header%autowidth.spread]
 |===
