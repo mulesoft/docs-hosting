@@ -14,13 +14,12 @@ CloudHub 2.0 overrides the Mule runtime's default `shutdownTimeout` value to avo
 
 For infrastructure-triggered restarts (such as infrastructure failure, maintenance, security patching, or replica rebalancing):
 
-* CloudHub 2.0 provides a grace period of twice the configured `shutdownTimeout` value, up to a maximum of 12 hours.
+* CloudHub 2.0 provides a grace period up to a maximum of 12 hours.
 * If no custom `shutdownTimeout` is configured, CloudHub 2.0 applies a 12-hour maximum grace period to ensure long-running flows complete without disruption.
 
 For user-triggered restarts (such as stop, restart, update, redeploy, or terminate actions):
 
-* If your application configuration sets the `shutdownTimeout` attribute to a value greater than 2 minutes and 30 seconds, the total shutdown grace period is 5 minutes.
-* Otherwise, the grace period is twice the configured `shutdownTimeout` value.
+* CloudHub 2.0 honors the configured `shutdownTimeout` value from your application configuration.
 
 You can optionally configure the `shutdownTimeout` attribute in your Mule application configuration. See xref:mule-runtime::global-settings-configuration.adoc#global-configurations-reference[Global Configurations Reference].
 
