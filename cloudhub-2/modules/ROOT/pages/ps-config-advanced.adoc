@@ -13,7 +13,7 @@ This timeout setting is separate from the read-request timeout, which controls h
 
 For data transfers that exceed 300 seconds, consider breaking the request into smaller chunks or implementing asynchronous processing patterns.
 ====
-* Configure ingress load balancer logs levels and download logs.
+* Configure ingress access logs and download logs.
 * Configure Amazon Web Services (AWS) service roles.
 
 
@@ -71,74 +71,75 @@ For long-running operations that exceed these timeout limits, consider implement
 * Use asynchronous processing patterns where the client receives an immediate acknowledgment and polls for results
 * Implement keep-alive mechanisms to prevent idle timeout during processing
 
-[[configure-ingress-load-balancer-log-levels]]
-== Configure Default Ingress Load Balancer Log Levels 
+[[configure-ingress-access-logs]]
+== Configure Ingress Access Logs
 
-CloudHub 2.0 enables you to specify the default severity level of messages that are written to the log file for all apps deployed to the private space.
-
-[IMPORTANT]
-More verbose log levels might affect performance.
+CloudHub 2.0 enables you to enable or disable access logs for the ingress load balancer. Access logs record information about requests to applications deployed in the private space, which can help you diagnose connection issues and monitor traffic.
 
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 include::partial$select-private-space.adoc[tag=clickAdvanced]
-. Select the default <<ingress-load-balancer-log-levels,log level>> from the drop-down list.
+. Toggle *Enable Access Logs* to enable or disable ingress access logging.
 . Click *Save Changes* or *Discard Changes*.
 
-[[configure-custom-ingress-load-balancer-log-levels]]
-== Configure Custom Ingress Load Balancer Log Levels 
+[[ingress-access-log-format]]
+== Ingress Access Log Format
 
-CloudHub 2.0 enables you to specify the default severity level of messages that are written to the log file for specific IP addresses, for example, for troubleshooting.
+When access logs are enabled, each log entry contains the following fields:
 
-[IMPORTANT]
-More verbose log levels might affect performance.
-
-// SELECT PRIVATE SPACE SHARED
-include::partial$select-private-space.adoc[tag=selectPrivateSpace]
-include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
-include::partial$select-private-space.adoc[tag=clickAdvanced]
-. Configure custom log levels:
-+
-.. Enter the IP address and select the <<ingress-load-balancer-log-levels,log level>> from the drop-down list.
-.. Click *Add IP Address* to enter additional custom log levels.
-.. To remove a custom log level, click the trash can icon (*Delete*) for the entry.
-. Click *Save Changes* or *Discard changes*.
-
-
-[[ingress-load-balancer-log-levels]]
-== Ingress Load Balancer Log Levels
-
-The default log level for IP address filtering is `DEBUG`.
-
-[%header,cols="20a,60a"]
-.Ingress Load Balancer Log Levels
+[%header,cols="25a,75a"]
+.Ingress Access Log Fields
 |===
-| Level 
+| Field 
 | Description
 
-// | All Priorities
-// | All messages
+| Timestamp
+| The date and time when the request was received.
 
-| Error (Recommended)
-| Only error messages, such as when an exception occurs
+| Request Method
+| The HTTP method used for the request (for example, GET, POST, PUT).
 
-| Debug
-| Debugging messages
+| Request Path
+| The URL path of the request.
 
-| Trace
-| Tracks application metadata such as path, headers, state, and timeline between Ingress and APIs to facilitate collaboration
+| Protocol
+| The protocol used for the request (for example, HTTP/1.1, HTTP/2).
 
-| Info
-| Informative messages
+| Response Code
+| The HTTP status code returned to the client.
+
+| Response Flags
+| Flags that provide additional details about the response or connection, such as timeouts or connection termination reasons.
+
+| Bytes Received
+| The number of bytes received from the client.
+
+| Bytes Sent
+| The number of bytes sent to the client.
+
+| Duration
+| The total time in milliseconds to process the request, from when the first byte is received to when the last byte of the response is sent.
+
+| Upstream Host
+| The address of the upstream application that processed the request.
+
+| X-Forwarded-For
+| The client IP address from the X-Forwarded-For header.
+
+| User Agent
+| The user agent string from the client request.
+
+| Request ID
+| A unique identifier for the request, useful for tracing and debugging.
 
 |===
 
 
-[[download-ingress-load-balancer-logs]]
-=== Download Ingress Load Balancer Logs
+[[download-ingress-access-logs]]
+== Download Ingress Access Logs
 
-To download ingress load balancer logs:
+To download ingress access logs:
 
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
