@@ -20,6 +20,7 @@ For infrastructure-triggered restarts (such as infrastructure failure, maintenan
 For user-triggered restarts (such as stop, restart, update, redeploy, or terminate actions):
 
 * CloudHub 2.0 honors the configured `shutdownTimeout` value from your application configuration.
+* CloudHub 2.0 doesn't provide the extended 12-hour grace period.
 
 You can optionally configure the `shutdownTimeout` attribute in your Mule application configuration. See xref:mule-runtime::global-settings-configuration.adoc#global-configurations-reference[Global Configurations Reference].
 
