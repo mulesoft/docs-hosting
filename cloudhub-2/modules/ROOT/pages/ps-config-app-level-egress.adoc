@@ -178,6 +178,15 @@ These measures help optimize latency while maintaining effective network securit
 [NOTE]
 DNS record timing issues can sometimes lead to unexpected connectivity errors. To enhance the reliability of Mule applications, implement robust error handling and connection retry mechanisms.
 
+[IMPORTANT]
+====
+The `ap-southeast` region updates its DNS records more frequently than other regions. This behavior can cause stale DNS entries and intermittent connectivity issues. When deploying applications in this region:
+
+* Implement connection retry logic with exponential backoff.
+* Monitor DNS resolution errors in your application logs.
+* Use shorter TTL values to reduce stale cache entries.
+====
+
 == See Also
 
 * xref:ch2-private-space-about.adoc[]
