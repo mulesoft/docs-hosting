@@ -18,7 +18,7 @@ CloudHub 2.0 supports clustering using Mule in addition to Object Store v2 for M
 If you enable both **Clustering** and **Use Object Store V2** on CloudHub 2.0, all Object Store access routes to Cloud Object Store v2, including internal runtime, policy, and connector usage. This can result in metered, billable usage even if your application doesn't explicitly use Object Store.
 ====
 
-You don't need to configure your apps to use Object Store in CloudHub 2.0. Additionally, Mule 4 apps support Object Store v2, which can be enabled from Anypoint Runtime Manager console.
+You don't configure apps to use Object Store in CloudHub 2.0. Mule 4 apps support Object Store v2, which you enable in Anypoint Runtime Manager.
 
 == Before You Begin
 
