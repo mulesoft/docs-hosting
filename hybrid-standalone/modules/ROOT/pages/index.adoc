@@ -1,0 +1,123 @@
+= Hybrid Standalone
+
+Hybrid standalone instances enable you to host the Mule runtime engine (Mule) in an environment you control. This model provides the control and security of deployments within customer trust boundary combined with the flexibility, scalability, and centralized management of cloud-based services.
+
+With hybrid standalone instances, Mule can run on a physical server, a virtual machine, or within a third-party cloud service like Amazon Web Services (AWS) or Microsoft Azure.
+
+== Key Benefits
+
+* Infrastructure control +
+Deploy on your own servers or cloud instances while maintaining full control over network security and meeting data residency requirements.
+* Centralized management +
+Leverage Anypoint Platform for centralized application deployment, real-time monitoring, and unified dashboards across all deployments.
+* Scalability +
+Scale horizontally by adding more servers, creating server groups for load distribution, and implementing clusters for high availability.
+* Compliance and security +
+Meet regulatory compliance requirements and integrate seamlessly with existing infrastructure and monitoring tools.
+* Hybrid flexibility +
+Combine the control and security of on-premises deployments with the flexibility and management capabilities of cloud-based services.
+
+== Architecture Overview
+
+Hybrid Standalone architecture consists of:
+
+* Mule runtime engine +
+Runs on your infrastructure to execute applications and integrations.
+* Runtime Manager agent +
+Connects your Mule instances to Anypoint Platform management plane.
+* Anypoint Platform +
+Provides cloud-based services for application lifecycle management and observability.
+* Anypoint Runtime Manager +
+Delivers the central interface for deploying and managing your applications.
+
+== Use Cases
+
+Hybrid Standalone is ideal for:
+
+* Enterprise integration requiring connectivity between on-premises systems and cloud services.
+* Regulatory compliance scenarios that maintain data residency requirements, audit trails, and industry-specific regulations within specific geographic boundaries.
+* High-performance applications with low-latency processing requirements, high-throughput data processing, and direct database access needs.
+* Legacy system integration and modernization efforts that enable gradual migration to cloud-based services while maintaining existing network configurations.
+* Custom performance optimization scenarios that provide full control over infrastructure, network security policies, and direct system access.
+
+== Get Started
+
+Follow these steps to set up and deploy your hybrid standalone infrastructure:
+
+. Review requirements and limitations
+. Set up your infrastructure
+. Register servers with Runtime Manager
+. Deploy applications
+. Manage your infrastructure
+. Monitor and maintain
+
+=== Review Requirements and Limitations
+
+Before you begin, understand the hardware, software, and licensing requirements for hybrid standalone deployments:
+
+* Review hardware specifications, operating system compatibility, and JDK requirements.
+* Understand core-based licensing and infrastructure scaling limits.
+* Plan network configuration and firewall requirements.
+
+See xref:hybrid-standalone-requirements-limitations.adoc[Requirements and Limitations] for complete details.
+
+=== Set Up Your Infrastructure
+
+Install and configure Mule runtime engine on your servers:
+
+* Download and install Mule runtime engine on your target servers.
+* Configure Runtime Manager agent for communication with Anypoint Platform.
+* Set up network connectivity and configure firewall rules for required ports and IP addresses.
+
+See xref:setting-hybrid-standalone.adoc[Setting up Hybrid Standalone Instances] and xref:configure-ports-ips.adoc[Adding Ports, IPs, and Hostnames for Runtime Manager Agent] for setup instructions.
+
+=== Register Servers with Runtime Manager
+
+Create and register your servers, server groups, or clusters in Runtime Manager:
+
+* xref:creating-servers.adoc[Create individual servers] for development, testing, or dedicated application deployments.
+* xref:creating-servers-groups.adoc[Create server groups] for load distribution across multiple servers.
+* xref:creating-clusters.adoc[Create clusters] for high-availability deployments with automatic failover.
+
+Review xref:hybrid-standalone-requirements-limitations.adoc[Requirements and Limitations] to understand deployment and server scaling limits and plan your infrastructure within platform constraints.
+
+=== Deploy Applications
+
+Deploy your Mule applications to registered servers, server groups, or clusters:
+
+* Deploy applications through Runtime Manager console, API, or Maven plugin.
+* Configure application properties, logging levels, and monitoring settings.
+* Manage application lifecycle including updates and redeployments.
+
+See xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances] for deployment workflows.
+
+=== Manage Your Infrastructure
+
+Perform ongoing management of your hybrid standalone environment:
+
+* xref:managing-servers.adoc[Manage servers], xref:managing-servers-groups.adoc[server groups], and xref:managing-clusters.adoc[clusters].
+* xref:managing-apps-hybrid-standalone.adoc[Manage deployed applications] including xref:managing-properties-hybrid.adoc[properties] and xref:managing-schedulers-hybrid.adoc[schedulers].
+* Apply updates, scale infrastructure, and perform maintenance operations.
+
+See xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances] for management operations.
+
+=== Monitor and Maintain
+
+Set up monitoring and alerting for servers and applications:
+
+* Configure xref:monitoring-dashboards-hybrid.adoc[monitoring dashboards for servers, server groups, and clusters].
+* Set up xref:creating-alerts-hybrid.adoc[alerts for infrastructure health and performance].
+* Monitor xref:monitoring-dashboards-hybrid-apps.adoc[application-specific metrics] and configure xref:creating-alerts-hybrid-apps.adoc[application alerts].
+
+See xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances] and xref:monitoring-apps-hybrid-standalone.adoc[Monitoring Mule Apps] for monitoring guidance.
+
+
+
+
+
+== See Also
+
+* xref:setting-hybrid-standalone.adoc[Setting up Hybrid Standalone Instances]
+* xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]
+* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]
+* xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]

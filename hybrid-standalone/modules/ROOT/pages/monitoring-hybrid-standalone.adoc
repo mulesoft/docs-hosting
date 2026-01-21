@@ -1,0 +1,28 @@
+= Monitoring Hybrid Standalone Instances
+
+Monitor your hybrid standalone instances to ensure optimal performance, maintain system health, and enable proactive problem resolution across your distributed Mule runtime environment.
+
+Runtime Manager provides comprehensive monitoring capabilities for your hybrid standalone infrastructure through integrated dashboards and alerting systems.
+
+== Creating Alerts
+
+Set up alerts to get email notifications when servers go down, use too much memory or CPU, or when applications fail. This helps you fix problems quickly.
+
+xref:creating-alerts-hybrid.adoc[Creating Alerts for Server, Server Groups or Clusters]
+
+
+== Monitoring Dashboards
+
+View charts and graphs to see how much CPU and memory your servers are using, check application performance, and spot problems before they become serious.
+
+xref:monitoring-dashboards-hybrid.adoc[Monitoring Dashboards for Server, Server Groups and Clusters]
+
+[IMPORTANT]
+When running Mule on Windows systems, the Mule service must be started by a user account that belongs to the *Performance Log Users* group to enable proper dashboard functionality.
+
+
+== See Also
+
+* xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]
+* xref:setting-hybrid-standalone.adoc[Setting up Hybrid Standalone Instances]
+* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]

@@ -1,0 +1,87 @@
+= Managing Cluster
+
+
+Managing clusters involves coordinating multiple Mule runtime instances working together to provide high availability and load distribution.
+
+== Add Servers to a Cluster
+
+Add individual servers to an existing cluster to increase processing capacity and enhance high availability across your deployment infrastructure.
+
+Make sure that you follow these requirements:
+
+* The target cluster already exists.
+* At least one server is configured and available.
+* All servers being added must run identical versions of:
+** Mule runtime
+** Runtime Manager agent  
+** Java
+
+[IMPORTANT]
+Adding servers to a unicast cluster triggers an automatic restart of all existing servers in the cluster. Plan cluster modifications during maintenance windows to minimize service disruption.
+
+To add servers to a cluster:
+
+. From Anypoint Platform, select *Runtime Manager*.
+. Select *Servers*.
+. Click *Cluster* in the *Type* column to display the details pane:
++
+.The arrow shows the *Add Server* button in the details pane.
+image::rtm-cluster-add-server-to-cluster.png["Add Server button"]
+. Click *Add Server*.
++
+Servers that are already in a server group or cluster don't appear in the list of available servers.
+. In the list, select the servers to add to the cluster, and click *Add Servers*.
+
+* The servers no longer appear in the *Servers* list. 
+* To see the list of servers in the cluster, click the cluster name.
+
+You can remove a server from a cluster without changing the server or cluster.
+
+== Remove Servers from a Cluster
+
+Remove servers from a cluster to reduce processing capacity, perform maintenance, or reallocate servers to other deployment configurations.
+
+[IMPORTANT]
+When you remove a server from a unicast cluster, all existing servers in the cluster restart.
+
+To remove a server from a cluster:
+
+. From Anypoint Platform, select *Runtime Manager*.
+. Select *Servers*.
+. Click *Cluster* in the *Type* column to display the details pane.
+. Click the *X* icon to remove the server from the cluster:
++
+.The arrow shows the *X* icon in the details pane.
+image::rtm-remove-server-from-cluster.png["X icon"]
+
+. In the *Remove* confirmation window, select the checkbox to verify that you want to remove the server from the cluster, and then click the *Remove* button.
+
+== Delete Clusters
+
+When deleting a cluster, consider this:
+
+* Alert definitions and history for the cluster are deleted.
+* Servers assigned to the cluster are not deleted.
+* Servers assigned to the cluster restart.
+* Applications deployed to the servers in the cluster are removed.
+
+To delete a cluster:
+
+. From Anypoint Platform, select *Runtime Manager*.
+. Select *Servers*.
+. Click *Cluster* in the *Type* column to display the details pane.
+. Click the cluster status and select *Delete* from the menu:
++
+.The arrow shows the *Delete* option in the details pane.
+image::rtm-cluster-delete.png["Delete option"]
+
+. In the confirmation window, select the checkbox to verify that you want to delete the cluster, then click *Delete Cluster*.
+
+The servers in the deleted cluster restart.
+
+== See Also
+
+* xref:creating-clusters.adoc[Creating Clusters]
+* xref:managing-servers.adoc[Managing Servers]
+* xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]
+* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]

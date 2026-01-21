@@ -180,7 +180,7 @@ Your private space loses access to a transit gateway when:
 * A resource share is deleted.
 * The MuleSoft account principal is deleted from the resource share. 
 
-To remove or delete the transit gateway from CloudHub 2.0, complete the steps in <<remove-tgw>> or <<delete-tgw>> before deleting the transit gateway, transit gateway attachment, or resource share from the AWS console. Removing connections from the AWS console without removing them from CloudHub 2.0 disrupts the connection but does not remove it. 
+To remove or delete the transit gateway from CloudHub 2.0, complete the steps in <<delete-tgw>> before deleting the transit gateway, transit gateway attachment, or resource share from the AWS console. Removing connections from the AWS console without removing them from CloudHub 2.0 disrupts the connection but does not remove it. 
 
 [[troubleshoot-tgw]]
 == Troubleshoot States for the Transit Gateway or Transit Gateway Attachment

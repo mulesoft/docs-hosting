@@ -33,10 +33,10 @@ include::partial$select-private-space.adoc[tag=clickSettings]
 . Click *Configuration* to display the app configuration history:
 +
 Config changes tab::
-Displays the changes to the successfully deployed application configuration and includes the last ten configuration deployments in order by configuration date.
+Shows the changes to the successfully deployed application configuration and includes the last 10 configuration deployments in order by configuration creation date.
 A unique hash identifies each configuration in the history.
 All changes tab::
-Displays a history of versions created from the configuration deployment and the actions performed on each version.
+Shows a history of versions created from the configuration deployment and the actions performed on each version.
 . Depending on the deployment target (shared or private space), change the deployed configuration:
 +
 ** Specify runtime options, such as uploading a new application file or changing the deployment target and resource allocation.
@@ -49,7 +49,7 @@ Displays a history of versions created from the configuration deployment and the
 A message appears at the top of the page indicating the configuration is in progress.
 . Click *View status* to view the <<replica-statuses,status>> for each replica in the deployment.
 
-When the configuration is successfully applied and deployed, a message appears at the top of the page, with application status, configuration identifier, date, and replica status.
+When the configuration is successfully applied and deployed, a message appears at the top of the page, with application status, configuration identifier, completed date, and replica status.
 The new configuration appears in the *Config changes* list.
 
 If the configuration updates fail to deploy, the message indicates that CloudHub 2.0 didn't apply the configuration, the configuration status is `Update failed`, and the configuration appears in the *Config changes* history without a label.
