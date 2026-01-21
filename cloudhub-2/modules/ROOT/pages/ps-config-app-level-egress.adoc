@@ -165,8 +165,9 @@ You can't use custom domains with private space internal DNS.
 
 == Performance Impact
 
-Given the extra layer of validation, using the application-level egress rules can introduce three-millisecond to ten-millisecond network latency delays to your applications' connections. To balance security and performance:
+Given the extra layer of validation, using the application-level egress rules can introduce three-millisecond to ten-millisecond network latency delays to your applications' connections and in some cases intermittent connection failures. To balance security and performance:
 
+* Use domains with a minimum Time to Live (TTL) of 30 seconds.
 * Limit active rule groups to 20 in your private space.
 * Use up to 8 domains per rule group with a minimum Time To Live (TTL) of 30 seconds per domain. You can add more domains if the TTL is longer.
 * Limit the total combination of rule groups and rules to 800. 
@@ -177,6 +178,19 @@ These measures help optimize latency while maintaining effective network securit
 
 [NOTE]
 DNS record timing issues can sometimes lead to unexpected connectivity errors. To enhance the reliability of Mule applications, implement robust error handling and connection retry mechanisms.
+
+== Limitations
+
+Application-level egress rules don't support domains that have aggressive Time to Live (TTL) values (under 30 seconds) and rapidly changing IP pools. Egress rules for these domains can cause intermittent connection failures.
+
+Examples of affected endpoints include:
+
+* AWS S3 regional endpoints (for example, `s3.ap-northeast-1.amazonaws.com`) with 5-second TTL
+* AWS CloudWatch endpoints with short TTLs
+* Other cloud provider endpoints with dynamic IP pools and aggressive TTLs
+
+Avoid configuring application-level egress rules for these scenarios. For more information, see https://help.salesforce.com/s/issue?id=a02Ka00000llC4i[Known Issue: App-level Egress Rules with Low TTL Domains^].
+
 
 [IMPORTANT]
 ====
