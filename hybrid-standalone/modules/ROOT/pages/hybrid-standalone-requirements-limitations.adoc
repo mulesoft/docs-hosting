@@ -65,6 +65,9 @@ Mule runtime engine passed functional testing against these software and operati
 * Ubuntu Server 20.04
 * Adoptium OpenJDK distribution
 
+[NOTE]
+Anypoint Monitoring agent has known compatibility limitations on all of the operating systems listed previously. Advanced monitoring features provided by Anypoint Monitoring may not be available on these platforms. Basic monitoring capabilities through Runtime Manager remain available.
+
 
 === Network Requirements
 
@@ -89,6 +92,9 @@ Important security aspects:
 
 Be aware of the constraints and limitations that affect hybrid standalone deployments to plan your infrastructure accordingly.
 
+A target represents any deployment destination for Mule applications, including individual servers, server groups, or clusters. For example, a server group with eight servers is a single target for deployment purposes.
+
+
 === Infrastructure Scaling Limits
 
 Design your server infrastructure within these hard limits to ensure scalable and manageable hybrid standalone deployments.
@@ -106,6 +112,21 @@ Design your server infrastructure within these hard limits to ensure scalable an
 Proper network configuration is essential for Runtime Manager agent connectivity and secure communication with Anypoint Platform services. Network allowlists, firewall rules, and port configurations must be properly configured to ensure reliable hybrid standalone operations.
 
 For comprehensive network configuration guidance, refer to xref:configure-ports-ips.adoc[Adding Ports, IPs, and Hostnames for Runtime Manager Agent].
+
+=== Deployment Limits
+
+Plan your application deployment strategy within these tested and recommended limits to make sure reliable performance and avoid platform constraints.
+
+[%header%autowidth.spread]
+|===
+| Component | Tested Recommended Limit
+| Maximum number of deployments per environment | 1000
+| Maximum number of deployments per hybrid target  | 200
+| Maximum number of properties per application | 300
+| Maximum deployment size for CloudHub and standalone | 200 MB
+| Maximum deployment size for CloudHub 2.0 and Runtime Fabric | 350 MB
+|===
+
 
 == See Also
 
