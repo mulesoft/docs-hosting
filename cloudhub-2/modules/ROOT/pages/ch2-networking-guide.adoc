@@ -99,9 +99,9 @@ Configure either in the public or the internal DNS record to CNAME. For example:
 
 === IP Ranges
 
-Traffic egressing to the internet originates from an IP address listed under the *Outbound Static IPs* field of the private network configuration. 
+Traffic egressing to the internet originates from an IP address listed under the *Outbound Static IPs* field of the private network configuration. These outbound static IPs don't change during the lifetime of the private space.
 
-The public DNS target and the private DNS target IPs don't change during the lifetime of the private space.
+The public DNS target and the private DNS target IPs also don't change during the lifetime of the private space.
 
 The private DNS target uses private static IP addresses. These IP addresses remain constant throughout the lifetime of the private space. This makes them suitable for use in internal DNS configurations or allowlists in your connected external networks. You can view the private DNS target IP addresses in the *Inbound IP Addresses* section of the private space network configuration.
 
