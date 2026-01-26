@@ -130,7 +130,7 @@ The account ID is in the *Owner* field.
 +
 Make sure that the availability zone IDs are the ones used by the private space obtained in <<_configure_the_outbound_connections, Configure the Outbound Connections>>, and that the VPC endpoint service is hosted in those availability zones.
 +
-Alternatively, specify `countOfAzs` with an integer value to have the backend service automatically assign the required number of availability zones. Provide either `azIds` or `countOfAzs`, not both.
+Alternatively, specify `countOfAzs` with an integer value (1 or 2) to have CloudHub 2.0 automatically assign the required number of availability zones. Provide either `azIds` or `countOfAzs`, not both.
 . Create a VPC endpoint in CloudHub 2.0 via API:
 +
 Here are specific examples for different service types:
@@ -147,6 +147,19 @@ curl -XPOST https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId
   "serviceRegion": "us-east-1",
   "serviceOwner": "amazon",
   "azIds": ["use1-az1", "use1-az2"]
+}'
+----
+
+Alternatively, use `countOfAzs` to let CloudHub 2.0 select the availability zones automatically:
+
+[source,curl,linenums]
+----
+curl -XPOST https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces -H "Authorization:bearer {your-token}" -H "Content-Type:application/json" -d '{
+  "name": "S3-Global",
+  "serviceName": "com.amazonaws.s3-global.accesspoint",
+  "serviceRegion": "us-east-1",
+  "serviceOwner": "amazon",
+  "countOfAzs": 2
 }'
 ----
 
@@ -207,7 +220,7 @@ curl -XPATCH https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgI
 }'
 ----
 +
-You can use `"countOfAzs": 2` instead of the `azIds` array. Provide either `azIds` or `countOfAzs`, not both.
+You can use `"countOfAzs": 2` (valid values: 1 or 2) instead of the `azIds` array. When you specify `countOfAzs`, CloudHub 2.0 automatically selects which availability zones to use. Provide either `azIds` or `countOfAzs`, not both.
 +
 . Use this command to delete a VPC endpoint:
 [source,curl,linenums]
