@@ -44,7 +44,7 @@ You can modify or delete your scheduled upgrade if it is not already in progress
 If an upgrade is available for a private space, the *Upgrade Available* status appears under the *Infra Status* column.
 . Click *Schedule an Upgrade*.
 . Select the date on which you want your private space to upgrade. +
-Upgrades occur at 00:00 UTC on the date you select.
+Upgrades occur at 00:00 in your local timezone on the date you select.
 . Select the checkbox to confirm that you agree to upgrade early.
 . Click *Upgrade*.
 
