@@ -103,10 +103,10 @@ openssl rsa -in example-com-private.pem -out example-com-private-decrypted.pem
 
 A keystore is a server-side repository that stores private keys and certificates. A truststore is a client-side repository of certificates that the client trusts.
 
-=== Prerequisites
+=== Before You Begin
 
-* JDK must be installed on the system.
-* The `keytool` utility is available in the `JAVA_HOME/bin` directory.
+* Install the JDK on your system.
+* Locate the `keytool` utility in the `JAVA_HOME/bin` directory.
 
 === Create a Keystore
 
@@ -123,14 +123,12 @@ keytool -v -genkeypair -keyalg RSA \
   -storepass mule123
 ----
 
-The following table describes the command parameters:
-
 [%header,cols="1,3"]
 |===
 |Parameter |Description
 
 |`-v`
-|Verbose output
+|Enables verbose output
 
 |`-genkeypair`
 |Generates a key pair (public and private key)
@@ -139,25 +137,25 @@ The following table describes the command parameters:
 |Uses RSA algorithm for key generation
 
 |`-dname`
-|Distinguished name with certificate details
+|Specifies the distinguished name with certificate details
 
 |`-ext SAN`
-|Subject Alternative Name extension (DNS and IP)
+|Adds Subject Alternative Name extension (DNS and IP)
 
 |`-validity 1825`
-|Certificate validity in days (5 years)
+|Sets certificate validity in days (5 years)
 
 |`-alias`
-|Alias name for the key entry
+|Sets the alias name for the key entry
 
 |`-keystore`
-|Path to the keystore file
+|Specifies the path to the keystore file
 
 |`-keypass`
-|Password for the private key
+|Sets the password for the private key
 
 |`-storepass`
-|Password for the keystore
+|Sets the password for the keystore
 |===
 
 === Export a Certificate from the Keystore
@@ -168,7 +166,8 @@ To export a certificate so you can add it to a truststore or share it:
 keytool -export -alias mykeyalias -file localhost.cer -keystore keystore.jks
 ----
 
-NOTE: You are prompted to enter the keystore password.
+[NOTE] 
+Enter the keystore password when prompted.
 
 === Create a Truststore
 
@@ -178,8 +177,6 @@ To create a truststore and import a certificate:
 keytool -import -v -trustcacerts -alias mykeyalias -file localhost.cer -keystore truststore.jks
 ----
 
-The following table describes the command parameters:
-
 [%header,cols="1,3"]
 |===
 |Parameter |Description
@@ -188,19 +185,19 @@ The following table describes the command parameters:
 |Imports the certificate
 
 |`-v`
-|Verbose output
+|Enables verbose output
 
 |`-trustcacerts`
-|Considers the certificate as trusted
+|Marks the certificate as trusted
 
 |`-alias`
-|Alias for the certificate in truststore
+|Sets the alias for the certificate in the truststore
 
 |`-file`
-|The certificate file to import
+|Specifies the certificate file to import
 
 |`-keystore`
-|Path to the truststore file
+|Specifies the path to the truststore file
 |===
 
 === Import an Existing Certificate into a Keystore
@@ -219,26 +216,24 @@ Replace the placeholders:
 
 === Common Keytool Commands
 
-The following table lists commonly used keytool commands:
-
 [%header,cols="2,3"]
 |===
 |Command |Description
 
 |`keytool -list -keystore keystore.jks`
-|List all entries in a keystore
+|Lists all entries in a keystore
 
 |`keytool -list -v -keystore keystore.jks`
-|List entries with details
+|Lists entries with details
 
 |`keytool -delete -alias myalias -keystore keystore.jks`
-|Delete an entry from keystore
+|Deletes an entry from the keystore
 
 |`keytool -storepasswd -keystore keystore.jks`
-|Change keystore password
+|Changes the keystore password
 
 |`keytool -keypasswd -alias myalias -keystore keystore.jks`
-|Change key password
+|Changes the key password
 |===
 
 CAUTION: Keep your keystore and truststore passwords secure. Store keystores in a secure location with restricted access, regularly rotate certificates before they expire, and back up your keystores in a secure manner.
