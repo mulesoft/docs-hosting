@@ -7,6 +7,24 @@ The CloudHub 2.0 infrastructure gracefully shuts down by draining connections, t
 
 To ensure business resiliency, design your application to be idempotent and deploy across multiple replicas with xref:ch2-clustering.adoc[clustering] enabled with a layer of persistence (xref:object-store::index.adoc[Object Store v2]).
 
+== Understand Local Storage Limitations
+
+CloudHub 2.0 replica local storage is ephemeral. Unlike local development environments, CloudHub 2.0 clears local data when an app restarts.
+
+This limitation affects:
+
+Persistent object stores:: Configuring `persistent="true"` writes data to local disk. This works in Anypoint Studio and standalone Mule runtimes, but data doesn't persist across CloudHub 2.0 restarts. Use xref:object-store::index.adoc[Object Store v2] for persistent storage.
+Local file operations:: The File connector and other file-based operations write to the replica's local disk. CloudHub 2.0 deletes these files when the app restarts.
+Temporary files and caches:: App-generated files, custom logs, and local cache data don't persist.
+
+To ensure data persistence in CloudHub 2.0:
+
+* Use xref:object-store::index.adoc[Object Store v2] instead of persistent object stores for app state and synchronization data.
+* Store files in external cloud storage services.
+* Design stateless integrations by persisting data in external databases or messaging queues.
+
+For more information about designing resilient applications, see xref:ch2-ha-dr.adoc[CloudHub 2.0 High Availability and Disaster Recovery].
+
 [[shutdown-timeout-behavior]]
 == Shutdown Timeout Behavior
 
