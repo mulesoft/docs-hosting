@@ -13,6 +13,15 @@ _High availability_ refers to having multiple replicas that, unlike clustering, 
 
 CloudHub 2.0 supports clustering using Mule in addition to Object Store v2 for Mule 4 apps. When you enable Object Store v2 in CloudHub 2.0, note that it is rate limited. For more information, see xref:object-store::index.adoc[].
 
+[IMPORTANT]
+====
+CloudHub 2.0 clears local disk storage when an app restarts or redeploys. Because `persistent="true"` writes to local disk, CloudHub 2.0 doesn't preserve data across restarts.
+
+In Anypoint Studio and standalone Mule runtimes, object stores retain data across restarts because the local file system persists. CloudHub 2.0 replicas use volatile disk storage.
+
+To persist data across restarts, use xref:object-store::index.adoc[Object Store v2] to store data externally.
+====
+
 [NOTE]
 ====
 If you enable both **Clustering** and **Use Object Store V2** on CloudHub 2.0, all Object Store access routes to Cloud Object Store v2, including internal runtime, policy, and connector usage. This can result in metered, billable usage even if your application doesn't explicitly use Object Store.
