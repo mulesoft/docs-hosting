@@ -278,8 +278,6 @@ You can also xref:ch2-protect-app-props.adoc[protect application property values
 Protected property values are not viewable or retrievable by any user.
 These protected application values are encrypted and stored in the Anypoint Security secrets manager, which, in turn, is encrypted per user organization.
 
-For more information about MuleSoft security, visit https://security.salesforce.com/[Salesforce Security].
-
 
 == See Also
 
