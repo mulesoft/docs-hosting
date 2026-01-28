@@ -103,6 +103,8 @@ openssl rsa -in example-com-private.pem -out example-com-private-decrypted.pem
 
 A keystore is a server-side repository that stores private keys and certificates. A truststore is a client-side repository of certificates that the client trusts.
 
+Use the Java `keytool` command-line utility to create and manage keystores. Run these commands in a terminal or command prompt.
+
 === Before You Begin
 
 * Install the JDK on your system.
