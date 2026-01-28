@@ -22,6 +22,8 @@ To configure the application-level rules in a private space:
 
 By default, the application-level egress rules feature is disabled when you create a new private space. Toggle the feature to enable it.
 
+Add your private DNS IP addresses to the route table if you have a transit gateway to reach your internal DNS servers and the default route is routed to the transit gateway.
+
 [NOTE]
 Ensure that you finished provisioning your private network before enabling the toggle.
 
@@ -49,7 +51,7 @@ To create a new custom egress rule group:
 . Click *Create Rule Group*.
 . In the rule group configuration window, add a group name.
 + 
-You can edit and rename custom rule groups. 
+You can edit and rename custom rule groups. The generated rule group name (`<rule_group_name>-<private_space_name>`) can't exceed 53 characters.
 . In the *Egress Rules* section, click *Add Rule* and select the protocol and destination for every rule that you want to add.
 + 
 You can delete rules by clicking the delete button (image:trash-icon.png[Delete button, 1.5%,1.5%]).
@@ -163,10 +165,11 @@ You can't use custom domains with private space internal DNS.
 
 == Performance Impact
 
-Given the extra layer of validation, using the application-level egress rules can introduce three-millisecond to ten-millisecond network latency delays to your applications' connections. To balance security and performance:
+Given the extra layer of validation, using the application-level egress rules can introduce three-millisecond to ten-millisecond network latency delays to your applications' connections and in some cases intermittent connection failures. To balance security and performance:
 
+* Use domains with a minimum Time to Live (TTL) of 30 seconds.
 * Limit active rule groups to 20 in your private space.
-* Use a maximum of 40 rules per rule group.
+* Use up to 8 domains per rule group with a minimum Time To Live (TTL) of 30 seconds per domain. You can add more domains if the TTL is longer.
 * Limit the total combination of rule groups and rules to 800. 
 +
 You can customize the number of rule groups and rules in the combination based on your needs.
@@ -175,6 +178,28 @@ These measures help optimize latency while maintaining effective network securit
 
 [NOTE]
 DNS record timing issues can sometimes lead to unexpected connectivity errors. To enhance the reliability of Mule applications, implement robust error handling and connection retry mechanisms.
+
+== Limitations
+
+Application-level egress rules don't support domains that have aggressive Time to Live (TTL) values (under 30 seconds) and rapidly changing IP pools. Egress rules for these domains can cause intermittent connection failures.
+
+Examples of affected endpoints include:
+
+* AWS S3 regional endpoints (for example, `s3.ap-northeast-1.amazonaws.com`) with 5-second TTL
+* AWS CloudWatch endpoints with short TTLs
+* Other cloud provider endpoints with dynamic IP pools and aggressive TTLs
+
+Avoid configuring application-level egress rules for these scenarios. For more information, see https://help.salesforce.com/s/issue?id=a02Ka00000llC4i[Known Issue: App-level Egress Rules with Low TTL Domains^].
+
+
+[IMPORTANT]
+====
+The `ap-southeast` region updates its DNS records more frequently than other regions. This behavior can cause stale DNS entries and intermittent connectivity issues. When deploying applications in this region:
+
+* Implement connection retry logic with exponential backoff.
+* Monitor DNS resolution errors in your application logs.
+* Use shorter TTL values to reduce stale cache entries.
+====
 
 == See Also
 

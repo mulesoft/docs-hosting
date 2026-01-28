@@ -93,6 +93,9 @@ To configure additional log levels and categories to include in logs:
 . Optionally, set the log level for specific a Java package class by selecting the log level, entering the `package.name`, and pressing the Enter key.
 . Click *Apply Changes*.
 
+[NOTE]
+Changing the log level and clicking *Apply Changes* restarts the application.
+
 // end::configureLogging[]
 
 
@@ -137,6 +140,8 @@ For existing applications using a legacy version, the *Release Channel* drop-dow
 For existing applications using an Edge version, the *Release Channel* drop-down list is selected as `Edge`. The *Runtime Version* dropdown list indicates if there is an update available, as well as the previous and latest version of the application. Use the  *Release Channel* drop-down list to change to a legacy version.
 +
 For existing applications using an Edge or an LTS version on extended support, a warning message appears indicating the version's EOL.
++
+include::cloudhub::partial$mule-runtime-eos-note.adoc[]
 
 Java Version:: 
 Select the Java version for your application. For more information, visit xref:general::java-support.adoc[].

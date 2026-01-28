@@ -5,3 +5,4 @@
 * xref:ch2-manage-props.adoc[]
 * xref:ch2-protect-app-props.adoc[]
 * xref:ch2-manage-app-logs.adoc[]
+* xref:ch2-understand-app-restart.adoc[]

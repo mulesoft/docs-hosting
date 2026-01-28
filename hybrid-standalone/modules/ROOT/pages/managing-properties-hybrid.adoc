@@ -1,0 +1,117 @@
+= Managing Properties
+
+Manage application properties for your Mule applications deployed to hybrid standalone instances through centralized configuration management, enabling dynamic property updates, environment-specific settings, and secure property handling across your infrastructure.
+
+== Overview
+
+Runtime Manager offers comprehensive property management for applications deployed to hybrid standalone instances. Use Runtime Manager to:
+
+* Define and manage application properties centrally through Runtime Manager
+* Override application-bundled properties without redeployment
+* Configure environment-specific settings for different deployment stages
+* Secure sensitive configuration data through encrypted property storage
+* Manage properties across individual servers, server groups, and clusters
+
+=== Property Management Approaches
+
+* **Properties Files**: Include property placeholder YAML files in application deployment archives
+* **Runtime Manager Properties**: Override and manage properties through the Runtime Manager console
+* **System Variables**: Configure properties at deployment time using Java system environment variables
+* **External Configuration**: Use external property sources for advanced configuration management
+
+=== Property Precedence
+
+Properties defined in Runtime Manager take precedence over application-bundled properties, enabling environment-specific configuration without modifying application code.
+
+== Property Security
+
+Runtime Manager implements comprehensive security measures for property management:
+
+* Transmission Security: All property values are encrypted over HTTPS during transmission between Runtime Manager and Mule runtime.
+* Storage Security: Properties are encrypted when stored in the Runtime Manager internal database.
+* Access Control: Property values are displayed only through the Runtime Manager Settings page with appropriate permissions.
+* Audit Trail: Property modifications are tracked for compliance and security auditing.
+
+[IMPORTANT]
+====
+Modifying properties after application deployment requires restarting the application and any associated server groups or clusters to apply changes.
+====
+
+
+== Add Application Properties by Using a Properties File
+
+
+Include property placeholder YAML files in your deployable application archive to provide default configuration values. For comprehensive property file configuration guidance, see xref:mule-runtime::configuring-properties.adoc[Configuring Properties].
+
+Mule runtime engine loads file-based properties during application initialization.
+
+== Manage Properties Through Runtime Manager
+
+Runtime Manager provides a centralized interface to configure and manage application properties. This capability supports environment-specific configuration without requiring application code changes.
+
+
+=== Add Application properties in Runtime Manager
+
+To configure properties, open the property management interface for your deployed application:
+
+. From Anypoint Platform, select *Runtime Manager*.
+. Click the *Applications* tab.
+. Click the *Status* column to display the details pane.
+. Click *Manage Application*.
+. On the *Settings* page, click the *Properties* tab.
+
+.The screenshot shows (*1*) the *Properties* tab, (*2*) the *Key* and *Value* fields, and (*3*) the *...* menu on the application *Settings* page.
+image::rtm-manage-props.png["*Properties* tab, *Key* and *Value* fields, and *...* menu on the *Settings* page"]
+
+=== Property Configuration Operations
+
+To create properties:
+
+. Enter the property name in the *Key* field.
+. Enter the property value in the *Value* field.  
+. Click *Save* > *Redeploy Application*.
+
+To modify existing properties:
+
+. Locate the property in the properties list.  
+. Click the *...* menu for property-specific actions.
+. Select *Edit* to modify the property value.
+. Click *Save* > *Redeploy Application*.
+
+To delete properties:
+
+. Locate the property in the properties list.
+. Click the *...* menu for the target property.
+. Select *Delete* to remove the property.
+. Click *Save* > *Redeploy Application*.
+
+[IMPORTANT]
+All property changes require application redeployment to take effect. Plan property modifications during appropriate maintenance windows to minimize service disruption.
+
+
+== Advanced Property Configuration Methods
+
+These are some alternative methods for overriding app properties:
+
+* Configure an external location to add property placeholders or secure property placeholder files to override properties.
+
+* Set Java system environment variables at deployment time to override properties.
++
+To do this, deploy the app using this command:
++
+----
+mule -M-Dsecret.key=toSecretPassword -M-Denv=prod -M-Ddb.password=secretPassword -app myApp.zip
+----
++
+In this case, the system stores the input values only in memory. Because these values are never saved to a file, you must provide them for every command execution.
+
+
+
+== See Also
+
+* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]
+* xref:managing-apps-hybrid-standalone.adoc[Managing Mule Apps Deployed to Hybrid Standalone Instances]
+* xref:managing-schedulers-hybrid.adoc[Managing Schedulers]
+* xref:monitoring-apps-hybrid-standalone.adoc[Monitoring Mule Apps Deployed to Hybrid Standalone Instances]
+* xref:creating-alerts-hybrid-apps.adoc[Creating Alerts for Mule Apps Deployed to Hybrid Standalone]
+* xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]

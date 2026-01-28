@@ -1,17 +1,17 @@
 = Configuring Endpoints and Paths for Apps Deployed to a Private Space
 
 [IMPORTANT]
-CloudHub 2.0 supports customizing endpoints only for apps that are deployed to private spaces, not shared spaces.
+CloudHub 2.0 supports customizing endpoints only for apps deployed to private spaces, not shared spaces.
 
 
 A private space routes requests from clients to apps deployed to the private space.
 
-When you deploy an app to a private space, two types of _endpoints_ are created:
+When you deploy an app to a private space, CloudHub 2.0 creates two types of _endpoints_ by default:
 
-* *Endpoint*: A URL used to reach the app deployed to the public space. In this context, it is accessible externally and enables clients outside of the network to reach the app. You can delete this endpoint to prevent external traffic from reaching the app.
-* *Internal endpoint*: A URL used to reach the app deployed to the public space, but it is accessible only within the private network, VPN, or transit gateway (TGW). This type of endpoint cannot be modified or deleted.
+* *Endpoint*: A URL used to reach the app deployed to the public space. In this context, it's accessible externally and enables clients outside the network to reach the app. You can delete this endpoint to prevent external traffic from reaching the app.
+* *Internal endpoint*: A URL used to reach the app deployed to the public space, but it's accessible only within the private network, VPN, or transit gateway (TGW). You can't modify or delete this type of endpoint.
 
-An example endpoint URL is `\https://my-app.example.com/`. Endpoints enable clients outside of the network to reach the app. Internal endpoints are accessible only within the private network, a VPN, or transit gateway (TGW). To ensure an app is accessible only within the network, use internal endpoints.
+An example endpoint URL is `\https://my-app.example.com/`. To ensure an app is accessible only within the network, use internal endpoints.
 
 You can customize how requests from clients reach the app by configuring:
 
@@ -23,11 +23,14 @@ For information, see xref:ps-config-domains.adoc[].
 
 * Different paths for the app and the endpoint URL
 +
-The _path_ is the base path expected by the HTTP Listener in your app, for example `my-app.example.com/v1/api`.
+The _path_ is where you want your app to be reachable, for example `/api` in `my-app.example.com/api`.
 +
 For information, see xref:http-connector::http-listener-ref.adoc[HTTP Listener Reference - Mule 4].
+* Different path rewrite configurations for each endpoint URL of an application
++
+The path rewrite is the base path expected by the HTTP listener in your app, for example, `/v1/api`
 
-You can also remove the endpoint to ensure clients outside of the private network cannot make requests to the app.
+You can also remove the external endpoint to ensure clients outside the private network can't make requests to the app.
 
 
 [[before-you-begin]]
@@ -69,7 +72,11 @@ If the domain includes a wildcard, the *Subdomain* field becomes available.
 .. Enter the subdomain, or enter the `my-app` placeholder in the *Subdomain* field to use the name of the app that you specified in the *Application Name* field as the subdomain.
 +
 For information, see <<placeholder-table,placeholders>>.
-.. Enter the path where the HTTP Listener in the app is listening, for example `v1/api`.
+.. Enter the path that the client requests, for example `/api`.
+.. Optionally enter, the path rewrite where the HTTP Listener in the app is listening, for example `/v1/api`.
+.. Configure the *Access*:
+*** External endpoints are accessible externally, and enable clients outside the network to reach the app.
+*** Internal endpoints are only accessible within your private network or via your VPN or Transit Gateway connection. 
 . If you want to configure additional endpoints, click *Add Endpoint* and repeat steps 2.1 through 2.3.
 . Depending on the deployment status, choose either:
 ** If you're ready to deploy the application, click *Deploy*.
@@ -80,12 +87,11 @@ For information, see <<placeholder-table,placeholders>>.
 include::partial$deployment.adoc[tag=placeholders,leveloffset=+2]
 
 [[configure-different-paths]]
-== Configure a Different Path for the App and the URL Endpoint
+== Configure a Different Path and Path Rewrite for the App and the URL Endpoint
 
-You can configure different paths for the app and the URL endpoint.
+You can configure different paths and path rewrite for the app and the URL endpoint.
 For example, if the app is listening on `my-app.example.com/v1/api` and you
 want the app to be reachable from the internet using `my-app.example.com/api`.
-When you rewrite the path URL, the new path applies to all endpoints.
 
 To configure different paths:
 
@@ -93,9 +99,7 @@ To configure different paths:
 . Click the *Ingress* tab.
 . In the *Path* field, enter the path where you want the app to be reachable, for example, `/api`.
 . In the *Path Rewrite* field, enter the base path expected by the HTTP Listener in your app, for example,  `/v1/api`.
-+
-This field is available only for apps deployed with custom TLS context.
-. Click *Apply Changes* to create a new configuration for your application.
+. Click *Apply Changes* to create a configuration for your application.
 
 [[remove-external-endpoint]]
 == Remove an Endpoint
@@ -111,7 +115,7 @@ include::partial$select-private-space.adoc[tag=clickSettings]
 
 
 [[view-internal-endpoint]]
-== View the Internal Endpoint for an App
+== View the Default Internal Endpoint for an App
 
 An internal endpoint is accessible from inside the same private space or through
 the VPN or transit gateway connection for the private space. You cannot make changes to the path or domain for an internal endpoint.
@@ -122,9 +126,9 @@ include::partial$select-private-space.adoc[tag=selectAppsPage]
 include::partial$select-private-space.adoc[tag=clickAppName]
 include::partial$select-private-space.adoc[tag=clickSettings]
 . Click the *Ingress* tab.
-. Hover over *internal endpoint*.
-// +
-// <screenshot>
+. In the *Endpoint* section, view or copy the endpoint labeled *Default* and *Internal*.
++
+image::default-internal-endpoint.png[Endpoint section showing the default internal endpoint for an application]
 
 == Send Application-to-Application Requests within a Private Space
 
@@ -154,7 +158,13 @@ An application communicates with another application via:
 
 If you use the internal DNS name, traffic remains within the private space network. You can delete or omit the externally exposed endpoint when deploying an application to a private space. In that case, you can use the application's internal endpoint for internal traffic.
 
-If you use the cluster local endpoint, the traffic doesn't leave the cluster. However, the cluster local endpoint isn't highly available. During some cluster operations such as disaster recovery, the endpoint can be unreachable. The cluster local endpoint allows traffic within the same environment only.
+If you use the cluster local endpoint, the traffic doesn't leave the cluster. However, the cluster local endpoint isn't highly available. During some cluster operations such as disaster recovery, the endpoint can be unreachable. 
+
+During disaster recovery, the cluster local DNS endpoint can fail if an application migrates to a new cluster. This is because traffic routed through the local DNS endpoint doesn't traverse the ingress load balancer, which is essential for directing traffic to the new cluster. However, using other available endpoints forces traffic to pass through the ingress load balancer. The ingress load balancer detects if a disaster recovery event is happening. It also knows if an application linked to a certain endpoint has moved to a new cluster. It then routes traffic to the new cluster if needed.
+
+During node upgrades and scaling, cluster local DNS endpoints remain reachable as long as you deploy multiple application replicas.
+
+The cluster local endpoint allows traffic within the same environment only.
 
 
 == See Also

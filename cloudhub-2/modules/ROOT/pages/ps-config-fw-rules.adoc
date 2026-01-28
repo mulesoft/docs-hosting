@@ -1,20 +1,23 @@
 = Configuring Firewall Rules to Manage Traffic to and from a Private Space
 
-By default, all traffic to your private space is blocked unless it is explicitly allowed in a firewall rule.
+By default, all traffic to your private space is blocked unless it's explicitly allowed in a firewall rule.
 
 Creating a private space automatically creates these firewall rules:
 
-* Two rules to allow inbound connections from any host:
+* Two rules that enable inbound connections from any host:
 ** HTTPS: port 443
 ** HTTP: port 80
 
-* Two rules to allow outbound connections from within your private space to any host:
+* Two rules that enable outbound connections from within your private space to any host:
 ** TCP: All ports
 ** HTTPS: 443
 
 You can also configure inbound firewall rules that use TCP as the protocol.
 
-To support Anypoint MQ, API Manager, and ObjectStore v2, you must allow outbound traffic on port 443 (HTTPS).
+To support Anypoint MQ, API Manager, and ObjectStore v2, you must enable outbound traffic on port 443 (HTTPS).
+
+[NOTE]
+CloudHub 2.0 doesn't support IPv6 firewall rules.
 
 == Configure Firewall Rules
 
@@ -36,7 +39,7 @@ Source IP address:
 * *Anywhere (0.0.0.0/0)*
 * *Local private network*
 +
-This option is available only if a private network exists in the private space. 
+This option is available only if a private network exists in the private space.
 // * *Custom CIDR*
 // +
 // Enter a custom CIDR in the field.
@@ -46,7 +49,7 @@ Ports for inbound traffic are not configurable:
 +
 * Port 80 is reserved HTTP.
 * Port 443 is reserved for HTTPS.
-* Other ports below 1024 are not allowed. Ports 1024 and above are allowed for plain TCP connections, but not for additional HTTP/HTTPS ingress endpoints.
+* Other ports under 1024 aren't allowed. Ports 1024 and above are allowed for plain TCP connections, but not for additional HTTP/HTTPS ingress endpoints.
 
 --
 . Configure default rules for outbound traffic by selecting the *Protocol* and *Destination* from the drop-down lists:
@@ -58,7 +61,7 @@ Protocol type:
 +
 * *All*
 * *TCP*
-* *UTP*
+* *UDP*
 * *HTTP*
 * *HTTPS*
 
@@ -68,7 +71,7 @@ Destination IP address:
 * *Anywhere (0.0.0.0/0)*
 * *Local private network*
 +
-This option is available only if a private network exists in the private space. 
+This option is available only if a private network exists in the private space.
 // * *Custom CIDR*
 // +
 // Enter a custom CIDR in the field.

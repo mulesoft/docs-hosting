@@ -57,6 +57,7 @@ CloudHub 2.0 application behavior deviates from CloudHub 1.0 in the following wa
 * HTTP, HTTPS, and TCP inbound protocols are supported. Inbound protocols that are not TCP or HTTP-based are not supported.
 * In xref:monitoring::alerts.adoc[Anypoint Monitoring], you must set alerts for apps individually. Setting alerts for all apps simultaneously is not supported.
 * CloudHub application workers and CloudHub 2.0 application replicas of the same vCore sizes may differ in performance metrics and cannot be compared.
+* CloudHub applications have a two-minute grace period. CloudHub 2.0 applications have a five-minute grace period. For more information, see xref:ch2-deploy.adoc#grace-period[Grace Period].
 
 CloudHub 2.0 does not support the following application features or functions that CloudHub 1.0 supports:
 

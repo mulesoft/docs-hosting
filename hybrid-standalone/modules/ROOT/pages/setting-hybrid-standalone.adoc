@@ -1,0 +1,127 @@
+= Setting up Hybrid Standalone Instances
+
+Set up hybrid standalone instances to enable centralized management and deployment of Mule applications through Anypoint Platform while maintaining control over your infrastructure.
+
+== Overview
+
+The setup process includes:
+
+* Prepare infrastructure and plan deployment
+* Install and configure Mule runtime engine (Mule)
+* Install and set up Runtime Manager agent
+* Create servers, server groups, and clusters with Anypoint Platform
+* Configure and validate initial setup
+
+== Prepare Infrastructure
+
+Before setting up hybrid standalone instances, make sure your infrastructure meets these requirements:
+
+* Allocate adequate CPU, memory, and storage for your Mule runtime instances
+* Configure outbound HTTPS connectivity (port 443) and firewall rules for Runtime Manager agent
+* Use supported OS versions (Linux, Windows, macOS) with compatible Java versions
+* Obtain Anypoint Platform subscription
+
+== Install and Configure Mule Runtime
+
+Set up your Mule runtime environment:
+
+* Download and install Mule runtime engine +
+Download the appropriate Mule version and set up your environment with proper configuration. For detailed installation instructions, see xref:mule-runtime::runtime-installation-task.adoc[Download, Install, Configure, and Upgrade Mule].
+
+* Configure runtime properties and settings +
+Configure memory settings, environment variables, and connection properties through the `wrapper.conf` file. For configuration options, see xref:mule-runtime::configuring-properties.adoc[Configuring Properties] and xref:mule-runtime::about-mule-configuration.adoc[Mule Configuration File].
+
+* Install enterprise license +
+Install your MuleSoft Enterprise license for production deployments. See xref:mule-runtime::installing-an-enterprise-license.adoc[Install an Enterprise License] for complete instructions.
+
+* Run Mule as a service +
+Configure Mule as a system service for automatic startup and management. See xref:mule-runtime::runtime-installation-task.adoc[Download, Install, Configure, and Upgrade Mule] for service installation instructions.
+
+* Harden your installation +
+Apply security best practices for production environments. See xref:mule-runtime::hardening-your-mule-installation.adoc[Hardening your Mule Installation] for security configuration guidance.
+
+== Install and Set Up Runtime Manager Agent
+
+The Runtime Manager agent is a lightweight component that enables communication between your on-premises Mule runtime instances and Anypoint Platform in the cloud.
+
+With the Runtime Manager agent, you can:
+
+* Register servers with Anypoint Platform for centralized management
+* Deploy and manage applications remotely through Runtime Manager
+* Monitor server health, performance metrics, and application status
+* Configure server properties and environment variables
+* Receive real-time alerts and notifications
+* Access application logs and diagnostic information
+
+For detailed configuration and setup instructions, refer to xref:runtime-manager::runtime-manager-agent.adoc[Runtime Manager Agent].
+
+== Create Servers, Server Groups, and Clusters
+
+Use Runtime Manager to create your servers with Anypoint Platform, enabling centralized management and deployment. Once registered, you can organize servers into groups or clusters and deploy applications to them.
+
+=== Servers
+
+xref:creating-servers.adoc[Creating Servers] +
+Individual server instances that provide a single deployment target for Mule applications. Servers are ideal for:
+
+* Development and testing environments
+* Simple deployments with minimal complexity
+* Scenarios where you need direct control over individual server instances
+* Applications that don't require high availability or load distribution
+
+Each server runs independently and can be managed separately through Runtime Manager.
+
+=== Server Groups
+
+xref:creating-servers-groups.adoc[Creating Server Groups] +
+Multiple servers organized together to act as a single deployment target. Server groups are ideal for:
+
+* Production environments requiring redundancy without cluster complexity
+* Scenarios where you need to deploy applications to multiple servers simultaneously
+* Load distribution across multiple servers for increased traffic handling
+* Centralized management of properties, monitoring, and alerts
+* Applications that can run independently on each server without shared state
+
+Each server in the group runs its own copy of the application, providing redundancy if one server fails.
+
+=== Clusters
+
+xref:creating-clusters.adoc[Creating Clusters] +
+High-availability configuration where multiple servers work together as a unified system. Clusters are ideal for:
+
+* Mission-critical applications requiring maximum availability and performance
+* Scenarios where automatic failover and load balancing are essential
+* Applications that need synchronized communication and shared state
+* Zero-downtime deployments and rolling updates
+* High-traffic environments requiring automatic traffic distribution
+
+Cluster members work together as a unified system with automatic failover and load balancing.
+
+All servers within a server group or cluster must have identical versions of:
+
+* Mule runtime engine
+* Runtime Manager agent
+
+=== Registration Workflow
+
+. Use Runtime Manager to register each server and configure its properties
+. Add registered servers to a server group or cluster based on your requirements  
+. Select the individual server, server group, or cluster for your application deployments
+
+== Configure and Validate Initial Setup
+
+Verify your hybrid standalone configuration:
+
+* Test network connectivity to Anypoint Platform and verify DNS resolution
+* Confirm Runtime Manager agent is running and communicating with Anypoint Platform
+* Verify servers appear in Runtime Manager with "Running" status
+* Test server management operations and application deployment capabilities
+
+== See Also
+
+* xref:creating-servers.adoc[Creating Servers]
+* xref:creating-servers-groups.adoc[Creating Server Groups]
+* xref:creating-clusters.adoc[Creating Clusters]
+* xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]
+* xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]
+* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]
