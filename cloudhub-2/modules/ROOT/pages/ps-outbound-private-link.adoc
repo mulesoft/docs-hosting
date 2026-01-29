@@ -29,6 +29,7 @@ Follow the instructions from xref:access-management::saml-bearer-token.adoc[Anyp
 +
 The token owner must have permissions to manage private spaces.
 
+[[configure-the-outbound-connections]]
 == Configure the Outbound Connections
 
 Follow these steps to set up an outbound Private Link connection from your CloudHub 2.0 private space:
@@ -86,7 +87,6 @@ Salesforce Private Connect::
 +
 Salesforce Private Connect requires activation as an add-on. After activation:
 +
-[#]
 .. In Salesforce, go to *Setup*, enter *Private Connect* in the *Quick Find* box, and select *Private Connect*.
 .. On the *Private Connect* page, click *AWS Regions* to reveal available regions.
 .. Select the AWS region that matches your private space region.
@@ -96,7 +96,6 @@ Custom Services (Self-Hosted)::
 +
 To prepare custom services:
 +
-[#]
 .. Deploy your service in at least one private space AZ. For high availability, configure 2 AZs.
 .. Expose the service via a network load balancer or application load balancer.
 .. https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html[Create an endpoint service] following AWS guidance.
@@ -104,13 +103,13 @@ To prepare custom services:
 .. Optionally, configure a private DNS name for your service. CloudHub 2.0 private space automatically picks up the private DNS and makes it available to Mule applications.
 +
 [NOTE]
-If the service is hosted in the same region as the private space, set up the services in the same availability zone as the private space obtained in <<_configure_the_outbound_connections, Configure the Outbound Connections>>. For cross-region services, you don't need AZ alignment. Validation for cross-region connectivity isn't yet complete; its success depends on the configuration.
+If the service is hosted in the same region as the private space, set up the services in the same availability zone as the private space obtained in <<configure-the-outbound-connections>>. For cross-region services, you don't need AZ alignment. Validation for cross-region connectivity isn't yet complete; its success depends on the configuration.
 +
 . Share the VPC endpoint services with your CloudHub 2.0 private space:
 .. https://docs.aws.amazon.com/vpc/latest/privatelink/configure-endpoint-service.html[Configure an endpoint service].
 .. From VPC *Endpoint services*, select *Allow principals*. Add `arn:aws:iam::{accountId}:root` as principal.
 +
-The `{accountId}` is the account ID obtained in <<_configure_the_outbound_connections, Configure the Outbound Connections>>.
+The `{accountId}` is the account ID obtained in <<configure-the-outbound-connections>>.
 . Gather this information for the API:
 .. Service Name: The endpoint service name, for example: 
 ... Customer-hosted endpoint service: `com.amazonaws.vpce.us-east-1.vpce-svc-xxxxxxxxxxxxxxxx`
@@ -128,7 +127,7 @@ The account ID is in the *Owner* field.
 ... `amazon`, if it's an Amazon service.
 .. Availability Zone IDs: The IDs of the availability zones where you want to establish the private link.
 +
-Check that the AZ IDs match those obtained in <<_configure_the_outbound_connections, Configure the Outbound Connections>>, and verify the VPC endpoint service uses those AZs.
+Check that the AZ IDs match those obtained in <<configure-the-outbound-connections>>, and verify the VPC endpoint service uses those AZs.
 +
 Alternatively, specify `countOfAzs` with an integer value (1 or 2) to have CloudHub 2.0 automatically assign the required number of availability zones. Provide either `azIds` or `countOfAzs`, not both.
 . Create a VPC endpoint in CloudHub 2.0 via API:
@@ -319,7 +318,6 @@ Example output:
 +
 The endpoint status shows *Pending Acceptance*. Complete the connection:
 +
-[#]
 . Note the `awsId` from the endpoint.
 . Go to Private Connect and click *create inbound connections*.
 . Select *AWS* and configure the connection using the `awsId` (VPC Endpoint ID).
@@ -361,7 +359,6 @@ Example output:
 +
 The custom service VPC endpoint status shows *Pending Acceptance*. Accept the connection:
 +
-[#]
 . In the AWS console go to *VPC* > *Endpoint Services*.
 . Select your service and open the *Endpoint Connection* tab.
 . Verify the *Endpoint ID* and *Owner* match your private space in CloudHub 2.0.
