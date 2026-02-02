@@ -32,17 +32,17 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 |===
 |Component |Feature Description |US Cloud | EU Cloud | Canada Cloud | Japan Cloud | Notes
 
-.5+| xref:access-management::index.adoc[Access Management] | All other features | Planned | Planned | Available | Available .5+| n/a
+.4+| xref:access-management::index.adoc[Access Management] | All other features | Planned | Planned | Available | Available .4+| n/a
 | Audit Logging | Planned | Planned | Available | Available
-| API Console Proxy/Trusted Domains | Available | Available | Planned| Planned
 | Business Groups | Planned | Planned | Available | Available
 | External Identity Management Integration | Planned | Planned | Available | Available
 
 
-.4+|xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]| All other features     |  Planned |Planned | Available | Available .4+|  For details, refer to xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane],  xref:api-manager::analytics-landing-page.adoc[Mule API Analytics], and xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
+.5+|xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager]| All other features     |  Planned |Planned | Available | Available .5+|  For details, refer to xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane],  xref:api-manager::analytics-landing-page.adoc[Mule API Analytics], and xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
 | API Manager 1.x | Not planned | Not planned | Not planned | Not planned
 | API Manager 2.x | Planned | Planned | Available | Available
 | API Service Mesh | Planned | Planned | Not planned | Not planned
+| API Console Proxy/Trusted Domains | Available | Available | Planned| Planned
 
 .2+| Anypoint CLI| All features | Available | Available | Available | Available .2+| n/a
 |API Catalog CLI| Available | Available | Available | Available 
