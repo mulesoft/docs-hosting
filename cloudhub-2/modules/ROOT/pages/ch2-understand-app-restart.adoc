@@ -74,7 +74,7 @@ If the compute infrastructure suffers a failure, CloudHub 2.0 moves your applica
 
 == Security Patching
 
-To mitigate security vulnerabilities, CloudHub 2.0 patches and restarts applications every month. See the https://www.salesforce.com/content/dam/web/en_us/www/documents/legal/Agreements/versioning-back-support-policy.pdf#critical[Critical Security Vulnerabilities] policy.
+To mitigate security vulnerabilities, CloudHub 2.0 patches and restarts applications every month. See the https://www.salesforce.com/en-us/wp-content/uploads/sites/4/documents/legal/Agreements/versioning-back-support-policy.pdf[Critical Security Vulnerabilities] policy.
 
 == Replica Crash
 
