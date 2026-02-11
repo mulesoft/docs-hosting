@@ -17,7 +17,7 @@ image::ch2-architecture.png[CloudHub 2.0 Architecture with four callouts]
 |===
 
 [NOTE]
-You can view the live status and detailed service history for Runtime Manager, platform services, and CloudHub 2.0 on https://status.mulesoft.com/[status.mulesoft.com^] for the default (US hosted) Control Plane and https://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^] for the EU Control Plane.
+You can view the live status and detailed service history for Runtime Manager, platform services, and CloudHub 2.0 on https://status.salesforce.com/products/Mulesoft[status.mulesoft.com^] for the default (US hosted) Control Plane and https://status.salesforce.com/products/Mulesoft[eu1-status.mulesoft.com^] for the EU Control Plane.
 
 [[integrations-apps]]
 == Integration Applications
@@ -290,9 +290,9 @@ These protected application values are encrypted and stored in the Anypoint Secu
 * xref:ch2-monitor-apps.adoc[]
 * xref:ch2-protect-app-props.adoc[]
 * xref:ch2-config-app-alerts.adoc[]
-* https://status.mulesoft.com/[status.mulesoft.com^]
-* https://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^]
-* https://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^]
+* https://status.salesforce.com/products/Mulesoft[status.mulesoft.com^]
+* https://status.salesforce.com/products/Mulesoft[eu1-status.mulesoft.com^]
+* https://www.mulesoft.com/sites/default/files/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^]
 * xref:runtime-manager::deployment-strategies.adoc[]
 
 
