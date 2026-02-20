@@ -21,7 +21,14 @@ The following improvements have been made to features that are also available in
 * By default, VPNs allow high availability.
 * Applications now have xref:ch2-config-endpoints-paths.adoc[endpoints and internal endpoints] by default. You can also configure multiple endpoints. You can access the endpoint addresses in Runtime Manager.
 * You can make in-place edits and updates to the TLS context and truststore of the ingress layer.
-* In CloudHub 1.0, application names had to be unique per control plane. In CloudHub 2.0, application names must be unique per private space.
+* In CloudHub 1.0, application names must be unique per control plane. In CloudHub 2.0, each name is unique per Business Group and Private Space. You can reuse a name in another Business Group or Private Space unless your organization has application name uniqueness enabled across Business Groups.
++
+[NOTE]
+====
+When application name uniqueness is off (the default), you can use the same name in different Business Groups if the name is unique within each Business Group and Private Space. When the feature is on, names must be unique across all Business Groups in the organization.
+
+The platform controls this behavior with the feature flag `app_mgr_quotas_app_name_uniqueness_enabled`. You cannot configure it. Contact MuleSoft Support to confirm whether your organization has the feature enabled.
+====
 * Custom log4j.xml is supported by default to enable xref:ch2-integrate-log-system.adoc[streaming logs] to external log collectors. You no longer need to contact Support to enable or disable this feature.
 * You can disable log streaming using Runtime Manager. You no longer need to contact Support to enable or disable this feature.
 * Self-service logs for the dedicated load balancer and ingress are available via a private space. Titanium users can also download logs through Anypoint Monitoring.
