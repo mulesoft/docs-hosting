@@ -27,7 +27,7 @@ The following improvements have been made to features that are also available in
 ====
 When application name uniqueness is off (the default), you can use the same name in different Business Groups if the name is unique within each Business Group and Private Space. When the feature is on, names must be unique across all Business Groups in the organization.
 
-The platform controls this behavior with the feature flag `app_mgr_quotas_app_name_uniqueness_enabled`. You cannot configure it. Contact MuleSoft Support to confirm whether your organization has the feature enabled.
+The platform controls this behavior with the feature flag `app_mgr_quotas_app_name_uniqueness_enabled`. You can't configure it. Contact MuleSoft Support to confirm whether your organization has the feature enabled.
 ====
 * Custom log4j.xml is supported by default to enable xref:ch2-integrate-log-system.adoc[streaming logs] to external log collectors. You no longer need to contact Support to enable or disable this feature.
 * You can disable log streaming using Runtime Manager. You no longer need to contact Support to enable or disable this feature.
