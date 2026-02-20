@@ -21,7 +21,7 @@ The following improvements have been made to features that are also available in
 * By default, VPNs allow high availability.
 * Applications now have xref:ch2-config-endpoints-paths.adoc[endpoints and internal endpoints] by default. You can also configure multiple endpoints. You can access the endpoint addresses in Runtime Manager.
 * You can make in-place edits and updates to the TLS context and truststore of the ingress layer.
-* In CloudHub 1.0, application names must be unique per control plane. In CloudHub 2.0, each name is unique per Business Group and Private Space. You can reuse a name in another Business Group or Private Space unless your organization has application name uniqueness enabled across Business Groups.
+* In CloudHub, application names must be unique per control plane. In CloudHub 2.0, each name is unique per Business Group and Private Space. You can reuse a name in another Business Group or Private Space unless your organization has application name uniqueness enabled across Business Groups.
 +
 [NOTE]
 ====
