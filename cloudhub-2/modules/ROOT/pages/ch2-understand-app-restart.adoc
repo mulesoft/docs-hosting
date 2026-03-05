@@ -72,6 +72,16 @@ At least two thirds of the replicas remain available throughout the optimization
 
 If the compute infrastructure suffers a failure, CloudHub 2.0 moves your application to a healthy infrastructure and restarts the application replicas. Likewise, during infrastructure maintenance, the platform moves application replicas running on a compute infrastructure that becomes impaired or end-of-life onto a new infrastructure to ensure availability.
 
+[[karpenter-node-downscaling]]
+== Karpenter Node Downscaling in Private Spaces
+
+In Private Spaces, CloudHub 2.0 uses Karpenter to manage node lifecycle. When Karpenter downscales nodes to remove underused capacity, applications running on those nodes are restarted as replicas move to remaining nodes. Restarts occur once per week at most, within a random 2-hour window that starts between Saturday 0:00 AM and 4:00 AM in the Private Space region's local timezone.
+
+[NOTE]
+====
+Apps in a Private Space can restart during Karpenter node downscaling during this weekly window. Design for resiliency so that restarts have minimal impact. See xref:ch2-ha-dr.adoc[].
+====
+
 == Security Patching
 
 To mitigate security vulnerabilities, CloudHub 2.0 patches and restarts applications every month. See the https://www.salesforce.com/en-us/wp-content/uploads/sites/4/documents/legal/Agreements/versioning-back-support-policy.pdf[Critical Security Vulnerabilities] policy.
