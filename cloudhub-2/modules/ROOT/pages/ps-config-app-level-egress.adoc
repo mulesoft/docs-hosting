@@ -83,6 +83,20 @@ You can apply the application-level egress rules that you configured in your pri
 . In the *Egress Rule Group* section, select the ruleset to apply to your application. 
 . Click *Apply Changes*.
 
+== Application Clustering and Egress Rules
+
+Application clustering in CloudHub 2.0 requires replicas to discover each other via Hazelcast. For clustered applications that use application-level egress rules, add an egress rule that allows this traffic.
+
+[IMPORTANT]
+====
+Add an application-level egress rule that allows traffic to the local private network on port 5701. Without this rule, replicas can't discover or join the Hazelcast cluster, and clustering fails.
+
+Add this rule to the egress rule group for your clustered application:
+
+* *Protocol*: `TCP`
+* *Destination*: `Local private network`
+* *Port*: `5701`
+====
 
 == Configure an Application-Level Egress Connection to Anypoint MQ
 
