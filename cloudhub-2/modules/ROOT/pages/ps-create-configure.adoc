@@ -37,7 +37,7 @@ include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
 +
 [NOTE]
 --
-If you select *Canada (Central)*, subnet count depends on your control plane. Existing MuleSoft Government Cloud private spaces in this region don't receive three-subnet support automatically. See xref:ps-gather-setup-info.adoc#ca-central-subnet-availability[Canada (Central) – Private Space subnet availability].
+If you select *Canada (Central)*, subnet count depends on your control plane. Existing MuleSoft Government Cloud private spaces in this region don't receive three-subnet support automatically. See xref:ps-gather-setup-info.adoc#ca-central-subnet-availability[Canada (Central) Private Space Subnet Availability].
 --
 .. Enter the xref:ps-gather-setup-info.adoc#cidr-block[CIDR block], which is the range of IP addresses that your apps can use.
 .. Optionally, reserve your corporate private network's CIDRs to connect to your private space by entering them in a comma-separated list. 
