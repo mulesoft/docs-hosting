@@ -13,6 +13,12 @@ Logs are stored in the same region to which the corresponding cluster is deploye
 [NOTE]
 CloudHub 2.0 stores log data in Universal Time (UTC); however, the console displays the log using your computer's local time zone.
 
+[[otel-max-log-size]]
+[IMPORTANT]
+====
+The OpenTelemetry (Otel) sidecar that processes and forwards application logs enforces a hard limit of 8 KiB per log entry. The sidecar truncates or drops entries that exceed 8,192 bytes to prevent memory exhaustion in the Otel Collector. When logs are exported to Anypoint Monitoring, oversized entries cause export failures and HTTP 413 Request Entity Too Large errors. Large Java stack traces and verbose debug or error messages appear incomplete and make troubleshooting difficult. Keep log message size within the limit.
+====
+
 == View Logs
 
 To view logs for applications deployed to a private space:

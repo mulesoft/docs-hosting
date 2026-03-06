@@ -35,6 +35,10 @@ Application properties:: 300
 
 Application property keys and values:: 1024 characters
 
+OpenTelemetry (Otel) sidecar maximum log entry size:: 8 KiB, or 8,192 bytes
++
+The sidecar truncates or drops entries that exceed this size. Oversized entries sometimes cause Otel export failures to Anypoint Monitoring and HTTP 413 Request Entity Too Large errors, and result in incomplete stack traces or verbose messages in the logs. See xref:ch2-view-logs.adoc#otel-max-log-size[Viewing Log Data for Deployed Apps].
+
 Custom TLS contexts per private space:: 50
 
 Maximum number of Client Certificates in a TLS Context:: There is no limit on the number of client certificates, but there is a limit on the store file size.
