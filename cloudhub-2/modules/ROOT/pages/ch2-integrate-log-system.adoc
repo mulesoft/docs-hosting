@@ -15,6 +15,7 @@ You can use only asynchronous log appenders.
 * File appenders, such as FileAppender, RollingFileAppender, AnypointMonitoringFileAppender, and RandomAccessFileAppender, are removed automatically.
 * When using custom Log4j configurations, both Mule runtime engine and application logs remain available in Runtime Manager.
 * You can forward tracing module logs using only third-party appenders. You cannot update the logging patterns to send them to Anypoint Monitoring.
+* Console logging is disabled by default in CloudHub 2.0. If you change log levels or appenders in a custom `log4j2.xml` and don't see the changes in the logs, ensure that your configuration uses an appender that CloudHub 2.0 collects (for example, a third-party appender that streams to your logging system). Log output from a Console appender alone does not appear in Runtime Manager unless console logging is explicitly enabled for your deployment.
 
 You can use any Log4j appender.
 
@@ -22,6 +23,11 @@ For information about configuring `log4j2.xml`, see the
 https://logging.apache.org/log4j/2.x/manual/configuration.html#ConfigurationSyntax[Log4j Configuration Syntax^].
 
 == Example: Create a Log4j Configuration Using Splunk
+
+[IMPORTANT]
+====
+Console logging is disabled by default in CloudHub 2.0. Changes to log levels or appenders in your custom `log4j2.xml` might not appear in the logs in Runtime Manager if you rely only on a Console appender. To see your custom Log4j configuration take effect, use an appender that streams logs to an external system (such as Splunk) or ensure that log integration is enabled for your deployment so that console output is collected.
+====
 
 For logs to be viewable in CloudHub 2.0 and flow to Splunk,
 configure the `SplunkHttp` Log4j appender.
