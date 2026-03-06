@@ -26,7 +26,7 @@ https://logging.apache.org/log4j/2.x/manual/configuration.html#ConfigurationSynt
 
 [IMPORTANT]
 ====
-Console logging is disabled by default in CloudHub 2.0. Changes to log levels or appenders in your custom `log4j2.xml` might not appear in the logs in Runtime Manager if you rely only on a Console appender. To see your custom Log4j configuration take effect, use an appender that streams logs to an external system (such as Splunk) or ensure that log integration is enabled for your deployment so that console output is collected.
+Console logging is disabled by default in CloudHub 2.0. Changes to log levels or appenders in your custom log4j2.xml might not appear in the logs in Runtime Manager if you rely only on a Console appender. To see your custom Log4j configuration take effect, use an appender that streams logs to an external system, such as Splunk, or enable log integration for your deployment so that console output is collected.
 ====
 
 For logs to be viewable in CloudHub 2.0 and flow to Splunk,
