@@ -44,7 +44,7 @@ Silently drops HTTP requests.
 --
 . Specify the read response timeout value.
 +
-The default read-response timeout is 300 seconds. Configure this value up to 3600 seconds (1 hour).
+The default read-response timeout is 300 seconds. You can configure this value up to 3600 seconds (1 hour).
 +
 . Click *Save Changes* or *Discard Changes*.
 
