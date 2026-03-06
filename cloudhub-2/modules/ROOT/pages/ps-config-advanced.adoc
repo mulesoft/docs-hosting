@@ -19,7 +19,7 @@ For data transfers that exceed 300 seconds, consider breaking the request into s
 
 == Configure HTTP Requests and Read-Response Timeout
 
-When you modify HTTP requests, applications aren't reachable for up to 5 seconds.
+When you modify HTTP requests, applications may not be reachable for up to 5 seconds.
 
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
