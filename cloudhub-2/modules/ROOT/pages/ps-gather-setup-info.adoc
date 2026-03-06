@@ -141,7 +141,7 @@ Asia Pacific (Tokyo)
 ----
 
 [[ca-central-subnet-availability]]
-==== Canada (Central) – Private Space subnet availability
+==== Canada (Central) Private Space Subnet Availability
 
 Only the MuleSoft Government Cloud control plane supports three subnets in Canada (Central) for increased high availability. The Commercial control plane doesn't support three subnets in this region.
 
