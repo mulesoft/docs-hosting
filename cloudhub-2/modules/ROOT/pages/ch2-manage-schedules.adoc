@@ -70,7 +70,7 @@ These transition behaviors apply to fixed-frequency schedules when the applicati
 
 Polling node transition and first trigger::
 +
-During a rolling restart, CloudHub 2.0 starts new nodes before it removes old nodes. The cluster elects a new polling node only after it decommissions the previous polling node. This new node then triggers the schedule. Until that election completes, no node polls the schedule. As a result, the first trigger that would otherwise occur right after a new node starts does not fire. The schedule runs at the next calculated time after the cluster elects the new polling node.
+During a rolling restart, CloudHub 2.0 starts new nodes before it removes old nodes. The cluster elects a new polling node only after it decommissions the previous polling node. The new node then triggers the schedule. Until this election completes, no node polls the schedule. As a result, the first trigger that would otherwise occur right after a new node starts doesn't fire. The schedule runs at the next calculated time after the cluster elects the new polling node.
 
 Schedule timing after restart::
 +
