@@ -80,7 +80,6 @@ An application communicates with another application via:
 * The default public DNS name: `app.sxjsip.aus-s1.cloudhub.io`
 * The default internal DNS name (in private spaces only): `app.internal-sxjsip.aus-s1.cloudhub.io`
 * The custom domain name (if configured): `acme.example.com`
-* The cluster local DNS: `app` or `app.envid.svc.cluster.local:8081`
 
 If you use the internal DNS name, traffic remains within the private space network. You can delete or omit the externally exposed endpoint when deploying an application to a private space. In that case, use the application’s internal endpoint for internal traffic.
 
