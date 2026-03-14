@@ -122,7 +122,7 @@ If you use BGP routing protocols, you can publish these CIDR blocks to your gate
 
 Because of this, `100.64.0.0/10` is xref:ps-gather-setup-info.adoc#unusable-cidr[not a supported range] for private spaces.
 
-You can filter these prefixes from the route map. For more information, see https://help.mulesoft.com/s/article/Received-Extra-BGP-routes-from-CloudHub-2-0-VPN[Received Extra BGP routes from CloudHub 2.0 VPN].
+You can filter these prefixes from the route map.
 
 You can also indicate a reserved range for your on-prem network upon creating your private space. CloudHub 2.0 doesn’t use reserved ranges indicated by customers. For more information, see xref:ps-gather-setup-info.adoc#reserved-cidr[Reserved Corporate CIDR].
 
@@ -132,7 +132,7 @@ Private spaces support two types of connections: Virtual Private Network (VPN) a
 
 Each Anypoint VPN connection consists of two tunnels that enable you to connect to a single public IP address at a remote location. VPNs are highly available if you configure both tunnels on your endpoint. 
 
-Additionally, you can define redundant VPN connections for increased resiliency. As a managed service, the underlying VPN service is often upgraded. Routine maintenance can briefly disable one of the two tunnels of your VPN connection. Your VPN connection automatically fails over to the second tunnel during this time, so access isn’t interrupted. For this reason, you must configure both tunnels on your endpoint. For more information, see  https://help.mulesoft.com/s/article/Tunnel-Switch-in-an-Anypoint-Dynamic-BGP-VPN-Update[Tunnel Switch in an Anypoint Dynamic (BGP) VPN Update]. 
+Additionally, you can define redundant VPN connections for increased resiliency. As a managed service, the underlying VPN service is often upgraded. Routine maintenance can briefly disable one of the two tunnels of your VPN connection. Your VPN connection automatically fails over to the second tunnel during this time, so access isn’t interrupted. For this reason, you must configure both tunnels on your endpoint.
 
 By design, TGW connections are highly available. Don’t create redundant TGW connections. For more information, see xref:ps-tgw-about.adoc[].
 
