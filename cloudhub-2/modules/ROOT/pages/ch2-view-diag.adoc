@@ -9,6 +9,7 @@ Before running the MuleSoft diagnostics agent:
 include::partial$diagnostics-agent.adoc[tag=prerequisites]
 
 
+[[run-diagnostics-agent]]
 == Run the MuleSoft Diagnostics Agent
 
 . From Anypoint Platform, select *Runtime Manager* > *Applications*.

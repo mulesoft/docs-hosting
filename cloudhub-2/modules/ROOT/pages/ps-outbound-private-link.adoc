@@ -417,7 +417,7 @@ To configure high availability, set up the Private Link connection with at least
 == Limitations
 
 * Outbound connections have a contractual limit of 56.48 GB of data transferred per root organization per hour.
-* This configuration supports interface endpoints only.
+* This configuration supports https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html#vpce-interface[interface VPC endpoints] only (PrivateLink to AWS services or to a https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html[VPC endpoint service], for example a service you expose behind a load balancer). It does not support https://docs.aws.amazon.com/vpc/latest/privatelink/use-resource-endpoint.html[resource VPC endpoints] (the *Resources* endpoint type that uses resource configurations instead of a service name).
 * This configuration doesn't support CloudHub VPCs.
 * This configuration doesn't support CloudHub 2.0 private spaces that are xref:cloudhub::vpc-upgrade.adoc[upgraded from CloudHub VPCs].
 * Network connections are subject to these limits:
