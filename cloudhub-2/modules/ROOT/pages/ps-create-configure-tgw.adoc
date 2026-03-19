@@ -164,7 +164,7 @@ After you connect to a transit gateway,
 test the connectivity from CloudHub 2.0 to your networks.
 To test the connection, use the Network Tools application.
 
-For download and usage information about the Network Tools application, see https://help.mulesoft.com/s/article/How-To-Use-Network-Tools-Application[How To Use Network Tools Application^] (KB article).
+For download and usage information about the Network Tools application, see https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Network Tools Application].
 
 [[best-practices]]
 == Maintain the Transit Gateway 

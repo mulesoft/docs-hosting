@@ -61,7 +61,20 @@ Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules
 * Flow names can contain only upper and lower case letters, numbers, hyphens (`-`), underscores (`_`), and periods (`.`). The following characters are invalid: `/`, `[`, `]`, `{`, `}`, and `#`.
 * CloudHub 2.0 schedules run concurrently by default. The Scheduler triggers the execution of a schedule flow while a previously-triggered execution is still running. To run schedules sequentially, set the `disallowConcurrentExecution` property as `true` in the xref:mule-runtime::scheduler-concept.adoc#props_scheduler[scheduler] configuration file. 
 * By default, schedulers use the same time zone as the machine on which Mule is running. You can change it by adding the time zone you want. For more information, see
-xref:anypoint-code-builder::acb-component-scheduler.adoc#cron-expressions[Cron Expressions]. 
+xref:anypoint-code-builder::acb-component-scheduler.adoc#cron-expressions[Cron Expressions].
+
+[[cluster-mode-fixed-frequency]]
+=== Fixed Frequency Schedules in Cluster Mode During Rolling Restart
+
+These transition behaviors apply to fixed-frequency schedules when the application runs in cluster mode and undergoes a rolling restart.
+
+Polling node transition and first trigger::
++
+During a rolling restart, CloudHub 2.0 starts new nodes before it removes old nodes. The cluster elects a new polling node only after it decommissions the previous polling node. The new node then triggers the schedule. Until this election completes, no node polls the schedule. As a result, the first trigger that would otherwise occur right after a new node starts doesn't fire. The schedule runs at the next calculated time after the cluster elects the new polling node.
+
+Schedule timing after restart::
++
+Fixed-frequency schedules don't retain the original schedule anchor after a rolling restart. The scheduler calculates the next run time relative to when the cluster elects the new polling node, not the pre-restart cadence. CloudHub 2.0 doesn't support retaining the original schedule timing for fixed-frequency schedules.
 
 == Before You Begin
 
@@ -198,6 +211,8 @@ selecting *Enabled* in the schedule editor.
 image::ch2-scheduler-enable.png[Enabled toggle in the schedule editor]
 
 == Schedule Behavior with Rolling Update vs. Recreate Deployment Model
+
+For fixed-frequency schedules in cluster mode, see <<cluster-mode-fixed-frequency,Fixed Frequency Schedules in Cluster Mode During Rolling Restart>> for transition behavior during rolling restarts, including the first trigger after node start and schedule timing.
 
 During the initial deployment of an application with cluster mode and rolling update deployment model enabled, the application's fixed-frequency scheduler runs alongside the application startup. If you switch from xref:ch2-update-apps.adoc#rolling-update-vs-recreate-deployment-model[rolling update to recreate deployment model], the scheduler is triggered again with the application startup. But if you switch from recreate back to rolling update deployment model, the scheduler no longer runs at startup and instead triggers based on the configured frequency.
 
