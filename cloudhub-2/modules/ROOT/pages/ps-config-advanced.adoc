@@ -181,7 +181,7 @@ When you enable a Private Space IAM role, the AWS SDK ignores custom STS endpoin
 
 To allow connectivity, allow outbound HTTPS on port 443 to the regional STS endpoint for the region where your private space runs. Configure this in xref:ps-config-fw-rules.adoc[] and, when using app-level egress, in xref:ps-config-app-level-egress.adoc[].
 
-When whitelisting isn't possible, set the `AWS_ENDPOINT_URL` environment variable for your application to the desired STS endpoint URL so the SDK uses it instead of the default regional endpoint.
+When allowlisting isn't possible, set the `AWS_ENDPOINT_URL` environment variable for your application to the desired STS endpoint URL so the SDK uses it instead of the default regional endpoint.
 
 To apply the workaround:
 
