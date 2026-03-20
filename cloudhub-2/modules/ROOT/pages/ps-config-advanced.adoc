@@ -189,7 +189,7 @@ To apply the workaround:
 . Add an application property or environment variable that sets `AWS_ENDPOINT_URL` to your STS endpoint URL, for example `https://sts.{region}.amazonaws.com` or your custom endpoint.
 . Apply changes and redeploy or restart the application so the runtime uses the new value.
 
-For more information on setting environment variables or properties for your application, see xref:ch2-manage-props.adoc#example-using-properties-to-set-environment-variables[Example: Using Properties to Set Environment Variables].
+For more information about setting environment variables or properties for your application, see xref:ch2-manage-props.adoc#example-using-properties-to-set-environment-variables[Example: Using Properties to Set Environment Variables].
 
 == See Also
 
