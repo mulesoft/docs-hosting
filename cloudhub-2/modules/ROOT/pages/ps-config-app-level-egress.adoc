@@ -189,7 +189,9 @@ Examples of affected endpoints include:
 * AWS CloudWatch endpoints with short TTLs
 * Other cloud provider endpoints with dynamic IP pools and aggressive TTLs
 
-Avoid configuring application-level egress rules for these scenarios. For more information, see https://help.salesforce.com/s/issue?language=en_US&id=a02Ka00000llC4i[Known Issue: App-level Egress Rules with Low TTL Domains^].
+Avoid configuring application-level egress rules for these scenarios.
+
+When you enable an xref:ps-config-advanced.adoc#configure-aws-role[AWS service role] for your private space, applications using the AWS S3 Connector or other AWS SDK-based connectors require outbound access to the public regional STS endpoint, such as `sts.{region}.amazonaws.com`. The AWS SDK ignores custom STS endpoints in Mule and uses the regional STS endpoint. If you use application-level egress rules, allow the STS endpoint for your region. For details and a workaround, see xref:ps-config-advanced.adoc#aws-iam-role-sts-s3-connector-conflict[IAM Roles and AWS S3 Connector: STS Endpoint Behavior]. For more information, see https://help.salesforce.com/s/issue?language=en_US&id=a02Ka00000llC4i[Known Issue: App-level Egress Rules with Low TTL Domains^].
 
 
 [IMPORTANT]
