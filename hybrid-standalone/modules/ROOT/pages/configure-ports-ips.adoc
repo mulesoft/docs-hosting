@@ -68,13 +68,6 @@ Configure your firewall to allow outbound connections to these ports and hostnam
 
 For network environments that require IP-based firewall rules, use these static IP addresses to allow Runtime Manager connectivity.
 
-[IMPORTANT]
-====
-As part of continuous infrastructure improvement, MuleSoft introduces new static IP addresses in Runtime Manager to augment existing ones. To avoid service disruption, configure your firewall to allow these IP addresses before February 1st, 2024.
-
-For detailed information, see https://help.mulesoft.com/s/article/New-IP-addresses-in-Runtime-Manager-2024-February[KB: New IP addresses in Runtime Manager 2024 February ^].
-====
-
 * Allowlist these static IPs in the `US` region to access the `runtime-manager` hosts:
 +
 [%header,cols="10a,60a,30a"]

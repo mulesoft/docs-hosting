@@ -97,6 +97,3 @@ After your application starts, logs start flowing to your custom Log4j appender,
 
 * xref::ch2-deploy-private-space.adoc[]
 * xref::ch2-deploy-shared-space.adoc[]
-* https://help.mulesoft.com/s/global-search/%40uri#q=log4j&t=SalesforceArticle&f:@sfdcproduct=[CloudHub Log4j Knowledge Articles^]
-
-

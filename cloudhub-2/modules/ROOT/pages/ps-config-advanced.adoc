@@ -171,4 +171,6 @@ Each private space supports only one AWS service role.
 
 == See Also
 
+* xref:ps-config-fw-rules.adoc[]
+* xref:ps-config-app-level-egress.adoc[]
 * https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html[IAM roles^] in the AWS documentation
