@@ -176,7 +176,7 @@ When you enable the AWS service role for a private space, the EKS cluster inject
 
 [IMPORTANT]
 ====
-When you enable a Private Space IAM role, the AWS SDK ignores custom STS endpoints in your Mule code and uses the public regional STS endpoint. If your network firewall or application-level egress rules don't allow outbound traffic to that STS endpoint, connectivity tests for the AWS S3 Connector and other AWS SDK-based connectors fail and applications hang or stop progressing. Whitelist the public regional STS endpoint, for example `sts.{region}.amazonaws.com`, in your private space firewall rules and, if you use them, in your application-level egress rules.
+When you enable a Private Space IAM role, the AWS SDK ignores custom STS endpoints in your Mule code and uses the public regional STS endpoint. If your network firewall or application-level egress rules don't allow outbound traffic to that STS endpoint, connectivity tests for the AWS S3 Connector and other AWS SDK-based connectors fail and applications hang or stop progressing. Allow the public regional STS endpoint, such as `sts.{region}.amazonaws.com`, in your private space firewall rules and, if you use them, in your application-level egress rules.
 ====
 
 To allow connectivity, allow outbound HTTPS on port 443 to the regional STS endpoint for the region where your private space runs. Configure this in xref:ps-config-fw-rules.adoc[] and, when using app-level egress, in xref:ps-config-app-level-egress.adoc[].
