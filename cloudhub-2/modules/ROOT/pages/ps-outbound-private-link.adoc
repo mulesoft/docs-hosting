@@ -100,6 +100,7 @@ To prepare custom services:
 .. Expose the service via a network load balancer or application load balancer.
 .. https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html[Create an endpoint service] following AWS guidance.
 .. Set *Acceptance required* to *Yes* to prevent unauthorized connections.
+.. Add the private space CIDR range to the inbound rules of the AWS security group attached to your endpoint service (for example, the security group for your network load balancer or application load balancer). Traffic from the CloudHub 2.0 private space originates from this CIDR; allowing it is required for Private Link connectivity. You can find your private space CIDR in the private space configuration (the xref:ps-gather-setup-info.adoc#cidr-block[CIDR block] you specified when creating the private space).
 .. Optionally, configure a private DNS name for your service. CloudHub 2.0 private space automatically picks up the private DNS and makes it available to Mule applications.
 +
 [NOTE]
@@ -363,6 +364,9 @@ The custom service VPC endpoint status shows *Pending Acceptance*. Accept the co
 . Select your service and open the *Endpoint Connection* tab.
 . Verify the *Endpoint ID* and *Owner* match your private space in CloudHub 2.0.
 . Accept the connection.
++
+[NOTE]
+If you experience connectivity issues after accepting the connection, verify that the private space CIDR range is included in the inbound rules of the AWS security group attached to your endpoint service (for example, your load balancer or target instances). See the Custom Services steps in <<configure-the-outbound-connections>>.
 
 == Use the Private Link
 
@@ -413,7 +417,7 @@ To configure high availability, set up the Private Link connection with at least
 == Limitations
 
 * Outbound connections have a contractual limit of 56.48 GB of data transferred per root organization per hour.
-* This configuration supports interface endpoints only.
+* This configuration supports https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html#vpce-interface[interface VPC endpoints] only (PrivateLink to AWS services or to a https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html[VPC endpoint service], for example a service you expose behind a load balancer). It does not support https://docs.aws.amazon.com/vpc/latest/privatelink/use-resource-endpoint.html[resource VPC endpoints] (the *Resources* endpoint type that uses resource configurations instead of a service name).
 * This configuration doesn't support CloudHub VPCs.
 * This configuration doesn't support CloudHub 2.0 private spaces that are xref:cloudhub::vpc-upgrade.adoc[upgraded from CloudHub VPCs].
 * Network connections are subject to these limits:
