@@ -62,7 +62,6 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                       | Agent Scanners      |  Planned |Planned | Planned | Planned
                       |Usage and Engagement Metrics      |  Planned | Planned |Planned | Planned 
 
-|Anypoint Integration Advanced| n/a | Planned | Planned | Planned | Planned |  n/a 
 
 .14+|xref:monitoring::index.adoc[Anypoint Monitoring]| Advanced Alerts |  Planned |Planned | Planned | Planned .14+| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
                                                      
