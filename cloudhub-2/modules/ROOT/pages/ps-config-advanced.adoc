@@ -9,7 +9,7 @@ This value is the amount of time the CloudHub 2.0 ingress controller waits to re
 +
 [IMPORTANT]
 ====
-This timeout setting is separate from the read-request timeout, which controls how long the CloudHub 2.0 ingress controller waits to receive the full request from the client. The read-request timeout is hardcoded to 300 seconds, and you can't configure it. If your client takes longer than 300 seconds to send the complete request (for example, when uploading large files), CloudHub 2.0 drops the connection even if you have configured a longer read-response timeout.
+This timeout setting is separate from the read-request timeout, which controls how long the CloudHub 2.0 ingress controller waits to receive the full request from the client. The read-request timeout is hardcoded to 300 seconds and isn't configurable. If your client takes longer than 300 seconds to send the complete request, for example, when uploading large files, CloudHub 2.0 drops the connection even if you  configure a longer read-response timeout.
 
 For data transfers that exceed 300 seconds, consider breaking the request into smaller chunks or implementing asynchronous processing patterns.
 ====
@@ -60,7 +60,7 @@ Read Request Timeout (hardcoded at 300 seconds)::
 The time the CloudHub 2.0 ingress controller waits to receive the complete request from the client. If the client takes longer than 300 seconds to send the entire request payload (for example, uploading a large CSV file), CloudHub 2.0 drops the connection. This timeout is not user-configurable and applies to both shared and private spaces.
 
 Read Response Timeout (user-configurable)::
-The time the CloudHub 2.0 ingress controller waits to receive a response from your Mule application after the request has been forwarded. You can configure this timeout in the *Advanced* tab of your private space settings. This setting controls how long your Mule application has to process the request and begin sending a response.
+The time the CloudHub 2.0 ingress controller waits to receive a response from your Mule application after the request has been forwarded. Configure this timeout in the *Advanced* tab of your private space settings. This setting controls how long your Mule application takes to process the request and begin sending a response.
 
 Connection Idle Timeout (hardcoded at 15 seconds)::
 The time the CloudHub 2.0 ingress controller waits before closing an idle connection when no data is being transferred.
@@ -77,7 +77,7 @@ For long-running operations that exceed these timeout limits, consider implement
 CloudHub 2.0 enables you to specify the default severity level of messages that are written to the log file for all apps deployed to the private space.
 
 [IMPORTANT]
-More verbose log levels might affect performance.
+More verbose log levels affect performance.
 
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
@@ -92,7 +92,7 @@ include::partial$select-private-space.adoc[tag=clickAdvanced]
 CloudHub 2.0 enables you to specify the default severity level of messages that are written to the log file for specific IP addresses, for example, for troubleshooting.
 
 [IMPORTANT]
-More verbose log levels might affect performance.
+More verbose log levels affect performance.
 
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
@@ -149,7 +149,7 @@ include::partial$select-private-space.adoc[tag=clickAdvanced]
 [[configure-aws-role]]
 == Configure AWS Service Role
 
-If you have identity and access management (IAM) roles configured in AWS, you can associate the role with your private space. The private space receives the permissions from the IAM role in AWS and can access AWS resources. To configure this feature in AWS: 
+If you have identity and access management (IAM) roles configured in AWS, associate the role with your private space. The private space receives the permissions from the IAM role in AWS and accesses AWS resources. To configure this feature in AWS: 
 
 * Use the unique AWS IAM role name that Anypoint Platform generates.
 * Use the organization ID for the organization in which the private space was configured. 
@@ -164,11 +164,13 @@ include::partial$select-private-space.adoc[tag=clickAdvanced]
 . Click *Enable AWS Service Role*.
 . Click *Save Changes* or *Discard changes*.
 +
-A unique service role name is generated, and you can use this role configure to configure identity and access management for AWS. Role generation might take a few minutes. If the role name does not appear, refresh the page.
+A unique service role name is generated. Use this role to configure identity and access management for AWS. Role generation takes a few minutes. If the role name doesn't appear, refresh the page.
 
 [NOTE]
-You can configure only one AWS service role per private space.
+Each private space supports only one AWS service role.
 
 == See Also
 
+* xref:ps-config-fw-rules.adoc[]
+* xref:ps-config-app-level-egress.adoc[]
 * https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html[IAM roles^] in the AWS documentation
