@@ -149,7 +149,7 @@ Only the MuleSoft Government Cloud control plane supports three subnets in Canad
 ====
 Control plane discrepancy: Subnet count for a private space in Canada (Central) depends on your control plane. MuleSoft Government Cloud supports three subnets. The Commercial control plane provisions private spaces with only two subnets.
 
-Existing MuleSoft Government Cloud customers: Private spaces created in Canada (Central) before three-subnet support don't receive the update automatically. To get the three-subnet architecture, recreate your private space. Recreating a private space causes downtime: redeploy applications and reconfigure VPN, transit gateway, DNS, and other connections in the new private space. Plan the migration during a maintenance window.
+Existing MuleSoft Government Cloud private spaces: Private spaces created in Canada (Central) before three-subnet support don't receive the update automatically. To get the three-subnet architecture, recreate your private space. Recreating a private space causes downtime. Redeploy applications and reconfigure VPN, transit gateway, DNS, and other connections in the new private space. Plan the migration during a maintenance window.
 ====
 
 // CIDR Block Shared
