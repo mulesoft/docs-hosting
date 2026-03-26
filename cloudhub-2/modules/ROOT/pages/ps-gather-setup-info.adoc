@@ -140,6 +140,18 @@ Asia Pacific (Sydney)
 Asia Pacific (Tokyo)
 ----
 
+[[ca-central-subnet-availability]]
+==== Canada (Central) Private Space Subnet Availability
+
+Only the MuleSoft Government Cloud control plane supports three subnets in Canada (Central) for increased high availability. The Commercial control plane doesn't support three subnets in this region.
+
+[IMPORTANT]
+====
+Control plane discrepancy: Subnet count for a private space in Canada (Central) depends on your control plane. MuleSoft Government Cloud supports three subnets. The Commercial control plane provisions private spaces with only two subnets.
+
+Existing MuleSoft Government Cloud private spaces: Private spaces created in Canada (Central) prior to three-subnet support don't receive the update automatically. To get the three-subnet architecture, recreate your private space. Recreating a private space causes downtime. Redeploy applications and reconfigure VPN, transit gateway, DNS, and other connections in the new private space. Plan the migration during a maintenance window.
+====
+
 // CIDR Block Shared
 [[cidr-block]]
 include::partial$create-config.adoc[tag=cidrBlock,leveloffset=+2]
