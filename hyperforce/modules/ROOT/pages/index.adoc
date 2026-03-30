@@ -66,7 +66,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 .14+|xref:monitoring::index.adoc[Anypoint Monitoring]| Advanced Alerts |  Planned |Planned | Planned | Planned .14+| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
                                                      
                                                      |Basic Alerts       |  Planned |Planned | Available| Available
-                                                     |Anypoint Insights       |  Planned |Planned | Available| Available
+                                                     |Anypoint Insights       |  Available |Available | Available| Available
                                                      |Archive API       |  Planned |Planned | Planned| Planned
                                                      |Configurable Sampling for Traces       |  Not planned |Not planned | Not planned| Not planned
                                                      |Distributed Tracing Experience       |  Not planned |Not planned | Not planned| Not planned
