@@ -283,6 +283,25 @@ You can also xref:ch2-protect-app-props.adoc[protect application property values
 Protected property values are not viewable or retrievable by any user.
 These protected application values are encrypted and stored in the Anypoint Security secrets manager, which, in turn, is encrypted per user organization.
 
+=== Application License
+
+Every application deployed to CloudHub 2.0 runs with a shared cloud license that MuleSoft manages on behalf of all customers.
+This is the same license for all CloudHub applications across all customer organizations.
+
+When you inspect the Mule runtime logs for a deployed application, the license information displays these details:
+
+* Evaluation flag: Set to `false`. The license is a production-grade license, not a trial.
+* Contact information: References an internal MuleSoft account, not your organization. The contact name, email, and company name belong to MuleSoft. The company name displays as "Mulesoft Trial Account," but this doesn't mean the license is a trial. It is the name of the internal account MuleSoft uses to generate CloudHub cloud licenses.
+* Expiration date: Shows a far-future date. This extended validity is standard for CloudHub cloud licenses.
+* Entitlements: Lists a broad set of connectors and modules. This doesn't reflect your organization's specific subscription entitlements.
+
+All of these details are expected.
+The license is not specific to your organization.
+MuleSoft reuses the same license for all CloudHub deployments to simplify platform-wide license management.
+
+Your organization's actual entitlements, including vCore allocation, region access, and feature availability, are governed by your Anypoint Platform subscription, not by the license embedded in the deployed application.
+The license visible in the runtime logs doesn't grant access beyond what your subscription allows.
+
 
 == See Also
 
