@@ -50,7 +50,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 |API Catalog CLI| Planned | Planned | Available | Available 
 
 .5+|xref:anypoint-code-builder::index.adoc[Anypoint Code Builder]| All other features | Planned | Planned| Available | Available .5+| For details, refer to xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud Hosts]
-| Agent Network Projects (Agent Broker) | Planned | Planned | Planned | Planned
+| Agent Network Projects (Agent Broker) | Planned | Planned | Available | Available
 | MuleSoft Vibes | Planned | Planned | Available | Available
 | Generative Data Transformations | Planned | Planned | Available | Available
 | Generative MUnit | Planned | Planned | Available | Available
@@ -58,7 +58,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 .6+|xref:exchange::index.adoc[Anypoint Exchange]| All other features      |  Planned |Planned | Available | Available .6+| n/a 
                      | AI Documentation Generation      |  Planned |Planned | Available | Available
                       | Amazon Cloud Front      |  Planned |Planned | Planned | Planned
-                      | Agent, MCP, and LLM assets (Agent Registry)      |  Planned |Planned | Planned | Planned
+                      | Agent, MCP, and LLM assets (Agent Registry)      |  Planned |Planned | Available | Available
                       | Agent Scanners      |  Planned |Planned | Planned | Planned
                       |Usage and Engagement Metrics      |  Planned | Planned |Planned | Planned 
 
@@ -66,7 +66,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 .14+|xref:monitoring::index.adoc[Anypoint Monitoring]| Advanced Alerts |  Planned |Planned | Planned | Planned .14+| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
                                                      
                                                      |Basic Alerts       |  Planned |Planned | Available| Available
-                                                     |Anypoint Insights       |  Planned |Planned | Available| Available
+                                                     |Anypoint Insights       |  Available |Available | Available| Available
                                                      |Archive API       |  Planned |Planned | Planned| Planned
                                                      |Configurable Sampling for Traces       |  Not planned |Not planned | Not planned| Not planned
                                                      |Distributed Tracing Experience       |  Not planned |Not planned | Not planned| Not planned
@@ -145,12 +145,12 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 |Dataloader| n/a | Planned | Not planned | Not planned | Not planned| https://dataloader.io/[Dataloader.io] will remain accessible globally, while its infrastructure will be hosted within the US Control Plane.
 
 .7+|xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway]| Managed Flex Gateway in CloudHub 2.0 | Planned | Planned| Available | Available .7+| n/a
-        | Managed Flex Gateway in CloudHub 2.0 (Agent Broker and Agent Governance) | Planned | Planned | Planned | Planned
+        | Managed Flex Gateway in CloudHub 2.0 (Agent Broker and Agent Governance) | Planned | Planned | Available | Available
                 | Managed Flex Gateway in Runtime Fabric | Planned | Planned | Available | Available
-                | Managed Flex Gateway in Runtime Fabric (Agent Broker and Agent Governance) | Planned | Planned | Planned | Planned
+                | Managed Flex Gateway in Runtime Fabric (Agent Broker and Agent Governance) | Planned | Planned | Available | Available
 
                 | Self-Managed Connected Mode | Planned | Planned | Available | Available
-                | Self-Managed Connected Mode (Agent Governance) | Planned | Planned | Planned | Planned
+                | Self-Managed Connected Mode (Agent Governance) | Planned | Planned | Available | Available
                 | Self-Managed Local Mode | Planned | Planned | Available | Available
 
 |Hybrid Standalone Deployment| n/a | Planned | Planned | Planned | Planned| n/a
