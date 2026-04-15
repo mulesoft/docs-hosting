@@ -51,7 +51,7 @@ To create a new custom egress rule group:
 . Click *Create Rule Group*.
 . In the rule group configuration window, add a group name.
 + 
-You can edit and rename custom rule groups. The generated rule group name (`<rule_group_name>-<private_space_name>`) can't exceed 53 characters.
+You can edit and rename custom rule groups. The generated firewall rule name (`<private_space_name>-<rule_group_name>`) can't exceed 53 characters.
 . In the *Egress Rules* section, click *Add Rule* and select the protocol and destination for every rule that you want to add.
 + 
 You can delete rules by clicking the delete button (image:trash-icon.png[Delete button, 1.5%,1.5%]).
