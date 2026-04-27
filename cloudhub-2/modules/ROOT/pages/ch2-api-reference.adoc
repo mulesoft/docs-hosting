@@ -1,6 +1,6 @@
-= Quick Reference: Common API Endpoints
+= CloudHub 2.0 API Reference
 
-The following tables list the most commonly used CloudHub 2.0 API endpoints grouped by category. Each row identifies which API the endpoint belongs to:
+These tables list the most commonly used CloudHub 2.0 API endpoints grouped by category. Each row identifies which API the endpoint belongs to:
 
 [%header,cols="30,70"]
 |===
