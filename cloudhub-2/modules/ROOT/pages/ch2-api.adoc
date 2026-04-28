@@ -1,12 +1,12 @@
 = CloudHub 2.0 API
 
-CloudHub 2.0 provides two APIs that enable you to programmatically manage your CloudHub 2.0 resources:
+Programmatically manage your CloudHub 2.0 resources with two APIs:
 
 *CloudHub 2.0 API*::
 Manages infrastructure-level resources, such as:
 +
 * Manage private spaces:
-** List available TCP ports for a private space.
+** List available TCP ports for a private space
 ** Retrieve availability zones and AWS account information.
 ** Upgrade a private space.
 * Manage VPC endpoints (Private Link):
@@ -24,10 +24,10 @@ Manages application-level resources, such as:
 +
 * Deploy and update applications with TCP port mapping.
 
-For an interactive reference that includes supported resources, methods, required properties, and expected responses, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/[CloudHub 2.0 API] and the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/[Application Manager API] on Exchange.
+For an interactive reference that includes supported resources, methods, required properties, and expected responses, see https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/[CloudHub 2.0 API] and https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/[Application Manager API] on Exchange.
 
 These APIs manage only applications and infrastructure deployed to CloudHub 2.0.
-To manage CloudHub 1.0 resources, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-api/[CloudHub API].
+To manage CloudHub 1.0 resources, see https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-api/[CloudHub API].
 
 == Base URLs
 
@@ -53,10 +53,10 @@ Follow the instructions from xref:access-management::saml-bearer-token.adoc[Anyp
 The token owner must have the appropriate permissions for the resources being managed. For example, managing private spaces requires private space management permissions.
 . Get the organization ID.
 +
-See the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/minor/1.0/console/method/%234250/[`/api/me`] endpoint in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/minor/1.0/pages/home/[Access Management API].
+See the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/minor/1.0/console/method/%234250/[`/api/me`] endpoint in https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/minor/1.0/pages/home/[Access Management API].
 . Get the environment ID.
 +
-See the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/minor/1.0/console/method/%234762/[`/api/organizations/__ORG_ID__/environments`] endpoint in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/minor/1.0/pages/home/[Access Management API].
+See the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/minor/1.0/console/method/%234762/[`/api/organizations/__ORG_ID__/environments`] endpoint in https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/minor/1.0/pages/home/[Access Management API].
 
 === List VPC Endpoints for a Private Space
 
