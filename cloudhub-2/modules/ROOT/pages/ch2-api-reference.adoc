@@ -1,0 +1,83 @@
+= CloudHub 2.0 API Reference
+
+These tables list the most commonly used CloudHub 2.0 API endpoints grouped by category. Each row identifies which API the endpoint belongs to:
+
+[%header,cols="30,70"]
+|===
+|API |Base URL
+|*CloudHub 2.0 API* |`+https://anypoint.mulesoft.com/runtimefabric/api+`
+|*Application Manager API* |`+https://anypoint.mulesoft.com/amc/application-manager/api/v2+`
+|===
+
+For full details on request parameters, payloads, and responses, see https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/[CloudHub 2.0 API reference on Exchange] and https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/[Application Manager API reference on Exchange].
+
+=== Deployments (TCP)
+
+[%header,cols="10,20,35,35"]
+|===
+|Method |API |Endpoint |Description
+|`POST` |Application Manager |`/organizations/{orgId}/environments/{envId}/deployments` |Deploy a new application with TCP port mapping.
+|`PATCH` |Application Manager |`/organizations/{orgId}/environments/{envId}/deployments/{deploymentId}` |Update an existing application's TCP port mapping.
+|===
+
+For detailed request and response examples, see xref:ch2-deploy-api.adoc[].
+
+=== Private Spaces
+
+[%header,cols="10,20,35,35"]
+|===
+|Method |API |Endpoint |Description
+|`GET` |CloudHub 2.0 |`/organizations/{orgId}/privatespaces/{spaceId}/ports?available=true&count=10` |List available TCP ports for a private space.
+|`GET` |CloudHub 2.0 |`/organizations/{orgId}/privatespaces/{spaceId}/azs` |List availability zones for a private space.
+|`GET` |CloudHub 2.0 |`/organizations/{orgId}/privatespaces/{spaceId}/accounts` |Get the AWS account ID associated with a private space.
+|===
+
+For more information, see xref:ch2-deploy-api.adoc[] and xref:ps-outbound-private-link.adoc[].
+
+=== VPC Endpoints (Private Link)
+
+[%header,cols="10,20,35,35"]
+|===
+|Method |API |Endpoint |Description
+|`POST` |CloudHub 2.0 |`/organizations/{orgId}/privatespaces/{spaceId}/vpces` |Create a VPC endpoint for a private space.
+|`GET` |CloudHub 2.0 |`/organizations/{orgId}/privatespaces/{spaceId}/vpces` |List all VPC endpoints for a private space.
+|`GET` |CloudHub 2.0 |`/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpceId}` |Get VPC endpoint details and provisioning status.
+|`PATCH` |CloudHub 2.0 |`/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpceId}` |Update a VPC endpoint.
+|`DELETE` |CloudHub 2.0 |`/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpceId}` |Delete a VPC endpoint.
+|===
+
+For detailed curl examples, see xref:ps-outbound-private-link.adoc[].
+
+=== VPNs
+
+[%header,cols="10,20,35,35"]
+|===
+|Method |API |Endpoint |Description
+|`PATCH` |CloudHub 2.0 |`/organizations/{orgId}/privatespaces/{spaceId}/connections/{connectionId}/vpns/{vpnId}` |Update a VPN (for example, enable VPN logs).
+|===
+
+For more information, see xref:ps-manage.adoc[].
+
+=== Transit Gateways
+
+[%header,cols="10,20,35,35"]
+|===
+|Method |API |Endpoint |Description
+|`DELETE` |CloudHub 2.0 |`/organizations/{orgId}/transitgateways/{tgwId}` |Delete a transit gateway from the organization.
+|===
+
+For more information, see xref:ps-manage.adoc[] and the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/minor/1.0/console/method/%234136/[delete transit gateway API calls].
+
+=== Schedulers
+
+[%header,cols="10,20,35,35"]
+|===
+|Method |API |Endpoint |Description
+|`DELETE` |CloudHub 2.0 |`/organizations/{orgId}/environments/{envId}/deployments/{deploymentId}/schedulers/{flowName}` |Reset the scheduler configuration for a specific flow.
+|===
+
+For more information, see xref:ch2-manage-schedules.adoc[].
+
+== See Also
+
+* xref:ch2-api.adoc[]
