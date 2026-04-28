@@ -133,6 +133,13 @@ You can specify milliseconds, seconds, minutes, hours, or days for the frequency
 The minimum recommended frequency between calls is 10 seconds.
 +
 include::cloudhub::partial$ch-app-schedule-freq.adoc[]
++
+[NOTE]
+====
+The `startDelay` property is not visible or configurable in the Runtime Manager UI.
+To change the `startDelay` value after deployment, use the Schedulers API.
+See <<override-scheduler-api>>.
+====
 . Click *Update* to save changed settings or click *Cancel* to exit without saving.
 
 [[change-cron-schedule]]
@@ -169,6 +176,69 @@ For information about building cron triggers:
 
 
 
+[[override-scheduler-api]]
+== Override Scheduler Properties Using the Schedulers API
+
+The Schedulers API enables you to override scheduler configuration properties for a deployed application without redeploying it. This is useful for properties that are not configurable in the Runtime Manager UI, such as `startDelay` for fixed-frequency schedules.
+
+=== Overridable Properties
+
+Depending on the schedule type, you can override these properties:
+
+[%header,cols="1a,2a"]
+|===
+| Schedule Type | Overridable Properties
+| Fixed Frequency
+|
+* `frequency` - The interval between schedule executions.
+* `startDelay` - The initial delay before the first execution.
+* `timeUnit` - The time unit for `frequency` and `startDelay` (for example, `MILLISECONDS`, `SECONDS`, `MINUTES`, `HOURS`, `DAYS`).
+
+| Cron
+|
+* `expression` - The cron expression that defines the schedule.
+* `timeZone` - The time zone for the cron schedule.
+|===
+
+=== Update Scheduler Properties
+
+To update scheduler properties, send a `PUT` request to the Schedulers API endpoint:
+
+[source,curl,linenums]
+----
+curl -X PUT \
+  https://anypoint.mulesoft.com/amc/application-manager/api/v2/organizations/{orgId}/environments/{envId}/deployments/{deploymentId}/schedulers/{flowName} \
+  -H 'Authorization: bearer {token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "startDelay": "10",
+    "frequency": "60000",
+    "timeUnit": "MINUTES"
+}'
+----
+
+Replace these placeholders in the request:
+
+* `{orgId}` - Your Anypoint Platform organization ID.
+* `{envId}` - The environment ID where the application is deployed.
+* `{deploymentId}` - The deployment ID of your application.
+* `{flowName}` - The name of the flow that contains the Scheduler element.
+* `{token}` - A valid Anypoint Platform access token.
+
+For cron schedules, use the `expression` and `timeZone` properties in the request body instead:
+
+[source,curl,linenums]
+----
+curl -X PUT \
+  https://anypoint.mulesoft.com/amc/application-manager/api/v2/organizations/{orgId}/environments/{envId}/deployments/{deploymentId}/schedulers/{flowName} \
+  -H 'Authorization: bearer {token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "expression": "0 0/5 * * * ?",
+    "timeZone": "America/Los_Angeles"
+}'
+----
+
 [[run-immediately]]
 == Run a Scheduled Job Immediately
 
@@ -195,7 +265,10 @@ to is undergoing maintenance and then reenable it after maintenance is complete.
 
 CloudHub 2.0 does not run the scheduled job until you reenable the Scheduler.
 
-*Known issue*: If you disable the scheduler, it still runs when starting an application. If you want to prevent the scheduler from running, set the `startdelay` property to five seconds in your app using Anypoint Studio.
+[NOTE]
+====
+If you disable the scheduler, it might still run once when the application starts. To prevent this behavior, set the `startDelay` property to five seconds in your app using Anypoint Studio. You can also change the `startDelay` value after deployment using the <<override-scheduler-api,Schedulers API>>.
+====
 
 To disable the Scheduler element:
 
