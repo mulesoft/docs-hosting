@@ -13,12 +13,20 @@ The advantages of Private Link are:
 * Smaller blast radius if something goes wrong
 * Service level control on what services available to CloudHub 2.0
 
-Typical use cases for Private Link are:
+Common use cases for Private Link are:
 
 * Private Link from CloudHub 2.0 private space to a service hosted in AWS by your organization
 * Private Link from CloudHub 2.0 private space to a supported AWS service (for example, S3 and Kinesis)
 * Private Link from CloudHub 2.0 private space to third-party services hosted in AWS
 ** For example, https://help.salesforce.com/s/articleView?id=xcloud.private_connect_overview.htm&type=5[Private Connect], which enables private connectivity between CloudHub 2.0 and Salesforce
+
+== Limitations 
+
+Outbound Private Link from a CloudHub 2.0 private space to Amazon MSK (Managed Streaming for Apache Kafka) isn't covered by the setup procedures in this topic.
+
+MSK clusters expose multiple brokers. Private Link endpoint services commonly front a single load-balanced target, such as a network load balancer. Aligning MSK broker topology with Private Link endpoint service requirements generally requires additional design and configuration in your AWS environment.
+
+For alternatives, work with your AWS account team or consider other connectivity options (for example, xref:ps-tgw-about.adoc[Transit Gateway] or xref:ps-vpn-about.adoc[Anypoint VPN]) depending on your architecture and security requirements.
 
 == Before You Begin
 
