@@ -52,4 +52,4 @@
 ** xref:ch2-view-diag.adoc[]
 ** xref:ch2-config-app-alerts.adoc[Configuring Application Alerts]
 * xref:ch2-api.adoc[CloudHub 2.0 API]
-** xref:ch2-api-reference.adoc[Quick Reference: Common API Endpoints]
+** xref:ch2-api-reference.adoc[CloudHub 2.0 API Reference]

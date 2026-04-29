@@ -11,7 +11,9 @@ These tables list the most commonly used CloudHub 2.0 API endpoints grouped by c
 
 For full details on request parameters, payloads, and responses, see https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/[CloudHub 2.0 API reference on Exchange] and https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/[Application Manager API reference on Exchange].
 
-=== Deployments (TCP)
+== Deployments (TCP)
+
+Use these Transmission Control Protocol (TCP) endpoints to deploy and update applications with TCP port mappings.
 
 [%header,cols="10,20,35,35"]
 |===
@@ -22,7 +24,9 @@ For full details on request parameters, payloads, and responses, see https://any
 
 For detailed request and response examples, see xref:ch2-deploy-api.adoc[].
 
-=== Private Spaces
+== Private Spaces
+
+Use these endpoints to retrieve infrastructure information about a private space, such as available TCP ports, availability zones, and the Amazon Web Services (AWS) account ID.
 
 [%header,cols="10,20,35,35"]
 |===
@@ -34,7 +38,9 @@ For detailed request and response examples, see xref:ch2-deploy-api.adoc[].
 
 For more information, see xref:ch2-deploy-api.adoc[] and xref:ps-outbound-private-link.adoc[].
 
-=== VPC Endpoints (Private Link)
+== VPC Endpoints (Private Link)
+
+Use these endpoints to manage Virtual Private Cloud (VPC) endpoints that provide private connectivity through AWS Private Link.
 
 [%header,cols="10,20,35,35"]
 |===
@@ -48,7 +54,9 @@ For more information, see xref:ch2-deploy-api.adoc[] and xref:ps-outbound-privat
 
 For detailed curl examples, see xref:ps-outbound-private-link.adoc[].
 
-=== VPNs
+== VPNs
+
+Use these endpoints to manage Virtual Private Network (VPN) connections for a private space.
 
 [%header,cols="10,20,35,35"]
 |===
@@ -58,7 +66,9 @@ For detailed curl examples, see xref:ps-outbound-private-link.adoc[].
 
 For more information, see xref:ps-manage.adoc[].
 
-=== Transit Gateways
+== Transit Gateways
+
+Use these endpoints to manage AWS Transit Gateway attachments for your organization.
 
 [%header,cols="10,20,35,35"]
 |===
@@ -68,7 +78,9 @@ For more information, see xref:ps-manage.adoc[].
 
 For more information, see xref:ps-manage.adoc[] and the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/minor/1.0/console/method/%234136/[delete transit gateway API calls].
 
-=== Schedulers
+== Schedulers
+
+Use these endpoints to manage Scheduler component configurations for deployed applications.
 
 [%header,cols="10,20,35,35"]
 |===
