@@ -140,7 +140,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                                             | Private Space | Planned | Planned |Available | Available
                                             | Private Space - VPN | Planned | Planned |Available | Available
 
-|Connectors| n/a | Planned | Planned | Available | Available | n/a
+|Connectors|  | Planned | Planned | Available | Available | 
 
 |Dataloader| n/a | Planned | Not planned | Not planned | Not planned| https://dataloader.io/[Dataloader.io] will remain accessible globally, while its infrastructure will be hosted within the US Control Plane.
 
