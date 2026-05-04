@@ -167,7 +167,7 @@ This matrix shows which runtime plane options are supported in each control plan
 
 == Choosing a Hosting Option
 
-Anypoint Platform lets you host the control plane and runtime plane independently.Depending on your requirements, you can choose from these options:
+Anypoint Platform lets you host the control plane and runtime plane independently. Depending on your requirements, you can choose from these options:
 
 * Use Anypoint Platform in the MuleSoft-managed control plane and runtime plane.
 * Host and manage the runtime plane within your own infrastructure while connecting it with the MuleSoft-managed control plane.
