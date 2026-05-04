@@ -17,76 +17,80 @@ The components where your APIs and Mule applications are deployed and made avail
 
 == Control Plane Hosting Options
 
-MuleSoft provides cloud-managed and self-hosted control plane options. The following table summarizes each option, including data residency, available runtime regions, and applicable compliance standards.
+MuleSoft provides cloud-managed and self-hosted control plane options. This table summarizes each option, including data residency and applicable compliance standards.
 
-[%header%autowidth.spread,cols="2,2,2,3,2,2"]
+[%header%autowidth.spread,cols="2,2,2,3,2"]
 |===
-| Control Plane | Platform URL | Data Residency | Description | Available Runtime Regions | Compliance / Notes
+| Control Plane | Platform URL | Data Residency | Description | Compliance / Notes
 
 | US Cloud (default)
 | `anypoint.mulesoft.com`
 | United States
 | MuleSoft-managed control plane hosted in the US. Supports the widest range of runtime regions globally.
-a|
-*North America* +
-`us-east` - US East (N. Virginia) +
-`us-east-2` - US East (Ohio) +
-`us-west` - US West (N. California) +
-`us-west-2` - US West (Oregon) +
-`ca-central` - Canada (Central)
-
-*South America* +
-`br-south` - Brazil (São Paulo)
-
-*Asia Pacific* +
-`ap-southeast` - Singapore +
-`ap-southeast-2` - Australia (Sydney) +
-`ap-northeast` - Japan (Tokyo)
-
-*Europe* +
-`eu-west` - Ireland +
-`eu-central` - EU (Frankfurt) +
-`eu-west-2` - UK (London)
 | Standard commercial terms
 
-| European Union (EU) Cloud
+| EU Cloud
 | `eu1.anypoint.mulesoft.com`
 | European Union
 | MuleSoft-managed control plane hosted in the EU. Supports EU-based runtime regions.
-a|
-* Ireland - `eu-west`
-* Germany - `eu-central`
 | EU data residency
 
 | Canada Cloud
 | `ca1.platform.mulesoft.com`
 | Canada
-| MuleSoft-managed control plane hosted in Canada.
-| Deploy via CloudHub 2.0 shared or private spaces. See xref:hyperforce::index.adoc#_deploy_mule_apps_to_control_planes[Deploy Mule Apps to Control Planes].
+| MuleSoft-managed control plane hosted in Canada. See xref:hyperforce::index.adoc#_deploy_mule_apps_to_control_planes[Deploy Mule Apps to Control Planes].
 | Canadian data residency
 
 | Japan Cloud
 | `jp1.platform.mulesoft.com`
 | Japan
-| MuleSoft-managed control plane hosted in Japan.
-| Deploy via CloudHub 2.0 shared or private spaces. See xref:hyperforce::index.adoc#_deploy_mule_apps_to_control_planes[Deploy Mule Apps to Control Planes].
+| MuleSoft-managed control plane hosted in Japan. See xref:hyperforce::index.adoc#_deploy_mule_apps_to_control_planes[Deploy Mule Apps to Control Planes].
 | Japanese data residency
 
 | MuleSoft Government Cloud
 | `gov.anypoint.mulesoft.com`
 | United States
 | Federal Risk and Authorization Management Program (FedRAMP)-compliant control plane managed by MuleSoft, suitable for US government agencies.
-a|
-* US GovCloud (West) - `us-gov-west`
 | FedRAMP authorized. See xref:gov-cloud::index.adoc[About Government Cloud]. See also <<mq-support,Anypoint MQ in Government Cloud>>.
 
 | Customer-Hosted (Anypoint Platform Private Cloud Edition (PCE))
 | N/A (self-hosted)
 | Customer-managed
 | Self-hosted control plane deployed in your own data center, virtual server, or third-party cloud (for example, Amazon Web Services (AWS)). You control where assets and metadata are stored.
-| Hybrid standalone runtimes only
 | Full data sovereignty. See xref:private-cloud::index.adoc[About Anypoint Platform PCE]. Some Anypoint Platform components are not supported.
 |===
+
+=== Available Runtime Regions by Control Plane
+
+This table lists the runtime regions available for each control plane:
+
+[%header%autowidth.spread]
+|===
+| Control Plane | Geographic Area | Region | Region Name
+
+.12+| US Cloud
+.5+| North America | US East (N. Virginia) | `us-east`
+| US East (Ohio) | `us-east-2`
+| US West (N. California) | `us-west`
+| US West (Oregon) | `us-west-2`
+| Canada (Central) | `ca-central`
+| South America | Brazil (São Paulo) | `br-south`
+.3+| Asia Pacific | Singapore | `ap-southeast`
+| Australia (Sydney) | `ap-southeast-2`
+| Japan (Tokyo) | `ap-northeast`
+.3+| Europe | Ireland | `eu-west`
+| EU (Frankfurt) | `eu-central`
+| UK (London) | `eu-west-2`
+
+.2+| EU Cloud
+.2+| Europe | Ireland | `eu-west`
+| Germany | `eu-central`
+
+| MuleSoft Government Cloud
+| US Government | US GovCloud (West) | `us-gov-west`
+|===
+
+Canada Cloud and Japan Cloud deploy via CloudHub 2.0 shared or private spaces. See xref:hyperforce::index.adoc#_deploy_mule_apps_to_control_planes[Deploy Mule Apps to Control Planes].
 
 [[mq-support]]
 === Anypoint MQ in Government Cloud
@@ -163,7 +167,7 @@ This matrix shows which runtime plane options are supported in each control plan
 
 == Choosing a Hosting Option
 
-Anypoint Platform is designed to enable the control plane and runtime plane to be hosted independently. Depending on your requirements, you can choose from the following:
+Anypoint Platform is designed to enable the control plane and runtime plane to be hosted independently. Depending on your requirements, you can choose from these options:
 
 * Use Anypoint Platform in the MuleSoft-managed control plane and runtime plane.
 * Host and manage the runtime plane within your own infrastructure while connecting it with the MuleSoft-managed control plane.
