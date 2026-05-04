@@ -15,16 +15,6 @@ The components you use to design, deploy, and manage APIs and Mule applications.
 Runtime plane::
 The components where your APIs and Mule applications are deployed and made available to your users. The runtime plane includes the Mule runtime engine and supporting services.
 
-=== Choosing a Hosting Option
-
-Anypoint Platform is designed to enable the control plane and runtime plane to be hosted independently. Depending on your requirements, you can choose from the following:
-
-* Use Anypoint Platform in the MuleSoft-managed control plane and runtime plane.
-* Host and manage the runtime plane within your own infrastructure while connecting it with the MuleSoft-managed control plane.
-* Host both the control plane and runtime plane locally within your infrastructure.
-
-See <<support-matrix-control-plane>> for information about which runtime plane hosting options are supported in each control plane option.
-
 == Control Plane Hosting Options
 
 MuleSoft provides cloud-managed and self-hosted control plane options. The following table summarizes each option, including data residency, available runtime regions, and applicable compliance standards.
@@ -88,9 +78,10 @@ a|
 | FedRAMP-compliant control plane managed by MuleSoft, suitable for US government agencies.
 a|
 * US GovCloud (West) - `us-gov-west`
-| FedRAMP authorized. See xref:gov-cloud::index.adoc[About Government Cloud].
+| FedRAMP authorized. See xref:gov-cloud::index.adoc[About Government Cloud]. See also <<mq-support,Anypoint MQ in Government Cloud>>.
 
 | Customer-Hosted (Anypoint Platform PCE)
+| N/A (self-hosted)
 | Customer-managed
 | Self-hosted control plane deployed in your own data center, virtual server, or third-party cloud (e.g., AWS). You control where assets and metadata are stored.
 | Hybrid standalone runtimes only
@@ -98,8 +89,8 @@ a|
 |===
 
 [[mq-support]]
-^***^ {empty}
-// MQ Support in GovCloud
+=== Anypoint MQ in Government Cloud
+
 include::mq::partial$mq-in-govcloud.adoc[tag=mqSupportInGovCloud]
 
 == Runtime Plane Hosting Options
@@ -118,12 +109,12 @@ MuleSoft provides different options for hosting the runtime plane:
 | CloudHub
 | MuleSoft's cloud-based environment for hosting Mule runtime. Provides high availability, clustering, failover, and load balancing.
 | MuleSoft
-| Managed in the same environment as the control plane (US, EU, or Gov Cloud only). See xref:runtime-manager::cloudhub.adoc[CloudHub].
+| See xref:runtime-manager::cloudhub.adoc[CloudHub].
 
 | Runtime Fabric
-| Container service for running Mule applications and API gateways in your own data center or third-party cloud. Bundled with Docker and Kubernetes. Managed only by cloud control planes (US Cloud, EU Cloud, Canada Cloud, Japan Cloud). MuleSoft Government Cloud and Anypoint Platform PCE do not support Runtime Fabric.
+| Container service for running Mule applications and API gateways in your own data center or third-party cloud. Bundled with Docker and Kubernetes for high availability, failover, clustering, and load balancing.
 | Customer (infrastructure) + MuleSoft (orchestration)
-| High availability, failover, clustering, load balancing. See xref:runtime-fabric::index.adoc[Anypoint Runtime Fabric].
+| See xref:runtime-fabric::index.adoc[Anypoint Runtime Fabric].
 
 | Hybrid Standalone Runtimes
 | Mule runtime engine hosted in your environment (physical server, VM, or cloud like AWS/Azure) with centralized management through the MuleSoft control plane.
@@ -131,9 +122,9 @@ MuleSoft provides different options for hosting the runtime plane:
 | Deployments within your trust boundary with cloud-based centralized management. See xref:hybrid-standalone::index.adoc[Hybrid Standalone].
 
 | Standalone Runtimes
-| Mule runtime engine on a single instance with no required connection to the control plane. You manage HA, failover, clustering, and load balancing manually. Can optionally be managed via cloud control planes (US Cloud, EU Cloud, MuleSoft Government Cloud) or Anypoint Platform PCE.
+| Mule runtime engine on a single instance with no required connection to the control plane. You manage HA, failover, clustering, and load balancing manually. Suited for air-gapped or disconnected environments.
 | Customer (fully self-managed)
-| For air-gapped or disconnected environments where internet access isn't feasible. See xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises].
+| See xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises].
 |===
 
 [[support-matrix-runtime]]
@@ -169,6 +160,16 @@ This matrix shows which runtime plane options are supported in each control plan
 | Runtime Fabric | Yes | Yes | Yes | Yes | No | No
 | Hybrid Standalone Runtimes | Yes | Yes | No | No | Yes | Yes
 |===
+
+== Choosing a Hosting Option
+
+Anypoint Platform is designed to enable the control plane and runtime plane to be hosted independently. Depending on your requirements, you can choose from the following:
+
+* Use Anypoint Platform in the MuleSoft-managed control plane and runtime plane.
+* Host and manage the runtime plane within your own infrastructure while connecting it with the MuleSoft-managed control plane.
+* Host both the control plane and runtime plane locally within your infrastructure.
+
+Refer to the <<Control Plane Hosting Options>> and <<Runtime Plane Hosting Options>> tables for available options, and the <<support-matrix-control-plane>> to verify which combinations are supported.
 
 == See Also
 
