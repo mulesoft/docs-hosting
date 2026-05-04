@@ -49,7 +49,7 @@ a|
 `eu-west-2` - UK (London)
 | Standard commercial terms
 
-| EU Cloud
+| European Union (EU) Cloud
 | `eu1.anypoint.mulesoft.com`
 | European Union
 | MuleSoft-managed control plane hosted in the EU. Supports EU-based runtime regions.
@@ -75,15 +75,15 @@ a|
 | MuleSoft Government Cloud
 | `gov.anypoint.mulesoft.com`
 | United States
-| FedRAMP-compliant control plane managed by MuleSoft, suitable for US government agencies.
+| Federal Risk and Authorization Management Program (FedRAMP)-compliant control plane managed by MuleSoft, suitable for US government agencies.
 a|
 * US GovCloud (West) - `us-gov-west`
 | FedRAMP authorized. See xref:gov-cloud::index.adoc[About Government Cloud]. See also <<mq-support,Anypoint MQ in Government Cloud>>.
 
-| Customer-Hosted (Anypoint Platform PCE)
+| Customer-Hosted (Anypoint Platform Private Cloud Edition (PCE))
 | N/A (self-hosted)
 | Customer-managed
-| Self-hosted control plane deployed in your own data center, virtual server, or third-party cloud (e.g., AWS). You control where assets and metadata are stored.
+| Self-hosted control plane deployed in your own data center, virtual server, or third-party cloud (for example, Amazon Web Services (AWS)). You control where assets and metadata are stored.
 | Hybrid standalone runtimes only
 | Full data sovereignty. See xref:private-cloud::index.adoc[About Anypoint Platform PCE]. Some Anypoint Platform components are not supported.
 |===
@@ -102,7 +102,7 @@ MuleSoft provides different options for hosting the runtime plane:
 | Runtime Option | Description | Managed By | Key Characteristics
 
 | CloudHub 2.0
-| Fully managed, containerized iPaaS for deploying APIs and integrations as lightweight containers in the cloud. Supports deployments across 12 regions globally with single or shared tenancy.
+| Fully managed, containerized integration platform as a service (iPaaS) for deploying APIs and integrations as lightweight containers in the cloud. Supports deployments across 12 regions globally with single or shared tenancy.
 | MuleSoft
 | Auto-scaling, high availability, dynamic infrastructure. See xref:cloudhub-2::index.adoc[CloudHub 2.0].
 
@@ -117,12 +117,12 @@ MuleSoft provides different options for hosting the runtime plane:
 | See xref:runtime-fabric::index.adoc[Anypoint Runtime Fabric].
 
 | Hybrid Standalone Runtimes
-| Mule runtime engine hosted in your environment (physical server, VM, or cloud like AWS/Azure) with centralized management through the MuleSoft control plane.
+| Mule runtime engine hosted in your environment (physical server, virtual machine (VM), or cloud like AWS/Azure) with centralized management through the MuleSoft control plane.
 | Customer (infrastructure) + MuleSoft (management)
 | Deployments within your trust boundary with cloud-based centralized management. See xref:hybrid-standalone::index.adoc[Hybrid Standalone].
 
 | Standalone Runtimes
-| Mule runtime engine on a single instance with no required connection to the control plane. You manage HA, failover, clustering, and load balancing manually. Suited for air-gapped or disconnected environments.
+| Mule runtime engine on a single instance with no required connection to the control plane. You manage high availability (HA), failover, clustering, and load balancing manually. Suited for air-gapped or disconnected environments.
 | Customer (fully self-managed)
 | See xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises].
 |===
@@ -144,7 +144,7 @@ Not all Anypoint Platform components are available in each runtime option:
 |===
 
 ^1^ Runtime Fabric and standalone runtimes support Mule clustering instead of Object Store v2. On Runtime Fabric, multiple replicas of the same application can share objects. See xref:mule-runtime::choosing-the-right-clustering-topology.adoc[Cluster Runtime Instances]. +
-^2^ File system connectors (e.g., Anypoint Connector for File) are not supported on Runtime Fabric because deployed apps lack file system access.
+^2^ File system connectors (for example, Anypoint Connector for File) are not supported on Runtime Fabric because deployed apps lack file system access.
 
 [[support-matrix-control-plane]]
 == Control Plane and Runtime Plane Compatibility
