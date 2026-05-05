@@ -78,19 +78,24 @@ This table lists the runtime regions available for each control plane:
 .3+| Asia Pacific | Singapore | `ap-southeast`
 | Australia (Sydney) | `ap-southeast-2`
 | Japan (Tokyo) | `ap-northeast`
-.3+| Europe | Ireland | `eu-west`
-| EU (Frankfurt) | `eu-central`
+.3+| Europe | Ireland (Dublin) | `eu-west`
+| Germany (Frankfurt) | `eu-central`
 | UK (London) | `eu-west-2`
 
 .2+| EU Cloud
-.2+| Europe | Ireland | `eu-west`
-| Germany | `eu-central`
+.2+| Europe | Ireland (Dublin) | `eu-west`
+| Germany (Frankfurt) | `eu-central`
+
+| Canada Cloud
+| North America | Canada (Montreal) | `ca-central-1`
+
+| Japan Cloud
+| Asia Pacific | Japan (Tokyo) | `ap-northeast-1`
 
 | MuleSoft Government Cloud
 | US Government | US GovCloud (West) | `us-gov-west`
 |===
 
-Canada Cloud and Japan Cloud deploy via CloudHub 2.0 shared or private spaces. See xref:hyperforce::index.adoc#deploy-mule-apps-to-control-planes[Deploy Mule Apps to Control Planes].
 
 [[mq-support]]
 === Anypoint MQ in Government Cloud
