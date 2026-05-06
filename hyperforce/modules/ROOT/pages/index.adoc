@@ -46,7 +46,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 | API Service Mesh | Planned | Planned | Not planned | Not planned
 | API Console Proxy/Trusted Domains | Planned | Planned | Planned| Planned
 
-.2+| Anypoint CLI| All features | Planned | Planned | Available | Available .2+| n/a
+.2+| xref:anypoint-cli::index.adoc[Anypoint CLI]| All features | Planned | Planned | Available | Available .2+| n/a
 |API Catalog CLI| Planned | Planned | Available | Available 
 
 .5+|xref:anypoint-code-builder::index.adoc[Anypoint Code Builder]| All other features | Planned | Planned| Available | Available .5+| For details, refer to xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud Hosts]
@@ -140,7 +140,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                                             | Private Space | Planned | Planned |Available | Available
                                             | Private Space - VPN | Planned | Planned |Available | Available
 
-|Connectors| n/a | Planned | Planned | Available | Available | n/a
+|xref:connectors::index.adoc[Connectors]| | Planned | Planned | Available | Available | n/a
 
 |Dataloader| n/a | Planned | Not planned | Not planned | Not planned| https://dataloader.io/[Dataloader.io] will remain accessible globally, while its infrastructure will be hosted within the US Control Plane.
 
@@ -153,7 +153,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                 | Self-Managed Connected Mode (Agent Governance) | Planned | Planned | Available | Available
                 | Self-Managed Local Mode | Planned | Planned | Available | Available
 
-|Hybrid Standalone Deployment| n/a | Planned | Planned | Planned | Planned| n/a
+|xref:hybrid-standalone::index.adoc[Hybrid Standalone Deployment]| n/a | Planned | Planned | Planned | Planned| n/a
 
 |xref:idp::index.adoc[IDP]| n/a | Planned | Planned | Not planned | Not planned| n/a
 .2+|xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway]| Mule Gateway Proxies | Planned | Planned | Available | Available .2+| n/a
