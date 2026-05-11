@@ -73,9 +73,9 @@ This table lists the runtime regions available for each control plane:
 | US East (Ohio) | `us-east-2`
 | US West (N. California) | `us-west`
 | US West (Oregon) | `us-west-2`
-| Canada (Central) | `ca-central`
+| Canada (Montreal) | `ca-central`
 | South America | Brazil (São Paulo) | `br-south`
-.3+| Asia Pacific | Singapore | `ap-southeast`
+.3+| Asia Pacific | Singapore (Singapore) | `ap-southeast`
 | Australia (Sydney) | `ap-southeast-2`
 | Japan (Tokyo) | `ap-northeast`
 .3+| Europe | Ireland (Dublin) | `eu-west`
