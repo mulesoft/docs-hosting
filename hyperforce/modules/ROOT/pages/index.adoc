@@ -46,7 +46,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 | API Service Mesh | Planned | Planned | Not planned | Not planned
 | API Console Proxy/Trusted Domains | Planned | Planned | Planned| Planned
 
-.2+| Anypoint CLI| All features | Planned | Planned | Available | Available .2+| n/a
+.2+| xref:anypoint-cli::index.adoc[Anypoint CLI]| All features | Planned | Planned | Available | Available .2+| n/a
 |API Catalog CLI| Planned | Planned | Available | Available 
 
 .5+|xref:anypoint-code-builder::index.adoc[Anypoint Code Builder]| All other features | Planned | Planned| Available | Available .5+| For details, refer to xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud Hosts]
@@ -103,7 +103,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 .2+|xref:partner-manager::index.adoc[Anypoint Partner Manager]| All other features | Planned | Planned | Available | Available .2+| n/a
 | Generative B2B Message Summary Feature |  Planned |Planned | Planned | Planned
 
-| xref:private-cloud::index.adoc[Anypoint Private Cloud Edition] | n/a | Not planned | Not planned | Not planned | Not planned | Anypoint Private Cloud Edition (Anypoint PlatformPCE) is a complete software package that you install and manage entirely within your private network. PCE runs exclusively on your infrastructure and isn't hosted or managed on any public cloud by MuleSoft.
+| xref:private-cloud::index.adoc[Anypoint Private Cloud Edition] | n/a | Not planned | Not planned | Not planned | Not planned | Anypoint Private Cloud Edition (Anypoint Platform PCE) is a complete software package that you install and manage entirely within your private network. PCE runs exclusively on your infrastructure and isn't hosted or managed on any public cloud by MuleSoft.
 
 .3+|xref:runtime-manager::index.adoc[Anypoint Runtime Manager]| All non Monitoring features | Planned | Planned | Available | Available .3+|  n/a
 | Insights |  Not planned |Not planned | Not planned | Not planned
@@ -139,21 +139,19 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                                             | Global Cloud Deployment | Planned | Planned |Not planned | Not planned
                                             | Private Space | Planned | Planned |Available | Available
                                             | Private Space - VPN | Planned | Planned |Available | Available
-
-|Connectors|  | Planned | Planned | Available | Available | 
-
+|xref:connectors::index.adoc[Connectors]| | Planned | Planned | Available | Available | n/a
 |Dataloader| n/a | Planned | Not planned | Not planned | Not planned| https://dataloader.io/[Dataloader.io] will remain accessible globally, while its infrastructure will be hosted within the US Control Plane.
 
-.7+|xref:gateway-home::index.adoc#anypoint_flex_gateway[Flex Gateway]| Managed Flex Gateway in CloudHub 2.0 | Planned | Planned| Available | Available .7+| n/a
-        | Managed Flex Gateway in CloudHub 2.0 (Agent Broker and Agent Governance) | Planned | Planned | Available | Available
-                | Managed Flex Gateway in Runtime Fabric | Planned | Planned | Available | Available
-                | Managed Flex Gateway in Runtime Fabric (Agent Broker and Agent Governance) | Planned | Planned | Available | Available
+.7+|xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway]| Managed Omni Gateway in CloudHub 2.0 | Planned | Planned| Available | Available .7+| n/a
+        | Managed Omni Gateway in CloudHub 2.0 (Agent Broker and Agent Governance) | Planned | Planned | Available | Available
+                | Managed Omni Gateway in Runtime Fabric | Planned | Planned | Available | Available
+                | Managed Omni Gateway in Runtime Fabric (Agent Broker and Agent Governance) | Planned | Planned | Available | Available
 
                 | Self-Managed Connected Mode | Planned | Planned | Available | Available
                 | Self-Managed Connected Mode (Agent Governance) | Planned | Planned | Available | Available
                 | Self-Managed Local Mode | Planned | Planned | Available | Available
 
-|Hybrid Standalone Deployment| n/a | Planned | Planned | Planned | Planned| n/a
+|xref:hybrid-standalone::index.adoc[Hybrid Standalone Deployment]| n/a | Planned | Planned | Planned | Planned| n/a
 
 |xref:idp::index.adoc[IDP]| n/a | Planned | Planned | Not planned | Not planned| n/a
 .2+|xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway]| Mule Gateway Proxies | Planned | Planned | Available | Available .2+| n/a
@@ -181,11 +179,19 @@ This table indicates the available and planned cloud regions for Hyperforce:
 
 [%header%autowidth.spread]
 |===
-|Location | Region Control Plane | Anypoint Platform URL | Status
-|North America | Canada Cloud | `ca1.platform.mulesoft.com` | Available
-|Asia Pacific | Japan Cloud | `jp1.platform.mulesoft.com` | Available
-|North America | US Cloud | `anypoint.mulesoft.com` | Planned
-|Europe | EU Cloud | `eu1.anypoint.mulesoft.com` | Planned
+| Control Plane | Geographic Area | Platform URL | Status
+
+| https://anypoint.mulesoft.com[US Cloud]
+| North America | `anypoint.mulesoft.com` | Planned
+
+| https://eu1.anypoint.mulesoft.com[EU Cloud]
+| Europe | `eu1.anypoint.mulesoft.com` | Planned
+
+| https://ca1.platform.mulesoft.com[Canada Cloud]
+| North America | `ca1.platform.mulesoft.com` | Available
+
+| https://jp1.platform.mulesoft.com[Japan Cloud]
+| Asia Pacific | `jp1.platform.mulesoft.com` | Available
 |===
 
 == Mule Runtime Version Compatibility
@@ -193,16 +199,16 @@ This table indicates the available and planned cloud regions for Hyperforce:
 * Hyperforce is compatible with Mule runtime engine versions under support, 4.4.0 and later.
 * Hyperforce supports the Mule runtime engine LTS and Edge release channels. The recommended customer profile is LTS. For more information, visit xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[]. 
 
-== Deploy Mule Apps to Control Planes
+== Deploy Mule Apps
 
-When deploying Mule apps to any region control plane, you deploy on CloudHub 2.0 to a private or shared space. 
+When deploying Mule apps from any region control plane, you deploy on CloudHub 2.0 to a private or shared space. 
 
 [%header%autowidth.spread]
 |===
 | Region Control Plane | Deployment Configurations
 a|  US Cloud | Refer to xref:cloudhub-2::ch2-deploy.adoc[Deploying to CloudHub 2.0] and xref:cloudhub-2::ch2-architecture.adoc#shared-global-regions[Shared Global Regions].
 a| Other Clouds
-    a| To deploy to other cloud regions, follow these tasks: +
+    a| To deploy from other cloud regions, follow these tasks: +
 
 . Change the Anypoint Platform endpoints URLs to the region control plane endpoints: +
 * xref:configure-mule-hyperforce.adoc[Configure Mule to Access Control Planes]
