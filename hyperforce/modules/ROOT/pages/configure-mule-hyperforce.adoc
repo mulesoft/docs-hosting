@@ -63,4 +63,4 @@ anypoint.platform.analytics_base_uri=https://analytics-ingest.jp1.platform.mules
 
 == See Also
 
-* xref:deploy-mule-apps-hyperforce.adoc[Deploying Mule Apps to Control Planes]
+* xref:deploy-mule-apps-hyperforce.adoc[Deploying Mule Apps]

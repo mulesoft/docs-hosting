@@ -1,103 +1,25 @@
-[cols="10,10,15,1,23,22", options="header"]
+[%header%autowidth.spread]
 |===
-|
-|Region
-|Region Name
-|Control Plane
-|Example DNS Record
-|Example Internal DNS Record
+| Control Plane | Geographic Area | Region | Region Name | Example DNS Record | Example Internal DNS Record
 
-.6+|North America
-|US East (N. Virginia)
-|`us-east`
-|US
-|`myapp.usa-e1.cloudhub.io`
-|`<app>.internal-<space-id>.usa-e1.cloudhub.io`
+.12+| https://anypoint.mulesoft.com[US Cloud]
+.5+| North America | US East (N. Virginia) | `us-east` | `myapp.usa-e1.cloudhub.io` | `<app>.internal-<space-id>.usa-e1.cloudhub.io`
+| US East (Ohio) | `us-east-2` | `myapp.usa-e2.cloudhub.io` | `<app>.internal-<space-id>.usa-e2.cloudhub.io`
+| US West (N. California) | `us-west` | `myapp.usa-w1.cloudhub.io` | `<app>.internal-<space-id>.usa-w1.cloudhub.io`
+| US West (Oregon) | `us-west-2` | `myapp.usa-w2.cloudhub.io` | `<app>.internal-<space-id>.usa-w2.cloudhub.io`
+| Canada (Montreal) | `can-central` | `myapp.can-c1.cloudhub.io` | `<app>.internal-<space-id>.can-c1.cloudhub.io`
+| South America | Brazil (São Paulo) | `bra-south` | `myapp.bra-s1.cloudhub.io` | `<app>.internal-<space-id>.bra-s1.cloudhub.io`
+.3+| Asia Pacific | Singapore (Singapore) | `ap-southeast` | `myapp.sgp-s1.cloudhub.io` | `<app>.internal-<space-id>.sgp-s1.cloudhub.io`
+| Australia (Sydney) | `ap-southeast-2` | `myapp.aus-s1.cloudhub.io` | `<app>.internal-<space-id>.aus-s1.cloudhub.io`
+| Japan (Tokyo) | `ap-northeast` | `myapp.jpn-e1.cloudhub.io` | `<app>.internal-<space-id>.jpn-e1.cloudhub.io`
+.3+| Europe | Ireland (Dublin) | `eu-west` | `myapp.irl-e1.cloudhub.io` | `<app>.internal-<space-id>.irl-e1.cloudhub.io`
+| Germany (Frankfurt) | `eu-central` | `myapp.deu-c1.cloudhub.io` | `<app>.internal-<space-id>.deu-c1.cloudhub.io`
+| UK (London) | `eu-west-2` | `myapp.gbr-e1.cloudhub.io` | `<app>.internal-<space-id>.gbr-e1.cloudhub.io`
 
-|US East (Ohio)
-|`us-east-2`
-|US
-|`myapp.usa-e2.cloudhub.io`
-|`<app>.internal-<space-id>.usa-e2.cloudhub.io`
+.2+| https://eu1.anypoint.mulesoft.com[EU Cloud]
+.2+| Europe | Ireland (Dublin) | `eu-west` | `myapp.irl-e1.eu1.cloudhub.io` | -
+| Germany (Frankfurt) | `eu-central` | `myapp.deu-c1.eu1.cloudhub.io` | -
 
-|US West (N. California)
-|`us-west`
-|US
-|`myapp.usa-w1.cloudhub.io`
-|`<app>.internal-<space-id>.usa-w1.cloudhub.io`
-
-|US West (Oregon)
-|`us-west-2`
-|US
-|`myapp.usa-w2.cloudhub.io`
-|`<app>.internal-<space-id>.usa-w2.cloudhub.io`
-
-|Canada (Central)
-|`can-central`
-|US
-|`myapp.can-c1.cloudhub.io`
-|`<app>.internal-<space-id>.can-c1.cloudhub.io`
-
-|US GovCloud (West)
-|`us-gov-west`
-|US Gov
-|`myapp.usg-w1.gov.cloudhub.io`
-| -
-
-.1+|South America
-|Brazil (São Paulo)
-|`bra-south`
-|US
-|`myapp.bra-s1.cloudhub.io`
-|`<app>.internal-<space-id>.bra-s1.cloudhub.io`
-
-.3+|APAC
-|Singapore
-|`ap-southeast`
-|US
-|`myapp.sgp-s1.cloudhub.io`
-|`<app>.internal-<space-id>.sgp-s1.cloudhub.io`
-
-|Australia (Sydney)
-|`ap-southeast-2`
-|US
-|`myapp.aus-s1.cloudhub.io`
-|`<app>.internal-<space-id>.aus-s1.cloudhub.io`
-
-|Japan (Tokyo)
-|`ap-northeast`
-|US
-|`myapp.jpn-e1.cloudhub.io`
-|`<app>.internal-<space-id>.jpn-e1.cloudhub.io`
-
-.5+|Europe
-|Ireland
-|`eu-west`
-|US
-|`myapp.irl-e1.cloudhub.io`
-|`<app>.internal-<space-id>.irl-e1.cloudhub.io`
-
-|EU (Frankfurt)
-|`eu-central`
-|US
-|`myapp.deu-c1.cloudhub.io`
-|`<app>.internal-<space-id>.deu-c1.cloudhub.io`
-
-|UK (London)
-|`eu-west-2`
-|US
-|`myapp.gbr-e1.cloudhub.io`
-|`<app>.internal-<space-id>.gbr-e1.cloudhub.io`
-
-|Ireland (EU Control Plane)
-|`eu-west`
-|EU
-|`myapp.irl-e1.eu1.cloudhub.io`
-| -
-
-|Germany (EU Control Plane)
-|`eu-central`
-|EU
-|`myapp.deu-c1.eu1.cloudhub.io`
-| -
+| https://gov.anypoint.mulesoft.com[MuleSoft Government Cloud]
+| US Government | US GovCloud (West) | `us-gov-west` | `myapp.usg-w1.gov.cloudhub.io` | -
 |===
