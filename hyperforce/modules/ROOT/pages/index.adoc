@@ -103,7 +103,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 .2+|xref:partner-manager::index.adoc[Anypoint Partner Manager]| All other features | Planned | Planned | Available | Available .2+| n/a
 | Generative B2B Message Summary Feature |  Planned |Planned | Planned | Planned
 
-| xref:private-cloud::index.adoc[Anypoint Private Cloud Edition] | n/a | Not planned | Not planned | Not planned | Not planned | Anypoint Private Cloud Edition (Anypoint PlatformPCE) is a complete software package that you install and manage entirely within your private network. PCE runs exclusively on your infrastructure and isn't hosted or managed on any public cloud by MuleSoft.
+| xref:private-cloud::index.adoc[Anypoint Private Cloud Edition] | n/a | Not planned | Not planned | Not planned | Not planned | Anypoint Private Cloud Edition (Anypoint Platform PCE) is a complete software package that you install and manage entirely within your private network. PCE runs exclusively on your infrastructure and isn't hosted or managed on any public cloud by MuleSoft.
 
 .3+|xref:runtime-manager::index.adoc[Anypoint Runtime Manager]| All non Monitoring features | Planned | Planned | Available | Available .3+|  n/a
 | Insights |  Not planned |Not planned | Not planned | Not planned
@@ -181,11 +181,19 @@ This table indicates the available and planned cloud regions for Hyperforce:
 
 [%header%autowidth.spread]
 |===
-|Location | Region Control Plane | Anypoint Platform URL | Status
-|North America | Canada Cloud | `ca1.platform.mulesoft.com` | Available
-|Asia Pacific | Japan Cloud | `jp1.platform.mulesoft.com` | Available
-|North America | US Cloud | `anypoint.mulesoft.com` | Planned
-|Europe | EU Cloud | `eu1.anypoint.mulesoft.com` | Planned
+| Control Plane | Geographic Area | Platform URL | Status
+
+| https://anypoint.mulesoft.com[US Cloud]
+| North America | `anypoint.mulesoft.com` | Planned
+
+| https://eu1.anypoint.mulesoft.com[EU Cloud]
+| Europe | `eu1.anypoint.mulesoft.com` | Planned
+
+| https://ca1.platform.mulesoft.com[Canada Cloud]
+| North America | `ca1.platform.mulesoft.com` | Available
+
+| https://jp1.platform.mulesoft.com[Japan Cloud]
+| Asia Pacific | `jp1.platform.mulesoft.com` | Available
 |===
 
 == Mule Runtime Version Compatibility
