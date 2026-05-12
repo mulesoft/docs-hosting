@@ -139,9 +139,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                                             | Global Cloud Deployment | Planned | Planned |Not planned | Not planned
                                             | Private Space | Planned | Planned |Available | Available
                                             | Private Space - VPN | Planned | Planned |Available | Available
-
 |xref:connectors::index.adoc[Connectors]| | Planned | Planned | Available | Available | n/a
-
 |Dataloader| n/a | Planned | Not planned | Not planned | Not planned| https://dataloader.io/[Dataloader.io] will remain accessible globally, while its infrastructure will be hosted within the US Control Plane.
 
 .7+|xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway]| Managed Omni Gateway in CloudHub 2.0 | Planned | Planned| Available | Available .7+| n/a
