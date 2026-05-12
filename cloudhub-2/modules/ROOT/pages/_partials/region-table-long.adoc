@@ -2,7 +2,7 @@
 |===
 | Control Plane | Geographic Area | Region | Region Name | Example DNS Record | Example Internal DNS Record
 
-.12+| US Cloud
+.12+| https://anypoint.mulesoft.com[US Cloud]
 .5+| North America | US East (N. Virginia) | `us-east` | `myapp.usa-e1.cloudhub.io` | `<app>.internal-<space-id>.usa-e1.cloudhub.io`
 | US East (Ohio) | `us-east-2` | `myapp.usa-e2.cloudhub.io` | `<app>.internal-<space-id>.usa-e2.cloudhub.io`
 | US West (N. California) | `us-west` | `myapp.usa-w1.cloudhub.io` | `<app>.internal-<space-id>.usa-w1.cloudhub.io`
@@ -16,10 +16,10 @@
 | Germany (Frankfurt) | `eu-central` | `myapp.deu-c1.cloudhub.io` | `<app>.internal-<space-id>.deu-c1.cloudhub.io`
 | UK (London) | `eu-west-2` | `myapp.gbr-e1.cloudhub.io` | `<app>.internal-<space-id>.gbr-e1.cloudhub.io`
 
-.2+| EU Cloud
+.2+| https://eu1.anypoint.mulesoft.com[EU Cloud]
 .2+| Europe | Ireland (Dublin) | `eu-west` | `myapp.irl-e1.eu1.cloudhub.io` | -
 | Germany (Frankfurt) | `eu-central` | `myapp.deu-c1.eu1.cloudhub.io` | -
 
-| MuleSoft Government Cloud
+| https://gov.anypoint.mulesoft.com[MuleSoft Government Cloud]
 | US Government | US GovCloud (West) | `us-gov-west` | `myapp.usg-w1.gov.cloudhub.io` | -
 |===
