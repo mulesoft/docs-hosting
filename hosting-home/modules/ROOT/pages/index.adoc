@@ -68,7 +68,7 @@ This table lists the runtime regions available for each control plane:
 |===
 | Control Plane | Geographic Area | Region | Region Name
 
-.12+| US Cloud
+.12+| https://anypoint.mulesoft.com[US Cloud]
 .5+| North America | US East (N. Virginia) | `us-east`
 | US East (Ohio) | `us-east-2`
 | US West (N. California) | `us-west`
@@ -82,17 +82,17 @@ This table lists the runtime regions available for each control plane:
 | Germany (Frankfurt) | `eu-central`
 | UK (London) | `eu-west-2`
 
-.2+| EU Cloud
+.2+| https://eu1.anypoint.mulesoft.com[EU Cloud]
 .2+| Europe | Ireland (Dublin) | `eu-west`
 | Germany (Frankfurt) | `eu-central`
 
-| Canada Cloud
+| https://ca1.platform.mulesoft.com[Canada Cloud]
 | North America | Canada (Montreal) | `ca-central-1`
 
-| Japan Cloud
+| https://jp1.platform.mulesoft.com[Japan Cloud]
 | Asia Pacific | Japan (Tokyo) | `ap-northeast-1`
 
-| MuleSoft Government Cloud
+| https://gov.anypoint.mulesoft.com[MuleSoft Government Cloud]
 | US Government | US GovCloud (West) | `us-gov-west`
 |===
 
