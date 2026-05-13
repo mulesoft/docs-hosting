@@ -21,13 +21,13 @@
 | Germany (Frankfurt) | `eu-central` | `myapp.deu-c1.eu1.cloudhub.io` | -
 
 | https://ca1.platform.mulesoft.com[Canada Cloud]
-| North America | Canada (Montreal) | `ca-central-1` | `myapp-uniq-id.can-c1.ca1.cloudhub.io` | -
+| North America | Canada (Montreal) | `ca-central-1` | `myapp-uniq-id.can-c1.ca1.cloudhub.io` | `<app>.internal-<space-id>.can-c1.ca1.cloudhub.io`
 
 | https://jp1.platform.mulesoft.com[Japan Cloud]
-| Asia Pacific | Japan (Tokyo) | `ap-northeast-1` | `myapp-uniq-id.jpn-e1.jp1.cloudhub.io` | -
+| Asia Pacific | Japan (Tokyo) | `ap-northeast-1` | `myapp-uniq-id.jpn-e1.jp1.cloudhub.io` | `<app>.internal-<space-id>.jpn-e1.jp1.cloudhub.io`
 
 | https://in1.platform.mulesoft.com[India Cloud]
-| Asia Pacific | India (Mumbai) | `ap-south-1` | `myapp-uniq-id.ind-w1.in1.cloudhub.io` | -
+| Asia Pacific | India (Mumbai) | `ap-south-1` | `myapp-uniq-id.ind-w1.in1.cloudhub.io` | `<app>.internal-<space-id>.ind-w1.in1.cloudhub.io`
 
 | https://gov.anypoint.mulesoft.com[MuleSoft Government Cloud]
 | US Government | US GovCloud (West) | `us-gov-west` | `myapp.usg-w1.gov.cloudhub.io` | -
