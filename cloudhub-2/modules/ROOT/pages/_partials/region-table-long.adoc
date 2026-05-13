@@ -17,8 +17,8 @@
 | UK (London) | `eu-west-2` | `myapp.gbr-e1.cloudhub.io` | `<app>.internal-<space-id>.gbr-e1.cloudhub.io`
 
 .2+| https://eu1.anypoint.mulesoft.com[EU Cloud]
-.2+| Europe | Ireland (Dublin) | `eu-west` | `myapp.irl-e1.eu1.cloudhub.io` | -
-| Germany (Frankfurt) | `eu-central` | `myapp.deu-c1.eu1.cloudhub.io` | -
+.2+| Europe | Ireland (Dublin) | `eu-west` | `myapp.irl-e1.eu1.cloudhub.io` | `<app>.internal-<space-id>.irl-e1.eu1.cloudhub.io`
+| Germany (Frankfurt) | `eu-central` | `myapp.deu-c1.eu1.cloudhub.io` | `<app>.internal-<space-id>.deu-c1.eu1.cloudhub.io`
 
 | https://ca1.platform.mulesoft.com[Canada Cloud]
 | North America | Canada (Montreal) | `ca-central-1` | `myapp-uniq-id.can-c1.ca1.cloudhub.io` | `<app>.internal-<space-id>.can-c1.ca1.cloudhub.io`
