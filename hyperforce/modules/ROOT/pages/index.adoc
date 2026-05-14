@@ -57,7 +57,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 |API Catalog CLI| Planned | Planned | Available | Available | Available
 //Anypoint Code Builder
 .5+|xref:anypoint-code-builder::index.adoc[Anypoint Code Builder]| All other features | Planned | Planned| Available | Available | Availabl .5+| For details, refer to xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud Hosts]
-| Agent Network Projects (Agent Broker) | Planned | Planned | Available | Available | Planned
+| Agent Network Projects (Agent Broker) | Planned | Planned | Available | Available | Available
 | MuleSoft Vibes | Planned | Planned | Available | Available | Available
 | Generative Data Transformations | Planned | Planned | Available | Available | Available
 | Generative MUnit | Planned | Planned | Available | Available | Available
@@ -70,7 +70,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                       |Usage and Engagement Metrics      |  Planned | Planned |Planned | Planned  | Available
 
 //Anypoint Monitoring
-.12+|xref:monitoring::index.adoc[Anypoint Monitoring]| Advanced Alerts |  Planned |Planned | Planned | Planned | Planned .12+| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
+.13+|xref:monitoring::index.adoc[Anypoint Monitoring]| Advanced Alerts |  Planned |Planned | Planned | Planned | Planned .13+| For details, refer to xref:monitoring::index.adoc#features[Monitoring Features by Control Plane].
                                                      
                                                      |Basic Alerts       |  Planned |Planned | Planned| Planned | Available
                                                      |Basic Monitoring       |  Available |Available | Available| Available | Available
@@ -79,6 +79,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                                                     |Custom Dashboards       |  Planned |Planned | Planned| Planned | Planned
                                                       |Traces Beta       |  Available |Available | Not planned| Not planned| Not planned
                                              |Telemetry Exporter       |  Planned |Planned | Available| Available| Available
+                                              |Visualizer       |  Planned |Planned | Planned| Planned| Planned
                                                      
                                                     
                                                      |Log-Search       |  Planned |Planned |Available| Available | Available
