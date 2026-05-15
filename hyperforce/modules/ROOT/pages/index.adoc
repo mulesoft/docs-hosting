@@ -124,7 +124,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 
 //API Visualizer
 .3+|xref:visualizer::index.adoc[API Visualizer]| Architecture | Planned | Planned | Available | Available | Planned .3+| n/a
-                                                    | Policies | Planned | Planned | Available | Available   | Planned
+                                                    | Policies | Planned | Planned | Available | Available   |Available
                                                     | Troubleshooting | Planned | Planned | Planned | Planned  | Planned
 
 |xref:api-community-manager::index.adoc[API Community Manager]| n/a | Available | Available | Available | Available | Not planned | n/a
