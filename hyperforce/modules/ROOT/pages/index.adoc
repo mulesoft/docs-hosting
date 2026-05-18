@@ -28,7 +28,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 * Planned: Feature is scheduled for a future release on Hyperforce.
 * Not planned: Feature is not currently planned for release or is not supported on Hyperforce.
 
-[%header%autowidth.spread,cols=".^a,.^a,.^a,.^a,.^a,.^a,.^a]
+[%header%autowidth.spread,cols=".^a,.^a,.^a,.^a,.^a,.^a,.^a"]
 |===
 |Component |Feature Description |US Cloud | EU Cloud | Canada Cloud | Japan Cloud | Notes
 
@@ -84,7 +84,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                                     | Anypoint MQ Broker API |  Planned |Planned | Available | Available
                                     | Anypoint MQ Connector earlier than 4.x |  Planned |Planned | Not planned | Not planned
                                     | Anypoint MQ Connector versions 4.x and later |  Planned |Planned | Available | Available
-                                    | Anypoint MQ Stats API (Anypont MQ Stats only) |  Planned |Planned | Available | Available
+                                    | Anypoint MQ Stats API (Anypoint MQ Stats only) |  Planned |Planned | Available | Available
                                     | Anypoint MQ Stats API (Usage Metrics) |  Planned |Planned | Not planned | Not planned
                                     | Client Apps |  Planned |Planned | Not planned | Not planned
                                     | CloudHub 1.0 Deployments |  Planned |Planned | Not planned | Not planned
@@ -95,7 +95,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                                     | Message Exchanges |  Planned |Planned | Available | Available
                                     | Message Routing |  Planned |Planned | Available | Available
                                     | Unencrypted Queues |  Not planned |Not planned  | Not planned  | Not planned 
-                                    | Usage Charts (Access Management) |  Not planed |Not planned | Not planned | Not planned
+                                    | Usage Charts (Access Management) |  Not planned |Not planned | Not planned | Not planned
                                     | Usage Reports (Usage) |  Planned |Planned | Available | Available
 
 |xref:api-manager::analytics-landing-page.adoc[Anypoint Mule API Analytics]| REST APIs | Planned | Planned | Not planned | Not planned | n/a
@@ -156,7 +156,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 |xref:idp::index.adoc[IDP]| n/a | Planned | Planned | Not planned | Not planned| n/a
 .2+|xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway]| Mule Gateway Proxies | Planned | Planned | Available | Available .2+| n/a
                 | Mule Gateway Policies | Planned | Planned | Available | Available
-|xref:mule-runtime::index.adoc[Mule runtime engine]| All features | Planned | Planned | Available | Available| Mule 3 is not supported as it reached EOL.
+|xref:mule-runtime::index.adoc[Mule runtime engine]| All features | Planned | Planned | Available | Available| n/a
 |xref:munit::index.adoc[MUnit]| All features | Planned | Planned | Available | Available| n/a
 .6+|xref:object-store::index.adoc[Object Store V2]| All other features | Planned | Planned | Available | Available .6+| For details, refer to xref:object-store::index.adoc#os-features-control-plane[Object Store Features by Control Plane]
 |Connected Apps| Planned | Planned | Available | Available
