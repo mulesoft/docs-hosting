@@ -168,7 +168,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                 | Self-Managed Local Mode | Planned | Planned | Available | Available | Available
 
 //Hybrid Standalone Deployment
-|xref:hybrid-standalone::index.adoc[Hybrid Standalone Deployment]| n/a | Available | Available | Planned | Planned | Available| n/a
+|xref:hybrid-standalone::index.adoc[Hybrid Standalone Deployment]| n/a | Available | Available | Planned | Planned | Planned| n/a
 
 //IDP
 |xref:idp::index.adoc[IDP]| n/a | Available | Available | Not planned | Not planned | Not planned| n/a
