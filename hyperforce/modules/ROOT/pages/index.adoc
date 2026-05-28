@@ -142,11 +142,13 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 |xref:connectors::index.adoc[Connectors]| | Planned | Planned | Available | Available | n/a
 |Dataloader| n/a | Planned | Not planned | Not planned | Not planned| https://dataloader.io/[Dataloader.io] will remain accessible globally, while its infrastructure will be hosted within the US Control Plane.
 
+|xref:general::exp-overview.adoc[Enhanced MuleSoft Experience]| n/a | Available | Available | Available | Available | n/a
+
+
 .7+|xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway]| Managed Omni Gateway in CloudHub 2.0 | Planned | Planned| Available | Available .7+| n/a
         | Managed Omni Gateway in CloudHub 2.0 (Agent Broker and Agent Governance) | Planned | Planned | Available | Available
                 | Managed Omni Gateway in Runtime Fabric | Planned | Planned | Available | Available
                 | Managed Omni Gateway in Runtime Fabric (Agent Broker and Agent Governance) | Planned | Planned | Available | Available
-
                 | Self-Managed Connected Mode | Planned | Planned | Available | Available
                 | Self-Managed Connected Mode (Agent Governance) | Planned | Planned | Available | Available
                 | Self-Managed Local Mode | Planned | Planned | Available | Available
