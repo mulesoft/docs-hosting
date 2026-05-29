@@ -135,6 +135,8 @@ Clustering enabled
 * Configure your application to support Anypoint MQ before deploying.
 * Application schedules are executed only once on the primary replica.
 * Application schedules can be missed during the lead election.
+* Object Stores are replicated and shared with each replica.
+* All replicas can read objects written by another replica, with or without Cloud Object Store.
 * If one data center experiences an outage, your replicas are automatically distributed to ensure redundancy.
 
 |You have an application that does not have any special requirements regarding either processing load or message loss. |
@@ -145,8 +147,6 @@ Clustering not enabled
 * Application performance isn't affected by message queue latency.
 * You don't need to configure your application to support Anypoint MQ.
 * Application schedules are executed once on a single replica.
-* Object Stores are replicated and shared with each replica.
-* All replicas can read objects written by another replica, with or without Cloud Object Store.
 * If the data center in which your replica operates experiences an outage, CloudHub 2.0 automatically migrates your application to another availability zone; however, you can experience some downtime and message loss during the migration.
 
 |===
