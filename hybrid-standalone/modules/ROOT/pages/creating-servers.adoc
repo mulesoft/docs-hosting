@@ -49,7 +49,6 @@ For information, see xref:runtime-manager::installing-and-configuring-runtime-ma
 . If your environment requires all outbound calls to go through a proxy, specify proxy settings in either the `$MULE_HOME/conf/mule-agent.yml` file or the `$MULE_HOME/conf/wrapper.conf` file.
 +
 See xref:runtime-manager::rtm-agent-proxy-config.adoc[Connect the Agent Through a Proxy Server].
-. If you are using the IBM JVM, see <<configure-ibm-jvm,Configure IBM JVM>>.
 
 When the `amc_setup` command completes successfully, you see:
 
