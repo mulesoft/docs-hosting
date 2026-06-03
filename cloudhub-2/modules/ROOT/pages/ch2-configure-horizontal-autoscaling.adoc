@@ -6,7 +6,12 @@ endif::[]
 Configure CPU-based horizontal scaling for Mule applications to make them responsive to CPU usage by automatically scaling up or down the deployment replicas as needed.
 
 [NOTE]
-This feature applies only to customers who are opted into the new pricing and packaging model. For more details, see xref:general::pricing.adoc[]
+====
+This feature is available to these customers:
+
+* vCore ELA customers on CloudHub 2.0 with the Autoscaling SKU provisioned on their account. If the HPA option is not visible in Runtime Manager, contact your account team to confirm the SKU is enabled.
+* Customers opted into the Anypoint Integration Advanced package or a Platinum or Titanium subscription. For more details, see xref:general::pricing.adoc[].
+====
 
 In Kubernetes, a Horizontal Pod Autoscaler (HPA) automatically updates a workload resource to scale the workload to match demand. Horizontal scaling automatically deploys more pods as a response to an increased load. For more information, visit the https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/[Kubernetes documentaton^]. 
 
@@ -120,7 +125,10 @@ Max replicas: +
 * The maximum number of capped replicas. No more replicas can be added above this number for scaling up.
 * Scale-up policy should never add replicas above this number.
 
-Enabling HPA can result in customers incurring additional flow usage when your application scales horizontally. To avoid overages from unpredicted scaling, configure the maximum configured replicas judiciously to stay within purchased flow limits. Track your incurred flow usage through xref:general::usage-reports.adoc[usage reports].
+Enabling HPA can result in additional resource consumption when your application scales horizontally. Configure the maximum number of replicas judiciously to stay within your purchased limits:
+
+* vCore ELA customers: HPA doesn't introduce overage billing. Your contracted vCore allotment governs your renewal. Monitor combined vCore consumption across CloudHub and CloudHub 2.0 in the unified xref:general::usage-reports.adoc[Usage Reports] dashboard.
+* Flow-based pricing customers (Anypoint Integration Advanced, Platinum, or Titanium): To avoid overages from unpredicted scaling, stay within your purchased flow limits. Track your incurred flow usage through xref:general::usage-reports.adoc[usage reports].
 
 
 == Performance Considerations
