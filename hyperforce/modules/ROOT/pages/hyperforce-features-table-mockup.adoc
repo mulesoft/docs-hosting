@@ -429,7 +429,7 @@ APAC::
 |===
 --
 
-Salesforce Government Cloud::
+Government::
 +
 --
 [%header%autowidth.spread,cols=".^a,.^a,.^a,.^a,.^a"]
