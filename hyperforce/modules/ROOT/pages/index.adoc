@@ -65,8 +65,8 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 .6+|xref:exchange::index.adoc[Anypoint Exchange]| All other features      |  Planned |Planned | Available | Available | Available .6+| n/a 
                      | AI Documentation Generation      |  Planned |Planned | Available | Available | Available
                       | Amazon Cloud Front      |  Planned |Planned | Planned | Planned | Available
-                      | Agent, MCP, and LLM assets (Agent Registry)      |  Planned |Planned | Available | Available | Planned
-                      | Agent Scanners      |  Planned |Planned | Available | Available | Planned
+                      | Agent, MCP, and LLM assets (Agent Registry)      |  Planned |Planned | Available | Available | Available
+                      | Agent Scanners      |  Planned |Planned | Available | Available | Available
                       |Usage and Engagement Metrics      |  Planned | Planned |Planned | Planned  | Available
 
 //Anypoint Monitoring
@@ -85,7 +85,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
                                                      |Log-Search       |  Planned |Planned |Available| Available | Available
                                                      |Log-Tailing       |  Planned |Planned | Available| Available | Available
                                                     
-                                                     |Raw Data Download       |  Planned | Planned | Planned| Planned | Planned
+                                                     |Raw Data Download       |  Planned | Planned | Planned| Planned | Available
                                                      |Reports       |  Planned | Planned | Planned| Planned | Available
                                                     
 //Anypoint MQ
@@ -143,7 +143,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 | Global CloudHub Deployment | Available | Available | Not planned | Not planned | Not planned
 
 .6+|xref:cloudhub-2::index.adoc[CloudHub 2.0]| All other features | Available | Available | Available | Available | Available .6+| For details, refer to xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 Features by Control Plane]. 
-                                            | Deleting the Default Egress Route | Available | Available | Planned | Planned | Planned
+                                            | Deleting the Default Egress Route | Available | Available | Planned | Planned | Available
                                             | Global Cloud Deployment | Available | Available |Not planned | Not planned | Not planned
                                             | Private Space | Available | Available |Available | Available | Available
                                             | Private Space - VPN | Available | Available |Available | Available | Available
@@ -190,7 +190,7 @@ This table indicates the support status of Anypoint Platform features on Hyperfo
 |CloudHub 1.0 Deployments| Available | Available | Not planned | Not planned | No planned
 |Object Store v2 Stats API| Not planned | Not planned | Not planned | Not planned | Not planned
 |Usage Reports (Usage)| Available | Available | Available | Available | Available
-|Usage Charts (Access Management)| Not planned | Not planned | Not planned | Not planned | Planned
+|Usage Charts (Access Management)| Not planned | Not planned | Not planned | Not planned | Not planned
 
 |xref:rpa-home::index.adoc[RPA]| n/a | Available | Available | Not planned | Not planned | Not planned| n/a
 |xref:runtime-fabric::index.adoc[Runtime Fabric]| n/a | Available | Available | Available | Available | Available|  Contact your account manager to unlock this capability.
