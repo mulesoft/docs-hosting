@@ -240,7 +240,7 @@ This table indicates the available and planned cloud regions for Hyperforce:
 | Asia Pacific | `jp1.platform.mulesoft.com` | Available
 
 | https://in1.platform.mulesoft.com[India Cloud]
-| Asia Pacific | `in1.platform.mulesoft.com` | Planned
+| Asia Pacific | `in1.platform.mulesoft.com` | Available
 |===
 
 == Mule Runtime Version Compatibility
