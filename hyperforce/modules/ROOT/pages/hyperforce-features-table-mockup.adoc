@@ -1136,3 +1136,103 @@ India Cloud::
 |===
 --
 ====
+
+== Option 3: Nested Tabs (Geographic Region > Cloud)
+
+Outer tabs group by geographic region (Americas, EMEA, APAC). Inner tabs drill down to individual cloud regions. This is a prototype using only Americas to test whether nested `[tabs]` blocks render correctly.
+
+NOTE: This uses `=====` (5 equals signs) for the inner tab delimiter. Whether this renders as nested tabs depends on the Antora UI tabs extension version in use.
+
+[tabs]
+====
+Americas::
++
+--
+[tabs]
+=====
+US Cloud::
++
+--
+[%header%autowidth.spread,cols=".^a,.^a,.^a"]
+|===
+|Component |Feature Description |Status
+
+.4+| xref:access-management::index.adoc[Access Management] | All other features | Planned
+| Audit Logging | Planned
+| Business Groups | Planned
+| External Identity Management Integration | Planned
+
+.2+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Planned
+| Links to logs and traces | Planned
+
+.5+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned
+| API Manager 1.x | Not planned
+| API Manager 2.x | Planned
+| API Service Mesh | Planned
+| API Console Proxy/Trusted Domains | Planned
+
+.2+| xref:anypoint-cli::index.adoc[Anypoint CLI] | All features | Planned
+| API Catalog CLI | Planned
+
+.6+| xref:cloudhub-2::index.adoc[CloudHub 2.0] | All other features | Available
+| Deleting the Default Egress Route | Available
+| Global Cloud Deployment | Available
+| Private Space | Available
+| Private Space - VPN | Available
+| Shared Spaces | Available
+
+| xref:runtime-fabric::index.adoc[Runtime Fabric] | n/a | Available
+| xref:general::usage-reports.adoc[Usage Reports] | n/a | Available
+|===
+--
+
+Canada Cloud::
++
+--
+[%header%autowidth.spread,cols=".^a,.^a,.^a"]
+|===
+|Component |Feature Description |Status
+
+.4+| xref:access-management::index.adoc[Access Management] | All other features | Available
+| Audit Logging | Available
+| Business Groups | Available
+| External Identity Management Integration | Available
+
+.2+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Available
+| Links to logs and traces | Planned
+
+.5+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Available
+| API Manager 1.x | Not planned
+| API Manager 2.x | Available
+| API Service Mesh | Not planned
+| API Console Proxy/Trusted Domains | Planned
+
+.2+| xref:anypoint-cli::index.adoc[Anypoint CLI] | All features | Available
+| API Catalog CLI | Available
+
+.6+| xref:cloudhub-2::index.adoc[CloudHub 2.0] | All other features | Available
+| Deleting the Default Egress Route | Planned
+| Global Cloud Deployment | Not planned
+| Private Space | Available
+| Private Space - VPN | Available
+| Shared Spaces | Available
+
+| xref:runtime-fabric::index.adoc[Runtime Fabric] | n/a | Available
+| xref:general::usage-reports.adoc[Usage Reports] | n/a | Available
+|===
+--
+=====
+--
+
+EMEA::
++
+--
+_See Option 1 or Option 2 for full EMEA data. This section is a placeholder to demonstrate the outer tab structure._
+--
+
+APAC::
++
+--
+_See Option 1 or Option 2 for full APAC data. This section is a placeholder to demonstrate the outer tab structure._
+--
+====
