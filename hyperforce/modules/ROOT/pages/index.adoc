@@ -199,7 +199,12 @@ Americas::
 
 | xref:rpa-home::index.adoc[RPA] | n/a | Planned | Not planned | n/a
 
-| xref:runtime-fabric::index.adoc[Runtime Fabric] | n/a | Planned | Available | Contact your account manager to unlock this capability. For network configuration by control plane, refer to xref:runtime-fabric::install-self-managed-network-configuration.adoc[Network Configuration].
+| xref:runtime-fabric::index.adoc[Runtime Fabric] | n/a | Planned | Available a| Contact your account manager to unlock this capability. For more information, refer to:
+
+* xref:runtime-fabric::install-self-managed-network-configuration.adoc[Configuring Your Network to Support Runtime Fabric]
+* xref:runtime-fabric::configure-local-registry.adoc[Using a Local Registry with Runtime Fabric]
+* xref:runtime-fabric::install-helm.adoc[Installing Runtime Fabric Using Helm]
+* xref:runtime-fabric::use-anypoint-monitoring.adoc[Using Anypoint Monitoring]
 
 | xref:general::usage-reports.adoc[Usage Reports] | n/a | Planned | Available | n/a
 |===
@@ -374,7 +379,12 @@ Europe::
 
 | xref:rpa-home::index.adoc[RPA] | n/a | Planned | n/a
 
-| xref:runtime-fabric::index.adoc[Runtime Fabric] | n/a | Planned | Contact your account manager to unlock this capability. For network configuration by control plane, refer to xref:runtime-fabric::install-self-managed-network-configuration.adoc[Network Configuration].
+| xref:runtime-fabric::index.adoc[Runtime Fabric] | n/a | Planned a| Contact your account manager to unlock this capability. For more information, refer to:
+
+* xref:runtime-fabric::install-self-managed-network-configuration.adoc[Configuring Your Network to Support Runtime Fabric]
+* xref:runtime-fabric::configure-local-registry.adoc[Using a Local Registry with Runtime Fabric]
+* xref:runtime-fabric::install-helm.adoc[Installing Runtime Fabric Using Helm]
+* xref:runtime-fabric::use-anypoint-monitoring.adoc[Using Anypoint Monitoring]
 
 | xref:general::usage-reports.adoc[Usage Reports] | n/a | Planned | n/a
 |===
@@ -549,7 +559,12 @@ Asia Pacific::
 
 | xref:rpa-home::index.adoc[RPA] | n/a | Not planned | Not planned | n/a
 
-| xref:runtime-fabric::index.adoc[Runtime Fabric] | n/a | Available | Available | Contact your account manager to unlock this capability. For network configuration by control plane, refer to xref:runtime-fabric::install-self-managed-network-configuration.adoc[Network Configuration].
+| xref:runtime-fabric::index.adoc[Runtime Fabric] | n/a | Available | Available a| Contact your account manager to unlock this capability. For more information, refer to:
+
+* xref:runtime-fabric::install-self-managed-network-configuration.adoc[Configuring Your Network to Support Runtime Fabric]
+* xref:runtime-fabric::configure-local-registry.adoc[Using a Local Registry with Runtime Fabric]
+* xref:runtime-fabric::install-helm.adoc[Installing Runtime Fabric Using Helm]
+* xref:runtime-fabric::use-anypoint-monitoring.adoc[Using Anypoint Monitoring]
 
 | xref:general::usage-reports.adoc[Usage Reports] | n/a | Available | Available | n/a
 |===
