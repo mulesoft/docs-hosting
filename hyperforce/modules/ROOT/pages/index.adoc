@@ -37,15 +37,15 @@ Americas::
 |===
 |Component |Feature Description |US Cloud |Canada Cloud |Notes
 
-.4+| xref:access-management::index.adoc[Access Management] | All other features | Planned | Available .4+| n/a
-| Audit Logging | Planned | Available
-| Business Groups | Planned | Available
-| External Identity Management Integration | Planned | Available
+.4+| xref:access-management::index.adoc[Access Management] | All other features | Planned | Planned .4+| n/a
+| Audit Logging | Planned | Planned
+| Business Groups | Planned | Planned
+| External Identity Management Integration | Planned | Planned
 
-.2+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Planned | Available .2+| n/a
+.2+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Planned | Planned .2+| n/a
 | Links to logs and traces | Planned | Planned
 
-.8+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned | Available .8+a| For details, refer to:
+.8+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned | Planned .8+a| For details, refer to:
 
 * xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane]
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
@@ -53,25 +53,25 @@ Americas::
 | API Analytics | Not planned | Not planned
 | API Alerts | Planned | Planned
 | API Manager 1.x | Not planned | Not planned
-| API Manager 2.x | Planned | Available
+| API Manager 2.x | Planned | Planned
 | API Service Mesh | Planned | Not planned
 | API Console Proxy/Trusted Domains | Planned | Planned
 | Key Metrics | Planned | Planned
 
-.2+| xref:anypoint-cli::index.adoc[Anypoint CLI] | All features | Planned | Available .2+| n/a
-| API Catalog CLI | Planned | Available
+.2+| xref:anypoint-cli::index.adoc[Anypoint CLI] | All features | Planned | Planned .2+| n/a
+| API Catalog CLI | Planned | Planned
 
-.5+| xref:anypoint-code-builder::index.adoc[Anypoint Code Builder] | All other features | Planned | Available .5+| For details, refer to xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud Hosts]
-| Agent Network Projects (Agent Broker) | Planned | Available
-| MuleSoft Vibes | Planned | Available
-| Generative Data Transformations | Planned | Available
-| Generative MUnit | Planned | Available
+.5+| xref:anypoint-code-builder::index.adoc[Anypoint Code Builder] | All other features | Planned | Planned .5+| For details, refer to xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud Hosts]
+| Agent Network Projects (Agent Broker) | Planned | Planned
+| MuleSoft Vibes | Planned | Planned
+| Generative Data Transformations | Planned | Planned
+| Generative MUnit | Planned | Planned
 
-.6+| xref:exchange::index.adoc[Anypoint Exchange] | All other features | Planned | Available .6+| For details, refer to xref:exchange::index.adoc#exchange-on-control-planes[Anypoint Exchange on Control Planes]
-| AI Documentation Generation | Planned | Available
+.6+| xref:exchange::index.adoc[Anypoint Exchange] | All other features | Planned | Planned .6+| For details, refer to xref:exchange::index.adoc#exchange-on-control-planes[Anypoint Exchange on Control Planes]
+| AI Documentation Generation | Planned | Planned
 | Amazon Cloud Front | Planned | Planned
-| Agent, MCP, and LLM assets (Agent Registry) | Planned | Available
-| Agent Scanners | Planned | Available
+| Agent, MCP, and LLM assets (Agent Registry) | Planned | Planned
+| Agent Scanners | Planned | Planned
 | Usage and Engagement Metrics | Planned | Planned
 
 .13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .13+a| For details, refer to:
@@ -82,124 +82,124 @@ Americas::
 * xref:monitoring::alerts-hf.adoc#alerts[Alerts on Hyperforce]
 
 | Basic Alerts | Planned | Planned
-| Basic Monitoring | Planned | Available
+| Basic Monitoring | Planned | Planned
 | HSA Enabled | Planned | Planned
 | Standard Dashboards | Planned | Planned
 | Custom Dashboards | Planned | Planned
 | Traces Beta | Planned | Not planned
-| Telemetry Exporter | Planned | Available
+| Telemetry Exporter | Planned | Planned
 | Visualizer | Planned | Planned
-| Log-Search | Planned | Available
-| Log-Tailing | Planned | Available
+| Log-Search | Planned | Planned
+| Log-Tailing | Planned | Planned
 | Raw Data Download | Planned | Planned
 | Reports | Planned | Planned
 
-.18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Planned | Available .18+a| For details, refer to:
+.18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Planned | Planned .18+a| For details, refer to:
 
 * xref:mq::index.adoc#mq-features-control-plane[Anypoint MQ Features by Control Plane]
 * xref:mq::index.adoc#mq-on-hyperforce[Limitations by Control Plane]
 * xref:mq::mq-faq.adoc#mq-hyperforce[Anypoint MQ Available Regions]
-| Anypoint MQ Admin API | Planned | Available
-| Anypoint MQ Broker API | Planned | Available
+| Anypoint MQ Admin API | Planned | Planned
+| Anypoint MQ Broker API | Planned | Planned
 | Anypoint MQ Connector earlier than 4.x | Planned | Not planned
-| Anypoint MQ Connector versions 4.x and later | Planned | Available
-| Anypoint MQ Stats API (Anypont MQ Stats only) | Planned | Available
+| Anypoint MQ Connector versions 4.x and later | Planned | Planned
+| Anypoint MQ Stats API (Anypont MQ Stats only) | Planned | Planned
 | Anypoint MQ Stats API (Usage Metrics) | Planned | Not planned
 | Client Apps | Planned | Not planned
 | CloudHub 1.0 Deployments | Planned | Not planned
-| Connected Apps | Planned | Available
+| Connected Apps | Planned | Planned
 | Cross-Region Failover | Planned | Not planned
-| Encrypted Queues | Planned | Available
+| Encrypted Queues | Planned | Planned
 | FIFO Exchange | Planned | Planned
-| Message Exchanges | Planned | Available
-| Message Routing | Planned | Available
+| Message Exchanges | Planned | Planned
+| Message Routing | Planned | Planned
 | Unencrypted Queues | Not planned | Not planned
 | Usage Charts (Access Management) | Not planed | Not planned
-| Usage Reports (Usage) | Planned | Available
+| Usage Reports (Usage) | Planned | Planned
 
-.2+| xref:partner-manager::index.adoc[Anypoint Partner Manager] | All other features | Planned | Available .2+| n/a
+.2+| xref:partner-manager::index.adoc[Anypoint Partner Manager] | All other features | Planned | Planned .2+| n/a
 | Generative B2B Message Summary Feature | Planned | Planned
 
 | xref:private-cloud::index.adoc[Anypoint Private Cloud Edition] | n/a | Not planned | Not planned | Anypoint Private Cloud Edition (Anypoint Platform PCE) is a complete software package that you install and manage entirely within your private network. PCE runs exclusively on your infrastructure and isn't hosted or managed on any public cloud by MuleSoft.
 
-.3+| xref:runtime-manager::index.adoc[Anypoint Runtime Manager] | All non Monitoring features | Planned | Available .3+| n/a
+.3+| xref:runtime-manager::index.adoc[Anypoint Runtime Manager] | All non Monitoring features | Planned | Planned .3+| n/a
 | Insights | Not planned | Not planned
 | Monitoring for Hybrid Standalone Deployments | Planned | Not planned
 
-| xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager] | n/a | Planned | Available | n/a
+| xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager] | n/a | Planned | Planned | n/a
 
-| xref:studio::index.adoc[Anypoint Studio] | n/a | Planned | Available | For details, refer to xref:studio::hyperforce-configuration.adoc[Configuring Anypoint Studio for Control Planes]
+| xref:studio::index.adoc[Anypoint Studio] | n/a | Planned | Planned | For details, refer to xref:studio::hyperforce-configuration.adoc[Configuring Anypoint Studio for Control Planes]
 
-.3+| xref:visualizer::index.adoc[API Visualizer] | Architecture | Planned | Available .3+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
-| Policies | Planned | Available
+.3+| xref:visualizer::index.adoc[API Visualizer] | Architecture | Planned | Planned .3+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
+| Policies | Planned | Planned
 | Troubleshooting | Planned | Planned
 
-| xref:api-community-manager::index.adoc[API Community Manager] | n/a | Planned | Available | n/a
+| xref:api-community-manager::index.adoc[API Community Manager] | n/a | Planned | Planned | n/a
 
 | xref:design-center::design-create-publish-api-specs.adoc[API Designer] | n/a | Planned | Not planned | n/a
 
-| xref:api-experience-hub::index.adoc[API Experience Hub] | n/a | Planned | Available | n/a
+| xref:api-experience-hub::index.adoc[API Experience Hub] | n/a | Planned | Planned | n/a
 
-| xref:api-functional-monitoring::index.adoc[API Functional Monitoring] | n/a | Planned | Available | n/a
+| xref:api-functional-monitoring::index.adoc[API Functional Monitoring] | n/a | Planned | Planned | n/a
 
-| xref:api-governance::index.adoc[API Governance] | n/a | Planned | Available | n/a
+| xref:api-governance::index.adoc[API Governance] | n/a | Planned | Planned | n/a
 
-| xref:design-center::design-mocking-service.adoc[API Mocking Service] | n/a | Planned | Available | n/a
+| xref:design-center::design-mocking-service.adoc[API Mocking Service] | n/a | Planned | Planned | n/a
 
 .2+| xref:cloudhub::index.adoc[CloudHub] | All other features | Planned | Not planned .2+| n/a
 | Global CloudHub Deployment | Planned | Not planned
 
-.6+| xref:cloudhub-2::index.adoc[CloudHub 2.0] | All other features | Planned | Available .6+a| For details, refer to:
+.6+| xref:cloudhub-2::index.adoc[CloudHub 2.0] | All other features | Planned | Planned .6+a| For details, refer to:
 
 * xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 Features by Control Plane]
 * xref:cloudhub-2::ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records]
 | Deleting the Default Egress Route | Planned | Planned
 | Global Cloud Deployment | Planned | Not planned
-| Private Space | Planned | Available
-| Private Space - VPN | Planned | Available
-| Shared Spaces | Planned | Available
+| Private Space | Planned | Planned
+| Private Space - VPN | Planned | Planned
+| Shared Spaces | Planned | Planned
 
-| xref:connectors::index.adoc[Connectors] |  | Planned | Available | 
+| xref:connectors::index.adoc[Connectors] |  | Planned | Planned | 
 
-| xref:dataweave::index.adoc[DataWeave] | n/a | Planned | Available | n/a
+| xref:dataweave::index.adoc[DataWeave] | n/a | Planned | Planned | n/a
 
 | Dataloader | n/a | Planned | Not planned | https://dataloader.io/[Dataloader.io] will remain accessible globally, while its infrastructure will be hosted within the US Control Plane.
 
-.7+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway in CloudHub 2.0 | Planned | Available .7+| n/a
-| Managed Omni Gateway in CloudHub 2.0 (Agent Broker and Agent Governance) | Planned | Available
-| Managed Omni Gateway in Runtime Fabric | Planned | Available
-| Managed Omni Gateway in Runtime Fabric (Agent Broker and Agent Governance) | Planned | Available
-| Self-Managed Connected Mode | Planned | Available
-| Self-Managed Connected Mode (Agent Governance) | Planned | Available
-| Self-Managed Local Mode | Planned | Available
+.7+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway in CloudHub 2.0 | Planned | Planned .7+| n/a
+| Managed Omni Gateway in CloudHub 2.0 (Agent Broker and Agent Governance) | Planned | Planned
+| Managed Omni Gateway in Runtime Fabric | Planned | Planned
+| Managed Omni Gateway in Runtime Fabric (Agent Broker and Agent Governance) | Planned | Planned
+| Self-Managed Connected Mode | Planned | Planned
+| Self-Managed Connected Mode (Agent Governance) | Planned | Planned
+| Self-Managed Local Mode | Planned | Planned
 
 | xref:hybrid-standalone::index.adoc[Hybrid Standalone Deployment] | n/a | Planned | Planned | n/a
 
 | xref:idp::index.adoc[IDP] | n/a | Planned | Not planned | n/a
 
-.2+| xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway] | Mule Gateway Proxies | Planned | Available .2+| n/a
-| Mule Gateway Policies | Planned | Available
+.2+| xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway] | Mule Gateway Proxies | Planned | Planned .2+| n/a
+| Mule Gateway Policies | Planned | Planned
 
-.2+| xref:mule-runtime::index.adoc[Mule runtime engine] | All features | Planned | Available .2+| Mule 3 is not supported as it reached EOL.
-| Diagnostics Agent | Planned | Available
+.2+| xref:mule-runtime::index.adoc[Mule runtime engine] | All features | Planned | Planned .2+| Mule 3 is not supported as it reached EOL.
+| Diagnostics Agent | Planned | Planned
 
-| xref:munit::index.adoc[MUnit] | All features | Planned | Available | n/a
+| xref:munit::index.adoc[MUnit] | All features | Planned | Planned | n/a
 
-.6+| xref:object-store::index.adoc[Object Store V2] | All other features | Planned | Available .6+a| For details, refer to:
+.6+| xref:object-store::index.adoc[Object Store V2] | All other features | Planned | Planned .6+a| For details, refer to:
 
 * xref:object-store::index.adoc#os-features-control-plane[Object Store Features by Control Plane]
 * xref:object-store::osv2-faq.adoc#osv2-regions[Object Store v2 Regions]
-| Connected Apps | Planned | Available
+| Connected Apps | Planned | Planned
 | CloudHub 1.0 Deployments | Planned | Not planned
 | Object Store v2 Stats API | Not planned | Not planned
-| Usage Reports (Usage) | Planned | Available
+| Usage Reports (Usage) | Planned | Planned
 | Usage Charts (Access Management) | Not planned | Not planned
 
 | xref:rpa-home::index.adoc[RPA] | n/a | Planned | Not planned | n/a
 
-| xref:runtime-fabric::index.adoc[Runtime Fabric] | n/a | Planned | Available | Contact your account manager to unlock this capability. For network configuration by control plane, refer to xref:runtime-fabric::install-self-managed-network-configuration.adoc[Network Configuration].
+| xref:runtime-fabric::index.adoc[Runtime Fabric] | n/a | Planned | Planned | Contact your account manager to unlock this capability. For network configuration by control plane, refer to xref:runtime-fabric::install-self-managed-network-configuration.adoc[Network Configuration].
 
-| xref:general::usage-reports.adoc[Usage Reports] | n/a | Planned | Available | n/a
+| xref:general::usage-reports.adoc[Usage Reports] | n/a | Planned | Planned | n/a
 |===
 --
 
