@@ -165,6 +165,8 @@ Americas::
 
 | Dataloader | n/a | Planned | Not planned | https://dataloader.io/[Dataloader.io] will remain accessible globally, while its infrastructure will be hosted within the US Control Plane.
 
+| xref:general::exp-overview.adoc[Enhanced MuleSoft Experience] | n/a | Planned | Available | n/a
+
 .7+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway in CloudHub 2.0 | Planned | Available .7+| n/a
 | Managed Omni Gateway in CloudHub 2.0 (Agent Broker and Agent Governance) | Planned | Available
 | Managed Omni Gateway in Runtime Fabric | Planned | Available
@@ -338,6 +340,8 @@ Europe::
 
 | Dataloader | n/a | Not planned | https://dataloader.io/[Dataloader.io] will remain accessible globally, while its infrastructure will be hosted within the US Control Plane.
 
+| xref:general::exp-overview.adoc[Enhanced MuleSoft Experience] | n/a | Planned | n/a
+
 .7+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway in CloudHub 2.0 | Planned .7+| n/a
 | Managed Omni Gateway in CloudHub 2.0 (Agent Broker and Agent Governance) | Planned
 | Managed Omni Gateway in Runtime Fabric | Planned
@@ -510,6 +514,8 @@ Asia Pacific::
 | xref:dataweave::index.adoc[DataWeave] | n/a | Available | Available | n/a
 
 | Dataloader | n/a | Not planned | Not planned | https://dataloader.io/[Dataloader.io] will remain accessible globally, while its infrastructure will be hosted within the US Control Plane.
+
+| xref:general::exp-overview.adoc[Enhanced MuleSoft Experience] | n/a | Available | Available | n/a
 
 .7+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway in CloudHub 2.0 | Available | Available .7+| n/a
 | Managed Omni Gateway in CloudHub 2.0 (Agent Broker and Agent Governance) | Available | Planned
