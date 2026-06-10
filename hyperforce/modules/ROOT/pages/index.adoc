@@ -109,7 +109,7 @@ Americas::
 | Connected Apps | Planned | Available
 | Cross-Region Failover | Planned | Not planned
 | Encrypted Queues | Planned | Available
-| FIFO Exchange | Planned | Planned
+| FIFO Exchange | Planned | Available
 | Message Exchanges | Planned | Available
 | Message Routing | Planned | Available
 | Unencrypted Queues | Not planned | Not planned
@@ -467,7 +467,7 @@ Asia Pacific::
 | Connected Apps | Available | Available
 | Cross-Region Failover | Not planned | Not planned
 | Encrypted Queues | Available | Available
-| FIFO Exchange | Planned | Available
+| FIFO Exchange | Available | Available
 | Message Exchanges | Available | Available
 | Message Routing | Available | Available
 | Unencrypted Queues | Not planned | Not planned
