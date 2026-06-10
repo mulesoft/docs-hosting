@@ -74,7 +74,7 @@ Americas::
 | Agent Scanners | Planned | Available
 | Usage and Engagement Metrics | Planned | Planned
 
-.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .13+a| For details, refer to:
+.12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .12+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
 * xref:monitoring::logs-search-hf.adoc[Log Search on Hyperforce]
@@ -91,7 +91,6 @@ Americas::
 | Visualizer | Planned | Planned
 | Log-Search | Planned | Available
 | Log-Tailing | Planned | Available
-| Raw Data Download | Planned | Planned
 | Reports | Planned | Planned
 
 .18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Planned | Available .18+a| For details, refer to:
@@ -254,7 +253,7 @@ Europe::
 | Agent Scanners | Planned
 | Usage and Engagement Metrics | Planned
 
-.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned .13+a| For details, refer to:
+.12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned .12+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
 * xref:monitoring::logs-search-hf.adoc[Log Search on Hyperforce]
@@ -271,7 +270,6 @@ Europe::
 | Visualizer | Planned
 | Log-Search | Planned
 | Log-Tailing | Planned
-| Raw Data Download | Planned
 | Reports | Planned
 
 .18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Planned .18+a| For details, refer to:
@@ -434,7 +432,7 @@ Asia Pacific::
 | Agent Scanners | Available | Available
 | Usage and Engagement Metrics | Planned | Available
 
-.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .13+a| For details, refer to:
+.12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .12+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
 * xref:monitoring::logs-search-hf.adoc[Log Search on Hyperforce]
@@ -451,7 +449,6 @@ Asia Pacific::
 | Visualizer | Planned | Planned
 | Log-Search | Available | Available
 | Log-Tailing | Available | Available
-| Raw Data Download | Planned | Available
 | Reports | Planned | Available
 
 .18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Available | Available .18+a| For details, refer to:
