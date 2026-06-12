@@ -522,7 +522,7 @@ Asia Pacific::
 
 | Dataloader | n/a | Not planned | Not planned | https://dataloader.io/[Dataloader.io] will remain accessible globally, while its infrastructure will be hosted within the US Control Plane.
 
-| xref:general::exp-overview.adoc[Enhanced MuleSoft Experience and Remote MCP Server] | New control plane experience for MuleSoft and the associate MCP server. | Available | Available | n/a
+| xref:general::exp-overview.adoc[Enhanced MuleSoft Experience and Remote MCP Server] | New control plane experience for MuleSoft and the associate MCP server. | Available | Planned | n/a
 
 .7+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway in CloudHub 2.0 | Available | Available .7+| n/a
 | Managed Omni Gateway in CloudHub 2.0 (Agent Broker and Agent Governance) | Available | Planned
