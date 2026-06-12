@@ -7,7 +7,7 @@ Configure CPU-based horizontal scaling for Mule applications to make them respon
 
 [NOTE]
 ====
-This feature is available to organization with an Enterprise License Agreement (ELA). If the Horizontal Pod Autoscaling option is not visible in the Runtime Manager UI, contact your account team to confirm the SKU is enabled.
+This feature is available to organizations with an Enterprise License Agreement (ELA) or opted into the new pricing and packaging model. If the Horizontal Pod Autoscaling option is not visible in the Runtime Manager UI, contact your account team.
 ====
 
 In Kubernetes, a Horizontal Pod Autoscaler (HPA) automatically updates a workload resource to scale the workload to match demand. Horizontal scaling automatically deploys more pods as a response to an increased load. For more information, visit the https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/[Kubernetes documentaton^]. 
@@ -122,10 +122,7 @@ Max replicas: +
 * The maximum number of capped replicas. No more replicas can be added above this number for scaling up.
 * Scale-up policy should never add replicas above this number.
 
-Enabling HPA can result in additional resource consumption when your application scales horizontally. Configure the maximum number of replicas judiciously to stay within your purchased limits:
-
-* vCore ELA customers: HPA doesn't introduce overage billing. Your contracted vCore allotment governs your renewal. Monitor combined vCore consumption across CloudHub and CloudHub 2.0 in the unified xref:general::usage-reports.adoc[Usage Reports] dashboard.
-* Flow-based pricing customers (Anypoint Integration Advanced, Platinum, or Titanium): To avoid overages from unpredicted scaling, stay within your purchased flow limits. Track your incurred flow usage through xref:general::usage-reports.adoc[usage reports].
+Enabling HPA can result in customers incurring additional flow usage when your application scales horizontally. To avoid overages from unpredicted scaling, configure the maximum configured replicas judiciously to stay within purchased flow limits. Track your incurred flow usage through xref:general::usage-reports.adoc[usage reports].
 
 
 == Performance Considerations
