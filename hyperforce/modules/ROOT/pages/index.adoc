@@ -92,6 +92,7 @@ Americas::
 | Log-Search | Planned | Available
 | Log-Tailing | Planned | Available
 | Reports | Planned | Planned
+|Integration Intelligence | Planned | Available
 
 .18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Planned | Available .18+a| For details, refer to:
 
