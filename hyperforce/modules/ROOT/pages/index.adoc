@@ -449,6 +449,7 @@ Asia Pacific::
 | Visualizer | Planned | Planned
 | Log-Search | Available | Available
 | Log-Tailing | Available | Available
+|Integration Intelligence | Available | Available
 | Reports | Planned | Available
 
 .18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Available | Available .18+a| For details, refer to:
