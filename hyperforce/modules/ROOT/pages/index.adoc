@@ -45,7 +45,7 @@ Americas::
 .2+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Planned | Available .2+| n/a
 | Links to logs and traces | Planned | Planned
 
-.8+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned | Available .8+a| For details, refer to:
+.7+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned | Available .7+a| For details, refer to:
 
 * xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane]
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
@@ -56,7 +56,6 @@ Americas::
 | API Manager 2.x | Planned | Available
 | API Service Mesh | Planned | Not planned
 | API Console Proxy/Trusted Domains | Planned | Planned
-| Key Metrics | Planned | Planned
 
 .2+| xref:anypoint-cli::index.adoc[Anypoint CLI] | All features | Planned | Available .2+| n/a
 | API Catalog CLI | Planned | Available
@@ -67,12 +66,11 @@ Americas::
 | Generative Data Transformations | Planned | Available
 | Generative MUnit | Planned | Available
 
-.6+| xref:exchange::index.adoc[Anypoint Exchange] | All other features | Planned | Available .6+| For details, refer to xref:exchange::index.adoc#exchange-on-control-planes[Anypoint Exchange on Control Planes]
+.5+| xref:exchange::index.adoc[Anypoint Exchange] | All other features | Planned | Available .5+| For details, refer to xref:exchange::index.adoc#exchange-on-control-planes[Anypoint Exchange on Control Planes]
 | AI Documentation Generation | Planned | Available
 | Amazon Cloud Front | Planned | Planned
 | Agent, MCP, and LLM assets (Agent Registry) | Planned | Available
 | Agent Scanners | Planned | Available
-| Usage and Engagement Metrics | Planned | Planned
 
 .13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .13+a| For details, refer to:
 
@@ -225,7 +223,7 @@ Europe::
 .2+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Planned .2+| n/a
 | Links to logs and traces | Planned
 
-.8+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned .8+a| For details, refer to:
+.7+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned .7+a| For details, refer to:
 
 * xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane]
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
@@ -236,7 +234,6 @@ Europe::
 | API Manager 2.x | Planned
 | API Service Mesh | Planned
 | API Console Proxy/Trusted Domains | Planned
-| Key Metrics | Planned
 
 .2+| xref:anypoint-cli::index.adoc[Anypoint CLI] | All features | Planned .2+| n/a
 | API Catalog CLI | Planned
@@ -247,12 +244,11 @@ Europe::
 | Generative Data Transformations | Planned
 | Generative MUnit | Planned
 
-.6+| xref:exchange::index.adoc[Anypoint Exchange] | All other features | Planned .6+| For details, refer to xref:exchange::index.adoc#exchange-on-control-planes[Anypoint Exchange on Control Planes]
+.5+| xref:exchange::index.adoc[Anypoint Exchange] | All other features | Planned .5+| For details, refer to xref:exchange::index.adoc#exchange-on-control-planes[Anypoint Exchange on Control Planes]
 | AI Documentation Generation | Planned
 | Amazon Cloud Front | Planned
 | Agent, MCP, and LLM assets (Agent Registry) | Planned
 | Agent Scanners | Planned
-| Usage and Engagement Metrics | Planned
 
 .13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned .13+a| For details, refer to:
 
@@ -405,7 +401,7 @@ Asia Pacific::
 .2+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Available | Available .2+| n/a
 | Links to logs and traces | Planned | Available
 
-.8+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Available | Available .8+a| For details, refer to:
+.7+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Available | Available .7+a| For details, refer to:
 
 * xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane]
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
@@ -416,7 +412,6 @@ Asia Pacific::
 | API Manager 2.x | Available | Available
 | API Service Mesh | Not planned | Not planned
 | API Console Proxy/Trusted Domains | Planned | Available
-| Key Metrics | Planned | Available
 
 .2+| xref:anypoint-cli::index.adoc[Anypoint CLI] | All features | Available | Available .2+| n/a
 | API Catalog CLI | Available | Available
@@ -427,12 +422,11 @@ Asia Pacific::
 | Generative Data Transformations | Available | Available
 | Generative MUnit | Available | Available
 
-.6+| xref:exchange::index.adoc[Anypoint Exchange] | All other features | Available | Available .6+| For details, refer to xref:exchange::index.adoc#exchange-on-control-planes[Anypoint Exchange on Control Planes]
+.5+| xref:exchange::index.adoc[Anypoint Exchange] | All other features | Available | Available .5+| For details, refer to xref:exchange::index.adoc#exchange-on-control-planes[Anypoint Exchange on Control Planes]
 | AI Documentation Generation | Available | Available
 | Amazon Cloud Front | Planned | Available
 | Agent, MCP, and LLM assets (Agent Registry) | Available | Available
 | Agent Scanners | Available | Available
-| Usage and Engagement Metrics | Planned | Available
 
 .13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .13+a| For details, refer to:
 
