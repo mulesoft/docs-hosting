@@ -45,7 +45,7 @@ Americas::
 .2+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Planned | Available .2+| n/a
 | Links to logs and traces | Planned | Planned
 
-.7+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned | Available .7+a| For details, refer to:
+.6+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned | Available .6+a| For details, refer to:
 
 * xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane]
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
@@ -54,7 +54,6 @@ Americas::
 | API Alerts | Planned | Planned
 | API Manager 1.x | Not planned | Not planned
 | API Manager 2.x | Planned | Available
-| API Service Mesh | Planned | Not planned
 | API Console Proxy/Trusted Domains | Planned | Planned
 
 .2+| xref:anypoint-cli::index.adoc[Anypoint CLI] | All features | Planned | Available .2+| n/a
@@ -223,7 +222,7 @@ Europe::
 .2+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Planned .2+| n/a
 | Links to logs and traces | Planned
 
-.7+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned .7+a| For details, refer to:
+.6+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned .6+a| For details, refer to:
 
 * xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane]
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
@@ -232,7 +231,6 @@ Europe::
 | API Alerts | Planned
 | API Manager 1.x | Not planned
 | API Manager 2.x | Planned
-| API Service Mesh | Planned
 | API Console Proxy/Trusted Domains | Planned
 
 .2+| xref:anypoint-cli::index.adoc[Anypoint CLI] | All features | Planned .2+| n/a
@@ -401,7 +399,7 @@ Asia Pacific::
 .2+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Available | Available .2+| n/a
 | Links to logs and traces | Planned | Available
 
-.7+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Available | Available .7+a| For details, refer to:
+.6+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Available | Available .6+a| For details, refer to:
 
 * xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane]
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
@@ -410,7 +408,6 @@ Asia Pacific::
 | API Alerts | Planned | Available
 | API Manager 1.x | Not planned | Not planned
 | API Manager 2.x | Available | Available
-| API Service Mesh | Not planned | Not planned
 | API Console Proxy/Trusted Domains | Planned | Available
 
 .2+| xref:anypoint-cli::index.adoc[Anypoint CLI] | All features | Available | Available .2+| n/a
