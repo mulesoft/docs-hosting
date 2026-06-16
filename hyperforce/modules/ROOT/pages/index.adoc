@@ -81,7 +81,7 @@ Americas::
 * xref:monitoring::logs-search-hf.adoc[Log Search on Hyperforce]
 * xref:monitoring::logs-search-hf-india.adoc[Log Search on Hyperforce - India Cloud]
 * xref:monitoring::alerts-hf.adoc#alerts[Alerts on Hyperforce]
-
+//MONITORING - AMERICAS: US | CANADA
 | Basic Alerts | Planned | Planned
 | Basic Monitoring | Available | Available
 | Hybrid Standalone Mule (HSA) Enabled | Planned | Planned
@@ -89,8 +89,8 @@ Americas::
 | Custom Dashboards | Available | Planned
 | Traces Beta | Available | Not planned
 | Telemetry Exporter | Planned | Available
-| Log-Search | Available | Planned
-| Log-Tailing | Planned | Available
+| Log Search | Available | Available (Beta)
+| Log Tailing | Planned | Available
 | Reports | Available | Available
 | Integration Intelligence | Planned | Available
 
