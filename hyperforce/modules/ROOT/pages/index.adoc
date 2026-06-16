@@ -78,9 +78,6 @@ Americas::
 .12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .11+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
-* xref:monitoring::logs-search-hf.adoc[Log Search on Hyperforce]
-* xref:monitoring::logs-search-hf-india.adoc[Log Search on Hyperforce - India Cloud]
-* xref:monitoring::alerts-hf.adoc#alerts[Alerts on Hyperforce]
 //MONITORING - AMERICAS: US | CANADA
 | Basic Alerts | Planned | Planned
 | Basic Monitoring | Available | Available
@@ -91,8 +88,8 @@ Americas::
 | Telemetry Exporter | Planned | Available
 | Log Search | Available | Available (Beta)
 | Log Tailing | Planned | Available
+| Integration Intelligence | Available | Available
 | Reports | Available | Available
-| Integration Intelligence | Planned | Available
 
 .18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Planned | Available .18+a| For details, refer to:
 
@@ -258,17 +255,14 @@ Europe::
 .12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned .11+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
-* xref:monitoring::logs-search-hf.adoc[Log Search on Hyperforce]
-* xref:monitoring::logs-search-hf-india.adoc[Log Search on Hyperforce - India Cloud]
-* xref:monitoring::alerts-hf.adoc#alerts[Alerts on Hyperforce]
-
+//MONITORING - EUROPE: EU
 | Basic Alerts | Planned
 | Basic Monitoring | Available
 | Hybrid Standalone Mule (HSA) Enabled | Planned
 | Standard Dashboards (Anypoint Insights) | Available
-| Custom Dashboards | Planned
+| Custom Dashboards | Available
 | Traces Beta | Not Planned
-| Telemetry Exporter | Available
+| Telemetry Exporter | Planned
 | Log Search | Available
 | Log Tailing | Planned
 | Reports | Available
@@ -438,10 +432,7 @@ Asia Pacific::
 .12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .13+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
-* xref:monitoring::logs-search-hf.adoc[Log Search on Hyperforce]
-* xref:monitoring::logs-search-hf-india.adoc[Log Search on Hyperforce - India Cloud]
-* xref:monitoring::alerts-hf.adoc#alerts[Alerts on Hyperforce]
-
+//MONITORING - ASIA: JA | INDIA
 | Basic Alerts | Planned | Available
 | Basic Monitoring | Available | Available
 | Hybrid Standalone Mule (HSA) Enabled | Planned | Planned
@@ -449,9 +440,9 @@ Asia Pacific::
 | Custom Dashboards | Planned | Planned
 | Traces Beta | Not planned | Not planned
 | Telemetry Exporter | Available | Available
-| Log Search | Available | Available
+| Log Search | Available (Beta) | Available
 | Log Tailing | Available | Available
-|Integration Intelligence | Available | Available
+| Integration Intelligence | Available | Available
 | Reports | Planned | Available
 
 .18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Available | Available .18+a| For details, refer to:
