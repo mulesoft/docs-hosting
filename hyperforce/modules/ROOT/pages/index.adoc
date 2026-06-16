@@ -254,7 +254,7 @@ Europe::
 | Agent Scanners | Planned
 | Usage and Engagement Metrics | Planned
 
-.12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned .12+a| For details, refer to:
+.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned .13+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
 * xref:monitoring::logs-search-hf.adoc[Log Search on Hyperforce]
@@ -271,6 +271,7 @@ Europe::
 | Visualizer | Planned
 | Log-Search | Planned
 | Log-Tailing | Planned
+| Integration Intelligence | Planned
 | Reports | Planned
 
 .18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Planned .18+a| For details, refer to:
