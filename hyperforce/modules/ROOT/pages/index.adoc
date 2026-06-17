@@ -164,13 +164,10 @@ Americas::
 
 | xref:general::exp-overview.adoc[Enhanced MuleSoft Experience and Remote MCP Server] | New control plane experience for MuleSoft and the associate MCP server. | Planned | Available | n/a
 
-.7+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway in CloudHub 2.0 | Planned | Available .7+| n/a
-| Managed Omni Gateway in CloudHub 2.0 (Agent Broker and Agent Governance) | Planned | Available
-| Managed Omni Gateway in Runtime Fabric | Planned | Available
-| Managed Omni Gateway in Runtime Fabric (Agent Broker and Agent Governance) | Planned | Available
-| Self-Managed Connected Mode | Planned | Available
-| Self-Managed Connected Mode (Agent Governance) | Planned | Available
-| Self-Managed Local Mode | Planned | Available
+.4+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway on CloudHub 2.0 | Planned | Available .4+| n/a
+| Managed Omni Gateway on Runtime Fabric | Planned | Available
+| Self-Managed - Connected Mode | Planned | Available
+| Self-Managed - Local Mode | Planned | Available
 
 | xref:hybrid-standalone::index.adoc[Hybrid Standalone Deployment] | n/a | Planned | Planned | n/a
 
@@ -341,13 +338,10 @@ Europe::
 
 | xref:general::exp-overview.adoc[Enhanced MuleSoft Experience and Remote MCP Server] | New control plane experience for MuleSoft and the associate MCP server. | Planned | n/a
 
-.7+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway in CloudHub 2.0 | Planned .7+| n/a
-| Managed Omni Gateway in CloudHub 2.0 (Agent Broker and Agent Governance) | Planned
-| Managed Omni Gateway in Runtime Fabric | Planned
-| Managed Omni Gateway in Runtime Fabric (Agent Broker and Agent Governance) | Planned
-| Self-Managed Connected Mode | Planned
-| Self-Managed Connected Mode (Agent Governance) | Planned
-| Self-Managed Local Mode | Planned
+.4+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway on CloudHub 2.0 | Planned .4+| n/a
+| Managed Omni Gateway on Runtime Fabric | Planned
+| Self-Managed - Connected Mode | Planned
+| Self-Managed - Local Mode | Planned
 
 | xref:hybrid-standalone::index.adoc[Hybrid Standalone Deployment] | n/a | Planned | n/a
 
@@ -518,13 +512,10 @@ Asia Pacific::
 
 | xref:general::exp-overview.adoc[Enhanced MuleSoft Experience and Remote MCP Server] | New control plane experience for MuleSoft and the associate MCP server. | Available | Planned | n/a
 
-.7+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway in CloudHub 2.0 | Available | Available .7+| n/a
-| Managed Omni Gateway in CloudHub 2.0 (Agent Broker and Agent Governance) | Available | Planned
-| Managed Omni Gateway in Runtime Fabric | Available | Available
-| Managed Omni Gateway in Runtime Fabric (Agent Broker and Agent Governance) | Available | Planned
-| Self-Managed Connected Mode | Available | Available
-| Self-Managed Connected Mode (Agent Governance) | Available | Planned
-| Self-Managed Local Mode | Available | Available
+.4+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway on CloudHub 2.0 | Available | Available .4+| n/a
+| Managed Omni Gateway on Runtime Fabric | Available | Available
+| Self-Managed - Connected Mode | Available | Available
+| Self-Managed - Local Mode | Available | Available
 
 | xref:hybrid-standalone::index.adoc[Hybrid Standalone Deployment] | n/a | Planned | Planned | n/a
 
