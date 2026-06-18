@@ -262,13 +262,6 @@ Europe::
 | Log Tailing | Planned
 | Reports | Available
 | Integration Intelligence | Available
-=======
-| Visualizer | Planned
-| Log-Search | Planned
-| Log-Tailing | Planned
-| Integration Intelligence | Planned
-| Reports | Planned
->>>>>>> latest
 
 .18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Planned .18+a| For details, refer to:
 
