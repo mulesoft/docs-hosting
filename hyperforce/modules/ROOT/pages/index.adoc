@@ -245,7 +245,6 @@ Europe::
 | Agent, MCP, and LLM assets (Agent Registry) | Planned
 | Agent Scanners | Planned
 
-<<<<<<< W-23024520-hyperforce-monitoring-duke
 //MONITORING - EUROPE: EU
 .12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned .11+a| For details, refer to:
 =======
