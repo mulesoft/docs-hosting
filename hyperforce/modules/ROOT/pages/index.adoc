@@ -85,7 +85,7 @@ Americas::
 | Telemetry Exporter | Planned | Available
 | Log Search | Available | Available (Beta)
 | Log Tailing | Planned | Available
-| Integration Intelligence | Available | Available
+| Integration Intelligence | Planned | Available
 | Reports | Available | Available
 
 .18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Planned | Available .18+a| For details, refer to:
@@ -257,7 +257,7 @@ Europe::
 | Log Search | Available
 | Log Tailing | Planned
 | Reports | Available
-| Integration Intelligence | Available
+| Integration Intelligence | Planned
 
 .18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Planned .18+a| For details, refer to:
 
