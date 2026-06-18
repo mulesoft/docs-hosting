@@ -257,7 +257,6 @@ Europe::
 | Custom Dashboards | Available
 | Traces Beta | Available
 | Telemetry Exporter | Planned
-<<<<<<< W-23024520-hyperforce-monitoring-duke
 | Log Search | Available
 | Log Tailing | Planned
 | Reports | Available
