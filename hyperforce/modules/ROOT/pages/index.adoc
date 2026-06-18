@@ -420,7 +420,7 @@ Asia Pacific::
 | Agent Scanners | Available | Available
 
 //MONITORING - ASIA: JA | INDIA
-.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .13+a| For details, refer to:
+.12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .12+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
 //MONITORING - ASIA: JA | INDIA
