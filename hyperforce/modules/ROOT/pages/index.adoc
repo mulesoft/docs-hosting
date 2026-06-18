@@ -246,7 +246,7 @@ Europe::
 | Agent Scanners | Planned
 
 //MONITORING - EUROPE: EU
-.12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned .11+a| For details, refer to:
+.12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned .12+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
 //MONITORING - EUROPE: EU
