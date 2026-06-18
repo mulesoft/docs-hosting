@@ -71,25 +71,22 @@ Americas::
 | Agent, MCP, and LLM assets (Agent Registry) | Planned | Available
 | Agent Scanners | Planned | Available
 
-.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .13+a| For details, refer to:
+//MONITORING - AMERICAS: US | CANADA
+.12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .12+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
-* xref:monitoring::logs-search-hf.adoc[Log Search on Hyperforce]
-* xref:monitoring::logs-search-hf-india.adoc[Log Search on Hyperforce - India Cloud]
-* xref:monitoring::alerts-hf.adoc#alerts[Alerts on Hyperforce]
-
+//MONITORING - AMERICAS: US | CANADA
 | Basic Alerts | Planned | Planned
-| Basic Monitoring | Planned | Available
-| HSA Enabled | Planned | Planned
-| Standard Dashboards | Planned | Planned
-| Custom Dashboards | Planned | Planned
-| Traces Beta | Planned | Not planned
+| Basic Monitoring | Available | Available
+| Hybrid Standalone Mule (HSA) Enabled | Planned | Planned
+| Standard Dashboards (Anypoint Insights) | Available | Available
+| Custom Dashboards | Available | Planned
+| Traces Beta | Available | Not planned
 | Telemetry Exporter | Planned | Available
-| Visualizer | Planned | Planned
-| Log-Search | Planned | Available
-| Log-Tailing | Planned | Available
-| Reports | Planned | Planned
-| Integration Intelligence | Planned | Available
+| Log Search | Available | Available (Beta)
+| Log Tailing | Planned | Available
+| Integration Intelligence | Available | Available
+| Reports | Available | Available
 
 .18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Planned | Available .18+a| For details, refer to:
 
@@ -245,25 +242,22 @@ Europe::
 | Agent, MCP, and LLM assets (Agent Registry) | Planned
 | Agent Scanners | Planned
 
-.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned .13+a| For details, refer to:
+//MONITORING - EUROPE: EU
+.12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned .12+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
-* xref:monitoring::logs-search-hf.adoc[Log Search on Hyperforce]
-* xref:monitoring::logs-search-hf-india.adoc[Log Search on Hyperforce - India Cloud]
-* xref:monitoring::alerts-hf.adoc#alerts[Alerts on Hyperforce]
-
+//MONITORING - EUROPE: EU
 | Basic Alerts | Planned
-| Basic Monitoring | Planned
-| HSA Enabled | Planned
-| Standard Dashboards | Planned
-| Custom Dashboards | Planned
-| Traces Beta | Planned
+| Basic Monitoring | Available
+| Hybrid Standalone Mule (HSA) Enabled | Planned
+| Standard Dashboards (Anypoint Insights) | Available
+| Custom Dashboards | Available
+| Traces Beta | Available
 | Telemetry Exporter | Planned
-| Visualizer | Planned
-| Log-Search | Planned
-| Log-Tailing | Planned
-| Integration Intelligence | Planned
-| Reports | Planned
+| Log Search | Available
+| Log Tailing | Planned
+| Reports | Available
+| Integration Intelligence | Available
 
 .18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Planned .18+a| For details, refer to:
 
@@ -419,24 +413,21 @@ Asia Pacific::
 | Agent, MCP, and LLM assets (Agent Registry) | Available | Available
 | Agent Scanners | Available | Available
 
-.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .13+a| For details, refer to:
+//MONITORING - ASIA: JA | INDIA
+.12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .12+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
-* xref:monitoring::logs-search-hf.adoc[Log Search on Hyperforce]
-* xref:monitoring::logs-search-hf-india.adoc[Log Search on Hyperforce - India Cloud]
-* xref:monitoring::alerts-hf.adoc#alerts[Alerts on Hyperforce]
-
+//MONITORING - ASIA: JA | INDIA
 | Basic Alerts | Planned | Available
 | Basic Monitoring | Available | Available
-| HSA Enabled | Planned | Planned
-| Standard Dashboards | Planned | Available
+| Hybrid Standalone Mule (HSA) Enabled | Planned | Planned
+| Standard Dashboards (Anypoint Insights) | Available | Available
 | Custom Dashboards | Planned | Planned
 | Traces Beta | Not planned | Not planned
 | Telemetry Exporter | Available | Available
-| Visualizer | Planned | Planned
-| Log-Search | Available | Available
-| Log-Tailing | Available | Available
-|Integration Intelligence | Available | Available
+| Log Search | Available (Beta) | Available
+| Log Tailing | Available | Available
+| Integration Intelligence | Available | Available
 | Reports | Planned | Available
 
 .18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Available | Available .18+a| For details, refer to:
