@@ -6,7 +6,7 @@ CloudHub 2.0 is a fully managed, containerized integration platform as a service
 
 CloudHub 2.0:
 
-* Provides for deployments across 12 regions globally.
+* Supports deployments across all the MuleSoft regions.
 * Dynamically scales infrastructure and built-in services up or down to support elastic transaction volumes.
 * Builds in security policies, protecting your services and sensitive data with encrypted secrets, firewall controls, and restricted shell access.
 * Encrypts certificates, passwords, and other sensitive configuration data at rest and in transit within Anypoint Platform.
@@ -21,14 +21,15 @@ All CloudHub 2.0 features are supported across all control planes, with a few ex
 
 * Deleting the default egress traffic route (0.0.0.0) can cause Anypoint Monitoring to fail in CloudHub 2.0.
 * The endpoint URL format requires the region suffix or not before `cloudhub.io`.
+* A different Ingress controller is used in India Cloud. It maintains feature parity, but has some behavior differences. Read this link:https://help.salesforce.com/s/articleView?id=005387259&type=1[knowledge article].
 
-[cols="~,15,20,20,20"]
+[cols="~,15,20,20,20,20"]
 |===
-|CloudHub 2.0 Features |US Cloud |EU Cloud |Canada Cloud |Japan Cloud
+|CloudHub 2.0 Features |US Cloud |EU Cloud |Canada Cloud |Japan Cloud |India Cloud
 
-| Deleting the Default Route| Available | Available | Not Available | Not Available
+| Deleting the Default Route| Available | Available | Not Available | Not Available | Not Available
 
-| Endpoints URL Format| No region suffix: `https://*.10u6w7.usa-e1.cloudhub.io`| Needs region suffix: `https://*.10u6w7.usa-e1.eu1.cloudhub.io` | Needs region suffix: `https://*.10u6w7.ca-c1.cloudhub.io` | Needs region suffix: `https://*.10u6w7.jp-e1.cloudhub.io`
+| Endpoints URL Format| No region suffix: `https://*.10u6w7.usa-e1.cloudhub.io`| Needs region suffix: `https://*.10u6w7.usa-e1.eu1.cloudhub.io` | Needs region suffix: `https://*.10u6w7.can-c1.ca1.cloudhub.io` | Needs region suffix: `https://*.10u6w7.jpn-e1.jp1.cloudhub.io` | Needs region suffix: `https://*.10u6w7.ind-w1.in1.cloudhub.io`
 |=== 
 
 
