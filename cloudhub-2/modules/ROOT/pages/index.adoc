@@ -21,7 +21,7 @@ All CloudHub 2.0 features are supported across all control planes, with a few ex
 
 * Deleting the default egress traffic route (0.0.0.0) can cause Anypoint Monitoring to fail in CloudHub 2.0.
 * The endpoint URL format requires the region suffix or not before `cloudhub.io`.
-* A different Ingress controller is used in India Cloud. It maintains feature parity, but has some behavior differences. Read this link:https://help.salesforce.com/s/articleView?id=005387259&type=1[knowledge article].
+* India Cloud uses a different Ingress controller. It maintains feature parity, but has some behavioral differences. Read this link:https://help.salesforce.com/s/articleView?id=005387259&type=1[knowledge article].
 
 [cols="~,15,20,20,20,20"]
 |===
