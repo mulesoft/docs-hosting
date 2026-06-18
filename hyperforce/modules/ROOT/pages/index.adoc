@@ -255,7 +255,7 @@ Europe::
 | Hybrid Standalone Mule (HSA) Enabled | Planned
 | Standard Dashboards (Anypoint Insights) | Available
 | Custom Dashboards | Available
-| Traces Beta | Not Planned
+| Traces Beta | Available
 | Telemetry Exporter | Planned
 <<<<<<< W-23024520-hyperforce-monitoring-duke
 | Log Search | Available
