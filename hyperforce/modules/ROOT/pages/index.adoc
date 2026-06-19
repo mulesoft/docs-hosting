@@ -147,13 +147,13 @@ Americas::
 
 * xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 Features by Control Plane]
 * xref:cloudhub-2::ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records]
-| Deleting the Default Egress Route | Planned | Planned
+| Deleting the Default Egress Route | Planned | Available
 | Global Cloud Deployment | Planned | Not planned
 | Private Space | Planned | Available
 | Private Space - VPN | Planned | Available
 | Shared Spaces | Planned | Available
 
-| xref:connectors::index.adoc[Connectors] |  | Planned | Available | 
+| xref:connectors::index.adoc[Connectors] |  | Planned | Available |
 
 | xref:dataweave::index.adoc[DataWeave] | n/a | Planned | Available | n/a
 
@@ -489,7 +489,7 @@ Asia Pacific::
 
 * xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 Features by Control Plane]
 * xref:cloudhub-2::ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records]
-| Deleting the Default Egress Route | Planned | Available
+| Deleting the Default Egress Route | Available | Available
 | Global Cloud Deployment | Not planned | Not planned
 | Private Space | Available | Available
 | Private Space - VPN | Available | Available
