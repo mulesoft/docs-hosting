@@ -82,7 +82,7 @@ Americas::
 | Standard Dashboards (Anypoint Insights) | Available | Available
 | Custom Dashboards | Available | Planned
 | Traces Beta | Available | Not planned
-| Telemetry Exporter | Planned | Available
+| Telemetry Exporter | Available | Available
 | Log Search | Available | Available (Beta)
 | Log Tailing | Planned | Available
 | Integration Intelligence | Planned | Available
@@ -253,7 +253,7 @@ Europe::
 | Standard Dashboards (Anypoint Insights) | Available
 | Custom Dashboards | Available
 | Traces Beta | Available
-| Telemetry Exporter | Planned
+| Telemetry Exporter | Available
 | Log Search | Available
 | Log Tailing | Planned
 | Reports | Available
