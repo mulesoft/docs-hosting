@@ -110,7 +110,7 @@ Americas::
 | Usage Reports (Usage) | Planned | Available
 
 .2+| xref:partner-manager::index.adoc[Anypoint Partner Manager] | All other features | Planned | Available .2+| n/a
-| Generative B2B Message Summary Feature | Planned | Planned
+| Generative B2B Message Summary Feature | Planned | Available
 
 | xref:private-cloud::index.adoc[Anypoint Private Cloud Edition] | n/a | Not planned | Not planned | Anypoint Private Cloud Edition (Anypoint Platform PCE) is a complete software package that you install and manage entirely within your private network. PCE runs exclusively on your infrastructure and isn't hosted or managed on any public cloud by MuleSoft.
 
@@ -448,7 +448,7 @@ Asia Pacific::
 | Usage Reports (Usage) | Available | Available
 
 .2+| xref:partner-manager::index.adoc[Anypoint Partner Manager] | All other features | Available | Planned .2+| n/a
-| Generative B2B Message Summary Feature | Planned | Planned
+| Generative B2B Message Summary Feature | Available | Planned
 
 | xref:private-cloud::index.adoc[Anypoint Private Cloud Edition] | n/a | Not planned | Not planned | Anypoint Private Cloud Edition (Anypoint Platform PCE) is a complete software package that you install and manage entirely within your private network. PCE runs exclusively on your infrastructure and isn't hosted or managed on any public cloud by MuleSoft.
 
