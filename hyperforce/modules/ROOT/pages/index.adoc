@@ -45,9 +45,7 @@ Americas::
 .2+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Planned | Available .2+| n/a
 | Links to logs and traces | Planned | Planned
 
-.6+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned | Available .6+a| For details, refer to:
-
-* xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane]
+.6+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned | Available .6+a| n/a
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
 * xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
 | API Analytics | Not planned | Not planned
@@ -216,9 +214,7 @@ Europe::
 .2+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Planned .2+| n/a
 | Links to logs and traces | Planned
 
-.6+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned .6+a| For details, refer to:
-
-* xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane]
+.6+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned .6+a| n/a
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
 * xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
 | API Analytics | Not planned
@@ -387,9 +383,7 @@ Asia Pacific::
 .2+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Available | Available .2+| n/a
 | Links to logs and traces | Planned | Available
 
-.6+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Available | Available .6+a| For details, refer to:
-
-* xref:api-manager::latest-overview-concept.adoc#APIM-hyperforce[API Manager Features by Control Plane]
+.6+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Available | Available .6+a| n/a
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
 * xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
 | API Analytics | Not planned | Not planned
@@ -428,7 +422,7 @@ Asia Pacific::
 | Log Search | Available (Beta) | Available
 | Log Tailing | Available | Available
 | Integration Intelligence | Available | Available
-| Reports | Planned | Available
+| Reports | Available | Available
 
 .18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Available | Available .18+a| For details, refer to:
 
