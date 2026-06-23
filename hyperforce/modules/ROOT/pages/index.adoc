@@ -76,7 +76,7 @@ Americas::
 | Agent Scanners | Planned | Available
 
 //MONITORING - AMERICAS: US | CANADA
-.12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .12+a| For details, refer to:
+.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .13+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
 //MONITORING - AMERICAS: US | CANADA
@@ -87,6 +87,7 @@ Americas::
 | Integration Intelligence | Planned | Available
 | Log Search | Available | Available (Beta)
 | Log Tailing | Planned | Available
+| Logs Raw Data | Planned | Planned
 | Reports | Available | Available
 | Standard Dashboards (Anypoint Insights) | Available | Available
 | Telemetry Exporter | Available | Available
@@ -280,7 +281,7 @@ Europe::
 | Agent Scanners | Planned
 
 //MONITORING - EUROPE: EU
-.12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned .12+a| For details, refer to:
+.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned .13+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
 //MONITORING - EUROPE: EU
@@ -291,6 +292,7 @@ Europe::
 | Integration Intelligence | Planned
 | Log Search | Available
 | Log Tailing | Planned
+| Logs Raw Data | Planned
 | Reports | Available
 | Standard Dashboards (Anypoint Insights) | Available
 | Telemetry Exporter | Available
@@ -484,7 +486,7 @@ Asia Pacific::
 | Agent Scanners | Available | Available
 
 //MONITORING - ASIA: JA | INDIA
-.12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .12+a| For details, refer to:
+.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .13+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
 //MONITORING - ASIA: JA | INDIA
@@ -495,6 +497,7 @@ Asia Pacific::
 | Integration Intelligence | Available | Available
 | Log Search | Planned | Available
 | Log Tailing | Available | Available
+| Logs Raw Data | Planned | Available
 | Reports | Available | Available
 | Standard Dashboards (Anypoint Insights) | Available | Available
 | Telemetry Exporter | Available | Available
