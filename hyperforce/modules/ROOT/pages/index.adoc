@@ -136,9 +136,9 @@ Americas::
 | xref:studio::index.adoc[Anypoint Studio] | n/a | Planned | Available | For details, refer to xref:studio::hyperforce-configuration.adoc[Configuring Anypoint Studio for Control Planes]
 
 //API VISUALIZER - AMERICAS: US | CANADA
-.3+| xref:visualizer::index.adoc[API Visualizer] | Architecture | Planned | Available .3+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
-| Policies | Planned | Available
-| Troubleshooting | Planned | Planned
+.3+| xref:visualizer::index.adoc[API Visualizer] | Architecture | Available | Available .3+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
+| Policies | Available | Available
+| Troubleshooting | Available | Planned
 
 //API COMMUNITY MANAGER - AMERICAS: US | CANADA
 | xref:api-community-manager::index.adoc[API Community Manager] | n/a | Planned | Available | n/a
@@ -341,9 +341,9 @@ Europe::
 | xref:studio::index.adoc[Anypoint Studio] | n/a | Planned | For details, refer to xref:studio::hyperforce-configuration.adoc[Configuring Anypoint Studio for Control Planes]
 
 //API VISUALIZER - EUROPE: EU
-.3+| xref:visualizer::index.adoc[API Visualizer] | Architecture | Planned .3+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
-| Policies | Planned
-| Troubleshooting | Planned
+.3+| xref:visualizer::index.adoc[API Visualizer] | Architecture | Available .3+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
+| Policies | Available
+| Troubleshooting | Available
 
 //API COMMUNITY MANAGER - EUROPE: EU
 | xref:api-community-manager::index.adoc[API Community Manager] | n/a | Planned | n/a
@@ -546,7 +546,7 @@ Asia Pacific::
 | xref:studio::index.adoc[Anypoint Studio] | n/a | Available | Available | For details, refer to xref:studio::hyperforce-configuration.adoc[Configuring Anypoint Studio for Control Planes]
 
 //API VISUALIZER - ASIA: JA | INDIA
-.3+| xref:visualizer::index.adoc[API Visualizer] | Architecture | Available | Planned .3+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
+.3+| xref:visualizer::index.adoc[API Visualizer] | Architecture | Available | Available .3+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
 | Policies | Available | Available
 | Troubleshooting | Planned | Planned
 
