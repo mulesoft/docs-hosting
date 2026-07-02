@@ -102,7 +102,9 @@ Traffic egressing to the internet originates from an IP address listed under the
 
 The public DNS target and the private DNS target IPs also don't change during the lifetime of the private space.
 
-The private DNS target uses private static IP addresses. These IP addresses remain constant throughout the lifetime of the private space. This makes them suitable for use in internal DNS configurations or allowlists in your connected external networks. You can view the private DNS target IP addresses in the *Inbound IP Addresses* section of the private space network configuration.
+The private DNS target uses private static IP addresses. These IP addresses remain constant throughout the lifetime of the private space. This makes them suitable for use in internal DNS configurations or allowlists in your connected external networks.
+
+You can view the public DNS target IP addresses in the *Inbound IP Addresses* section of the private space network configuration.
 
 Traffic egressing to a VPN or Transit Gateway (TGW) originates from the private space CIDR block.
 
