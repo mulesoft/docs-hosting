@@ -80,14 +80,14 @@ Americas::
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
 //MONITORING - AMERICAS: US | CANADA
-| Basic Alerts | Planned | Planned
+| Basic Alerts | Planned | Available
 | Basic Monitoring | Available | Available
 | Custom Dashboards | Available | Planned
 | Hybrid Standalone Mule (HSA) Enabled | Planned | Planned
-| Integration Intelligence | Planned | Available
-| Log Search | Available | Available (Beta)
+| Integration Intelligence | Available | Available
+| Log Search | Planned | Available
 | Log Tailing | Planned | Available
-| Logs Raw Data | Planned | Planned
+| Logs Raw Data | Planned | Available
 | Reports | Available | Available
 | Standard Dashboards (Anypoint Insights) | Available | Available
 | Telemetry Exporter | Available | Available
@@ -289,8 +289,8 @@ Europe::
 | Basic Monitoring | Available
 | Custom Dashboards | Available
 | Hybrid Standalone Mule (HSA) Enabled | Planned
-| Integration Intelligence | Planned
-| Log Search | Available
+| Integration Intelligence | Available
+| Log Search | Planned
 | Log Tailing | Planned
 | Logs Raw Data | Planned
 | Reports | Available
@@ -490,14 +490,14 @@ Asia Pacific::
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
 //MONITORING - ASIA: JA | INDIA
-| Basic Alerts | Planned | Available
+| Basic Alerts | Available | Available
 | Basic Monitoring | Available | Available
 | Custom Dashboards | Planned | Planned
 | Hybrid Standalone Mule (HSA) Enabled | Planned | Planned
 | Integration Intelligence | Available | Available
-| Log Search | Planned | Available
+| Log Search | Available | Available
 | Log Tailing | Available | Available
-| Logs Raw Data | Planned | Available
+| Logs Raw Data | Available | Available
 | Reports | Available | Available
 | Standard Dashboards (Anypoint Insights) | Available | Available
 | Telemetry Exporter | Available | Available
