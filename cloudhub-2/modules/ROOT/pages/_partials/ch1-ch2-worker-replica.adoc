@@ -1,0 +1,28 @@
+// Shared partial: Worker vs Replica comparison
+// Used by: cloudhub/ch-ch2-migration-configuration (overview page)
+//          cloudhub-2/ch2-comparison
+
+[cols="1,1"]
+|===
+|CloudHub |CloudHub 2.0
+
+|A worker in CloudHub is a dedicated Amazon Elastic Compute Cloud (EC2) virtual machine instance that runs your Mule application. It functions as a full, independent virtual server with its own operating system, memory, CPU resources, and isolated runtime environment.
+|A replica in CloudHub 2.0 is a dedicated, containerized instance of Mule runtime engine that runs your integration application. Each replica provides complete isolation between applications with its own isolated environment, allocated memory (heap and total), CPU resources (vCores), and storage capacity.
+
+|If you select *Automatically restart application when not responding*, CloudHub monitors the worker and automatically restarts the application if necessary.
+|CloudHub 2.0 provides self-healing capabilities that automatically recover applications from both Mule process failures and underlying infrastructure failures. If either the Mule process or the infrastructure fails, CloudHub 2.0 automatically restarts the application on healthy infrastructure without your intervention. Application crash recovery is enabled by default.
+
+|Applications have a two-minute grace period before being marked as failed during startup.
+|Applications have a five-minute grace period before being marked as failed during startup. For more information, see xref:ch2-deploy.adoc#grace-period[Grace Period].
+
+|Application bursting allows workers to temporarily exceed their allocated vCores during traffic spikes.
+|Application bursting depends on the resource usage of other applications deployed in the private space and is not guaranteed.
+|===
+
+CloudHub application workers and CloudHub 2.0 application replicas of the same vCore size may differ in performance metrics and cannot be directly compared. When sizing replicas, use performance testing rather than assuming a 1:1 equivalence with CloudHub workers.
+
+.CloudHub worker
+image::worker-logical-rep.png[Diagram showing the logic of a worker,500,300]
+
+.CloudHub 2.0 replica
+image::replica-logical-rep.png[Diagram showing the logic of a replica,500,300]

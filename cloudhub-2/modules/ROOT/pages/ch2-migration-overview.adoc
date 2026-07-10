@@ -1,0 +1,559 @@
+= CloudHub 2.0 for CloudHub Users
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:page-aliases: ch2-comparison.adoc
+
+// DRAFT - Page 1 of the CH1-to-CH2 migration journey
+// Source: Restructured from cloudhub/ch-ch2-migration-configuration
+// Actions taken:
+//   - Rewrote intro as a journey overview
+//   - Kept all "Understand the Differences" content (reused verbatim via includes)
+//   - Removed all procedural "how-to" content (moved to Steps 2-3)
+//   - Restructured comparison tables out of collapsibles
+//   - Moved worker/replica diagrams to standalone figures
+//   - Added DLB vs Ingress expanded subsection
+//   - Added decision tree placeholder
+//   - Added prev/next nav
+//   - Comparison tables extracted to _partials/ for sharing with cloudhub-2/ch2-comparison
+
+Migrate your CloudHub applications and infrastructure to CloudHub 2.0 by understanding the key differences between platforms, choosing the right migration path, and following a step-based process. This guide covers the end-to-end migration journey from planning through decommissioning.
+
+== Migration Journey Overview
+
+The migration from CloudHub to CloudHub 2.0 follows five steps:
+
+[cols="1,3"]
+|===
+|Step |Description
+
+|xref:ch2-migration-plan.adoc[Step 1: Plan the Migration]
+|Audit your applications, assess entitlements, estimate timelines, and choose a migration strategy.
+
+|xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure]
+|Create a private space (manually or by upgrading an existing VPC) and establish network connectivity.
+
+|xref:ch2-migration-apps.adoc[Step 3: Migrate Applications]
+|Update application code, redeploy to CloudHub 2.0, and configure application properties.
+
+|xref:ch2-migration-validate.adoc[Step 4: Validate and Cut Over]
+|Switch traffic gradually, monitor for issues, and complete DNS cutover.
+
+|xref:ch2-migration-validate.adoc[Step 5: Finalize and Decommission]
+|Decommission CloudHub 1.0 resources and release entitlements.
+|===
+
+== Choose Your Migration Path
+
+// Source: Section 4, Deliverable A.3 — Migration decision tree
+// Based on: vpc-upgrade (eligibility requirements), app-migration (eligibility)
+
+Your migration path depends on your existing infrastructure. Use the following decision tree to determine which path is right for you:
+
+[source,mermaid]
+----
+flowchart TD
+    Start([Start: Migrate to CH2]) --> Q1{Do you have an<br/>existing Anypoint VPC?}
+
+    Q1 -->|No| NewPS[Create a New Private Space]
+    Q1 -->|Yes| Q2{Does your VPC meet<br/>upgrade eligibility?}
+
+    Q2 -->|No| NewPS
+    Q2 -->|Yes| Q3{Do you have legacy VPNs,<br/>Direct Connect, or<br/>VPC Peering?}
+
+    Q3 -->|Yes| NewPS
+    Q3 -->|No| Q4{Is CIDR block ≥ /24<br/>with 100+ available IPs<br/>per subnet?}
+
+    Q4 -->|No| NewPS
+    Q4 -->|Yes| Q5{Do you need CH1 and CH2<br/>to coexist on the<br/>same network?}
+
+    Q5 -->|Yes, with different CIDRs| NewPS
+    Q5 -->|No, sequential migration is fine| Upgrade[Upgrade VPC to Private Space]
+
+    NewPS --> Manual[Manual infrastructure setup<br/>+ full app redeployment]
+    Upgrade --> Tool[Automated migration<br/>+ gradual traffic switching]
+----
+
+Your migration path depends on your existing infrastructure:
+
+[cols="1,1,2"]
+|===
+|Path |When to Use |Key Characteristics
+
+|*Create a new private space*
+|CloudHub and CloudHub 2.0 must coexist on the same network, or your VPC doesn't meet upgrade eligibility requirements
+|Allocate a new CIDR block for CloudHub 2.0 to prevent network overlap. Requires manual infrastructure setup and full application redeployment.
+
+|*Upgrade VPC to private space*
+|Your VPC meets the xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[eligibility requirements] and you want an automated infrastructure migration
+|The upgrade tool validates CIDR compatibility, migrates firewall rules, and transfers DLB configurations. Existing CloudHub applications continue running during the upgrade.
+|===
+
+For eligibility details, see xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[Understand Eligibility].
+
+== Understand the Differences
+
+Identify critical architectural differences and configuration gaps between CloudHub and CloudHub 2.0. Review deployment models and environmental dependencies that affect custom configurations. Use this information to accurately scope the migration effort and reduce incompatibility risk during upgrade planning.
+
+=== Infrastructure and Networking Differences
+
+==== Architecture
+
+include::_partials/ch1-ch2-architecture.adoc[]
+
+==== Private Network
+
+include::_partials/ch1-ch2-private-network.adoc[]
+
+==== Connectivity Methods
+
+include::_partials/ch1-ch2-connectivity.adoc[]
+
+==== Firewall Rules
+
+include::_partials/ch1-ch2-firewall-rules.adoc[]
+
+==== Static IP Addresses
+
+include::_partials/ch1-ch2-static-ips.adoc[]
+
+==== Load Balancing
+
+include::_partials/ch1-ch2-load-balancing.adoc[]
+
+===== DLB Features and CloudHub 2.0 Ingress Equivalents
+
+// NOTE: This subsection is new content called for by the improvement plan (Section 1.1 item 1
+// and Section 2.1). Content below is drawn from the existing comparison tables and expanded
+// with feature mapping. Verify routing capabilities and URL rewrite equivalents with engineering.
+// This section is NOT shared via include — it is migration-specific context.
+
+When migrating from a Dedicated Load Balancer (DLB) to CloudHub 2.0's ingress load balancer, note the following feature mapping:
+
+[cols="1,1,1"]
+|===
+|Feature |CloudHub DLB |CloudHub 2.0 Ingress
+
+|SSL/TLS termination
+|SSL termination happens at the DLB layer.
+|SSL termination happens at the ingress load balancer layer.
+
+|Certificate management
+|Upload PEM-encoded certificates and private keys manually. Limited CA certificate support.
+|Default TLS context with wildcard certificates created automatically. Custom vanity domains supported with your own TLS context. Dynamic certificate management with in-place updates without redeployment.
+
+|URL rewriting
+|Configured at the DLB level using mapping rules.
+|Configured at the application level using domains and endpoints for per-app configuration.
+
+|Mutual TLS (mTLS)
+|DLB handles mTLS at the infrastructure level, performing client certificate validation and forwarding certificate information to applications via HTTP headers. Accepts certificate files in PEM format only.
+|Native mTLS with TLS contexts and truststores. Configure mTLS at the private space level with centralized management. Supports forward SSL. Upload truststore files in PEM and JKS formats.
+
+|Protocols
+|HTTP, HTTPS, TCP, WebSockets (ws and wss)
+|HTTP, HTTPS, TCP. The upgrade tooling does not support TCP traffic migration yet.
+
+|Logging
+|No DLB log support.
+|Download ingress traffic logs from Runtime Manager.
+
+|High availability
+|Up to four load balancer units (up to eight workers total).
+|Auto-scales to accommodate traffic. Replicas distributed across two or more AZs automatically.
+|===
+
+===== Routing Capabilities Comparison
+
+// Source: Section 2, Deliverable A.1 — DLB routing capabilities vs. CH2 endpoint configuration
+// Based on: docs.mulesoft.com/cloudhub/lb-mapping-rules and
+// docs.mulesoft.com/cloudhub-2/ch2-config-endpoints-paths
+
+DLB uses *mapping rules* to route requests. CloudHub 2.0 uses *endpoint and path configuration* per application. The following table maps the DLB routing model to the CloudHub 2.0 equivalent:
+
+[cols="1,2,2"]
+|===
+|Routing Capability |CloudHub DLB (Mapping Rules) |CloudHub 2.0 (Endpoints & Paths)
+
+|Path-based routing
+|Mapping rules define an *Input Path* (supports patterns with `{variables}`), a *Target App*, and an *Output Path* (literal only). The first matching rule wins (priority-ordered). Example: `/api/v1/` → `my-app` with output `/`.
+|Each application configures its own endpoints with a *Path* (where clients reach the app) and a *Path Rewrite* (the base path the HTTP Listener expects). Configured per-app in the *Ingress* tab. No global priority ordering needed — each app owns its endpoint.
+
+|Host-based routing
+|DLB uses certificate endpoints (CN or SANs) to match hosts. A wildcard certificate (`*.example.com`) combined with a `{subdomain}` variable in the mapping rule routes `api.example.com` to the `api` app.
+|CloudHub 2.0 uses *Domains* configured via TLS contexts at the private space level. Each app selects its domain from a dropdown and specifies a subdomain. Supports the `app-name` placeholder to auto-resolve. Multiple endpoints per app are supported.
+
+|URL rewriting
+|Configured at DLB level. Input Path defines the client-facing path; Output Path defines what is passed to the app. Patterns only in Input Path; Output Path is always literal.
+|Configured at app level via *Path* and *Path Rewrite* fields. Path is the client-facing URL; Path Rewrite is the internal path for the HTTP Listener.
+
+|Multi-app routing on one domain
+|Single DLB can route to multiple apps via ordered mapping rules on the same SSL endpoint. Pattern variables (`{app}`, `{layera}`, `{domaina}`) enable dynamic routing.
+|Each app registers its own endpoint(s) on shared domains. No global rule list — each app's endpoint is independent. Use unique paths or subdomains to differentiate.
+
+|Protocol selection
+|Mapping rules specify upstream protocol per rule: `http` (port 8091), `https` (port 8092), `ws` (8091), `wss` (8092).
+|CloudHub 2.0 apps listen on port 8081 (HTTP) or 8082 (HTTPS). Protocol is determined by TLS context configuration, not per-rule. WebSocket support via HTTP/HTTPS endpoints.
+
+|Wildcard matching
+|Pattern variables (`{variable}`) in Input Path match `a-z0-9.&?-_` (no slashes). Priority order controls which rule matches.
+|Subdomain placeholders (`app-name`, `business-group-id`, `environment-id`) provide dynamic matching. No regex or custom variable patterns.
+|===
+
+*Key migration considerations:*
+
+* DLB mapping rules are *centralized* (one ordered list per SSL endpoint). CH2 endpoints are *distributed* (each app manages its own routing). This removes priority conflicts but requires each app to have unique endpoint definitions.
+* DLB's flexible regex-like patterns (`{variable}`) don't have a direct equivalent in CH2. Apps that rely on dynamic path-to-app-name routing must be reconfigured with explicit per-app endpoints.
+* DLB Output Path limitations (no patterns) are solved in CH2 — Path Rewrite supports static mappings per-app.
+
+For full DLB mapping rules reference, see https://docs.mulesoft.com/cloudhub/lb-mapping-rules[Dedicated Load Balancer Mapping Rules]. +
+For CH2 endpoint configuration, see https://docs.mulesoft.com/cloudhub-2/ch2-config-endpoints-paths[Configuring Endpoints and Paths for Apps Deployed to a Private Space].
+
+===== Certificate Migration
+
+// Source: Section 2, Deliverable A.2 — Certificate migration guide
+// Based on KA 005237268 "Missing DLB Certificates During CloudHub 1.0 to CloudHub 2.0 Migration"
+
+The VPC upgrade tool migrates DLB configurations to the new private space on a best-effort basis only. Due to architectural differences between the CloudHub 1.0 DLB and the CloudHub 2.0 ingress controller, automated migration of certificates and vanity domains is not guaranteed.
+
+IMPORTANT: Applying certificate changes in the CloudHub 2.0 private space does not impact your live CloudHub 1.0 environment. The two environments are isolated; your existing DLB continues to handle traffic normally until you manually update your DNS CNAME records to point to the new ingress endpoint.
+
+To manually migrate DLB certificates to your CloudHub 2.0 private space:
+
+. *Inventory your DLB certificates:*
+** In *Runtime Manager*, navigate to *CloudHub* > *Load Balancers*.
+** Record all certificates, vanity domains, and Subject Alternative Names (SANs).
+
+. *Identify incompatible TLS ciphers:*
++
+CloudHub 2.0 does not support TLS 1.1 ciphers. The following ciphers cannot be migrated:
++
+* `ECDHE-ECDSA-AES128-SHA1`
+* `ECDHE-ECDSA-AES256-SHA1`
+* `ECDHE-RSA-AES128-SHA1`
+* `ECDHE-RSA-AES256-SHA1`
++
+If your DLB uses any of these ciphers, reissue certificates with TLS 1.2+ compatible ciphers before migrating.
+
+. *Upload certificates to the private space:*
+** In *Runtime Manager*, navigate to your private space and select the *Domains & TLS* tab.
+** Manually upload your server certificates and private keys.
++
+NOTE: DLB requires a full certificate chain that includes intermediate and root certificates in a single file. For the CloudHub 2.0 private space, split intermediate and root certificates into a separate file and upload it as the *CA Path Certificate*.
+
+. *Verify SANs:*
+** Confirm all Subject Alternative Names for your vanity domains are correctly listed in the uploaded certificate.
+
+. *Create TLS contexts:*
+** Create a TLS context for each vanity domain or group of domains that share a certificate.
+** Verify the TLS context is active before switching traffic.
+
+For more information, see https://help.salesforce.com/s/articleView?id=005237268&type=1[Missing DLB Certificates During CloudHub 1.0 to CloudHub 2.0 Migration (KA 005237268)].
+
+===== Allowlist and Denylist Migration
+
+// Source: Section 2, Deliverable A.3 — Allowlist/denylist migration procedures
+
+When migrating from a DLB to CloudHub 2.0 ingress, your allowlist and denylist rules translate to private space firewall rules.
+
+[cols="1,1"]
+|===
+|CloudHub DLB |CloudHub 2.0 Private Space
+
+|DLB allowlist (IP addresses/CIDRs permitted to reach DLB)
+|Ingress firewall rules on the private space
+
+|DLB denylist (blocked IPs)
+|Firewall rules with deny action
+|===
+
+To migrate access control rules:
+
+. *Export current DLB allowlist:*
+** Record all CIDR ranges configured on your DLB allowlist.
+
+. *Create firewall rules in the private space:*
+** In *Runtime Manager*, navigate to *Private Spaces* > *[your space]* > *Firewall Rules*.
+** Add ingress rules for each CIDR range that was in your DLB allowlist.
+** See xref:ps-config-fw-rules.adoc[Configure Firewall Rules for a Private Space].
+
+. *Add infrastructure CIDR ranges:*
++
+If your CloudHub 2.0 applications need to communicate with applications still on CloudHub 1.0, add the following CIDR ranges to the DLB allowlist:
++
+* `100.64.0.0/16`
+* `100.66.0.0/16`
+* `100.67.0.0/16`
+* `100.68.0.0/16`
++
+These ranges enable cross-platform communication during phased migration.
+
+===== Logging and Monitoring Comparison
+
+// Source: Section 2, Deliverable A.4 — Logging and monitoring comparison
+
+[cols="1,2,2"]
+|===
+|Aspect |CloudHub DLB |CloudHub 2.0 Ingress
+
+|Access logs
+|No DLB access log support. Logging limited to application-level logs.
+|Ingress traffic logs available for download from Runtime Manager. Logs include request source IP, response codes, and latency data.
+
+|Log access
+|N/A
+|In *Runtime Manager*, navigate to your private space > *Logs* tab to download ingress traffic logs.
+
+|Application logs
+|Available via Runtime Manager or Log4j integration.
+|Available via Runtime Manager or Log4j integration. See xref:ch2-integrate-log-system.adoc[Integrate with Your Logging System Using Log4j].
+
+|Monitoring
+|Custom alerts based on application metrics.
+|Anypoint Monitoring with built-in dashboards. Custom alerts on ingress-level and application-level metrics.
+|===
+
+===== Network Topology
+
+// Source: Section 4, Deliverable A.1 — Network topology diagram (hybrid migration state)
+// and A.2 — Traffic flow diagram (DLB vs Ingress)
+// Based on: ch2-networking-guide, lb-architecture, ps-create-configure-tgw
+
+*Diagram 1: Hybrid Migration State — Network Topology*
+
+[source,mermaid]
+----
+graph TB
+    subgraph Internet
+        Client[External Client]
+    end
+
+    subgraph "Anypoint Platform"
+        subgraph "CloudHub 1.0 — VPC"
+            DLB[Dedicated Load Balancer<br/>TLS termination<br/>Mapping rules]
+            W1[Worker 1<br/>port 8081/8082]
+            W2[Worker 2<br/>port 8081/8082]
+        end
+
+        subgraph "CloudHub 2.0 — Private Space"
+            ILB[Ingress Load Balancer<br/>TLS termination<br/>Domain-based routing]
+            R1[Replica 1<br/>port 8081]
+            R2[Replica 2<br/>port 8081]
+            NAT[NAT Gateway<br/>Outbound Static IPs]
+        end
+    end
+
+    subgraph "On-Premises / AWS"
+        TGW[Transit Gateway]
+        Backend[Backend Systems<br/>Databases, SaaS APIs]
+    end
+
+    Client -->|HTTPS :443| DLB
+    Client -->|HTTPS :443| ILB
+    DLB --> W1
+    DLB --> W2
+    ILB --> R1
+    ILB --> R2
+
+    W1 -.->|100.64.0.0/16<br/>100.66-68.0.0/16| ILB
+    R1 -.->|PS CIDR| TGW
+    W1 -.->|VPC CIDR| TGW
+    TGW --> Backend
+    R1 --> NAT
+    NAT -->|Outbound Static IPs| Backend
+----
+
+*Diagram 2: Traffic Flow — DLB vs. Ingress Controller*
+
+[source,mermaid]
+----
+sequenceDiagram
+    participant C as Client
+    participant DNS as DNS (CNAME)
+    participant DLB as DLB (CH1)
+    participant ILB as Ingress LB (CH2)
+    participant W as CH1 Worker
+    participant R as CH2 Replica
+
+    Note over C,R: CloudHub 1.0 Path
+    C->>DNS: myapp.example.com
+    DNS->>DLB: [lb-name].lb.anypointdns.net
+    DLB->>DLB: TLS termination + mapping rule match
+    DLB->>W: HTTP to mule-worker-myApp:8081
+
+    Note over C,R: CloudHub 2.0 Path
+    C->>DNS: myapp.example.com
+    DNS->>ILB: [space-id].[region].cloudhub.io
+    ILB->>ILB: TLS termination + domain/path match
+    ILB->>R: HTTP to app replica:8081
+
+    Note over C,R: During Migration (traffic switching)
+    C->>DNS: myapp.example.com
+    DNS->>DLB: still points to DLB
+    DLB->>DLB: TLS termination
+    alt X% to CH1
+        DLB->>W: existing CloudHub worker
+    else Y% to CH2
+        DLB->>ILB: routed to CH2 ingress
+        ILB->>R: CH2 replica
+    end
+----
+
+For step-by-step DLB migration guidance, see xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure].
+
+===== Operational Behavior Differences
+
+// Source: Section 3, Deliverable A — Load balancing operational behaviors
+// Based on: cloudhub/lb-reserved-headers, cloudhub/cloudhub-dedicated-load-balancer,
+// cloudhub-2/ch2-networking-guide (Load Balancer Connections section),
+// gateway/latest/flex-conn-timeout (Omni Gateway timeout configuration)
+
+When migrating from a DLB to CloudHub 2.0 ingress, the following operational behaviors change. These differences affect production traffic and may require application-level adjustments.
+
+====== HTTP Header Injection
+
+The CloudHub DLB injects HTTP headers that your applications may depend on for routing, logging, or security decisions. CloudHub 2.0's ingress load balancer does not inject the same headers.
+
+*DLB-injected headers (not available in CloudHub 2.0):*
+
+[cols="1,2"]
+|===
+|Header |Purpose
+
+|`x-ch1-path`
+|Preserves the original request path before DLB mapping rules are applied.
+
+|`X-SSL-Client-Verify`
+|Client certificate verification status (for mTLS).
+
+|`X-SSL-Client-DN`
+|Client certificate distinguished name.
+
+|`X-SSL-Issuer`
+|Client certificate issuer.
+
+|`X-SSL-Client-Serial`
+|Client certificate serial number.
+
+|`X-Real-IP`
+|Original client IP address.
+
+|`X-Forwarded-For`
+|Forwarded client IP addresses.
+
+|`X-Forwarded-Proto-Real`
+|Original protocol (HTTP/HTTPS).
+|===
+
+*DLB security response headers (injected on responses):*
+
+* `Strict-Transport-Security: max-age=31536000; includeSubdomains;`
+* `X-Content-Type-Options: nosniff`
+* `X-Frame-Options: SAMEORIGIN`
+* `X-XSS-Protection: 1; mode=block`
+
+*Migration impact:*
+
+* If your application reads `X-SSL-Client-*` headers for mTLS-based authorization decisions, reconfigure to use CloudHub 2.0's native mTLS with TLS contexts and truststores. Certificate data is available through the Mule TLS context, not via injected HTTP headers.
+* If your application relies on `x-ch1-path` for original path preservation, note that CloudHub 2.0 does not apply global mapping rules — the application receives the request path directly as configured in its endpoint.
+* If your application relies on `X-Forwarded-For` for client IP resolution, verify that the CH2 ingress passes this header. Standard proxy behavior typically forwards this header, but confirm during testing.
+* If downstream security appliances or browsers depend on the DLB's injected security response headers (`HSTS`, `X-Frame-Options`, etc.), configure your Mule application to return these headers explicitly in responses.
+
+For full reference, see https://docs.mulesoft.com/cloudhub/lb-reserved-headers[Dedicated Load Balancer Reserved Headers].
+
+====== Connection Timeouts and Keep-Alive
+
+Connection timeout behavior differs significantly between CloudHub DLB and CloudHub 2.0 ingress:
+
+[cols="1,2,2"]
+|===
+|Behavior |CloudHub DLB |CloudHub 2.0 Ingress
+
+|Idle connection timeout
+|300 seconds (default). If the target application's workers don't respond within this time, the DLB makes requests to the next worker sequentially.
+|15 seconds (default). For each request, the load balancer maintains two connections (client→LB and LB→app). If no data is sent or received during this duration, the load balancer closes both connections.
+
+|Keep-alive timeout
+|60 seconds. Connections are closed after new workers come online and the DNS TTL (30 seconds) expires.
+|Configurable via Flex Gateway policies. Default upstream idle timeout: 60 seconds. Default stream idle timeout: 300 seconds.
+
+|Response timeout
+|Included in the 300-second idle timeout window.
+|Configurable via private space advanced settings (*Read Response Timeout*). For connections that take longer than 300 seconds, handle the processing asynchronously.
+
+|Behavior on timeout
+|DLB routes to next available worker in sequence.
+|Load balancer closes both connections and returns a timeout error to the client.
+|===
+
+*Migration impact:*
+
+* The CH2 default idle timeout of 15 seconds is significantly lower than the DLB's 300-second default. Applications with long-processing synchronous requests may experience premature connection closures.
+* For long-running requests, customize the *Read Response Timeout* value in the *Advanced* tab of your private space settings in Runtime Manager.
+* For API gateway use cases, timeout policies (Stream Idle Timeout, Upstream Idle Timeout, Response Timeout) are configurable via Anypoint API Manager or Flex Gateway declarative configuration.
+* Applications using WebSockets or Server-Sent Events (SSE) should verify that the stream idle timeout (default 300 seconds) is sufficient for their keep-alive intervals.
+
+For CloudHub 2.0 timeout configuration, see https://docs.mulesoft.com/cloudhub-2/ps-config-advanced[Configure Private Space Advanced Settings]. +
+For Flex Gateway timeout policies, see https://docs.mulesoft.com/gateway/latest/flex-conn-timeout[Configuring Timeouts in Connected Mode].
+
+==== Domains and TLS Context
+
+include::_partials/ch1-ch2-domains-tls.adoc[]
+
+==== Mutual TLS
+
+include::_partials/ch1-ch2-mtls.adoc[]
+
+==== URL Rewriting
+
+include::_partials/ch1-ch2-url-rewriting.adoc[]
+
+==== Internal Application Communication
+
+include::_partials/ch1-ch2-internal-communication.adoc[]
+
+=== Application Differences
+
+==== Persistent VM Queues Vs. Anypoint MQ
+
+include::_partials/ch1-ch2-persistent-queues.adoc[]
+
+==== Logging
+
+include::_partials/ch1-ch2-logging.adoc[]
+
+==== Deployment Configuration
+
+include::_partials/ch1-ch2-deployment-config.adoc[]
+
+==== vCore Sizes
+
+include::_partials/ch1-ch2-vcores.adoc[]
+
+==== Worker Vs. Replica
+
+include::_partials/ch1-ch2-worker-replica.adoc[]
+
+==== High Availability with Clustering
+
+include::_partials/ch1-ch2-ha-clustering.adoc[]
+
+==== Alerts
+
+include::_partials/ch1-ch2-alerts.adoc[]
+
+// NOTE: Merged "Runtime Manager Differences > Alerts" into Application Differences
+// per improvement plan recommendation. Only one item existed under RTM Differences.
+
+== See Also
+
+* xref:ch2-migration-plan.adoc[Step 1: Plan the Migration]
+* xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure]
+* xref:ch2-migration-apps.adoc[Step 3: Migrate Applications]
+* xref:ch2-migration-validate.adoc[Step 4: Validate and Cut Over]
+* xref:ch2-migration-validate.adoc[Step 5: Finalize and Decommission]
+* xref:ch2-migration-troubleshoot.adoc[Troubleshoot Migration Issues]
+
+// Prev/Next nav (uses site's built-in nav component)
+// Previous: none (this is the entry point)
+// Next: ch-ch2-migration-plan.adoc

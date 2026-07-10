@@ -1,0 +1,405 @@
+= Step 4: Validate and Cut Over
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+// DRAFT - Page 5 of the CH1-to-CH2 migration journey
+// Source: Restructured from app-migration "Next Steps After Application Upgrade" including:
+//   - Traffic switching procedure
+//   - Understanding the Traffic Source
+//   - DLB/SLB traffic switching configurations
+//   - Managing API Policies During Traffic Switching
+//   - Complete the Application Upgrade
+//   - Perform DLB Failover
+// New content:
+//   - Recommended traffic switching timeline
+//   - Monitoring guidance (thresholds, metrics)
+//   - Rollback criteria
+//   - Risk-based switching strategies
+//   - Post-validation checklist
+
+After deploying your application to CloudHub 2.0, validate it by gradually switching traffic, monitoring for issues, and completing the cutover.
+
+== Switch Traffic to CloudHub 2.0
+
+// Source: Reused from app-migration "Next Steps After Application Upgrade"
+
+After the upgrade process deploys your CloudHub 2.0 application, test the app by directing traffic to it and verifying network connectivity and app behavior.
+
+To avoid updating your client applications that connect to CloudHub, retain the domains from CloudHub on CloudHub 2.0. Apply either of these options:
+
+* *Customer-Managed:* Switch the application's xref:ch2-config-endpoints-paths.adoc[DNS] to point to CloudHub 2.0.
+* *MuleSoft-Managed:* Carry over vanity URLs while incrementally switching percentage of traffic from CloudHub to CloudHub 2.0.
+
+NOTE: You can also use APIs for https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.1/console/method/%231340/[application linking] using the `upgradeData` object while creating CloudHub 2.0 deployments, and for https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.1/console/method/%231736/[traffic switching] using the newly introduced endpoint.
+
+=== Gradually Switch Traffic
+
+// Source: Procedure from app-migration
+
+IMPORTANT: Restart your DLB before initiating the traffic switching.
+
+NOTE: To switch application traffic, you must have the CloudHub Network Administrator permission. Without this permission, the traffic switching fails. For more information about assigning permissions, see xref:access-management::permissions-by-product.adoc[Permissions by Product in Anypoint Platform].
+
+IMPORTANT: The CloudHub application must remain in STARTED state until the link between CloudHub and CloudHub 2.0 is successfully established. Stopping the CloudHub application before the link is established can cause traffic disruptions.
+
+To gradually switch traffic from CloudHub to CloudHub 2.0:
+
+. In *Runtime Manager*, go to *Finish Upgrade*.
+. Select the percentage of traffic to direct from CloudHub to CloudHub 2.0, and click *Save Changes*.
+
+NOTE: You can roll back to CloudHub if there are failures during this stage.
+
+==== Automate Traffic Switching via REST API
+
+// Source: Section 4, Deliverable B.5 — REST API calls for traffic switching automation
+// Based on: app-migration docs referencing the AMC Application Manager API
+
+You can automate traffic switching using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/[AMC Application Manager API].
+
+*Step 1: Get an access token:*
+
+[source,bash]
+----
+curl -X POST https://anypoint.mulesoft.com/accounts/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "YOUR_USERNAME",
+    "password": "YOUR_PASSWORD"
+  }'
+----
+
+*Step 2: Switch traffic percentage:*
+
+Use the traffic switching endpoint to set the percentage of traffic directed to CloudHub 2.0:
+
+[source,bash]
+----
+curl -X PATCH \
+  https://anypoint.mulesoft.com/amc/application-manager/api/v2/organizations/{orgId}/environments/{envId}/deployments/{deploymentId}/trafficSwitch \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "percentage": 25
+  }'
+----
+
+NOTE: The exact endpoint path and payload structure are available in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.1/console/method/%231736/[AMC Application Manager API reference]. Verify the endpoint path and parameters against the latest API documentation before using in automation scripts.
+
+*Example automation script:*
+
+[source,bash]
+----
+#!/bin/bash
+# Gradual traffic switching automation
+# Switches traffic in increments with validation pauses
+
+ORG_ID="your-org-id"
+ENV_ID="your-env-id"
+DEPLOYMENT_ID="your-deployment-id"
+TOKEN="your-access-token"
+BASE_URL="https://anypoint.mulesoft.com/amc/application-manager/api/v2"
+
+for PERCENT in 10 25 50 75 100; do
+  echo "Switching to ${PERCENT}% traffic..."
+  curl -X PATCH \
+    "${BASE_URL}/organizations/${ORG_ID}/environments/${ENV_ID}/deployments/${DEPLOYMENT_ID}/trafficSwitch" \
+    -H "Authorization: Bearer ${TOKEN}" \
+    -H "Content-Type: application/json" \
+    -d "{\"percentage\": ${PERCENT}}"
+
+  echo "Traffic at ${PERCENT}%. Monitor for errors before proceeding."
+  echo "Press Enter to continue to next increment..."
+  read -r
+done
+----
+
+=== Recommended Traffic Switching Timeline
+
+// NOTE: This timeline is new content from the improvement plan (Step 4, item 1).
+// These are recommendations, not hard requirements. Validate with PM/CSM before publishing.
+
+[cols="1,1,2"]
+|===
+|Traffic Percentage |Duration |Purpose
+
+|10%
+|24 hours
+|Smoke test with minimal traffic. Verify basic connectivity and application behavior.
+
+|25%
+|48 hours
+|Increased load. Monitor error rates and response times.
+
+|50%
+|72 hours
+|Balanced split. Validate performance under significant load. Watch for API policy rate-limiting doubling.
+
+|75%
+|24 hours
+|Majority on CloudHub 2.0. Confirm stability before full cutover.
+
+|100%
+|7 days minimum
+|Full cutover. Monitor for any remaining issues before decommissioning.
+|===
+
+Total estimated time: ~12 days before cleanup.
+
+// NOTE: The improvement plan suggests creating a diagram to illustrate this timeline.
+// Placeholder for a visual (stepped bar chart or timeline diagram).
+
+=== Risk-Based Switching Strategies
+
+// NOTE: This section is new content from the improvement plan. NOT currently documented.
+// Validate these recommendations with PM/CSM before publishing.
+
+Different application types may warrant different switching strategies:
+
+[cols="1,1,2"]
+|===
+|Application Type |Strategy |Rationale
+
+|Low-risk (low traffic, non-critical)
+|Fast switching (~5 days)
+|Lower blast radius allows faster progression through traffic percentages.
+
+|High-risk (high traffic, revenue-critical)
+|Slow switching (15+ days)
+|Extended observation at each percentage level to catch subtle issues.
+
+|Batch/scheduled jobs
+|All-or-nothing
+|Do not use gradual traffic switching for scheduled jobs. Splitting traffic risks duplicate execution. Switch 0% → 100% directly.
+|===
+
+== Understand Your Traffic Source
+
+// Source: Reused from app-migration "Understanding the Traffic Source"
+
+The traffic source determines which type of DNS record the process updates to manage the traffic flow between your CloudHub and CloudHub 2.0 applications during the migration process.
+
+CloudHub receives traffic from two main sources:
+
+* *Shared Load Balancer (SLB):* Associated with the default endpoints of your CloudHub application. The SLB handles traffic switching if your Ingress configuration includes the default CloudHub application endpoint in the format: `<app_name>.<region>.cloudhub.io`.
+* *Dedicated Load Balancer (DLB):* Associated with vanity domains configured for your CloudHub application. If the default CloudHub endpoint is missing, and you have configured a vanity domain or an `anypointdns.net` endpoint, the DLB switches the traffic.
+
+NOTE: If your CloudHub 1.0 application has the default endpoint configured, traffic switches at the SLB. To switch traffic from the DLB instead, remove the CloudHub 1.0 default endpoint, apply changes, and then change the traffic switch percentage.
+
+=== DLB with HTTPS Traffic Switching
+
+// Source: Reused from app-migration
+
+For applications using a DLB and expecting HTTPS traffic:
+
+. Enable the *Last-Mile Security* setting in the *Ingress* tab of the deployment settings for the CloudHub 2.0 application.
+. Enable *Upstream TLS 1.2* or higher in your DLB settings.
+. Make sure that vanity domains on CloudHub 2.0 match those on the CloudHub application to prevent dropped traffic.
+
+=== DLB with HTTP Traffic Switching
+
+// Source: Reused from app-migration
+
+For applications using a DLB and expecting HTTP traffic:
+
+. Add a firewall rule allowing HTTP from the local private network.
+
+WARNING: The CloudHub DLB routes requests from clients to Mule apps deployed within the VPC. The DLB sends requests to a Mule application and uses the HTTP Host header to find the certificate endpoint that matches the request. Then, the DLB uses the URL mapping rules for that endpoint to send the request to the Mule application. If the request doesn't match any certificate configured on the DLB, the DLB uses the "default" certificate endpoint to match the request against its URL mapping rules. During traffic switching, CloudHub 2.0 doesn't contain mapping rules for this unmatched host within the default certificate.
+
+=== SLB with HTTPS Traffic Switching
+
+// Source: Reused from app-migration
+
+For applications using an SLB and expecting HTTPS traffic:
+
+* Enable the *Last-Mile Security* setting in the *Ingress* tab of the deployment settings for the CloudHub 2.0 application.
+
+=== SLB with HTTP Traffic Switching
+
+// Source: Reused from app-migration
+
+For applications using an SLB and expecting HTTP traffic:
+
+. Enable the *Accept HTTP* option within the *Advanced* tab of your private space settings.
+. Add a firewall rule allowing HTTP from any source.
+
+== Monitor and Validate
+
+// NOTE: This section is new content from the improvement plan (Step 4 "What to Monitor").
+// Threshold values are recommendations from the improvement plan, not official MuleSoft guidance.
+// Validate with PM/CSM before publishing.
+
+=== What to Monitor
+
+Track the following metrics during traffic switching:
+
+* *Error rates* — Compare against baseline from CloudHub.
+* *Response times* — Track latency changes.
+* *CPU and memory usage* — Ensure replicas are appropriately sized.
+* *Request rate* — Confirm traffic is arriving at expected levels.
+
+=== Threshold Guidance
+
+[cols="1,1,1"]
+|===
+|Metric |Warning |Rollback
+
+|Error rate increase
+|>5% increase over baseline
+|>20% increase over baseline
+
+|Response time increase
+|>25% increase over baseline
+|>50% increase over baseline (critical)
+
+|Performance degradation
+|—
+|>2x degradation from baseline
+|===
+
+=== When to Roll Back Immediately
+
+* 500 Internal Server errors
+* 502 Bad Gateway errors
+* Performance degradation greater than 2x baseline
+
+=== When NOT to Roll Back
+
+Some behaviors are expected during traffic switching and do not require a rollback:
+
+* API policy caching differences (see <<manage-api-policies-during-traffic-switching>>)
+* Temporary rate-limit counter resets when traffic shifts
+
+[[manage-api-policies-during-traffic-switching]]
+== Manage API Policies During Traffic Switching
+
+// Source: Reused from app-migration "Managing API Policies During Traffic Switching"
+
+When you apply API policies to your new application, they begin with a clean internal status.
+
+=== Policies Unchanged by the Migration
+
+// Source: Reused from app-migration
+
+These policies don't rely on internal status and their behavior remains consistent:
+
+* http-basic-authentication
+* cors
+* client id enforcement
+* Header injection
+* Header removal
+* ip-allowlist
+* ip-blocklist
+* ldap-authentication
+* message-logging
+* json-threat-protection
+* xml-threat-protection
+
+=== Policies Affected by Internal Status (Caching)
+
+// Source: Reused from app-migration
+
+These policies rely on internal status to cache data:
+
+* external-oauth2-access-token-enforcement
+* openam-access-token-enforcement
+* openidconnect-access-token-enforcement
+* pingfederate-access-token-enforcement
+* mule-http-caching-policy
+* jwt-validation
+
+When transitioning to the new application, these policies can either trigger additional requests to the origin servers or have different cached values depending on which application receives the requests.
+
+=== Policies Affected by Internal Status (Request Counting)
+
+// Source: Reused from app-migration
+
+These policies track the number of processed requests and can sometimes exhibit unexpected behavior during the transition to the new application:
+
+* rate-limiting
+* rate-limiting-sla-based
+* spike-control
+
+If there's a hard change in traffic from one application to the other, policy counters behave as if they were reset. In a balanced round-robin traffic distribution, the effective number of requests can sometimes double because each application maintains an independent counting mechanism.
+
+=== Rate-Limiting Mitigation
+
+// NOTE: This section is new content from the improvement plan.
+// Validate these recommendations with PM/CSM.
+
+*Problem:* Rate limiting effectively doubles during a 50/50 traffic split because each application maintains independent counters.
+
+*Solutions:*
+
+* Configure half the rate limit on the CloudHub 2.0 application during the split.
+* Accept temporarily doubled limits during the transition.
+* Apply rate-limiting policies only after 100% cutover.
+
+=== Autodiscovery
+
+// Source: Reused from app-migration
+
+Autodiscovery connects a deployed Mule application with an API defined in API Manager. Throughout the migration, both your CloudHub and CloudHub 2.0 applications link to the same API.
+
+During the CloudHub to CloudHub 2.0 application migration, traffic gradually shifts, and both applications are active simultaneously. To maintain consistent policy enforcement, configure equivalent policies on your CloudHub 2.0 application's API instance during traffic switching.
+
+== Post-Validation Checklist
+
+// NOTE: This section is new content from the improvement plan (Step 4, item 2).
+
+After reaching 100% traffic on CloudHub 2.0, confirm:
+
+* [ ] Application is reachable with new domain URLs and responds through port 8081 as expected.
+* [ ] API policies, certificates, and secure properties are functioning post-deployment.
+* [ ] Inter-app communication within the Private Space works correctly.
+* [ ] Connectivity to on-premises systems through VPN or TGW is functioning.
+* [ ] Anypoint Monitoring dashboards are active and environment-specific alerts are configured.
+
+== Update DNS and Perform DLB Failover
+
+=== Update DNS
+
+// Source: From improvement plan Step 4, item 3
+
+Update DNS aliases and CNAMEs to point exclusively to CloudHub 2.0 endpoints.
+
+=== Perform DLB Failover
+
+// Source: Reused from app-migration "Perform DLB Failover"
+
+After the VPC upgrade and CloudHub application migration to CloudHub 2.0, perform a DLB failover to retain domains during the transition from CloudHub to CloudHub 2.0. This ensures client application compatibility.
+
+To perform a DLB failover:
+
+. For each DLB linked to your upgraded VPC, go to the DLB settings page and click *Failover to CloudHub 2.0*.
++
+This fails over the `anypointdns.net` domain to CloudHub 2.0, removes any additional DLB hop, and redirects traffic to your new CloudHub 2.0 private space URL.
+. After the traffic failover completes, stop and delete the CloudHub DLB linked to the VPC.
+
+NOTE: If there are failures during this stage, restart the DLB to point `anypointdns.net` to CloudHub while the DLB is in a stopped state. After you delete the DLB, you can't roll back to CloudHub.
+
+== Complete the Application Upgrade
+
+// Source: Reused from app-migration "Complete the Application Upgrade"
+
+After traffic fully redirects to the CloudHub 2.0 application, stop your CloudHub application within 30 days and mark the upgrade as complete.
+
+If you change your CloudHub application after it stops, the changes aren't replicated in your new CloudHub 2.0 application. Make any required changes to the CloudHub 2.0 application settings.
+
+After your CloudHub application stops, delete it within 30 days.
+
+NOTE: After the CloudHub application stops, traffic switches to the linked CloudHub 2.0 application. To roll back the application upgrade, restart your CloudHub application and configure the traffic switching percentage. After you delete the CloudHub application, the migration is complete. You then can't create another CloudHub application with the same application name.
+
+Complete or delete all CloudHub applications in a given upgraded VPC to release entitlements.
+
+== See Also
+
+* xref:ch2-migration-apps.adoc[Step 3: Migrate Applications]
+* xref:ch2-migration-validate.adoc[Step 5: Finalize and Decommission]
+* xref:ch2-migration-troubleshoot.adoc[Troubleshoot Migration Issues]
+* xref:ch2-config-endpoints-paths.adoc[Configure Endpoints and Paths]
+* xref:access-management::permissions-by-product.adoc[Permissions by Product in Anypoint Platform]
+
+// Prev/Next nav (uses site's built-in nav component)
+// Previous: ch-ch2-migration-applications.adoc (Step 3)
+// Next: ch-ch2-migration-completion.adoc (Step 5)

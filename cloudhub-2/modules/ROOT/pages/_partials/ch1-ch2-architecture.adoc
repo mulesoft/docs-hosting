@@ -1,0 +1,17 @@
+// Shared partial: Architecture comparison
+// Used by: cloudhub/ch-ch2-migration-configuration (overview page)
+//          cloudhub-2/ch2-comparison
+
+[cols="1,1"]
+|===
+|CloudHub |CloudHub 2.0
+
+|The CloudHub architecture includes two major components: Anypoint Platform services and a multitenant cloud of virtual machines distributed across global regions where your applications run. Individual instances of an application are called workers. CloudHub uses a VM-based infrastructure.
+|The CloudHub 2.0 architecture includes two major components: Anypoint Platform services and a multitenant cloud of containerized replicas distributed across global regions where your applications run. Individual instances of an application are called replicas. CloudHub 2.0 uses a container-based infrastructure.
+|===
+
+.CloudHub architecture
+image::ch1-architecture-diagram-new.png[Diagram showing CloudHub architecture]
+
+.CloudHub 2.0 architecture
+image::ch2-architecture-diagram-new.png[Diagram showing CloudHub 2.0 architecture]

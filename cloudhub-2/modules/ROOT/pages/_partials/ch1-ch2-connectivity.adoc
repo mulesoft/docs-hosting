@@ -1,0 +1,25 @@
+// Shared partial: Connectivity Methods comparison
+// Used by: cloudhub/ch-ch2-migration-configuration (overview page)
+//          cloudhub-2/ch2-comparison
+
+The private network connects to the corporate network using these connectivity methods:
+
+[cols="1,1"]
+|===
+|CloudHub |CloudHub 2.0
+
+a|
+* VPC peering (AWS VPC to Mule VPC) +
+Requires configuration. Contact the MuleSoft Support team to enable.
+* AWS Direct Connect +
+Requires configuration. Contact the MuleSoft Support team to enable.
+* Transit Gateway Attachments
+* VPN tunnel/IPsec tunnel
+
+a|
+* VPN tunnel
+* Transit Gateway Attachments
+
+|Contact the MuleSoft Support team to enable VPC peering and AWS Direct Connect.
+|CloudHub 2.0 supports Transit Gateway or VPN tunnel.
+|===

@@ -1,0 +1,66 @@
+// Shared partial: Firewall Rules comparison
+// Used by: cloudhub/ch-ch2-migration-configuration (overview page)
+//          cloudhub-2/ch2-comparison
+
+*Ingress (Inbound) Rules*
+
+[cols="1,1"]
+|===
+|CloudHub |CloudHub 2.0
+
+|CloudHub adds firewall rules automatically when you create a VPC.
+|CloudHub 2.0 adds firewall rules automatically when you create a private space.
+
+|By default, all traffic to a VPC is blocked unless explicitly allowed by a firewall rule. However, CloudHub automatically creates four default inbound firewall rules when you create a VPC.
+|Traffic to a private space is blocked unless explicitly allowed by a firewall rule.
+
+a|CloudHub creates four default inbound rules automatically:
+
+* Two rules to allow inbound connections from within your local Anypoint VPC through ports 8091 and 8092.
+** Specifically for DLB interactions.
+* Two rules allow inbound connections from anywhere through ports 8081 and 8082.
+** Specifically for SLB interactions.
+
+a|CloudHub 2.0 creates two default inbound rules automatically:
+
+* Two rules to allow inbound connections from any host:
+** HTTPS: port 443
+** HTTP: port 80
+
+|CloudHub supports HTTP, HTTPS, and TCP protocols. The Dedicated Load Balancer (DLB) also supports WebSockets (ws and wss).
+|CloudHub 2.0 supports HTTP, HTTPS, and TCP protocols. The upgrade tooling does not support TCP traffic migration yet.
+
+|The maximum number of firewall rules is approximately 35 per VPC, depending on the number of rules CloudHub requires.
+|The maximum number of inbound firewall rules is 300.
+|===
+
+*Egress (Outbound) Rules*
+
+[cols="1,1"]
+|===
+|CloudHub |CloudHub 2.0
+
+|CloudHub doesn't support egress firewall rules. It allows all outbound traffic by default.
+a|CloudHub 2.0 creates two default outbound rules automatically. You can configure additional rules and application-level egress rules for granular control. The maximum number of outbound firewall rules is 300.
+
+CloudHub 2.0 adds two egress rules by default. You can delete these rules if you want to block all outbound traffic for security reasons:
+
+* TCP: All ports (to anywhere)
+* HTTPS: 443 (to anywhere)
+|===
+
+*Application-Level Egress Rules*
+
+CloudHub 2.0 supports egress firewall rules at the application level. Application-level egress rules are independent of private-space-level firewall rules. See xref:cloudhub-2:ps-config-app-level-egress.adoc[Configuring Application-Level Egress Rules].
+
+Turn on application-level egress rules in Runtime Manager.
+
+In CloudHub 2.0, egress traffic passes through both application-level control (enforced first) and private-space-level control (enforced after application-level control).
+
+Apply application-level egress rules when you deploy your application. See xref:cloudhub-2:ps-config-app-level-egress.adoc#apply-application-level-egress-rules-when-deploying-your-applications[Apply Application-Level Egress Rules].
+
+You can configure application-level egress connections, such as:
+
+* Anypoint MQ
+* Object Store v2
+* API Manager

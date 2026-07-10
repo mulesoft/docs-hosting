@@ -1,0 +1,14 @@
+// Shared partial: Mutual TLS comparison
+// Used by: cloudhub/ch-ch2-migration-configuration (overview page)
+//          cloudhub-2/ch2-comparison
+
+[cols="1,1"]
+|===
+|CloudHub |CloudHub 2.0
+
+|CloudHub doesn't provide native mutual TLS (mTLS) capability. The Dedicated Load Balancer (DLB) handles mTLS at the infrastructure level, performing client certificate validation and forwarding certificate information to applications via HTTP headers.
+|CloudHub 2.0 provides native mTLS with TLS contexts and truststores. Configure mTLS at the private space level with centralized management. CloudHub 2.0 also supports forward SSL, which forwards client certificate information to applications via HTTP headers.
+
+|CloudHub supports limited Certificate Authority (CA) certificates through the DLB. It accepts certificate files in PEM format only.
+|CloudHub 2.0 provides dynamic certificate management, application-level xref:cloudhub-2:ps-config-domains.adoc#truststore[truststore] access, and in-place updates without redeployment. Upload truststore files in PEM and JKS formats.
+|===

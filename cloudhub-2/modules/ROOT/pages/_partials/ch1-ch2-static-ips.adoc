@@ -1,0 +1,17 @@
+// Shared partial: Static IP Addresses comparison
+// Used by: cloudhub/ch-ch2-migration-configuration (overview page)
+//          cloudhub-2/ch2-comparison
+
+[cols="1,1"]
+|===
+|CloudHub |CloudHub 2.0
+
+|CloudHub supports static IP addresses at the application level.
+|CloudHub 2.0 supports static IP addresses at the private space level.
+
+|If you turn on *Static IPs* for an application, CloudHub provides outbound static IPs.
+|CloudHub 2.0 provides inbound and outbound static IPs at the private space level.
+
+|Applications deployed to the same VPC don't automatically share static IPs. If you turn on *Static IPs* for an application, it receives its own set of outbound static IPs. Inbound static IPs are available only through a DLB, and all applications behind the same DLB share them.
+|Applications deployed to the same private space use the same set of inbound and outbound static IPs. To have unique static IPs per application, use a different private space.
+|===

@@ -1,0 +1,34 @@
+// Shared partial: Deployment Configuration comparison
+// Used by: cloudhub/ch-ch2-migration-configuration (overview page)
+//          cloudhub-2/ch2-comparison
+
+[cols="1,1"]
+|===
+|CloudHub |CloudHub 2.0
+
+|Use maven and `pom.xml` configuration to deploy applications to CloudHub. See xref:mule-runtime::deploy-to-cloudhub.adoc[Deploy Applications to CloudHub Using the Mule Maven Plugin].
+a|App deployment with maven and `pom.xml` configuration takes two steps:
+
+. Publish the artifact to Anypoint Exchange (`mvn clean deploy`).
+. Deploy the artifact to CloudHub 2.0 (`mvn clean deploy`, `-DmuleDeploy`).
+
+For more information, see xref:mule-runtime::deploy-to-cloudhub-2.adoc[Deploy Applications to CloudHub 2.0 Using the Mule Maven Plugin].
+
+|The maximum size of a Mule application (ZIP or JAR) file is 200 MB.
+|The maximum size of a Mule application JAR file is 350 MB.
+
+|Names are unique per control plane.
+a|Names are unique per private space. CloudHub 2.0 adds a six-character unique ID to the application name that you specify in the public endpoint URL: `Myapp-uniq-id.shard.region.cloudhub.io`
+
+* `uniq-id`: is a six-digit value appended to the app name to ensure uniqueness.
+* `shard`: is a six-digit value associated with the space (private or shared) the app is deployed to.
+
+|The DLB supports a maximum HTTP POST (payload) size of 200 MB.
+|The maximum HTTP request size is 1 GB.
+
+|Use xref:runtime-manager::deploying-to-cloudhub.adoc#copy-an-application-from-sandbox-to-production[Get From Sandbox] to promote an application from sandbox to production.
+|Get From Sandbox is not supported. Use CI/CD pipelines or the Mule Maven Plugin to promote applications between environments.
+
+|You can overwrite JVM parameters and override default JVM truststores with custom truststores.
+|Overwriting JVM parameters and overriding default JVM truststores with custom truststores are not supported.
+|===

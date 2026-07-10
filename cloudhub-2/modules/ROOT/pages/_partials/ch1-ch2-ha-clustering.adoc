@@ -1,0 +1,23 @@
+// Shared partial: High Availability with Clustering comparison
+// Used by: cloudhub/ch-ch2-migration-configuration (overview page)
+//          cloudhub-2/ch2-comparison
+
+[cols="1,1"]
+|===
+|CloudHub |CloudHub 2.0
+
+|CloudHub doesn't support Mule clustering. You can run multiple workers for scale and High Availability (HA), but they're independent runtimes without cluster semantics. There's no distributed in-memory state or cluster-aware components.
+|CloudHub 2.0 supports Mule clustering. Multiple replicas of the same app form a managed cluster, enabling cluster-aware runtime behavior. This includes shared memory and distributed locking across runtime replicas, with a single primary replica running the application logic and secondary replica(s) available for high-availability if the primary goes down.
+
+|CloudHub scales applications by deploying multiple workers (up to eight) for each application. The SLB automatically distributes traffic across these workers. For applications that need shared state, store that state externally (for example, in a database or Object Store). Workers can't share in-memory state.
+|CloudHub 2.0 scales applications by deploying multiple replicas (up to sixteen) for each application. The platform's cluster mode coordinates behavior across these replicas automatically. For applications with stateful requirements, use Mule's native clustered features (such as clustered object stores and clustered caches) to maintain state across replicas.
+
+|CloudHub achieves HA with two or more workers. It supports availability across AZs, and the platform handles failover.
+|CloudHub 2.0 provides fully managed HA. The platform automatically spreads replicas across two or more AZs, with round-robin HTTP load balancing and cluster-aware recovery. If you use the xref:vpc-upgrade.adoc[VPC upgrade tool], the private space inherits the same number of AZs as the original CloudHub VPC.
+
+|CloudHub monitors workers and automatically performs restarts. Blue-green deployment at the DLB or SLB layer provides seamless cutover, but this process lacks cluster draining and coordination within the runtime.
+|CloudHub 2.0 provides orchestrated restarts and rolling updates across replicas. Cluster-aware coordination minimizes impact during upgrades and failures.
+
+|You manage worker counts and rely on external stores for shared state.
+|CloudHub 2.0 provides fully managed clustering. Select replica counts, and the platform handles cluster formation, health, placement, and recovery.
+|===

@@ -1,0 +1,28 @@
+// Shared partial: Private Network comparison
+// Used by: cloudhub/ch-ch2-migration-configuration (overview page)
+//          cloudhub-2/ch2-comparison
+
+The Private Network extends your corporate network and helps CloudHub workers and CloudHub 2.0 replicas to access resources behind the corporate firewall. Creating a private network differs between CloudHub and CloudHub 2.0.
+
+[cols="1,1"]
+|===
+|CloudHub |CloudHub 2.0
+
+|A xref:virtual-private-cloud.adoc[Virtual Private Cloud (VPC)] is a virtual, private, and isolated cloud network segment for hosting CloudHub workers.
+|A private space is a virtual, private, and isolated logical space in CloudHub 2.0 for running Mule apps.
+
+|Static IPs are managed per application, not at the VPC level. Turn on *Static IPs* for individual apps to receive their own set of egress static IPs.
+|Static IPs are provisioned at the private space level. All applications in the same private space share these outbound static IPs.
+
+|CloudHub provides a Shared Load Balancer (SLB) by default for all apps. The Dedicated Load Balancer (DLB) is optional, and you create and configure it within the VPC.
+|CloudHub 2.0 automatically provisions a fully managed ingress load balancer for the private space.
+
+|TLS/SSL certificates require manual configuration. The SLB uses the platform's wildcard certificate. For custom domains, create a DLB and upload PEM-encoded certificates and private keys.
+|CloudHub 2.0 automatically creates a default TLS context for the private space with wildcard certificates for both internal and public endpoints. You can configure custom vanity domains with your own TLS context for both internal and external endpoints.
+
+|A VPC is associated with a single environment.
+|A private space can be associated with multiple environments based on the environment type (sandbox or production). You can choose which environment types and individual business groups share a private space.
+
+|To move an application to a different region, redeploy it to a VPC in the target region.
+|To move an application to a different region, redeploy it to a shared space or private space in the target region. You cannot move an application to a different region once deployed.
+|===

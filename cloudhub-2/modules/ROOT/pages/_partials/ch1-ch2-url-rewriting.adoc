@@ -1,0 +1,11 @@
+// Shared partial: URL Rewriting comparison
+// Used by: cloudhub/ch-ch2-migration-configuration (overview page)
+//          cloudhub-2/ch2-comparison
+
+[cols="1,1"]
+|===
+|CloudHub |CloudHub 2.0
+
+|Implement URL rewriting at the DLB level using mapping rules. Configure a DLB to use this feature.
+|Implement URL rewrite at the application level using domains and endpoints for a more flexible, per-app configuration.
+|===

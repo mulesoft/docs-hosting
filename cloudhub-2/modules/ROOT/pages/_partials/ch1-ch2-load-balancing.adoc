@@ -1,0 +1,24 @@
+// Shared partial: Load Balancing comparison
+// Used by: cloudhub/ch-ch2-migration-configuration (overview page)
+//          cloudhub-2/ch2-comparison
+
+[cols="1,1"]
+|===
+|CloudHub |CloudHub 2.0
+
+a|CloudHub provides two types of load balancing:
+
+* Shared Load Balancer (SLB): CloudHub provides it by default for all apps.
+* Dedicated Load Balancer (DLB): You create it within the VPC.
+
+|CloudHub 2.0 automatically provides a fully managed ingress load balancer for each private space with a simplified architecture that removes the need to select or create load balancers.
+
+|CloudHub load balancers provide round-robin load distribution across workers.
+|CloudHub 2.0 provides a fully managed ingress load balancer for each private space that automatically balances inbound traffic across multiple application replicas. The ingress load balancer auto-scales to accommodate traffic. You can configure this load balancer to meet your specific requirements.
+
+|CloudHub doesn't support load balancer logs for the DLB. The SLB has no log access.
+|Download ingress traffic logs from Runtime Manager for full visibility into ingress traffic and troubleshooting.
+
+|You can assign up to four load balancer units (up to eight workers total) to a Dedicated Load Balancer (DLB) for high availability and load distribution. The Shared Load Balancer (SLB) provides fully managed high availability with no customer configuration required.
+|CloudHub 2.0 automatically distributes application replicas across two or more availability zones (AZs) for built-in high availability and fault tolerance. If you use the xref:vpc-upgrade.adoc[VPC upgrade tool], the private space inherits the same number of AZs as the original CloudHub VPC.
+|===

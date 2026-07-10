@@ -1,0 +1,28 @@
+// Shared partial: Logging comparison
+// Used by: cloudhub/ch-ch2-migration-configuration (overview page)
+//          cloudhub-2/ch2-comparison
+
+[cols="1,1"]
+|===
+|CloudHub |CloudHub 2.0
+
+|During deployment, CloudHub automatically replaces the application archive's `log4j2.xml` file with a predefined template. CloudHub uses the original `log4j2.xml` file only when you disable CloudHub logs.
+|CloudHub 2.0 merges the `log4j2.xml` configuration file from the application archive with predefined appenders. These appenders send logs directly to Runtime Manager and Anypoint Monitoring, preserving custom appenders while enabling platform integration.
+
+|Download the application and runtime logs separately.
+|CloudHub 2.0 merges application and runtime logs into a single log stream. To find runtime logs, download the application log and check for runtime-related messages.
+
+|CloudHub stores logs in the region where it was first deployed. If you move the app to another region, the logs remain stored in the initial deployment region. To reset this log retention configuration, delete and re-create the app.
+|CloudHub 2.0 stores logs in the region where the application is currently deployed. You can't move the app to a different region once deployed. To reset this log retention configuration, delete and re-create the app.
+
+|CloudHub has limited control over log forwarding.
+a|If you deselect *Forward application logs to Anypoint Platform* within the app configuration in Runtime Manager:
+
+* CloudHub 2.0 doesn't forward application logs to Runtime Manager or Anypoint Monitoring.
+* The custom log appenders configured in your application continue to function normally (excluding file-based appenders).
+
+This provides more granular control over platform log forwarding.
+
+|For more information, see https://help.salesforce.com/s/articleView?id=001117963&type=1[CloudHub 1.0 Logging FAQ]
+|For more information, see https://help.salesforce.com/s/articleView?id=001119527&type=1[CloudHub 2.0 Logging FAQ]
+|===

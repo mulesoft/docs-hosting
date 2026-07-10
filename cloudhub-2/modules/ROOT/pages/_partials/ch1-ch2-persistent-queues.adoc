@@ -1,0 +1,11 @@
+// Shared partial: Persistent VM Queues vs Anypoint MQ comparison
+// Used by: cloudhub/ch-ch2-migration-configuration (overview page)
+//          cloudhub-2/ch2-comparison
+
+[cols="1,1"]
+|===
+|CloudHub |CloudHub 2.0
+
+|CloudHub persistent queues store VM queue messages externally to the application. Use this feature mainly with VM components. Turn on CloudHub persistent queues on a per-application basis.
+|xref:mq::index.adoc[Anypoint MQ] provides persistent message storage in cloud infrastructure, eliminating VM-dependent queue management. Anypoint MQ provides asynchronous message processing, event-driven architectures, and cross-application communication. Configure Anypoint MQ on a per-application basis with automatic scaling and high availability.
+|===
