@@ -1,4 +1,4 @@
-= Step 4: Validate and Cut Over
+= Step 4: Validate and Switch Traffic
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

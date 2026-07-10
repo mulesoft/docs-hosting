@@ -10,8 +10,4 @@
 |The CloudHub 2.0 architecture includes two major components: Anypoint Platform services and a multitenant cloud of containerized replicas distributed across global regions where your applications run. Individual instances of an application are called replicas. CloudHub 2.0 uses a container-based infrastructure.
 |===
 
-.CloudHub architecture
-image::ch1-architecture-diagram-new.png[Diagram showing CloudHub architecture]
-
-.CloudHub 2.0 architecture
-image::ch2-architecture-diagram-new.png[Diagram showing CloudHub 2.0 architecture]
+// TODO: Add architecture diagrams (ch1-architecture-diagram-new.png, ch2-architecture-diagram-new.png)
