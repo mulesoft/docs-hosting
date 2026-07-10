@@ -80,7 +80,7 @@ Americas::
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
 //MONITORING - AMERICAS: US | CANADA
-| Basic Alerts | Planned | Available
+| Basic Alerts | Available | Available
 | Basic Monitoring | Available | Available
 | Custom Dashboards | Available | Planned
 | Hybrid Standalone Mule (HSA) Enabled | Planned | Planned
