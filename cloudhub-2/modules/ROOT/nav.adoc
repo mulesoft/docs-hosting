@@ -13,6 +13,7 @@
 ** xref:ch2-migration-infrastructure.adoc[Prepare Infrastructure]
 ** xref:ch2-migration-apps.adoc[Migrate Applications]
 ** xref:ch2-migration-validate.adoc[Validate and Switch Traffic]
+** xref:ch2-migration-finalize.adoc[Finalize and Decommission]
 ** xref:ch2-migration-troubleshoot.adoc[Troubleshoot Migration Issues]
 * xref:ch2-architecture.adoc[CloudHub 2.0 Architecture]
 ** xref:ch2-clustering.adoc[Clustering]
