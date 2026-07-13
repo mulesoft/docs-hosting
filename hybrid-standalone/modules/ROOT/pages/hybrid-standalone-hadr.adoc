@@ -1,0 +1,67 @@
+= Hybrid Standalone High Availability and Disaster Recovery
+
+Hybrid Standalone lets you host the Mule runtime engine on servers or cloud instances that you control, managed centrally through Anypoint Platform. You achieve high availability (HA) by clustering multiple Mule runtime instances so that if one node fails, another takes over. Disaster recovery (DR) follows a shared-responsibility model: because you control the infrastructure, you own backup, restore, and DR, and you align them with your existing IT operations. MuleSoft provides HA best practices and high availability of the Anypoint Platform control plane.
+
+For an overview of HA and DR across all Mule deployment models, see xref:mule-runtime::hadr-guide.adoc[High Availability and Disaster Recovery].
+
+== High Availability Versus Disaster Recovery
+
+High availability (HA) is the measure of a system's ability to remain accessible despite a system component failure. In Hybrid Standalone, you achieve HA by clustering Mule runtime instances so that another node takes over when one fails.
+
+Disaster recovery (DR) is the process of restoring a system to an acceptable previous state after a natural or man-made disaster, such as flooding, power failures, server failures, or misconfigurations.
+
+While they both increase overall availability, the difference is that with HA there's generally no loss of service. HA retains the service, and DR retains the data, but with DR there's usually a slight loss of service while the DR plan executes and the system restores.
+
+These key terms are essential to understanding HA and DR strategies:
+
+Recovery Time Objective (RTO):: The maximum amount of downtime a business can tolerate. The RTO represents the time it takes for the system to recover after a business disruption.
+
+Recovery Point Objective (RPO):: The maximum amount of time acceptable for data loss after a disaster. The RPO influences the frequency of data backups.
+
+== High Availability in Hybrid Standalone
+
+You achieve high availability in Hybrid Standalone by grouping servers into a cluster.
+
+Clustering:: A cluster is a set of up to eight servers that act as a single deployment target. The nodes communicate, coordinate their status, and share information. If one server fails, another server in the cluster automatically takes over, which provides failover without loss of service.
+
+Shared Memory:: Clusters use a distributed shared-memory grid so that data is replicated across nodes and remains available if a node fails. Shared components include object stores, VM queues, and a distributed lock factory. Memory-based storage is recommended for performance. Database-based (JDBC) storage is an option when you require persistence beyond the cluster lifecycle.
+
+Node Discovery:: Clusters use one of two discovery methods. With unicast, you configure the IP addresses of the nodes, and adding a server restarts the cluster. With multicast, nodes discover each other automatically, but many networks block multicast traffic.
+
+For more information about creating and managing clusters, see xref:creating-clusters.adoc[] and xref:managing-clusters.adoc[]. For a deeper reference on Mule runtime clustering, see xref:mule-runtime::mule-high-availability-ha-clusters.adoc[].
+
+== Disaster Recovery in Hybrid Standalone
+
+Because you control the infrastructure in Hybrid Standalone, disaster recovery is a shared-responsibility model.
+
+Customer Responsibility:: You own backup and restore of the runtime plane, application-level failover, and DR procedures using your own tooling and infrastructure. Align cluster DR with standby-site strategies. Back up your own platform configurations, such as connections and properties, by using the Anypoint CLI or Anypoint Platform APIs.
+
+MuleSoft Responsibility:: MuleSoft maintains the availability of the Anypoint Platform control plane, which is deployed across multiple availability zones. The control plane stores only operational metadata and configuration, not customer business data. For a full-region control-plane loss, MuleSoft maintains documented recovery objectives.
+
+== Considerations for High Availability and Disaster Recovery
+
+Consider the following factors when you design a clustered Hybrid Standalone topology:
+
+Network Topology:: Clustering across availability zones or regions can cause performance issues because of network latency. Where possible, place cluster nodes on the same subnet or availability zone.
+
+Simultaneous Node Restarts:: Avoid restarting multiple cluster nodes at the same time, such as during operating system patching. Concurrent restarts can trigger cluster-membership eviction and distributed-lock partition migration, which can take applications offline.
+
+Cluster Rejoin Behavior:: After a network interruption, evicted nodes might not rejoin the cluster automatically and can require a manual restart. Account for this behavior in your operational runbooks.
+
+Object Store Persistence:: Object Store persistence doesn't support sharing the same database across different clusters. Plan your persistence strategy accordingly.
+
+Object Store Locking:: For Object Store lock handling in clusters, use an Object Store Connector version that supports configurable lock timeouts to avoid indefinite lock hangs.
+
+== Best Practices
+
+* Keep integrations stateless and externalize state to an external store, such as a database or messaging queue.
+* Keep all cluster nodes on identical Mule runtime, Runtime Manager agent, and Java versions.
+* Schedule cluster changes during maintenance windows.
+* Test failover and restore procedures regularly.
+
+== See Also
+
+* xref:mule-runtime::hadr-guide.adoc[]
+* xref:creating-clusters.adoc[]
+* xref:managing-clusters.adoc[]
+* xref:mule-runtime::mule-high-availability-ha-clusters.adoc[]

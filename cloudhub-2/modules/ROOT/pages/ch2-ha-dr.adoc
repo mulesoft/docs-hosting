@@ -2,6 +2,8 @@
 
 CloudHub 2.0 provides high availability (HA) and disaster recovery (DR) capabilities for applications and protection against hardware failures.
 
+For an overview of HA and DR across all Mule deployment models, and to compare CloudHub 2.0 with other options, see xref:mule-runtime::hadr-guide.adoc[High Availability and Disaster Recovery].
+
 CloudHub 2.0 leverages Amazon AWS for its cloud infrastructure, so availability is directly dependent on Amazon services. CloudHub 2.0 deployments and availability are region-based and correspond to Amazon regions. If an Amazon region goes down, the applications within that region are unavailable and not automatically replicated in other regions.
 
 In the event of a network partition between the control plane and the runtime plane, applications in the runtime plane continue to run. The runtime plane continues to locally buffer log and telemetry data until control plane availability is restored.
