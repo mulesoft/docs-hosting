@@ -14,7 +14,7 @@ High availability (HA) measures a system's ability to remain accessible when a c
 
 Disaster recovery (DR) restores a system to an acceptable previous state after a natural or man-made disaster, such as flooding, tornadoes, earthquakes, fires, power failures, server failures, or misconfigurations.
 
-Both strategies increase availability, but they differ in one key way: HA generally keeps the service up with no loss, whereas DR preserves the data but usually incurs a brief loss of service while the DR plan runs and the system restores.
+Both strategies increase availability but differ in scope: on CloudHub 2.0, HA keeps your application serving requests through replica and availability-zone failures with no loss of service, whereas DR restores service and data after a region-level disruption and usually incurs a brief loss of service while the DR plan runs.
 
 Two measurable objectives drive your HA and DR strategies on CloudHub 2.0:
 
@@ -67,7 +67,7 @@ CloudHub 2.0 supports multiple multiregion DR strategies based on application im
 
 To decouple your runtime plane application availability from the control plane region, configure your primary and backup runtime plane regions to differ from the region that hosts your Anypoint Platform control plane. This guidance applies to the EU, with the control plane in eu-central-1, and to the US, with the control plane in us-east-1.
 
-image::hadr-load-balancer.png["Diagram showing basic disaster recovery configuration"]
+image::hadr-load-balancer.png["A bring-your-own global load balancer routing traffic across primary and backup CloudHub 2.0 runtime plane regions"]
 
 ==== Active-Active Configuration
 
