@@ -40,15 +40,15 @@ MuleSoft responsibility:: MuleSoft keeps the Anypoint Platform control plane ava
 
 == Considerations and Limitations
 
-Account for the following factors when you design a clustered Hybrid Standalone topology:
+Account for these factors when you design a clustered Hybrid Standalone topology:
 
 Network topology:: Clustering across availability zones or regions can degrade performance because of network latency. Where possible, place cluster nodes on the same subnet or availability zone.
 
-Simultaneous node restarts:: Do not restart multiple cluster nodes at the same time, such as during operating system patching. Concurrent restarts can trigger cluster-membership eviction and distributed-lock partition migration, which can take applications offline.
+Simultaneous node restarts:: Don't restart multiple cluster nodes at the same time, such as during operating system patching. Concurrent restarts can trigger cluster-membership eviction and distributed-lock partition migration, which can take applications offline.
 
 Cluster rejoin behavior:: After a network interruption, evicted nodes might not rejoin the cluster automatically and can require a manual restart. Account for this behavior in your operational runbooks.
 
-Object Store persistence:: Object Store persistence does not support sharing the same database across different clusters. Plan your persistence strategy accordingly.
+Object Store persistence:: Object Store persistence doesn't support sharing the same database across different clusters. Plan your persistence strategy accordingly.
 
 Object Store locking:: For Object Store lock handling in clusters, use an Object Store Connector version that supports configurable lock timeouts, which prevents indefinite lock hangs.
 

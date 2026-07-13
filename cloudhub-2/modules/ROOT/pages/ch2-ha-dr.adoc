@@ -4,7 +4,7 @@ CloudHub 2.0 provides high availability (HA) and disaster recovery (DR) for appl
 
 For an overview of HA and DR across all Mule deployment models, and to compare CloudHub 2.0 with other options, see xref:mule-runtime::hadr-guide.adoc[High Availability and Disaster Recovery].
 
-CloudHub 2.0 runs on Amazon AWS, so its availability depends on Amazon services. CloudHub 2.0 bases deployments and availability on regions that correspond to Amazon regions. If an Amazon region goes down, applications in that region become unavailable, and CloudHub 2.0 does not automatically replicate them to other regions.
+CloudHub 2.0 runs on Amazon AWS, so its availability depends on Amazon services. CloudHub 2.0 bases deployments and availability on regions that correspond to Amazon regions. If an Amazon region goes down, applications in that region become unavailable, and CloudHub 2.0 doesn't automatically replicate them to other regions.
 
 During a network partition between the control plane and the runtime plane, applications in the runtime plane keep running. The runtime plane buffers log and telemetry data locally until control plane availability returns.
 
@@ -141,7 +141,7 @@ Some MuleSoft services are regional, which shapes their DR strategy.
 
 Anypoint MQ:: This regional service runs in the same region as the application and provides out-of-the-box region failover to a fallback region for standard queues. When your application's RTO tolerates processing in-flight messages only after the primary site recovers, Anypoint MQ failover suffices. Otherwise, configure a backup application in an active/passive setup and resend in-flight events and data to the failover queue during a traffic switch. During backup with VM queues and Anypoint MQ, you can lose data for a few minutes, depending on your configuration.
 
-Object Store v2:: This regional service runs in the same region as the application and provides no region failover. An application deployed in a different region cannot access it. Bring your own external storage to access or back up data across regions. Object Store v2 does not retrieve data for regular backups. Caching in the object store, which you use for token management between calls, is region-specific, and you cannot transfer it to a secondary region.
+Object Store v2:: This regional service runs in the same region as the application and provides no region failover. An application deployed in a different region cannot access it. Bring your own external storage to access or back up data across regions. Object Store v2 doesn't retrieve data for regular backups. Caching in the object store, which you use for token management between calls, is region-specific, and you cannot transfer it to a secondary region.
 
 === Disaster Recovery for the Anypoint Platform Control Plane
 
@@ -171,11 +171,11 @@ Control plane to runtime plane ratio:: Unlike the US (1:12) and EU (1:2) regions
 
 === Cross-Region Disaster Recovery Limitations
 
-* Canada and Japan do not support cross-region runtime plane DR.
+* Canada and Japan don't support cross-region runtime plane DR.
 
 == Best Practices
 
-Keep your integrations stateless. Do not share transactional information between client invocations or scheduled executions. When the middleware must retain data because of a system limitation, persist it in an external store, such as a database or a messaging queue, rather than in the middleware infrastructure or memory. Keep each replica's state and resources independent so that your applications scale and recover reliably across zones and regions.
+Keep your integrations stateless. Don't share transactional information between client invocations or scheduled executions. When the middleware must retain data because of a system limitation, persist it in an external store, such as a database or a messaging queue, rather than in the middleware infrastructure or memory. Keep each replica's state and resources independent so that your applications scale and recover reliably across zones and regions.
 
 == See Also
 
