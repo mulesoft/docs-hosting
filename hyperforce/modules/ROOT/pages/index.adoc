@@ -443,205 +443,205 @@ Europe::
 Asia Pacific::
 +
 --
-[%header%autowidth.spread,cols=".^a,.^a,.^a,.^a,.^a"]
+[%header%autowidth.spread,cols=".^a,.^a,.^a,.^a,.^a,.^a"]
 |===
-|Component |Feature Description |Japan Cloud |India Cloud |Notes
+|Component |Feature Description |Japan Cloud |India Cloud |Australia Cloud |Notes
 
-//ACCESS MANAGEMENT - ASIA: JA | INDIA
-.4+| xref:access-management::index.adoc[Access Management] | All other features | Available | Available .4+| n/a
-| Audit Logging | Available | Available
-| Business Groups | Available | Available
-| External Identity Management Integration | Available | Available
+//ACCESS MANAGEMENT - ASIA: JA | INDIA | AU
+.4+| xref:access-management::index.adoc[Access Management] | All other features | Available | Available | Available .4+| n/a
+| Audit Logging | Available | Available | Available
+| Business Groups | Available | Available | Available
+| External Identity Management Integration | Available | Available | Available
 
-//AGENT VISUALIZER - ASIA: JA | INDIA
-.2+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Available | Available .2+| n/a
-| Links to logs and traces | Planned | Available
+//AGENT VISUALIZER - ASIA: JA | INDIA | AU
+.2+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Available | Available | Available .2+| n/a
+| Links to logs and traces | Planned | Available | Available
 
-//API MANAGER - ASIA: JA | INDIA
-.6+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Available | Available .6+a| n/a
+//API MANAGER - ASIA: JA | INDIA | AU
+.6+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Available | Available | Available .6+a| n/a
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
 * xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
-| API Analytics | Not planned | Not planned
-| API Alerts | Planned | Available
-| API Manager 1.x | Not planned | Not planned
-| API Manager 2.x | Available | Available
-| API Console Proxy/Trusted Domains | Planned | Available
+| API Analytics | Not planned | Not planned | Available
+| API Alerts | Planned | Available | Available
+| API Manager 1.x | Not planned | Not planned | Available
+| API Manager 2.x | Available | Available | Available
+| API Console Proxy/Trusted Domains | Planned | Available | Available
 
-//CLI - ASIA: JA | INDIA
-.2+| xref:anypoint-cli::index.adoc[Anypoint CLI] | All features | Available | Available .2+| n/a
-| API Catalog CLI | Available | Available
+//CLI - ASIA: JA | INDIA | AU
+.2+| xref:anypoint-cli::index.adoc[Anypoint CLI] | All features | Available | Available | Available .2+| n/a
+| API Catalog CLI | Available | Available | Available
 
-//CODE BUILDER - ASIA: JA | INDIA
-.5+| xref:anypoint-code-builder::index.adoc[Anypoint Code Builder] | All other features | Available | Availabl .5+| For details, refer to xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud Hosts]
-| Agent Network Projects (Agent Broker) | Available | Available
-| MuleSoft Vibes | Available | Available
-| Generative Data Transformations | Available | Available
-| Generative MUnit | Available | Available
+//CODE BUILDER - ASIA: JA | INDIA | AU
+.5+| xref:anypoint-code-builder::index.adoc[Anypoint Code Builder] | All other features | Available | Available | Available .5+| For details, refer to xref:anypoint-code-builder::index.adoc#us-eu-clouds[Anypoint Code Builder Cloud Hosts]
+| Agent Network Projects (Agent Broker) | Available | Available | Available
+| MuleSoft Vibes | Available | Available | Available
+| Generative Data Transformations | Available | Available | Available
+| Generative MUnit | Available | Available | Available
 
-//EXCHANGE - ASIA: JA | INDIA
-.5+| xref:exchange::index.adoc[Anypoint Exchange] | All other features | Available | Available .5+| For details, refer to xref:exchange::index.adoc#exchange-on-control-planes[Anypoint Exchange on Control Planes]
-| AI Documentation Generation | Available | Available
-| Amazon Cloud Front | Planned | Available
-| Agent, MCP, and LLM assets (Agent Registry) | Available | Available
-| Agent Scanners | Available | Available
+//EXCHANGE - ASIA: JA | INDIA | AU
+.5+| xref:exchange::index.adoc[Anypoint Exchange] | All other features | Available | Available | Available .5+| For details, refer to xref:exchange::index.adoc#exchange-on-control-planes[Anypoint Exchange on Control Planes]
+| AI Documentation Generation | Available | Available | Available
+| Amazon Cloud Front | Planned | Available | Available
+| Agent, MCP, and LLM assets (Agent Registry) | Available | Available | Available
+| Agent Scanners | Available | Available | Available
 
-//MONITORING - ASIA: JA | INDIA
-.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .13+a| For details, refer to:
+//MONITORING - ASIA: JA | INDIA | AU
+.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned | Available .13+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
-//MONITORING - ASIA: JA | INDIA
-| Basic Alerts | Available | Available
-| Basic Monitoring | Available | Available
-| Custom Dashboards | Planned | Planned
-| Hybrid Standalone Mule (HSA) Enabled | Planned | Planned
-| Integration Intelligence | Available | Available
-| Log Search | Available | Available
-| Log Tailing | Available | Available
-| Logs Raw Data | Available | Available
-| Reports | Available | Available
-| Standard Dashboards (Anypoint Insights) | Available | Available
-| Telemetry Exporter | Available | Available
-| Traces Beta | Not planned | Not planned
+//MONITORING - ASIA: JA | INDIA | AU
+| Basic Alerts | Available | Available | Available
+| Basic Monitoring | Available | Available | Available
+| Custom Dashboards | Planned | Planned | Available
+| Hybrid Standalone Mule (HSA) Enabled | Planned | Planned | Available
+| Integration Intelligence | Available | Available | Available
+| Log Search | Available | Available | Available
+| Log Tailing | Available | Available | Available
+| Logs Raw Data | Available | Available | Available
+| Reports | Available | Available | Available
+| Standard Dashboards (Anypoint Insights) | Available | Available | Available
+| Telemetry Exporter | Available | Available | Available
+| Traces Beta | Not planned | Not planned | Available
 
-//MQ - ASIA: JA | INDIA
-.18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Available | Available .18+a| For details, refer to:
+//MQ - ASIA: JA | INDIA | AU
+.18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Available | Available | Available .18+a| For details, refer to:
 
 * xref:mq::index.adoc#mq-features-control-plane[Anypoint MQ Features by Control Plane]
 * xref:mq::index.adoc#mq-on-hyperforce[Limitations by Control Plane]
 * xref:mq::mq-faq.adoc#mq-hyperforce[Anypoint MQ Available Regions]
-| Anypoint MQ Admin API | Available | Available
-| Anypoint MQ Broker API | Available | Available
-| Anypoint MQ Connector earlier than 4.x | Not planned | Not planned
-| Anypoint MQ Connector versions 4.x and later | Available | Available
-| Anypoint MQ Stats API (Anypont MQ Stats only) | Available | Available
-| Anypoint MQ Stats API (Usage Metrics) | Not planned | Not planned
-| Client Apps | Not planned | Not planned
-| CloudHub 1.0 Deployments | Not planned | Not planned
-| Connected Apps | Available | Available
-| Cross-Region Failover | Not planned | Not planned
-| Encrypted Queues | Available | Available
-| FIFO Exchange | Available | Available
-| Message Exchanges | Available | Available
-| Message Routing | Available | Available
-| Unencrypted Queues | Not planned | Not planned
-| Usage Charts (Access Management) | Not planned | Not planned
-| Usage Reports (Usage) | Available | Available
+| Anypoint MQ Admin API | Available | Available | Available
+| Anypoint MQ Broker API | Available | Available | Available
+| Anypoint MQ Connector earlier than 4.x | Not planned | Not planned | Available
+| Anypoint MQ Connector versions 4.x and later | Available | Available | Available
+| Anypoint MQ Stats API (Anypont MQ Stats only) | Available | Available | Available
+| Anypoint MQ Stats API (Usage Metrics) | Not planned | Not planned | Available
+| Client Apps | Not planned | Not planned | Available
+| CloudHub 1.0 Deployments | Not planned | Not planned | Available
+| Connected Apps | Available | Available | Available
+| Cross-Region Failover | Not planned | Not planned | Available
+| Encrypted Queues | Available | Available | Available
+| FIFO Exchange | Available | Available | Available
+| Message Exchanges | Available | Available | Available
+| Message Routing | Available | Available | Available
+| Unencrypted Queues | Not planned | Not planned | Available
+| Usage Charts (Access Management) | Not planned | Not planned | Available
+| Usage Reports (Usage) | Available | Available | Available
 
-//PARTNER MANAGER - ASIA: JA | INDIA
-.2+| xref:partner-manager::index.adoc[Anypoint Partner Manager] | All other features | Available | Planned .2+| n/a
-| Generative B2B Message Summary Feature | Available | Planned
+//PARTNER MANAGER - ASIA: JA | INDIA | AU
+.2+| xref:partner-manager::index.adoc[Anypoint Partner Manager] | All other features | Available | Planned | Available .2+| n/a
+| Generative B2B Message Summary Feature | Available | Planned | Available
 
-//PRIVATE CLOUD EDITION - ASIA: JA | INDIA
-| xref:private-cloud::index.adoc[Anypoint Private Cloud Edition] | n/a | Not planned | Not planned | Anypoint Private Cloud Edition (Anypoint Platform PCE) is a complete software package that you install and manage entirely within your private network. PCE runs exclusively on your infrastructure and isn't hosted or managed on any public cloud by MuleSoft.
+//PRIVATE CLOUD EDITION - ASIA: JA | INDIA | AU
+| xref:private-cloud::index.adoc[Anypoint Private Cloud Edition] | n/a | Not planned | Not planned | Available | Anypoint Private Cloud Edition (Anypoint Platform PCE) is a complete software package that you install and manage entirely within your private network. PCE runs exclusively on your infrastructure and isn't hosted or managed on any public cloud by MuleSoft.
 
-//RUNTIME MANAGER - ASIA: JA | INDIA
-.3+| xref:runtime-manager::index.adoc[Anypoint Runtime Manager] | All non Monitoring features | Available | Available .3+| n/a
-| Insights | Not planned | Not planned
-| Monitoring for Hybrid Standalone Deployments | Not planned | Not planned
+//RUNTIME MANAGER - ASIA: JA | INDIA | AU
+.3+| xref:runtime-manager::index.adoc[Anypoint Runtime Manager] | All non Monitoring features | Available | Available | Available .3+| n/a
+| Insights | Not planned | Not planned | Available
+| Monitoring for Hybrid Standalone Deployments | Not planned | Not planned | Available
 
-//SECURITY SECRETS MANAGER - ASIA: JA | INDIA
-| xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager] | n/a | Available | Available | n/a
+//SECURITY SECRETS MANAGER - ASIA: JA | INDIA | AU
+| xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager] | n/a | Available | Available | Available | n/a
 
-//STUDIO - ASIA: JA | INDIA
-| xref:studio::index.adoc[Anypoint Studio] | n/a | Available | Available | For details, refer to xref:studio::hyperforce-configuration.adoc[Configuring Anypoint Studio for Control Planes]
+//STUDIO - ASIA: JA | INDIA | AU
+| xref:studio::index.adoc[Anypoint Studio] | n/a | Available | Available | Available | For details, refer to xref:studio::hyperforce-configuration.adoc[Configuring Anypoint Studio for Control Planes]
 
-//API VISUALIZER - ASIA: JA | INDIA
-.3+| xref:visualizer::index.adoc[API Visualizer] | Architecture | Available | Available .3+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
-| Policies | Available | Available
-| Troubleshooting | Planned | Planned
+//API VISUALIZER - ASIA: JA | INDIA | AU
+.3+| xref:visualizer::index.adoc[API Visualizer] | Architecture | Available | Available | Available .3+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
+| Policies | Available | Available | Available
+| Troubleshooting | Planned | Planned | Available
 
-//API COMMUNITY MANAGER - ASIA: JA | INDIA
-| xref:api-community-manager::index.adoc[API Community Manager] | n/a | Available | Not planned | n/a
+//API COMMUNITY MANAGER - ASIA: JA | INDIA | AU
+| xref:api-community-manager::index.adoc[API Community Manager] | n/a | Available | Not planned | Available | n/a
 
-//API DESIGNER - ASIA: JA | INDIA
-| xref:design-center::design-create-publish-api-specs.adoc[API Designer] | n/a | Not planned | Not planned | n/a
+//API DESIGNER - ASIA: JA | INDIA | AU
+| xref:design-center::design-create-publish-api-specs.adoc[API Designer] | n/a | Not planned | Not planned | Available | n/a
 
-//API EXPERIENCE HUB - ASIA: JA | INDIA
-| xref:api-experience-hub::index.adoc[API Experience Hub] | n/a | Available | Not planned | n/a
+//API EXPERIENCE HUB - ASIA: JA | INDIA | AU
+| xref:api-experience-hub::index.adoc[API Experience Hub] | n/a | Available | Not planned | Available | n/a
 
-//API FUNCTIONAL MONITORING - ASIA: JA | INDIA
-| xref:api-functional-monitoring::index.adoc[API Functional Monitoring] | n/a | Available | Available | n/a
+//API FUNCTIONAL MONITORING - ASIA: JA | INDIA | AU
+| xref:api-functional-monitoring::index.adoc[API Functional Monitoring] | n/a | Available | Available | Available | n/a
 
-//API GOVERNANCE - ASIA: JA | INDIA
-| xref:api-governance::index.adoc[API Governance] | n/a | Available | Available | n/a
+//API GOVERNANCE - ASIA: JA | INDIA | AU
+| xref:api-governance::index.adoc[API Governance] | n/a | Available | Available | Available | n/a
 
-//API MOCKING SERVICE - ASIA: JA | INDIA
-| xref:design-center::design-mocking-service.adoc[API Mocking Service] | n/a | Available | Available | n/a
+//API MOCKING SERVICE - ASIA: JA | INDIA | AU
+| xref:design-center::design-mocking-service.adoc[API Mocking Service] | n/a | Available | Available | Available | n/a
 
-//CLOUDHUB - ASIA: JA | INDIA
-.2+| xref:cloudhub::index.adoc[CloudHub] | All other features | Not planned | Not planned .2+| n/a
-| Global CloudHub Deployment | Not planned | Not planned
+//CLOUDHUB - ASIA: JA | INDIA | AU
+.2+| xref:cloudhub::index.adoc[CloudHub] | All other features | Not planned | Not planned | Available .2+| n/a
+| Global CloudHub Deployment | Not planned | Not planned | Available
 
-//CLOUDHUB 2.0 - ASIA: JA | INDIA
-.6+| xref:cloudhub-2::index.adoc[CloudHub 2.0] | All other features | Available | Available .6+a| For details, refer to:
+//CLOUDHUB 2.0 - ASIA: JA | INDIA | AU
+.6+| xref:cloudhub-2::index.adoc[CloudHub 2.0] | All other features | Available | Available | Available .6+a| For details, refer to:
 
 * xref:cloudhub-2::index.adoc#cloudhub2-hyperforce[CloudHub 2.0 Features by Control Plane]
 * xref:cloudhub-2::ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records]
-| Deleting the Default Egress Route | Available | Available
-| Global Cloud Deployment | Not planned | Not planned
-| Private Space | Available | Available
-| Private Space - VPN | Available | Available
-| Shared Spaces | Available | Available
+| Deleting the Default Egress Route | Available | Available | Available
+| Global Cloud Deployment | Not planned | Not planned | Available
+| Private Space | Available | Available | Available
+| Private Space - VPN | Available | Available | Available
+| Shared Spaces | Available | Available | Available
 
-//CONNECTORS - ASIA: JA | INDIA
-| xref:connectors::index.adoc[Connectors] |  | Available | Available | 
+//CONNECTORS - ASIA: JA | INDIA | AU
+| xref:connectors::index.adoc[Connectors] |  | Available | Available | Available |
 
-//DATAWEAVE - ASIA: JA | INDIA
-| xref:dataweave::index.adoc[DataWeave] | n/a | Available | Available | n/a
+//DATAWEAVE - ASIA: JA | INDIA | AU
+| xref:dataweave::index.adoc[DataWeave] | n/a | Available | Available | Available | n/a
 
-//DATALOADER - ASIA: JA | INDIA
-| Dataloader | n/a | Not planned | Not planned | https://dataloader.io/[Dataloader.io] will remain accessible globally, while its infrastructure will be hosted within the US Control Plane.
+//DATALOADER - ASIA: JA | INDIA | AU
+| Dataloader | n/a | Not planned | Not planned | Available | https://dataloader.io/[Dataloader.io] will remain accessible globally, while its infrastructure will be hosted within the US Control Plane.
 
-//ENHANCED MULESOFT EXPERIENCE AND REMOTE MCP SERVER - ASIA: JA | INDIA
-| xref:general::exp-overview.adoc[Enhanced MuleSoft Experience and Remote MCP Server] | New control plane experience for MuleSoft and the associate MCP server. | Available | Planned | n/a
+//ENHANCED MULESOFT EXPERIENCE AND REMOTE MCP SERVER - ASIA: JA | INDIA | AU
+| xref:general::exp-overview.adoc[Enhanced MuleSoft Experience and Remote MCP Server] | New control plane experience for MuleSoft and the associate MCP server. | Available | Planned | Available | n/a
 
-//OMNI GATEWAY - ASIA: JA | INDIA
-.4+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway on CloudHub 2.0 | Available | Available .4+| n/a
-| Managed Omni Gateway on Runtime Fabric | Available | Available
-| Self-Managed - Connected Mode | Available | Available
-| Self-Managed - Local Mode | Available | Available
+//OMNI GATEWAY - ASIA: JA | INDIA | AU
+.4+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway on CloudHub 2.0 | Available | Available | Available .4+| n/a
+| Managed Omni Gateway on Runtime Fabric | Available | Available | Available
+| Self-Managed - Connected Mode | Available | Available | Available
+| Self-Managed - Local Mode | Available | Available | Available
 
-//HYBRID STANDALONE DEPLOYMENT - ASIA: JA | INDIA
-| xref:hybrid-standalone::index.adoc[Hybrid Standalone Deployment] | n/a | Planned | Planned | n/a
+//HYBRID STANDALONE DEPLOYMENT - ASIA: JA | INDIA | AU
+| xref:hybrid-standalone::index.adoc[Hybrid Standalone Deployment] | n/a | Planned | Planned | Available | n/a
 
-//IDP - ASIA: JA | INDIA
-| xref:idp::index.adoc[IDP] | n/a | Not planned | Not planned | n/a
+//IDP - ASIA: JA | INDIA | AU
+| xref:idp::index.adoc[IDP] | n/a | Not planned | Not planned | Available | n/a
 
-//MULE GATEWAY - ASIA: JA | INDIA
-.2+| xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway] | Mule Gateway Proxies | Available | Available .2+| n/a
-| Mule Gateway Policies | Available | Available
+//MULE GATEWAY - ASIA: JA | INDIA | AU
+.2+| xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway] | Mule Gateway Proxies | Available | Available | Available .2+| n/a
+| Mule Gateway Policies | Available | Available | Available
 
-//MULE RUNTIME ENGINE - ASIA: JA | INDIA
-.2+| xref:mule-runtime::index.adoc[Mule runtime engine] | All features | Available | Available .2+| Mule 3 is not supported as it reached EOL.
-| Diagnostics Agent | Available | Available
+//MULE RUNTIME ENGINE - ASIA: JA | INDIA | AU
+.2+| xref:mule-runtime::index.adoc[Mule runtime engine] | All features | Available | Available | Available .2+| Mule 3 is not supported as it reached EOL.
+| Diagnostics Agent | Available | Available | Available
 
-//MUNIT - ASIA: JA | INDIA
-| xref:munit::index.adoc[MUnit] | All features | Available | Available | n/a
+//MUNIT - ASIA: JA | INDIA | AU
+| xref:munit::index.adoc[MUnit] | All features | Available | Available | Available | n/a
 
-//OBJECT STORE V2 - ASIA: JA | INDIA
-.6+| xref:object-store::index.adoc[Object Store V2] | All other features | Available | Available .6+a| For details, refer to:
+//OBJECT STORE V2 - ASIA: JA | INDIA | AU
+.6+| xref:object-store::index.adoc[Object Store V2] | All other features | Available | Available | Available .6+a| For details, refer to:
 
 * xref:object-store::index.adoc#os-features-control-plane[Object Store Features by Control Plane]
 * xref:object-store::osv2-faq.adoc#osv2-regions[Object Store v2 Regions]
-| Connected Apps | Available | Available
-| CloudHub 1.0 Deployments | Not planned | No planned
-| Object Store v2 Stats API | Not planned | Not planned
-| Usage Reports (Usage) | Available | Available
-| Usage Charts (Access Management) | Not planned | Not planned
+| Connected Apps | Available | Available | Available
+| CloudHub 1.0 Deployments | Not planned | No planned | Available
+| Object Store v2 Stats API | Not planned | Not planned | Available
+| Usage Reports (Usage) | Available | Available | Available
+| Usage Charts (Access Management) | Not planned | Not planned | Available
 
-//RPA - ASIA: JA | INDIA
-| xref:rpa-home::index.adoc[RPA] | n/a | Not planned | Not planned | n/a
+//RPA - ASIA: JA | INDIA | AU
+| xref:rpa-home::index.adoc[RPA] | n/a | Not planned | Not planned | Available | n/a
 
-//RUNTIME FABRIC - ASIA: JA | INDIA
-| xref:runtime-fabric::index.adoc[Runtime Fabric] | n/a | Available | Available a| Contact your account manager to unlock this capability. For more information, refer to:
+//RUNTIME FABRIC - ASIA: JA | INDIA | AU
+| xref:runtime-fabric::index.adoc[Runtime Fabric] | n/a | Available | Available | Available a| Contact your account manager to unlock this capability. For more information, refer to:
 
 * xref:runtime-fabric::install-self-managed-network-configuration.adoc[Configuring Your Network to Support Runtime Fabric]
 * xref:runtime-fabric::configure-local-registry.adoc[Using a Local Registry with Runtime Fabric]
 * xref:runtime-fabric::install-helm.adoc[Installing Runtime Fabric Using Helm]
 * xref:runtime-fabric::use-anypoint-monitoring.adoc[Using Anypoint Monitoring]
 
-//USAGE REPORTS - ASIA: JA | INDIA
-| xref:general::usage-reports.adoc[Usage Reports] | n/a | Available | Available | n/a
+//USAGE REPORTS - ASIA: JA | INDIA | AU
+| xref:general::usage-reports.adoc[Usage Reports] | n/a | Available | Available | Available | n/a
 |===
 --
 ====
@@ -671,6 +671,9 @@ This table indicates the available and planned cloud regions for Hyperforce:
 
 | https://in1.platform.mulesoft.com[India Cloud]
 | Asia Pacific | `in1.platform.mulesoft.com` | Available
+
+| https://au1.platform.mulesoft.com[Australia Cloud]
+| Asia Pacific | `au1.platform.mulesoft.com` | Available
 |===
 
 == Mule Runtime Version Compatibility
