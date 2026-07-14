@@ -10,7 +10,7 @@
 ** xref:managing-servers.adoc[Managing Servers]
 ** xref:managing-servers-groups.adoc[Managing Server Groups]
 ** xref:managing-clusters.adoc[Managing Clusters]
-* xref:hybrid-standalone-hadr.adoc[High Availability and Disaster Recovery]
+** xref:hybrid-standalone-hadr.adoc[High Availability and Disaster Recovery]
 * xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]
 ** xref:creating-alerts-hybrid.adoc[Creating Alerts for Server, Server Groups or Clusters]
 ** xref:monitoring-dashboards-hybrid.adoc[Monitoring Dashboards for Server, Server Groups and Clusters]

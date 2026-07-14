@@ -13,6 +13,8 @@ Individual server administration including health monitoring, configuration upda
 Coordinated management of multiple servers for load distribution and workload balancing
 * xref:managing-clusters.adoc[Managing Clusters] +
 High-availability cluster administration with member coordination and shared resource management
+* xref:hybrid-standalone-hadr.adoc[High Availability and Disaster Recovery] +
+Design hybrid standalone deployments to stay available during component failures and to recover from disasters while minimizing downtime and data loss
 
 == Management Operations
 
