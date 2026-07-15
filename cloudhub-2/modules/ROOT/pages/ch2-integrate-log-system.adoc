@@ -1,23 +1,24 @@
 = Integrating with Your Logging System Using Log4j
 
-You can integrate your CloudHub 2.0 application with your logging system using the Log4j configuration.
+You can stream Mule runtime logs, application logs, and tracing-module logs from CloudHub 2.0 to an external collector by configuring a custom asynchronous Log4j appender. This enables you to send logs to destinations such as Splunk, Azure Monitor, or any other external logging system that accepts Log4j output.
+
+[NOTE]
+External collectors such as Azure Monitor or a Telemetry Exporter are valid destinations for CloudHub 2.0 logs. These are reached as generic external collectors via a custom Log4j appender — they don't have a dedicated built-in connector in CloudHub 2.0.
 
 == Requirements and Restrictions
 
+* Log appenders must be asynchronous. Synchronous appenders aren't supported.
+* File appenders, such as FileAppender, RollingFileAppender, AnypointMonitoringFileAppender, and RandomAccessFileAppender, are removed automatically by the platform.
 * MuleSoft Support doesn't assist in implementing custom logging configurations or resolving issues caused by custom logging configurations.
-* MuleSoft is not responsible for issues arising from misconfiguration of your Log4j appender, including these or other issues:
+* MuleSoft isn't responsible for issues arising from misconfiguration of your Log4j appender, including these or other issues:
 ** Lost logging data
 ** Performance degradation
 ** Running out of disk space
-* Do not use synchronous log appenders.
-+
-You can use only asynchronous log appenders.
-* File appenders, such as FileAppender, RollingFileAppender, AnypointMonitoringFileAppender, and RandomAccessFileAppender, are removed automatically.
 * When using custom Log4j configurations, both Mule runtime engine and application logs remain available in Runtime Manager.
-* You can forward tracing module logs using only third-party appenders. You cannot update the logging patterns to send them to Anypoint Monitoring.
+* You can forward tracing module logs using only third-party appenders. You can't update the logging patterns to send them to Anypoint Monitoring.
 * Console logging is disabled by default in CloudHub 2.0. If you change log levels or appenders in a custom `log4j2.xml` and don't see the changes in the logs, use an appender that CloudHub 2.0 collects, such as a third-party appender that streams to your logging system. Log output from a Console appender alone doesn't appear in Runtime Manager.
 
-You can use any Log4j appender.
+You can use any asynchronous Log4j appender.
 
 For information about configuring `log4j2.xml`, see the
 https://logging.apache.org/log4j/2.x/manual/configuration.html#ConfigurationSyntax[Log4j Configuration Syntax^].
