@@ -79,7 +79,7 @@ In Private Spaces, CloudHub 2.0 uses Karpenter to manage node lifecycle. When Ka
 
 [NOTE]
 ====
-Apps in a Private Space can restart during Karpenter node downscaling during this weekly window. Design for resiliency so that restarts have minimal impact. See xref:ch2-ha-dr.adoc[].
+Apps in a Private Space can restart during Karpenter node downscaling in this weekly window. These restarts are routine maintenance, not an outage. Design for resiliency so that restarts have minimal impact. See xref:ch2-ha-dr.adoc[].
 ====
 
 == Security Patching
