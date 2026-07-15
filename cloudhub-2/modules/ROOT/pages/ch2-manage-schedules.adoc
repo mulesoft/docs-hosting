@@ -12,7 +12,7 @@ On the *Schedules* tab, you can:
 
 [NOTE]
 ====
-The CloudHub 1.0 schedules REST API doesn't expose scheduler or domain details for CloudHub 2.0 applications. Manage CloudHub 2.0 schedulers only through the CloudHub 2.0 APIs or the Runtime Manager *Schedules* tab.
+The CloudHub schedules REST API doesn't expose scheduler or domain details for CloudHub 2.0 applications. Manage CloudHub 2.0 schedulers only through the CloudHub 2.0 APIs or the Runtime Manager *Schedules* tab.
 ====
 
 You configure Scheduler component types as either _fixed frequency_ to trigger at a regular interval or _cron_ to trigger at a date and time based on a specified cron expression.

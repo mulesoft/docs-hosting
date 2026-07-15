@@ -84,7 +84,7 @@ Use these endpoints to manage Scheduler component configurations for deployed ap
 
 [NOTE]
 ====
-The CloudHub 1.0 schedules REST API doesn't expose scheduler or domain details for CloudHub 2.0 applications. Manage CloudHub 2.0 schedulers only through the CloudHub 2.0 APIs or the Runtime Manager *Schedules* tab. See xref:ch2-manage-schedules.adoc[].
+The CloudHub schedules REST API doesn't expose scheduler or domain details for CloudHub 2.0 applications. Manage CloudHub 2.0 schedulers only through the CloudHub 2.0 APIs or the Runtime Manager *Schedules* tab. See xref:ch2-manage-schedules.adoc[].
 ====
 
 [%header,cols="10,20,35,35"]
