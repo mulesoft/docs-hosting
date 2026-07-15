@@ -3,7 +3,7 @@
 You can stream Mule runtime logs, application logs, and tracing-module logs from CloudHub 2.0 to an external collector by configuring a custom asynchronous Log4j appender. This enables you to send logs to destinations such as Splunk, Azure Monitor, or any other external logging system that accepts Log4j output.
 
 [NOTE]
-External collectors such as Azure Monitor or a Telemetry Exporter are valid destinations for CloudHub 2.0 logs. These are reached as generic external collectors via a custom Log4j appender — they don't have a dedicated built-in connector in CloudHub 2.0.
+External collectors such as Azure Monitor or a Telemetry Exporter are valid destinations for CloudHub 2.0 logs. These are reached as generic external collectors via a custom Log4j appender, they don't have a dedicated built-in connector in CloudHub 2.0.
 
 == Requirements and Restrictions
 
