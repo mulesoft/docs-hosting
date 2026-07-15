@@ -8,7 +8,7 @@ External collectors such as Azure Monitor or a Telemetry Exporter are valid dest
 == Requirements and Restrictions
 
 * Log appenders must be asynchronous. Synchronous appenders aren't supported.
-* File appenders, such as FileAppender, RollingFileAppender, AnypointMonitoringFileAppender, and RandomAccessFileAppender, are removed automatically by the platform.
+* File appenders, such as `FileAppender`, `RollingFileAppender`, `AnypointMonitoringFileAppender`, and `RandomAccessFileAppender`, are removed automatically by the platform.
 * MuleSoft Support doesn't assist in implementing custom logging configurations or resolving issues caused by custom logging configurations.
 * MuleSoft isn't responsible for issues arising from misconfiguration of your Log4j appender, including these or other issues:
 ** Lost logging data
