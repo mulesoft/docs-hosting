@@ -10,6 +10,11 @@ On the *Schedules* tab, you can:
 * Run the scheduled job immediately, without changing the schedule.
 * Disable or enable the schedule for a flow.
 
+[NOTE]
+====
+The CloudHub 1.0 schedules REST API doesn't expose scheduler or domain details for CloudHub 2.0 applications. Manage CloudHub 2.0 schedulers only through the CloudHub 2.0 APIs or the Runtime Manager *Schedules* tab.
+====
+
 You configure Scheduler component types as either _fixed frequency_ to trigger at a regular interval or _cron_ to trigger at a date and time based on a specified cron expression.
 
 [IMPORTANT]
@@ -263,11 +268,16 @@ include::partial$select-private-space.adoc[tag=clickSchedules]
 You might want to disable a scheduled job if an application you are connecting
 to is undergoing maintenance and then reenable it after maintenance is complete.
 
-CloudHub 2.0 does not run the scheduled job until you reenable the Scheduler.
+CloudHub 2.0 doesn't run the scheduled job until you reenable the Scheduler.
 
 [NOTE]
 ====
 If you disable the scheduler, it might still run once when the application starts. To prevent this behavior, set the `startDelay` property to five seconds in your app using Anypoint Studio. You can also change the `startDelay` value after deployment using the <<override-scheduler-api,Schedulers API>>.
+====
+
+[NOTE]
+====
+A disabled scheduler can revert to enabled after an application restart, rolling restart, or maintenance, so it can run again even though you disabled it. This behavior isn't limited to first startup. After a restart, check the scheduler state on the *Schedules* tab and disable it again if you need it to stay off.
 ====
 
 To disable the Scheduler element:
