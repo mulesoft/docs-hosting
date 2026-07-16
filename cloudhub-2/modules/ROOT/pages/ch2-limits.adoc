@@ -2,7 +2,7 @@
 
 CloudHub 2.0 imposes the following limits:
 
-Environments per business group:: 200
+Environments per business group:: 150
 
 Private spaces per organization:: 100
 
