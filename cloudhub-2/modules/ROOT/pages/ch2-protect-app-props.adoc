@@ -2,9 +2,17 @@
 
 CloudHub 2.0 enables you to protect application property values by displaying the property name but not its value, in Anypoint Runtime Manager.
 
-Additionally, the value is not viewable or retrievable by any user.
+Additionally, the value isn't viewable or retrievable by any user.
 CloudHub 2.0 resolves the property internally at runtime.
-These protected application values are encrypted and stored in the Anypoint Security secrets manager, which, in turn, is encrypted per user organization. Because the values are encrypted, you cannot view them in Anypoint Security secrets manager or Anypoint Runtime Manager.
+These protected application values are encrypted and stored in the Anypoint Security secrets manager, which, in turn, is encrypted per user organization. Because the values are encrypted, you can't view them in Anypoint Security secrets manager or Anypoint Runtime Manager.
+
+[NOTE]
+====
+On CloudHub 2.0, secure-property masking is configured in Anypoint Runtime Manager on the *Properties* tab (property protection).
+
+If you're migrating from CloudHub 1.0, the `secureProperties` setting in `mule-artifact.json` doesn't mask values on CloudHub 2.0. To mask values, set property protection on the *Properties* tab, as described in the following sections.
+Runtime Manager properties override archive-bundled properties of the same name.
+====
 
 [IMPORTANT]
 Protected property values are separate from the encrypted Mule application properties stored in secure configuration files.
