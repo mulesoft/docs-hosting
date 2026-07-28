@@ -126,7 +126,7 @@ Americas::
 //RUNTIME MANAGER - AMERICAS: US | CANADA
 .4+| xref:runtime-manager::index.adoc[Anypoint Runtime Manager] | All non Monitoring features | Planned | Available .4+| n/a
 | Insights | Not planned | Not planned
-| Log Tailing | Planned | Available
+| Log Tailing | Available | Available
 | Monitoring for Hybrid Standalone Deployments | Planned | Not planned
 
 //SECURITY SECRETS MANAGER - AMERICAS: US | CANADA
@@ -331,7 +331,7 @@ Europe::
 //RUNTIME MANAGER - EUROPE: EU
 .4+| xref:runtime-manager::index.adoc[Anypoint Runtime Manager] | All non Monitoring features | Planned .4+| n/a
 | Insights | Not planned
-| Log Tailing | Planned
+| Log Tailing | Available
 | Monitoring for Hybrid Standalone Deployments | Planned
 
 //SECURITY SECRETS MANAGER - EUROPE: EU
