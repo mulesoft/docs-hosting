@@ -85,7 +85,7 @@ Americas::
 | Custom Dashboards | Available | Planned
 | Hybrid Standalone Mule (HSA) Enabled | Planned | Planned
 | Integration Intelligence | Available | Available
-| Log Search | Planned | Available
+| Log Search | Available | Available
 | Log Tailing | Planned | Available
 | Logs Raw Data | Planned | Available
 | Reports | Available | Available

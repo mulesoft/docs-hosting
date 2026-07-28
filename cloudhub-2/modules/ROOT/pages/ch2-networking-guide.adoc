@@ -147,6 +147,11 @@ Use a xref:ps-create-configure-tgw.adoc[TGW attachment] to connect a dedicated V
 
 === Firewall Rules and Port Access
 
+[NOTE]
+====
+CloudHub 2.0 private spaces provide configurable inbound and outbound firewall rules, with ports `80` and `443` open by default. Private spaces don't include a built-in Web Application Firewall (WAF) or Layer 7 DDoS protection. If you need these protections, implement them externally.
+====
+
 HTTP Ingress::
 
 By default, ports `443` and `80` are exposed for all external inbound traffic. You can remove or change these ports to restrict inbound traffic.
@@ -167,6 +172,16 @@ You can remove all ingress and egress rules from and to the internet. In this ca
 * Essential AWS services traffic flows are always allowed from Mule applications.
 * You can apply egress rules at the application level. For more information, see xref:ps-config-app-level-egress.adoc[].
 * You can remove the default route to the Internet Gateway. However, for the egress firewall rules to work, the destination IPs must be routable.
+
+
+=== Test Private Space Connectivity
+
+To test connectivity to applications in a private space, use the *Network Tools* application. ICMP ping isn't a supported connectivity test, so a failed ping doesn't mean that your application is down. For download and usage information, see https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Network Tools Application].
+
+If traffic reaches the firewall but gets no response, check these common causes:
+
+* A port restriction. The internal load balancer accepts traffic on port `443`.
+* A pod-network CIDR that isn't allowlisted in your connected network.
 
 
 == Regional Services
