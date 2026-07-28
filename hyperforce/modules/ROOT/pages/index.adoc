@@ -76,7 +76,7 @@ Americas::
 | Agent Scanners | Planned | Available
 
 //MONITORING - AMERICAS: US | CANADA
-.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .13+a| For details, refer to:
+.12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .13+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
 //MONITORING - AMERICAS: US | CANADA
@@ -86,7 +86,6 @@ Americas::
 | Hybrid Standalone Mule (HSA) Enabled | Planned | Planned
 | Integration Intelligence | Available | Available
 | Log Search | Available | Available
-| Log Tailing | Planned | Available
 | Logs Raw Data | Planned | Available
 | Reports | Available | Available
 | Standard Dashboards (Anypoint Insights) | Available | Available
@@ -127,6 +126,7 @@ Americas::
 //RUNTIME MANAGER - AMERICAS: US | CANADA
 .3+| xref:runtime-manager::index.adoc[Anypoint Runtime Manager] | All non Monitoring features | Planned | Available .3+| n/a
 | Insights | Not planned | Not planned
+| Log Tailing | Planned | Available
 | Monitoring for Hybrid Standalone Deployments | Planned | Not planned
 
 //SECURITY SECRETS MANAGER - AMERICAS: US | CANADA
@@ -281,7 +281,7 @@ Europe::
 | Agent Scanners | Planned
 
 //MONITORING - EUROPE: EU
-.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned .13+a| For details, refer to:
+.12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned .13+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
 //MONITORING - EUROPE: EU
@@ -291,7 +291,6 @@ Europe::
 | Hybrid Standalone Mule (HSA) Enabled | Planned
 | Integration Intelligence | Available
 | Log Search | Planned
-| Log Tailing | Planned
 | Logs Raw Data | Planned
 | Reports | Available
 | Standard Dashboards (Anypoint Insights) | Available
@@ -332,6 +331,7 @@ Europe::
 //RUNTIME MANAGER - EUROPE: EU
 .3+| xref:runtime-manager::index.adoc[Anypoint Runtime Manager] | All non Monitoring features | Planned .3+| n/a
 | Insights | Not planned
+| Log Tailing | Planned
 | Monitoring for Hybrid Standalone Deployments | Planned
 
 //SECURITY SECRETS MANAGER - EUROPE: EU
@@ -486,7 +486,7 @@ Asia Pacific::
 | Agent Scanners | Available | Available
 
 //MONITORING - ASIA: JA | INDIA
-.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .13+a| For details, refer to:
+.12+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned | Planned .13+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
 //MONITORING - ASIA: JA | INDIA
@@ -496,7 +496,6 @@ Asia Pacific::
 | Hybrid Standalone Mule (HSA) Enabled | Planned | Planned
 | Integration Intelligence | Available | Available
 | Log Search | Available | Available
-| Log Tailing | Available | Available
 | Logs Raw Data | Available | Available
 | Reports | Available | Available
 | Standard Dashboards (Anypoint Insights) | Available | Available
@@ -537,6 +536,7 @@ Asia Pacific::
 //RUNTIME MANAGER - ASIA: JA | INDIA
 .3+| xref:runtime-manager::index.adoc[Anypoint Runtime Manager] | All non Monitoring features | Available | Available .3+| n/a
 | Insights | Not planned | Not planned
+| Log Tailing | Available | Available
 | Monitoring for Hybrid Standalone Deployments | Not planned | Not planned
 
 //SECURITY SECRETS MANAGER - ASIA: JA | INDIA
