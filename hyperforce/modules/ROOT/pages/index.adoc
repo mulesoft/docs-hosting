@@ -495,7 +495,7 @@ Asia Pacific::
 | Basic Monitoring | Available | Available | Available
 | Custom Dashboards | Planned | Planned | Planned
 | Hybrid Standalone Mule (HSA) Enabled | Planned | Planned | Available
-| Integration Intelligence | Available | Available | Planned
+| Integration Intelligence | Available | Available | Available
 | Log Search | Available | Available | Available
 | Logs Raw Data | Available | Available | Available
 | Reports | Available | Available | Available
