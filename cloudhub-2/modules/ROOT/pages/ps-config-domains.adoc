@@ -9,6 +9,15 @@ Each private space includes one TLS context by default (for traffic to `cloudhub
 The default certificate renews automatically and requires no action from the user.
 You can create additional TLS contexts as required.
 
+[IMPORTANT]
+====
+The default `<region>.cloudhub.io` domain is shared across all customers in a region.
+Because private spaces from different customers resolve under the same `<region>.cloudhub.io` parent domain, browsers treat them as the same site, and cookies set at that domain scope aren't isolated between customers.
+
+Hosting websites or other browser-facing applications isn't a supported use case for the default `cloudhub.io` domain.
+To keep browser-facing applications isolated, deploy them to a customer-owned vanity domain by configuring a TLS context with your own domain and DNS records, as described in this topic.
+====
+
 The TLS contexts that you configure for the private space define the domains that are available
 when deploying apps to the private spaces.
 See xref:ch2-config-endpoints-paths.adoc[].
