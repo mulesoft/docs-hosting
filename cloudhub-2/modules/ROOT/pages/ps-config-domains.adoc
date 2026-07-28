@@ -9,7 +9,7 @@ Each private space includes one TLS context by default (for traffic to `cloudhub
 The default certificate renews automatically and requires no action from the user.
 You can create additional TLS contexts as required.
 
-[IMPORTANT]
+[NOTE]
 ====
 The default `<region>.cloudhub.io` domain is shared across all customers in a region.
 Because private spaces from different customers resolve under the same `<region>.cloudhub.io` parent domain, browsers treat them as the same site, and cookies set at that domain scope aren't isolated between customers.
