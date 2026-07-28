@@ -501,7 +501,7 @@ Asia Pacific::
 | Reports | Available | Available | Available
 | Standard Dashboards (Anypoint Insights) | Available | Available | Available
 | Telemetry Exporter | Available | Available | Available
-| Traces Beta | Not planned | Not planned | Planned
+| Traces Beta | Not planned | Not planned | Not Planned
 
 //MQ - ASIA: JA | INDIA | AU
 .18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Available | Available | Available .18+a| For details, refer to:
