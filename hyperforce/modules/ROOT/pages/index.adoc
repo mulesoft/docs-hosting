@@ -332,7 +332,7 @@ Europe::
 .4+| xref:runtime-manager::index.adoc[Anypoint Runtime Manager] | All non Monitoring features | Planned .4+| n/a
 | Insights | Not planned
 | Log Tailing | Available
-| Monitoring for Hybrid Standalone Deployments | Planned
+| Monitoring for Hybrid Standalone Deployments | Available
 
 //SECURITY SECRETS MANAGER - EUROPE: EU
 | xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager] | n/a | Planned | n/a
