@@ -288,7 +288,7 @@ Europe::
 | Basic Alerts | Available
 | Basic Monitoring | Available
 | Custom Dashboards | Available
-| Hybrid Standalone Mule (HSA) Enabled | Planned
+| Hybrid Standalone Mule (HSA) Enabled | Available
 | Integration Intelligence | Available
 | Log Search | Available
 | Logs Raw Data | Available
