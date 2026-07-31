@@ -379,7 +379,7 @@ Europe::
 | Shared Spaces | Planned
 
 //CONNECTORS - EUROPE: EU
-| xref:connectors::index.adoc[Connectors] |  | Planned | 
+| xref:connectors::index.adoc[Connectors] |  | Planned |
 
 //DATAWEAVE - EUROPE: EU
 | xref:dataweave::index.adoc[DataWeave] | n/a | Planned | n/a
@@ -454,8 +454,9 @@ Asia Pacific::
 | External Identity Management Integration | Available | Available | Available
 
 //AGENT VISUALIZER - ASIA: JA | INDIA | AU
-.2+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Available | Available | Available .2+| n/a
-| Links to logs and traces | Planned | Available | Available
+.3+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Available | Available | Available .3+| n/a
+| Links to logs | Available | Available | Available
+| Links to traces | Planned | Planned | Planned
 
 //API MANAGER - ASIA: JA | INDIA | AU
 .7+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Available | Available | Available .7+a| n/a
@@ -466,7 +467,7 @@ Asia Pacific::
 | API Manager 1.x | Not planned | Not planned | Not planned
 | API Manager 2.x | Available | Available | Available
 | API Console Proxy/Trusted Domains | Planned | Available | Available
-| Key Metrics | Planned | Available | Planned
+| Key Metrics | Not planned | Not planned | Not planned
 
 //CLI - ASIA: JA | INDIA | AU
 .2+| xref:anypoint-cli::index.adoc[Anypoint CLI] | All features | Available | Available | Available .2+| n/a
@@ -480,10 +481,11 @@ Asia Pacific::
 | Generative MUnit | Available | Available | Available
 
 //EXCHANGE - ASIA: JA | INDIA | AU
-.5+| xref:exchange::index.adoc[Anypoint Exchange] | All other features | Available | Available | Available .5+| For details, refer to xref:exchange::index.adoc#exchange-on-control-planes[Anypoint Exchange on Control Planes]
+.6+| xref:exchange::index.adoc[Anypoint Exchange] | All other features | Available | Available | Available .6+| For details, refer to xref:exchange::index.adoc#exchange-on-control-planes[Anypoint Exchange on Control Planes]
 | AI Documentation Generation | Available | Available | Available
-| Amazon Cloud Front | Planned | Available | Planned
+| Amazon Cloud Front | Planned | Planned | Planned
 | Agent, MCP, and LLM assets (Agent Registry) | Available | Available | Available
+| Public MCP Servers in Agent Registry | Available | Available | Available
 | Agent Scanners | Available | Available | Available
 
 //MONITORING - ASIA: JA | INDIA | AU
@@ -537,7 +539,7 @@ Asia Pacific::
 //RUNTIME MANAGER - ASIA: JA | INDIA | AU
 .4+| xref:runtime-manager::index.adoc[Anypoint Runtime Manager] | All non Monitoring features | Available | Available | Available .4+| n/a
 | Insights | Not planned | Not planned | Not planned
-| Log Tailing | Available | Available | Available
+| Log Tailing | Available | Available | Planned
 | Monitoring for Hybrid Standalone Deployments | Not planned | Not planned | Not planned
 
 //SECURITY SECRETS MANAGER - ASIA: JA | INDIA | AU
@@ -547,9 +549,8 @@ Asia Pacific::
 | xref:studio::index.adoc[Anypoint Studio] | n/a | Available | Available | Available | For details, refer to xref:studio::hyperforce-configuration.adoc[Configuring Anypoint Studio for Control Planes]
 
 //API VISUALIZER - ASIA: JA | INDIA | AU
-.3+| xref:visualizer::index.adoc[API Visualizer] | Architecture | Available | Available | Planned .3+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
-| Policies | Available | Available | Planned
-| Troubleshooting | Planned | Planned | Planned
+.2+| xref:visualizer::index.adoc[API Visualizer] | Architecture and Policies View | Available | Available | Planned .2+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
+| Troubleshooting View | Planned | Planned | Planned
 
 //API COMMUNITY MANAGER - ASIA: JA | INDIA | AU
 | xref:api-community-manager::index.adoc[API Community Manager] | n/a | Available | Not planned | Not planned | n/a
@@ -558,7 +559,7 @@ Asia Pacific::
 | xref:design-center::design-create-publish-api-specs.adoc[API Designer] | n/a | Not planned | Not planned | Not planned | n/a
 
 //API EXPERIENCE HUB - ASIA: JA | INDIA | AU
-| xref:api-experience-hub::index.adoc[API Experience Hub] | n/a | Available | Not planned | Planned | n/a
+| xref:api-experience-hub::index.adoc[API Experience Hub] | n/a | Available | Planned | Planned | n/a
 
 //API FUNCTIONAL MONITORING - ASIA: JA | INDIA | AU
 | xref:api-functional-monitoring::index.adoc[API Functional Monitoring] | n/a | Available | Available | Available | n/a
@@ -597,10 +598,13 @@ Asia Pacific::
 | xref:general::exp-overview.adoc[Enhanced MuleSoft Experience and Remote MCP Server] | New control plane experience for MuleSoft and the associate MCP server. | Available | Available | Available | n/a
 
 //OMNI GATEWAY - ASIA: JA | INDIA | AU
-.4+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway on CloudHub 2.0 | Available | Available | Available .4+| n/a
+.7+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway on CloudHub 2.0 | Available | Available | Available .7+| n/a
 | Managed Omni Gateway on Runtime Fabric | Available | Available | Available
 | Self-Managed - Connected Mode | Available | Available | Available
 | Self-Managed - Local Mode | Available | Available | Available
+| A2A Governance (Policies) | Available | Available | Planned
+| MCP Governance (Policies) | Available | Available | Planned
+| LLM Gateway | Available | Available | Available
 
 //HYBRID STANDALONE DEPLOYMENT - ASIA: JA | INDIA | AU
 | xref:hybrid-standalone::index.adoc[Hybrid Standalone Deployment] | n/a | Planned | Planned | Available | n/a
@@ -613,7 +617,8 @@ Asia Pacific::
 | Mule Gateway Policies | Available | Available | Available
 
 //MULE RUNTIME ENGINE - ASIA: JA | INDIA | AU
-.2+| xref:mule-runtime::index.adoc[Mule runtime engine] | All features | Available | Available | Available .2+| Mule 3 is not supported as it reached EOL.
+.3+| xref:mule-runtime::index.adoc[Mule runtime engine] | All features | Available | Available | Available .3+| Mule 3 is not supported as it reached EOL.
+| Direct Telemetry Stream | Available | Available | Available
 | Diagnostics Agent | Available | Available | Available
 
 //MUNIT - ASIA: JA | INDIA | AU
