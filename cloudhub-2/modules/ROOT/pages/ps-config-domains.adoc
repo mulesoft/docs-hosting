@@ -11,11 +11,12 @@ You can create additional TLS contexts as required.
 
 [NOTE]
 ====
-The default `<region>.cloudhub.io` domain is shared across all customers in a region.
-Because private spaces from different customers resolve under the same `<region>.cloudhub.io` parent domain, browsers treat them as the same site, and cookies set at that domain scope aren't isolated between customers.
+The `cloudhub.io` parent domain is shared across all customers, control planes, and regions.
+Because private spaces from different customers resolve under this same parent domain, browsers treat them as the same site. As a result, cookies set at the `cloudhub.io` scope aren't isolated between customers.
 
-Hosting websites or other browser-facing applications isn't a supported use case for the default `cloudhub.io` domain.
-To keep browser-facing applications isolated, deploy them to a customer-owned vanity domain by configuring a TLS context with your own domain and DNS records, as described in this topic.
+The domain format varies by control plane. For example, applications on the US control plane use `*.<space-id>.<region>.cloudhub.io`, while applications on other control planes add a control-plane suffix, such as `*.<space-id>.<region>.eu1.cloudhub.io`. For more information, see xref:ch2-deploy-private-space.adoc[].
+
+Hosting websites or other browser-facing applications isn't supported for the default `cloudhub.io` domain. To keep browser-facing applications isolated, deploy them to a customer-owned vanity domain by configuring a TLS context with your own domain and DNS records. See <<before-you-begin>> to create the DNS records, and xref:ch2-networking-guide.adoc#dns-records[DNS Records] for the CloudHub 2.0 DNS record formats.
 ====
 
 The TLS contexts that you configure for the private space define the domains that are available
