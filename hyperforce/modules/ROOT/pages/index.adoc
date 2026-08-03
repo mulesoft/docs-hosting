@@ -186,10 +186,13 @@ Americas::
 | xref:general::exp-overview.adoc[Enhanced MuleSoft Experience and Remote MCP Server] | New control plane experience for MuleSoft and the associate MCP server. | Planned | Available | n/a
 
 //OMNI GATEWAY - AMERICAS: US | CANADA
-.4+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway on CloudHub 2.0 | Planned | Available .4+| n/a
+.7+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway on CloudHub 2.0 | Planned | Available .4+| n/a
 | Managed Omni Gateway on Runtime Fabric | Planned | Available
 | Self-Managed - Connected Mode | Planned | Available
 | Self-Managed - Local Mode | Planned | Available
+| A2A Governance (Policies) | Available | Available 
+| MCP Governance (Policies) | Available | Available 
+| LLM Gateway | Available | Available 
 
 //HYBRID STANDALONE DEPLOYMENT - AMERICAS: US | CANADA
 | xref:hybrid-standalone::index.adoc[Hybrid Standalone Deployment] | n/a | Planned | Planned | n/a
@@ -391,10 +394,12 @@ Europe::
 | xref:general::exp-overview.adoc[Enhanced MuleSoft Experience and Remote MCP Server] | New control plane experience for MuleSoft and the associate MCP server. | Planned | n/a
 
 //OMNI GATEWAY - EUROPE: EU
-.4+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway on CloudHub 2.0 | Planned .4+| n/a
+.7+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway on CloudHub 2.0 | Planned .4+| n/a
 | Managed Omni Gateway on Runtime Fabric | Planned
 | Self-Managed - Connected Mode | Planned
 | Self-Managed - Local Mode | Planned
+| A2A Governance (Policies) | Available 
+| LLM Gateway | Available
 
 //HYBRID STANDALONE DEPLOYMENT - EUROPE: EU
 | xref:hybrid-standalone::index.adoc[Hybrid Standalone Deployment] | n/a | Planned | n/a
@@ -549,7 +554,7 @@ Asia Pacific::
 | xref:studio::index.adoc[Anypoint Studio] | n/a | Available | Available | Available | For details, refer to xref:studio::hyperforce-configuration.adoc[Configuring Anypoint Studio for Control Planes]
 
 //API VISUALIZER - ASIA: JA | INDIA | AU
-.2+| xref:visualizer::index.adoc[API Visualizer] | Architecture and Policies View | Available | Available | Planned .2+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
+.2+| xref:visualizer::index.adoc[API Visualizer] | Architecture and Policies View | Available | Available | Available .2+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
 | Troubleshooting View | Planned | Planned | Planned
 
 //API COMMUNITY MANAGER - ASIA: JA | INDIA | AU
