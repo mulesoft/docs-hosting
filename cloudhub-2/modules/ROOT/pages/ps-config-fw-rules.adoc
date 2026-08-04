@@ -49,7 +49,7 @@ Ports for inbound traffic are not configurable:
 +
 * Port 80 is reserved HTTP.
 * Port 443 is reserved for HTTPS.
-* Other ports under 1024 aren't allowed. Ports 1024 and above are allowed for plain TCP connections, but not for additional HTTP/HTTPS ingress endpoints.
+* Other ports under 1024 aren't allowed. For inbound TCP connections, only ports 30500–32500 are supported, and only for private connections (from within the private space or from a VPN or TGW). You must create a firewall rule to allow traffic on these ports.
 
 --
 . Configure default rules for outbound traffic by selecting the *Protocol* and *Destination* from the drop-down lists:
