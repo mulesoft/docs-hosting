@@ -51,7 +51,7 @@ To create a new custom egress rule group:
 . Click *Create Rule Group*.
 . In the rule group configuration window, add a group name.
 + 
-You can edit and rename custom rule groups. The generated rule group name (`<rule_group_name>-<private_space_name>`) can't exceed 53 characters.
+You can edit and rename custom rule groups. The generated firewall rule name (`<private_space_name>-<rule_group_name>`) can't exceed 53 characters.
 . In the *Egress Rules* section, click *Add Rule* and select the protocol and destination for every rule that you want to add.
 + 
 You can delete rules by clicking the delete button (image:trash-icon.png[Delete button, 1.5%,1.5%]).
@@ -83,6 +83,20 @@ You can apply the application-level egress rules that you configured in your pri
 . In the *Egress Rule Group* section, select the ruleset to apply to your application. 
 . Click *Apply Changes*.
 
+== Application Clustering and Egress Rules
+
+Application clustering in CloudHub 2.0 requires replicas to discover each other via Hazelcast. For clustered applications that use application-level egress rules, add an egress rule that allows this traffic.
+
+[IMPORTANT]
+====
+Add an application-level egress rule that allows traffic to the local private network on port 5701. Without this rule, replicas can't discover or join the Hazelcast cluster, and clustering fails.
+
+Add this rule to the egress rule group for your clustered application:
+
+* *Protocol*: `TCP`
+* *Destination*: `Local private network`
+* *Port*: `5701`
+====
 
 == Configure an Application-Level Egress Connection to Anypoint MQ
 
@@ -154,7 +168,7 @@ To add application-level egress support to API Manager, add a custom rule group 
 **** `exchange-files.eu1.anypoint.mulesoft.com`
 **** `analytics-ingest.eu1.anypoint.mulesoft.com`
 
-Depending on your use case, add Anypoint Platform hostnames and ports for your application to communicate with the online Anypoint Platform APIs and services that are managed by MuleSoft. See xref:mule-gateway::mule-gateway-hostnames.adoc[].
+The preceding list includes common endpoints. Depending on your use case, add Anypoint Platform hostnames and ports for your application to communicate with the online Anypoint Platform APIs and services that are managed by MuleSoft. See xref:mule-gateway::mule-gateway-hostnames.adoc[].
 
 [NOTE]
 ====
@@ -165,8 +179,9 @@ You can't use custom domains with private space internal DNS.
 
 == Performance Impact
 
-Given the extra layer of validation, using the application-level egress rules can introduce three-millisecond to ten-millisecond network latency delays to your applications' connections. To balance security and performance:
+Given the extra layer of validation, using the application-level egress rules can introduce three-millisecond to ten-millisecond network latency delays to your applications' connections and in some cases intermittent connection failures. To balance security and performance:
 
+* Use domains with a minimum Time to Live (TTL) of 30 seconds.
 * Limit active rule groups to 20 in your private space.
 * Use up to 8 domains per rule group with a minimum Time To Live (TTL) of 30 seconds per domain. You can add more domains if the TTL is longer.
 * Limit the total combination of rule groups and rules to 800. 
@@ -177,6 +192,30 @@ These measures help optimize latency while maintaining effective network securit
 
 [NOTE]
 DNS record timing issues can sometimes lead to unexpected connectivity errors. To enhance the reliability of Mule applications, implement robust error handling and connection retry mechanisms.
+
+== Limitations
+
+Application-level egress rules don't support domains that have aggressive Time to Live (TTL) values (under 30 seconds) and rapidly changing IP pools. Egress rules for these domains can cause intermittent connection failures.
+
+Examples of affected endpoints include:
+
+* AWS S3 regional endpoints (for example, `s3.ap-northeast-1.amazonaws.com`) with 5-second TTL
+* AWS CloudWatch endpoints with short TTLs
+* Other cloud provider endpoints with dynamic IP pools and aggressive TTLs
+
+Avoid configuring application-level egress rules for these scenarios.
+
+When you enable an xref:ps-config-advanced.adoc#configure-aws-role[AWS service role] for your private space, applications using the AWS S3 Connector or other AWS SDK-based connectors require outbound access to the public regional STS endpoint, such as `sts.{region}.amazonaws.com`. The AWS SDK ignores custom STS endpoints in Mule and uses the regional STS endpoint. If you use application-level egress rules, allow the STS endpoint for your region. For details and a workaround, see xref:ps-config-advanced.adoc#aws-iam-role-sts-s3-connector-conflict[IAM Roles and AWS S3 Connector: STS Endpoint Behavior]. For more information, see https://help.salesforce.com/s/issue?language=en_US&id=a02Ka00000llC4i[Known Issue: App-level Egress Rules with Low TTL Domains^].
+
+
+[IMPORTANT]
+====
+The `ap-southeast` region updates its DNS records more frequently than other regions. This behavior can cause stale DNS entries and intermittent connectivity issues. When deploying applications in this region:
+
+* Implement connection retry logic with exponential backoff.
+* Monitor DNS resolution errors in your application logs.
+* Use shorter TTL values to reduce stale cache entries.
+====
 
 == See Also
 

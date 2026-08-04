@@ -7,13 +7,27 @@ You can enable clustering features on a per-application basis using the Anypoint
 
 == High Availability and Clustering
 
-_High availability_ refers to having multiple replicas that, unlike clustering, do not share data between each replica. _Clustering_ enables multiple replicas to communicate with each other and share data because they share memory. 
+_High availability_ refers to having multiple replicas that, unlike clustering, do not share data between each replica. _Clustering_ enables multiple replicas to communicate with each other and share data because they share memory.
 
 === CloudHub 2.0 Clustering and Object Store v2
 
 CloudHub 2.0 supports clustering using Mule in addition to Object Store v2 for Mule 4 apps. When you enable Object Store v2 in CloudHub 2.0, note that it is rate limited. For more information, see xref:object-store::index.adoc[].
 
-You do not need to configure your apps to use Object Store in CloudHub 2.0. Additionally, Mule 4 apps support Object Store v2, which can be enabled from Anypoint Runtime Manager console.
+[IMPORTANT]
+====
+CloudHub 2.0 clears local disk storage when an app restarts or redeploys. Because `persistent="true"` writes to local disk, CloudHub 2.0 doesn't preserve data across restarts.
+
+In Anypoint Studio and standalone Mule runtimes, object stores retain data across restarts because the local file system persists. CloudHub 2.0 replicas use volatile disk storage.
+
+To persist data across restarts, use xref:object-store::index.adoc[Object Store v2] to store data externally.
+====
+
+[NOTE]
+====
+If you enable both **Clustering** and **Use Object Store V2** on CloudHub 2.0, all Object Store access routes to Cloud Object Store v2, including internal runtime, policy, and connector usage. This can result in metered, billable usage even if your application doesn't explicitly use Object Store.
+====
+
+You don't configure apps to use Object Store in CloudHub 2.0. Mule 4 apps support Object Store v2, which you enable in Anypoint Runtime Manager.
 
 == Before You Begin
 
@@ -44,7 +58,7 @@ CloudHub provides the following an HTTP load balancing service that automaticall
 Batch jobs only run on a single replica at a time, and cannot be distributed across multiple replicas.
 If Mule restarts in the same deployment, the status persists and the batch continues processing.
 If the entire application is updated or redeploying while the batch is running, the rest of the batch job doesn't continue.
-The main solution for persistent batch jobs in CloudHub 2.0 is to use 
+The main solution for persistent batch jobs in CloudHub 2.0 is to use
 xref:object-store::index.adoc[].
 
 In Kubernetes, a Horizontal Pod Autoscaler (HPA) automatically updates a workload resource to scale the workload to match demand. Horizontal scaling automatically deploys more pods as a response to an increased load. As a result of these regular autoscaling operations, an application can be changed to a new replica without user action.
@@ -97,7 +111,7 @@ Clustering not enabled
 * Application performance isn't affected by message queue latency.
 * No need to configure your application to support xref:mq::index.adoc[Anypoint MQ].
 * Application schedules are executed on all replicas independently.
-* Object Stores are not shared between replicas. 
+* Object Stores are not shared between replicas.
 * If the object is written to one replica, the other replicas won't see the object, unless Cloud Object Store is used.
 * If one data center experiences an outage, your replicas are available in a different data center.
 
@@ -121,18 +135,18 @@ Clustering enabled
 * Configure your application to support Anypoint MQ before deploying.
 * Application schedules are executed only once on the primary replica.
 * Application schedules can be missed during the lead election.
+* Object Stores are replicated and shared with each replica.
+* All replicas can read objects written by another replica, with or without Cloud Object Store.
 * If one data center experiences an outage, your replicas are automatically distributed to ensure redundancy.
 
 |You have an application that does not have any special requirements regarding either processing load or message loss. |
 Number of Replicas: One +
-Clustering not enabled 
+Clustering not enabled
 
 |
 * Application performance isn't affected by message queue latency.
 * You don't need to configure your application to support Anypoint MQ.
 * Application schedules are executed once on a single replica.
-* Object Stores are replicated and shared with each replica.
-* All replicas can read objects written by another replica, with or without Cloud Object Store.
 * If the data center in which your replica operates experiences an outage, CloudHub 2.0 automatically migrates your application to another availability zone; however, you can experience some downtime and message loss during the migration.
 
 |===

@@ -16,8 +16,9 @@ To configure Mule in the `wrapper.conf` file, modify these properties, replacing
 * `eu1.anypoint.mulesoft.com`
 * `ca1.platform.mulesoft.com`
 * `jp1.platform.mulesoft.com`
+* `in1.platform.mulesoft.com`
 
-The following example shows the `wrapper.conf` file configuration for Canada Cloud (`ca1.platform.mulesoft.com`): 
+This example shows the `wrapper.conf` file configuration for Canada Cloud (`ca1.platform.mulesoft.com`): 
 
 ----
 wrapper.java.additional.<n>=-Danypoint.platform.client_id=<environment client ID>
@@ -32,6 +33,7 @@ To configure Mule properties via the command line, use the following options whe
 * `eu1.anypoint.mulesoft.com`
 * `ca1.platform.mulesoft.com`
 * `jp1.platform.mulesoft.com`
+* `in1.platform.mulesoft.com`
 
 This example shows the properties configuration for EU Cloud `eu1.anypoint.mulesoft.com` via the command like:
  
@@ -48,8 +50,9 @@ When deploying to CloudHub 2.0, in the *Properties* tab of Anypoint Runtime Mana
 * `eu1.anypoint.mulesoft.com`
 * `ca1.platform.mulesoft.com`
 * `jp1.platform.mulesoft.com`
+* `in1.platform.mulesoft.com`
 
-The following example shows the properties configuration for Japan Cloud `jp1.platform.mulesoft.com` :
+This example shows the properties configuration for Japan Cloud `jp1.platform.mulesoft.com` :
 
 ----
 anypoint.platform.client_id=<environment client ID>
@@ -60,4 +63,4 @@ anypoint.platform.analytics_base_uri=https://analytics-ingest.jp1.platform.mules
 
 == See Also
 
-* xref:deploy-mule-apps-hyperforce.adoc[Deploying Mule Apps to Control Planes]
+* xref:deploy-mule-apps-hyperforce.adoc[Deploying Mule Apps]

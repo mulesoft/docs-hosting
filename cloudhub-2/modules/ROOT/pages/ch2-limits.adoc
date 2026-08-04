@@ -2,7 +2,7 @@
 
 CloudHub 2.0 imposes the following limits:
 
-Environments per business group:: 200
+Environments per business group:: 150
 
 Private spaces per organization:: 100
 
@@ -18,6 +18,7 @@ Maximum HTTP request size:: 1 GB
 
 Maximum HTTP request timeout:: 300 seconds
 +
+
 This timeout applies to the time it takes for a client to send request data to the CloudHub 2.0 ingress load balancer (Edge). This value is not configurable and applies to both shared spaces and private spaces.
 +
 If the client takes longer than 300 seconds to send the complete request (for example, when uploading large files), the connection is dropped. To handle large data transfers that exceed this limit, break up the request into smaller chunks or implement asynchronous processing.
@@ -26,6 +27,7 @@ If the client takes longer than 300 seconds to send the complete request (for ex
 ====
 Private spaces allow you to configure a separate read response timeout (the time Edge waits for the Mule application to send response data) up to 3600 seconds. For more information, see xref:ps-config-advanced.adoc#configure-http-requests-and-read-response-timeout[Configure HTTP Requests and Read-Response Timeout].
 ====
+
 
 Maximum ingress URI size:: 4 KB
 
@@ -45,7 +47,7 @@ Maximum number of Client Certificates in a TLS Context:: There is no limit on th
 +
 A TLS Context can reference one keystore and one truststore, which have their respective file size limits:
 +
-* Truststore maximum file size: 131072 bytes (128 KB)
+* Truststore maximum file size: 40960 bytes (40 KB)
 * Keystore maximum file size for types JKS, JCEKS, PKCS12: 40960 bytes (40 KB).
 * Keystore maximum file size for type PEM:
 ** Certificate File: 4096 bytes (4 KB).

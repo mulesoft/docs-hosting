@@ -8,6 +8,8 @@ Use options on the *Advanced* tab to:
 This value is the amount of time the CloudHub 2.0 ingress load balancer (Edge) waits for the Mule application to send response data back to Edge. If the Mule application does not send response data within the specified time, CloudHub 2.0 drops the request with a 504 error.
 +
 This timeout applies to the Mule application processing time and sending the response, not to the time it takes for the client to send the request to Edge. For information about request timeouts, see xref:ch2-limits.adoc[].
+
+
 * Configure ingress load balancer logs levels and download logs.
 * Configure Amazon Web Services (AWS) service roles.
 
@@ -39,18 +41,16 @@ Silently drops HTTP requests.
 --
 . Specify the read response timeout value.
 +
-The default timeout is 300 seconds. You can configure this value up to 3600 seconds (1 hour).
-+
-This timeout controls how long Edge waits for the Mule application to send response data. If your Mule application requires more than 300 seconds to process a request before sending the response, increase this value accordingly.
+The default read-response timeout is 300 seconds. You can configure this value up to 3600 seconds (1 hour).
 +
 . Click *Save Changes* or *Discard Changes*.
 
 [NOTE]
 ====
 The maximum request size is 1 GB.
-
 If you are uploading large files (such as CSV files) that take longer than 300 seconds to transfer from the client to Edge, you might encounter a timeout even if you increase the read response timeout. This is because the read request timeout (the time Edge waits for the client to send the request) is hardcoded to 300 seconds and cannot be configured. For long-running data transfers, consider breaking up the request into smaller chunks or implementing asynchronous processing. For more information, see xref:ch2-limits.adoc[].
-===="
+====
+
 
 [[configure-ingress-load-balancer-log-levels]]
 == Configure Default Ingress Load Balancer Log Levels 
@@ -58,7 +58,7 @@ If you are uploading large files (such as CSV files) that take longer than 300 s
 CloudHub 2.0 enables you to specify the default severity level of messages that are written to the log file for all apps deployed to the private space.
 
 [IMPORTANT]
-More verbose log levels might affect performance.
+More verbose log levels affect performance.
 
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
@@ -73,7 +73,7 @@ include::partial$select-private-space.adoc[tag=clickAdvanced]
 CloudHub 2.0 enables you to specify the default severity level of messages that are written to the log file for specific IP addresses, for example, for troubleshooting.
 
 [IMPORTANT]
-More verbose log levels might affect performance.
+More verbose log levels affect performance.
 
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
@@ -130,7 +130,7 @@ include::partial$select-private-space.adoc[tag=clickAdvanced]
 [[configure-aws-role]]
 == Configure AWS Service Role
 
-If you have identity and access management (IAM) roles configured in AWS, you can associate the role with your private space. The private space receives the permissions from the IAM role in AWS and can access AWS resources. To configure this feature in AWS: 
+If you have identity and access management (IAM) roles configured in AWS, associate the role with your private space. The private space receives the permissions from the IAM role in AWS and accesses AWS resources. To configure this feature in AWS: 
 
 * Use the unique AWS IAM role name that Anypoint Platform generates.
 * Use the organization ID for the organization in which the private space was configured. 
@@ -145,11 +145,13 @@ include::partial$select-private-space.adoc[tag=clickAdvanced]
 . Click *Enable AWS Service Role*.
 . Click *Save Changes* or *Discard changes*.
 +
-A unique service role name is generated, and you can use this role configure to configure identity and access management for AWS. Role generation might take a few minutes. If the role name does not appear, refresh the page.
+A unique service role name is generated. Use this role to configure identity and access management for AWS. Role generation takes a few minutes. If the role name doesn't appear, refresh the page.
 
 [NOTE]
-You can configure only one AWS service role per private space.
+Each private space supports only one AWS service role.
 
 == See Also
 
+* xref:ps-config-fw-rules.adoc[]
+* xref:ps-config-app-level-egress.adoc[]
 * https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html[IAM roles^] in the AWS documentation
