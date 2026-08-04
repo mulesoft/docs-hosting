@@ -3,24 +3,88 @@
 
 CloudHub 2.0 restarts your Mule applications during infrastructure failure or maintenance, security patching, replica crashes, or replica rebalancing. 
 
-The CloudHub 2.0 infrastructure performs a graceful shutdown by draining connections before transitioning traffic to a new instance of your application replica and terminating the older instance. If your application configuration explicitly sets the `shutdownTimeout` attribute to a value greater than two minutes and thirty seconds, the total shutdown grace period is five minutes. Otherwise, the grace period is twice the configured `shutdownTimeout` value. By default, `shutdownTimeout` is five seconds. See xref:mule-runtime::global-settings-configuration.adoc#global-configurations-reference[Global Configurations Reference].
+The CloudHub 2.0 infrastructure gracefully shuts down by draining connections, transitioning traffic to a new instance of your application replica before terminating the older instance.
 
-[source,javascript,linenums]
+To ensure business resiliency, design your application to be idempotent and deploy across multiple replicas with xref:ch2-clustering.adoc[clustering] enabled with a layer of persistence (xref:object-store::index.adoc[Object Store v2]).
+
+== Understand Local Storage Limitations
+
+CloudHub 2.0 replica local storage is ephemeral. Unlike local development environments, CloudHub 2.0 clears local data when an app restarts.
+
+This limitation affects:
+
+Persistent object stores:: Configuring `persistent="true"` writes data to local disk. This works in Anypoint Studio and standalone Mule runtimes, but data doesn't persist across CloudHub 2.0 restarts. Use xref:object-store::index.adoc[Object Store v2] for persistent storage.
+Local file operations:: The File connector and other file-based operations write to the replica's local disk. CloudHub 2.0 deletes these files when the app restarts.
+Temporary files and caches:: App-generated files, custom logs, and local cache data don't persist.
+
+To ensure data persistence in CloudHub 2.0:
+
+* Use xref:object-store::index.adoc[Object Store v2] instead of persistent object stores for app state and synchronization data.
+* Store files in external cloud storage services.
+* Design stateless integrations by persisting data in external databases or messaging queues.
+
+For more information about designing resilient applications, see xref:ch2-ha-dr.adoc[CloudHub 2.0 High Availability and Disaster Recovery].
+
+[[shutdown-timeout-behavior]]
+== Shutdown Timeout Behavior
+
+CloudHub 2.0 overrides the Mule runtime's default `shutdownTimeout` value to avoid disruption for long-running flows. By default, the Mule runtime sets `shutdownTimeout` to five seconds. CloudHub 2.0 extends the shutdown grace period to accommodate applications that require more time to complete in-flight processing.
+
+For infrastructure-triggered restarts (such as infrastructure failure, maintenance, security patching, or replica rebalancing):
+
+* CloudHub 2.0 provides a grace period up to a maximum of 12 hours.
+* If no custom `shutdownTimeout` is configured, CloudHub 2.0 applies a 12-hour maximum grace period to ensure long-running flows complete without disruption.
+
+For user-triggered restarts (such as stop, restart, update, redeploy, or terminate actions):
+
+* CloudHub 2.0 honors the configured `shutdownTimeout` value from your application configuration.
+* CloudHub 2.0 doesn't provide the extended 12-hour grace period.
+
+You can optionally configure the `shutdownTimeout` attribute in your Mule application configuration. See xref:mule-runtime::global-settings-configuration.adoc#global-configurations-reference[Global Configurations Reference].
+
+[source,xml,linenums]
 ----
 <mule ...>
   <configuration shutdownTimeout="150000" /> <!-- This sets shutdownTimeout to 2 minutes, 30 seconds. Default is 5 seconds. -->
 </mule>
-----
+---- 
 
-To ensure business resiliency, design your application to be idempotent and deploy across multiple replicas with xref:ch2-clustering.adoc[clustering] enabled with a layer of persistence (xref:object-store::index.adoc[Object Store v2]). 
+== Considerations
+
+Review these details about how each replica strategy manages application optimization:
+
+Single Replica with Recreate Strategy::
++
+The sole replica is terminated first, allowing it to gracefully shut down. A new replica launches as soon as the previous replica enters Stopping status. Incoming traffic experiences a brief downtime. If the application schedule triggers during this downtime, the trigger is missed.
+
+
+Single Replica with Rolling Restart::
++
+A new replica launches before the old replica begins its graceful shutdown. Two replicas run concurrently until the old replica is fully terminated. Once in Stopping status, the old replica stops receiving new connections or triggering application schedules.
+
+
+Multiple Replicas with Recreate or Rolling Restart::
++
+At least two thirds of the replicas remain available throughout the optimization process. Some replicas are gracefully shut down and restarted on new infrastructure.
+
 
 == Infrastructure Failure and Maintenance
 
 If the compute infrastructure suffers a failure, CloudHub 2.0 moves your application to a healthy infrastructure and restarts the application replicas. Likewise, during infrastructure maintenance, the platform moves application replicas running on a compute infrastructure that becomes impaired or end-of-life onto a new infrastructure to ensure availability.
 
+[[karpenter-node-downscaling]]
+== Karpenter Node Downscaling in Private Spaces
+
+In Private Spaces, CloudHub 2.0 uses Karpenter to manage node lifecycle. When Karpenter downscales nodes to remove underused capacity, CloudHub 2.0 restarts applications running on those nodes as replicas move to remaining nodes. Restarts occur once per week at most, within a random two-hour window that starts between Saturday 12:00 AM and 4:00 AM in the Private Space region's local time zone.
+
+[NOTE]
+====
+Apps in a Private Space can restart during Karpenter node downscaling in this weekly window. These restarts are routine maintenance, not an outage. Design for resiliency so that restarts have minimal impact. See xref:ch2-ha-dr.adoc[].
+====
+
 == Security Patching
 
-To mitigate security vulnerabilities, CloudHub 2.0 patches and restarts applications every month. See the https://www.salesforce.com/content/dam/web/en_us/www/documents/legal/Agreements/versioning-back-support-policy.pdf#critical[Critical Security Vulnerabilities] policy.
+To mitigate security vulnerabilities, CloudHub 2.0 patches and restarts applications every month. See the https://www.salesforce.com/en-us/wp-content/uploads/sites/4/documents/legal/Agreements/versioning-back-support-policy.pdf[Critical Security Vulnerabilities] policy.
 
 == Replica Crash
 

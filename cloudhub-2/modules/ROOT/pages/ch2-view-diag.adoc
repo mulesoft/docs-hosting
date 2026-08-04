@@ -1,50 +1,51 @@
-= Viewing Diagnostic Data for Deployed Apps
+= Generating Apps Diagnostics and Analyzing with Einstein
 
-You can run a thread dump, which is a snapshot of all the threads in a replica.
-The thread dump indicates the current state of the server,
-which is helpful for debugging and support.
+Use the MuleSoft diagnostics agent to troubleshoot your Mule applications deployed to CloudHub 2.0. This feature leverages Einstein generative AI to automate diagnostics collection and provide intelligent, actionable insights.
 
-CloudHub 2.0 retains thread dumps for 30 days or up to 100 MB.
+== Before you Begin
 
-== Run a Thread Dump
+Before running the MuleSoft diagnostics agent:
 
+include::partial$diagnostics-agent.adoc[tag=prerequisites]
+
+
+[[run-diagnostics-agent]]
+== Run the MuleSoft Diagnostics Agent
+
+. From Anypoint Platform, select *Runtime Manager* > *Applications*.
+. Select the app name.
+. In the navigation menu, select *Diagnostics*.
+. Select an active replica from the dropdown list.
+. Click the *Analyze & Troubleshoot* dropdown. You have these options:
+** Select *Generate Mule Diagnostics* to generate and download the diagnostics for manual inspection.
+... Click *Download* to download the Mule diagnostics files.
+** Select *Analyze with Einstein* to generate the Mule diagnostics and run the analysis simultaneously. 
+... Click *View Analysis* to open the analysis page.
+
+=== Generate Mule Diagnostics
+If you download the generated Mule diagnostics, you receive a `.tar` archive containing two key assets:
+
+Mule Thread Dumps::
++
+A thread dump is a snapshot of all the threads in a replica that shows the current state of the server.
+
+Diagnostic Information Analysis File (DIAF)::
++
+include::partial$diagnostics-agent.adoc[tag=diafFile]
++
 [NOTE]
-The app must be running to run a thread dump.
+The DIAF doesn’t replace application logs.
 
-To run a thread dump:
+=== Analyze with Einstein
+If you select *Analyze with Einstein*, the system generates the Mule diagnostics and runs the Einstein analysis simultaneously. The resulting analysis identifies root causes and recommends actions based on the DIAF file.
 
-//SELECT PRIVATE SPACE SHARED
-include::partial$select-private-space.adoc[tag=selectAppsPage]
-include::partial$select-private-space.adoc[tag=clickAppName]
-include::partial$select-private-space.adoc[tag=clickDiagnostics]
-. Click *Run Thread Dump* and select the active replica to trigger the thread dump from the drop-down list:
-+
-image::ch2-thread-dump-run.png[Run Thread Dump button on the Diagnostics tab]
-+
-CloudHub 2.0 runs the thread dump and displays the latest thread dump at the top of the list.
-+
-When the thread dump is ready to download, the *Download* button becomes available.
-// If the *Diagnostics* page is displayed when the thread dump is ready, the download starts automatically.
+== Considerations and Limitations
 
-== View and Download Past Thread Dumps
+include::partial$diagnostics-agent.adoc[tag=considerationsLimitations]
 
-To view past thread dumps:
-
-//SELECT PRIVATE SPACE SHARED
-include::partial$select-private-space.adoc[tag=selectAppsPage]
-include::partial$select-private-space.adoc[tag=clickAppName]
-. In the navigation menu, click *Diagnostics*.
-+
-The page displays any past thread dumps:
-+
-image::ch2-thread-dumps.png[Thread Dumps on the Diagnostics tab]
-+
-** To view logs for a deployment and replica associated with the thread dump, click the *View Logs* link (1) in the *Replica* column.
-** To download a thread dump, click the *Download* button (2).
-
-CloudHub 2.0 saves the diagnostic output to a text file in a hexadecimal format, for example: `5b181bef-b61c-524c-a0c8-698592977954_2022-07-20T15-06-27D`. Use a text editor to view the diagnostics file.
+CloudHub 2.0 retains Mule diagnostics for 30 days or up to 150 MB.
 
 
 == See Also
-
+* xref:mule-runtime::mule-troubleshooting-plugin.adoc#understanding-diagnostic-information-analysis-file-diaf[Understanding the Diagnostic Information Analysis File (DIAF)]
 * xref:ch2-view-logs.adoc[]

@@ -50,6 +50,8 @@ After a successful restart, the replica status is `STARTED` and the replica can 
 
 When you stop, restart, update, redeploy, or terminate an application, CloudHub 2.0 tries to delete it from Mule. To make sure inflight messages are delivered, there's a five-minute timeout period. After that period, CloudHub 2.0 shuts down the whole instance. This grace period applies to the application instance, not to the runtime. The runtime uses its own configuration for shutdown. By default, the runtime grace period is five seconds.
 
+For more information about shutdown timeout behavior and how CloudHub 2.0 handles long-running flows, see xref:ch2-understand-app-restart.adoc#shutdown-timeout-behavior[Shutdown Timeout Behavior].
+
 
 == See Also
 

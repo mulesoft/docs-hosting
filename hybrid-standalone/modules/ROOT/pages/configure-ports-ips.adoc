@@ -1,0 +1,140 @@
+= Adding Ports, IPs, and Hostnames for Runtime Manager Agent
+
+Configure network access for the Runtime Manager agent to establish secure communication between your hybrid standalone instances and Anypoint Platform services.
+
+== Overview
+
+To enable Runtime Manager agent connectivity in your customer-hosted Mule runtime environment, you must configure your network infrastructure to allow communication with Anypoint Platform APIs and services. This configuration involves adding specific hostnames, ports, and IP addresses to your network allowlists and firewall rules.
+
+These sections provide the specific network configuration details required for each communication protocol and regional deployment.
+
+All connectivity requirements are for outbound connections from your network to Anypoint Platform. No inbound connectivity to your network or servers is required.
+
+Runtime Manager agent establishes persistent WebSocket connections that remain active for ongoing communication with Anypoint Platform services.
+
+
+== Mutual TLS Authentication Endpoints
+
+These endpoints require SSL passthrough configuration to allow mutual TLS certificate authentication:
+
+* runtime-manager.anypoint.mulesoft.com
+* runtime-manager.eu1.anypoint.mulesoft.com
+* runtime-manager.gov.anypoint.mulesoft.com
+* data-authenticator.anypoint.mulesoft.com
+* data-authenticator.gov.anypoint.mulesoft.com
+* us1.ingest.mulesoft.com 
+* eu1.ingest.mulesoft.com 
+
+Configure your firewall or proxy to allow SSL passthrough for these endpoints to ensure that the Runtime Manager agent has direct certificate authentication with Anypoint Platform. 
+
+== WebSocket Endpoints
+
+These endpoints use WebSocket connections for real-time communication between the agent and Runtime Manager. Ensure your firewall supports WebSocket protocol upgrades and persistent connections for these endpoints.
+
+* runtime-manager.anypoint.mulesoft.com
+* runtime-manager.eu1.anypoint.mulesoft.com
+* runtime-manager.gov.anypoint.mulesoft.com
+
+
+== Required Ports and Hostnames
+
+Configure your firewall to allow outbound connections to these ports and hostnames based on your Anypoint Platform region.
+
+[%header,cols="10a,50a,10a"]
+|===
+|Region |Name |Port
+|*US*|anypoint.mulesoft.com | 443
+|*US*|runtime-manager.anypoint.mulesoft.com | 443
+|*US*|analytics-ingest.anypoint.mulesoft.com |  443
+|*US*|data-authenticator.anypoint.mulesoft.com |  443
+|*US*|exchange-files.anypoint.mulesoft.com | 443
+|*US*|exchange2-asset-manager-kprod.s3.amazonaws.com |  443
+|*US*|us1.ingest.mulesoft.com |  8443
+|*US-GOV*|runtime-manager.gov.anypoint.mulesoft.com | 443
+|*US-GOV*|data-authenticator.gov.anypoint.mulesoft.com |  443
+|*US-GOV*|gov.anypoint.mulesoft.com | 443
+|*US-GOV*|exchange-files.gov.anypoint.mulesoft.com | 443
+|*US-GOV*|exchange2-asset-manager-kgprod.s3.us-gov-west-1.amazonaws.com | 443
+|*EU*|eu1.anypoint.mulesoft.com | 443
+|*EU*|runtime-manager.eu1.anypoint.mulesoft.com | 443
+|*EU*|analytics-ingest.eu1.anypoint.mulesoft.com |  443
+|*EU*|data-authenticator.eu1.anypoint.mulesoft.com |  443
+|*EU*|exchange2-asset-manager-kprod-eu.s3.eu-central-1.amazonaws.com |  443
+|*EU*|eu1.ingest.mulesoft.com |  8443
+|===
+
+
+== Static IP Addresses
+
+For network environments that require IP-based firewall rules, use these static IP addresses to allow Runtime Manager connectivity.
+
+* Allowlist these static IPs in the `US` region to access the `runtime-manager` hosts:
++
+[%header,cols="10a,60a,30a"]
+|===
+|Region |Name |IP Address
+|*US*|runtime-manager.anypoint.mulesoft.com |18.214.68.14
+|*US*|runtime-manager.anypoint.mulesoft.com |35.174.151.175
+|*US*|runtime-manager.anypoint.mulesoft.com |18.213.137.40 (Starting Feb 2024)
+|*US*|runtime-manager.anypoint.mulesoft.com |34.232.255.44 (Starting Feb 2024)
+|*US*|runtime-manager.anypoint.mulesoft.com |44.209.29.79 (Starting Feb 2024)
+|===
+
+* Allowlist these static IPs in the `EU` region to access the `runtime-manager` hosts:
++
+[%header,cols="10a,60a,30a"]
+|===
+|Region |Name |IP Address
+|*EU*|runtime-manager.eu1.anypoint.mulesoft.com |18.185.141.77
+|*EU*|runtime-manager.eu1.anypoint.mulesoft.com |3.123.216.217
+|*EU*|runtime-manager.eu1.anypoint.mulesoft.com |3.127.253.183 (Starting Feb 2024)
+|===
+
+== Dynamic IP Addresses
+
+Configure hostname-based firewall rules for Anypoint Platform services that use dynamically assigned IP addresses.
+
+=== Layer 7 Firewall Configuration
+
+Some Anypoint Platform services use IP addresses that are dynamically assigned by cloud infrastructure. For these services, configure Layer 7 firewall rules based on fully qualified domain names (FQDNs) rather than static IP addresses.
+
+Configure your Layer 7 firewall rules to include these hostnames:
+
+[%header,cols="10a,60a"]
+|===
+|Region |Hostname
+|*US*|anypoint.mulesoft.com
+|*US*|analytics-ingest.anypoint.mulesoft.com
+|*US*|data-authenticator.anypoint.mulesoft.com
+|*US*| us1.ingest.mulesoft.com
+|*US-GOV*|runtime-manager.gov.anypoint.mulesoft.com
+|*US-GOV*|data-authenticator.gov.anypoint.mulesoft.com
+|*US-GOV*|gov.anypoint.mulesoft.com
+|*EU*|eu1.anypoint.mulesoft.com
+|*EU*|analytics-ingest.eu1.anypoint.mulesoft.com
+|*EU*|data-authenticator.eu1.anypoint.mulesoft.com
+|*EU*|eu1.ingest.mulesoft.com  
+|===
+
+=== Agent-Specific Allowlist
+
+Configure these URLs for Runtime Manager agent connectivity based on your agent version.
+
+**Agent Version Requirements**
+
+* **Mule 4.x**: Runtime Manager agent 2.2.0 or later
+
+[%header,cols="30a,60a"]
+|===
+|URL |Description
+|runtime-manager.anypoint.mulesoft.com| Connection for ARM management capabilities (*public-cert agents*)
+|data-authenticator.anypoint.mulesoft.com| Connection to the metrics ingestion service of arm-monitoring stack (*public-cert agents*)
+|===
+
+== See Also
+
+* xref:setting-hybrid-standalone.adoc[Setting up Hybrid Standalone Instances]
+* xref:creating-servers.adoc[Creating Servers]
+* xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]
+* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]
+* xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]

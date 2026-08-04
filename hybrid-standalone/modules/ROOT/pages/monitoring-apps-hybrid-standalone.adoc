@@ -1,0 +1,24 @@
+= Monitoring Mule Apps Deployed to Hybrid Standalone Instances
+
+Monitor your Mule applications deployed to hybrid standalone instances to ensure optimal performance, maintain integration health, and enable proactive problem resolution across your distributed application environment.
+
+Runtime Manager provides comprehensive application monitoring capabilities for your hybrid standalone Mule applications through integrated dashboards and alerting systems.
+
+== Creating Alerts
+
+Set up email notifications for critical application events such as deployment failures, high error rates, response time degradation, or custom business metrics to enable rapid response to integration issues.
+
+xref:creating-alerts-hybrid-apps.adoc[Creating Alerts for Mule Apps Deployed to Hybrid Standalone]
+
+
+== Monitoring Dashboards
+
+Track key application performance indicators including message throughput, error rates, response times, and resource consumption to understand application health and identify optimization opportunities.
+
+xref:monitoring-dashboards-hybrid-apps.adoc[Monitoring Dashboards for Mule Apps Deployed to Hybrid Standalone]
+
+== See Also
+
+* xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]
+* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]
+* xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]

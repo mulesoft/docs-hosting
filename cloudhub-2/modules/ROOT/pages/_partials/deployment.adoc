@@ -71,7 +71,7 @@ Logging is enabled by default for apps deployed to CloudHub 2.0.
 
 To disable or reenable logging for the app:
 
-. Click the *Logging* tab.
+. Click the *Monitoring* tab.
 . Deselect or select the *Forward application logs to Anypoint Platform* option.
 . Click *Apply Changes*.
 
@@ -162,7 +162,7 @@ Enables xref:ch2-clustering.adoc[Mule clustering] across each replica of the app
 This option requires at least two replicas.
 // Is this on Production?
 Use Object Store V2::
-You can select xref:object-store::index.adoc[Object Store v2] as the implementation for Mule 3 and Mule 4 by checking the *Use Object Store V2* checkbox.
+You can select xref:object-store::index.adoc[Object Store v2] as the implementation by checking the *Use Object Store V2* checkbox.
 
 Deployment model::
 +

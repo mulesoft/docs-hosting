@@ -52,9 +52,9 @@ The following example shows a Mule application configuration that exposes an HTT
 
 === Load Balancer Connections
 
-For each request a client makes through the CloudHub 2.0 load balancer `(<app>.<space-id>.<region>.cloudhub.io)`, the load balancer maintains two connections: one connection between the client and the load balancer, and another connection between the load balancer and the application. For each connection, the load balancer manages a default idle timeout of 300 seconds that is triggered when no data is sent over either connection. If no data is sent or received during this duration, the load balancer closes both connections.
+For each request a client makes through the CloudHub 2.0 load balancer `(<app>.<space-id>.<region>.cloudhub.io)`, the load balancer maintains two connections: one connection between the client and the load balancer, and another connection between the load balancer and the application. For each connection, the load balancer manages a default idle timeout of 15 seconds that is triggered when no data is sent over either connection. If no data is sent or received during this duration, the load balancer closes both connections.
 
-For connections that take longer than 300 seconds to process from either side, handle the processing asynchronously. You can customize the idle timeout value in the *Advanced* tab of your xref:ps-config-advanced.adoc#configure-http-requests-and-read-response-timeout[private space settings] in Runtime Manager, or via the Mule application xref:mule-runtime::global-settings-configuration.adoc[global configurations] of the xref:mule-runtime::about-mule-configuration.adoc[Mule configuration file].
+For connections that take longer than 300 seconds to process from either side, handle the processing asynchronously. You can customize the Read Response Timeout value in the *Advanced* tab of your xref:ps-config-advanced.adoc#configure-http-requests-and-read-response-timeout[private space settings] in Runtime Manager, or via the Mule application xref:mule-runtime::global-settings-configuration.adoc[global configurations] of the xref:mule-runtime::about-mule-configuration.adoc[Mule configuration file].
 
 == DNS Records
 
@@ -80,7 +80,6 @@ An application communicates with another application via:
 * The default public DNS name: `app.sxjsip.aus-s1.cloudhub.io`
 * The default internal DNS name (in private spaces only): `app.internal-sxjsip.aus-s1.cloudhub.io`
 * The custom domain name (if configured): `acme.example.com`
-* The cluster local DNS: `app` or `app.envid.svc.cluster.local:8081`
 
 If you use the internal DNS name, traffic remains within the private space network. You can delete or omit the externally exposed endpoint when deploying an application to a private space. In that case, use the application’s internal endpoint for internal traffic.
 
@@ -99,9 +98,13 @@ Configure either in the public or the internal DNS record to CNAME. For example:
 
 === IP Ranges
 
-Traffic egressing to the internet originates from an IP address listed under the *Outbound Static IPs* field of the private network configuration. 
+Traffic egressing to the internet originates from an IP address listed under the *Outbound Static IPs* field of the private network configuration. These outbound static IPs don't change during the lifetime of the private space.
 
-The public DNS target and the private DNS target IPs don’t change during the lifetime of the private space.
+The public DNS target and the private DNS target IPs also don't change during the lifetime of the private space.
+
+The private DNS target uses private static IP addresses. These IP addresses remain constant throughout the lifetime of the private space. This makes them suitable for use in internal DNS configurations or allowlists in your connected external networks.
+
+You can view the public DNS target IP addresses in the *Inbound IP Addresses* section of the private space network configuration.
 
 Traffic egressing to a VPN or Transit Gateway (TGW) originates from the private space CIDR block.
 
@@ -120,7 +123,7 @@ If you use BGP routing protocols, you can publish these CIDR blocks to your gate
 
 Because of this, `100.64.0.0/10` is xref:ps-gather-setup-info.adoc#unusable-cidr[not a supported range] for private spaces.
 
-You can filter these prefixes from the route map. For more information, see https://help.mulesoft.com/s/article/Received-Extra-BGP-routes-from-CloudHub-2-0-VPN[Received Extra BGP routes from CloudHub 2.0 VPN].
+You can filter these prefixes from the route map.
 
 You can also indicate a reserved range for your on-prem network upon creating your private space. CloudHub 2.0 doesn’t use reserved ranges indicated by customers. For more information, see xref:ps-gather-setup-info.adoc#reserved-cidr[Reserved Corporate CIDR].
 
@@ -130,7 +133,7 @@ Private spaces support two types of connections: Virtual Private Network (VPN) a
 
 Each Anypoint VPN connection consists of two tunnels that enable you to connect to a single public IP address at a remote location. VPNs are highly available if you configure both tunnels on your endpoint. 
 
-Additionally, you can define redundant VPN connections for increased resiliency. As a managed service, the underlying VPN service is often upgraded. Routine maintenance can briefly disable one of the two tunnels of your VPN connection. Your VPN connection automatically fails over to the second tunnel during this time, so access isn’t interrupted. For this reason, you must configure both tunnels on your endpoint. For more information, see  https://help.mulesoft.com/s/article/Tunnel-Switch-in-an-Anypoint-Dynamic-BGP-VPN-Update[Tunnel Switch in an Anypoint Dynamic (BGP) VPN Update]. 
+Additionally, you can define redundant VPN connections for increased resiliency. As a managed service, the underlying VPN service is often upgraded. Routine maintenance can briefly disable one of the two tunnels of your VPN connection. Your VPN connection automatically fails over to the second tunnel during this time, so access isn’t interrupted. For this reason, you must configure both tunnels on your endpoint.
 
 By design, TGW connections are highly available. Don’t create redundant TGW connections. For more information, see xref:ps-tgw-about.adoc[].
 
@@ -143,6 +146,11 @@ Use a xref:ps-create-configure-tgw.adoc[TGW attachment] to connect a dedicated V
 
 
 === Firewall Rules and Port Access
+
+[NOTE]
+====
+CloudHub 2.0 private spaces provide configurable inbound and outbound firewall rules, with ports `80` and `443` open by default. Private spaces don't include a built-in Web Application Firewall (WAF) or Layer 7 DDoS protection. If you need these protections, implement them externally.
+====
 
 HTTP Ingress::
 
@@ -166,11 +174,23 @@ You can remove all ingress and egress rules from and to the internet. In this ca
 * You can remove the default route to the Internet Gateway. However, for the egress firewall rules to work, the destination IPs must be routable.
 
 
+=== Test Private Space Connectivity
+
+To test connectivity to applications in a private space, use the *Network Tools* application. ICMP ping isn't a supported connectivity test, so a failed ping doesn't mean that your application is down. For download and usage information, see https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Network Tools Application].
+
+If traffic reaches the firewall but gets no response, check these common causes:
+
+* A port restriction. The internal load balancer accepts traffic on port `443`.
+* A pod-network CIDR that isn't allowlisted in your connected network.
+
+
 == Regional Services
 
 The DNS record and the load balancer for your integration can change depending on what region you deploy your applications in. This table summarizes what DNS records are available for your applications in each region:
 
 include::partial$region-table-long.adoc[]
+
+include::partial$url-format-by-control-plane.adoc[]
 
 
 == See Also

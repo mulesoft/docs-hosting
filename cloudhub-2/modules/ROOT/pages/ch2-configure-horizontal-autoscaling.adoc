@@ -6,9 +6,11 @@ endif::[]
 Configure CPU-based horizontal scaling for Mule applications to make them responsive to CPU usage by automatically scaling up or down the deployment replicas as needed.
 
 [NOTE]
-This feature applies only to customers who are opted into the new pricing and packaging model. For more details, see xref:general::pricing.adoc[]
+====
+This feature is available to organizations with an Enterprise License Agreement (ELA) or those opted into the new pricing and packaging model. If the Horizontal Pod Autoscaling option isn't visible in the Runtime Manager UI, contact your account team.
+====
 
-In Kubernetes, a Horizontal Pod Autoscaler (HPA) automatically updates a workload resource to scale the workload to match demand. Horizontal scaling automatically deploys more pods as a response to an increased load. For more information, visit the https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale[Kubernetes documentaton^]. 
+In Kubernetes, a Horizontal Pod Autoscaler (HPA) automatically updates a workload resource to scale the workload to match demand. Horizontal scaling automatically deploys more pods as a response to an increased load. For more information, visit the https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/[Kubernetes documentaton^]. 
 
 The xref:general::pricing.adoc#global-resource-pool-limits[Global Resource Pool Limit] does not limit the applications configured with Horizontal Pod Autoscaling.
 
@@ -64,7 +66,7 @@ The following is an example log payload:
 
 == Understand CPU-Based Autoscaling Policy
 
-MuleSoft owns and applies the https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/[autoscaling^] policy for your Mule application deployments.
+MuleSoft owns and applies the https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale//[autoscaling^] policy for your Mule application deployments.
 
 The CPU-based HPA policy used for all Mule apps deployed to CloudHub 2.0 is as follows:
 

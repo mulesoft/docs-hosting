@@ -10,6 +10,11 @@ On the *Schedules* tab, you can:
 * Run the scheduled job immediately, without changing the schedule.
 * Disable or enable the schedule for a flow.
 
+[NOTE]
+====
+The CloudHub schedules REST API doesn't expose scheduler or domain details for CloudHub 2.0 applications. Manage CloudHub 2.0 schedulers only through the CloudHub 2.0 APIs or the Runtime Manager *Schedules* tab.
+====
+
 You configure Scheduler component types as either _fixed frequency_ to trigger at a regular interval or _cron_ to trigger at a date and time based on a specified cron expression.
 
 [IMPORTANT]
@@ -61,7 +66,20 @@ Use the *Schedules* tab or the CloudHub 2.0 API to manage CloudHub 2.0 schedules
 * Flow names can contain only upper and lower case letters, numbers, hyphens (`-`), underscores (`_`), and periods (`.`). The following characters are invalid: `/`, `[`, `]`, `{`, `}`, and `#`.
 * CloudHub 2.0 schedules run concurrently by default. The Scheduler triggers the execution of a schedule flow while a previously-triggered execution is still running. To run schedules sequentially, set the `disallowConcurrentExecution` property as `true` in the xref:mule-runtime::scheduler-concept.adoc#props_scheduler[scheduler] configuration file. 
 * By default, schedulers use the same time zone as the machine on which Mule is running. You can change it by adding the time zone you want. For more information, see
-xref:anypoint-code-builder::acb-component-scheduler.adoc#cron-expressions[Cron Expressions]. 
+xref:anypoint-code-builder::acb-component-scheduler.adoc#cron-expressions[Cron Expressions].
+
+[[cluster-mode-fixed-frequency]]
+=== Fixed Frequency Schedules in Cluster Mode During Rolling Restart
+
+These transition behaviors apply to fixed-frequency schedules when the application runs in cluster mode and undergoes a rolling restart.
+
+Polling node transition and first trigger::
++
+During a rolling restart, CloudHub 2.0 starts new nodes before it removes old nodes. The cluster elects a new polling node only after it decommissions the previous polling node. The new node then triggers the schedule. Until this election completes, no node polls the schedule. As a result, the first trigger that would otherwise occur right after a new node starts doesn't fire. The schedule runs at the next calculated time after the cluster elects the new polling node.
+
+Schedule timing after restart::
++
+Fixed-frequency schedules don't retain the original schedule anchor after a rolling restart. The scheduler calculates the next run time relative to when the cluster elects the new polling node, not the pre-restart cadence. CloudHub 2.0 doesn't support retaining the original schedule timing for fixed-frequency schedules.
 
 == Before You Begin
 
@@ -120,6 +138,13 @@ You can specify milliseconds, seconds, minutes, hours, or days for the frequency
 The minimum recommended frequency between calls is 10 seconds.
 +
 include::cloudhub::partial$ch-app-schedule-freq.adoc[]
++
+[NOTE]
+====
+The `startDelay` property is not visible or configurable in the Runtime Manager UI.
+To change the `startDelay` value after deployment, use the Schedulers API.
+See <<override-scheduler-api>>.
+====
 . Click *Update* to save changed settings or click *Cancel* to exit without saving.
 
 [[change-cron-schedule]]
@@ -149,12 +174,75 @@ The cron expression in this example sets the schedule to every 10 seconds.
 +
 For information about building cron triggers:
 +
-.. View the http://www.quartz-scheduler.org/documentation[Quartz documentation^].
+.. View the https://www.quartz-scheduler.org/documentation/[Quartz documentation^].
 .. Select a version, click *Documentation > User's Guide > Tutorial*, and then click the *CronTrigger* lesson.
 . Click *Update* to save changed settings or click *Cancel* to exit without saving.
 
 
 
+
+[[override-scheduler-api]]
+== Override Scheduler Properties Using the Schedulers API
+
+The Schedulers API enables you to override scheduler configuration properties for a deployed application without redeploying it. This is useful for properties that are not configurable in the Runtime Manager UI, such as `startDelay` for fixed-frequency schedules.
+
+=== Overridable Properties
+
+Depending on the schedule type, you can override these properties:
+
+[%header,cols="1a,2a"]
+|===
+| Schedule Type | Overridable Properties
+| Fixed Frequency
+|
+* `frequency` - The interval between schedule executions.
+* `startDelay` - The initial delay before the first execution.
+* `timeUnit` - The time unit for `frequency` and `startDelay` (for example, `MILLISECONDS`, `SECONDS`, `MINUTES`, `HOURS`, `DAYS`).
+
+| Cron
+|
+* `expression` - The cron expression that defines the schedule.
+* `timeZone` - The time zone for the cron schedule.
+|===
+
+=== Update Scheduler Properties
+
+To update scheduler properties, send a `PUT` request to the Schedulers API endpoint:
+
+[source,curl,linenums]
+----
+curl -X PUT \
+  https://anypoint.mulesoft.com/amc/application-manager/api/v2/organizations/{orgId}/environments/{envId}/deployments/{deploymentId}/schedulers/{flowName} \
+  -H 'Authorization: bearer {token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "startDelay": "10",
+    "frequency": "60000",
+    "timeUnit": "MINUTES"
+}'
+----
+
+Replace these placeholders in the request:
+
+* `{orgId}` - Your Anypoint Platform organization ID.
+* `{envId}` - The environment ID where the application is deployed.
+* `{deploymentId}` - The deployment ID of your application.
+* `{flowName}` - The name of the flow that contains the Scheduler element.
+* `{token}` - A valid Anypoint Platform access token.
+
+For cron schedules, use the `expression` and `timeZone` properties in the request body instead:
+
+[source,curl,linenums]
+----
+curl -X PUT \
+  https://anypoint.mulesoft.com/amc/application-manager/api/v2/organizations/{orgId}/environments/{envId}/deployments/{deploymentId}/schedulers/{flowName} \
+  -H 'Authorization: bearer {token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "expression": "0 0/5 * * * ?",
+    "timeZone": "America/Los_Angeles"
+}'
+----
 
 [[run-immediately]]
 == Run a Scheduled Job Immediately
@@ -180,9 +268,27 @@ include::partial$select-private-space.adoc[tag=clickSchedules]
 You might want to disable a scheduled job if an application you are connecting
 to is undergoing maintenance and then reenable it after maintenance is complete.
 
-CloudHub 2.0 does not run the scheduled job until you reenable the Scheduler.
+CloudHub 2.0 doesn't run the scheduled job until you reenable the Scheduler.
 
-*Known issue*: If you disable the scheduler, it still runs when starting an application. If you want to prevent the scheduler from running, set the `startdelay` property to five seconds in your app using Anypoint Studio.
+Even after you disable a scheduler, it can still run once. The condition that triggers a disabled scheduler, and the way to prevent an unwanted run, depend on the schedule type:
+
+[%header,cols="1,3,3a"]
+|===
+| Schedule Type | When a Disabled Scheduler Can Still Run Once | How to Prevent It
+
+| Fixed frequency
+| The scheduler can trigger once when the application starts.
+| Set the `startDelay` property to at least five seconds. Configure `startDelay` in your app in Anypoint Studio, or change it after deployment using the <<override-scheduler-api,Schedulers API>>.
+
+| Cron
+| Changing any schedule redeploys the application, and a redeployment that occurs close to the cron trigger time can let a disabled scheduler run once. Because enabling or disabling any scheduler redeploys the app, running several enable or disable actions near a cron trigger time can trigger a disabled scheduler.
+| The `startDelay` property applies only to fixed-frequency schedulers and has no effect on cron schedulers. Avoid enabling or disabling schedulers close to a cron trigger time, and confirm the scheduler state on the *Schedules* tab afterward.
+|===
+
+[NOTE]
+====
+A disabled scheduler can revert to enabled after an application restart, rolling restart, or maintenance, so it can run again even though you disabled it. This behavior isn't limited to first startup. After a restart, check the scheduler state on the *Schedules* tab and disable it again if you need it to stay off.
+====
 
 To disable the Scheduler element:
 
@@ -199,6 +305,8 @@ image::ch2-scheduler-enable.png[Enabled toggle in the schedule editor]
 
 == Schedule Behavior with Rolling Update vs. Recreate Deployment Model
 
+For fixed-frequency schedules in cluster mode, see <<cluster-mode-fixed-frequency,Fixed Frequency Schedules in Cluster Mode During Rolling Restart>> for transition behavior during rolling restarts, including the first trigger after node start and schedule timing.
+
 During the initial deployment of an application with cluster mode and rolling update deployment model enabled, the application's fixed-frequency scheduler runs alongside the application startup. If you switch from xref:ch2-update-apps.adoc#rolling-update-vs-recreate-deployment-model[rolling update to recreate deployment model], the scheduler is triggered again with the application startup. But if you switch from recreate back to rolling update deployment model, the scheduler no longer runs at startup and instead triggers based on the configured frequency.
 
 This happens because the recreate deployment model turns off the previous instances of the application and starts them again in a new cluster. The previous record of the last run of the scheduler isn't saved. In this case, Mule runs the scheduler unless it's a fixed-date frequency. However, the rolling update deployment model saves the previous configuration.
@@ -207,5 +315,5 @@ This happens because the recreate deployment model turns off the previous instan
 
 * xref:ch2-deploy.adoc[]
 * xref:mule-runtime::scheduler-concept.adoc[]
-* http://www.quartz-scheduler.org/documentation[Quartz documentation^]
+* https://www.quartz-scheduler.org/documentation/[Quartz documentation^]
 * https://anypoint.mulesoft.com/exchange/?view=grid&type=example&search=&organizationId=68ef9520-24e9-4cf2-b2f5-620025690913[Example Assets provided by MuleSoft^]
