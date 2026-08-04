@@ -1,0 +1,66 @@
+= Configuring Mule Properties to Access Control Planes
+
+By default, Mule runtime engine (Mule) is configured to connect to the US Cloud control plane. To use Mule in other clouds, you must:
+
+* Redefine the configuration properties that enable Mule to point to the correct control plane. 
+* Provide the xref:access-management::managing-business-groups.adoc#client-id-and-secret[client ID and client secret] of the environment belonging to your organization.
+
+If you do not override these default properties, the API gateway capability of Mule is disabled in those cloud regions.
+
+You can configure Mule properties using a `wrapper.conf file`, the command line, or CloudHub 2.0.  To configure Mule properties through Maven, refer to xref:exchange::to-publish-assets-maven.adoc#publish-an-asset-to-exchange-using-maven[Publish assets using Maven].
+
+== Configure Mule Properties in the Wrapper.conf File
+
+To configure Mule in the `wrapper.conf` file, modify these properties, replacing `<n>` with an integer value that is unique within `wrapper.conf`. Ensure that you use the supported region endpoint domains:
+
+* `eu1.anypoint.mulesoft.com`
+* `ca1.platform.mulesoft.com`
+* `jp1.platform.mulesoft.com`
+* `in1.platform.mulesoft.com`
+
+This example shows the `wrapper.conf` file configuration for Canada Cloud (`ca1.platform.mulesoft.com`): 
+
+----
+wrapper.java.additional.<n>=-Danypoint.platform.client_id=<environment client ID>
+wrapper.java.additional.<n>=-Danypoint.platform.client_secret=<environment client secret>
+wrapper.java.additional.<n>=-Danypoint.platform.base_uri=https://ca1.platform.mulesoft.com
+wrapper.java.additional.<n>=-Danypoint.platform.analytics_base_uri=https://analytics-ingest.ca1.platform.mulesoft.com
+----
+
+== Configure Mule Properties via the Command Line
+To configure Mule properties via the command line, use the following options when starting Mule. Note that `./` applies only to Unix environments. Ensure that you use the supported region endpoint domains:
+
+* `eu1.anypoint.mulesoft.com`
+* `ca1.platform.mulesoft.com`
+* `jp1.platform.mulesoft.com`
+* `in1.platform.mulesoft.com`
+
+This example shows the properties configuration for EU Cloud `eu1.anypoint.mulesoft.com` via the command like:
+ 
+----
+./mule -M-Danypoint.platform.client_id=<environment client ID> -M-
+Danypoint.platform.client_secret=<environment client secret> -M-Danypoint.platform.base_uri=eu1.anypoint.mulesoft.com
+-M-Danypoint.platform.analytics_base_uri=https://analytics-ingest.eu1.anypoint.mulesoft.com
+----
+
+== Configure Mule Properties for CloudHub 2.0
+
+When deploying to CloudHub 2.0, in the *Properties* tab of Anypoint Runtime Manager, include these properties. Ensure that you also use the supported region endpoint domains:
+
+* `eu1.anypoint.mulesoft.com`
+* `ca1.platform.mulesoft.com`
+* `jp1.platform.mulesoft.com`
+* `in1.platform.mulesoft.com`
+
+This example shows the properties configuration for Japan Cloud `jp1.platform.mulesoft.com` :
+
+----
+anypoint.platform.client_id=<environment client ID>
+anypoint.platform.client_secret=<environment client secret>
+anypoint.platform.base_uri=https://jp1.platform.mulesoft.com
+anypoint.platform.analytics_base_uri=https://analytics-ingest.jp1.platform.mulesoft.com
+----
+
+== See Also
+
+* xref:deploy-mule-apps-hyperforce.adoc[Deploying Mule Apps]

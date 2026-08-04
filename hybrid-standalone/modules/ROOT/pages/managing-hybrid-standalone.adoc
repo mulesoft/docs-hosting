@@ -1,0 +1,28 @@
+= Managing Hybrid Standalone Instances
+
+Manage your hybrid standalone runtime instances to maintain optimal performance, ensure high availability, and scale your infrastructure as your business requirements evolve.
+
+
+== Manage Servers, Server Groups, and Clusters
+
+Use Runtime Manager to manage your existing servers, server groups, and clusters, enabling ongoing administration, monitoring, and maintenance of your hybrid standalone infrastructure.
+
+* xref:managing-servers.adoc[Managing Servers] +
+Individual server administration including health monitoring, configuration updates, and resource management
+* xref:managing-servers-groups.adoc[Managing Server Groups] +
+Coordinated management of multiple servers for load distribution and workload balancing
+* xref:managing-clusters.adoc[Managing Clusters] +
+High-availability cluster administration with member coordination and shared resource management
+
+== Management Operations
+
+* Update server configurations, properties, and environment variables as needed
+* Add or remove members from server groups and clusters to scale your infrastructure
+* Apply security updates, patches, and maintenance across your managed instances
+
+
+== See Also
+
+* xref:setting-hybrid-standalone.adoc[Setting up Hybrid Standalone Instances]
+* xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]
+* xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]

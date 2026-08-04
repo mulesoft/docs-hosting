@@ -5,6 +5,10 @@ You deploy apps to a private space using Runtime Manager.
 [IMPORTANT]
 include::partial$caveats.adoc[tag=supportedMule]
 
+[NOTE]
+include::partial$caveats.adoc[tag=softDelete]
+
+
 [[deploy-app-private-space]]
 == Deploy an App to a Private Space
 
@@ -84,6 +88,9 @@ Paths support <<placeholder-table,placeholders>>.
 * To add an endpoint, click *Add Endpoint* and specify options.
 * To remove an endpoint, click the *X* in the endpoint row.
 
+[NOTE]
+Depending on the control plane you're deploying to, the endpoint URL format requires the region suffix before `cloudhub.io` or not. For applications deployed to the US control plane, don't add the region suffix, for example: `https://*.10u6w7.usa-e1.cloudhub.io`. For applications deployed to any of the other control planes, add the corresponding region suffix, for example: `https://*.10u6w7.usa-e1.eu1.cloudhub.io`.
+
 --
 
 Path Rewrite::
@@ -95,7 +102,29 @@ If the HTTP Listener in your app listens on a different path than the path defin
 . Enter the target path expected by your app.
 +
 Requests sent to your app use the path that you specify here.
-. Click *Show Example* to see how the private space rewrites the path.
++
+Check these examples to see how the private space rewrites the path:
+
+*Application endpoint 1:*
+[source,console,linenums]
+----
+https://sapi-one-o4azsf.2x9yyp.usa-e2.cloudhub.io/acct
+----
+*Path rewrite 1:*
+[source,console,linenums]
+----
+/version1
+----
+*Application endpoint 2:*
+[source,console,linenums]
+----
+https://sapi-one-o4azsf.2x9yyp.usa-e2.cloudhub.io/acct/moreInfo
+----
+*Path rewrite 2:*
+[source,console,linenums]
+----
+/version1/moreInfo
+----
 --
 TLS Options::
 +

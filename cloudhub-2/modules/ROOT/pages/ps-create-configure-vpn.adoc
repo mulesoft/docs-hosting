@@ -119,7 +119,7 @@ See xref:ps-gather-setup-info.adoc#supported-gateway-devices[Supported Gateway D
 The connection guide, in `.txt` format, downloads to your local system.
 . Give the connection guide to your network administrator to use to configure your gateway device.
 +
-For information, see https://docs.aws.amazon.com/vpc/latest/adminguide/Welcome.html[Your customer gateway device^] in the AWS VPN documentation.
+For information, see https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html[Your customer gateway device^] in the AWS VPN documentation.
 
 [[create-redundant-vpn]]
 == Create a Redundant VPN
@@ -181,7 +181,7 @@ After you create the VPN,
 test the connectivity from CloudHub 2.0 to your networks.
 To test the connection, use the Network Tools application.
 
-For download and usage information about the Network Tools application, see https://help.mulesoft.com/s/article/How-To-Use-Network-Tools-Application[How To Use Network Tools Application^].
+For download and usage information about the Network Tools application, see https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Network Tools Application].
 
 == See Also 
 

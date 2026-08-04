@@ -11,13 +11,13 @@ image::ch2-architecture.png[CloudHub 2.0 Architecture with four callouts]
 [cols="8a,25a,65a"]
 |===
 |image:blue-1.png[1 Integration Applications,width=50%] |<<integrations-apps>> |Applications that you create and deploy to CloudHub 2.0 to perform integration logic for your business
-|image:blue-2.png[2 Runtime Manager,width=50%] |<<runtime-manager>> |User interface that enables you to deploy and monitor integrations, and configure your account
+|image:blue-2.png[2 Runtime Manager,width=50%] |<<runtime-manager>> |User interface that enables you to deploy and monitor integrations, and setup the runtime plane
 |image:blue-3.png[3 Platform Services,width=50%] |<<platform-services>> |Shared CloudHub 2.0 platform services and APIs, which include Anypoint Monitoring, alerting, logging, account management, private spaces/secure data gateway, and load balancing
 |image:blue-4.png[4 CloudHub 2.0,width=50%] |<<cloudhub-2-replicas,CloudHub 2.0>> |An elastic cloud of _replicas_, Mule instances that run integration applications
 |===
 
 [NOTE]
-You can view the live status and detailed service history for Runtime Manager, platform services, and CloudHub 2.0 on https://status.mulesoft.com/[status.mulesoft.com^] for the default (US hosted) Control Plane and https://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^] for the EU Control Plane.
+You can view the live status and detailed service history for Runtime Manager, platform services, and CloudHub 2.0 on https://status.salesforce.com/products/Mulesoft[status.mulesoft.com^] for the default (US hosted) Control Plane and https://status.salesforce.com/products/Mulesoft[eu1-status.mulesoft.com^] for the EU Control Plane.
 
 [[integrations-apps]]
 == Integration Applications
@@ -71,7 +71,7 @@ You can scale replicas vertically by selecting one of the available vCore sizes:
 [%header,cols="4*a"]
 |===
 |vCore Size | Total Memory | Heap Memory | Storage
-|0.1        |1.2 GB        |480 MB       | 8 GB
+|0.1        |1.4 GB        |480 MB       | 8 GB
 |0.2        |2 GB          |1 GB         | 8 GB
 |0.5        |2.6 GB        |1.3 GB       | 10 GB
 |1          |4 GB          |2 GB         | 12 GB
@@ -130,35 +130,46 @@ The region that you deploy your application to determines the domain provided fo
 The load balancer that CloudHub 2.0 uses to route requests resides in the same region as your application.
 
 [[regions-and-dns-records]]
-=== Regions and DNS Records
+=== Runtime Plane Regions and DNS Records
 
 Depending on what region you deploy your application in, the DNS record and the load balancer for your integration might change.
 The following table summarizes what DNS records are available for your application in each region:
 
-[%header,cols="15a,10a,30a,40a"]
+[%header%autowidth.spread]
 |===
-| Region Name | Region | Target ID | Example DNS Record
-4+h| US Control Plane Regions
-| US East (N. Virginia) |usa-e1 | `cloudhub-us-east-1` | `myapp-_uniq-id_._shard_.usa-e1.cloudhub.io`
-| US East (Ohio) |usa-e2| `cloudhub-us-east-2` | `myapp-_uniq-id_._shard_.usa-e2.cloudhub.io`
-| US West (N. California) |usa-w1 |`cloudhub-us-west-1` | `myapp-_uniq-id_._shard_.usa-w1.cloudhub.io`
-| US West (Oregon) |usa-w2| `cloudhub-us-west-2` | `myapp-_uniq-id_._shard_.usa-w2.cloudhub.io`
-| Canada (Central) |can-c1| `cloudhub-ca-central-1` | `myapp-_uniq-id_._shard_.can-c1.cloudhub.io`
-| South America (Sao Paulo) |bra-s1| `cloudhub-sa-east-1` | `myapp-_uniq-id_._shard_.bra-s1.cloudhub.io`
-| Asia Pacific (Singapore) |sgp-s1| `cloudhub-ap-southeast-1` | `myapp-_uniq-id_._shard_.sgp-s1.cloudhub.io`
-| Asia Pacific (Sydney) |aus-s1| `cloudhub-ap-southeast-2` | `myapp-_uniq-id_._shard_.aus-s1.cloudhub.io`
-| Asia Pacific (Tokyo) |jpn-e1| `cloudhub-ap-northeast-1` | `myapp-_uniq-id_._shard_.jpn-e1.cloudhub.io`
-| EU (Ireland) |irl-e1 | `cloudhub-eu-west-1` | `myapp-_uniq-id_._shard_.irl-e1.cloudhub.io`
-| EU (Frankfurt) |deu-c1 | `cloudhub-eu-central-1` | `myapp-_uniq-id_._shard_.deu-c1.cloudhub.io`
-| EU (London) |gbr-e1 | `cloudhub-eu-west-2` | `myapp-_uniq-id_._shard_.gbr-e1.cloudhub.io`
-4+h|MuleSoft Government Cloud Region
-| US Gov West |usag-w1.gov| N/A | `myapp-_uniq-id_._shard_.usg-w1.gov.cloudhub.io`
-4+h| EU Control Plane Regions
-| EU (Ireland) |irl-e1.eu1 | `cloudhub-eu-west-1` | `myapp-_uniq-id_._shard_.irl-e1.eu1.cloudhub.io`
-| EU (Frankfurt) |deu-c1.eu1 | `cloudhub-eu-central-1` | `myapp-_uniq-id_._shard_.deu-c1.eu1.cloudhub.io`
+| Control Plane | Geographic Area | Region Name | Region | Target ID | Example DNS Record | Target Name
+
+.12+| https://anypoint.mulesoft.com[US Cloud]
+.5+| North America | US East (N. Virginia) | usa-e1 | `cloudhub-us-east-1` | `myapp-_uniq-id_._shard_.usa-e1.cloudhub.io` | `Cloudhub-US-East-1`
+| US East (Ohio) | usa-e2 | `cloudhub-us-east-2` | `myapp-_uniq-id_._shard_.usa-e2.cloudhub.io` | `Cloudhub-US-East-2`
+| US West (N. California) | usa-w1 | `cloudhub-us-west-1` | `myapp-_uniq-id_._shard_.usa-w1.cloudhub.io` | `Cloudhub-US-West-1`
+| US West (Oregon) | usa-w2 | `cloudhub-us-west-2` | `myapp-_uniq-id_._shard_.usa-w2.cloudhub.io` | `Cloudhub-US-West-2`
+| Canada (Montreal) | can-c1 | `cloudhub-ca-central-1` | `myapp-_uniq-id_._shard_.can-c1.cloudhub.io` | `Cloudhub-CA-Central-1`
+| South America | Brazil (São Paulo) | bra-s1 | `cloudhub-sa-east-1` | `myapp-_uniq-id_._shard_.bra-s1.cloudhub.io` | `Cloudhub-SA-East-1`
+.3+| Asia Pacific | Singapore (Singapore) | sgp-s1 | `cloudhub-ap-southeast-1` | `myapp-_uniq-id_._shard_.sgp-s1.cloudhub.io` | `Cloudhub-AP-Southeast-1`
+| Australia (Sydney) | aus-s1 | `cloudhub-ap-southeast-2` | `myapp-_uniq-id_._shard_.aus-s1.cloudhub.io` | `Cloudhub-AP-Southeast-2`
+| Japan (Tokyo) | jpn-e1 | `cloudhub-ap-northeast-1` | `myapp-_uniq-id_._shard_.jpn-e1.cloudhub.io` | `Cloudhub-AP-Northeast-1`
+.3+| Europe | Ireland (Dublin) | irl-e1 | `cloudhub-eu-west-1` | `myapp-_uniq-id_._shard_.irl-e1.cloudhub.io` | `Cloudhub-EU-West-1`
+| Germany (Frankfurt) | deu-c1 | `cloudhub-eu-central-1` | `myapp-_uniq-id_._shard_.deu-c1.cloudhub.io` | `Cloudhub-EU-Central-1`
+| UK (London) | gbr-e1 | `cloudhub-eu-west-2` | `myapp-_uniq-id_._shard_.gbr-e1.cloudhub.io` | `Cloudhub-EU-West-2`
+
+.2+| https://eu1.anypoint.mulesoft.com[EU Cloud]
+.2+| Europe | Ireland (Dublin) | irl-e1.eu1 | `cloudhub-eu-west-1` | `myapp-_uniq-id_._shard_.irl-e1.eu1.cloudhub.io` | `Cloudhub-EU-West-1`
+| Germany (Frankfurt) | deu-c1.eu1 | `cloudhub-eu-central-1` | `myapp-_uniq-id_._shard_.deu-c1.eu1.cloudhub.io` | `Cloudhub-EU-Central-1`
+
+| https://ca1.platform.mulesoft.com[Canada Cloud]
+| North America | Canada (Montreal) | can-c1 | `cloudhub-ca-central-1` | `myapp-_uniq-id_._shard_.can-c1.ca1.cloudhub.io` | `Cloudhub-CA-Central-1`
+
+| https://jp1.platform.mulesoft.com[Japan Cloud]
+| Asia Pacific | Japan (Tokyo) | jpn-e1 | `cloudhub-ap-northeast-1` | `myapp-_uniq-id_._shard_.jpn-e1.jp1.cloudhub.io` | `Cloudhub-AP-Northeast-1`
+
+| https://in1.platform.mulesoft.com[India Cloud]
+| Asia Pacific | India (Mumbai) | ind-w1 | `cloudhub-ap-south-1` | `myapp-_uniq-id_._shard_.ind-w1.in1.cloudhub.io` | `Cloudhub-AP-South-1`
 |===
 
-For example, if you deploy an application named `myapp` to Canada (Central), the domain used to access the application is `myapp-_uniq-id_._shard_.can-c1.cloudhub.io`.
+For example, if you deploy an application named `myapp` to Canada (Montreal), the domain used to access the application is `myapp-_uniq-id_._shard_.can-c1.cloudhub.io`.
+
+include::partial$url-format-by-control-plane.adoc[]
 
 CloudHub 2.0 backend services determine the values of:
 
@@ -226,6 +237,9 @@ If the application uses the rolling update deployment model, CloudHub 2.0 keeps 
 Your domain points to the old version of your application until the newly uploaded version is fully started.
 This allows you to keep servicing requests from your old application while the new version of your application is starting.
 
+[NOTE]
+In some edge cases of applications using the rolling update deployment model, long inflight requests aren't completed during the grace period. In this scenarios, zero downtime isn't guaranteed, as the old instance of the application needs to be restarted during the upgrade.
+
 === Clustering
 
 Clustering provides scalability, workload distribution, and added reliability to applications on CloudHub 2.0.
@@ -258,7 +272,7 @@ The monitoring script exits and the application is left unchanged until you manu
 ////
 
 The logs report the details of the restart procedure.
-You can also receive alerts and diagnostic information if your application becomes unresponsive.
+You can also receive alerts and diagnostic information if your application becomes unresponsive. For more information, see xref:ch2-config-app-alerts.adoc[].
 
 
 == Security
@@ -276,7 +290,24 @@ You can also xref:ch2-protect-app-props.adoc[protect application property values
 Protected property values are not viewable or retrievable by any user.
 These protected application values are encrypted and stored in the Anypoint Security secrets manager, which, in turn, is encrypted per user organization.
 
-For more information about MuleSoft security, see the https://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^].
+=== Application License
+
+Every application deployed to CloudHub 2.0 runs with a shared cloud license that MuleSoft manages on behalf of all customers.
+This is the same license for all CloudHub applications across all customer organizations.
+
+When you inspect the Mule runtime logs for a deployed application, the license information displays these details:
+
+* Evaluation flag: Set to `false`. The license is a production-grade license, not a trial.
+* Contact information: References an internal MuleSoft account, not your organization. The contact name, email, and company name belong to MuleSoft. The company name displays as "Mulesoft Trial Account," but this doesn't mean the license is a trial. It is the name of the internal account MuleSoft uses to generate CloudHub cloud licenses.
+* Expiration date: Shows a far-future date. This extended validity is standard for CloudHub cloud licenses.
+* Entitlements: Lists a broad set of connectors and modules. This doesn't reflect your organization's specific subscription entitlements.
+
+All of these details are expected.
+The license is not specific to your organization.
+MuleSoft reuses the same license for all CloudHub deployments to simplify platform-wide license management.
+
+Your organization's actual entitlements, including vCore allocation, region access, and feature availability, are governed by your Anypoint Platform subscription, not by the license embedded in the deployed application.
+The license visible in the runtime logs doesn't grant access beyond what your subscription allows.
 
 
 == See Also
@@ -285,9 +316,9 @@ For more information about MuleSoft security, see the https://mulesoft.com/downl
 * xref:ch2-monitor-apps.adoc[]
 * xref:ch2-protect-app-props.adoc[]
 * xref:ch2-config-app-alerts.adoc[]
-* https://status.mulesoft.com/[status.mulesoft.com^]
-* https://eu1-status.mulesoft.com/[eu1-status.mulesoft.com^]
-* https://mulesoft.com/downloads/whitepapers/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^]
+* https://status.salesforce.com/products/Mulesoft[status.mulesoft.com^]
+* https://status.salesforce.com/products/Mulesoft[eu1-status.mulesoft.com^]
+* https://www.mulesoft.com/sites/default/files/security-whitepaper.pdf[Anypoint Cloud Security & Compliance whitepaper^]
 * xref:runtime-manager::deployment-strategies.adoc[]
 
 

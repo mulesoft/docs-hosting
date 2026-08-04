@@ -1,0 +1,149 @@
+= CloudHub 2.0 API
+
+Programmatically manage your CloudHub 2.0 resources with two APIs:
+
+*CloudHub 2.0 API*::
+Manages infrastructure-level resources, such as:
++
+* Manage private spaces:
+** List available TCP ports for a private space
+** Retrieve availability zones and AWS account information.
+** Upgrade a private space.
+* Manage VPC endpoints (Private Link):
+** Create, list, update, and delete VPC endpoints.
+** Get VPC endpoint details and provisioning status.
+* Manage VPNs:
+** Update VPN settings (for example, enable VPN logs).
+* Manage transit gateways:
+** Delete a transit gateway from the organization.
+* Manage schedulers:
+** Reset the scheduler configuration for a specific flow.
+
+*Application Manager API*::
+Manages application-level resources, such as:
++
+* Deploy and update applications with TCP port mapping.
+
+For an interactive reference that includes supported resources, methods, required properties, and expected responses, see https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/[CloudHub 2.0 API] and https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/[Application Manager API] on Exchange.
+
+These APIs manage only applications and infrastructure deployed to CloudHub 2.0.
+To manage CloudHub 1.0 resources, see https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-api/[CloudHub API].
+
+== Base URLs
+
+Each API uses a different base URL:
+
+[%header,cols="30,70"]
+|===
+|API |Base URL
+|CloudHub 2.0 API |`+https://anypoint.mulesoft.com/runtimefabric/api+`
+|Application Manager API |`+https://anypoint.mulesoft.com/amc/application-manager/api/v2+`
+|===
+
+== Use the CloudHub 2.0 APIs
+
+You can use any HTTP client with the CloudHub 2.0 APIs.
+
+To access operations, you must:
+
+. Generate an authorization bearer token to authenticate with the API.
++
+Follow the instructions from xref:access-management::saml-bearer-token.adoc[Anypoint identity] or https://help.salesforce.com/s/articleView?id=001115323&type=1[external identity] to get a bearer access token for your Anypoint organization.
++
+The token owner must have the appropriate permissions for the resources being managed. For example, managing private spaces requires private space management permissions.
+. Get the organization ID.
++
+See the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/minor/1.0/console/method/%234250/[`/api/me`] endpoint in https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/minor/1.0/pages/home/[Access Management API].
+. Get the environment ID.
++
+See the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/minor/1.0/console/method/%234762/[`/api/organizations/__ORG_ID__/environments`] endpoint in https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/minor/1.0/pages/home/[Access Management API].
+
+=== List VPC Endpoints for a Private Space
+
+To list all VPC endpoints for a private space, run the following `curl` command:
+
+[source,curl,linenums]
+----
+curl -X GET \
+  --url https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces \
+  -H 'Authorization: Bearer AUTH_BEARER_TOKEN'
+----
+
+== Data Format
+
+Resources and methods that return or accept a type use the JSON data format.
+Here is an example of data received in JSON format in response to a request to list VPC endpoints:
+
+[source,json,linenums]
+----
+[
+  {
+    "name": "S3-Global",
+    "vpceId": "ec6a2988-5529-4fac-9262-9b9962ce0b50",
+    "serviceName": "com.amazonaws.s3-global.accesspoint",
+    "serviceRegion": "us-east-1",
+    "serviceOwner": "amazon",
+    "azIds": [
+      "use1-az1",
+      "use1-az2"
+    ]
+  },
+  {
+    "name": "Custom Service",
+    "vpceId": "fc5c9c55-d943-4383-88ac-cc2b51446d54",
+    "serviceName": "com.amazonaws.vpce.us-east-1.vpce-svc-03cef49533264d928",
+    "serviceRegion": "us-east-1",
+    "serviceOwner": "055970264539",
+    "azIds": [
+      "use1-az1"
+    ]
+  }
+]
+----
+
+== Rate Limits
+
+The CloudHub 2.0 API enforces a global rate limit of 15 requests per second per remote IP address.
+
+When you reach the rate limit, the API returns a `429` status code.
+
+== Status Codes and Error Handling
+
+When you call the CloudHub 2.0 APIs, the following status codes are returned:
+
+[%header,cols="10a,50a"]
+|===
+|Status Code |Description
+|200 |The operation was successful.
+|201 |The resource was created.
+
+The `Location` header contains the location of the resource.
+|400 |The request was invalid. Check the request body for details.
+|401 |Authentication failed. Verify your bearer token.
+|403 |The authenticated user doesn't have the required permissions.
+|404 |The resource was not found.
+|429 |The operation was unsuccessful due to reaching the rate limit.
+
+Retry the operation after a short delay.
+|500 |The operation was unsuccessful.
+
+See the HTTP body for details.
+|===
+
+When errors occur, the HTTP response contains a JSON body with an error message:
+
+[source,json,linenums]
+----
+{
+  "message": "Some error message."
+}
+----
+
+== See Also
+
+* xref:ch2-api-reference.adoc[]
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/[CloudHub 2.0 API]
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/[Application Manager API]
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Access Management API]
+* xref:ch2-deploy.adoc[]
+* xref:ps-outbound-private-link.adoc[]

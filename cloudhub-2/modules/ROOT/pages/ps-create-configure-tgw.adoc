@@ -164,7 +164,7 @@ After you connect to a transit gateway,
 test the connectivity from CloudHub 2.0 to your networks.
 To test the connection, use the Network Tools application.
 
-For download and usage information about the Network Tools application, see https://help.mulesoft.com/s/article/How-To-Use-Network-Tools-Application[How To Use Network Tools Application^] (KB article).
+For download and usage information about the Network Tools application, see https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Network Tools Application].
 
 [[best-practices]]
 == Maintain the Transit Gateway 
@@ -180,7 +180,7 @@ Your private space loses access to a transit gateway when:
 * A resource share is deleted.
 * The MuleSoft account principal is deleted from the resource share. 
 
-To remove or delete the transit gateway from CloudHub 2.0, complete the steps in <<remove-tgw>> or <<delete-tgw>> before deleting the transit gateway, transit gateway attachment, or resource share from the AWS console. Removing connections from the AWS console without removing them from CloudHub 2.0 disrupts the connection but does not remove it. 
+To remove or delete the transit gateway from CloudHub 2.0, complete the steps in <<delete-tgw>> before deleting the transit gateway, transit gateway attachment, or resource share from the AWS console. Removing connections from the AWS console without removing them from CloudHub 2.0 disrupts the connection but does not remove it. 
 
 [[troubleshoot-tgw]]
 == Troubleshoot States for the Transit Gateway or Transit Gateway Attachment

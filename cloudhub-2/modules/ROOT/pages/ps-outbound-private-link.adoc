@@ -1,0 +1,440 @@
+= Setting Up an Outbound Private Link Connection
+
+AWS Private Link provides private connectivity between a CloudHub 2.0 private space and services hosted on AWS and supported AWS services.
+
+CloudHub 2.0 supports two private connectivity options: Virtual Private Network (VPN) and Transit Gateway (TGW). Both operate at Open Systems Interconnection (OSI) layer 3, the network layer. 
+
+Private Link operates at OSI layer 4 and offers better isolation. The virtual service appears inside the same network, but the CloudHub 2.0 private space network and your on-prem network aren't interconnected. Private Link is also service specific. Each service must be explicitly defined in the private space to prevent accidental exposure of sensitive applications.
+
+The advantages of Private Link are:
+
+* Secure access to services without going through the internet
+* Better isolation between your network and CloudHub 2.0
+* Smaller blast radius if something goes wrong
+* Service level control on what services available to CloudHub 2.0
+
+Common use cases for Private Link are:
+
+* Private Link from CloudHub 2.0 private space to a service hosted in AWS by your organization
+* Private Link from CloudHub 2.0 private space to a supported AWS service (for example, S3 and Kinesis)
+* Private Link from CloudHub 2.0 private space to third-party services hosted in AWS
+** For example, https://help.salesforce.com/s/articleView?id=xcloud.private_connect_overview.htm&type=5[Private Connect], which enables private connectivity between CloudHub 2.0 and Salesforce
+
+== Limitations 
+
+Outbound Private Link from a CloudHub 2.0 private space to Amazon MSK (Managed Streaming for Apache Kafka) isn't covered by the setup procedures in this topic.
+
+MSK clusters expose multiple brokers. Private Link endpoint services commonly front a single load-balanced target, such as a network load balancer. Aligning MSK broker topology with Private Link endpoint service requirements generally requires additional design and configuration in your AWS environment.
+
+For alternatives, work with your AWS account team or consider other connectivity options (for example, xref:ps-tgw-about.adoc[Transit Gateway] or xref:ps-vpn-about.adoc[Anypoint VPN]) depending on your architecture and security requirements.
+
+== Before You Begin
+
+. Provision a xref:ps-create-configure.adoc[private space] in CloudHub 2.0.
+. Obtain a bearer token for calling APIs.
++
+Follow the instructions from xref:access-management::saml-bearer-token.adoc[Anypoint identity] or https://help.salesforce.com/s/articleView?id=001115323&type=1[external identity] to get a bearer access token for your Anypoint organization.
++
+The token owner must have permissions to manage private spaces.
+
+[[configure-the-outbound-connections]]
+== Configure the Outbound Connections
+
+Follow these steps to set up an outbound Private Link connection from your CloudHub 2.0 private space:
+
+. Gather private space availability zones (AZs) and AWS Account ID.
+..  Retrieve information about availability zones for your private space. 
++
+[source,curl,linenums]
+----
+curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/azs -H "Authorization:$AUTHTOKEN"
+----
++
+Example output:
++
+[source,json,linenums]
+----
+[
+  "use1-az1",
+  "use1-az2",
+  "use1-az5"
+]
+----
++
+.. Retrieve information about accounts associated with your private space.
++
+[source,curl,linenums]
+----
+curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/accounts -H "Authorization:$AUTHTOKEN"
+----
++
+Example output:
++
+[source,text,linenums]
+----
+328752079326
+----
++
+. Make your services Private Link ready.
++
+Verify that your services are properly configured for Private Link connectivity before establishing connections:
+
+AWS S3 Service::
++
+AWS S3 service is already Private Link ready with regional VPC endpoints and a global access endpoint. For cross-region connections, use the global access endpoint.
++
+[source,text,linenums]
+----
+Regional Endpoint: com.amazonaws.{region}.s3
+Global Access Endpoint: com.amazonaws.s3-global.accesspoint
+----
++
+For a complete list of AWS services ready for private link, see https://docs.aws.amazon.com/vpc/latest/privatelink/aws-services-privatelink-support.html[AWS PrivateLink-supported services].
+
+Salesforce Private Connect::
++
+Salesforce Private Connect requires activation as an add-on. After activation:
++
+.. In Salesforce, go to *Setup*, enter *Private Connect* in the *Quick Find* box, and select *Private Connect*.
+.. On the *Private Connect* page, click *AWS Regions* to reveal available regions.
+.. Select the AWS region that matches your private space region.
+.. Copy the service name for later use.
+
+Custom Services (Self-Hosted)::
++
+To prepare custom services:
++
+.. Deploy your service in at least one private space AZ. For high availability, configure 2 AZs.
+.. Expose the service via a network load balancer or application load balancer.
+.. https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html[Create an endpoint service] following AWS guidance.
+.. Set *Acceptance required* to *Yes* to prevent unauthorized connections.
+.. Add the private space CIDR range to the inbound rules of the AWS security group attached to your endpoint service (for example, the security group for your network load balancer or application load balancer). Traffic from the CloudHub 2.0 private space originates from this CIDR; allowing it is required for Private Link connectivity. You can find your private space CIDR in the private space configuration (the xref:ps-gather-setup-info.adoc#cidr-block[CIDR block] you specified when creating the private space).
+.. Optionally, configure a private DNS name for your service. CloudHub 2.0 private space automatically picks up the private DNS and makes it available to Mule applications.
++
+[NOTE]
+If the service is hosted in the same region as the private space, set up the services in the same availability zone as the private space obtained in <<configure-the-outbound-connections>>. For cross-region services, you don't need AZ alignment. Validation for cross-region connectivity isn't yet complete; its success depends on the configuration.
++
+. Share the VPC endpoint services with your CloudHub 2.0 private space:
+.. https://docs.aws.amazon.com/vpc/latest/privatelink/configure-endpoint-service.html[Configure an endpoint service].
+.. From VPC *Endpoint services*, select *Allow principals*. Add `arn:aws:iam::{accountId}:root` as principal.
++
+The `{accountId}` is the account ID obtained in <<configure-the-outbound-connections>>.
+. Gather this information for the API:
+.. Service Name: The endpoint service name, for example: 
+... Customer-hosted endpoint service: `com.amazonaws.vpce.us-east-1.vpce-svc-xxxxxxxxxxxxxxxx`
+... AWS hosted service: `com.amazonaws.us-west-2.s3`
+.. Service Region: The region where the VPC endpoint service is located.
+.. Service Owner: The owner of the VPC endpoint service.
+... Account ID of the endpoint service. For services like Salesforce Private Connect, you can acquire the service owner account ID using the AWS CLI command:
++
+[source,bash,linenums]
+----
+aws ec2 describe-vpc-endpoint-services --service-names {your-service-name} --region {your-service-region}
+----
++
+The account ID is in the *Owner* field.
+... `amazon`, if it's an Amazon service.
+.. Availability Zone IDs: The IDs of the availability zones where you want to establish the private link.
++
+Check that the AZ IDs match those obtained in <<configure-the-outbound-connections>>, and verify the VPC endpoint service uses those AZs.
++
+Alternatively, specify `countOfAzs` with an integer value (1 or 2) to have CloudHub 2.0 automatically assign the required number of availability zones. Provide either `azIds` or `countOfAzs`, not both.
+. Create a VPC endpoint in CloudHub 2.0 via API:
++
+See these specific examples for different service types:
+
+AWS S3 Endpoint::
++
+To configure an S3 endpoint for your private space, the `serviceOwner` is `amazon`. Configure at least two AZs. Because AWS services are available in all its AZs, you can pick any AZs from your private space.
++
+[source,curl,linenums]
+----
+curl -XPOST https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces -H "Authorization:bearer {your-token}" -H "Content-Type:application/json" -d '{
+  "name": "S3-Global",
+  "serviceName": "com.amazonaws.s3-global.accesspoint",
+  "serviceRegion": "us-east-1",
+  "serviceOwner": "amazon",
+  "azIds": ["use1-az1", "use1-az2"]
+}'
+----
+
+Alternatively, use `countOfAzs` to let CloudHub 2.0 select the availability zones automatically:
+
+[source,curl,linenums]
+----
+curl -XPOST https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces -H "Authorization:bearer {your-token}" -H "Content-Type:application/json" -d '{
+  "name": "S3-Global",
+  "serviceName": "com.amazonaws.s3-global.accesspoint",
+  "serviceRegion": "us-east-1",
+  "serviceOwner": "amazon",
+  "countOfAzs": 2
+}'
+----
+
+=== Salesforce Private Connect Endpoint
+
+To create a Private Connect endpoint, provide the `serviceName`, `serviceRegion`, and the account ID hosting the VPC endpoint service.
++
+[source,curl,linenums]
+----
+curl -XPOST https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces -H "Authorization:bearer {your-token}" -H "Content-Type:application/json" -d '{
+  "name": "Private Connect",
+  "serviceName": "{your-service-name-for-salesforce-private-connect}",
+  "serviceRegion": "{your-salesforce-region}",
+  "serviceOwner": "{your-salesforce-service-account-id}",
+  "azIds": ["use1-az1", "use1-az2"]
+}'
+----
+
+Custom Service Endpoint::
++
+For custom services, if you didn't create your service in the same AZs as the CloudHub 2.0 private space, make sure that the chosen AZs exist in both your service network and the private space.
++
+[source,curl,linenums]
+----
+curl -XPOST https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces -H "Authorization:bearer {your-token}" -H "Content-Type:application/json" -d '{
+  "name": "Custom Service",
+  "serviceName": "{your-service-name}",
+  "serviceRegion": "{your-service-region}",
+  "serviceOwner": "{your-service-account-id}",
+  "azIds": ["use1-az1", "use1-az2"]
+}'
+----
++
+If the VPC endpoint is successfully created, the API returns a `vpceId`.
+Get the VPC endpoint status in CloudHub 2.0 using the API:
++
+[source,curl,linenums]
+----
+curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpceid} -H "Authorization:$AUTHTOKEN" 
+----
++
+If successful, it returns the DNS names of the VPC endpoint. It also returns the provisioning status:
++
+* `Invalid`: VPCE creation failed
+* `Valid`: VPCE is being provisioned
+* `Available`
+* `PendingAcceptance` 
++
+Use this command to update a VPC endpoint:
++
+[source,curl,linenums]
+----
+curl -XPATCH https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpceId} -H "Authorization:$AUTHTOKEN"  -H "Content-Type:application/json"  -d '{
+	"name": "{any name}",
+	"serviceName": "{service name}",
+	"serviceRegion": "{service region}",
+	"serviceOwner": "{service owner}",
+	"azIds": [{aws-az-id1}, {aws-az-id2}]
+}'
+----
++
+You can use `"countOfAzs": 2` (valid values: 1 or 2) instead of the `azIds` array. When you specify `countOfAzs`, CloudHub 2.0 automatically selects which availability zones to use. Provide either `azIds` or `countOfAzs`, not both.
++
+Use this command to delete a VPC endpoint:
++
+[source,curl,linenums]
+----
+curl -XDELETE https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpceid} -H "Authorization:$AUTHTOKEN" 
+----
+
+== Establish the Private Link Connection
+
+After creating the endpoints, establish the connection. List all configured endpoints.
+
+[source,curl,linenums]
+----
+curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces -H "Authorization:bearer {your-token}"
+----
+
+Example output:
+
+[source,json,linenums]
+----
+[
+  {
+    "name": "S3-Global",
+    "vpceId": "ec6a2988-5529-4fac-9262-9b9962ce0b50",
+    "serviceName": "com.amazonaws.s3-global.accesspoint",
+    "serviceRegion": "us-east-1",
+    "serviceOwner": "amazon",
+    "azIds": [
+      "use1-az1",
+      "use1-az2"
+    ]
+  },
+  {
+    "name": "Private Connect",
+    "vpceId": "b7e73b1c-b0ba-489d-b525-8c29a1702186",
+    "serviceName": "com.amazonaws.vpce.us-east-1.vpce-svc-03fa74d9c231a52aa",
+    "serviceRegion": "us-east-1",
+    "serviceOwner": "784556874502",
+    "azIds": [
+      "use1-az1",
+      "use1-az2"
+    ]
+  },
+  {
+    "name": "Custom Service",
+    "vpceId": "fc5c9c55-d943-4383-88ac-cc2b51446d54",
+    "serviceName": "com.amazonaws.vpce.us-east-1.vpce-svc-03cef49533264d928",
+    "serviceRegion": "us-east-1",
+    "serviceOwner": "055970264539",
+    "azIds": [
+      "use1-az1"
+    ]
+  }
+]
+----
+
+AWS S3 Service::
++
+Because AWS manages these services, it establishes the connection automatically.
+
+Salesforce Private Connect::
++
+To establish the Private Connect connection, retrieve the endpoint ID using this API command:
++
+[source,curl,linenums]
+----
+curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpce-id} -H "Authorization:bearer {your-token}"
+----
++
+Example output:
++
+[source,json,linenums]
+----
+{
+  "name": "Private Connect",
+  "vpceId": "b7e73b1c-b0ba-489d-b525-8c29a1702186",
+  "serviceName": "com.amazonaws.vpce.us-east-1.vpce-svc-03fa74d9c231a52aa",
+  "serviceRegion": "us-east-1",
+  "serviceOwner": "784556874502",
+  "azIds": [
+    "use1-az1",
+    "use1-az2"
+  ],
+  "status": "pendingAcceptance",
+  "provisioningMessage": "",
+  "awsId": "vpce-06b4ba2047c41be17",
+  "dnsEntries": [
+    "vpce-06b4ba2047c41be17-1lnhhl4b.vpce-svc-03fa74d9c231a52aa.us-east-1.vpce.amazonaws.com",
+    "vpce-06b4ba2047c41be17-1lnhhl4b-us-east-1d.vpce-svc-03fa74d9c231a52aa.us-east-1.vpce.amazonaws.com",
+    "vpce-06b4ba2047c41be17-1lnhhl4b-us-east-1a.vpce-svc-03fa74d9c231a52aa.us-east-1.vpce.amazonaws.com"
+  ]
+}
+----
++
+The endpoint status shows *Pending Acceptance*. Complete the connection:
++
+. Note the `awsId` from the endpoint.
+. Go to Private Connect and click *create inbound connections*.
+. Select *AWS* and configure the connection using the `awsId` (VPC Endpoint ID).
+. Click *Save*.
++
+Within a few minutes, the endpoints sync and the status changes to *Ready* in Private Connect and *Available* in CloudHub 2.0.	
+
+Custom Services::
++
+Fetch the endpoint information:
++
+[source,curl,linenums]
+----
+curl -XGET https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespaces/{spaceId}/vpces/{vpce-id} -H "Authorization:bearer {your-token}"
+----
++
+Example output:
++
+[source,json,linenums]
+----
+{
+  "name": "Custom Service",
+  "vpceId": "fc5c9c55-d943-4383-88ac-cc2b51446d54",
+  "serviceName": "com.amazonaws.vpce.us-east-1.vpce-svc-03cef49533264d928",
+  "serviceRegion": "us-east-1",
+  "serviceOwner": "055970264539",
+  "azIds": [
+    "use1-az1"
+  ],
+  "status": "pendingAcceptance",
+  "provisioningMessage": "",
+  "awsId": "vpce-0d971d98cb910b3b1",
+  "dnsEntries": [
+    "vpce-0d971d98cb910b3b1-oyattu6z.vpce-svc-03cef49533264d928.us-east-1.vpce.amazonaws.com",
+    "vpce-0d971d98cb910b3b1-oyattu6z-us-east-1d.vpce-svc-03cef49533264d928.us-east-1.vpce.amazonaws.com"
+  ]
+}
+----
++
+The custom service VPC endpoint status shows *Pending Acceptance*. Accept the connection:
++
+. In the AWS console go to *VPC* > *Endpoint Services*.
+. Select your service and open the *Endpoint Connection* tab.
+. Verify the *Endpoint ID* and *Owner* match your private space in CloudHub 2.0.
+. Accept the connection.
++
+[NOTE]
+If you experience connectivity issues after accepting the connection, verify that the private space CIDR range is included in the inbound rules of the AWS security group attached to your endpoint service (for example, your load balancer or target instances). See the Custom Services steps in <<configure-the-outbound-connections>>.
+
+== Use the Private Link
+
+After establishing Private Link connections with *Available* status, the VPC endpoint API returns DNS entries for the service.
+
+To talk to the S3 endpoint, use this DNS entry:
+
+[source,json,linenums]
+----
+"dnsEntries": [
+    "*.vpce-0bb8410c774666218-yajqbur2.accesspoint.s3-global.us-east-1.vpce.amazonaws.com",
+    "*.vpce-0bb8410c774666218-yajqbur2-us-east-1d.accesspoint.s3-global.us-east-1.vpce.amazonaws.com",
+    "*.vpce-0bb8410c774666218-yajqbur2-us-east-1a.accesspoint.s3-global.us-east-1.vpce.amazonaws.com",
+    "accesspoint.s3-global.amazonaws.com",
+    "*.accesspoint.s3-global.amazonaws.com"
+  ]
+----
+
+To talk to the private connect, use this DNS entry:
+
+[source,json,linenums]
+----
+"dnsEntries": [
+    "vpce-06b4ba2047c41be17-1lnhhl4b.vpce-svc-03fa74d9c231a52aa.us-east-1.vpce.amazonaws.com",
+    "vpce-06b4ba2047c41be17-1lnhhl4b-us-east-1d.vpce-svc-03fa74d9c231a52aa.us-east-1.vpce.amazonaws.com",
+    "vpce-06b4ba2047c41be17-1lnhhl4b-us-east-1a.vpce-svc-03fa74d9c231a52aa.us-east-1.vpce.amazonaws.com"
+  ]
+----
+
+To talk to the custom service, use this DNS entry:
+
+[source,json,linenums]
+----
+"dnsEntries": [
+    "vpce-0d971d98cb910b3b1-oyattu6z.vpce-svc-03cef49533264d928.us-east-1.vpce.amazonaws.com",
+    "vpce-0d971d98cb910b3b1-oyattu6z-us-east-1d.vpce-svc-03cef49533264d928.us-east-1.vpce.amazonaws.com"
+  ]
+----
+
+== Entitlements
+
+Each VPC endpoint consumes one network connection entitlement per AZ.
+
+[NOTE]
+To configure high availability, set up the Private Link connection with at least two availability zones. This consumes two network connection entitlements.
+
+
+== Limitations
+
+* Outbound connections have a contractual limit of 56.48 GB of data transferred per root organization per hour.
+* This configuration supports https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html#vpce-interface[interface VPC endpoints] only (PrivateLink to AWS services or to a https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html[VPC endpoint service], for example a service you expose behind a load balancer). It does not support https://docs.aws.amazon.com/vpc/latest/privatelink/use-resource-endpoint.html[resource VPC endpoints] (the *Resources* endpoint type that uses resource configurations instead of a service name).
+* This configuration doesn't support CloudHub VPCs.
+* This configuration doesn't support CloudHub 2.0 private spaces that are xref:cloudhub::vpc-upgrade.adoc[upgraded from CloudHub VPCs].
+* Network connections are subject to these limits:
+** VPNs per private space: 10
+** TGW per private space: 5
+** VPC endpoints per private space: 20
+
+
+
+== See Also
+* xref:access-management::saml-bearer-token.adoc[]
+* https://help.salesforce.com/s/articleView?id=001115323&type=1[How to generate your Authorization Bearer token for Anypoint Platform] 

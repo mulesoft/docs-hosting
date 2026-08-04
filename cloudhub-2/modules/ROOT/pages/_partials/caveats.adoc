@@ -11,6 +11,9 @@ You cannot change the name of an app after you deploy it. To change the name, yo
 // end::noRenameApp[]
 
 //tag::supportedMule[]
-CloudHub 2.0 supports Mule runtime engine versions 4.3.x, 4.4.x, 4.5.x.
-Mule 3.x is not supported.
+CloudHub 2.0 supports Mule runtime engine versions 4.3.x and later.
 // end::supportedMule[]
+
+//tag::softDelete[]
+Runtime Manager doesn't support deploying an application to CloudHub 2.0 or Runtime Fabric if the asset was previously xref:exchange::to-delete-asset.adoc[soft-deleted] in Exchange.
+// end::softDelete[]

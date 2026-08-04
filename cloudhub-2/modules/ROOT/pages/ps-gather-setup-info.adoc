@@ -140,10 +140,99 @@ Asia Pacific (Sydney)
 Asia Pacific (Tokyo)
 ----
 
+[[ca-central-subnet-availability]]
+==== Canada (Central) Private Space Subnet Availability
+
+Only the MuleSoft Government Cloud control plane supports three subnets in Canada (Central) for increased high availability. The Commercial control plane doesn't support three subnets in this region.
+
+[IMPORTANT]
+====
+Control plane discrepancy: Subnet count for a private space in Canada (Central) depends on your control plane. MuleSoft Government Cloud supports three subnets. The Commercial control plane provisions private spaces with only two subnets.
+
+Existing MuleSoft Government Cloud private spaces: Private spaces created in Canada (Central) prior to three-subnet support don't receive the update automatically. To get the three-subnet architecture, recreate your private space. Recreating a private space causes downtime. Redeploy applications and reconfigure VPN, transit gateway, DNS, and other connections in the new private space. Plan the migration during a maintenance window.
+====
+
 // CIDR Block Shared
 [[cidr-block]]
 include::partial$create-config.adoc[tag=cidrBlock,leveloffset=+2]
 
+[[cidr-block-sizing]]
+==== CIDR Block Sizing
+
+CIDR block sizing depends on several factors related to how IP addresses are allocated when you deploy applications:
+
+* Number of applications in a private space
+* xref:ch2-architecture.adoc#cloudhub-2-replicas[Replica size] assigned to each application
+* xref:ch2-clustering.adoc#replica-scale-out[Number of replicas] in each application, based on horizontal scaling, high availability, and fault tolerance configuration
+* xref:ch2-update-apps.adoc#rolling-update-vs-recreate-deployment-model[Rolling deployment configuration]
+* xref:ch2-patch-updates.adoc[Auto-upgrades] that update multiple applications simultaneously
+* Platform internal operations or services that require IP headroom
+
+Use this reference table to select the appropriate CIDR block size for your private space:
+
+[%header%autowidth.spread]
+|===
+|CIDR Block Size |Maximum vCores |Maximum Applications
+|`/24` |Less than 100 |Less than 100
+|`/23` |Less than 300 |Less than 200
+|`/22` |Less than 600 |Less than 500
+|`/21` |Less than 1200 |Less than 1000
+|`/20` |Less than 3000 |Less than 2000
+|===
+
+[NOTE]
+====
+These reference sizes are subject to change as the platform continues to evolve. Exceeding the recommended thresholds for your CIDR block size can cause application deployments to fail with errors indicating that replicas are unschedulable due to insufficient available IP addresses.
+====
+
+
+[[unusable-cidr]]
+==== Unusable Private Space Network CIDR
+
+You cannot use the following list of CIDR blocks:
+
+----
+100.64.0.0/10
+198.19.0.0/16
+224.0.0.0/4
+169.254.0.0/16
+127.0.0.0/8
+172.17.0.0/16
+0.0.0.0/8
+----
+
+[[reserved-cidr]]
+==== Reserved Corporate CIDR (Optional)
+
+Optionally, when you create your private space and configure your private network, you can configure _reserved CIDR blocks_ that correspond with your reserved corporate network CIDRs. When you reserve CIDRs in a private network configuration, Anypoint Platform does not use the blocks you specify when associating IP addresses with your private space. This prevents overlap between your corporate network CIDRs and Anypoint Platform infrastructure. 
+
+There are two strategies for reserving CIDRs during private space creation:
+
+. Provide all reserved corporate CIDRs
++
+Specify all CIDR blocks you plan to use within your corporate network. CloudHub 2.0 automatically checks for conflicts with the MuleSoft infrastructure CIDR pool and chooses options that do not overlap. +
+This approach simplifies setup but requires providing a potentially larger list.
++
+. Manually identify overlapping corporate CIDRs
++
+Manually review the MuleSoft infrastructure CIDR pool. Then, specify only the CIDRs from your corporate network CIDR list that conflict with options in the MuleSoft infrastructure CIDR pool. This approach minimizes the list you provide, but you must check for overlap beforehand. +
+Note that the MuleSoft infrastructure CIDR pool is subject to change.
+
+
+
+[[infra-cidr-pool]]
+==== MuleSoft Infrastructure CIDR Pool
+
+Anypoint Platform has a list of CIDRs as an internal CIDR pool for provisioning private space networks. The MuleSoft infrastructure CIDR pool is subject to change. You can configure some of the following as reserved CIDR blocks, but you cannot use them as private space network CIDRs:
+
+----
+100.64.0.0/16
+100.66.0.0/16
+100.67.0.0/16
+100.68.0.0/16
+----
+
+// Additionally, AWS EKS uses `10.100.0.0/16` or `172.20.0.0/16` inside of private space networks. 
 
 [[internal-dns-server]]
 === Internal DNS Servers (Optional)
@@ -203,12 +292,21 @@ The following internal private DNS domains are not supported:
 * `com`
 * `net`
 * `internal`
-* `local/domain.com`
+* `local`
+* `domain.com`
+
+[NOTE]
+These restrictions also apply to the respective subdomains.
+
+You can't add MuleSoft domains or public domains as private space internal DNS.
+
+As a workaround, create CNAME records on your own DNS servers to redirect a permitted custom domain to the restricted domain you want to add. See https://help.salesforce.com/s/articleView?id=001119691&type=1[Cannot add certain domains to CloudHub VPC Internal DNS].
 
 // To specify an internal domain, use the second-level domain name, such as `mulesoft.com`.
 
 [NOTE]
-The total number of characters for all configured domains is 229.
+Each domain can contain up to 253 characters. When configured with 10 IP addresses (IPs) per entry, the maximum supported capacity is 1940 entries. The system supports more than 1940 entries if you use shorter domain names or fewer IPs in entries.
+
 
 [[connection-type]]
 === Connection Type
@@ -369,9 +467,9 @@ For automatic tunnel configuration, these values are auto-generated.
 For each tunnel, enter the IP address range for the internal address of the VPN tunnel.
 
 You can specify a size /30 CIDR block from the `169.254.0.0/16` range.
-The CIDR block must be unique across all private network connections.
+The CIDR block must be unique across all private network connections. 
 
-You cannot use the following reserved CIDR blocks:
+You cannot use the following list of CIDR blocks:
 
 ----
 169.254.0.0/30
@@ -386,7 +484,7 @@ You cannot use the following reserved CIDR blocks:
 [[preshared-keys]]
 ==== Pre-shared Keys
 
-A _pre-shared key_ (PSK) is a shared secret which was previously shared between
+A _pre-shared key_ (PSK) is a shared secret that was previously shared between
 two ends of a connection for the VPN tunnels.
 
 [NOTE]

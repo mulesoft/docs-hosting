@@ -1,0 +1,2 @@
+include::release-notes::hybrid-standalone/hybrid-standalone-release-notes.adoc[]
+
