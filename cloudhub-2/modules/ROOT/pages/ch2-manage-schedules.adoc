@@ -270,10 +270,20 @@ to is undergoing maintenance and then reenable it after maintenance is complete.
 
 CloudHub 2.0 doesn't run the scheduled job until you reenable the Scheduler.
 
-[NOTE]
-====
-If you disable the scheduler, it might still run once when the application starts. To prevent this behavior, set the `startDelay` property to five seconds in your app using Anypoint Studio. You can also change the `startDelay` value after deployment using the <<override-scheduler-api,Schedulers API>>.
-====
+Even after you disable a scheduler, it can still run once. The condition that causes this and the way to prevent it depend on the schedule type:
+
+[%header,cols="1,3,3a"]
+|===
+| Schedule Type | When a Disabled Scheduler Can Still Run Once | How to Prevent It
+
+| Fixed frequency
+| The scheduler can trigger once when the application starts.
+| Set the `startDelay` property to at least five seconds. Configure `startDelay` in your app in Anypoint Studio, or change it after deployment using the <<override-scheduler-api,Schedulers API>>.
+
+| Cron
+| Changing any schedule redeploys the application, and a redeployment that occurs close to the cron trigger time can let a disabled scheduler run once. Because enabling or disabling any scheduler redeploys the app, running several enable or disable actions near a cron trigger time can trigger a disabled scheduler.
+| The `startDelay` property applies only to fixed-frequency schedulers and has no effect on cron schedulers. Avoid enabling or disabling schedulers close to a cron trigger time, and confirm the scheduler state on the *Schedules* tab afterward.
+|===
 
 [NOTE]
 ====
