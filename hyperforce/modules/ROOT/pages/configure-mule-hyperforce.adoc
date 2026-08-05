@@ -17,6 +17,7 @@ To configure Mule in the `wrapper.conf` file, modify these properties, replacing
 * `ca1.platform.mulesoft.com`
 * `jp1.platform.mulesoft.com`
 * `in1.platform.mulesoft.com`
+* `au1.platform.mulesoft.com`
 
 This example shows the `wrapper.conf` file configuration for Canada Cloud (`ca1.platform.mulesoft.com`): 
 
@@ -34,6 +35,7 @@ To configure Mule properties via the command line, use the following options whe
 * `ca1.platform.mulesoft.com`
 * `jp1.platform.mulesoft.com`
 * `in1.platform.mulesoft.com`
+* `au1.platform.mulesoft.com`
 
 This example shows the properties configuration for EU Cloud `eu1.anypoint.mulesoft.com` via the command like:
  
@@ -51,6 +53,7 @@ When deploying to CloudHub 2.0, in the *Properties* tab of Anypoint Runtime Mana
 * `ca1.platform.mulesoft.com`
 * `jp1.platform.mulesoft.com`
 * `in1.platform.mulesoft.com`
+* `au1.platform.mulesoft.com`
 
 This example shows the properties configuration for Japan Cloud `jp1.platform.mulesoft.com` :
 
