@@ -53,10 +53,10 @@ flowchart TD
     Q3 -->|No| Q4{Is CIDR block ≥ /24<br/>with 100+ available IPs<br/>per subnet?}
 
     Q4 -->|No| NewPS
-    Q4 -->|Yes| Q5{Do you need CH1 and CloudHub 2.0<br/>to coexist on the<br/>same network?}
+    Q4 -->|Yes| Q5{Do you need CloudHub 2.0<br/>on a different CIDR from<br/>your existing VPC?}
 
-    Q5 -->|Yes, with different CIDRs| NewPS
-    Q5 -->|No, sequential migration is fine| Upgrade[Upgrade VPC to Private Space]
+    Q5 -->|Yes| NewPS
+    Q5 -->|No| Upgrade[Upgrade VPC to Private Space]
 
     NewPS --> Manual[Manual infrastructure setup<br/>+ full app redeployment]
     Upgrade --> Tool[Automated migration<br/>+ gradual traffic switching]
@@ -67,11 +67,11 @@ flowchart TD
 |Path |When to Use |Key Characteristics
 
 |*Create a new private space*
-|CloudHub and CloudHub 2.0 must coexist on the same network, or your VPC doesn't meet upgrade eligibility requirements
-|Allocate a new CIDR block for CloudHub 2.0 to prevent network overlap. Requires manual infrastructure setup and full application redeployment.
+|You need CloudHub 2.0 on a different CIDR from your existing VPC, or your VPC doesn't meet upgrade eligibility requirements.
+|Allocate a separate CIDR block for CloudHub 2.0. Requires manual infrastructure setup and full application redeployment.
 
 |*Upgrade VPC to private space*
-|Your VPC meets the xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[eligibility requirements] and you want an automated infrastructure migration
+|Your VPC meets the xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[eligibility requirements], and you want to reuse existing VPNs and transit gateways, or switch traffic gradually so clients can continue using the same URLs. CloudHub and CloudHub 2.0 apps coexist on the same CIDR.
 |The upgrade tool validates CIDR compatibility, migrates firewall rules, and transfers DLB configurations. Existing CloudHub applications continue running during the upgrade.
 |===
 
@@ -133,12 +133,12 @@ When migrating from a Dedicated Load Balancer (DLB) to CloudHub 2.0's ingress lo
 |Configured at the application level using domains and endpoints for per-app configuration.
 
 |Mutual TLS (mTLS)
-|DLB handles mTLS at the infrastructure level, performing client certificate validation and forwarding certificate information to applications via HTTP headers. Accepts certificate files in PEM format only.
-|Native mTLS with TLS contexts and truststores. Configure mTLS at the private space level with centralized management. Supports forward SSL. Upload truststore files in PEM and JKS formats.
+|DLB handles mTLS at the infrastructure level, performing client certificate validation and forwarding certificate information to applications via HTTP headers. Supports an *optional* mode that performs client certificate validation but still passes the request through if the check fails. Accepts certificate files in PEM format only.
+|Native mTLS with TLS contexts and truststores. Configure mTLS at the private space level with centralized management. Supports forward SSL. Upload truststore files in PEM and JKS formats. Optional mTLS mode is not supported — client certificate validation either passes or the request is rejected.
 
 |Protocols
 |HTTP, HTTPS, TCP, WebSockets (ws and wss)
-|HTTP, HTTPS, TCP. The upgrade tooling doesn't support TCP traffic migration.
+|HTTP, HTTPS, TCP. TCP traffic is supported only on newly created private spaces. Upgraded private spaces do not support TCP traffic. If you require TCP, create a new private space.
 
 |Logging
 |No DLB log support.
@@ -179,7 +179,7 @@ DLB uses *mapping rules* to route requests. CloudHub 2.0 uses *endpoint and path
 
 |Protocol selection
 |Mapping rules specify upstream protocol per rule: `http` (port 8091), `https` (port 8092), `ws` (8091), `wss` (8092).
-|CloudHub 2.0 apps listen on port 8081 (HTTP) or 8082 (HTTPS). Protocol is determined by TLS context configuration, not per-rule. WebSocket support via HTTP/HTTPS endpoints.
+|CloudHub 2.0 apps listen on port 8081 for both HTTP and HTTPS. Protocol is determined by TLS context configuration, not per-rule. WebSocket support via HTTP/HTTPS endpoints.
 
 |Wildcard matching
 |Pattern variables (`{variable}`) in Input Path match `a-z0-9.&?-_` (no slashes). Priority order controls which rule matches.
@@ -317,8 +317,8 @@ graph TB
     subgraph "Anypoint Platform"
         subgraph "CloudHub 1.0 — VPC"
             DLB[Dedicated Load Balancer<br/>TLS termination<br/>Mapping rules]
-            W1[Worker 1<br/>port 8081/8082]
-            W2[Worker 2<br/>port 8081/8082]
+            W1[Worker 1<br/>port 8091/8092]
+            W2[Worker 2<br/>port 8091/8092]
         end
 
         subgraph "CloudHub 2.0 — Private Space"
@@ -365,7 +365,7 @@ sequenceDiagram
     C->>DNS: myapp.example.com
     DNS->>DLB: [lb-name].lb.anypointdns.net
     DLB->>DLB: TLS termination + mapping rule match
-    DLB->>W: HTTP to mule-worker-myApp:8081
+    DLB->>W: HTTP to mule-worker-myApp:8091
 
     Note over C,R: CloudHub 2.0 Path
     C->>DNS: myapp.example.com
@@ -455,27 +455,27 @@ Connection timeout behavior differs between CloudHub DLB and CloudHub 2.0 ingres
 |===
 |Behavior |CloudHub DLB |CloudHub 2.0 Ingress
 
+|Connect timeout
+|4 seconds. If a worker doesn't respond to the connection attempt, the DLB retries the request on the next available worker.
+|15 seconds (default). For each request, the load balancer maintains two connections (client→LB and LB→app). If the connection attempt fails, the load balancer closes both connections and returns a timeout error to the client.
+
 |Idle connection timeout
-|300 seconds (default). If the target application's workers don't respond within this time, the DLB makes requests to the next worker sequentially.
-|15 seconds (default). For each request, the load balancer maintains two connections (client→LB and LB→app). If no data is sent or received during this duration, the load balancer closes both connections.
+|300 seconds (default). If no data is sent or received within this duration, the DLB closes the connection.
+|If no data is sent or received during the idle timeout, the load balancer closes both connections.
 
 |Keep-alive timeout
 |60 seconds. Connections are closed after new workers come online and the DNS TTL (30 seconds) expires.
-|Configurable via Flex Gateway policies. Default upstream idle timeout: 60 seconds. Default stream idle timeout: 300 seconds.
+|Default upstream idle timeout: 60 seconds. Default stream idle timeout: 300 seconds.
 
 |Response timeout
 |Included in the 300-second idle timeout window.
 |Configurable via private space advanced settings (*Read Response Timeout*). For connections that take longer than 300 seconds, handle the processing asynchronously.
-
-|Behavior on timeout
-|DLB routes to next available worker in sequence.
-|Load balancer closes both connections and returns a timeout error to the client.
 |===
 
 *Migration impact:*
 
-* The CloudHub 2.0 default idle timeout of 15 seconds is 20x lower than the DLB's 300-second default. Applications with long-processing synchronous requests can experience premature connection closures.
-* For long-running requests, customize the *Read Response Timeout* value in the *Advanced* tab of your private space settings in Runtime Manager.
+* The CloudHub 2.0 default idle timeout of 15 seconds is significantly lower than the DLB's 300-second default. This affects clients that use persistent connections (connection pools) with a client-side idle timeout higher than the load balancer's idle timeout. For example, a client configured with a 60-second idle timeout works with the CH1 DLB (60s < 300s) but causes premature connection closures in CloudHub 2.0 (60s > 15s). Reduce the client-side idle timeout to a value below 15 seconds (for example, 10 seconds).
+* For long-running synchronous requests that expect a response, the *Read Response Timeout* applies, not the idle timeout. Customize this value in the *Advanced* tab of your private space settings in Runtime Manager.
 * For API gateway use cases, timeout policies (Stream Idle Timeout, Upstream Idle Timeout, Response Timeout) are configurable via Anypoint API Manager or Flex Gateway declarative configuration.
 * If your applications use WebSockets or Server-Sent Events (SSE), then verify that the stream idle timeout (default 300 seconds) is sufficient for your keep-alive intervals.
 
