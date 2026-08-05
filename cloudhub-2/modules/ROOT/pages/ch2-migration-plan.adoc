@@ -80,7 +80,7 @@ Gather the following from your existing CloudHub environment. This information i
 
 * CIDR block information
 +
-If you require both CloudHub and CloudHub 2.0 to exist at the same time on the same network, then use a new CIDR block for CloudHub 2.0.
+If you are creating a new private space manually, then allocate a different CIDR block for CloudHub 2.0. If you are upgrading an existing VPC, the private space automatically uses the same CIDR as the original VPC, so no CIDR selection is required.
 
 * VPN connection information
 * SSL certificates
@@ -150,7 +150,7 @@ a|You can't carry these ciphers over to CloudHub 2.0:
 |CloudHub VPC doesn't restrict outbound egress traffic. Removing the default firewall rule that allows this traffic can cause failures in your migrated private space.
 
 |TCP traffic
-|HTTP and HTTPS traffic can be sent to applications in the migrated private space. The upgrade tooling doesn't support TCP traffic.
+|An upgraded private space supports HTTP and HTTPS traffic only. TCP traffic is not supported on upgraded private spaces. If you require TCP traffic, create a new private space instead.
 
 |Default VPC
 |The upgrade tooling doesn't support the upgrade of a default VPC. Disable the default VPC configuration before proceeding.

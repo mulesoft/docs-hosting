@@ -32,7 +32,7 @@ Set up your CloudHub 2.0 infrastructure before migrating applications. Choose be
 |Path |Use When |What Happens
 
 |<<create-a-new-private-space-manually>>
-|Your VPC doesn't meet upgrade eligibility requirements, or you need CloudHub and CloudHub 2.0 to coexist on the same network with separate CIDR blocks.
+|Your VPC doesn't meet upgrade eligibility requirements, or you need CloudHub 2.0 on a different CIDR from your existing VPC.
 |You create a new private space from scratch with its own CIDR block, configure network connections, and set up firewall rules independently.
 
 |<<upgrade-a-vpc-to-a-private-space>>
@@ -100,19 +100,17 @@ Reestablish VPN tunnels or Transit Gateway (TGW) attachments to the new private 
 * Configure VPN or TGW connections to the new private space.
 * Validate that routing tables have correct traffic flow.
 * Test connectivity between the private space and on-premises or other cloud networks.
-* Verify that DNS resolution works for both internal and external services.
 
-=== Step 5: Configure TLS and DNS
+=== Step 5: Configure TLS
 
 * If you're using a DLB in CloudHub, configure custom TLS certificates in your private space.
 +
 // Source: Reused from ch-ch2-migration-configuration "Create Your Private Space"
 +
 * Upload SSL certificates to the private space's ingress load balancer.
-* Update DNS records (CNAME) to point to the new private space load balancer endpoint.
-* Configure custom vanity domains with your own TLS context if needed.
-
-For TLS configuration, see xref:ps-config-domains.adoc[Configure Domains and TLS for a Private Space].
+* Configure custom vanity domains with your own TLS context if needed. For TLS configuration, see xref:ps-config-domains.adoc[Configure Domains and TLS for a Private Space].
++
+NOTE: DNS record updates (CNAME cutover) happen during application migration, not during infrastructure setup. Until apps are migrated, keep DNS pointing to your CloudHub load balancer.
 
 === Step 6: Validate the Private Space
 
@@ -121,7 +119,6 @@ After creating the private space, confirm:
 * The private space appears under *Runtime Manager* > *Private Spaces*.
 * Firewall rules are correctly configured (inbound and outbound).
 * VPN or TGW connections are stable.
-* DNS resolution works for both internal and external services.
 * TLS contexts are correctly applied.
 
 [[upgrade-a-vpc-to-a-private-space]]
@@ -288,12 +285,12 @@ To update the DLB allowlist:
 
 For more information about CloudHub 2.0 infrastructure CIDR ranges, see xref:ps-gather-setup-info.adoc#infra-cidr-pool[Infrastructure CIDR Pool].
 
-==== Step 2: Configure DNS Resolution
+==== Step 2: Configure the Target Endpoint in Your CloudHub 2.0 Application
 
-Your CloudHub 2.0 application must resolve the CloudHub 1.0 application's DLB endpoint:
+Configure your CloudHub 2.0 application to call the CloudHub 1.0 application using its existing endpoint URL:
 
-* If using a DLB vanity domain: Point your CloudHub 2.0 app to the vanity domain URL (for example, `api.example.com`). DNS resolves to the DLB, which routes to the CloudHub 1.0 worker.
-* If using the default `cloudhub.io` endpoint: Use the standard endpoint format `<app-name>.<region>.cloudhub.io`.
+* If the CloudHub 1.0 app uses a DLB vanity domain: Use the vanity domain URL (for example, `api.example.com`).
+* If the CloudHub 1.0 app uses the default endpoint: Use the standard format `<app-name>.<region>.cloudhub.io`.
 
 ==== Step 3: Verify DLB TLS Configuration
 
@@ -304,13 +301,6 @@ The DLB must support TLS 1.2+ for upstream connections from CloudHub 2.0:
 . Confirm that *TLS 1.2 or higher* is enabled as an upstream protocol.
 
 NOTE: TLS 1.2 can be added alongside TLS 1.1 without disrupting existing connections. See https://help.salesforce.com/s/articleView?id=005315578&type=1[502 Bad Gateway Error When Switching Traffic (KA 005315578)].
-
-==== Step 4: Configure Egress Rules in the Private Space
-
-Confirm that the CloudHub 2.0 private space allows outbound traffic to the DLB endpoints:
-
-* If using a VPN or Transit Gateway connection, then verify that routing tables include the DLB endpoint.
-* If accessing via public endpoints, then configure application-level egress rules. See xref:ps-config-app-level-egress.adoc[Configure Application-Level Egress].
 
 === CloudHub 1.0 to CloudHub 2.0
 
