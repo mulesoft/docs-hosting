@@ -165,6 +165,9 @@ The following table summarizes what DNS records are available for your applicati
 
 | https://in1.platform.mulesoft.com[India Cloud]
 | Asia Pacific | India (Mumbai) | ind-w1 | `cloudhub-ap-south-1` | `myapp-_uniq-id_._shard_.ind-w1.in1.cloudhub.io` | `Cloudhub-AP-South-1`
+
+| https://au1.platform.mulesoft.com[Australia Cloud]
+| Asia Pacific | Australia (Sydney) | aus-s1 | `cloudhub-ap-southeast-2` | `myapp-_uniq-id_._shard_.aus-s1.au1.cloudhub.io` | `Cloudhub-AP-Southeast-2`
 |===
 
 For example, if you deploy an application named `myapp` to Canada (Montreal), the domain used to access the application is `myapp-_uniq-id_._shard_.can-c1.cloudhub.io`.
