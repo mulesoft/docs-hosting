@@ -501,7 +501,7 @@ Asia Pacific::
 | Basic Alerts | Available | Available | Available
 | Basic Monitoring | Available | Available | Available
 | Custom Dashboards | Planned | Planned | Planned
-| Hybrid Standalone Mule (HSA) Enabled | Planned | Planned | Available
+| Hybrid Standalone Mule (HSA) Enabled | Planned | Planned | Planned
 | Integration Intelligence | Available | Available | Available
 | Log Search | Available | Available | Available
 | Logs Raw Data | Available | Available | Available
@@ -539,7 +539,7 @@ Asia Pacific::
 | Generative B2B Message Summary Feature | Available | Planned | Planned
 
 //PRIVATE CLOUD EDITION - ASIA: JA | INDIA | AU
-| xref:private-cloud::index.adoc[Anypoint Private Cloud Edition] | n/a | Not planned | Not planned | Available | Anypoint Private Cloud Edition (Anypoint Platform PCE) is a complete software package that you install and manage entirely within your private network. PCE runs exclusively on your infrastructure and isn't hosted or managed on any public cloud by MuleSoft.
+| xref:private-cloud::index.adoc[Anypoint Private Cloud Edition] | n/a | Not planned | Not planned | Not Planned | Anypoint Private Cloud Edition (Anypoint Platform PCE) is a complete software package that you install and manage entirely within your private network. PCE runs exclusively on your infrastructure and isn't hosted or managed on any public cloud by MuleSoft.
 
 //RUNTIME MANAGER - ASIA: JA | INDIA | AU
 .4+| xref:runtime-manager::index.adoc[Anypoint Runtime Manager] | All non Monitoring features | Available | Available | Available .4+| n/a
@@ -607,8 +607,8 @@ Asia Pacific::
 | Managed Omni Gateway on Runtime Fabric | Available | Available | Available
 | Self-Managed - Connected Mode | Available | Available | Available
 | Self-Managed - Local Mode | Available | Available | Available
-| A2A Governance (Policies) | Available | Available | Planned
-| MCP Governance (Policies) | Available | Available | Planned
+| A2A Governance (Policies) | Available | Available | Available
+| MCP Governance (Policies) | Available | Available | Available
 | LLM Gateway | Available | Available | Available
 
 //HYBRID STANDALONE DEPLOYMENT - ASIA: JA | INDIA | AU
