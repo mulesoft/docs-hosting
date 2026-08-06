@@ -612,7 +612,7 @@ Asia Pacific::
 | LLM Gateway | Available | Available | Available
 
 //HYBRID STANDALONE DEPLOYMENT - ASIA: JA | INDIA | AU
-| xref:hybrid-standalone::index.adoc[Hybrid Standalone Deployment] | n/a | Planned | Planned | Available | n/a
+| xref:hybrid-standalone::index.adoc[Hybrid Standalone Deployment] | n/a | Planned | Planned | Planned | n/a
 
 //IDP - ASIA: JA | INDIA | AU
 | xref:idp::index.adoc[IDP] | n/a | Not planned | Not planned | Not planned | n/a
