@@ -186,7 +186,7 @@ Americas::
 | xref:general::exp-overview.adoc[Enhanced MuleSoft Experience and Remote MCP Server] | New control plane experience for MuleSoft and the associate MCP server. | Planned | Available | n/a
 
 //OMNI GATEWAY - AMERICAS: US | CANADA
-.7+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway on CloudHub 2.0 | Planned | Available .4+| n/a
+.7+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway on CloudHub 2.0 | Planned | Available .7+| n/a
 | Managed Omni Gateway on Runtime Fabric | Planned | Available
 | Self-Managed - Connected Mode | Planned | Available
 | Self-Managed - Local Mode | Planned | Available
@@ -394,7 +394,7 @@ Europe::
 | xref:general::exp-overview.adoc[Enhanced MuleSoft Experience and Remote MCP Server] | New control plane experience for MuleSoft and the associate MCP server. | Planned | n/a
 
 //OMNI GATEWAY - EUROPE: EU
-.7+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway on CloudHub 2.0 | Planned .4+| n/a
+.7+| xref:gateway-home::index.adoc#anypoint_flex_gateway[Omni Gateway] | Managed Omni Gateway on CloudHub 2.0 | Planned .7+| n/a
 | Managed Omni Gateway on Runtime Fabric | Planned
 | Self-Managed - Connected Mode | Planned
 | Self-Managed - Local Mode | Planned
