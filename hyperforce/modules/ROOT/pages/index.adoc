@@ -347,9 +347,8 @@ Europe::
 | xref:studio::index.adoc[Anypoint Studio] | n/a | Planned | Available | For details, refer to xref:studio::hyperforce-configuration.adoc[Configuring Anypoint Studio for Control Planes]
 
 //API VISUALIZER - EUROPE: EU
-.3+| xref:visualizer::index.adoc[API Visualizer] | Architecture | Available | Available .3+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
-| Policies | Available | Available
-| Troubleshooting | Available | Planned
+.2+| xref:visualizer::index.adoc[API Visualizer] | Architecture and Policies View | Available | Available .2+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
+| Troubleshooting View | Available | Planned
 
 //API COMMUNITY MANAGER - EUROPE: EU
 | xref:api-community-manager::index.adoc[API Community Manager] | n/a | Planned | Not planned | n/a
