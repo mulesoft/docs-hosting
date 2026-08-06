@@ -83,7 +83,7 @@ Americas::
 | Basic Alerts | Available | Available
 | Basic Monitoring | Available | Available
 | Custom Dashboards | Available | Planned
-| Hybrid Standalone Mule (HSA) Enabled | Planned | Planned
+| Hybrid Standalone Mule (HSA) | Planned | Planned
 | Integration Intelligence | Available | Available
 | Log Search | Available | Available
 | Logs Raw Data | Available | Available
@@ -291,7 +291,7 @@ Europe::
 | Basic Alerts | Available
 | Basic Monitoring | Available
 | Custom Dashboards | Available
-| Hybrid Standalone Mule (HSA) Enabled | Planned
+| Hybrid Standalone Mule (HSA) | Planned
 | Integration Intelligence | Available
 | Log Search | Available
 | Logs Raw Data | Available
@@ -501,7 +501,7 @@ Asia Pacific::
 | Basic Alerts | Available | Available | Available
 | Basic Monitoring | Available | Available | Available
 | Custom Dashboards | Planned | Planned | Planned
-| Hybrid Standalone Mule (HSA) Enabled | Planned | Planned | Planned
+| Hybrid Standalone Mule (HSA) | Planned | Planned | Planned
 | Integration Intelligence | Available | Available | Available
 | Log Search | Available | Available | Available
 | Logs Raw Data | Available | Available | Available
