@@ -49,6 +49,7 @@ Americas::
 
 //API MANAGER - AMERICAS: US | CANADA
 .6+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned | Available .6+a| For details, refer to:
+
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
 * xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
 | API Analytics | Not planned | Not planned
@@ -256,7 +257,8 @@ Europe::
 | Links to logs and traces | Planned
 
 //API MANAGER - EUROPE: EU
-.6+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned .6+a| For details, refer to:   
+.6+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned .6+a| For details, refer to: 
+  
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
 * xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
 | API Analytics | Not planned
@@ -465,6 +467,7 @@ Asia Pacific::
 
 //API MANAGER - ASIA: JA | INDIA | AU
 .7+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Available | Available | Available .7+a| For details, refer to:
+
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
 * xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
 | API Analytics | Not planned | Not planned | Not planned
