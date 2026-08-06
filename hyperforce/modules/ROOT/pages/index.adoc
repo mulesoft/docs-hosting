@@ -44,8 +44,9 @@ Americas::
 | External Identity Management Integration | Planned | Available
 
 //AGENT VISUALIZER - AMERICAS: US | CANADA
-.2+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Planned | Available .2+| n/a
-| Links to logs and traces | Planned | Planned
+.3+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Planned | Available .3+| n/a
+| Links to logs | Planned | Planned
+| Links to traces | Planned | Planned
 
 //API MANAGER - AMERICAS: US | CANADA
 .6+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned | Available .6+a| For details, refer to:
@@ -137,9 +138,8 @@ Americas::
 | xref:studio::index.adoc[Anypoint Studio] | n/a | Planned | Available | For details, refer to xref:studio::hyperforce-configuration.adoc[Configuring Anypoint Studio for Control Planes]
 
 //API VISUALIZER - AMERICAS: US | CANADA
-.3+| xref:visualizer::index.adoc[API Visualizer] | Architecture | Available | Available .3+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
-| Policies | Available | Available
-| Troubleshooting | Available | Planned
+.2+| xref:visualizer::index.adoc[API Visualizer] | Architecture and Policies View | Available | Available .2+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
+| Troubleshooting View | Available | Planned
 
 //API COMMUNITY MANAGER - AMERICAS: US | CANADA
 | xref:api-community-manager::index.adoc[API Community Manager] | n/a | Planned | Available | n/a
@@ -253,8 +253,9 @@ Europe::
 | External Identity Management Integration | Planned
 
 //AGENT VISUALIZER - EUROPE: EU
-.2+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Planned .2+| n/a
-| Links to logs and traces | Planned
+.3+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Planned .3+| n/a
+| Links to logs | Planned 
+| Links to traces | Planned
 
 //API MANAGER - EUROPE: EU
 .6+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Planned .6+a| For details, refer to: 
@@ -401,7 +402,9 @@ Europe::
 | Self-Managed - Connected Mode | Planned
 | Self-Managed - Local Mode | Planned
 | A2A Governance (Policies) | Available 
+| MCP Governance (Policies) | Available
 | LLM Gateway | Available
+
 
 //HYBRID STANDALONE DEPLOYMENT - EUROPE: EU
 | xref:hybrid-standalone::index.adoc[Hybrid Standalone Deployment] | n/a | Planned | n/a
