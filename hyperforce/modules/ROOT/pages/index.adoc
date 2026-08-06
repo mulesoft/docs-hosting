@@ -671,28 +671,24 @@ This table indicates the available and planned cloud regions for Hyperforce:
 
 [%header%autowidth.spread]
 |===
-| Control Plane | Geographic Area | Platform URL | Status
+| Geographic Area | Control Plane | Platform URL | Status
 
-| https://anypoint.mulesoft.com[US Cloud]
-| Americas | `anypoint.mulesoft.com` | Planned
+.2+| Americas
+| https://anypoint.mulesoft.com[US Cloud] | `anypoint.mulesoft.com` | Planned
 
-| https://eu1.anypoint.mulesoft.com[EU Cloud]
-| Europe | `eu1.anypoint.mulesoft.com` | Planned
+| https://ca1.platform.mulesoft.com[Canada Cloud] | `ca1.platform.mulesoft.com` | Available
 
-| https://ca1.platform.mulesoft.com[Canada Cloud]
-| Americas | `ca1.platform.mulesoft.com` | Available
+.2+| Europe
+| https://eu1.anypoint.mulesoft.com[EU Cloud] | `eu1.anypoint.mulesoft.com` | Planned
 
-| https://jp1.platform.mulesoft.com[Japan Cloud]
-| Asia Pacific | `jp1.platform.mulesoft.com` | Available
+| https://gb1.platform.mulesoft.com[United Kingdom Cloud] | `gb1.platform.mulesoft.com` | Available
 
-| https://in1.platform.mulesoft.com[India Cloud]
-| Asia Pacific | `in1.platform.mulesoft.com` | Available
+.3+| Asia Pacific
+| https://au1.platform.mulesoft.com[Australia Cloud] | `au1.platform.mulesoft.com` | Available
 
-| https://au1.platform.mulesoft.com[Australia Cloud]
-| Asia Pacific | `au1.platform.mulesoft.com` | Available
+| https://in1.platform.mulesoft.com[India Cloud] | `in1.platform.mulesoft.com` | Available
 
-| https://gb1.platform.mulesoft.com[United Kingdom Cloud]
-| Europe | `gb1.platform.mulesoft.com` | Available
+| https://jp1.platform.mulesoft.com[Japan Cloud] | `jp1.platform.mulesoft.com` | Available
 |===
 
 == Mule Runtime Version Compatibility
