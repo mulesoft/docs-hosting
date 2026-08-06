@@ -63,7 +63,7 @@ MuleSoft provides cloud-managed and self-hosted control plane options. This tabl
 | `gb1.platform.mulesoft.com`
 | United Kingdom
 | MuleSoft-managed control plane hosted in the United Kingdom. See xref:hyperforce::index.adoc#deploy-mule-apps-to-control-planes[Deploy Mule Apps to Control Planes].
-| UK data residency
+| United Kingdom data residency
 
 | MuleSoft Government Cloud
 | `gov.anypoint.mulesoft.com`
