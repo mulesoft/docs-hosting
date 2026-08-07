@@ -151,7 +151,7 @@ The Anypoint control plane covers additional Anypoint services beyond CloudHub 2
 
 === Considerations for Disaster Recovery Implementations
 
-A DR strategy for applications deployed to CloudHub 2.0 requires you to weigh several factors.
+A DR strategy for applications deployed to CloudHub 2.0 requires you to consider several factors.
 
 Control plane availability:: The CloudHub 2.0 management UI and control plane run in the US East region of North America, and also in the EU, Canada, and Japan. See xref:hosting-home::index.adoc#control-plane-and-runtime-plane-support-matrix[Control Plane and Runtime Plane Support Matrix].
 
