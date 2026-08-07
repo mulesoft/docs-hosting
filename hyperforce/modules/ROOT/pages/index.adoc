@@ -45,7 +45,7 @@ Americas::
 
 //AGENT VISUALIZER - AMERICAS: US | CANADA
 .3+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Planned | Available .3+| n/a
-| Links to logs | Planned | Planned
+| Links to logs | Planned | Available
 | Links to traces | Planned | Planned
 
 //API MANAGER - AMERICAS: US | CANADA
