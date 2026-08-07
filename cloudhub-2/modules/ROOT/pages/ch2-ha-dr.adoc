@@ -177,7 +177,7 @@ Control plane to runtime plane ratio:: Unlike the US (1:12) and EU (1:2) regions
 
 * Keep your integrations stateless.
 * Don't share transactional information between client invocations or scheduled executions.
-* When the middleware must retain data because of a system limitation, persist it in an external store, such as a database or a messaging queue, rather than in the middleware infrastructure or memory.
+* If the middleware must retain data because of a system limitation, persist it in an external store, such as a database or a messaging queue, rather than in the middleware infrastructure or memory.
 * Keep each replica's state and resources independent so that your applications scale and recover reliably across zones and regions.
 
 == See Also
