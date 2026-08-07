@@ -129,7 +129,7 @@ MuleSoft provides different options for hosting the runtime plane:
 | Runtime Option | Description | Managed By | Key Characteristics
 
 | CloudHub 2.0
-| Fully managed, containerized integration platform as a service (iPaaS) for deploying APIs and integrations as lightweight containers in the cloud. Supports deployments across 12 regions globally with single or shared tenancy.
+| Fully managed, containerized integration platform as a service (iPaaS) for deploying APIs and integrations as lightweight containers in the cloud. Supports deployments across all runtime plane regions.
 | MuleSoft
 | Auto-scaling, high availability, dynamic infrastructure. See xref:cloudhub-2::index.adoc[CloudHub 2.0].
 
