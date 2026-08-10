@@ -265,7 +265,9 @@ During a phased migration, applications on CloudHub 2.0 and CloudHub 1.0 must co
 
 === CloudHub 2.0 to CloudHub 1.0 (via DLB)
 
-Because CloudHub 2.0 uses a separate infrastructure CIDR pool, the DLB doesn't allow traffic from CloudHub 2.0 apps by default.
+Your CloudHub 2.0 application can continue to use the same target URL to communicate with existing CloudHub 1.0 applications — no endpoint changes are required. If communication uses a public IP (such as a DLB vanity domain or the default `<app-name>.<region>.cloudhub.io` endpoint), traffic continues to route through the internet. If communication uses internal IPs (app-to-app calls within the same VPC), this routing also continues to work from the new CloudHub 2.0 application in the upgraded private space.
+
+However, because CloudHub 2.0 uses a separate infrastructure CIDR pool, the DLB doesn't allow traffic from CloudHub 2.0 apps by default. You must add the CloudHub 2.0 CIDR ranges to the DLB allowlist.
 
 ==== Step 1: Add Infrastructure CIDR Ranges to the DLB Allowlist
 
@@ -285,14 +287,7 @@ To update the DLB allowlist:
 
 For more information about CloudHub 2.0 infrastructure CIDR ranges, see xref:ps-gather-setup-info.adoc#infra-cidr-pool[Infrastructure CIDR Pool].
 
-==== Step 2: Configure the Target Endpoint in Your CloudHub 2.0 Application
-
-Configure your CloudHub 2.0 application to call the CloudHub 1.0 application using its existing endpoint URL:
-
-* If the CloudHub 1.0 app uses a DLB vanity domain: Use the vanity domain URL (for example, `api.example.com`).
-* If the CloudHub 1.0 app uses the default endpoint: Use the standard format `<app-name>.<region>.cloudhub.io`.
-
-==== Step 3: Verify DLB TLS Configuration
+==== Step 2: Verify DLB TLS Configuration
 
 The DLB must support TLS 1.2+ for upstream connections from CloudHub 2.0:
 
@@ -308,55 +303,26 @@ NOTE: TLS 1.2 can be added alongside TLS 1.1 without disrupting existing connect
 // available documentation, but the exact routing path (direct vs. public internet vs. TGW)
 // has not been confirmed by engineering.
 
-For a CloudHub 1.0 application to call a CloudHub 2.0 application:
+How CloudHub 1.0 applications reach CloudHub 2.0 applications in an upgraded private space depends on whether the target application was migrated or deployed new.
 
-. *DNS resolution:* Configure the CloudHub 1.0 app to point to the CloudHub 2.0 application's ingress endpoint (the public URL assigned during CloudHub 2.0 deployment).
+==== Migrated Applications
+
+If the CloudHub 2.0 application is a migrated application (originally deployed to CloudHub 1.0 and then migrated to CloudHub 2.0), the existing custom or vanity domain configured on your DLB continues to work. When traffic is fully switched to CloudHub 2.0, requests from CloudHub 1.0 applications using that custom domain reach the migrated CloudHub 2.0 application without additional configuration.
+
+==== New Applications in an Upgraded Private Space
+
+If you deploy a brand-new CloudHub 2.0 application to the upgraded private space and try to configure the same custom or vanity domain endpoint for this new application, CloudHub 1.0 applications can't reach it using the custom domain.
+
+IMPORTANT: To work around this limitation, deploy the new application to CloudHub 1.0 first, then migrate it to CloudHub 2.0. This allows the application to use the existing custom or vanity domain and remain reachable from CloudHub 1.0 applications during migration.
+
+==== General Configuration
+
+Regardless of whether the target application was migrated or deployed new, configure the following to allow CloudHub 1.0 traffic to reach the CloudHub 2.0 private space:
+
 . *Firewall rules:* In the CloudHub 2.0 private space, add ingress firewall rules to allow traffic from the CloudHub 1.0 VPC CIDR range.
 . *TLS:* Confirm that the CloudHub 2.0 application has a valid TLS context configured if calling over HTTPS.
 
 NOTE: Verify with your network team whether traffic between the CloudHub VPC and CloudHub 2.0 private space routes through the public internet or can use internal routing via VPN or Transit Gateway.
-
-=== CloudHub 2.0 to CloudHub 2.0
-
-// Source: Section 2, Deliverable B.3 — CH2→CH2 connectivity patterns
-// Based on: docs.mulesoft.com/cloudhub-2/ch2-config-endpoints-paths
-// "Send Application-to-Application Requests within a Private Space"
-
-==== Same Private Space
-
-Applications in the same private space can communicate using several endpoint types:
-
-[cols="1,2,1"]
-|===
-|Endpoint Type |Format |Notes
-
-|Cluster-local DNS (same environment)
-|`http://<app-name>:8081/<path>`
-|Fastest. Traffic doesn't leave the cluster. Not highly available during disaster recovery — if an app migrates to a new cluster, this endpoint becomes unreachable. Deploy multiple replicas for availability during node upgrades.
-
-|Full cluster-local DNS
-|`<app-name>.<environment-id>.svc.cluster.local:8081`
-|Same as above with explicit namespace. Only works within the same environment.
-
-|Internal DNS
-|`<app-name>.internal-<id>.<region>.cloudhub.io`
-|Traffic stays within the private space network. Remains reachable during disaster recovery because it routes through the ingress load balancer.
-
-|Default public DNS
-|`<app-name>.<id>.<region>.cloudhub.io`
-|Routes through the public ingress. Unnecessary overhead for same-space communication but always works.
-|===
-
-IMPORTANT: Cluster-local DNS endpoints (`svc.cluster.local`) can't send traffic between applications in different namespaces (environments). Use internal or public DNS for cross-environment communication.
-
-TIP: For production workloads, use the *internal DNS* endpoint rather than cluster-local. It provides high availability during disaster recovery because traffic traverses the ingress load balancer, which can redirect to a new cluster if needed.
-
-==== Different Private Spaces
-
-Applications in different private spaces can't use cluster-local or internal DNS endpoints. Use one of the following:
-
-* *Public endpoint:* Use the target app's public DNS name or custom domain. Confirm that the target private space's firewall rules allow inbound traffic.
-* *Transit Gateway:* If both private spaces are attached to the same transit gateway, traffic can route through the TGW. Configure routes on both sides.
 
 === Transit Gateway Configuration During Migration
 
@@ -371,22 +337,16 @@ If using the VPC upgrade tool, existing TGW connections transfer to the new Clou
 
 ==== Manual Private Space Path
 
-If creating a new private space manually, then attach it to your existing transit gateway:
-
-. In *Runtime Manager*, navigate to *Private Spaces* > your space > *Network* tab.
-. In the *Connections* section, click *Create Connection* > *Transit Gateway*.
-. Select your existing transit gateway or add a new one.
-. Configure static routes matching your on-premises VPC CIDR ranges.
-. Create the AWS resource share (if new TGW) and accept the attachment in AWS.
-. Update your AWS transit gateway route tables to include the new private space CIDR.
+If you created a new private space manually (not using the VPC upgrade tool), your private space has a different CIDR block from your existing VPC and doesn't inherit any TGW connections. Attach the new private space to your existing transit gateway. Refer to the instructions in https://docs.mulesoft.com/cloudhub-2/ps-create-configure-tgw[Connect to a Transit Gateway].
 
 ==== Hybrid Routing During Migration
 
-During phased migration with both CloudHub and CloudHub 2.0 attached to the same TGW:
+If you created a new private space manually and attached it to the same transit gateway as your CloudHub VPC, both attachments are active during the phased migration.
 
 * On-premises systems reach CloudHub apps via VPC routes through the TGW.
 * On-premises systems reach CloudHub 2.0 apps via private space routes through the TGW.
-* Confirm that route tables on the TGW don't have CIDR conflicts between the CloudHub VPC and CloudHub 2.0 private space.
+
+Confirm that TGW route tables include routes for both the VPC CIDR and the private space CIDR so on-premises traffic reaches the correct attachment.
 
 ==== Validate TGW Connectivity
 
@@ -451,16 +411,16 @@ Static IP allocation differs between CloudHub and CloudHub 2.0:
 |===
 |Aspect |CloudHub |CloudHub 2.0
 
-|Scope
+|Outbound static public IPs
 |Per-application. Each app can have its own outbound static IP.
 |Per-private-space. All apps in a private space share the same set of outbound static IPs.
 
-|Inbound static IPs
-|Available only through a DLB. All apps behind the same DLB share inbound static IPs.
+|Inbound static public and private IPs
+|Available only through a DLB. Public inbound IPs are static. Private inbound IPs are dynamic.
 |Provided at the private space level. All apps in the same private space share inbound static IPs.
 
 |Unique IPs per app
-|Enable *Static IPs* in application settings to get per-app outbound IPs.
+|Each app has its own inbound and outbound IPs (dynamic by default). Enable *Static IPs* in application settings to make the outbound public IP static.
 |Not available within a single private space. To have unique static IPs per application, deploy to a different private space.
 |===
 

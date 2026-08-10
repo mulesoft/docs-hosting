@@ -343,13 +343,7 @@ IMPORTANT: Application properties aren't automatically carried over during migra
 * Secure properties use the same encryption key mechanism — make sure that your keys are migrated.
 * Configure environment-specific properties per environment (Dev, UAT, Prod).
 
-=== Step 5: Configure Egress Rules
-
-// Source: Reused from ch-ch2-migration-configuration "Deploy your Application"
-
-Configure the egress firewall rules your application needs to access other Mule services, such as API Manager, ObjectStore, and Anypoint MQ. See xref:ps-config-app-level-egress.adoc#apply-application-level-egress-rules-when-deploying-your-applications[Configure Application-Level Egress].
-
-=== Step 6: Configure Endpoints
+=== Step5: Configure Endpoints
 
 If you're using a dedicated load balancer (DLB) in CloudHub, configure application mapping rules using path and path rewrite configurations for endpoints in the application deployment.
 
