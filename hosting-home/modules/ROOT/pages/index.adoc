@@ -180,12 +180,12 @@ This matrix shows which runtime plane options are supported in each control plan
 
 [%header%autowidth.spread]
 |===
-| Runtime Plane | US Cloud | EU Cloud | Canada Cloud | Japan Cloud | MuleSoft Government Cloud | Anypoint Platform PCE
+| Runtime Plane | US Cloud | EU Cloud | Canada Cloud, Japan Cloud, India Cloud, Australia Cloud | MuleSoft Government Cloud | Anypoint Platform PCE
 
-| CloudHub 2.0 | Yes | Yes | Yes | Yes | No | No
-| CloudHub | Yes | Yes | No | No | Yes | No
-| Runtime Fabric | Yes | Yes | Yes | Yes | No | No
-| Hybrid Standalone Runtimes | Yes | Yes | No | No | Yes | Yes
+| CloudHub 2.0 | Yes | Yes | Yes | No | No
+| CloudHub | Yes | Yes | No | Yes | No
+| Runtime Fabric | Yes | Yes | Yes | No | No
+| Hybrid Standalone Runtimes | Yes | Yes | No | Yes | Yes
 |===
 
 == Choosing a Hosting Option
