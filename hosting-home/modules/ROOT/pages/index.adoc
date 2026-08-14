@@ -129,7 +129,7 @@ MuleSoft provides different options for hosting the runtime plane:
 | Runtime Option | Description | Managed By | Key Characteristics
 
 | CloudHub 2.0
-| Fully managed, containerized integration platform as a service (iPaaS) for deploying APIs and integrations as lightweight containers in the cloud. Supports deployments across 12 regions globally with single or shared tenancy.
+| Fully managed, containerized integration platform as a service (iPaaS) for deploying APIs and integrations as lightweight containers in the cloud. Supports deployments across all runtime plane regions.
 | MuleSoft
 | Auto-scaling, high availability, dynamic infrastructure. See xref:cloudhub-2::index.adoc[CloudHub 2.0].
 
@@ -180,12 +180,12 @@ This matrix shows which runtime plane options are supported in each control plan
 
 [%header%autowidth.spread]
 |===
-| Runtime Plane | US Cloud | EU Cloud | Canada Cloud | Japan Cloud | MuleSoft Government Cloud | Anypoint Platform PCE
+| Runtime Plane | US Cloud | EU Cloud | Canada Cloud, Japan Cloud, India Cloud, Australia Cloud | MuleSoft Government Cloud | Anypoint Platform PCE
 
-| CloudHub 2.0 | Yes | Yes | Yes | Yes | No | No
-| CloudHub | Yes | Yes | No | No | Yes | No
-| Runtime Fabric | Yes | Yes | Yes | Yes | No | No
-| Hybrid Standalone Runtimes | Yes | Yes | No | No | Yes | Yes
+| CloudHub 2.0 | Yes | Yes | Yes | No | No
+| CloudHub | Yes | Yes | No | Yes | No
+| Runtime Fabric | Yes | Yes | Yes | No | No
+| Hybrid Standalone Runtimes | Yes | Yes | No | Yes | Yes
 |===
 
 == Choosing a Hosting Option
