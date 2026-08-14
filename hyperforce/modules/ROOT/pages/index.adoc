@@ -673,10 +673,10 @@ This table indicates the available and planned cloud regions for Hyperforce:
 | Control Plane | Geographic Area | Platform URL | Status
 
 | https://anypoint.mulesoft.com[US Cloud]
-| Americas | `anypoint.mulesoft.com` | Planned
+| Americas | `anypoint.mulesoft.com` | Available
 
 | https://eu1.anypoint.mulesoft.com[EU Cloud]
-| Europe | `eu1.anypoint.mulesoft.com` | Planned
+| Europe | `eu1.anypoint.mulesoft.com` | Available
 
 | https://ca1.platform.mulesoft.com[Canada Cloud]
 | Americas | `ca1.platform.mulesoft.com` | Available
