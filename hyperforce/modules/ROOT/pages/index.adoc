@@ -85,7 +85,7 @@ Americas::
 | Basic Alerts | Available | Available
 | Basic Monitoring | Available | Available
 | Custom Dashboards | Available | Planned
-| Hybrid Standalone Mule (HSA) | Planned | Planned
+| Hybrid Standalone Mule (HSA) | Available | Available
 | Integration Intelligence | Available | Available
 | Log Search | Available | Available
 | Logs Raw Data | Available | Available
@@ -129,7 +129,7 @@ Americas::
 .4+| xref:runtime-manager::index.adoc[Anypoint Runtime Manager] | All non Monitoring features | Available | Available .4+| n/a
 | Insights | Not planned | Not planned
 | Log Tailing | Available | Available
-| Monitoring for Hybrid Standalone Deployments | Planned | Not planned
+| Monitoring for Hybrid Standalone Deployments | Available | Not planned
 
 //SECURITY SECRETS MANAGER - AMERICAS: US | CANADA
 | xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager] | n/a | Planned | Available | n/a
@@ -294,7 +294,7 @@ Europe::
 | Basic Alerts | Available
 | Basic Monitoring | Available
 | Custom Dashboards | Available
-| Hybrid Standalone Mule (HSA) | Planned
+| Hybrid Standalone Mule (HSA) | Available
 | Integration Intelligence | Available
 | Log Search | Available
 | Logs Raw Data | Available
@@ -338,7 +338,7 @@ Europe::
 .4+| xref:runtime-manager::index.adoc[Anypoint Runtime Manager] | All non Monitoring features | Available .4+| n/a
 | Insights | Not planned
 | Log Tailing | Available
-| Monitoring for Hybrid Standalone Deployments | Planned
+| Monitoring for Hybrid Standalone Deployments | Available
 
 //SECURITY SECRETS MANAGER - EUROPE: EU
 | xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager] | n/a | Planned | n/a
@@ -505,7 +505,7 @@ Asia Pacific::
 | Basic Alerts | Available | Available | Available
 | Basic Monitoring | Available | Available | Available
 | Custom Dashboards | Planned | Planned | Planned
-| Hybrid Standalone Mule (HSA) | Planned | Planned | Planned
+| Hybrid Standalone Mule (HSA) | Available | Available | Available
 | Integration Intelligence | Available | Available | Available
 | Log Search | Available | Available | Available
 | Logs Raw Data | Available | Available | Available
