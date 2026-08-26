@@ -4,16 +4,18 @@ Configure proactive monitoring alerts for your Mule applications deployed to hyb
 
 == Overview
 
-Runtime Manager provides comprehensive alerting capabilities for monitoring your Mule applications deployed to hybrid standalone instances, including:
+Runtime Manager alerts for applications deployed to hybrid standalone are discrete event alerts, such as deployment success, deployment failure, and application undeployed.
 
-* Application performance monitoring (response time, throughput, resource usage)
-* Business transaction tracking and error detection
-* Custom application metrics and notifications
-* Deployment lifecycle event monitoring
-* Integration-specific health and availability monitoring
+Application performance monitoring based on metrics, such as response time, throughput, and resource usage, isn't available as Runtime Manager alerts. Use Anypoint Monitoring for those alerts. See xref:monitoring::alerts.adoc[Getting Alerts].
+
+On US Cloud and EU Cloud, Runtime Manager also provides threshold conditions for number of errors, number of Mule messages, and response time.
 
 [NOTE]
 ====
+On Canada Cloud, Japan Cloud, India Cloud, and Australia Cloud, Runtime Manager monitoring for hybrid standalone deployments isn't available. Runtime Manager alerts on those control planes are limited to discrete events.
+
+For metric-based alerts, use Anypoint Monitoring. Basic and advanced Anypoint Monitoring alerts vary by control plane. See xref:hyperforce::index.adoc#features-supported-on-hyperforce[Features Supported on Hyperforce].
+
 Runtime Manager retains 30 days of alert history for audit and analysis.
 
 Alerts retrigger when conditions continuously exceed specified thresholds, ensuring persistent notification of ongoing issues.
@@ -175,6 +177,7 @@ These alerts for applications deployed to CloudHub require no additional paramet
 
 === Conditions for Applications Deployed to Local Servers
 
+The following threshold conditions apply on US Cloud and EU Cloud. They aren't available as Runtime Manager alerts on Canada Cloud, Japan Cloud, India Cloud, and Australia Cloud. Use xref:monitoring::alerts.adoc[Anypoint Monitoring alerts] for metric-based monitoring on those control planes.
 
 For applications deployed to local servers, these alert conditions apply:
 
@@ -213,7 +216,7 @@ To enable this condition, specify the maximum response time that triggers the al
 --
 
 
-These alerts for applications deployed to local servers require no additional parameters:
+These discrete event alerts for applications deployed to local servers require no additional parameters. They are available on all control planes that support hybrid standalone:
 
 * Application undeployed
 * Deployment failure
@@ -378,3 +381,5 @@ image::alerts-delete.png["Delete (trash can) icon"]
 * xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]
 * xref:creating-alerts-hybrid.adoc[Creating Alerts for Servers, Server Groups, and Clusters]
 * xref:monitoring-dashboards-hybrid.adoc[Monitoring Dashboards for Server, Server Groups and Clusters]
+* xref:monitoring::alerts.adoc[Getting Alerts]
+* xref:hyperforce::index.adoc#features-supported-on-hyperforce[Features Supported on Hyperforce]
