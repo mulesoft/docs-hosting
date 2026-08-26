@@ -56,6 +56,7 @@ For each request a client makes through the CloudHub 2.0 load balancer `(<app>.<
 
 For connections that take longer than 300 seconds to process from either side, handle the processing asynchronously. You can customize the Read Response Timeout value in the *Advanced* tab of your xref:ps-config-advanced.adoc#configure-http-requests-and-read-response-timeout[private space settings] in Runtime Manager, or via the Mule application xref:mule-runtime::global-settings-configuration.adoc[global configurations] of the xref:mule-runtime::about-mule-configuration.adoc[Mule configuration file].
 
+[[dns-records]]
 == DNS Records
 
 The following DNS records are exposed for your CloudHub 2.0 applications:
@@ -186,14 +187,15 @@ If traffic reaches the firewall but gets no response, check these common causes:
 
 == Regional Services
 
-The DNS record and the load balancer for your integration can change depending on what region you deploy your applications in. This table summarizes what DNS records are available for your applications in each region:
+The DNS record and the load balancer for your integration can change depending on the region you deploy your applications in.
 
-include::partial$region-table-long.adoc[]
+For the runtime regions available for each control plane, including the *Region* token used in DNS records, see xref:ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records].
 
 include::partial$url-format-by-control-plane.adoc[]
 
 
 == See Also
 
+* xref:ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records]
 * xref:ch2-private-space-about.adoc[]
 * xref:ps-config-ssl-endpoints.adoc[]
