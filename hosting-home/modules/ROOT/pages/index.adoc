@@ -25,7 +25,7 @@ Depending on your requirements, you can choose from these options:
 * Host and manage the runtime plane within your own infrastructure while connecting it with the MuleSoft-managed control plane.
 * Host both the control plane and runtime plane locally within your infrastructure.
 
-The following sections list the available options. Use <<support-matrix-control-plane>> to confirm which combinations are supported.
+These sections list the available options. Use <<support-matrix-control-plane>> to confirm which combinations are supported.
 
 == Control Plane Hosting Options
 
@@ -107,31 +107,7 @@ MuleSoft provides different options for hosting the runtime plane:
 | Customer (fully self-managed)
 |===
 
-[[support-matrix-runtime]]
-=== Component Support by Runtime Option
-
-Not all Anypoint Platform components are available in each runtime option:
-
-[%header%autowidth.spread]
-|===
-| Component | CloudHub 2.0 | CloudHub | Runtime Fabric | Hybrid Standalone and On-Premises
-
-| Mule runtime engine | Yes | Yes | Yes | Yes
-| Anypoint MQ | Yes | Yes | Yes | Yes
-| Anypoint Object Store v2 | Yes | Yes | No ^1^ | No ^1^
-| Anypoint DataGraph | No | Yes | No | No
-| Connectors ^2^ | Yes | Yes | Yes | Yes
-|===
-
-^1^ Runtime Fabric, Hybrid Standalone, and On-Premises runtimes support Mule clustering instead of Object Store v2. On Runtime Fabric, multiple replicas of the same application can share objects. See xref:mule-runtime::choosing-the-right-clustering-topology.adoc[Cluster Runtime Instances]. +
-^2^ File system connectors (for example, Anypoint Connector for File) are not supported on Runtime Fabric because deployed apps lack file system access.
-
-[[runtime-regions]]
-=== CloudHub and CloudHub 2.0 Runtime Regions
-
-A runtime region is the geographic location where MuleSoft runs CloudHub and CloudHub 2.0 applications. You select it at deploy time. It is independent of control plane data residency: deploying to Canada (Montreal) from US Cloud does not give you Canada Cloud.
-
-These regions apply only to CloudHub and CloudHub 2.0. Runtime Fabric, Hybrid Standalone, and On-Premises runtimes run in your infrastructure. Anypoint Platform PCE has no MuleSoft-managed runtime regions.
+If you use CloudHub or CloudHub 2.0, you also choose a runtime region: the geographic location where those applications execute. A runtime region is independent of control plane data residency. For example, deploying to Canada (Montreal) from US Cloud does not give you Canada Cloud. Runtime Fabric, Hybrid Standalone, and On-Premises runtimes run in your infrastructure and don't use MuleSoft-managed runtime regions.
 
 For CloudHub 2.0 regions, identifiers, and DNS records, see xref:cloudhub-2::ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records].
 
@@ -154,6 +130,7 @@ This matrix shows which runtime plane options are supported in each control plan
 == See Also
 
 * xref:cloudhub-2::index.adoc[CloudHub 2.0]
+* xref:cloudhub-2::ch2-architecture.adoc#regions-and-dns-records[CloudHub 2.0 Runtime Plane Regions]
 * xref:runtime-manager::cloudhub.adoc[CloudHub]
 * xref:hybrid-standalone::index.adoc[Hybrid Standalone]
 * xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises]
