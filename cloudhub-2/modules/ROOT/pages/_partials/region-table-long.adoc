@@ -4,38 +4,38 @@
 
 [%header%autowidth.spread]
 |===
-| Control Plane | Geographic Area | Runtime Location | Region | Target ID | Target Name | Example DNS Record
+| Control Plane | Geographic Area | Runtime Location | Region | Target ID | Target Name | Example DNS Record | Example Internal DNS Record
 
 .12+| https://anypoint.mulesoft.com[US Cloud]
-.5+| North America | US East (N. Virginia) | `usa-e1` | `cloudhub-us-east-1` | `Cloudhub-US-East-1` | `myapp-_uniq-id_._shard_.usa-e1.cloudhub.io`
-| US East (Ohio) | `usa-e2` | `cloudhub-us-east-2` | `Cloudhub-US-East-2` | `myapp-_uniq-id_._shard_.usa-e2.cloudhub.io`
-| US West (N. California) | `usa-w1` | `cloudhub-us-west-1` | `Cloudhub-US-West-1` | `myapp-_uniq-id_._shard_.usa-w1.cloudhub.io`
-| US West (Oregon) | `usa-w2` | `cloudhub-us-west-2` | `Cloudhub-US-West-2` | `myapp-_uniq-id_._shard_.usa-w2.cloudhub.io`
-| Canada (Montreal) | `can-c1` | `cloudhub-ca-central-1` | `Cloudhub-CA-Central-1` | `myapp-_uniq-id_._shard_.can-c1.cloudhub.io`
-| South America | Brazil (São Paulo) | `bra-s1` | `cloudhub-sa-east-1` | `Cloudhub-SA-East-1` | `myapp-_uniq-id_._shard_.bra-s1.cloudhub.io`
-.3+| Asia Pacific | Singapore (Singapore) | `sgp-s1` | `cloudhub-ap-southeast-1` | `Cloudhub-AP-Southeast-1` | `myapp-_uniq-id_._shard_.sgp-s1.cloudhub.io`
-| Australia (Sydney) | `aus-s1` | `cloudhub-ap-southeast-2` | `Cloudhub-AP-Southeast-2` | `myapp-_uniq-id_._shard_.aus-s1.cloudhub.io`
-| Japan (Tokyo) | `jpn-e1` | `cloudhub-ap-northeast-1` | `Cloudhub-AP-Northeast-1` | `myapp-_uniq-id_._shard_.jpn-e1.cloudhub.io`
-.3+| Europe | Ireland (Dublin) | `irl-e1` | `cloudhub-eu-west-1` | `Cloudhub-EU-West-1` | `myapp-_uniq-id_._shard_.irl-e1.cloudhub.io`
-| Germany (Frankfurt) | `deu-c1` | `cloudhub-eu-central-1` | `Cloudhub-EU-Central-1` | `myapp-_uniq-id_._shard_.deu-c1.cloudhub.io`
-| UK (London) | `gbr-e1` | `cloudhub-eu-west-2` | `Cloudhub-EU-West-2` | `myapp-_uniq-id_._shard_.gbr-e1.cloudhub.io`
+.5+| North America | US East (N. Virginia) | `usa-e1` | `cloudhub-us-east-1` | `Cloudhub-US-East-1` | `myapp-_uniq-id_._shard_.usa-e1.cloudhub.io` | `<app>.internal-<space-id>.usa-e1.cloudhub.io`
+| US East (Ohio) | `usa-e2` | `cloudhub-us-east-2` | `Cloudhub-US-East-2` | `myapp-_uniq-id_._shard_.usa-e2.cloudhub.io` | `<app>.internal-<space-id>.usa-e2.cloudhub.io`
+| US West (N. California) | `usa-w1` | `cloudhub-us-west-1` | `Cloudhub-US-West-1` | `myapp-_uniq-id_._shard_.usa-w1.cloudhub.io` | `<app>.internal-<space-id>.usa-w1.cloudhub.io`
+| US West (Oregon) | `usa-w2` | `cloudhub-us-west-2` | `Cloudhub-US-West-2` | `myapp-_uniq-id_._shard_.usa-w2.cloudhub.io` | `<app>.internal-<space-id>.usa-w2.cloudhub.io`
+| Canada (Montreal) | `can-c1` | `cloudhub-ca-central-1` | `Cloudhub-CA-Central-1` | `myapp-_uniq-id_._shard_.can-c1.cloudhub.io` | `<app>.internal-<space-id>.can-c1.cloudhub.io`
+| South America | Brazil (São Paulo) | `bra-s1` | `cloudhub-sa-east-1` | `Cloudhub-SA-East-1` | `myapp-_uniq-id_._shard_.bra-s1.cloudhub.io` | `<app>.internal-<space-id>.bra-s1.cloudhub.io`
+.3+| Asia Pacific | Singapore (Singapore) | `sgp-s1` | `cloudhub-ap-southeast-1` | `Cloudhub-AP-Southeast-1` | `myapp-_uniq-id_._shard_.sgp-s1.cloudhub.io` | `<app>.internal-<space-id>.sgp-s1.cloudhub.io`
+| Australia (Sydney) | `aus-s1` | `cloudhub-ap-southeast-2` | `Cloudhub-AP-Southeast-2` | `myapp-_uniq-id_._shard_.aus-s1.cloudhub.io` | `<app>.internal-<space-id>.aus-s1.cloudhub.io`
+| Japan (Tokyo) | `jpn-e1` | `cloudhub-ap-northeast-1` | `Cloudhub-AP-Northeast-1` | `myapp-_uniq-id_._shard_.jpn-e1.cloudhub.io` | `<app>.internal-<space-id>.jpn-e1.cloudhub.io`
+.3+| Europe | Ireland (Dublin) | `irl-e1` | `cloudhub-eu-west-1` | `Cloudhub-EU-West-1` | `myapp-_uniq-id_._shard_.irl-e1.cloudhub.io` | `<app>.internal-<space-id>.irl-e1.cloudhub.io`
+| Germany (Frankfurt) | `deu-c1` | `cloudhub-eu-central-1` | `Cloudhub-EU-Central-1` | `myapp-_uniq-id_._shard_.deu-c1.cloudhub.io` | `<app>.internal-<space-id>.deu-c1.cloudhub.io`
+| UK (London) | `gbr-e1` | `cloudhub-eu-west-2` | `Cloudhub-EU-West-2` | `myapp-_uniq-id_._shard_.gbr-e1.cloudhub.io` | `<app>.internal-<space-id>.gbr-e1.cloudhub.io`
 
 .2+| https://eu1.anypoint.mulesoft.com[EU Cloud]
-.2+| Europe | Ireland (Dublin) | `irl-e1.eu1` | `cloudhub-eu-west-1` | `Cloudhub-EU-West-1` | `myapp-_uniq-id_._shard_.irl-e1.eu1.cloudhub.io`
-| Germany (Frankfurt) | `deu-c1.eu1` | `cloudhub-eu-central-1` | `Cloudhub-EU-Central-1` | `myapp-_uniq-id_._shard_.deu-c1.eu1.cloudhub.io`
+.2+| Europe | Ireland (Dublin) | `irl-e1.eu1` | `cloudhub-eu-west-1` | `Cloudhub-EU-West-1` | `myapp-_uniq-id_._shard_.irl-e1.eu1.cloudhub.io` | `<app>.internal-<space-id>.irl-e1.eu1.cloudhub.io`
+| Germany (Frankfurt) | `deu-c1.eu1` | `cloudhub-eu-central-1` | `Cloudhub-EU-Central-1` | `myapp-_uniq-id_._shard_.deu-c1.eu1.cloudhub.io` | `<app>.internal-<space-id>.deu-c1.eu1.cloudhub.io`
 
 | https://ca1.platform.mulesoft.com[Canada Cloud]
-| North America | Canada (Montreal) | `can-c1` | `cloudhub-ca-central-1` | `Cloudhub-CA-Central-1` | `myapp-_uniq-id_._shard_.can-c1.ca1.cloudhub.io`
+| North America | Canada (Montreal) | `can-c1` | `cloudhub-ca-central-1` | `Cloudhub-CA-Central-1` | `myapp-_uniq-id_._shard_.can-c1.ca1.cloudhub.io` | `<app>.internal-<space-id>.can-c1.ca1.cloudhub.io`
 
 | https://jp1.platform.mulesoft.com[Japan Cloud]
-| Asia Pacific | Japan (Tokyo) | `jpn-e1` | `cloudhub-ap-northeast-1` | `Cloudhub-AP-Northeast-1` | `myapp-_uniq-id_._shard_.jpn-e1.jp1.cloudhub.io`
+| Asia Pacific | Japan (Tokyo) | `jpn-e1` | `cloudhub-ap-northeast-1` | `Cloudhub-AP-Northeast-1` | `myapp-_uniq-id_._shard_.jpn-e1.jp1.cloudhub.io` | `<app>.internal-<space-id>.jpn-e1.jp1.cloudhub.io`
 
 | https://in1.platform.mulesoft.com[India Cloud]
-| Asia Pacific | India (Mumbai) | `ind-w1` | `cloudhub-ap-south-1` | `Cloudhub-AP-South-1` | `myapp-_uniq-id_._shard_.ind-w1.in1.cloudhub.io`
+| Asia Pacific | India (Mumbai) | `ind-w1` | `cloudhub-ap-south-1` | `Cloudhub-AP-South-1` | `myapp-_uniq-id_._shard_.ind-w1.in1.cloudhub.io` | `<app>.internal-<space-id>.ind-w1.in1.cloudhub.io`
 
 | https://au1.platform.mulesoft.com[Australia Cloud]
-| Asia Pacific | Australia (Sydney) | `aus-s1` | `cloudhub-ap-southeast-2` | `Cloudhub-AP-Southeast-2` | `myapp-_uniq-id_._shard_.aus-s1.au1.cloudhub.io`
+| Asia Pacific | Australia (Sydney) | `aus-s1` | `cloudhub-ap-southeast-2` | `Cloudhub-AP-Southeast-2` | `myapp-_uniq-id_._shard_.aus-s1.au1.cloudhub.io` | `<app>.internal-<space-id>.aus-s1.au1.cloudhub.io`
 
 | https://gov.anypoint.mulesoft.com[MuleSoft Government Cloud]
-| US Government | US GovCloud (West) | `usg-w1.gov` | - | - | `myapp.usg-w1.gov.cloudhub.io`
+| US Government | US GovCloud (West) | `usg-w1.gov` | - | - | `myapp.usg-w1.gov.cloudhub.io` | -
 |===
