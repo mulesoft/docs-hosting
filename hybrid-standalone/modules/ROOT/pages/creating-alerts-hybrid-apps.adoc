@@ -4,7 +4,7 @@ Configure proactive monitoring alerts for your Mule applications deployed to hyb
 
 == Overview
 
-Runtime Manager alerts for applications deployed to hybrid standalone are discrete event alerts, such as deployment success, deployment failure, and application undeployed.
+Runtime Manager alerts for applications deployed to hybrid standalone are event alerts, such as deployment success, deployment failure, and application undeployed.
 
 Application performance monitoring based on metrics, such as response time, throughput, and resource usage, isn't available as Runtime Manager alerts. Use Anypoint Monitoring for those alerts. See xref:monitoring::alerts.adoc[Getting Alerts].
 
@@ -12,7 +12,7 @@ On US Cloud and EU Cloud, Runtime Manager also provides threshold conditions for
 
 [NOTE]
 ====
-On Canada Cloud, Japan Cloud, India Cloud, and Australia Cloud, Runtime Manager monitoring for hybrid standalone deployments isn't available. Runtime Manager alerts on those control planes are limited to discrete events.
+On Canada Cloud, Japan Cloud, India Cloud, and Australia Cloud, Runtime Manager monitoring for hybrid standalone deployments isn't available. Runtime Manager alerts on those control planes are limited to event alerts.
 
 For metric-based alerts, use Anypoint Monitoring. Basic and advanced Anypoint Monitoring alerts vary by control plane. See xref:hyperforce::index.adoc#features-supported-on-hyperforce[Features Supported on Hyperforce].
 
@@ -177,7 +177,7 @@ These alerts for applications deployed to CloudHub require no additional paramet
 
 === Conditions for Applications Deployed to Local Servers
 
-The following threshold conditions apply on US Cloud and EU Cloud. They aren't available as Runtime Manager alerts on Canada Cloud, Japan Cloud, India Cloud, and Australia Cloud. Use xref:monitoring::alerts.adoc[Anypoint Monitoring alerts] for metric-based monitoring on those control planes.
+These threshold conditions apply on US Cloud and EU Cloud. They aren't available as Runtime Manager alerts on Canada Cloud, Japan Cloud, India Cloud, and Australia Cloud. Use xref:monitoring::alerts.adoc[Anypoint Monitoring alerts] for metric-based monitoring on those control planes.
 
 For applications deployed to local servers, these alert conditions apply:
 
@@ -216,7 +216,7 @@ To enable this condition, specify the maximum response time that triggers the al
 --
 
 
-These discrete event alerts for applications deployed to local servers require no additional parameters. They are available on all control planes that support hybrid standalone:
+These event alerts for applications deployed to local servers require no additional parameters. They are available on all control planes that support hybrid standalone:
 
 * Application undeployed
 * Deployment failure
