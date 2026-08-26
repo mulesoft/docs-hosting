@@ -1,7 +1,7 @@
 = Anypoint Platform Hosting Overview
 :page-aliases: general::intro-platform-hosting.adoc
 
-Host the Anypoint Platform control plane and runtime plane in different locations to meet your security, data privacy, and compliance requirements. Choose from MuleSoft-managed cloud options or self-hosted environments to control where your data is stored and processed. Each option keeps your data within the physical location your organization requires.
+Host the Anypoint Platform control plane and runtime plane in different locations to meet your security, data privacy, and compliance requirements. Choose from MuleSoft-managed cloud options or self-hosted environments to control where your data is stored and processed. The control plane location, runtime hosting option, and runtime region are independent choices.
 
 == Control Plane and Runtime Plane
 
@@ -15,6 +15,18 @@ The components you use to design, deploy, and manage APIs and Mule applications.
 Runtime plane::
 The components where your APIs and Mule applications are deployed and made available to your users. The runtime plane includes the Mule runtime engine and supporting services.
 
+== Choosing a Hosting Option
+
+Anypoint Platform lets you host the control plane and runtime plane independently. Choose a control plane (where design-time data and metadata live) and a runtime option (who runs your applications and on what infrastructure). If you use CloudHub or CloudHub 2.0, also choose a runtime region (where those applications execute).
+
+Depending on your requirements, you can choose from these options:
+
+* Use Anypoint Platform in the MuleSoft-managed control plane and runtime plane.
+* Host and manage the runtime plane within your own infrastructure while connecting it with the MuleSoft-managed control plane.
+* Host both the control plane and runtime plane locally within your infrastructure.
+
+The following sections list the available options. Use <<support-matrix-control-plane>> to confirm which combinations are supported.
+
 == Control Plane Hosting Options
 
 MuleSoft provides cloud-managed and self-hosted control plane options. This table summarizes each option, including data residency and applicable compliance standards.
@@ -23,47 +35,41 @@ MuleSoft provides cloud-managed and self-hosted control plane options. This tabl
 |===
 | Control Plane | Platform URL | Data Residency | Description | Compliance / Notes
 
-| US Cloud (default)
+| https://anypoint.mulesoft.com[US Cloud (default)]
 | `anypoint.mulesoft.com`
 | United States
 | MuleSoft-managed control plane hosted in the US. Supports the widest range of runtime regions globally.
 | Standard commercial terms
 
-| EU Cloud
+| https://eu1.anypoint.mulesoft.com[EU Cloud]
 | `eu1.anypoint.mulesoft.com`
 | European Union
 | MuleSoft-managed control plane hosted in the EU. Supports EU-based runtime regions.
 | EU data residency
 
-| Canada Cloud
+| https://ca1.platform.mulesoft.com[Canada Cloud]
 | `ca1.platform.mulesoft.com`
 | Canada
-| MuleSoft-managed control plane hosted in Canada. See xref:hyperforce::index.adoc#deploy-mule-apps-to-control-planes[Deploy Mule Apps to Control Planes].
-| Canadian data residency
+.4+| MuleSoft-managed control plane on Salesforce Hyperforce, with one in-country runtime region. See xref:hyperforce::index.adoc#deploy-mule-apps-to-control-planes[Deploy Mule Apps to Control Planes].
+.4+| See xref:hyperforce::index.adoc[Salesforce Hyperforce Overview]
 
-| Japan Cloud
+| https://jp1.platform.mulesoft.com[Japan Cloud]
 | `jp1.platform.mulesoft.com`
 | Japan
-| MuleSoft-managed control plane hosted in Japan. See xref:hyperforce::index.adoc#deploy-mule-apps-to-control-planes[Deploy Mule Apps to Control Planes].
-| Japanese data residency
 
-| India Cloud
+| https://in1.platform.mulesoft.com[India Cloud]
 | `in1.platform.mulesoft.com`
 | India
-| MuleSoft-managed control plane hosted in India. See xref:hyperforce::index.adoc#deploy-mule-apps-to-control-planes[Deploy Mule Apps to Control Planes].
-| Indian data residency
 
-| Australia Cloud
+| https://au1.platform.mulesoft.com[Australia Cloud]
 | `au1.platform.mulesoft.com`
 | Australia
-| MuleSoft-managed control plane hosted in Australia. See xref:hyperforce::index.adoc#deploy-mule-apps-to-control-planes[Deploy Mule Apps to Control Planes].
-| Australian data residency
 
-| MuleSoft Government Cloud
+| https://gov.anypoint.mulesoft.com[MuleSoft Government Cloud]
 | `gov.anypoint.mulesoft.com`
 | United States
 | Federal Risk and Authorization Management Program (FedRAMP)-compliant control plane managed by MuleSoft, suitable for US government agencies.
-| FedRAMP authorized. See xref:gov-cloud::index.adoc[MuleSoft Government Cloud Overview]. See also <<mq-support,Anypoint MQ in Government Cloud>>.
+| FedRAMP authorized. See xref:gov-cloud::index.adoc[MuleSoft Government Cloud Overview].
 
 | Customer-Hosted (Anypoint Platform Private Cloud Edition (PCE))
 | N/A (self-hosted)
@@ -72,86 +78,33 @@ MuleSoft provides cloud-managed and self-hosted control plane options. This tabl
 | Full data sovereignty. See xref:private-cloud::index.adoc[Anypoint Platform PCE]. Some Anypoint Platform components aren't supported.
 |===
 
-=== Available Runtime Regions by Control Plane
-
-This table lists the runtime regions available for each control plane:
-
-[%header%autowidth.spread]
-|===
-| Control Plane | Geographic Area | Region | Region Name
-
-.12+| https://anypoint.mulesoft.com[US Cloud]
-.5+| North America | US East (N. Virginia) | `us-east`
-| US East (Ohio) | `us-east-2`
-| US West (N. California) | `us-west`
-| US West (Oregon) | `us-west-2`
-| Canada (Montreal) | `ca-central`
-| South America | Brazil (São Paulo) | `br-south`
-.3+| Asia Pacific | Singapore (Singapore) | `ap-southeast`
-| Australia (Sydney) | `ap-southeast-2`
-| Japan (Tokyo) | `ap-northeast`
-.3+| Europe | Ireland (Dublin) | `eu-west`
-| Germany (Frankfurt) | `eu-central`
-| UK (London) | `eu-west-2`
-
-.2+| https://eu1.anypoint.mulesoft.com[EU Cloud]
-.2+| Europe | Ireland (Dublin) | `eu-west`
-| Germany (Frankfurt) | `eu-central`
-
-| https://ca1.platform.mulesoft.com[Canada Cloud]
-| North America | Canada (Montreal) | `ca-central-1`
-
-| https://jp1.platform.mulesoft.com[Japan Cloud]
-| Asia Pacific | Japan (Tokyo) | `ap-northeast-1`
-
-| https://in1.platform.mulesoft.com[India Cloud]
-| Asia Pacific | India (Mumbai) | `ap-south-1`
-
-| https://au1.platform.mulesoft.com[Australia Cloud]
-| Asia Pacific | Australia (Sydney) | `ap-southeast-2`
-
-| https://gov.anypoint.mulesoft.com[MuleSoft Government Cloud]
-| US Government | US GovCloud (West) | `us-gov-west`
-|===
-
-
-[[mq-support]]
-=== Anypoint MQ in Government Cloud
-
-include::mq::partial$mq-in-govcloud.adoc[tag=mqSupportInGovCloud]
-
 == Runtime Plane Hosting Options
 
 MuleSoft provides different options for hosting the runtime plane:
 
-[%header%autowidth.spread,cols="2,3,2,2"]
+[%header%autowidth.spread,cols="2,3,2"]
 |===
-| Runtime Option | Description | Managed By | Key Characteristics
+| Runtime Option | Description | Managed By
 
-| CloudHub 2.0
-| Fully managed, containerized integration platform as a service (iPaaS) for deploying APIs and integrations as lightweight containers in the cloud. Supports deployments across all runtime plane regions.
+| xref:cloudhub-2::index.adoc[CloudHub 2.0]
+| Fully managed, containerized integration platform as a service (iPaaS) for running APIs and integrations as lightweight containers in the cloud. Supports auto-scaling, high availability, and dynamic infrastructure across the runtime regions available in your control plane.
 | MuleSoft
-| Auto-scaling, high availability, dynamic infrastructure. See xref:cloudhub-2::index.adoc[CloudHub 2.0].
 
-| CloudHub
-| MuleSoft's cloud-based environment for hosting Mule runtime. Provides high availability, clustering, failover, and load balancing.
+| xref:runtime-manager::cloudhub.adoc[CloudHub]
+| Cloud-based environment for running Mule applications in the cloud. Supports high availability, clustering, failover, and load balancing.
 | MuleSoft
-| See xref:runtime-manager::cloudhub.adoc[CloudHub].
 
-| Runtime Fabric
-| Container service for running Mule applications and API gateways in your own data center or third-party cloud. Bundled with Docker and Kubernetes for high availability, failover, clustering, and load balancing.
+| xref:runtime-fabric::index.adoc[Runtime Fabric]
+| Container service for running Mule applications and API gateways in your data center or third-party cloud. Supports high availability, failover, clustering, and load balancing with bundled Docker and Kubernetes.
 | Customer (infrastructure) and MuleSoft (orchestration)
-| See xref:runtime-fabric::index.adoc[Anypoint Runtime Fabric].
 
-| Hybrid Standalone Runtimes
-| Mule runtime engine hosted in your environment (physical server, virtual machine (VM), or cloud like AWS/Azure) with centralized management through the MuleSoft control plane.
+| xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes]
+| Mule runtime engine for running applications in your environment (physical server, virtual machine (VM), or cloud such as AWS or Azure). Supports centralized management through the MuleSoft control plane while keeping deployments within your trust boundary.
 | Customer (infrastructure) and MuleSoft (management)
-| Deployments within your trust boundary with cloud-based centralized management. See xref:hybrid-standalone::index.adoc[Hybrid Standalone].
 
-| Standalone Runtimes
-| Mule runtime engine on a single instance with no required connection to the control plane. You manage high availability (HA), failover, clustering, and load balancing manually. Suited for air-gapped or disconnected environments.
+| xref:mule-runtime::mule-standalone.adoc[On-Premises Runtimes]
+| Mule runtime engine for running applications on a single instance with no required connection to the control plane. Requires you to manage high availability, failover, clustering, and load balancing, and is suited for air-gapped or disconnected environments.
 | Customer (fully self-managed)
-| See xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises].
 |===
 
 [[support-matrix-runtime]]
@@ -161,7 +114,7 @@ Not all Anypoint Platform components are available in each runtime option:
 
 [%header%autowidth.spread]
 |===
-| Component | CloudHub 2.0 | CloudHub | Runtime Fabric | Standalone
+| Component | CloudHub 2.0 | CloudHub | Runtime Fabric | Hybrid Standalone and On-Premises
 
 | Mule runtime engine | Yes | Yes | Yes | Yes
 | Anypoint MQ | Yes | Yes | Yes | Yes
@@ -170,8 +123,17 @@ Not all Anypoint Platform components are available in each runtime option:
 | Connectors ^2^ | Yes | Yes | Yes | Yes
 |===
 
-^1^ Runtime Fabric and standalone runtimes support Mule clustering instead of Object Store v2. On Runtime Fabric, multiple replicas of the same application can share objects. See xref:mule-runtime::choosing-the-right-clustering-topology.adoc[Cluster Runtime Instances]. +
+^1^ Runtime Fabric, Hybrid Standalone, and On-Premises runtimes support Mule clustering instead of Object Store v2. On Runtime Fabric, multiple replicas of the same application can share objects. See xref:mule-runtime::choosing-the-right-clustering-topology.adoc[Cluster Runtime Instances]. +
 ^2^ File system connectors (for example, Anypoint Connector for File) are not supported on Runtime Fabric because deployed apps lack file system access.
+
+[[runtime-regions]]
+=== CloudHub and CloudHub 2.0 Runtime Regions
+
+A runtime region is the geographic location where MuleSoft runs CloudHub and CloudHub 2.0 applications. You select it at deploy time. It is independent of control plane data residency: deploying to Canada (Montreal) from US Cloud does not give you Canada Cloud.
+
+These regions apply only to CloudHub and CloudHub 2.0. Runtime Fabric, Hybrid Standalone, and On-Premises runtimes run in your infrastructure. Anypoint Platform PCE has no MuleSoft-managed runtime regions.
+
+For CloudHub 2.0 regions, identifiers, and DNS records, see xref:cloudhub-2::ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records].
 
 [[support-matrix-control-plane]]
 == Control Plane and Runtime Plane Compatibility
@@ -182,21 +144,12 @@ This matrix shows which runtime plane options are supported in each control plan
 |===
 | Runtime Plane | US Cloud | EU Cloud | Canada Cloud, Japan Cloud, India Cloud, Australia Cloud | MuleSoft Government Cloud | Anypoint Platform PCE
 
-| CloudHub 2.0 | Yes | Yes | Yes | No | No
+| CloudHub 2.0 | Yes | Yes | Yes | Yes | No
 | CloudHub | Yes | Yes | No | Yes | No
 | Runtime Fabric | Yes | Yes | Yes | No | No
-| Hybrid Standalone Runtimes | Yes | Yes | No | Yes | Yes
+| Hybrid Standalone Runtimes | Yes | Yes | Yes | Yes | Yes
+| On-Premises Runtimes | Yes | Yes | Yes | Yes | Yes
 |===
-
-== Choosing a Hosting Option
-
-Anypoint Platform lets you host the control plane and runtime plane independently. Depending on your requirements, you can choose from these options:
-
-* Use Anypoint Platform in the MuleSoft-managed control plane and runtime plane.
-* Host and manage the runtime plane within your own infrastructure while connecting it with the MuleSoft-managed control plane.
-* Host both the control plane and runtime plane locally within your infrastructure.
-
-See the <<Control Plane Hosting Options>> and <<Runtime Plane Hosting Options>> tables for available options, and the <<support-matrix-control-plane>> to verify which combinations are supported.
 
 == See Also
 
