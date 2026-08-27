@@ -25,7 +25,7 @@ Depending on your requirements, you can choose from these options:
 * Host and manage the runtime plane within your own infrastructure while connecting it with the MuleSoft-managed control plane.
 * Host both the control plane and runtime plane locally within your infrastructure.
 
-These sections list the available options. Use <<support-matrix-control-plane>> to confirm which combinations are supported. After you choose a runtime option, see xref:hadr-guide.adoc[High Availability and Disaster Recovery] for how each model stays available and who owns failover.
+These sections list the available options. Use <<support-matrix-control-plane>> to confirm which combinations are supported. After you choose a runtime option, see xref:hadr-guide.adoc[High Availability and Disaster Recovery Across Deployment Models] for how each model stays available and who owns failover.
 
 == Control Plane Hosting Options
 
@@ -129,7 +129,7 @@ This matrix shows which runtime plane options are supported in each control plan
 
 == See Also
 
-* xref:hadr-guide.adoc[High Availability and Disaster Recovery]
+* xref:hadr-guide.adoc[High Availability and Disaster Recovery Across Deployment Models]
 * xref:cloudhub-2::index.adoc[CloudHub 2.0]
 * xref:cloudhub-2::ch2-architecture.adoc#regions-and-dns-records[CloudHub 2.0 Runtime Plane Regions]
 * xref:runtime-manager::cloudhub.adoc[CloudHub]

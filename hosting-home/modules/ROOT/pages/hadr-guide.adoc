@@ -1,4 +1,4 @@
-= High Availability and Disaster Recovery
+= High Availability and Disaster Recovery Across Deployment Models
 :page-aliases: mule-runtime::hadr-guide.adoc
 
 High availability (HA) and disaster recovery (DR) strategies protect your Mule applications from downtime caused by infrastructure failures, disasters, or maintenance. The right approach depends on how you deploy Mule runtime engine: managed platforms such as CloudHub 2.0 and CloudHub build in much of the resilience for you, whereas deployments that you operate—Runtime Fabric, Hybrid Standalone, and on-premises servers—require you to design clustering, failover, and backups yourself.

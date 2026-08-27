@@ -721,4 +721,4 @@ a| Other Clouds
 
 * xref:configure-mule-hyperforce.adoc[Configuring Mule to Access Hyperforce]
 * xref:deploy-mule-apps-hyperforce.adoc[Deploying Mule Apps to Hyperforce]
-* xref:hosting-home::hadr-guide.adoc[High Availability and Disaster Recovery]
+* xref:hosting-home::hadr-guide.adoc[High Availability and Disaster Recovery Across Deployment Models]
