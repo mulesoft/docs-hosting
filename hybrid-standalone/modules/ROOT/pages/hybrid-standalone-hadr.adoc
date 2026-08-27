@@ -2,7 +2,7 @@
 
 Hybrid Standalone lets you host Mule runtime engine on servers or cloud instances that you control, and manage them centrally through Anypoint Platform. You achieve high availability (HA) by clustering multiple Mule runtime instances, so that another node takes over when one fails. You own disaster recovery (DR) under a shared-responsibility model: because you control the infrastructure, you back up, restore, and recover it with your own tooling, while MuleSoft provides HA best practices and keeps the Anypoint Platform control plane available.
 
-For an overview of HA and DR across all Mule deployment models, see xref:mule-runtime::hadr-guide.adoc[High Availability and Disaster Recovery].
+For an overview of HA and DR across all Mule deployment models, see xref:hosting-home::hadr-guide.adoc[High Availability and Disaster Recovery].
 
 == High Availability Versus Disaster Recovery
 
@@ -61,7 +61,7 @@ Object Store locking:: For Object Store lock handling in clusters, use an Object
 
 == See Also
 
-* xref:mule-runtime::hadr-guide.adoc[]
+* xref:hosting-home::hadr-guide.adoc[]
 * xref:creating-clusters.adoc[]
 * xref:managing-clusters.adoc[]
 * xref:mule-runtime::mule-high-availability-ha-clusters.adoc[]
