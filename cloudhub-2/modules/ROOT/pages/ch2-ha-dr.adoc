@@ -2,7 +2,7 @@
 
 CloudHub 2.0 provides high availability (HA) and disaster recovery (DR) for applications and protects against hardware failures.
 
-For an overview of HA and DR across all Mule deployment models, and to compare CloudHub 2.0 with other options, see xref:mule-runtime::hadr-guide.adoc[High Availability and Disaster Recovery].
+For an overview of HA and DR across all Mule deployment models, and to compare CloudHub 2.0 with other options, see xref:hosting-home::hadr-guide.adoc[High Availability and Disaster Recovery Across Deployment Models].
 
 CloudHub 2.0 runs on Amazon AWS, so its availability depends on Amazon services. CloudHub 2.0 bases deployments and availability on regions that correspond to Amazon regions. If an Amazon region goes down, applications in that region become unavailable, and CloudHub 2.0 doesn't automatically replicate them to other regions.
 
@@ -59,7 +59,7 @@ You can create your private space in a region of your choice.
 
 If your organization has cross-region DR requirements, build your applications accordingly and consider deploying them across multiple regions. For applications deployed to different regions, use a cloud-based or on-premises load balancer to switch traffic to your backup region as part of your DR strategy.
 
-For more about how to deploy for HA and DR strategies, see xref:mule-runtime::hadr-guide.adoc[High Availability and Disaster Recovery].
+For more about how to deploy for HA and DR strategies, see xref:hosting-home::hadr-guide.adoc[High Availability and Disaster Recovery Across Deployment Models].
 
 === Disaster Recovery Use Cases for the Runtime Plane
 
@@ -182,7 +182,7 @@ Control plane to runtime plane ratio:: Unlike the US (1:12) and EU (1:2) regions
 
 == See Also
 
-* xref:mule-runtime::hadr-guide.adoc[]
+* xref:hosting-home::hadr-guide.adoc[]
 * xref:ch2-networking-guide.adoc[]
 * xref:ch2-architecture.adoc[]
 * xref:cloudhub::cloudhub-hadr.adoc[]
