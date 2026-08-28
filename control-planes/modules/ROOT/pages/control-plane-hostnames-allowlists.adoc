@@ -1,0 +1,73 @@
+= Control Plane Hostnames and Allowlists
+:page-aliases: eu-control-plane::servers-create-eu.adoc, anypoint-clouds::finding-endpoints-allowlists.adoc, finding-endpoints-allowlists.adoc
+
+Use these hostnames when you allowlist outbound access to an Anypoint Platform control plane, when you pass `--region` to `amc_setup`, or when you set `anypoint.platform.base_uri` and `anypoint.platform.analytics_base_uri`. This table lists platform, analytics ingest, and Runtime Manager hosts for the commercial clouds.
+
+When you set `anypoint.platform.base_uri` and `anypoint.platform.analytics_base_uri`, prefix the Platform URL and Analytics ingest hosts with `https://`. See xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes].
+
+For MuleSoft Government Cloud hostnames, see xref:hybrid-standalone::configure-ports-ips.adoc[Adding Ports, IPs, and Hostnames for Runtime Manager Agent] and xref:gov-cloud::index.adoc[MuleSoft Government Cloud Overview]. Anypoint Platform PCE uses the hosts you configure when you install PCE. See xref:private-cloud::index.adoc[Anypoint Platform PCE].
+
+== Control Plane Hostnames
+
+Allow outbound HTTPS (port 443) to these hosts, substituting the row for your cloud. Some Runtime Manager and ingest endpoints also use port 8443.
+
+[%header%autowidth.spread]
+|===
+| Cloud | Platform URL | Analytics ingest | Runtime Manager | `amc_setup --region`
+
+| US Cloud (default)
+| `anypoint.mulesoft.com`
+| `analytics-ingest.anypoint.mulesoft.com`
+| `runtime-manager.anypoint.mulesoft.com`
+| Omit, or `prod`
+
+| EU Cloud
+| `eu1.anypoint.mulesoft.com`
+| `analytics-ingest.eu1.anypoint.mulesoft.com`
+| `runtime-manager.eu1.anypoint.mulesoft.com`
+| `eu1`
+
+| Canada Cloud
+| `ca1.platform.mulesoft.com`
+| `analytics-ingest.ca1.platform.mulesoft.com`
+| `runtime-manager.ca1.platform.mulesoft.com`
+| Copy the command Runtime Manager generates when you add a server.
+
+| Japan Cloud
+| `jp1.platform.mulesoft.com`
+| `analytics-ingest.jp1.platform.mulesoft.com`
+| `runtime-manager.jp1.platform.mulesoft.com`
+| Copy the command Runtime Manager generates when you add a server.
+
+| India Cloud
+| `in1.platform.mulesoft.com`
+| `analytics-ingest.in1.platform.mulesoft.com`
+| `runtime-manager.in1.platform.mulesoft.com`
+| Copy the command Runtime Manager generates when you add a server.
+
+| Australia Cloud
+| `au1.platform.mulesoft.com`
+| `analytics-ingest.au1.platform.mulesoft.com`
+| `runtime-manager.au1.platform.mulesoft.com`
+| Copy the command Runtime Manager generates when you add a server.
+|===
+
+Don't allowlist Anypoint Platform services by a single IP address. Some addresses are assigned dynamically and can change.
+
+== Allowlists and Endpoints by Runtime Plane
+
+For ports, extra hostnames, and application endpoints, use the product topic for that runtime:
+
+* CloudHub 2.0: xref:cloudhub-2::ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records] and xref:cloudhub-2::ch2-config-endpoints-paths.adoc[Configuring Endpoints and Paths for Apps Deployed to a Private Space]
+* CloudHub: xref:cloudhub::cloudhub-networking-guide.adoc[CloudHub Networking Guide] and xref:cloudhub::lb-allowlists.adoc[Dedicated Load Balancer Allowlists]
+* Runtime Fabric: xref:runtime-fabric::install-self-managed-network-configuration.adoc[Configuring Your Network to Support Runtime Fabric]
+* API gateway: xref:mule-gateway::mule-gateway-hostnames.adoc[Ports, IPs, and Hostnames to Allow]
+* Hybrid Standalone: xref:hybrid-standalone::configure-ports-ips.adoc[Adding Ports, IPs, and Hostnames for Runtime Manager Agent]
+
+
+
+== See Also
+
+* xref:index.adoc[Anypoint Platform Control Planes Overview]
+* xref:creating-and-deploying-mule-apps.adoc[Creating and Deploying Mule Apps]
+* xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes]

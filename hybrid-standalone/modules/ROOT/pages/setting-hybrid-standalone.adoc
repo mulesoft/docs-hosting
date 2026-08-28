@@ -29,7 +29,7 @@ Set up your Mule runtime environment:
 Download the appropriate Mule version and set up your environment with proper configuration. For detailed installation instructions, see xref:mule-runtime::runtime-installation-task.adoc[Download, Install, Configure, and Upgrade Mule].
 
 * Configure runtime properties and settings +
-Configure memory settings, environment variables, and connection properties through the `wrapper.conf` file. For configuration options, see xref:mule-runtime::configuring-properties.adoc[Configuring Properties] and xref:mule-runtime::about-mule-configuration.adoc[Mule Configuration File].
+Configure memory settings, environment variables, and connection properties through the `wrapper.conf` file. For configuration options, see xref:mule-runtime::configuring-properties.adoc[Configuring Properties] and xref:mule-runtime::about-mule-configuration.adoc[Mule Configuration File]. To point Mule at a non-US Cloud control plane, see xref:control-planes::configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes].
 
 * Install enterprise license +
 Install your MuleSoft Enterprise license for production deployments. See xref:mule-runtime::installing-an-enterprise-license.adoc[Install an Enterprise License] for complete instructions.
