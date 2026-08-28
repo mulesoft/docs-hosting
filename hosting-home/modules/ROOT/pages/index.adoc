@@ -114,7 +114,9 @@ For CloudHub 2.0 regions, identifiers, and DNS records, see xref:cloudhub-2::ch2
 [[support-matrix-control-plane]]
 == Control Plane and Runtime Plane Compatibility
 
-This matrix shows which runtime plane options are supported in each control plane:
+This matrix shows which runtime plane options you can deploy to from each control plane. On-premises runtimes aren't listed because they don't require a control plane. You install Mule and deploy applications to that instance. If you register the Runtime Manager agent so Anypoint can manage that instance, it becomes a Hybrid Standalone runtime. See xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises].
+
+On-premises runtimes and Anypoint Platform PCE aren't the same. On-premises is a runtime you host. PCE is a control plane you host. PCE doesn't run your applications; those still run on Mule you install, usually as Hybrid Standalone.
 
 [%header%autowidth.spread]
 |===
@@ -124,7 +126,6 @@ This matrix shows which runtime plane options are supported in each control plan
 | CloudHub | Yes | Yes | No | Yes | No
 | Runtime Fabric | Yes | Yes | Yes | No | No
 | Hybrid Standalone Runtimes | Yes | Yes | Yes | Yes | Yes
-| On-Premises Runtimes | Yes | Yes | Yes | Yes | Yes
 |===
 
 == See Also
