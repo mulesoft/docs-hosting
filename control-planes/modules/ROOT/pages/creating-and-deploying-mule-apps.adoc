@@ -8,14 +8,7 @@ Which runtime you can use depends on the control plane. See the xref:hosting-hom
 
 == Signing In to the Control Plane
 
-. Sign in to the control plane that holds the organization. Runtime Manager runs in that session. See xref:accessing-control-planes.adoc[Accessing Anypoint Platform Control Planes].
-. If you create or deploy from a tool outside the platform UI, point that tool at the same control plane:
-+
-* xref:studio::hyperforce-configuration.adoc[Configuring Anypoint Studio for Control Planes]
-* xref:anypoint-code-builder::start-acb.adoc#change-clouds[Set the Desktop IDE to a Different Control Plane]
-* xref:anypoint-cli::index.adoc#default-options[Anypoint CLI] `--host` flag or `ANYPOINT_HOST` (defaults to US Cloud)
-+
-The Anypoint Code Builder desktop IDE control-plane picker lists US Cloud, EU Cloud, Canada Cloud, and Japan Cloud.
+Sign in to the control plane that holds the organization. Runtime Manager runs in that session. See xref:index.adoc#signing-in[Signing In to the Control Plane].
 
 Configuring Mule (`wrapper.conf` or `base_uri`) is not a create-the-app step. For Hybrid Standalone, set these properties when you install and register Mule, before you deploy onto that server. For CloudHub and CloudHub 2.0, set them at deploy time only if the app must use API gateway with a non-US Cloud control plane. See xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes].
 
@@ -119,7 +112,6 @@ a|
 == See Also
 
 * xref:index.adoc[Anypoint Platform Control Planes Overview]
-* xref:accessing-control-planes.adoc[Accessing Anypoint Platform Control Planes]
 * xref:finding-endpoints-allowlists.adoc[Finding Endpoints and Allowlists]
 * xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes]
 * xref:hosting-home::index.adoc[Anypoint Platform Hosting Overview]

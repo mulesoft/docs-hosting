@@ -103,6 +103,7 @@ anypoint.platform.analytics_base_uri=https://analytics-ingest.jp1.platform.mules
 
 == See Also
 
+* xref:index.adoc[Anypoint Platform Control Planes Overview]
 * xref:creating-and-deploying-mule-apps.adoc[Creating and Deploying Mule Apps]
 * xref:finding-endpoints-allowlists.adoc[Finding Endpoints and Allowlists]
 * xref:hybrid-standalone::setting-hybrid-standalone.adoc[Setting up Hybrid Standalone Instances]

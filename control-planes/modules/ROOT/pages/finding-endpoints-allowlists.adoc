@@ -64,6 +64,7 @@ Runtime Fabric requires additional hostnames per cloud (message broker, registry
 
 == See Also
 
+* xref:index.adoc[Anypoint Platform Control Planes Overview]
 * xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes]
 * xref:hybrid-standalone::creating-servers.adoc[Creating Servers]
 * xref:runtime-manager::rtm-agent-allowlists.adoc[Ports, IP Addresses, and Hostnames to Allowlist]
