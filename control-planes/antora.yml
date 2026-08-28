@@ -1,5 +1,5 @@
 name: control-planes
-title: Anypoint Control Planes
+title: Anypoint Platform Control Planes
 version: master
 nav:
 - modules/ROOT/nav.adoc
