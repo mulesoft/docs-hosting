@@ -10,7 +10,7 @@ Anypoint Platform architecture separates into two distinct planes that can be ho
 image:intro-control-runtime-planes.png[Diagram of contents of the control plane and runtime plane]
 
 Control plane::
-The components you use to design, deploy, and manage APIs and Mule applications. The control plane includes Anypoint Design Center, Anypoint Management Center, and Anypoint Exchange.
+The management layer of Anypoint Platform, where you design, deploy, and manage APIs and Mule apps. Your organization, identity, and design-time metadata live in this plane.
 
 Runtime plane::
 The components where your APIs and Mule applications are deployed and made available to your users. The runtime plane includes the Mule runtime engine and supporting services.
