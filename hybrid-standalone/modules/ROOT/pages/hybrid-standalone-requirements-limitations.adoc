@@ -130,4 +130,4 @@ Plan your application deployment strategy within these tested and recommended li
 
 == See Also
 
-* xref:index.adoc[Hybrid Standalone Overview]
+* xref:index.adoc[Hybrid Standalone Runtimes Overview]

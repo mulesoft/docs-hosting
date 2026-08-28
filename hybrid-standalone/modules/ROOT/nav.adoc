@@ -1,4 +1,4 @@
-.xref:index.adoc[Hybrid Standalone]
+.xref:index.adoc[Hybrid Standalone Runtimes]
 * xref:index.adoc[Overview]
 * xref:hybrid-standalone-release-notes.adoc[Release Notes]
 * xref:hybrid-standalone-requirements-limitations.adoc[Requirements and Limitations]
