@@ -137,6 +137,6 @@ This matrix shows which runtime plane options are supported in each control plan
 * xref:cloudhub-2::index.adoc[CloudHub 2.0]
 * xref:cloudhub-2::ch2-architecture.adoc#regions-and-dns-records[CloudHub 2.0 Runtime Plane Regions]
 * xref:runtime-manager::cloudhub.adoc[CloudHub]
-* xref:hybrid-standalone::index.adoc[Hybrid Standalone]
-* xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises]
 * xref:runtime-fabric::index.adoc[Anypoint Runtime Fabric Overview]
+* xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes]
+* xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises]
