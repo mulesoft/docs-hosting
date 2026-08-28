@@ -30,7 +30,7 @@ This is not a step in creating a Mule app. Anypoint Studio and Anypoint Code Bui
 
 == Control Plane Endpoint Domains
 
-Use the endpoint domain for your cloud in `anypoint.platform.base_uri` and `anypoint.platform.analytics_base_uri`. For hostnames to allowlist and for `amc_setup --region`, see xref:finding-endpoints-allowlists.adoc[Finding Endpoints and Allowlists].
+Use the endpoint domain for your cloud in `anypoint.platform.base_uri` and `anypoint.platform.analytics_base_uri`. For hostnames to allowlist and for `amc_setup --region`, see xref:control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists].
 
 [%header%autowidth.spread]
 |===
@@ -105,7 +105,7 @@ anypoint.platform.analytics_base_uri=https://analytics-ingest.jp1.platform.mules
 
 * xref:index.adoc[Anypoint Platform Control Planes Overview]
 * xref:creating-and-deploying-mule-apps.adoc[Creating and Deploying Mule Apps]
-* xref:finding-endpoints-allowlists.adoc[Finding Endpoints and Allowlists]
+* xref:control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists]
 * xref:hybrid-standalone::setting-hybrid-standalone.adoc[Setting up Hybrid Standalone Instances]
 * xref:mule-runtime::runtime-installation-task.adoc[Download, Install, Configure, and Upgrade Mule]
 * xref:runtime-fabric::install-self-managed-network-configuration.adoc[Configuring Your Network to Support Runtime Fabric]

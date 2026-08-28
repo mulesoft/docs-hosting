@@ -1,5 +1,5 @@
-= Finding Endpoints and Allowlists
-:page-aliases: eu-control-plane::servers-create-eu.adoc, anypoint-clouds::finding-endpoints-allowlists.adoc
+= Control Plane Hostnames and Allowlists
+:page-aliases: eu-control-plane::servers-create-eu.adoc, anypoint-clouds::finding-endpoints-allowlists.adoc, finding-endpoints-allowlists.adoc
 
 Use these hostnames when you allowlist outbound access from a customer-hosted Mule runtime to an Anypoint Platform control plane, or when you pass `--region` to `amc_setup`. The following table lists platform, analytics ingest, and Runtime Manager hosts for the commercial clouds. It does not replace Runtime Fabric network configuration or the full Hybrid Standalone allowlist.
 

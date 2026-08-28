@@ -1,5 +1,5 @@
 .xref:index.adoc[Anypoint Control Planes]
-* xref:index.adoc[Overview]
+* xref:index.adoc[Anypoint Platform Control Planes Overview]
 * xref:creating-and-deploying-mule-apps.adoc[Creating and Deploying Mule Apps]
-* xref:finding-endpoints-allowlists.adoc[Finding Endpoints and Allowlists]
+* xref:control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists]
 * xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes]

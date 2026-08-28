@@ -112,7 +112,7 @@ a|
 == See Also
 
 * xref:index.adoc[Anypoint Platform Control Planes Overview]
-* xref:finding-endpoints-allowlists.adoc[Finding Endpoints and Allowlists]
+* xref:control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists]
 * xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes]
 * xref:hosting-home::index.adoc[Anypoint Platform Hosting Overview]
 * xref:hyperforce::index.adoc[Salesforce Hyperforce Overview]
