@@ -164,8 +164,8 @@ For apps deployed to shared spaces, each region might have multiple `shard` valu
 DNS records are unique to each control plane.
 Although the EU control plane supports some of the same regions that the
 US control plane supports, the DNS records are different.
-For more on Anypoint Clouds, including EU Cloud, see
-xref:anypoint-clouds::index.adoc[Anypoint Clouds Overview].
+For more on Anypoint Platform control planes, including EU Cloud, see
+xref:control-planes::index.adoc[Anypoint Platform Control Planes Overview].
 
 For example, if you are using the US control plane and deploy to the Ireland region,
 the DNS records for external and internal IP addresses are

@@ -51,7 +51,7 @@ MuleSoft provides cloud-managed and self-hosted control plane options. This tabl
 | https://ca1.platform.mulesoft.com[Canada Cloud]
 | `ca1.platform.mulesoft.com`
 | Canada
-.4+| MuleSoft-managed control plane on Salesforce Hyperforce, with one in-country runtime region. See xref:anypoint-clouds::deploying-mule-apps.adoc[Deploying Mule Apps].
+.4+| MuleSoft-managed control plane on Salesforce Hyperforce, with one in-country runtime region. See xref:control-planes::deploying-mule-apps.adoc[Deploying Mule Apps].
 .4+| See xref:hyperforce::index.adoc[Salesforce Hyperforce Overview]
 
 | https://jp1.platform.mulesoft.com[Japan Cloud]
@@ -139,5 +139,5 @@ This matrix shows which runtime plane options are supported in each control plan
 * xref:runtime-fabric::index.adoc[Anypoint Runtime Fabric Overview]
 * xref:private-cloud::index.adoc[Anypoint Platform Private Cloud Edition]
 * xref:gov-cloud::index.adoc[MuleSoft Government Cloud]
-* xref:anypoint-clouds::index.adoc[Anypoint Clouds Overview]
+* xref:control-planes::index.adoc[Anypoint Platform Control Planes Overview]
 * xref:hyperforce::index.adoc[Salesforce Hyperforce Overview]

@@ -1,7 +1,7 @@
-= Accessing Anypoint Clouds
-:page-aliases: eu-control-plane::platform-access-eu.adoc, eu-control-plane::studio-platform-access-eu.adoc
+= Accessing Anypoint Platform Control Planes
+:page-aliases: eu-control-plane::platform-access-eu.adoc, eu-control-plane::studio-platform-access-eu.adoc, accessing-anypoint-clouds.adoc, anypoint-clouds::accessing-anypoint-clouds.adoc
 
-Sign in to the Anypoint Cloud that holds your organization. Anypoint Platform accounts, organizations, and assets are not shared across clouds. If you have an account in one cloud, create a new account in every other cloud you use.
+Sign in to the Anypoint Platform control plane that holds your organization. Use the platform URL for the cloud MuleSoft provides for that geography. MuleSoft adds new regional clouds over time.
 
 == Sign In or Sign Up
 
@@ -33,10 +33,12 @@ Sign in to the Anypoint Cloud that holds your organization. Anypoint Platform ac
 . If you do not have an account in that cloud, click *Sign Up* and create one.
 . Enter your username and password, then click *Sign In*.
 
-To point Anypoint Studio or Anypoint Code Builder at a non-US cloud, see those products' control plane settings. To point Mule at a non-US cloud, see xref:configuring-mule-anypoint-clouds.adoc[Configuring Mule to Access Anypoint Clouds].
+To connect to a non-US Cloud control plane:
+
+* xref:studio::hyperforce-configuration.adoc[Configure Anypoint Studio for Control Planes]
+* xref:anypoint-code-builder::start-acb.adoc#change-clouds[Configure Anypoint Code Builder to a Different Control Plane]
+* xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes]
 
 == See Also
 
-* xref:index.adoc[Anypoint Clouds Overview]
-* xref:studio::hyperforce-configuration.adoc[Configure Anypoint Studio for Control Planes]
-* xref:anypoint-code-builder::start-acb.adoc#change-clouds[Configure Anypoint Code Builder to a Different Control Plane]
+* xref:index.adoc[Anypoint Platform Control Planes Overview]

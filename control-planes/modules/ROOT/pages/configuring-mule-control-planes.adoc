@@ -1,7 +1,7 @@
-= Configuring Mule to Access Anypoint Clouds
-:page-aliases: hyperforce::configure-mule-hyperforce.adoc, eu-control-plane::runtime-configure-eu.adoc
+= Configuring Mule to Access Anypoint Platform Control Planes
+:page-aliases: hyperforce::configure-mule-hyperforce.adoc, eu-control-plane::runtime-configure-eu.adoc, configuring-mule-anypoint-clouds.adoc, anypoint-clouds::configuring-mule-anypoint-clouds.adoc
 
-By default, Mule runtime engine (Mule) connects to the US Cloud control plane. To use Mule with another Anypoint Cloud, redefine the configuration properties that point Mule at that cloud, and provide the xref:access-management::managing-business-groups.adoc#client-id-and-secret[client ID and client secret] of the environment in your organization.
+By default, Mule runtime engine (Mule) connects to the US Cloud control plane. To use Mule with another Anypoint Platform control plane, redefine the configuration properties that point Mule at that control plane, and provide the xref:access-management::managing-business-groups.adoc#client-id-and-secret[client ID and client secret] of the environment in your organization.
 
 If you do not override these default properties, the API gateway capability of Mule is disabled in those clouds.
 

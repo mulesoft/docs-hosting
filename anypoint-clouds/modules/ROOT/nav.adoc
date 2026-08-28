@@ -1,6 +1,0 @@
-.xref:index.adoc[Anypoint Clouds]
-* xref:index.adoc[Overview]
-* xref:accessing-anypoint-clouds.adoc[Accessing Anypoint Clouds]
-* xref:configuring-mule-anypoint-clouds.adoc[Configuring Mule to Access Anypoint Clouds]
-* xref:deploying-mule-apps.adoc[Deploying Mule Apps]
-* xref:finding-endpoints-allowlists.adoc[Finding Endpoints and Allowlists]

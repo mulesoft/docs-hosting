@@ -1,11 +1,11 @@
 = Finding Endpoints and Allowlists
-:page-aliases: eu-control-plane::servers-create-eu.adoc
+:page-aliases: eu-control-plane::servers-create-eu.adoc, anypoint-clouds::finding-endpoints-allowlists.adoc
 
-Use these hostnames when you allowlist outbound access from a customer-hosted Mule runtime to an Anypoint Cloud, or when you pass `--region` to `amc_setup`. This page lists platform, analytics ingest, and Runtime Manager hosts for the six commercial clouds. It does not replace Runtime Fabric network configuration or the full Hybrid Standalone allowlist.
+Use these hostnames when you allowlist outbound access from a customer-hosted Mule runtime to an Anypoint Platform control plane, or when you pass `--region` to `amc_setup`. The following table lists platform, analytics ingest, and Runtime Manager hosts for the commercial clouds. It does not replace Runtime Fabric network configuration or the full Hybrid Standalone allowlist.
 
 == Control Plane Hostnames
 
-Allow outbound HTTPS (port 443) to these hosts, substituting the row for your cloud. Some Hyperforce Runtime Manager and ingest endpoints also use port 8443. See the Runtime Fabric and Hybrid topics in See Also for protocol and port detail.
+Allow outbound HTTPS (port 443) to these hosts, substituting the row for your cloud. Some Runtime Manager and ingest endpoints also use port 8443. See the Runtime Fabric and Hybrid topics in See Also for protocol and port detail.
 
 [%header%autowidth.spread]
 |===
@@ -48,7 +48,7 @@ Allow outbound HTTPS (port 443) to these hosts, substituting the row for your cl
 | Copy the command Runtime Manager generates when you add a server.
 |===
 
-Do not allowlist Anypoint services by a single IP address. Some addresses are assigned dynamically and can change.
+Do not allowlist Anypoint Platform services by a single IP address. Some addresses are assigned dynamically and can change.
 
 == Hybrid Standalone Servers
 
@@ -64,7 +64,7 @@ Runtime Fabric requires additional hostnames per cloud (message broker, registry
 
 == See Also
 
-* xref:configuring-mule-anypoint-clouds.adoc[Configuring Mule to Access Anypoint Clouds]
+* xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes]
 * xref:hybrid-standalone::creating-servers.adoc[Creating Servers]
 * xref:runtime-manager::rtm-agent-allowlists.adoc[Ports, IP Addresses, and Hostnames to Allowlist]
 * xref:runtime-fabric::install-self-managed-network-configuration.adoc[Configuring Your Network to Support Runtime Fabric]
