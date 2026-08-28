@@ -1,0 +1,126 @@
+= Creating and Deploying Mule Apps
+:page-aliases: deploying-mule-apps.adoc, hyperforce::deploy-mule-apps-hyperforce.adoc, eu-control-plane::app-deploy-eu.adoc, anypoint-clouds::deploying-mule-apps.adoc
+
+[[deploy-mule-apps-to-control-planes]]
+Create the Mule app in Anypoint Studio or Anypoint Code Builder, then deploy it through the Anypoint Platform control plane that holds your organization. Runtime Manager in that control plane is the hub for CloudHub, CloudHub 2.0, Runtime Fabric, and Hybrid Standalone. Studio, Anypoint Code Builder, the Mule Maven Plugin, Anypoint CLI, and REST APIs can also deploy to a subset of those runtimes.
+
+Which runtime you can use depends on the control plane. See the xref:hosting-home::index.adoc#support-matrix-control-plane[control plane and runtime plane compatibility matrix], then follow the product topic for that runtime.
+
+== Signing In to the Control Plane
+
+. Sign in to the control plane that holds the organization. Runtime Manager runs in that session. See xref:accessing-control-planes.adoc[Accessing Anypoint Platform Control Planes].
+. If you create or deploy from a tool outside the platform UI, point that tool at the same control plane:
++
+* xref:studio::hyperforce-configuration.adoc[Configuring Anypoint Studio for Control Planes]
+* xref:anypoint-code-builder::start-acb.adoc#change-clouds[Set the Desktop IDE to a Different Control Plane]
+* xref:anypoint-cli::index.adoc#default-options[Anypoint CLI] `--host` flag or `ANYPOINT_HOST` (defaults to US Cloud)
++
+The Anypoint Code Builder desktop IDE control-plane picker lists US Cloud, EU Cloud, Canada Cloud, and Japan Cloud.
+
+Configuring Mule (`wrapper.conf` or `base_uri`) is not a create-the-app step. For Hybrid Standalone, set these properties when you install and register Mule, before you deploy onto that server. For CloudHub and CloudHub 2.0, set them at deploy time only if the app must use API gateway with a non-US Cloud control plane. See xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes].
+
+== Creating the Mule App
+
+* xref:studio::index.adoc[Anypoint Studio] designs and tests Mule apps.
+* xref:anypoint-code-builder::int-create-integrations.adoc[Anypoint Code Builder] creates integrations in a Mule app.
+* The xref:mule-runtime::mmp-concept.adoc[Mule Maven Plugin] packages a Maven project. It does not design flows.
+
+== Deploying Through the Control Plane
+
+Use xref:runtime-manager::index.adoc[Anypoint Runtime Manager] to deploy to any runtime the control plane supports: CloudHub, CloudHub 2.0, Runtime Fabric, or Hybrid Standalone.
+
+Studio, Anypoint Code Builder, the Mule Maven Plugin, Anypoint CLI, and REST APIs can deploy without opening Runtime Manager first, with these limits:
+
+[%header%autowidth.spread]
+|===
+| Tool | Deploys to
+
+| Runtime Manager
+| CloudHub, CloudHub 2.0, Runtime Fabric, and Hybrid Standalone, within the compatibility matrix
+
+| Anypoint Studio
+| CloudHub. See xref:studio::deploy-mule-application-task.adoc[Deploying a Mule Application to CloudHub]. To deploy a Studio project to CloudHub 2.0, Runtime Fabric, or Hybrid Standalone, use Runtime Manager.
+
+| Anypoint Code Builder
+| CloudHub and CloudHub 2.0. See xref:anypoint-code-builder::int-deploy-mule-apps.adoc[Deploying Mule Apps to CloudHub and CloudHub 2.0].
+
+| Mule Maven Plugin
+| CloudHub, CloudHub 2.0, and Runtime Fabric
+
+| Anypoint CLI
+| CloudHub, CloudHub 2.0, Runtime Fabric, and Hybrid Standalone
+
+| REST APIs
+| CloudHub, CloudHub 2.0, and Hybrid Standalone. Each runtime uses a different API.
+|===
+
+Mule Maven Plugin deploy topics:
+
+* xref:mule-runtime::deploy-to-cloudhub.adoc[Deploying Applications to CloudHub Using the Mule Maven Plugin]
+* xref:cloudhub-2::ch2-deploy-maven.adoc[Deploying Apps with the Mule Maven Plugin] (CloudHub 2.0)
+* xref:runtime-fabric::deploy-maven-4.x.adoc[Deploying Mule Apps to Runtime Fabric using Maven]
+
+Anypoint CLI deploy topics:
+
+* xref:anypoint-cli::cloudhub-apps.adoc#deploy-to-cloudhub[Deploying Applications to CloudHub Using the Anypoint CLI]
+* xref:cloudhub-2::ch2-deploy-cli.adoc[Deploying Apps with Anypoint CLI] (CloudHub 2.0)
+* xref:runtime-fabric::deploy-to-rtf-cli.adoc[Deploying Mule Apps to Runtime Fabric Using Anypoint CLI] (Anypoint CLI 3.x)
+* xref:anypoint-cli::standalone-apps.adoc[Locally Deployed Applications Managed by Runtime Manager] (Hybrid Standalone)
+
+REST API topics:
+
+* xref:cloudhub::cloudhub-api.adoc[CloudHub API]
+* xref:cloudhub-2::ch2-api.adoc[CloudHub 2.0 API] (CloudHub 2.0 API and Application Manager API)
+* xref:runtime-manager::runtime-manager-api.adoc[Runtime Manager REST API] (Hybrid Standalone)
+
+== Choosing a Runtime Plane
+
+[%header%autowidth.spread]
+|===
+| Runtime plane | Control Planes | Where to deploy
+
+| CloudHub 2.0
+a|
+* US Cloud
+* EU Cloud
+* Canada Cloud
+* Japan Cloud
+* India Cloud
+* Australia Cloud
+| xref:cloudhub-2::ch2-deploy.adoc[Deploying Apps to CloudHub 2.0]. For DNS and URL format, see xref:cloudhub-2::ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records].
+
+| CloudHub
+a|
+* US Cloud
+* EU Cloud
+| xref:runtime-manager::deploying-to-cloudhub.adoc[Deploying to CloudHub].
+
+| Runtime Fabric
+a|
+* US Cloud
+* EU Cloud
+* Canada Cloud
+* Japan Cloud
+* India Cloud
+* Australia Cloud
+| xref:runtime-fabric::deploy-index.adoc[Deploying Mule Apps to Runtime Fabric]. For Canada Cloud, Japan Cloud, India Cloud, and Australia Cloud, contact your account manager to unlock Runtime Fabric.
+
+| Hybrid Standalone
+a|
+* US Cloud
+* EU Cloud
+* Canada Cloud
+* Japan Cloud
+* India Cloud
+* Australia Cloud
+| xref:hybrid-standalone::deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]. Register the Runtime Manager agent with the control plane that holds the organization. A Mule instance that is not registered to Runtime Manager is an on-premises runtime, not a control-plane deploy. See xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises].
+|===
+
+== See Also
+
+* xref:index.adoc[Anypoint Platform Control Planes Overview]
+* xref:accessing-control-planes.adoc[Accessing Anypoint Platform Control Planes]
+* xref:finding-endpoints-allowlists.adoc[Finding Endpoints and Allowlists]
+* xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes]
+* xref:hosting-home::index.adoc[Anypoint Platform Hosting Overview]
+* xref:hyperforce::index.adoc[Salesforce Hyperforce Overview]

@@ -697,6 +697,6 @@ This table indicates the available and planned cloud regions for Hyperforce:
 
 == See Also
 
-* xref:control-planes::deploying-mule-apps.adoc[Deploying Mule Apps]
+* xref:control-planes::creating-and-deploying-mule-apps.adoc[Creating and Deploying Mule Apps]
 * xref:control-planes::configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes]
 * xref:hosting-home::hadr-guide.adoc[High Availability and Disaster Recovery Across Deployment Models]

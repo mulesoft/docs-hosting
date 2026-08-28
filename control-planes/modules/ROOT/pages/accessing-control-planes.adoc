@@ -33,12 +33,14 @@ Sign in to the Anypoint Platform control plane that holds your organization. Use
 . If you do not have an account in that cloud, click *Sign Up* and create one.
 . Enter your username and password, then click *Sign In*.
 
-To connect to a non-US Cloud control plane:
+To sign in from Anypoint Studio or Anypoint Code Builder, point the IDE at that control plane:
 
 * xref:studio::hyperforce-configuration.adoc[Configure Anypoint Studio for Control Planes]
 * xref:anypoint-code-builder::start-acb.adoc#change-clouds[Configure Anypoint Code Builder to a Different Control Plane]
-* xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes]
+
+Configuring Mule (`wrapper.conf` or `base_uri`) is a separate job for a running Mule instance. It is not required to sign in. See xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes].
 
 == See Also
 
 * xref:index.adoc[Anypoint Platform Control Planes Overview]
+* xref:creating-and-deploying-mule-apps.adoc[Creating and Deploying Mule Apps]
