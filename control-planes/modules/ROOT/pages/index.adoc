@@ -9,14 +9,15 @@ For the full catalog of control planes (including MuleSoft Government Cloud and 
 
 MuleSoft hosts a control plane in each supported geography and names that regional control plane a cloud, for example US Cloud or EU Cloud. US Cloud is the US control plane. EU Cloud is the EU control plane. **Cloud** is the product name of that isolated Anypoint Platform instance (login URL, organization, and data residency). **Control plane** is the management layer in that instance, as distinct from the xref:hosting-home::index.adoc#control-plane-and-runtime-plane[runtime plane], where apps run.
 
-You choose one cloud for your organization. You do not choose a cloud and a control plane as two separate products.
+You choose one cloud for your organization. You don't choose a cloud and a control plane as two separate products.
 
-If MuleSoft hosts your runtime (CloudHub or CloudHub 2.0), continue with xref:creating-and-deploying-mule-apps.adoc[Creating and Deploying Mule Apps]. xref:control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists] and xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes] apply when you host Mule or need API gateway on a non-US Cloud.
+* If MuleSoft hosts your runtime (CloudHub or CloudHub 2.0), see xref:creating-and-deploying-mule-apps.adoc[Creating and Deploying Mule Apps].
+* If you host Mule, or you need API gateway on a non-US Cloud, see xref:control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists] and xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes].
 
 For data residency and compliance notes for each control plane, see xref:hosting-home::index.adoc#control-plane-hosting-options[Control Plane Hosting Options].
 
 [[signing-in]]
-== Signing In to the Control Plane
+== Sign In to the Control Plane
 
 Sign in to the Anypoint Platform control plane that holds your organization. Use the platform URL for that cloud. Organizations and user accounts are not shared across clouds. MuleSoft adds new regional clouds over time.
 
@@ -26,43 +27,38 @@ Sign in to the Anypoint Platform control plane that holds your organization. Use
 |===
 | Cloud | Platform URL
 
-| US Cloud (default)
-| https://anypoint.mulesoft.com[`anypoint.mulesoft.com`]
+| https://us1.anypoint.mulesoft.com[`US Cloud`]
+| `https://anypoint.mulesoft.com`
 
-| EU Cloud
-| https://eu1.anypoint.mulesoft.com[`eu1.anypoint.mulesoft.com`]
+| https://eu1.anypoint.mulesoft.com[`EU Cloud`] 
+| `https://eu1.anypoint.mulesoft.com`
 
-| Canada Cloud
-| https://ca1.platform.mulesoft.com[`ca1.platform.mulesoft.com`]
+| https://ca1.platform.mulesoft.com[`Canada Cloud`]
+| `https://ca1.platform.mulesoft.com`
 
-| Japan Cloud
-| https://jp1.platform.mulesoft.com[`jp1.platform.mulesoft.com`]
+| https://jp1.platform.mulesoft.com[`Japan Cloud`]
+| `https://jp1.platform.mulesoft.com`
 
-| India Cloud
-| https://in1.platform.mulesoft.com[`in1.platform.mulesoft.com`]
+| https://in1.platform.mulesoft.com[`India Cloud`]
+| `https://in1.platform.mulesoft.com`
 
-| Australia Cloud
-| https://au1.platform.mulesoft.com[`au1.platform.mulesoft.com`]
+| https://au1.platform.mulesoft.com[`Australia Cloud`]
+| `https://au1.platform.mulesoft.com`
 |===
 
-. If you do not have an account in that cloud, click *Sign Up* and create one.
+. If you don't have an account in that cloud, click *Sign Up* and create one.
 . Enter your username and password, then click *Sign In*.
 
-To sign in from a tool outside the platform UI, point that tool at the same control plane:
+To sign in from Anypoint Studio, the Anypoint Code Builder desktop IDE, or Anypoint CLI, configure that product to use the same control plane as your organization:
 
 * xref:studio::hyperforce-configuration.adoc[Configure Anypoint Studio for Control Planes]
-* xref:anypoint-code-builder::start-acb.adoc#change-clouds[Set the Desktop IDE to a Different Control Plane]
-* xref:anypoint-cli::index.adoc#default-options[Anypoint CLI] `--host` flag or `ANYPOINT_HOST` (defaults to US Cloud)
-
-The Anypoint Code Builder desktop IDE control-plane picker lists US Cloud, EU Cloud, Canada Cloud, and Japan Cloud.
-
-Configuring Mule (`wrapper.conf` or `base_uri`) is a separate job for a running Mule instance. It is not required to sign in. See xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes].
+* xref:anypoint-code-builder::start-acb.adoc#change-clouds[Configure Anypoint Code Builder for Control Plane]
+* xref:anypoint-cli::index.adoc#default-options[Configure Anypoint CLI for Control Plane]
 
 == Runtime Planes and Feature Availability
 
 * Runtime plane support varies by control plane. See the xref:hosting-home::index.adoc#support-matrix-control-plane[control plane and runtime plane compatibility matrix], then xref:creating-and-deploying-mule-apps.adoc[Creating and Deploying Mule Apps].
-* Object Store capabilities vary by control plane. See xref:object-store::index.adoc#os-features-control-plane[Object Store Features by Control Plane].
-* MuleSoft product features vary by control plane. See xref:hyperforce::index.adoc[MuleSoft product features by control plane].
+* MuleSoft product features vary by control plane. See xref:hyperforce::index.adoc#features-supported-on-hyperforce[MuleSoft product features by Control Plane].
 
 == See Also
 

@@ -1,11 +1,13 @@
 = Control Plane Hostnames and Allowlists
 :page-aliases: eu-control-plane::servers-create-eu.adoc, anypoint-clouds::finding-endpoints-allowlists.adoc, finding-endpoints-allowlists.adoc
 
-Use these hostnames when you allowlist outbound access from a customer-hosted Mule runtime to an Anypoint Platform control plane, or when you pass `--region` to `amc_setup`. The following table lists platform, analytics ingest, and Runtime Manager hosts for the commercial clouds. It does not replace Runtime Fabric network configuration or the full Hybrid Standalone allowlist.
+Use these hostnames when you allowlist outbound access from a customer-hosted Mule runtime to an Anypoint Platform control plane, or when you pass `--region` to `amc_setup`. This table lists platform, analytics ingest, and Runtime Manager hosts for the commercial clouds.
+
+When you set `anypoint.platform.base_uri` and `anypoint.platform.analytics_base_uri`, prefix the Platform URL and Analytics ingest hosts with `https://`. See xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes].
 
 == Control Plane Hostnames
 
-Allow outbound HTTPS (port 443) to these hosts, substituting the row for your cloud. Some Runtime Manager and ingest endpoints also use port 8443. See the Runtime Fabric and Hybrid topics in See Also for protocol and port detail.
+Allow outbound HTTPS (port 443) to these hosts, substituting the row for your cloud. Some Runtime Manager and ingest endpoints also use port 8443.
 
 [%header%autowidth.spread]
 |===
@@ -48,24 +50,21 @@ Allow outbound HTTPS (port 443) to these hosts, substituting the row for your cl
 | Copy the command Runtime Manager generates when you add a server.
 |===
 
-Do not allowlist Anypoint Platform services by a single IP address. Some addresses are assigned dynamically and can change.
+Don't allowlist Anypoint Platform services by a single IP address. Some addresses are assigned dynamically and can change.
 
-== Hybrid Standalone Servers
+== Allowlists and Endpoints by Runtime Plane
 
-To register a server with Runtime Manager, run `amc_setup` as described in xref:hybrid-standalone::creating-servers.adoc[Creating Servers]. For EU Cloud, include `--region eu1`. For US Cloud, the default region is `prod`. Runtime Manager inserts the correct flag in the generated script when you click *Add Server* in that cloud.
+For ports, extra hostnames, and application endpoints, use the product topic for that runtime:
 
-Documented `--region` values in the agent reference are `prod`, `eu1`, and `us_gov`. See xref:runtime-manager::installing-and-configuring-runtime-manager-agent.adoc#amc_setup-parameters[amc_setup Parameters].
+* CloudHub 2.0: xref:cloudhub-2::ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records] and xref:cloudhub-2::ch2-config-endpoints-paths.adoc[Configuring Endpoints and Paths for Apps Deployed to a Private Space]
+* CloudHub: xref:cloudhub::cloudhub-networking-guide.adoc[CloudHub Networking Guide] and xref:cloudhub::lb-allowlists.adoc[Dedicated Load Balancer Allowlists]
+* Runtime Fabric: xref:runtime-fabric::install-self-managed-network-configuration.adoc[Configuring Your Network to Support Runtime Fabric]
+* API gateway: xref:mule-gateway::mule-gateway-hostnames.adoc[Ports, IPs, and Hostnames to Allow]
+* Hybrid Standalone: xref:hybrid-standalone::configure-ports-ips.adoc[Adding Ports, IPs, and Hostnames for Runtime Manager Agent]
 
-For the full Hybrid Standalone port, hostname, and IP allowlist (including Exchange and ingest hosts), see xref:hybrid-standalone::configure-ports-ips.adoc[Adding Ports, IPs, and Hostnames for Runtime Manager Agent].
 
-== Runtime Fabric
-
-Runtime Fabric requires additional hostnames per cloud (message broker, registry, and monitoring ingest). Use xref:runtime-fabric::install-self-managed-network-configuration.adoc[Configuring Your Network to Support Runtime Fabric]. Do not copy those tables here.
 
 == See Also
 
 * xref:index.adoc[Anypoint Platform Control Planes Overview]
 * xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes]
-* xref:hybrid-standalone::creating-servers.adoc[Creating Servers]
-* xref:runtime-manager::rtm-agent-allowlists.adoc[Ports, IP Addresses, and Hostnames to Allowlist]
-* xref:runtime-fabric::install-self-managed-network-configuration.adoc[Configuring Your Network to Support Runtime Fabric]

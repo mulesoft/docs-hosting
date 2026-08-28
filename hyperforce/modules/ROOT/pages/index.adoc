@@ -19,6 +19,7 @@ Minimizes downtime for releases and maintenance. Additionally, it accelerates de
 * Privacy +
 Provides you privacy standards that give you control and transparency over your users' data.
 
+[[features-supported-on-hyperforce]]
 == Features Supported on Hyperforce
 
 This table indicates the support status of Anypoint Platform features on Hyperforce:
