@@ -691,6 +691,13 @@ This table indicates the available and planned cloud regions for Hyperforce:
 | Asia Pacific | `au1.platform.mulesoft.com` | Available
 |===
 
+To use these clouds, see:
+
+* xref:control-planes::index.adoc[Anypoint Platform Control Planes Overview]
+* xref:control-planes::creating-and-deploying-mule-apps.adoc[Creating and Deploying Mule Apps]
+* xref:control-planes::control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists]
+* xref:control-planes::configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes]
+
 == Mule Runtime Version Compatibility
 
 * Hyperforce is compatible with Mule runtime engine versions under support, 4.4.0 and later.

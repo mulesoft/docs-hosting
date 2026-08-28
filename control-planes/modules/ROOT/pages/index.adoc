@@ -7,7 +7,7 @@ For the full catalog of control planes (including MuleSoft Government Cloud and 
 
 == Control Plane Clouds
 
-MuleSoft hosts a control plane in each supported geography and names that regional control plane a cloud, for example US Cloud or EU Cloud. US Cloud is the US control plane. EU Cloud is the EU control plane. **Cloud** is the product name of that isolated Anypoint Platform instance (login URL, organization, and data residency). **Control plane** is the management layer in that instance, as distinct from the xref:hosting-home::index.adoc#control-plane-and-runtime-plane[runtime plane], where apps run.
+MuleSoft hosts a control plane in each supported geography and names that regional control plane a cloud, for example US Cloud or EU Cloud. US Cloud is the US control plane. EU Cloud is the EU control plane. __Cloud__ is the product name of that isolated Anypoint Platform instance (login URL, organization, and data residency). __Control plane__ is the management layer in that instance, as distinct from the xref:hosting-home::index.adoc#control-plane-and-runtime-plane[runtime plane], where apps run.
 
 You choose one cloud for your organization. You don't choose a cloud and a control plane as two separate products.
 
@@ -27,22 +27,22 @@ Sign in to the Anypoint Platform control plane that holds your organization. Use
 |===
 | Cloud | Platform URL
 
-| https://anypoint.mulesoft.com[`US Cloud`]
+| https://anypoint.mulesoft.com[US Cloud]
 | `https://anypoint.mulesoft.com`
 
-| https://eu1.anypoint.mulesoft.com[`EU Cloud`] 
+| https://eu1.anypoint.mulesoft.com[EU Cloud]
 | `https://eu1.anypoint.mulesoft.com`
 
-| https://ca1.platform.mulesoft.com[`Canada Cloud`]
+| https://ca1.platform.mulesoft.com[Canada Cloud]
 | `https://ca1.platform.mulesoft.com`
 
-| https://jp1.platform.mulesoft.com[`Japan Cloud`]
+| https://jp1.platform.mulesoft.com[Japan Cloud]
 | `https://jp1.platform.mulesoft.com`
 
-| https://in1.platform.mulesoft.com[`India Cloud`]
+| https://in1.platform.mulesoft.com[India Cloud]
 | `https://in1.platform.mulesoft.com`
 
-| https://au1.platform.mulesoft.com[`Australia Cloud`]
+| https://au1.platform.mulesoft.com[Australia Cloud]
 | `https://au1.platform.mulesoft.com`
 |===
 
