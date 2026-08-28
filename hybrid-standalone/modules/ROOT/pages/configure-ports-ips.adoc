@@ -12,6 +12,8 @@ All connectivity requirements are for outbound connections from your network to 
 
 Runtime Manager agent establishes persistent WebSocket connections that remain active for ongoing communication with Anypoint Platform services.
 
+This page lists US Cloud, EU Cloud, and MuleSoft Government Cloud endpoints. For Canada Cloud, Japan Cloud, India Cloud, and Australia Cloud, allowlist the Platform URL, analytics ingest, and Runtime Manager hosts in xref:control-planes::control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists].
+
 
 == Mutual TLS Authentication Endpoints
 
@@ -133,6 +135,7 @@ Configure these URLs for Runtime Manager agent connectivity based on your agent 
 
 == See Also
 
+* xref:control-planes::control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists]
 * xref:setting-hybrid-standalone.adoc[Setting up Hybrid Standalone Instances]
 * xref:creating-servers.adoc[Creating Servers]
 * xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]

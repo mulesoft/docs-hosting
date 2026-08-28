@@ -1,7 +1,7 @@
 = Anypoint Platform Control Planes Overview
 :page-aliases: eu-control-plane::index.adoc, eu-control-plane::object-store-eu.adoc, anypoint-clouds::index.adoc, accessing-control-planes.adoc, eu-control-plane::platform-access-eu.adoc, eu-control-plane::studio-platform-access-eu.adoc, accessing-anypoint-clouds.adoc, anypoint-clouds::accessing-anypoint-clouds.adoc
 
-Anypoint Platform control planes are the MuleSoft-managed environments where you design, deploy, and manage APIs and Mule apps. Each Anypoint Platform organization lives in exactly one control plane. Sign in to that control plane and deploy Mule apps to the runtime planes it supports.
+Anypoint Platform control planes are the MuleSoft-managed environments where you design, deploy, and manage APIs and Mule apps. Each Anypoint Platform organization lives in exactly one cloud. Sign in to that control plane and deploy Mule apps to the runtime planes it supports.
 
 For the full catalog of control planes (including MuleSoft Government Cloud and Anypoint Platform Private Cloud Edition (PCE)) and the control plane and runtime compatibility matrix, see xref:hosting-home::index.adoc[Anypoint Platform Hosting Overview].
 
@@ -11,8 +11,8 @@ MuleSoft hosts a control plane in each supported geography and names that region
 
 You choose one cloud for your organization. You don't choose a cloud and a control plane as two separate products.
 
-* If MuleSoft hosts your runtime (CloudHub or CloudHub 2.0), see xref:creating-and-deploying-mule-apps.adoc[Creating and Deploying Mule Apps].
-* If you host Mule, or you need API gateway on a non-US Cloud, see xref:control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists] and xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes].
+* To create and deploy a Mule app, see xref:creating-and-deploying-mule-apps.adoc[Creating and Deploying Mule Apps].
+* If you host Mule, or the app must use API gateway on a non-US Cloud, also see xref:control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists] and xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes].
 
 For data residency and compliance notes for each control plane, see xref:hosting-home::index.adoc#control-plane-hosting-options[Control Plane Hosting Options].
 
@@ -27,7 +27,7 @@ Sign in to the Anypoint Platform control plane that holds your organization. Use
 |===
 | Cloud | Platform URL
 
-| https://us1.anypoint.mulesoft.com[`US Cloud`]
+| https://anypoint.mulesoft.com[`US Cloud`]
 | `https://anypoint.mulesoft.com`
 
 | https://eu1.anypoint.mulesoft.com[`EU Cloud`] 
@@ -49,15 +49,17 @@ Sign in to the Anypoint Platform control plane that holds your organization. Use
 . If you don't have an account in that cloud, click *Sign Up* and create one.
 . Enter your username and password, then click *Sign In*.
 
-To sign in from Anypoint Studio, the Anypoint Code Builder desktop IDE, or Anypoint CLI, configure that product to use the same control plane as your organization:
+To sign in from Anypoint Studio, the Anypoint Code Builder desktop IDE, Anypoint CLI, or Maven, configure that product to use the same control plane as your organization:
 
 * xref:studio::hyperforce-configuration.adoc[Configure Anypoint Studio for Control Planes]
 * xref:anypoint-code-builder::start-acb.adoc#change-clouds[Configure Anypoint Code Builder for Control Plane]
 * xref:anypoint-cli::index.adoc#default-options[Configure Anypoint CLI for Control Plane]
+* xref:exchange::to-publish-assets-maven.adoc#publish-an-asset-to-exchange-using-maven[Publish an Asset to Exchange Using Maven]
 
 == Runtime Planes and Feature Availability
 
 * Runtime plane support varies by control plane. See the xref:hosting-home::index.adoc#support-matrix-control-plane[control plane and runtime plane compatibility matrix], then xref:creating-and-deploying-mule-apps.adoc[Creating and Deploying Mule Apps].
+* Object Store capabilities vary by control plane. See xref:object-store::index.adoc#os-features-control-plane[Object Store Features by Control Plane].
 * MuleSoft product features vary by control plane. See xref:hyperforce::index.adoc#features-supported-on-hyperforce[MuleSoft product features by Control Plane].
 
 == See Also

@@ -1,9 +1,11 @@
 = Control Plane Hostnames and Allowlists
 :page-aliases: eu-control-plane::servers-create-eu.adoc, anypoint-clouds::finding-endpoints-allowlists.adoc, finding-endpoints-allowlists.adoc
 
-Use these hostnames when you allowlist outbound access from a customer-hosted Mule runtime to an Anypoint Platform control plane, or when you pass `--region` to `amc_setup`. This table lists platform, analytics ingest, and Runtime Manager hosts for the commercial clouds.
+Use these hostnames when you allowlist outbound access to an Anypoint Platform control plane, when you pass `--region` to `amc_setup`, or when you set `anypoint.platform.base_uri` and `anypoint.platform.analytics_base_uri`. This table lists platform, analytics ingest, and Runtime Manager hosts for the commercial clouds.
 
 When you set `anypoint.platform.base_uri` and `anypoint.platform.analytics_base_uri`, prefix the Platform URL and Analytics ingest hosts with `https://`. See xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes].
+
+For MuleSoft Government Cloud hostnames, see xref:hybrid-standalone::configure-ports-ips.adoc[Adding Ports, IPs, and Hostnames for Runtime Manager Agent] and xref:gov-cloud::index.adoc[MuleSoft Government Cloud Overview]. Anypoint Platform PCE uses the hosts you configure when you install PCE. See xref:private-cloud::index.adoc[Anypoint Platform PCE].
 
 == Control Plane Hostnames
 
@@ -67,4 +69,5 @@ For ports, extra hostnames, and application endpoints, use the product topic for
 == See Also
 
 * xref:index.adoc[Anypoint Platform Control Planes Overview]
+* xref:creating-and-deploying-mule-apps.adoc[Creating and Deploying Mule Apps]
 * xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes]

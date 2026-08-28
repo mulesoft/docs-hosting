@@ -6,6 +6,8 @@ Create the Mule app in Anypoint Studio or Anypoint Code Builder, then deploy it 
 
 Which runtime you can use depends on the control plane. See the xref:hosting-home::index.adoc#support-matrix-control-plane[control plane and runtime plane compatibility matrix], then follow the product topic for that runtime.
 
+If the app uses API gateway with a non-US Cloud control plane, set control plane properties when you deploy. See xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes].
+
 == Sign In to the Control Plane
 
 xref:index.adoc#signing-in[Sign in to the control plane] that holds the organization. Runtime Manager, Anypoint Studio, the Anypoint Code Builder desktop IDE, and Anypoint CLI all use that same session.
@@ -36,10 +38,7 @@ a|
 
 | Anypoint Studio
 a|
-* xref:studio::deploy-mule-application-task.adoc[Deploying a Mule Application to CloudHub]
-* xref:cloudhub-2::ch2-deploy.adoc[Deploying Mule Apps to CloudHub 2.0]
-* xref:runtime-fabric::deploy-index.adoc[Deploying Mule Apps to Runtime Fabric]
-* xref:hybrid-standalone::deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]
+xref:studio::deploy-mule-application-task.adoc[Deploying a Mule Application to CloudHub]. To deploy a Studio project to CloudHub 2.0, Runtime Fabric, or Hybrid Standalone, use Runtime Manager.
 
 | Anypoint Code Builder
 a|
@@ -68,7 +67,7 @@ a|
 [[choosing-a-runtime-plane]]
 == Choose a Runtime Plane
 
-Choose a runtime plane that your control plane supports, then follow the deploy topic for that runtime.
+Choose a runtime plane that your commercial cloud supports, then follow the deploy topic for that runtime. For MuleSoft Government Cloud and Anypoint Platform PCE, see the xref:hosting-home::index.adoc#support-matrix-control-plane[control plane and runtime plane compatibility matrix].
 
 [%header%autowidth.spread]
 |===
@@ -76,8 +75,13 @@ Choose a runtime plane that your control plane supports, then follow the deploy 
 
 | CloudHub 2.0
 a|
-All control planes
-| xref:cloudhub-2::ch2-deploy.adoc[Deploying MuleApps to CloudHub 2.0]. For DNS and URL format, see xref:cloudhub-2::ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records].
+* US Cloud
+* EU Cloud
+* Canada Cloud
+* Japan Cloud
+* India Cloud
+* Australia Cloud
+| xref:cloudhub-2::ch2-deploy.adoc[Deploying Mule Apps to CloudHub 2.0]. For DNS and URL format, see xref:cloudhub-2::ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records].
 
 | CloudHub
 a|
@@ -87,12 +91,22 @@ a|
 
 | Runtime Fabric
 a|
-All control planes
+* US Cloud
+* EU Cloud
+* Canada Cloud
+* Japan Cloud
+* India Cloud
+* Australia Cloud
 | xref:runtime-fabric::deploy-index.adoc[Deploying Mule Apps to Runtime Fabric]. For Canada Cloud, Japan Cloud, India Cloud, and Australia Cloud, contact your account manager to unlock Runtime Fabric.
 
 | Hybrid Standalone
 a|
-All control planes
+* US Cloud
+* EU Cloud
+* Canada Cloud
+* Japan Cloud
+* India Cloud
+* Australia Cloud
 | xref:hybrid-standalone::deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]. Register the Runtime Manager agent with the control plane that holds the organization. A Mule instance that is not registered to Runtime Manager is an on-premises runtime, not a control-plane deploy. See xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises].
 |===
 

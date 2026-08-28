@@ -17,7 +17,7 @@ The components where your APIs and Mule applications are deployed and made avail
 
 == Choosing a Hosting Option
 
-Anypoint Platform lets you host the control plane and runtime plane independently. MuleSoft names each regional MuleSoft-managed control plane a cloud, for example US Cloud or EU Cloud. Each Anypoint Platform organization lives in exactly one cloud. Choose a control plane (where design-time data and metadata live) and a runtime option (who runs your applications and on what infrastructure). If you use CloudHub or CloudHub 2.0, also choose a runtime region (where those applications execute). After you choose a commercial cloud, see xref:control-planes::index.adoc[Anypoint Platform Control Planes Overview] to sign in, create, and deploy.
+Anypoint Platform lets you host the control plane and runtime plane independently. MuleSoft names each regional MuleSoft-managed control plane a cloud, for example US Cloud or EU Cloud. Each Anypoint Platform organization lives in exactly one cloud. Choose a cloud (where design-time data and metadata live) and a runtime option (who runs your applications and on what infrastructure). If you use CloudHub or CloudHub 2.0, also choose a runtime region (where those applications execute). After you choose a commercial cloud, see xref:control-planes::index.adoc[Anypoint Platform Control Planes Overview] to sign in, create, and deploy.
 
 Depending on your requirements, you can choose from these options:
 

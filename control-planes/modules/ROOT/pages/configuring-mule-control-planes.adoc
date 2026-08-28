@@ -31,7 +31,7 @@ a| Unregistered Mule doesn't connect to a control plane, so `anypoint.platform.b
 For the `base_uri` and `analytics_base_uri` values, prefix the Anypoint Platform URL and Analytics ingest hostname for your cloud with `https://`. See xref:control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists].
 
 [[configure-hybrid-standalone]]
-== Configuring a Customer-Hosted Mule Instance
+== Configuring a Hybrid Standalone Instance
 
 For Hybrid Standalone, set these properties on the Mule instance you installed, then register the server. See xref:hybrid-standalone::creating-servers.adoc[Creating Servers].
 
