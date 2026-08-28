@@ -1,0 +1,5 @@
+name: anypoint-clouds
+title: Anypoint Clouds
+version: master
+nav:
+- modules/ROOT/nav.adoc

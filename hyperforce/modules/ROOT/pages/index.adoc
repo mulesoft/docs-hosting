@@ -1,5 +1,4 @@
 = Salesforce Hyperforce Overview
-:page-aliases: deploy-mule-apps-hyperforce.adoc
 
 Salesforce Hyperforce (Hyperforce) provides a modern infrastructure that lets you deploy MuleSoft applications globally with control over data residency and compliance. Deploy your Mule apps rapidly and reliably to locations worldwide while benefiting from enhanced security, scalability, and privacy standards. Hyperforce offers a globally distributed platform that ensures optimal performance for your integrations and APIs.
 
@@ -696,29 +695,8 @@ This table indicates the available and planned cloud regions for Hyperforce:
 * Hyperforce is compatible with Mule runtime engine versions under support, 4.4.0 and later.
 * Hyperforce supports the Mule runtime engine LTS and Edge release channels. The recommended customer profile is LTS. For more information, visit xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[].
 
-[[deploy-mule-apps-to-control-planes]]
-== Deploy Mule Apps to Control Planes
-
-When deploying Mule apps from any region control plane, you deploy on CloudHub 2.0 to a private or shared space.
-
-[%header%autowidth.spread]
-|===
-| Region Control Plane | Deployment Configurations
-a|  US Cloud | Refer to xref:cloudhub-2::ch2-deploy.adoc[Deploying to CloudHub 2.0] and xref:cloudhub-2::ch2-architecture.adoc#shared-global-regions[Shared Global Regions].
-a| Other Clouds
-    a| To deploy from other cloud regions, follow these tasks: +
-
-. Change the Anypoint Platform endpoints URLs to the region control plane endpoints: +
-* xref:configure-mule-hyperforce.adoc[Configure Mule to Access Control Planes]
-* xref:exchange::to-publish-assets-maven.adoc#publish-an-asset-to-exchange-using-maven[Publish an Asset to Exchange Using Maven]
-* xref:anypoint-code-builder::start-acb.adoc#change-clouds[Configure Anypoint Code Builder to a Different Control Plane]
-* xref:studio::hyperforce-configuration.adoc[Configure Anypoint Studio for Control Planes]
-[start=2]
-. xref:cloudhub-2::ch2-deploy.adoc[Deploy to CloudHub 2.0]
-|===
-
 == See Also
 
-* xref:configure-mule-hyperforce.adoc[Configuring Mule to Access Hyperforce]
-* xref:deploy-mule-apps-hyperforce.adoc[Deploying Mule Apps to Hyperforce]
+* xref:anypoint-clouds::deploying-mule-apps.adoc[Deploying Mule Apps]
+* xref:anypoint-clouds::configuring-mule-anypoint-clouds.adoc[Configuring Mule to Access Anypoint Clouds]
 * xref:hosting-home::hadr-guide.adoc[High Availability and Disaster Recovery Across Deployment Models]

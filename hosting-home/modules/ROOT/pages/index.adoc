@@ -27,6 +27,7 @@ Depending on your requirements, you can choose from these options:
 
 These sections list the available options. Use <<support-matrix-control-plane>> to confirm which combinations are supported. After you choose a runtime option, see xref:hadr-guide.adoc[High Availability and Disaster Recovery Across Deployment Models] for how each model stays available and who owns failover.
 
+[[control-plane-hosting-options]]
 == Control Plane Hosting Options
 
 MuleSoft provides cloud-managed and self-hosted control plane options. This table summarizes each option, including data residency and applicable compliance standards.
@@ -50,7 +51,7 @@ MuleSoft provides cloud-managed and self-hosted control plane options. This tabl
 | https://ca1.platform.mulesoft.com[Canada Cloud]
 | `ca1.platform.mulesoft.com`
 | Canada
-.4+| MuleSoft-managed control plane on Salesforce Hyperforce, with one in-country runtime region. See xref:hyperforce::index.adoc#deploy-mule-apps-to-control-planes[Deploy Mule Apps to Control Planes].
+.4+| MuleSoft-managed control plane on Salesforce Hyperforce, with one in-country runtime region. See xref:anypoint-clouds::deploying-mule-apps.adoc[Deploying Mule Apps].
 .4+| See xref:hyperforce::index.adoc[Salesforce Hyperforce Overview]
 
 | https://jp1.platform.mulesoft.com[Japan Cloud]
@@ -138,4 +139,5 @@ This matrix shows which runtime plane options are supported in each control plan
 * xref:runtime-fabric::index.adoc[Anypoint Runtime Fabric Overview]
 * xref:private-cloud::index.adoc[Anypoint Platform Private Cloud Edition]
 * xref:gov-cloud::index.adoc[MuleSoft Government Cloud]
+* xref:anypoint-clouds::index.adoc[Anypoint Clouds Overview]
 * xref:hyperforce::index.adoc[Salesforce Hyperforce Overview]

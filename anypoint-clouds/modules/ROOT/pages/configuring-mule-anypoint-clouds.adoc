@@ -1,0 +1,85 @@
+= Configuring Mule to Access Anypoint Clouds
+:page-aliases: hyperforce::configure-mule-hyperforce.adoc, eu-control-plane::runtime-configure-eu.adoc
+
+By default, Mule runtime engine (Mule) connects to the US Cloud control plane. To use Mule with another Anypoint Cloud, redefine the configuration properties that point Mule at that cloud, and provide the xref:access-management::managing-business-groups.adoc#client-id-and-secret[client ID and client secret] of the environment in your organization.
+
+If you do not override these default properties, the API gateway capability of Mule is disabled in those clouds.
+
+You can set the properties in `wrapper.conf`, on the command line, or in the *Properties* tab in Runtime Manager. To publish assets with Maven, see xref:exchange::to-publish-assets-maven.adoc#publish-an-asset-to-exchange-using-maven[Publish an Asset to Exchange Using Maven].
+
+== Control Plane Endpoint Domains
+
+Use the endpoint domain for your cloud in `anypoint.platform.base_uri` and `anypoint.platform.analytics_base_uri`:
+
+[%header%autowidth.spread]
+|===
+| Cloud | `base_uri` | `analytics_base_uri`
+
+| US Cloud (default)
+| `https://anypoint.mulesoft.com`
+| `https://analytics-ingest.anypoint.mulesoft.com`
+
+| EU Cloud
+| `https://eu1.anypoint.mulesoft.com`
+| `https://analytics-ingest.eu1.anypoint.mulesoft.com`
+
+| Canada Cloud
+| `https://ca1.platform.mulesoft.com`
+| `https://analytics-ingest.ca1.platform.mulesoft.com`
+
+| Japan Cloud
+| `https://jp1.platform.mulesoft.com`
+| `https://analytics-ingest.jp1.platform.mulesoft.com`
+
+| India Cloud
+| `https://in1.platform.mulesoft.com`
+| `https://analytics-ingest.in1.platform.mulesoft.com`
+
+| Australia Cloud
+| `https://au1.platform.mulesoft.com`
+| `https://analytics-ingest.au1.platform.mulesoft.com`
+|===
+
+== Configure Mule Properties in the Wrapper.conf File
+
+To configure Mule in the `wrapper.conf` file, modify these properties, replacing `<n>` with an integer value that is unique within `wrapper.conf`. Use the `base_uri` and `analytics_base_uri` values for your cloud.
+
+This example shows the `wrapper.conf` configuration for Canada Cloud:
+
+----
+wrapper.java.additional.<n>=-Danypoint.platform.client_id=<environment client ID>
+wrapper.java.additional.<n>=-Danypoint.platform.client_secret=<environment client secret>
+wrapper.java.additional.<n>=-Danypoint.platform.base_uri=https://ca1.platform.mulesoft.com
+wrapper.java.additional.<n>=-Danypoint.platform.analytics_base_uri=https://analytics-ingest.ca1.platform.mulesoft.com
+----
+
+== Configure Mule Properties via the Command Line
+
+To configure Mule from the command line, pass these options when you start Mule. The `./` prefix applies only to Unix environments. Use the `base_uri` and `analytics_base_uri` values for your cloud.
+
+This example shows the command-line configuration for EU Cloud:
+
+----
+./mule -M-Danypoint.platform.client_id=<environment client ID> -M-Danypoint.platform.client_secret=<environment client secret> -M-Danypoint.platform.base_uri=https://eu1.anypoint.mulesoft.com -M-Danypoint.platform.analytics_base_uri=https://analytics-ingest.eu1.anypoint.mulesoft.com
+----
+
+== Configure Mule Properties in Runtime Manager
+
+When you deploy to CloudHub 2.0, or to CloudHub from US Cloud or EU Cloud, include these properties in the *Properties* tab in Runtime Manager. Use the `base_uri` and `analytics_base_uri` values for your cloud.
+
+This example shows the properties configuration for Japan Cloud:
+
+----
+anypoint.platform.client_id=<environment client ID>
+anypoint.platform.client_secret=<environment client secret>
+anypoint.platform.base_uri=https://jp1.platform.mulesoft.com
+anypoint.platform.analytics_base_uri=https://analytics-ingest.jp1.platform.mulesoft.com
+----
+
+== See Also
+
+* xref:deploying-mule-apps.adoc[Deploying Mule Apps]
+* xref:finding-endpoints-allowlists.adoc[Finding Endpoints and Allowlists]
+* xref:studio::hyperforce-configuration.adoc[Configure Anypoint Studio for Control Planes]
+* xref:anypoint-code-builder::start-acb.adoc#change-clouds[Configure Anypoint Code Builder to a Different Control Plane]
+* xref:exchange::to-publish-assets-maven.adoc#publish-an-asset-to-exchange-using-maven[Publish an Asset to Exchange Using Maven]

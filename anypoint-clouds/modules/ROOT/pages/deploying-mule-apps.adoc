@@ -1,0 +1,42 @@
+= Deploying Mule Apps
+:page-aliases: hyperforce::deploy-mule-apps-hyperforce.adoc, eu-control-plane::app-deploy-eu.adoc
+
+[[deploy-mule-apps-to-control-planes]]
+Deploy Mule apps from the Anypoint Cloud that holds your organization. Which runtime plane you can use depends on that cloud. This page routes you to the product deploy topic. It does not repeat CloudHub, CloudHub 2.0, Runtime Fabric, or Hybrid Standalone procedures.
+
+== Prepare the Cloud
+
+. Sign in to the cloud that holds the organization. See xref:accessing-anypoint-clouds.adoc[Accessing Anypoint Clouds].
+. If the cloud is not US Cloud, point Mule at that cloud. See xref:configuring-mule-anypoint-clouds.adoc[Configuring Mule to Access Anypoint Clouds]. For Studio, Anypoint Code Builder, and Maven, use the See Also links on that page.
+
+== Choose a Runtime Plane
+
+See the xref:hosting-home::index.adoc#support-matrix-control-plane[control plane and runtime plane compatibility matrix], then follow the product topic for that runtime:
+
+[%header%autowidth.spread]
+|===
+| Runtime plane | Clouds | Where to deploy
+
+| CloudHub 2.0
+| All six Anypoint Clouds
+| xref:cloudhub-2::ch2-deploy.adoc[Deploying Apps to CloudHub 2.0]. Canada Cloud, Japan Cloud, India Cloud, and Australia Cloud use a shared or private space in that cloud's runtime region. For US Cloud shared global regions, see xref:cloudhub-2::ch2-architecture.adoc#shared-global-regions[Shared Global Regions]. For DNS and URL format, see xref:cloudhub-2::ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records].
+
+| CloudHub
+| US Cloud and EU Cloud only
+| xref:runtime-manager::deploying-to-cloudhub.adoc[Deploying to CloudHub]. From EU Cloud you can deploy only to the Frankfurt and Dublin runtime regions. The CloudHub worker domain in EU Cloud is `<app_name>.de.eu1.cloudhub.io`.
+
+| Runtime Fabric
+| US Cloud, EU Cloud, and the Hyperforce clouds (Canada, Japan, India, Australia)
+| xref:runtime-fabric::deploy-index.adoc[Deploying Mule Apps to Runtime Fabric]. On Hyperforce clouds, you might need your account manager to unlock Runtime Fabric. See xref:hyperforce::index.adoc[Salesforce Hyperforce Overview].
+
+| Hybrid Standalone
+| All six Anypoint Clouds
+| xref:hybrid-standalone::deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]. Register the Runtime Manager agent with the cloud that holds the organization. A Mule instance that is not registered to Runtime Manager is an on-premises runtime, not a control-plane deploy. See xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises].
+|===
+
+== See Also
+
+* xref:index.adoc[Anypoint Clouds Overview]
+* xref:hosting-home::index.adoc[Anypoint Platform Hosting Overview]
+* xref:finding-endpoints-allowlists.adoc[Finding Endpoints and Allowlists]
+* xref:hyperforce::index.adoc[Salesforce Hyperforce Overview]

@@ -1,0 +1,70 @@
+= Finding Endpoints and Allowlists
+:page-aliases: eu-control-plane::servers-create-eu.adoc
+
+Use these hostnames when you allowlist outbound access from a customer-hosted Mule runtime to an Anypoint Cloud, or when you pass `--region` to `amc_setup`. This page lists platform, analytics ingest, and Runtime Manager hosts for the six commercial clouds. It does not replace Runtime Fabric network configuration or the full Hybrid Standalone allowlist.
+
+== Control Plane Hostnames
+
+Allow outbound HTTPS (port 443) to these hosts, substituting the row for your cloud. Some Hyperforce Runtime Manager and ingest endpoints also use port 8443. See the Runtime Fabric and Hybrid topics in See Also for protocol and port detail.
+
+[%header%autowidth.spread]
+|===
+| Cloud | Platform URL | Analytics ingest | Runtime Manager | `amc_setup --region`
+
+| US Cloud (default)
+| `anypoint.mulesoft.com`
+| `analytics-ingest.anypoint.mulesoft.com`
+| `runtime-manager.anypoint.mulesoft.com`
+| Omit, or `prod`
+
+| EU Cloud
+| `eu1.anypoint.mulesoft.com`
+| `analytics-ingest.eu1.anypoint.mulesoft.com`
+| `runtime-manager.eu1.anypoint.mulesoft.com`
+| `eu1`
+
+| Canada Cloud
+| `ca1.platform.mulesoft.com`
+| `analytics-ingest.ca1.platform.mulesoft.com`
+| `runtime-manager.ca1.platform.mulesoft.com`
+| Copy the command Runtime Manager generates when you add a server.
+
+| Japan Cloud
+| `jp1.platform.mulesoft.com`
+| `analytics-ingest.jp1.platform.mulesoft.com`
+| `runtime-manager.jp1.platform.mulesoft.com`
+| Copy the command Runtime Manager generates when you add a server.
+
+| India Cloud
+| `in1.platform.mulesoft.com`
+| `analytics-ingest.in1.platform.mulesoft.com`
+| `runtime-manager.in1.platform.mulesoft.com`
+| Copy the command Runtime Manager generates when you add a server.
+
+| Australia Cloud
+| `au1.platform.mulesoft.com`
+| `analytics-ingest.au1.platform.mulesoft.com`
+| `runtime-manager.au1.platform.mulesoft.com`
+| Copy the command Runtime Manager generates when you add a server.
+|===
+
+Do not allowlist Anypoint services by a single IP address. Some addresses are assigned dynamically and can change.
+
+== Hybrid Standalone Servers
+
+To register a server with Runtime Manager, run `amc_setup` as described in xref:hybrid-standalone::creating-servers.adoc[Creating Servers]. For EU Cloud, include `--region eu1`. For US Cloud, the default region is `prod`. Runtime Manager inserts the correct flag in the generated script when you click *Add Server* in that cloud.
+
+Documented `--region` values in the agent reference are `prod`, `eu1`, and `us_gov`. See xref:runtime-manager::installing-and-configuring-runtime-manager-agent.adoc#amc_setup-parameters[amc_setup Parameters].
+
+For the full Hybrid Standalone port, hostname, and IP allowlist (including Exchange and ingest hosts), see xref:hybrid-standalone::configure-ports-ips.adoc[Adding Ports, IPs, and Hostnames for Runtime Manager Agent].
+
+== Runtime Fabric
+
+Runtime Fabric requires additional hostnames per cloud (message broker, registry, and monitoring ingest). Use xref:runtime-fabric::install-self-managed-network-configuration.adoc[Configuring Your Network to Support Runtime Fabric]. Do not copy those tables here.
+
+== See Also
+
+* xref:configuring-mule-anypoint-clouds.adoc[Configuring Mule to Access Anypoint Clouds]
+* xref:hybrid-standalone::creating-servers.adoc[Creating Servers]
+* xref:runtime-manager::rtm-agent-allowlists.adoc[Ports, IP Addresses, and Hostnames to Allowlist]
+* xref:runtime-fabric::install-self-managed-network-configuration.adoc[Configuring Your Network to Support Runtime Fabric]
