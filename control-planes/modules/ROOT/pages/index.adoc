@@ -28,22 +28,22 @@ Sign in to the Anypoint Platform control plane that holds your organization. Use
 | Cloud | Platform URL
 
 | https://anypoint.mulesoft.com[US Cloud]
-| `https://anypoint.mulesoft.com`
+| `+https://anypoint.mulesoft.com+`
 
 | https://eu1.anypoint.mulesoft.com[EU Cloud]
-| `https://eu1.anypoint.mulesoft.com`
+| `+https://eu1.anypoint.mulesoft.com+`
 
 | https://ca1.platform.mulesoft.com[Canada Cloud]
-| `https://ca1.platform.mulesoft.com`
+| `+https://ca1.platform.mulesoft.com+`
 
 | https://jp1.platform.mulesoft.com[Japan Cloud]
-| `https://jp1.platform.mulesoft.com`
+| `+https://jp1.platform.mulesoft.com+`
 
 | https://in1.platform.mulesoft.com[India Cloud]
-| `https://in1.platform.mulesoft.com`
+| `+https://in1.platform.mulesoft.com+`
 
 | https://au1.platform.mulesoft.com[Australia Cloud]
-| `https://au1.platform.mulesoft.com`
+| `+https://au1.platform.mulesoft.com+`
 |===
 
 . If you don't have an account in that cloud, click *Sign Up* and create one.
