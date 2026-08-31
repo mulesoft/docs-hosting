@@ -2,9 +2,9 @@
 :page-aliases: deploying-mule-apps.adoc, hyperforce::deploy-mule-apps-hyperforce.adoc, eu-control-plane::app-deploy-eu.adoc, anypoint-clouds::deploying-mule-apps.adoc
 
 [[deploy-mule-apps-to-control-planes]]
-Create the Mule app in Anypoint Studio or Anypoint Code Builder, then deploy it through the Anypoint Platform control plane that holds your organization. Runtime Manager in that control plane is the hub for CloudHub, CloudHub 2.0, Runtime Fabric, and Hybrid Standalone. Studio, Anypoint Code Builder, the Mule Maven Plugin, Anypoint CLI, and REST APIs can also deploy to a subset of those runtimes.
+Create the Mule app in Anypoint Code Builder (with MuleSoft Vibes) or Anypoint Studio, then deploy it through the Anypoint Platform control plane that holds your organization. Runtime Manager in that control plane is the hub for CloudHub, CloudHub 2.0, Runtime Fabric, and Hybrid Standalone. Studio, Anypoint Code Builder, the Mule Maven Plugin, Anypoint CLI, and REST APIs can also deploy to a subset of those runtimes.
 
-Which runtime you can use depends on the control plane. See the xref:hosting-home::index.adoc#support-matrix-control-plane[control plane and runtime plane compatibility matrix], then follow the product topic for that runtime.
+Which runtime you can use depends on the control plane. See <<choosing-a-runtime-plane>>.
 
 If the app uses API gateway with a non-US Cloud control plane, set control plane properties when you deploy. See xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes].
 
@@ -14,60 +14,40 @@ xref:index.adoc#signing-in[Sign in to the control plane] that holds the organiza
 
 == Create the Mule App
 
-* xref:studio::index.adoc[Anypoint Studio] designs and tests Mule apps.
-* xref:anypoint-code-builder::int-create-integrations.adoc[Anypoint Code Builder] creates integrations in a Mule app.
-* xref:anypoint-code-builder::mulesoft-vibes.adoc[MuleSoft Vibes] creates integrations in a Mule app from natural language.
-* The xref:mule-runtime::mmp-concept.adoc[Mule Maven Plugin] packages a Maven project.
+Create the Mule app in Anypoint Code Builder with MuleSoft Vibes natural language or also use Anypoint Studio (Studio). These IDEs run on your computer and connect to Anypoint Platform.
 
-== Deploy Through the Control Plane
-
-Use xref:runtime-manager::index.adoc[Anypoint Runtime Manager] to deploy to any <<choosing-a-runtime-plane, runtime plane>> the control plane supports: CloudHub, CloudHub 2.0, Runtime Fabric, or Hybrid Standalone.
-
-Studio, Anypoint Code Builder, the Mule Maven Plugin, Anypoint CLI, and REST APIs can deploy without opening Runtime Manager first, with these limits:
+Optionally, design the API specification first in Anypoint Platform, publish it to Exchange, then implement it as a Mule app in Anypoint Code Builder or Studio.
 
 [%header%autowidth.spread]
 |===
-| Tool | Deploys to
+| Creation process | Product | Description
 
-| Runtime Manager
-a|
-* xref:runtime-manager::deploying-to-cloudhub.adoc[Deploying Mule Apps to CloudHub]
-* xref:cloudhub-2::ch2-deploy.adoc[Deploying Mule Apps to CloudHub 2.0]
-* xref:runtime-fabric::deploy-index.adoc[Deploying Mule Apps to Runtime Fabric]
-* xref:hybrid-standalone::deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]
+| Design the API specification in Anypoint Platform (optional)
+| xref:design-center::index.adoc[API Designer]
+| API Designer is the specification tool in Anypoint Design Center. You open it after you sign in to Anypoint Platform, author the RAML or OAS contract, and publish it to Exchange so Anypoint Code Builder or Studio can scaffold a Mule app from that spec.
 
-| Anypoint Studio
-a|
-xref:studio::deploy-mule-application-task.adoc[Deploying a Mule Application to CloudHub]. To deploy a Studio project to CloudHub 2.0, Runtime Fabric, or Hybrid Standalone, use Runtime Manager.
+| Create the Mule app on your computer
+| xref:anypoint-code-builder::int-create-integrations.adoc[Anypoint Code Builder]
+| Anypoint Code Builder is the VS Code IDE for API specifications, implementations, and integrations in a Mule app. Install the desktop IDE, then connect it to the same control plane as your organization. See xref:anypoint-code-builder::start-acb.adoc#login-ide[Sign in to Anypoint Platform from the IDE].
 
-| Anypoint Code Builder
-a|
-* xref:anypoint-code-builder::int-deploy-mule-apps.adoc[Deploying Mule Apps to CloudHub and CloudHub 2.0]
+| Create the Mule app from natural language
+| xref:anypoint-code-builder::mulesoft-vibes.adoc[MuleSoft Vibes]
+| MuleSoft Vibes is the assistant in Anypoint Code Builder. You describe the outcome in the IDE. It uses your Anypoint Code Builder session to create and configure applications. MuleSoft Vibes is available on US, EU, Canada, and Japan cloud hosts.
 
-| Mule Maven Plugin
-a|
-* xref:mule-runtime::deploy-to-cloudhub.adoc[Deploying Mule Apps to CloudHub with the Mule Maven Plugin]
-* xref:cloudhub-2::ch2-deploy-maven.adoc[Deploying Mule Apps to CloudHub 2.0 with the Mule Maven Plugin]
-* xref:runtime-fabric::deploy-maven-4.x.adoc[Deploying Mule Apps to Runtime Fabric with the Mule Maven Plugin]
-
-| Anypoint CLI
-a|
-* xref:anypoint-cli::cloudhub-apps.adoc#deploy-to-cloudhub[CLI for CloudHub Applications]
-* xref:cloudhub-2::ch2-deploy-cli.adoc[Deploying Mule Apps to CloudHub 2.0 with Anypoint CLI]
-* xref:runtime-fabric::deploy-to-rtf-cli.adoc[Deploying Mule Apps to Runtime Fabric Using Anypoint CLI]
-* xref:anypoint-cli::standalone-apps.adoc[Locally Deployed Applications Managed by Runtime Manager]
-
-| REST APIs
-a|
-* xref:cloudhub::cloudhub-api.adoc[CloudHub API]
-* xref:cloudhub-2::ch2-api.adoc[CloudHub 2.0 API]
-* xref:runtime-manager::runtime-manager-api.adoc[Runtime Manager REST API]
+| Create the Mule app on your computer
+| xref:studio::index.adoc[Anypoint Studio]
+| Anypoint Studio is MuleSoft's Eclipse-based desktop IDE for designing and testing Mule apps. Add your Anypoint Platform account in Studio so you can import assets from Exchange. See xref:studio::set-credentials-in-studio-to.adoc[Adding Anypoint Platform User Accounts].
 |===
 
-[[choosing-a-runtime-plane]]
-== Choose a Runtime Plane
 
-Choose a runtime plane that your commercial cloud supports, then follow the deploy topic for that runtime. For MuleSoft Government Cloud and Anypoint Platform PCE, see the xref:hosting-home::index.adoc#support-matrix-control-plane[control plane and runtime plane compatibility matrix].
+== Deploy Through the Control Plane
+
+Deploy the Mule app through the Anypoint Platform control plane that holds the organization. Choose a runtime plane that control plane supports, then deploy from Runtime Manager or from another tool that can target that runtime.
+
+[[choosing-a-runtime-plane]]
+=== Choose a Runtime Plane
+
+Choose a runtime plane that your commercial cloud supports. CloudHub is available only on US Cloud and EU Cloud. CloudHub 2.0, Runtime Fabric, and Hybrid Standalone are available on all commercial clouds. Follow the deploy topic for that runtime, or <<deploy-from-a-tool, deploy from a tool>>. 
 
 [%header%autowidth.spread]
 |===
@@ -108,6 +88,101 @@ a|
 * India Cloud
 * Australia Cloud
 | xref:hybrid-standalone::deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]. Register the Runtime Manager agent with the control plane that holds the organization. A Mule instance that is not registered to Runtime Manager is an on-premises runtime, not a control-plane deploy. See xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises].
+|===
+
+[[deploy-from-a-tool]]
+=== Deploy from a Tool
+
+Use xref:runtime-manager::index.adoc[Anypoint Runtime Manager] to deploy to any runtime plane the control plane supports. Studio, Anypoint Code Builder, the Mule Maven Plugin, Anypoint CLI, and REST APIs can deploy without opening Runtime Manager first, with these limits:
+
+[%header%autowidth.spread]
+|===
+| Tool | Deploys to
+
+| Runtime Manager
+a|
+* xref:runtime-manager::deploying-to-cloudhub.adoc[Deploying Mule Apps to CloudHub]
+* xref:cloudhub-2::ch2-deploy.adoc[Deploying Mule Apps to CloudHub 2.0]
+* xref:runtime-fabric::deploy-index.adoc[Deploying Mule Apps to Runtime Fabric]
+* xref:hybrid-standalone::deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]
+
+| Anypoint Studio
+a|
+xref:studio::deploy-mule-application-task.adoc[Deploying a Mule Application to CloudHub]. To deploy a Studio project to CloudHub 2.0, Runtime Fabric, or Hybrid Standalone, use Runtime Manager.
+
+| Anypoint Code Builder
+a|
+* xref:anypoint-code-builder::int-deploy-mule-apps.adoc[Deploying Mule Apps to CloudHub and CloudHub 2.0]
+
+| Mule Maven Plugin
+a|
+* xref:mule-runtime::deploy-to-cloudhub.adoc[Deploying Mule Apps to CloudHub with the Mule Maven Plugin]
+* xref:cloudhub-2::ch2-deploy-maven.adoc[Deploying Mule Apps to CloudHub 2.0 with the Mule Maven Plugin]
+* xref:runtime-fabric::deploy-maven-4.x.adoc[Deploying Mule Apps to Runtime Fabric with the Mule Maven Plugin]
+
+| Anypoint CLI
+a|
+* xref:anypoint-cli::cloudhub-apps.adoc#deploy-to-cloudhub[CLI for CloudHub Applications]
+* xref:cloudhub-2::ch2-deploy-cli.adoc[Deploying Mule Apps to CloudHub 2.0 with Anypoint CLI]
+* xref:runtime-fabric::deploy-to-rtf-cli.adoc[Deploying Mule Apps to Runtime Fabric Using Anypoint CLI]
+* xref:anypoint-cli::standalone-apps.adoc[Locally Deployed Applications Managed by Runtime Manager]
+
+| REST APIs
+a|
+* xref:cloudhub::cloudhub-api.adoc[CloudHub API]
+* xref:cloudhub-2::ch2-api.adoc[CloudHub 2.0 API]
+* xref:runtime-manager::runtime-manager-api.adoc[Runtime Manager REST API]
+|===
+
+== Manage the Deployed Mule App
+
+After you deploy, you manage, monitor, and secure the Mule app in the same Anypoint Platform control plane. Open these products from the Anypoint Platform UI. The table groups them by task. Feature availability varies by control plane. See xref:hyperforce::index.adoc#features-supported-on-hyperforce[MuleSoft product features by Control Plane].
+
+[%header%autowidth.spread]
+|===
+| Category | Product | Description
+
+| Application management
+| xref:runtime-manager::managing-deployed-applications.adoc[Runtime Manager]
+| After you deploy, use Runtime Manager to start, stop, update, and delete Mule apps. You can also view logs, set properties, manage schedules, and create alerts.
+
+.2+| Monitoring
+| xref:monitoring::index.adoc[Anypoint Monitoring]
+| Anypoint Monitoring provides visibility into integrations across your app network. Use it to view metrics, configure dashboards and alerts, and search logs.
+
+| xref:visualizer::index.adoc[API Visualizer]
+| API Visualizer gives you a real-time, graphical view of your application network, including APIs, Mule applications, and the third-party systems they invoke.
+
+.3+| APIs
+| xref:api-manager::latest-overview-concept.adoc[API Manager]
+| Anypoint API Manager enables you to manage, govern, and secure APIs. Apply policies, manage contracts and client applications, and track API instances that your Mule apps expose.
+
+| xref:api-governance::index.adoc[API Governance]
+| Anypoint API Governance lets you apply governance rules to services, including APIs, as part of the service lifecycle.
+
+| xref:api-functional-monitoring::index.adoc[API Functional Monitoring]
+| Monitor APIs and endpoints at scheduled intervals. Receive reports about whether tests pass or fail, and view statistics about API and endpoint performance.
+
+.2+| Data and messaging
+| xref:object-store::index.adoc[Object Store v2]
+| Object Store v2 lets Mule apps store data and state. You open the Object Store v2 UI from Runtime Manager.
+
+| xref:mq::index.adoc[Anypoint MQ]
+| Anypoint MQ is a cloud-based messaging service for exchanging data asynchronously between applications. Create and monitor queues and message exchanges in the Anypoint Platform UI.
+
+.2+| Access and security
+| xref:access-management::index.adoc[Access Management]
+| Access Management is the hub for users, authentication, and permissions in your Anypoint Platform organization. Use it to manage environments, business groups, and who can operate the deployed app.
+
+| xref:anypoint-security::index-secrets-manager.adoc[Secrets Manager]
+| Anypoint Security secrets manager stores and controls access to keys, certificates, passwords, and other secrets that supported Anypoint Platform services consume.
+
+.2+| Catalog and usage
+| xref:exchange::index.adoc[Exchange]
+| Anypoint Exchange is a curated catalog of reusable assets. Catalog, share, and discover APIs, connectors, and other assets in the same control plane.
+
+| xref:general::usage-reports.adoc[Usage Reports]
+| Usage reports provide monthly and daily summaries of resource use across Anypoint Platform products, including Mule runtime and CloudHub vCore.
 |===
 
 == See Also
