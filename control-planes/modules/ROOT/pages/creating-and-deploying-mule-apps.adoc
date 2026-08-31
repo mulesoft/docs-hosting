@@ -14,7 +14,7 @@ xref:index.adoc#signing-in[Sign in to the control plane] that holds the organiza
 
 == Create the Mule App
 
-Create the Mule app in Anypoint Code Builder with MuleSoft Vibes natural language or also use Anypoint Studio (Studio). These IDEs run on your computer and connect to Anypoint Platform.
+Create the Mule app in Anypoint Code Builder with MuleSoft Vibes using natural language or use Anypoint Studio (Studio). These IDEs run on your computer and connect to Anypoint Platform.
 
 Optionally, design the API specification first in Anypoint Platform, publish it to Exchange, then implement it as a Mule app in Anypoint Code Builder or Studio.
 
