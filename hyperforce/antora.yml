@@ -1,5 +1,5 @@
 name: hyperforce
-title: Hyperforce
+title: Hyperforce Infrastructure
 version: master
 nav:
 - modules/ROOT/nav.adoc
