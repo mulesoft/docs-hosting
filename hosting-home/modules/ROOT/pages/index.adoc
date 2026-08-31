@@ -115,7 +115,7 @@ For CloudHub 2.0 regions, identifiers, and DNS records, see xref:cloudhub-2::ch2
 [[support-matrix-control-plane]]
 == Control Plane and Runtime Plane Compatibility
 
-This matrix shows which runtime plane options are supported in each control plane. On-premises Mule does not require a control plane. If you register the Runtime Manager agent, that instance is Hybrid Standalone.
+This matrix shows which runtime plane options you can deploy to from each control plane. On-premises runtimes aren't listed because they don't require a control plane. You install Mule and deploy applications to that instance. If you register the Runtime Manager agent so Anypoint Platform can manage that instance, it becomes a Hybrid Standalone runtime. See xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises].
 
 [%header%autowidth.spread]
 |===
