@@ -86,6 +86,7 @@ To configure additional log levels and categories to include in logs:
 +
 ** *INFO*: Informative messages
 ** *DEBUG*: Debugging messages
+** *TRACE*: More verbose debugging messages
 ** *WARNING*: Warning messages
 ** *ERROR*: Error messages, such as when an exception occurs
 ** *FATAL*: Fatal messages for when an application fails
