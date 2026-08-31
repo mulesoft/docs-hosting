@@ -190,7 +190,7 @@ These services do not process or transmit your data.
 == Availability and Scalability
 
 CloudHub 2.0 is designed to be highly available and scalable through redundancy,
-intelligent healing, and zero-downtime updates.
+intelligent healing, and zero-downtime updates (within same LTS/Edge version).
 It also enables you to scale and benefit from added reliability using
 xref:ch2-clustering.adoc[clustering].
 
@@ -214,6 +214,7 @@ CloudHub 2.0 supports updating your applications at runtime so end users of your
 If the application uses the rolling update deployment model, CloudHub 2.0 keeps the old version of your application running while your application update is deploying.
 Your domain points to the old version of your application until the newly uploaded version is fully started.
 This allows you to keep servicing requests from your old application while the new version of your application is starting.
+Zero Downtime is not available when switching from one LTS version to next major LTS version. You need to deploy with "recreate" deployment strategy.
 
 [NOTE]
 In some edge cases of applications using the rolling update deployment model, long inflight requests aren't completed during the grace period. In this scenarios, zero downtime isn't guaranteed, as the old instance of the application needs to be restarted during the upgrade.
