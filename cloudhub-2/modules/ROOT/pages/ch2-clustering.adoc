@@ -53,7 +53,7 @@ Replica scale-out also adds additional reliability.
 Mule runtime engine (Mule) automatically distributes multiple replicas for the same application across two or more data centers for maximum reliability.
 
 When deploying your application to two or more replicas, you can distribute workloads across these instances of Mule.
-CloudHub provides the following an HTTP load balancing service that automatically distributes HTTP requests among your assigned replicas.
+CloudHub provides an HTTP load balancing service that automatically distributes HTTP requests among your assigned replicas.
 
 Batch jobs only run on a single replica at a time, and cannot be distributed across multiple replicas.
 If Mule restarts in the same deployment, the status persists and the batch continues processing.
