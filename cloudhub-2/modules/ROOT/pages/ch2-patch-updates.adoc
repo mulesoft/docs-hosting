@@ -35,7 +35,8 @@ Schedule infrastructure upgrades earlier than the scheduled patching process, be
 
 After the Sandbox Environment Auto-Update window starts, you can't schedule infrastructure upgrades for sandbox or production private spaces. You can still apply an immediate upgrade. See <<opt-in-early-infrastructure-upgrades>>.
 
-On average, this upgrade takes between thirty to sixty minutes to complete. If your upgrade is queued, it can take longer than thirty minutes. The impact of the upgrade process on running applications is consistent with the auto-patching behavior described in the previous sections.
+[NOTE]
+For both scheduled and opt-in early infrastructure upgrades, the upgrade takes 30 to 60 minutes on average to complete. If your upgrade is queued, it can take longer than 30 minutes. In some cases, unexpected infrastructure delays, such as log processing retries, can extend the upgrade beyond this window. The impact of the upgrade process on running applications is consistent with the auto-patching behavior described in the previous sections.
 
 You can modify or delete your scheduled upgrade if it isn't already in progress, as indicated by the `Queued` status. If you cancel the schedule and don't create another or opt in to an earlier upgrade, the upgrade occurs during the mandatory patching window.
 
@@ -59,7 +60,7 @@ Opt in to apply an infrastructure upgrade immediately, earlier than the schedule
 
 After the Sandbox Environment Auto-Update window starts, you can't schedule an upgrade for sandbox or production private spaces, but you can still select *Upgrade now* to apply an immediate upgrade.
 
-On average, this upgrade takes between thirty to sixty minutes to complete. If your upgrade is queued, it can take longer than thirty minutes. The impact of the upgrade process on running applications is consistent with the auto-patching behavior described in the previous sections.
+The upgrade duration and impact are the same as for xref:ch2-patch-updates.adoc#self-upgrade-schedule[scheduled upgrades].
 
 [NOTE]
 This upgrade is irreversible. Ensure that you understand the impact of the upgrade and choose when to trigger the upgrade based on your organization's needs before applying it in a production environment.
