@@ -73,6 +73,11 @@ The optional truststore identifies trusted external clients or certificate autho
 To enable partial client authentication, configure a truststore.
 If a truststore is not configured, partial client authentication is disabled.
 
+[IMPORTANT]
+====
+When you configure a truststore for partial client authentication, clients must include a Server Name Indication (SNI) extension that matches the custom domain. Most TLS clients send SNI automatically when they connect by hostname. The CloudHub 2.0 ingress load balancer rejects TLS connections that don't include SNI, such as connections to the load balancer IP address. The TLS handshake fails with an `unrecognized name` alert.
+====
+
 CloudHub 2.0 accepts truststore files in PEM formats.
 
 === DNS Targets
