@@ -84,9 +84,45 @@ _Private DNS targets_ can only be reached from inside a private network, or thro
 
 Private DNS targets use private static IP addresses that don't change during the lifetime of the private space. See xref:ch2-networking-guide.adoc#ip-ranges[IP Ranges].
 
+[[ciphers]]
 === Ciphers
 
-When you add the TLS context, you can select the ciphers to use with the TLS context.
+When you add the TLS context, accept the default ciphers or select ciphers to add or remove.
+
+CloudHub 2.0 uses these default cipher suites, listed from most secure to lesser secure:
+
+[%header,cols="2*a"]
+|===
+| Cipher suite | TLS version
+
+| `TLS_AES_256_GCM_SHA384`
+| TLS 1.3
+
+| `TLS_CHACHA20_POLY1305_SHA256`
+| TLS 1.3
+
+| `TLS_AES_128_GCM_SHA256`
+| TLS 1.3
+
+| `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
+| TLS 1.2
+
+| `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+| TLS 1.2
+
+| `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
+| TLS 1.2
+
+| `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
+| TLS 1.2
+
+| `TLS_RSA_WITH_AES_128_GCM_SHA256`
+| TLS 1.2
+|===
+
+You can't view or change the ciphers on the default `cloudhub.io` TLS context.
+To inspect the defaults in Runtime Manager, create a custom TLS context and select *Customize Ciphers*.
+CloudHub 2.0 then displays the default (selected) ciphers. See <<create-tls-context>>.
 
 
 [[before-you-begin]]
