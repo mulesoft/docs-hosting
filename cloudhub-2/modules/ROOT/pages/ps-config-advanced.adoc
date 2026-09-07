@@ -169,6 +169,30 @@ A unique service role name is generated. Use this role to configure identity and
 [NOTE]
 Each private space supports only one AWS service role.
 
+[[aws-iam-role-sts-s3-connector-conflict]]
+=== IAM Roles and AWS S3 Connector: STS Endpoint Behavior
+
+When you enable the AWS service role for a private space, the cluster injects environment variables such as `AWS_STS_REGIONAL_ENDPOINTS=regional`.
+The AWS SDK credential provider that this setup uses ignores custom STS endpoint settings in your Mule application and always uses the public regional STS endpoint, such as `sts.{region}.amazonaws.com`.
+
+[IMPORTANT]
+====
+If your private-space firewall doesn't allow outbound traffic to that STS endpoint, connectivity tests for the AWS S3 Connector and other AWS SDK-based connectors fail, and applications hang or stop progressing.
+Allow outbound HTTPS on port 443 to the regional STS endpoint for the region where your private space runs. Configure this in xref:ps-config-fw-rules.adoc[].
+
+Don't use application-level egress rules for the STS domain. Those rules don't support this endpoint and can cause intermittent connection failures. See xref:ps-config-app-level-egress.adoc#limitations[].
+====
+
+When you can't allow the public regional STS endpoint, set the `AWS_ENDPOINT_URL` environment variable for your application to the STS endpoint URL so the SDK uses it instead.
+
+To apply this workaround:
+
+. In Runtime Manager, open your application and go to the *Settings* > *Properties* tab.
+. Add an application property or environment variable that sets `AWS_ENDPOINT_URL` to your STS endpoint URL, for example `https://sts.{region}.amazonaws.com` or your custom endpoint.
+. Apply the changes and redeploy or restart the application so the runtime uses the new value.
+
+For more information about setting environment variables, see xref:ch2-manage-props.adoc#example-using-properties-to-set-environment-variables[Example: Using Properties to Set Environment Variables].
+
 == See Also
 
 * xref:ps-config-fw-rules.adoc[]
