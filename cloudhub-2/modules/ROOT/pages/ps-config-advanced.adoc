@@ -177,7 +177,7 @@ The AWS SDK credential provider that this setup uses ignores custom STS endpoint
 
 [IMPORTANT]
 ====
-If your private-space firewall doesn't allow outbound traffic to that STS endpoint, connectivity tests for the AWS S3 Connector and other AWS SDK-based connectors fail, and applications hang or stop progressing.
+If your private-space firewall doesn't allow outbound traffic to that STS endpoint, connectivity tests for the AWS S3 Connector and other AWS SDK-based connectors fail, and applications stop responding.
 Allow outbound HTTPS on port 443 to the regional STS endpoint for the region where your private space runs. Configure this in xref:ps-config-fw-rules.adoc[].
 
 Don't use application-level egress rules for the STS domain. Those rules don't support this endpoint and can cause intermittent connection failures. See xref:ps-config-app-level-egress.adoc#limitations[].
