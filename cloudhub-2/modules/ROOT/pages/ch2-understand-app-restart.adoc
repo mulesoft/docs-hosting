@@ -75,7 +75,9 @@ If the compute infrastructure suffers a failure, CloudHub 2.0 moves your applica
 [[karpenter-node-downscaling]]
 == Karpenter Node Downscaling in Private Spaces
 
-In Private Spaces, CloudHub 2.0 uses Karpenter to manage node lifecycle. When Karpenter downscales nodes to remove underused capacity, CloudHub 2.0 restarts applications running on those nodes as replicas move to remaining nodes. Restarts occur once per week at most, within a random two-hour window that starts between Saturday 12:00 AM and 4:00 AM in the Private Space region's local time zone.
+In Private Spaces, CloudHub 2.0 uses Karpenter to manage node lifecycle. When Karpenter downscales nodes to remove underused capacity, CloudHub 2.0 restarts applications running on those nodes as replicas move to remaining nodes.
+
+Restarts occur once per week at most. Each private space has a 4-hour consolidation window. CloudHub 2.0 randomizes the start time per space so it doesn't restart all spaces in a region at once. The 4-hour block can start anytime between Friday 10:00 PM and Saturday 2:00 AM in the Private Space region's local time zone, so restarts can occur anytime from Friday 10:00 PM through Saturday 6:00 AM.
 
 [NOTE]
 ====
