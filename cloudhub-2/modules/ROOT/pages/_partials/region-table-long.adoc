@@ -36,6 +36,9 @@
 | https://au1.platform.mulesoft.com[Australia Cloud]
 | Asia Pacific | Australia (Sydney) | `aus-s1` | `cloudhub-ap-southeast-2` | `Cloudhub-AP-Southeast-2` | `myapp-_uniq-id_._shard_.aus-s1.au1.cloudhub.io` | `<app>.internal-<space-id>.aus-s1.au1.cloudhub.io`
 
+| https://gb1.platform.mulesoft.com[United Kingdom Cloud]
+| Europe | United Kingdom (London) | `gbr-e1` | `cloudhub-eu-west-2` | `Cloudhub-EU-West-2` | `myapp-_uniq-id_._shard_.gbr-e1.gb1.cloudhub.io` | `<app>.internal-<space-id>.gbr-e1.gb1.cloudhub.io`
+
 | https://gov.anypoint.mulesoft.com[MuleSoft Government Cloud]
 | US Government | US GovCloud (West) | `usg-w1.gov` | - | - | `myapp.usg-w1.gov.cloudhub.io` | -
 |===
