@@ -7,7 +7,7 @@ Host the Anypoint Platform control plane and runtime plane in different location
 
 Anypoint Platform architecture separates into two distinct planes that can be hosted independently:
 
-image:intro-control-runtime-planes.png[Diagram of contents of the control plane and runtime plane]
+image:intro-control-runtime-planes.png[Diagram of control plane and runtime plane hosting options]
 
 Control plane::
 The management layer of Anypoint Platform, where you design, deploy, and manage APIs and Mule apps. Your organization, identity, and design-time metadata live in this plane.
