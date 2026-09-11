@@ -66,13 +66,19 @@ MuleSoft provides cloud-managed and self-hosted control plane options. This tabl
 | `au1.platform.mulesoft.com`
 | Australia
 
+| https://gb1.platform.mulesoft.com[United Kingdom Cloud]
+| `gb1.platform.mulesoft.com`
+| United Kingdom
+| MuleSoft-managed control plane hosted in the United Kingdom. See xref:control-planes::creating-and-deploying-mule-apps.adoc#deploy-mule-apps-to-control-planes[Deploy Mule Apps to Control Planes].
+| United Kingdom data residency
+
 | https://gov.anypoint.mulesoft.com[MuleSoft Government Cloud]
 | `gov.anypoint.mulesoft.com`
 | United States
 | Federal Risk and Authorization Management Program (FedRAMP)-compliant control plane managed by MuleSoft, suitable for US government agencies.
 | FedRAMP authorized. See xref:gov-cloud::index.adoc[MuleSoft Government Cloud Overview].
 
-| Customer-Hosted (Anypoint Platform Private Cloud Edition (PCE))
+| Anypoint Platform Private Cloud Edition (PCE)
 | N/A (self-hosted)
 | Customer-managed
 | Self-hosted control plane deployed in your own data center, virtual server, or third-party cloud (for example, Amazon Web Services (AWS)). You control where assets and metadata are stored.
@@ -119,7 +125,7 @@ This matrix shows which runtime plane options you can deploy to from each contro
 
 [%header%autowidth.spread]
 |===
-| Runtime Plane | US Cloud | EU Cloud | Canada Cloud, Japan Cloud, India Cloud, Australia Cloud | MuleSoft Government Cloud | Anypoint Platform PCE
+| Runtime Plane | US Cloud | EU Cloud | Canada Cloud, Japan Cloud, India Cloud, Australia Cloud, United Kingdom Cloud | MuleSoft Government Cloud | Anypoint Platform PCE
 
 | CloudHub 2.0 | Yes | Yes | Yes | Yes | No
 | CloudHub | Yes | Yes | No | Yes | No

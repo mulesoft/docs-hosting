@@ -44,6 +44,9 @@ Sign in to the Anypoint Platform control plane that holds your organization. Use
 
 | https://au1.platform.mulesoft.com[Australia Cloud]
 | `+https://au1.platform.mulesoft.com+`
+
+| https://gb1.platform.mulesoft.com[United Kingdom Cloud]
+| `+https://gb1.platform.mulesoft.com+`
 |===
 
 . If you don't have an account in that cloud, click *Sign Up* and create one.

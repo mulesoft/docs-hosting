@@ -50,6 +50,12 @@ Allow outbound HTTPS (port 443) to these hosts, substituting the row for your cl
 | `analytics-ingest.au1.platform.mulesoft.com`
 | `runtime-manager.au1.platform.mulesoft.com`
 | Copy the command Runtime Manager generates when you add a server.
+
+| United Kingdom Cloud
+| `gb1.platform.mulesoft.com`
+| `analytics-ingest.gb1.platform.mulesoft.com`
+| `runtime-manager.gb1.platform.mulesoft.com`
+| Copy the command Runtime Manager generates when you add a server.
 |===
 
 Don't allowlist Anypoint Platform services by a single IP address. Some addresses are assigned dynamically and can change.
