@@ -78,7 +78,7 @@ MuleSoft provides cloud-managed and self-hosted control plane options. This tabl
 | Federal Risk and Authorization Management Program (FedRAMP)-compliant control plane managed by MuleSoft, suitable for US government agencies.
 | FedRAMP authorized. See xref:gov-cloud::index.adoc[MuleSoft Government Cloud Overview].
 
-| Customer-Hosted (Anypoint Platform Private Cloud Edition (PCE))
+| Anypoint Platform Private Cloud Edition (PCE)
 | N/A (self-hosted)
 | Customer-managed
 | Self-hosted control plane deployed in your own data center, virtual server, or third-party cloud (for example, Amazon Web Services (AWS)). You control where assets and metadata are stored.
