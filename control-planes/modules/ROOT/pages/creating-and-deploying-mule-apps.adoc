@@ -61,6 +61,7 @@ a|
 * Japan Cloud
 * India Cloud
 * Australia Cloud
+* United Kingdom Cloud
 | xref:cloudhub-2::ch2-deploy.adoc[Deploying Mule Apps to CloudHub 2.0]. For DNS and URL format, see xref:cloudhub-2::ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records].
 
 | CloudHub
@@ -77,6 +78,7 @@ a|
 * Japan Cloud
 * India Cloud
 * Australia Cloud
+* United Kingdom Cloud
 | xref:runtime-fabric::deploy-index.adoc[Deploying Mule Apps to Runtime Fabric]. For Canada Cloud, Japan Cloud, India Cloud, and Australia Cloud, contact your account manager to unlock Runtime Fabric.
 
 | Hybrid Standalone
@@ -87,6 +89,7 @@ a|
 * Japan Cloud
 * India Cloud
 * Australia Cloud
+* United Kingdom Cloud
 | xref:hybrid-standalone::deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]. Register the Runtime Manager agent with the control plane that holds the organization. A Mule instance that is not registered to Runtime Manager is an on-premises runtime, not a control-plane deploy. See xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises].
 |===
 
