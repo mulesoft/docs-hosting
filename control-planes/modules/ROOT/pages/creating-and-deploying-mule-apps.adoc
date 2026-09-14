@@ -87,7 +87,7 @@ a|
 * Japan Cloud
 * India Cloud
 * Australia Cloud
-| xref:hybrid-standalone::deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]. Register the Runtime Manager agent with the control plane that holds the organization. A Mule instance that is not registered to Runtime Manager is an on-premises runtime, not a control-plane deploy. See xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises].
+| xref:hybrid-standalone::deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]. Register the Runtime Manager agent with the control plane that holds the organization. A Mule instance that is not registered to Runtime Manager is an on-premises runtime, not a control-plane deploy. See xref:on-premises::index.adoc[Run Mule Runtime Engine On-Premises].
 |===
 
 [[deploy-from-a-tool]]

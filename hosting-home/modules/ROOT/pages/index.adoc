@@ -103,7 +103,7 @@ MuleSoft provides different options for hosting the runtime plane:
 | Mule runtime engine for running applications in your environment (physical server, virtual machine (VM), or cloud such as AWS or Azure). Supports centralized management through the MuleSoft control plane while keeping deployments within your trust boundary.
 | Customer (infrastructure) and MuleSoft (management)
 
-| xref:mule-runtime::mule-standalone.adoc[On-Premises Runtimes]
+| xref:on-premises::index.adoc[On-Premises Runtimes]
 | Mule runtime engine for running applications on a single instance with no required connection to the control plane. Requires you to manage high availability, failover, clustering, and load balancing, and is suited for air-gapped or disconnected environments.
 | Customer (fully self-managed)
 |===
@@ -115,7 +115,7 @@ For CloudHub 2.0 regions, identifiers, and DNS records, see xref:cloudhub-2::ch2
 [[support-matrix-control-plane]]
 == Control Plane and Runtime Plane Compatibility
 
-This matrix shows which runtime plane options you can deploy to from each control plane. On-premises runtimes aren't listed because they don't require a control plane. You install Mule and deploy applications to that instance. If you register the Runtime Manager agent so Anypoint Platform can manage that instance, it becomes a Hybrid Standalone runtime. See xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises].
+This matrix shows which runtime plane options you can deploy to from each control plane. On-premises runtimes aren't listed because they don't require a control plane. You install Mule and deploy applications to that instance. If you register the Runtime Manager agent so Anypoint Platform can manage that instance, it becomes a Hybrid Standalone runtime. See xref:on-premises::index.adoc[Run Mule Runtime Engine On-Premises].
 
 [%header%autowidth.spread]
 |===
@@ -139,4 +139,4 @@ This matrix shows which runtime plane options you can deploy to from each contro
 * xref:runtime-manager::cloudhub.adoc[CloudHub]
 * xref:runtime-fabric::index.adoc[Anypoint Runtime Fabric Overview]
 * xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes]
-* xref:mule-runtime::mule-standalone.adoc[Run Mule Runtime Engine On-Premises]
+* xref:on-premises::index.adoc[Run Mule Runtime Engine On-Premises]
