@@ -27,6 +27,8 @@ The Runtime Manager agent uses mutual TLS (mTLS) to authenticate directly with t
 * us1.ingest.mulesoft.com
 * eu1.ingest.mulesoft.com
 
+The `*.ingest.mulesoft.com` endpoints handle OpenTelemetry metrics ingestion.
+
 [IMPORTANT]
 Configure your firewall or proxy to allow SSL passthrough for these endpoints. Don't enable deep packet inspection (DPI) or SSL decryption. For `+*.ingest.mulesoft.com+`, allow outbound TCP on port 8443 and port 443.
 
@@ -126,12 +128,15 @@ Configure these URLs for Runtime Manager agent connectivity based on your agent 
 **Agent Version Requirements**
 
 * **Mule 4.x**: Runtime Manager agent 2.2.0 or later
+* **OpenTelemetry metrics ingestion**: Runtime Manager agent 2.7.0 or later
 
 [%header,cols="30a,60a"]
 |===
 |URL |Description
-|runtime-manager.anypoint.mulesoft.com| Connection for ARM management capabilities (*public-cert agents*)
-|data-authenticator.anypoint.mulesoft.com| Connection to the metrics ingestion service of arm-monitoring stack (*public-cert agents*)
+|runtime-manager.anypoint.mulesoft.com| ARM management capabilities (*public-cert agents*)
+|data-authenticator.anypoint.mulesoft.com| Metrics ingestion for arm-monitoring stack (*public-cert agents*)
+|us1.ingest.mulesoft.com (port 8443)| OpenTelemetry metrics ingestion (agent 2.7.0+)
+|eu1.ingest.mulesoft.com (port 8443)| OpenTelemetry metrics ingestion (agent 2.7.0+)
 |===
 
 == See Also
