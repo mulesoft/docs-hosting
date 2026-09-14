@@ -17,17 +17,18 @@ This page lists US Cloud, EU Cloud, and MuleSoft Government Cloud endpoints. For
 
 == Mutual TLS Authentication Endpoints
 
-These endpoints require SSL passthrough configuration to allow mutual TLS certificate authentication:
+The Runtime Manager agent uses mutual TLS (mTLS) to authenticate directly with these endpoints:
 
 * runtime-manager.anypoint.mulesoft.com
 * runtime-manager.eu1.anypoint.mulesoft.com
 * runtime-manager.gov.anypoint.mulesoft.com
 * data-authenticator.anypoint.mulesoft.com
 * data-authenticator.gov.anypoint.mulesoft.com
-* us1.ingest.mulesoft.com 
-* eu1.ingest.mulesoft.com 
+* us1.ingest.mulesoft.com
+* eu1.ingest.mulesoft.com
 
-Configure your firewall or proxy to allow SSL passthrough for these endpoints to ensure that the Runtime Manager agent has direct certificate authentication with Anypoint Platform. 
+[IMPORTANT]
+Configure your firewall or proxy to allow SSL passthrough for these endpoints. Don't enable deep packet inspection (DPI) or SSL decryption. For `+*.ingest.mulesoft.com+`, allow outbound TCP on port 8443 and port 443.
 
 == WebSocket Endpoints
 
