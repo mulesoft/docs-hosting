@@ -59,7 +59,7 @@ By default, CloudHub 2.0 allows all traffic from the private space to destinatio
 
 By combining firewall rules and TLS context configuration, you can fine-tune the ingress and egress of your application traffic.
 
-Private space network traffic metrics aren't available in Anypoint Monitoring. For application-level traffic metrics, see xref:monitoring:am-faq.adoc#vpc-traffic-metrics[Can I get VPC-level network traffic metrics from Anypoint Monitoring?].
+Private space network traffic metrics aren't available in Anypoint Monitoring. For _application-level_ traffic metrics, see xref:monitoring:am-faq.adoc#vpc-traffic-metrics[Can I get VPC-level network traffic metrics from Anypoint Monitoring?].
 
 == See Also
 
