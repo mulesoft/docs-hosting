@@ -1,0 +1,71 @@
+= Hardware and Software Requirements for On-Premises Mule Runtime Engine
+:page-aliases: mule-runtime::hardware-and-software-requirements.adoc
+:keywords: RHEL, Red Hat, Rocky Linux, Ubuntu, Windows Server, supported versions, sizing, RAM, heap, CPU, on-premises, on-prem, standalone, JDK 17
+
+Confirm these requirements before you download on-premises runtime. This is the Prerequisites stage in xref:index.adoc[On-Premises Runtimes Overview]. After the host meets them, download Mule Enterprise Edition. See xref:runtime-installation-task.adoc[Download, Install, Configure, and Upgrade On-Premises Mule Runtime Engine].
+
+
+== Review Minimum Hardware Requirements
+
+The CloudHub vCore sizing model does not apply to on-premises Mule runtime engine 4.9. You size CPU, heap, and RAM on the host yourself.
+
+* 2 GHz CPU or 1 virtual CPU in virtualized environments.
+* 1 GB of RAM.
+* 4 GB of storage.
+
+Adjust RAM to match your latency requirements and the size and number of simultaneous messages that applications process.
+
+Mule runtime engine 4.9 supports the x86 and x64 architectures. On-premises Mule runtime engine 4.9 is not supported on ARM processors.
+
+== Use a Supported Java Version
+
+Verify that you use a supported version of Java before you install Mule runtime engine. Mule runtime engine 4.9 requires JDK 17.
+
+[%header,cols="15a,85a"]
+|===
+|Software |Version
+| JDK | JDK 17
+|===
+
+[NOTE]
+Though you can run a different JDK of choice, MuleSoft doesn't support or take action to fix issues if they are traced back to the JDK.
+
+== Review Supported Operating Systems
+
+Mule runtime engine 4.9 is supported on any operating system that runs a Java Runtime Environment (JRE) from a supported JDK. Red Hat Enterprise Linux (RHEL) is a tested distribution. MuleSoft supports RHEL clones such as Rocky Linux even when a specific clone version is not listed as tested.
+
+=== Review Tested Software
+
+Mule runtime engine 4.9 passed functional testing against the following software and operating systems:
+
+[%header,cols="15a,85a"]
+|===
+|Software |Version
+| OS | MacOS 10.15, HP-UX 11i V3, AIX 7.2, Windows Server 2019, Windows 10, Solaris 11.3, Red Hat Enterprise Linux 9.4, Ubuntu Server 20.04
+| JDK | Adoptium OpenJDK distribution
+|===
+
+Mule runtime engine 4.9 is bundled with the Runtime Manager agent plugin version 2.4.21. For Runtime Manager Agent compatibility, see xref:release-notes::runtime-manager-agent/runtime-manager-agent-release-notes.adoc[Runtime Manager Agent Release Notes].
+
+
+
+== Troubleshoot Common Error Messages
+
+=== `Unsupported class file major version 61`
+
+This error means bytecode compiled for Java 17 (class file major version 61) was loaded by an older JDK, or Mule runtime engine 4.9 is running on an unsupported JDK. Mule runtime engine 4.9 requires JDK 17.
+
+=== `JavaVersionNotSupportedByExtensionException`
+
+An extension, connector, or module such as APIkit does not support the JDK that on-premises Mule runtime engine 4.9 is running. Mule runtime engine 4.9 requires JDK 17. Align the application's Java compatibility with that JDK, or run a JDK the extension lists as supported.
+
+=== `OutOfMemoryError: Metaspace`
+
+The JVM that hosts on-premises Mule runtime engine 4.9 ran out of Metaspace. Increase Metaspace in the Java Service Wrapper (`wrapper.conf`) rather than only increasing heap. Heap and Metaspace are separate pools.
+
+== See Also
+
+* xref:index.adoc[On-Premises Runtimes Overview]
+* xref:runtime-installation-task.adoc[Download, Install, Configure, and Upgrade On-Premises Mule Runtime Engine]
+* xref:general::java-support.adoc#mule-runtime-java-support[Java Support]
+* xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes]

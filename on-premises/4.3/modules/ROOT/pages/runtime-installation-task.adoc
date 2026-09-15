@@ -1,0 +1,137 @@
+= Download, Install, and Upgrade On-Premises Mule Runtime Engine
+:page-aliases: mule-runtime::runtime-installation-task.adoc
+:keywords: on-premises, on-prem, standalone, install, download, MULE_HOME, wrapper.conf, wrapper.java.command, offline install, air-gapped, mule upgrade tool, linux, RHEL, windows service, heap, Xmx, Metaspace, wrapper.startup.timeout, multiple instances
+
+Download, unpack, and configure on-premises runtime after you confirm xref:hardware-and-software-requirements.adoc[Hardware and Software Requirements for On-Premises Mule Runtime Engine]. This is the Download and Wrapper stages in xref:index.adoc[On-Premises Runtimes Overview]. After the JVM starts in the console, stop it and install an xref:installing-an-enterprise-license.adoc[Enterprise license] before you run the instance in production.
+
+Before downloading and installing Mule runtime engine, verify that you have a supported JDK installed.
+This example uses AdoptOpenJDK 8, which is recommended for Mule runtime engine 4.3.
+
+[source,console,linenums]
+----
+$ java -version
+openjdk version "1.8.0_212"
+OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_212-b03)
+OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.212-b03, mixed mode)
+----
+
+== Download Mule Runtime Engine for On-Premises
+
+Download the Enterprise standalone distribution (`+mule-enterprise-standalone-*.zip+`) when you have an Enterprise license. The Mule Kernel (Community Edition) artifact is `+mule-standalone-*.zip+`. Kernel does not accept an Enterprise license and does not include clustering.
+
+
+. Download `+mule-enterprise-standalone-*.zip+` from the MuleSoft Support portal at https://help.mulesoft.com or from your MuleSoft account representative, then unzip it. Don't use the Anypoint Studio installer to obtain on-premises runtime. Studio already includes Mule for development.
+
+. Set an environment variable called `MULE_HOME` for the `mule` directory inside your extracted folder.
++
+Example for Mule runtime engine 4.3.0 in the `Downloads` directory:
++
+* On Windows environments:
++
+[source,console]
+----
+$ env:MULE_HOME="C:\Downloads\mule-enterprise-standalone-4.3.0"
+----
++
+* On Linux/Unix environments:
++
+[source,console]
+----
+$ export MULE_HOME=~/Downloads/mule-enterprise-standalone-4.3.0
+----
+
+The procedure for making the `MULE_HOME` setting permanent depends on your operating system.
+
+== Run Mule Runtime Engine After Download
+
+You can test if Mule runs in your system without errors by running the following commands:
+
+* On Windows environments:
++
+[source,powershell]
+----
+%MULE_HOME%\bin\mule.bat
+----
+
+* On Linux/Unix environments:
++
+[source,console]
+----
+$ $MULE_HOME/bin/mule
+----
+
+These commands run Mule in foreground mode, and the startup script displays information on the terminal’s standard output. You can’t issue further commands on the terminal as long as Mule is running.
+
+To stop Mule, press `CTRL-C` in the terminal in which the script is running.
+
+
+
+== Configure JVM Memory and Wrapper Timeouts
+
+The Java Service Wrapper (Tanuki) starts the JVM that hosts on-premises Mule runtime engine. Set heap, Metaspace, and startup timeouts in `$MULE_HOME/conf/wrapper.conf`. Restart the runtime after you change this file.
+
+Heap is not the full RAM of the host. Leave memory for the operating system and for Metaspace, which is a separate pool. Do not set `wrapper.java.maxmemory` equal to the host RAM. The CloudHub vCore model does not apply on-premises.
+
+Use the wrapper memory properties, not a mix of those properties and `-Xms`/`-Xmx` additional lines, so one setting does not silently override the other:
+
+----
+wrapper.java.initmemory=1024
+wrapper.java.maxmemory=2048
+----
+
+Those values are megabytes and map to `-Xms` and `-Xmx`. To cap Metaspace, add an unused `wrapper.java.additional.<n>` index:
+
+----
+wrapper.java.additional.<n>=-XX:MaxMetaspaceSize=512m
+----
+
+If two additional properties share the same `<n>`, the wrapper keeps one and ignores the other. Do not edit `wrapper-additional.conf`; the runtime regenerates that file.
+
+If startup fails with `Timed out waiting for signal from JVM`, increase `wrapper.startup.timeout` in `wrapper.conf` (seconds). The wrapper kills and can restart the JVM when `Pinging the JVM took` persists; fix heap, CPU, and GC before raising ping timeouts.
+
+
+== Install Offline or Air-Gapped
+
+An air-gapped on-premises install does not require outbound internet on the runtime host after you have the standalone zip. Download `+mule-enterprise-standalone-*.zip+` (or the Kernel zip) on a connected machine, transfer the file to the isolated host, unpack it, and set `MULE_HOME`.
+
+The standalone distribution starts without Maven Central. Application JARs must already include their dependencies. Resolve and package applications on a connected build agent, then copy the deployable JARs to `$MULE_HOME/apps` (and domain JARs to `$MULE_HOME/domains`).
+
+Do not run Studio's "install new software" flow on the isolated host to obtain the runtime. That flow installs Anypoint Studio components, not the on-premises standalone distribution.
+
+
+== Run Multiple Instances on One Host
+
+Each on-premises Mule runtime engine instance needs its own install directory and its own `MULE_HOME`. Do not run two instances from the same unpacked zip. Copy or unpack a second distribution into a different folder, for example `/opt/mule-runtime-a` and `/opt/mule-runtime-b`.
+
+Give each instance unique HTTP and other listener ports in the applications (or in a domain). Wrapper and cluster ports must not collide. On Windows, install each instance as its own service from that instance's `bin` directory so the service name and `wrapper.conf` stay isolated.
+
+Keep a stable path for operations (a symlink such as `/opt/mule` that points at the current directory) if your monitoring agent or scripts hard-code `MULE_HOME`. Renaming the install directory after Anypoint Monitoring is installed breaks that agent; reinstall monitoring after a path change.
+
+== Update, Upgrade, or Migrate Mule Runtime Engine
+
+include::partial$upgrade-update-migrate-mule.adoc[]
+
+
+== Troubleshoot Common Error Messages
+
+=== `Timed out waiting for signal from JVM`
+
+The Java Service Wrapper (Tanuki) started the JVM but did not receive a ready signal before `wrapper.startup.timeout`. Increase that timeout in `wrapper.conf` or fix whatever is blocking JVM startup (JDK, license, or port conflict).
+
+=== `JVM received a signal SIGKILL (9)`
+
+The operating system killed the JVM that hosts on-premises Mule runtime engine. This is not a graceful `mule stop`. Check the out-of-memory killer, `ulimit` settings, and whether an operator or orchestrator sent SIGKILL.
+
+=== `Pinging the JVM took`
+
+The Java Service Wrapper pinged the JVM and the response was slow. The wrapper can restart Mule runtime engine when ping delays persist. Review heap, CPU, and GC before raising ping timeouts.
+
+== See Also
+
+* xref:index.adoc[On-Premises Runtimes Overview]
+* xref:hardware-and-software-requirements.adoc[Hardware and Software Requirements for On-Premises Mule Runtime Engine]
+* xref:installing-an-enterprise-license.adoc[Install an Enterprise License on On-Premises Mule Runtime Engine]
+* xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine]
+* xref:mule-deployment-model.adoc[On-Premises Mule Runtime Deployment Model]
+* xref:hardening-your-mule-installation.adoc[Harden Your On-Premises Mule Runtime Engine Installation]
+* xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes]
