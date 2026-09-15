@@ -28,7 +28,7 @@ Shared memory:: A cluster uses a distributed shared-memory grid that replicates 
 
 Node discovery:: A cluster discovers nodes through one of two methods. With unicast, you configure the IP addresses of the nodes, and adding a server restarts the cluster. With multicast, nodes discover each other automatically, but many networks block multicast traffic.
 
-To create and manage clusters, see xref:creating-clusters.adoc[] and xref:managing-clusters.adoc[]. For a deeper reference on Mule runtime clustering, see xref:mule-runtime::mule-high-availability-ha-clusters.adoc[].
+To create and manage clusters, see xref:creating-clusters.adoc[] and xref:managing-clusters.adoc[]. For a deeper reference on Mule runtime clustering, see xref:on-premises::mule-high-availability-ha-clusters.adoc[].
 
 == Disaster Recovery in Hybrid Standalone
 
@@ -64,4 +64,4 @@ Object Store locking:: For Object Store lock handling in clusters, use an Object
 * xref:hosting-home::hadr-guide.adoc[]
 * xref:creating-clusters.adoc[]
 * xref:managing-clusters.adoc[]
-* xref:mule-runtime::mule-high-availability-ha-clusters.adoc[]
+* xref:on-premises::mule-high-availability-ha-clusters.adoc[]

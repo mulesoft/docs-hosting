@@ -26,19 +26,19 @@ Before setting up hybrid standalone instances, make sure your infrastructure mee
 Set up your Mule runtime environment:
 
 * Download and install Mule runtime engine +
-Download the appropriate Mule version and set up your environment with proper configuration. For detailed installation instructions, see xref:mule-runtime::runtime-installation-task.adoc[Download, Install, Configure, and Upgrade Mule].
+Download the appropriate Mule version and set up your environment with proper configuration. For detailed installation instructions, see xref:on-premises::runtime-installation-task.adoc[Download, Install, Configure, and Upgrade On-Premises Mule Runtime Engine].
 
 * Configure runtime properties and settings +
 Configure memory settings, environment variables, and connection properties through the `wrapper.conf` file. For configuration options, see xref:mule-runtime::configuring-properties.adoc[Configuring Properties] and xref:mule-runtime::about-mule-configuration.adoc[Mule Configuration File]. To point Mule at a non-US Cloud control plane, see xref:control-planes::configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes].
 
 * Install enterprise license +
-Install your MuleSoft Enterprise license for production deployments. See xref:mule-runtime::installing-an-enterprise-license.adoc[Install an Enterprise License] for complete instructions.
+Install your MuleSoft Enterprise license for production deployments. See xref:on-premises::installing-an-enterprise-license.adoc[Install an Enterprise License on On-Premises Mule Runtime Engine] for complete instructions.
 
 * Run Mule as a service +
-Configure Mule as a system service for automatic startup and management. See xref:mule-runtime::runtime-installation-task.adoc[Download, Install, Configure, and Upgrade Mule] for service installation instructions.
+Configure Mule as a system service for automatic startup and management. See xref:on-premises::runtime-installation-task.adoc[Download, Install, Configure, and Upgrade On-Premises Mule Runtime Engine] for service installation instructions.
 
 * Harden your installation +
-Apply security best practices for production environments. See xref:mule-runtime::hardening-your-mule-installation.adoc[Hardening your Mule Installation] for security configuration guidance.
+Apply security best practices for production environments. See xref:on-premises::hardening-your-mule-installation.adoc[Harden Your On-Premises Mule Runtime Engine Installation] for security configuration guidance.
 
 == Install and Set Up Runtime Manager Agent
 

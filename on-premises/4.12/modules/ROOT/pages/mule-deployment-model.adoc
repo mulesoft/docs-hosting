@@ -1,0 +1,82 @@
+= On-Premises Mule Runtime Deployment Model
+:page-aliases: mule-runtime::mule-deployment-model.adoc, mule-runtime::hot-deployment.adoc
+:keywords: on-premises, on-prem, standalone, apps folder, anchor file, mule-maven-plugin, standaloneDeployment, domain, hot deployment, mule-domain-config.xml, domains folder
+
+
+After on-premises runtime is licensed and started, deploy Mule application JAR files to `$MULE_HOME/apps`. This is the Start and deploy stage in xref:index.adoc[On-Premises Runtimes Overview]. You own the Mule runtime engine (Mule) instance on that host. xref:runtime-manager::cloudhub.adoc[CloudHub], xref:cloudhub-2::index.adoc[CloudHub 2.0], and xref:runtime-fabric::index.adoc[Anypoint Runtime Fabric] manage the runtime instance for you.
+
+Start and stop commands are in xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine].
+
+== Run Multiple Mule Applications in One On-Premises Instance
+
+One instance of Mule runtime engine can run multiple Mule applications, enabling you to include the same namespaces within different Mule applications that neither collide nor share information, which provides additional advantages such as:
+
+* You can break down a complex application into several Mule apps with their specific logic, and then deploy those several Mule apps in one Mule instance.
+* You can share configurations across multiple Mule applications by using domains. 
+* Mule applications can depend on different library versions.
+* Multiple versions of an application can run within the same Mule instance.
+
+== Package and Deploy Mule Applications On-Premises
+
+Mule runtime engine unpacks all Mule applications at runtime, removes the original `.jar` files inside the `/apps` directory, creates a new folder for each application, and names each folder with the same name as the application file (minus the `.jar` extension).
+
+To confirm successful deployment, verify these:
+
+* The status of the application in the console is `DEPLOYED`.
+* An unpacked application folder exists in the `/apps` directory of your Mule instance: for example, for `stockTrader.jar`, `$MULE_HOME/apps/stockTrader`.
+* An anchor file exists for a running app: for example, `$MULE_HOME/apps/stockTrader-anchor.txt`. The canonical name is `<appName>-anchor.txt` in `$MULE_HOME/apps`. Mule runtime engine deletes the original `.jar` from `/apps` after it unpacks a successful deploy.
+
+If you want to store your Mule applications in a different location, you can store them on Unix-based systems by creating a symlink to your application directory from `$MULE_HOME/apps`.
+
+== Share Resources with Domains
+
+A Mule domain shares connector configurations, such as an HTTP Listener, among Mule applications on the same on-premises runtime. Domains aren't supported on CloudHub. Two Mule applications cannot bind the same HTTP host and port in one runtime unless they share that listener through a domain. Copying a Studio project to on-premises runtime without a domain is the usual cause of `address already in use`.
+
+Create and package the domain project in Anypoint Studio. That authoring procedure is in xref:mule-runtime::shared-resources.adoc[Shared Resources (Mule Domains)]. Deploy the domain JAR to `$MULE_HOME/domains` on the on-premises host.
+
+. Export the domain as a deployable JAR and copy it to `$MULE_HOME/domains`.
+. Export each application that references the domain and copy those JARs to `$MULE_HOME/apps`.
+. Start on-premises Mule runtime engine.
+
+The runtime deploys everything in `$MULE_HOME/domains` before anything in `$MULE_HOME/apps`. Mule applications that reference a domain fail to start if the domain JAR is missing or still deploying.
+
+By default an application uses the `default` domain. To share a port, point the application at your domain and keep the HTTP Listener configuration only in `mule-domain-config.xml`, not in each app.
+
+
+== Hot-Deploy an Application
+
+You can modify your Mule application's configuration files and custom classes and reload the app without having to restart Mule. The system property `mule.deployment.forceParseConfigXmls` must be set to `true` to pull the changes from the Mule application's configuration files. Note that if you modify your Mule application's configuration files to force a redeploy, the validations that happen when the application is packaged aren't executed.
+
+Every three seconds, Mule checks for updated configuration files in the `$MULE_HOME/apps` directory and, when it finds one, Mule reloads the configuration file and the JAR files in that application's `java` source directory.
+
+If you start Mule and specify an app using the `mule.deploy.applications` property, the hot deployment process works only for the specified app.
+
+To reload an application, you can:
+
+* `touch` the anchor file of that application.
+* `touch` or update any of the Mule configuration files declared in the `mule-artifact.json` file.
+
+For example, if you want to modify one of your custom classes, make your changes to the custom class, copy the updated class to the java directory, and then `touch` the anchor file.
+
+== Continue Running After a Control Plane Disconnect
+
+The Anypoint Platform control plane isn't in the request path. Mule applications keep serving API and integration traffic if Runtime Manager is unreachable. New or updated policies aren't pulled until the connection returns. Unregistered on-premises runtime doesn't depend on Runtime Manager to start or to deploy JARs.
+
+
+== Troubleshoot Common Error Messages
+
+=== `address already in use`
+
+Two Mule applications in the same on-premises runtime are binding the same HTTP host and port. Put the shared listener in a domain, or change one application's port. This error is expected when you copy a Studio project to on-premises runtime without a domain.
+
+=== `Unauthorized Access. Please verify that authToken is valid`
+
+A Maven or pipeline deploy to Runtime Manager (`standaloneDeployment` / ARM) used credentials the control plane rejected. User credentials with MFA don't work for this deploy path. Use a connected app. That deploy path is for a xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtime], not for copying a JAR into `$MULE_HOME/apps`.
+
+== See Also
+
+* xref:index.adoc[On-Premises Runtimes Overview]
+* xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine]
+* xref:hardening-your-mule-installation.adoc[Harden Your On-Premises Mule Runtime Engine Installation]
+* xref:mule-runtime::shared-resources.adoc[Shared Resources]
+* xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes]
