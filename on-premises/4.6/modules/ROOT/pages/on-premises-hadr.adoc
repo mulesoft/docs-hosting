@@ -1,13 +1,14 @@
-= On-Premises Deployment High Availability and Disaster Recovery
+= High Availability and Disaster Recovery for On-Premises Mule Runtime Engine
 :page-aliases: mule-runtime::on-premises-hadr.adoc
+:keywords: high availability, disaster recovery, failover, RTO, RPO, backup, active-active, active-passive, data center, on-premises, on-prem, standalone
 
 When you run Mule runtime engine on servers that you manage, you build high availability (HA) and disaster recovery (DR) yourself. You achieve HA by clustering Mule runtime instances so that another node takes over when one fails, and you choose a standby topology that matches your SLA. You own DR under a shared-responsibility model: because you control the infrastructure, you back up, restore, and recover it with your own tooling, while MuleSoft provides the runtime clustering capabilities and control-plane availability through Anypoint Platform.
 
 For an overview of HA and DR across all Mule deployment models, see xref:hosting-home::hadr-guide.adoc[High Availability and Disaster Recovery].
 
-== High Availability Versus Disaster Recovery
+== Compare High Availability and Disaster Recovery
 
-High availability (HA) measures a system's ability to remain accessible when a component fails. On self-managed servers, you achieve HA by clustering and load balancing Mule runtime nodes, so that another node takes over when one fails.
+High availability (HA) measures a system's ability to remain accessible when a component fails. On on-premises servers, you achieve HA by clustering and load balancing Mule runtime nodes, so that another node takes over when one fails.
 
 Disaster recovery (DR) restores a system to an acceptable previous state after a natural or man-made disaster, such as flooding, power failures, server failures, or misconfigurations.
 
@@ -19,9 +20,9 @@ Recovery Time Objective (RTO):: The maximum downtime a business tolerates. RTO i
 
 Recovery Point Objective (RPO):: The maximum data loss a business accepts after a disaster. RPO drives how often you back up data.
 
-== High Availability in On-Premises Deployments
+== Achieve High Availability On-Premises
 
-You achieve high availability on self-managed servers by clustering and load balancing Mule runtime nodes. Depending on your SLA, you choose a standby topology and a deployment architecture that meet your availability and fault-tolerance requirements.
+You achieve high availability on on-premises servers by clustering and load balancing Mule runtime nodes. Depending on your SLA, you choose a standby topology and a deployment architecture that meet your availability and fault-tolerance requirements.
 
 Clustering and failover:: You can deploy Mule runtime engine in many topologies to support your HA and DR strategies. One common method, high-availability clustering, gives Mule basic failover capability. When the primary Mule runtime becomes unavailable—because of a fatal JVM or hardware failure, or because you take it offline for maintenance—a backup Mule runtime immediately takes over as the primary node and resumes processing where the failed instance stopped. After you recover the failed Mule runtime server and bring it back online, that server automatically becomes the backup node.
 
@@ -31,7 +32,7 @@ image::hadr-cluster.png["A clustered server environment handling incoming and ou
 
 As you build your Mule application, think critically about how to architect it for the availability, fault tolerance, and performance you need.
 
-=== High Availability Options
+=== Choose a High Availability Option
 
 You achieve high availability by clustering and load balancing nodes. Depending on your SLA, Mule supports four HA options:
 
@@ -87,7 +88,7 @@ Two or more Mule environments belong to the same cluster. This scenario requires
 |None. The service experiences no downtime.
 |===
 
-=== On-Premises Deployment Models
+=== Choose an On-Premises Deployment Model
 
 You size your on-premises architecture to meet your SLA. Mule supports three common deployment models:
 
@@ -158,7 +159,7 @@ This example assumes that each environment uses the same number of Mule runtimes
 
 This method can temporarily add capacity to the service for a few minutes, hours, or days.
 
-== Disaster Recovery in On-Premises Deployments
+== Plan Disaster Recovery
 
 Because you control the infrastructure, you own disaster recovery for on-premises deployments. You back up your servers, applications, and data, and you bring backup infrastructure online to meet your recovery objectives when your primary environment fails.
 
@@ -170,7 +171,7 @@ Anypoint configuration:: Back up your platform configurations—such as connecti
 
 MuleSoft responsibility:: MuleSoft keeps the Anypoint Platform control plane available across multiple availability zones. The control plane stores only operational metadata and configuration, not your business data.
 
-== Considerations and Limitations
+== Review Considerations and Limitations
 
 Account for these factors when you design a clustered on-premises topology:
 
@@ -182,9 +183,9 @@ Sequential deployment staging:: When you deploy an application to an on-premises
 
 Cost trade-offs:: Higher availability and fault tolerance require more nodes and infrastructure. Size your architecture to the SLA you must meet, rather than to the maximum possible resilience.
 
-== Best Practices
+== Follow High Availability and Disaster Recovery Best Practices
 
-Follow these design principles for high availability and disaster recovery on self-managed servers:
+Follow these design principles for high availability and disaster recovery on on-premises servers:
 
 * Keep your integrations stateless, and externalize state to an external store, such as a database or a messaging queue.
 * Run identical Mule runtime, Runtime Manager agent, and Java versions on all cluster nodes.
@@ -195,5 +196,5 @@ Follow these design principles for high availability and disaster recovery on se
 == See Also
 
 * xref:hosting-home::hadr-guide.adoc[High Availability and Disaster Recovery]
-* xref:mule-high-availability-ha-clusters.adoc[Mule Runtime HA Cluster Overview]
-* xref:creating-and-managing-a-cluster-manually.adoc[Create and Manage a Cluster Manually]
+* xref:mule-high-availability-ha-clusters.adoc[On-Premises Mule Runtime High Availability Cluster Overview]
+* xref:creating-and-managing-a-cluster-manually.adoc[Create and Manage an On-Premises Mule Runtime Cluster Manually]

@@ -1,6 +1,6 @@
-= Create and Manage a Cluster Manually
+= Create and Manage an On-Premises Mule Runtime Cluster Manually
 :page-aliases: mule-runtime::creating-and-managing-a-cluster-manually.adoc
-:keywords: cluster, deploy
+:keywords: hazelcast, quorum, split brain, node failure, failover, virtual IP, load balancer, server group, object store, mule-cluster.properties, 5701, multicast, unicast, on-premises, on-prem, standalone
 
 There are two ways to create and manage clusters:
 
@@ -9,7 +9,7 @@ There are two ways to create and manage clusters:
 See xref:runtime-manager::cluster-about.adoc[Clusters] for configuration instructions.
 * Manually, using a configuration file
 
-== Cluster Requirements and Restrictions
+== Review Cluster Requirements and Restrictions
 
 * Do not mix cluster management tools.
 +
@@ -21,7 +21,7 @@ If you are using a cumulative patch release, such as 4.3.0-20210322, all instanc
 ** Runtime Manager agent version
 ** Java
 
-== Creating a Cluster Manually
+== Create a Cluster Manually
 
 Follow this procedure to create a cluster manually, using a configuration file.
 
@@ -44,9 +44,9 @@ mule.clusterNodeId=<Cluster_Node_ID>
 . Repeat this procedure for all Mule servers that you want to be in the cluster.
 . Start the Mule servers in the nodes.
 
-For the full list of available parameters, see <<Cluster Configuration Parameters>>.
+For the full list of available parameters, see <<cluster-config-params>>.
 
-== Managing a Cluster Manually
+== Manage a Cluster Manually
 
 Manual management of a cluster is only possible for clusters that have been manually created.
 
@@ -61,7 +61,8 @@ To manually change the configuration of a cluster node, follow these steps:
 Failure to ensure that the options you apply in the configuration file are valid for all cluster nodes can break cluster configuration and disable the cluster.
 ====
 
-=== Quorum Management
+[[quorum-management]]
+=== Configure Quorum
 
 When managing a _manually configured cluster_ you can now set a minimum quorum of machines required for the cluster to be operational.
 
@@ -88,7 +89,11 @@ To enable quorum, place in the cluster configurations file `+{MULE_HOME}/.mule/m
 Quorum feature is only valid for components that use Object Store.
 --
 
-=== Object Store Persistence
+[[object-store-persistence]]
+=== Persist Object Stores
+
+Persistent object stores are not shared across a full cluster shutdown unless you configure a centralized JDBC store. The in-grid copy does not survive stopping every node, even when the object store `persistent` flag is true.
+
 
 You can persistently store JDBC data in a central system that is accessible by all cluster nodes when using Mule runtime engine on-premises.
 
@@ -148,7 +153,7 @@ Replace `<n>` with the next highest sequential value from the `wrapper.conf` fil
 [NOTE]
 You can find more information about the pool configuration of the `ComboPooledDataSource` Java class in https://www.mchange.com/projects/c3p0/[this article].
 
-=== Monitoring
+=== Monitor the Cluster
 
 You can monitor the events thrown by the cluster members through the https://www.oracle.com/java/technologies/javase/javamanagement.html[JMX technology].
 
@@ -157,7 +162,7 @@ The JMX monitoring option is disabled by default. To enable it, add the `+mule.c
 Please note that enabling JMX might cause some performance overheads given that the underlying structure adds listeners to get the statistics for each individual node.
 
 
-=== Membership Listener
+=== Listen for Cluster Membership Changes
 
 The membership listener allows you to get notifications whenever:
 
@@ -167,7 +172,7 @@ The membership listener allows you to get notifications whenever:
 When one of these events is triggered, the membership listener outputs the addresses of the members that joined or left respectively.
 
 [[cluster-config-params]]
-== Cluster Configuration Parameters
+== Set mule-cluster.properties Parameters
 
 The following table lists the parameters of the `mule-cluster.properties` file.
 
@@ -224,3 +229,14 @@ This property can take three different values: `mssql`, `mysql` and `postgresql`
 |`mule.cluster.jmxenabled` | *(Boolean)* Enable/disable monitoring | No
 | `mule.cluster.listenersenabled` | *(Boolean)* Enable/disable membership listener. Set to `true` if you want your nodes to get notified when a member enters or leaves the cluster. | No
 |===
+
+
+== Troubleshoot Common Error Messages
+
+=== `Invalid cluster configuration: Node failed to start`
+
+The manual cluster file is invalid or disagrees with other nodes. `mule.clusterId` and `mule.clusterNodeId` must be present. Unicast (`mule.cluster.nodes`) requires `mule.cluster.multicastenabled=false`. Multicast is not available on Amazon Web Services; use unicast there.
+
+=== `NoDataMemberInClusterException`
+
+The cluster has no Hazelcast data member for the requested partition. Check quorum (`mule.cluster.quorumsize`) and that enough nodes are running.

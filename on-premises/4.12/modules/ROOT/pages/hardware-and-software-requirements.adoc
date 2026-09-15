@@ -1,22 +1,24 @@
-= Hardware and Software Requirements
+= Hardware and Software Requirements for On-Premises Mule Runtime Engine
 :page-aliases: mule-runtime::hardware-and-software-requirements.adoc
-:keywords: mule, requirements, jdk, java, installation
+:keywords: RHEL, Red Hat, Rocky Linux, Ubuntu, Windows Server, supported versions, sizing, RAM, heap, CPU, on-premises, on-prem, standalone, JDK 17
 
-If you plan to install Mule and run it on-premises, review these minimum hardware and software requirements before you install.
+If you plan to install Mule runtime engine and run it on-premises, review these minimum hardware and software requirements before you install.
 
-== Minimum Hardware Requirements
+== Review Minimum Hardware Requirements
+
+The CloudHub vCore sizing model doesn't apply to on-premises Mule runtime engine. You size CPU, heap, and RAM on the host yourself.
 
 * 2 GHz CPU or 1 virtual CPU in virtualized environments.
 * 1 GB of RAM.
 * 4 GB of storage.
 
-Adjust RAM to match your latency requirements and the size and number of simultaneous messages that applications process.
+Adjust RAM to match your latency requirements and the size and number of simultaneous messages that Mule applications process.
 
-Mule supports the x86 and x64 architectures.
+Mule runtime engine supports the x86 and x64 architectures. On-premises Mule runtime engine isn't supported on ARM processors.
 
-== Required Software
+== Use a Supported Java Version
 
-Verify that you use a supported version of Java before you install Mule.
+Verify that you use a supported version of Java before you install Mule runtime engine. Mule runtime engine requires JDK 17.
 
 [%header,cols="15a,85a"]
 |===
@@ -27,11 +29,11 @@ Verify that you use a supported version of Java before you install Mule.
 [NOTE]
 Though you can run a different JDK of choice, MuleSoft doesn't support or take action to fix issues if they're traced back to the JDK.
 
-== Supported Software
+== Review Supported Operating Systems
 
-Mule is supported on any operating system that runs a Java Runtime Environment (JRE) from a supported JDK.
+Mule runtime engine is supported on any operating system that runs a Java Runtime Environment (JRE) from a supported JDK. Red Hat Enterprise Linux (RHEL) is a tested distribution. MuleSoft supports RHEL clones such as Rocky Linux even when a specific clone version isn't listed as tested.
 
-=== Tested Software
+=== Review Tested Software
 
 Mule runtime engine passed functional testing against these software and operating systems:
 
@@ -42,8 +44,23 @@ Mule runtime engine passed functional testing against these software and operati
 | JDK | Adoptium OpenJDK distribution
 |===
 
-This version of Mule runtime engine is bundled with the Runtime Manager agent plugin version 2.7.14. For Runtime Manager Agent compatibility, see xref:release-notes::runtime-manager-agent/runtime-manager-agent-release-notes.adoc[Runtime Manager Agent Release Notes].
+Mule runtime engine is bundled with the Runtime Manager agent plugin version 2.7.14. For Runtime Manager Agent compatibility, see xref:release-notes::runtime-manager-agent/runtime-manager-agent-release-notes.adoc[Runtime Manager Agent Release Notes].
 
+
+
+== Troubleshoot Common Error Messages
+
+=== `Unsupported class file major version 61`
+
+This error means bytecode compiled for Java 17 (class file major version 61) was loaded by an older JDK, or Mule runtime engine is running on an unsupported JDK. Mule runtime engine requires JDK 17.
+
+=== `JavaVersionNotSupportedByExtensionException`
+
+An extension, connector, or module such as APIkit doesn't support the JDK that on-premises Mule runtime engine is running. Mule runtime engine requires JDK 17. Align the application's Java compatibility with that JDK, or run a JDK the extension lists as supported.
+
+=== `OutOfMemoryError: Metaspace`
+
+The JVM that hosts on-premises Mule runtime engine ran out of Metaspace. Increase Metaspace in the Java Service Wrapper (`wrapper.conf`) rather than only increasing heap. Heap and Metaspace are separate pools.
 
 == See Also
 

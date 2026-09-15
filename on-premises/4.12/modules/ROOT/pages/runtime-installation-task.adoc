@@ -1,8 +1,9 @@
-= Download, Install, Configure, and Upgrade Mule
+= Download, Install, Configure, and Upgrade On-Premises Mule Runtime Engine
 :page-aliases: mule-runtime::runtime-installation-task.adoc
+:keywords: on-premises, on-prem, standalone, install, download, MULE_HOME, wrapper.conf, wrapper.java.command, offline install, air-gapped, mule upgrade tool, linux, RHEL, windows service, heap, Xmx, Metaspace, wrapper.startup.timeout, multiple instances
 
-Before downloading and installing Mule, verify that you have a xref:general::java-support.adoc#mule-runtime-java-support[supported JDK] installed.
-This example uses https://adoptium.net/temurin/releases/?version=17[Eclipse Temurin 17^], which is recommended for Mule 4.9.
+Before downloading and installing Mule runtime engine, verify that you have a xref:general::java-support.adoc#mule-runtime-java-support[supported JDK] installed.
+This example uses https://adoptium.net/temurin/releases/?version=17[Eclipse Temurin 17^], which is recommended for Mule runtime engine.
 
 [source,console]
 ----
@@ -14,35 +15,38 @@ OpenJDK 64-Bit Server VM Temurin-17.0.13+11 (build 17.0.13+11, mixed mode, shari
 
 AdoptOpenJDK moved to the Eclipse Foundation and changed its name to the Eclipse Adoptium project. The name of the JDK changed to Temurin.
 
-== Download Mule
+== Download Mule Runtime Engine for On-Premises
 
-. Download the Mule 4 binary file from the following link and unzip it:
+Download the Enterprise standalone distribution (`mule-enterprise-standalone-*.zip`) when you have an Enterprise license. The Mule Kernel (Community Edition) artifact is `mule-standalone-*.zip`. Kernel doesn't accept an Enterprise license and doesn't include clustering.
+
+
+. Download the Mule 4 binary file from this link and unzip it:
 +
 https://www.mulesoft.com/lp/dl/anypoint-mule-studio[https://www.mulesoft.com/lp/dl/anypoint-mule-studio]
 +
 . Set an environment variable called `MULE_HOME` for the `mule` directory inside your extracted folder.
 +
-Example for version 4.9.0 in the `Downloads` directory:
+Example in the `Downloads` directory:
 +
 * In Windows environments:
 +
 [source,console]
 ----
-$ env:MULE_HOME="C:\Downloads\mule-enterprise-standalone-4.9.0"
+$ env:MULE_HOME="C:\Downloads\mule-enterprise-standalone-<version>"
 ----
 +
 * In Linux or Unix environments:
 +
 [source,console]
 ----
-$ export MULE_HOME=~/Downloads/mule-enterprise-standalone-4.9.0
+$ export MULE_HOME=~/Downloads/mule-enterprise-standalone-<version>
 ----
 
 The procedure for making the `MULE_HOME` setting permanent depends on your operating system.
 
-=== Test Your Mule Instance
+=== Test the On-Premises Runtime
 
-After downloading Mule, test to confirm that it runs in your system without errors by executing the following commands:
+After downloading Mule, test to confirm that it runs in your system without errors by executing these commands:
 
 * In Windows environments:
 +
@@ -62,7 +66,7 @@ These commands run Mule in foreground mode, and the startup script displays info
 
 To stop Mule, press `CTRL-C` in the terminal in which the script is running.
 
-== Install Mule
+== Install as a Windows Service or Linux Daemon
 
 You can install Mule as a Windows service or as a Linux or Unix daemon by executing the corresponding command:
 
@@ -80,7 +84,10 @@ $ $MULE_HOME\bin\mule.bat install
 $ $MULE_HOME/bin/mule install
 ----
 
-== Configure Properties in the wrapper.conf File
+== Configure the Java Service Wrapper
+
+To point Mule runtime engine at a specific JDK, set `wrapper.java.command` in `wrapper.conf` to the `java` executable path, not to `JAVA_HOME`. An incorrect `wrapper.java.command` value is a common cause of startup failures.
+
 
 After installing Mule as a service or as a daemon, you can modify the properties defined in the `wrapper.conf` file.
 
@@ -97,20 +104,62 @@ Don't modify the `wrapper-additional.conf` file, as Mule automatically generates
 
 [NOTE]
 ====
-On Linux hosts, for applications that use Java Native Access (JNA) to load native libraries, JNA loads those libraries from a temporary directory. If that directory is mounted with the `noexec` option, library loading fails. Add a line to the `wrapper.conf` file to redirect JNA to a directory that permits execution, replacing `<n>` with an unused sequence number: `wrapper.java.additional.<n>=-Djna.tmpdir=/tmp`.
+On Linux hosts, for Mule applications that use Java Native Access (JNA) to load native libraries, JNA loads those libraries from a temporary directory. If that directory is mounted with the `noexec` option, library loading fails. Add a line to the `wrapper.conf` file to redirect JNA to a directory that permits execution, replacing `<n>` with an unused sequence number: `wrapper.java.additional.<n>=-Djna.tmpdir=/tmp`.
 ====
+
+
+== Configure JVM Memory and Wrapper Timeouts
+
+The Java Service Wrapper (Tanuki) starts the JVM that hosts on-premises Mule runtime engine. Set heap, Metaspace, and startup timeouts in `$MULE_HOME/conf/wrapper.conf`. Restart the runtime after you change this file.
+
+Heap isn't the full RAM of the host. Leave memory for the operating system and for Metaspace, which is a separate pool. Don't set `wrapper.java.maxmemory` equal to the host RAM. The CloudHub vCore model doesn't apply on-premises.
+
+Use the wrapper memory properties, not a mix of those properties and `-Xms`/`-Xmx` additional lines, so one setting doesn't silently override the other:
+
+----
+wrapper.java.initmemory=1024
+wrapper.java.maxmemory=2048
+----
+
+Those values are megabytes and map to `-Xms` and `-Xmx`. To cap Metaspace, add an unused `wrapper.java.additional.<n>` index:
+
+----
+wrapper.java.additional.<n>=-XX:MaxMetaspaceSize=512m
+----
+
+If two additional properties share the same `<n>`, the wrapper keeps one and ignores the other. Don't edit `wrapper-additional.conf`; the runtime regenerates that file.
+
+If startup fails with `Timed out waiting for signal from JVM`, increase `wrapper.startup.timeout` in `wrapper.conf` (seconds). The wrapper kills and can restart the JVM when `Pinging the JVM took` persists; fix heap, CPU, and GC before raising ping timeouts.
+
+
+== Install Offline or Air-Gapped
+
+An air-gapped on-premises install doesn't require outbound internet on the runtime host after you have the standalone zip. Download `mule-enterprise-standalone-*.zip` (or the Kernel zip) on a connected machine, transfer the file to the isolated host, unpack it, and set `MULE_HOME`.
+
+The standalone distribution starts without Maven Central. Application JARs must already include their dependencies. Resolve and package Mule applications on a connected build agent, then copy the deployable JARs to `$MULE_HOME/apps` (and domain JARs to `$MULE_HOME/domains`).
+
+Don't run Studio's "install new software" flow on the isolated host to obtain the runtime. That flow installs Anypoint Studio components, not the on-premises standalone distribution.
+
+
+== Run Multiple Instances on One Host
+
+Each on-premises Mule runtime engine instance needs its own install directory and its own `MULE_HOME`. Don't run two instances from the same unpacked zip. Copy or unpack a second distribution into a different folder, for example `/opt/mule-runtime-a` and `/opt/mule-runtime-b`.
+
+Give each instance unique HTTP and other listener ports in the Mule applications (or in a domain). Wrapper and cluster ports must not collide. On Windows, install each instance as its own service from that instance's `bin` directory so the service name and `wrapper.conf` stay isolated.
+
+Keep a stable path for operations (a symlink such as `/opt/mule` that points at the current directory) if your monitoring agent or scripts hard-code `MULE_HOME`. Renaming the install directory after Anypoint Monitoring is installed breaks that agent; reinstall monitoring after a path change.
 
 == Configure CPU Affinity
 
 Many operating systems provide a mechanism to bind a process to one or more central processing units (CPUs) so that the process executes only on the assigned CPUs. You can configure CPU affinity in your environment to run Mule in a nonvirtualized multicore server and comply with the number of cores included in your subscription.
 
-=== Considerations When Using CPU Affinity
+=== Review CPU Affinity Considerations
 
 * CPUs have groups of cores that share a cache to improve thread communication and migration performance. To avoid such performance issues, check with your infrastructure team to identify which cores share this cache before setting up this feature.
 * Check with your infrastructure team to ensure that no existing resource allocation policy that can interfere with your CPU affinity configuration.
-* Ensure that the number of cores you plan to configure through CPU affinity does not exceed the number of cores included in your MuleSoft subscription plan.
+* Ensure that the number of cores you plan to configure through CPU affinity doesn't exceed the number of cores included in your MuleSoft subscription plan.
 
-== Remove the Mule Service or Daemon
+== Remove the Service or Daemon
 
 You can remove Mule as a Windows service or as a Unix daemon by executing the corresponding command:
 
@@ -126,8 +175,8 @@ $ $MULE_HOME\bin\mule.bat remove
 [source,console,linenums]
 ----
 $ $MULE_HOME/bin/mule remove
-MULE_HOME is set to /Applications/mule-enterprise-standalone-4.9.0
-MULE_BASE is set to /Applications/mule-enterprise-standalone-4.9.0
+MULE_HOME is set to /Applications/mule-enterprise-standalone-<version>
+MULE_BASE is set to /Applications/mule-enterprise-standalone-<version>
 Detected Mac OSX:
 Mule Enterprise Edition is not running.
 Removing Mule Enterprise Edition daemon...
@@ -135,15 +184,30 @@ Removing Mule Enterprise Edition daemon...
 
 == Install Anypoint Monitoring
 
-You can xref:monitoring::am-installing.adoc[install Anypoint Monitoring] for cloud-managed supported versions of on-premises runtime instances to monitor applications running on that server.
+You can xref:monitoring::am-installing.adoc[install Anypoint Monitoring] for cloud-managed supported versions of on-premises runtime instances to monitor Mule applications running on that server.
 
-== Update, Upgrade, or Migrate Mule Versions
+== Update, Upgrade, or Migrate Mule Runtime Engine
 
 include::partial$upgrade-update-migrate-mule.adoc[]
 
+
+== Troubleshoot Common Error Messages
+
+=== `Timed out waiting for signal from JVM`
+
+The Java Service Wrapper (Tanuki) started the JVM but did not receive a ready signal before `wrapper.startup.timeout`. Increase that timeout in `wrapper.conf` or fix whatever is blocking JVM startup (JDK, license, or port conflict).
+
+=== `JVM received a signal SIGKILL (9)`
+
+The operating system killed the JVM that hosts on-premises Mule runtime engine. This isn't a graceful `mule stop`. Check the out-of-memory killer, `ulimit` settings, and whether an operator or orchestrator sent SIGKILL.
+
+=== `Pinging the JVM took`
+
+The Java Service Wrapper pinged the JVM and the response was slow. The wrapper can restart Mule runtime engine when ping delays persist. Review heap, CPU, and GC before raising ping timeouts.
+
 == See Also
 
-* xref:starting-and-stopping-mule-esb.adoc[Starting and Stopping Mule]
+* xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine]
 * xref:mule-runtime::deploying.adoc[Deploy Mule Applications]
 * xref:studio::to-download-and-install-studio.adoc[Install Anypoint Studio 7.0]
 * xref:mule-runtime::mule-runtime-updates.adoc[What's New in Mule 4]

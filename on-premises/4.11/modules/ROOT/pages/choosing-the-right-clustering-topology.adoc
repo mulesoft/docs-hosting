@@ -1,10 +1,13 @@
-= Cluster Runtime Instances
+= Cluster On-Premises Mule Runtime Instances
 :page-aliases: mule-runtime::choosing-the-right-clustering-topology.adoc
-:keywords: deploy, cloudhub, on premises, on premise, clusters
+:keywords: hazelcast, quorum, split brain, node failure, failover, virtual IP, load balancer, server group, object store, mule-cluster.properties, 5701, multicast, unicast, on-premises, on-prem, standalone
 
-You can deploy Mule in many different topologies. As you build your Mule application, it is important to think critically about how best to architect your application to achieve the desired availability, fault tolerance, and performance characteristics. This page outlines some of the solutions for achieving the right blend of these characteristics through clustering when you deploy applications on premises. There is no one correct approach for everyone, and designing your system is both an art and a science. If you need more assistance, MuleSoft Professional Services can help you by reviewing your architecture plan or designing it for you. For more information, https://www.mulesoft.com/contact[contact us].
+You can deploy Mule in many different topologies. As you build your Mule application, it is important to think critically about how best to architect your application to achieve the desired availability, fault tolerance, and performance characteristics. This page outlines some of the solutions for achieving the right blend of these characteristics through clustering when you deploy applications on-premises. There is no one correct approach for everyone, and designing your system is both an art and a science. If you need more assistance, MuleSoft Professional Services can help you by reviewing your architecture plan or designing it for you. For more information, https://www.mulesoft.com/contact[contact us].
 
-== About Clustering
+== Choose a Clustering Topology
+
+A server group is not a cluster. A server group is a set of unclustered servers that Runtime Manager can deploy to together. A cluster shares memory, VM queues, and object-store data across nodes and requires the Enterprise standalone distribution.
+
 
 Deploying an application into a cluster is useful for achieving the following:
 
@@ -16,7 +19,7 @@ Deploying an application into a cluster is useful for achieving the following:
 
 This page describes several possible clustering solutions.
 
-== Mule High Availability
+== Understand On-Premises High Availability
 
 *_Enterprise Edition_*
 
@@ -46,7 +49,7 @@ Mule High Availability is currently available for the following transports:
 
 Mule High Availability is available with Mule Enterprise subscriptions. For details including technical highlights, requirements, and installation details, mailto:sales@mulesoft.com[contact us].
 
-== JMS Queues
+== Use JMS Queues for High Availability
 
 JMS can be used to achieve HA & FT by routing messages through JMS queues. In this case, each message is routed through a JMS queue whenever it moves from component to component.
 
@@ -64,7 +67,7 @@ Cons:
 
 * Performance hit if you're using XA
 
-== Load Balancers
+== Use Load Balancers with Clusters
 
 Load balancers simply route requests to different servers based on the current load of each server and which servers are currently up. Load balancers can be software or hardware based. This approach is commonly used with clustered databases (see below).
 
@@ -78,7 +81,7 @@ Cons:
 
 * Not a complete solution on its own, doesn't provide fault tolerance.
 
-== Example
+== Review a Clustered Topology Example
 
 In this example architecture, HTTP requests come in through a load balancer and are immediately put on a JMS queue. The JMS queue is clustered between the different servers. A server will start processing a message off the JMS queue and wrap everything in a transaction.
 
@@ -88,7 +91,7 @@ If the server goes down, the transaction will roll back and another server will 
 
 *Note*: If the HTTP connection is open for the duration of this process, this approach will not work, as the load balancer will not transparently switch connections between servers. In this case, the HTTP client will need to retry the request.
 
-== Maintaining State in a Database
+== Maintain State in a Database
 
 If you have a clustered database, one option for your application is to simply store all state in the database and rely on it to replicate the data consistently across servers.
 
@@ -102,7 +105,7 @@ Cons:
 
 * Not all state is amenable to being stored in the database
 
-== Handling Stateful Components
+== Handle Stateful Components
 
 While most applications can be supported by the above techniques, some require sharing state between JVMs more deeply.
 
@@ -131,7 +134,7 @@ Cons:
 
 * Requires performance tuning to get things working efficiently
 
-== Related Topics
+== Review Related Clustering Topics
 
 As you design your topology, there are several other topics to keep in mind that are beyond the scope of this documentation:
 

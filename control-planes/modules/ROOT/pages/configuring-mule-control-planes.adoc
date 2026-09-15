@@ -78,5 +78,5 @@ anypoint.platform.analytics_base_uri=https://analytics-ingest.jp1.platform.mules
 * xref:creating-and-deploying-mule-apps.adoc[Creating and Deploying Mule Apps]
 * xref:control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists]
 * xref:hybrid-standalone::setting-hybrid-standalone.adoc[Setting up Hybrid Standalone Instances]
-* xref:on-premises::runtime-installation-task.adoc[Download, Install, Configure, and Upgrade Mule]
+* xref:on-premises::runtime-installation-task.adoc[Download, Install, Configure, and Upgrade On-Premises Mule Runtime Engine]
 * xref:runtime-fabric::install-self-managed-network-configuration.adoc[Configuring Your Network to Support Runtime Fabric]

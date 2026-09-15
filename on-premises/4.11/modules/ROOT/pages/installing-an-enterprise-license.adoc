@@ -1,6 +1,10 @@
-= Install an Enterprise License
+= Install an Enterprise License on On-Premises Mule Runtime Engine
 :page-aliases: mule-runtime::installing-an-enterprise-license.adoc
-:keywords: mule, studio, enterprise, ee, premium features, paid features, purchase, license, licensed
+:keywords: muleLicenseKey.lic, installLicense, verifyLicense, license expired, tanuki, java service wrapper license, vcore, on-premises, on-prem, standalone, enterprise, ee, license, licensed
+
+An on-premises Mule runtime engine 4.11 with an expired license does not restart. Install a valid Enterprise license before you start the runtime in production.
+
+The Mule Enterprise license (`muleLicenseKey.lic`) is not the Java Service Wrapper (Tanuki) license. A Tanuki license error means the wrapper key is missing or invalid, not that `mule -installLicense` failed.
 
 MuleSoft makes available a trial version of the Enterprise Edition of Mule runtime engine (Mule) for the purpose of evaluation. Though perfect for exploring Mule and Anypoint Studio, the trial license for Enterprise limits usage of Mule and isn't appropriate for production uses.
 
@@ -28,7 +32,7 @@ Complete this steps to acquire and install a non-trial *Enterprise license* befo
 . In the `$MULE_HOME/conf` directory, Mule saves a new file called `muleLicenseKey.lic`. This shows that the license has been installed.
 . *Start* your Mule Server again, by the usual means.
 
-== Verify or Remove Enterprise Edition License
+== Verify or Remove an Enterprise License
 
 Make sure that the Mule Server is *stopped* and then open the terminal or command line on your system.
 
@@ -55,7 +59,7 @@ Sometimes the license installation fails and it might be necessary to manually d
 +
 The command outputs the same information as in `mule -verifyLicense`.
 
-== Download Your License Key File
+== Download Your License Key
 
 . Log in to the MuleSoft Support portal at https://help.mulesoft.com using your credentials. If you don't have login information, contact your Customer Success Manager.
 . Click on the *Support* tab located on the navigation menu of the Mulesoft Help Center home page.
@@ -68,7 +72,7 @@ The command outputs the same information as in `mule -verifyLicense`.
 
 If you download a FIPS license, see xref:mule-runtime::fips-140-2-compliance-support.adoc[FIPS 140-2 Compliance Support] to configure your Mule runtime to run in FIPS mode.
 
-== Install Enterprise License on Embedded Mule
+== Install an Enterprise License on Embedded Mule Runtime Engine
 
 Though not recommended for production environments, you have the option of installing an Enterprise license on the Mule that comes bundled with Studio.
 
@@ -84,6 +88,17 @@ To use the SAP Connector or other premium connectors, you must first acquire, th
 
 [TIP]
 The https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/[MuleSoft Enterprise Maven customer repository] allows you to access Mule Enterprise modules, connectors, and other components not included in the trial or community versions. See xref:mule-runtime::mmp-concept.adoc[About the Mule Maven Plugin] for details.
+
+
+== Troubleshoot Common Error Messages
+
+=== `java.io.FileNotFoundException: muleLicenseKey.lic (Permission denied)`
+
+The process that runs `mule -installLicense` cannot write `$MULE_HOME/conf/muleLicenseKey.lic`. Stop the runtime, confirm the OS user owns `$MULE_HOME`, and retry. Do not copy-paste the install command if paste inserts hidden characters; type the command.
+
+=== `The License Key was found but failed to be validated`
+
+This message comes from the Java Service Wrapper (Tanuki), not from the Mule Enterprise license. Fix the wrapper license. Then use `mule -verifyLicense` to confirm `muleLicenseKey.lic`.
 
 == See Also
 

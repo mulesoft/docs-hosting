@@ -1,14 +1,14 @@
-= Hardening your Mule Installation
+= Harden Your On-Premises Mule Runtime Engine Installation
 :page-aliases: mule-runtime::hardening-your-mule-installation.adoc
-:keywords: fine tuning, configuration, security
+:keywords: hardening, FIPS, TLS, cipher suites, keystore, BCFKS, non-root, file permissions, on-premises, on-prem, standalone
 
 As distinct from Security, hardening refers to the steps one must perform in order to bring an application from development into production. These are elaborate procedures one must go through in order to deploy something in the IT space after you complete the development cycle.
 
 Normally, an IT organization already has control of keeping open ports to a minimum, restricting access to administrative applications, minimizing the number of applications, and other measures to ensure quality. We recommend using secure files to configure Mule, as well as using secure configuration files.
 
-== Hardening Checklist
+== Follow the Hardening Checklist
 
-To begin hardening a Mule installation that you are hosting on premises:
+To begin hardening a Mule runtime engine installation that you are hosting on-premises:
 
 * Run Mule as a non-privileged User.
 * Install Mule as a Service.
@@ -19,7 +19,10 @@ To begin hardening a Mule installation that you are hosting on premises:
 
 For instructions specific to Runtime Fabric, see xref:runtime-fabric::configure-hardening.adoc[Hardening Mule Runtime on Runtime Fabric].
 
-=== About Running Mule as a Non-Privileged User
+=== Run as a Non-Root User
+
+Run on-premises Mule runtime engine as a non-root OS user. Root is not required except to bind ports below 1024. The runtime user must own `$MULE_HOME` and have write permission to the logs directory.
+
 
 On Linux and Unix, you can run Mule as any user with the following caveats:
 
@@ -28,7 +31,7 @@ On Linux and Unix, you can run Mule as any user with the following caveats:
 
 On Windows, you need to be in admin user's group to run Mule.
 
-== Hardening in Layers
+== Harden in Layers
 
 By its nature, you can situate Mule in a variety of configurations. The suggested approach to hardening involves hardening in layers beginning with the operating system, then working up the stack. The Center for Internet Security (CIS) publishes configuration benchmarks that are widely used in whole or in part as system hardening guides.
 
@@ -38,6 +41,13 @@ On the network security side, security experts recommend using a good stateful i
 
 Be sure your software developers are familiar with secure web application coding techniques. At the very least, they should be familiar with best practices to avoid common web app pitfalls, such as those listed in OWASP's top 10 Project.
 
+
+
+== Troubleshoot Common Error Messages
+
+=== `PKIX path building failed`
+
+TLS trust failed while the on-premises runtime or Runtime Manager agent (`amc_setup`) connected to an HTTPS endpoint. Import the issuing CA into the JVM truststore or configure the corporate proxy certificate. This error is not a Mule application flow failure.
 
 == See Also
 
