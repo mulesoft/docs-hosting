@@ -2,7 +2,8 @@
 :page-aliases: mule-runtime::hardware-and-software-requirements.adoc
 :keywords: RHEL, Red Hat, Rocky Linux, Ubuntu, Windows Server, supported versions, sizing, RAM, heap, CPU, on-premises, on-prem, standalone, JDK 17
 
-If you plan to install Mule runtime engine 4.11 and run it on-premises, review these minimum hardware and software requirements before you install.
+Confirm these requirements before you download on-premises runtime. This is the Prerequisites stage in xref:index.adoc[Run Mule Runtime Engine On-Premises]. After the host meets them, download Mule Enterprise Edition. See xref:runtime-installation-task.adoc[Download, Install, Configure, and Upgrade On-Premises Mule Runtime Engine].
+
 
 == Review Minimum Hardware Requirements
 
@@ -64,4 +65,7 @@ The JVM that hosts on-premises Mule runtime engine 4.11 ran out of Metaspace. In
 
 == See Also
 
-* xref:private-cloud::install-checklist.adoc[Anypoint Platform PCE Prerequisites]
+* xref:index.adoc[Run Mule Runtime Engine On-Premises]
+* xref:runtime-installation-task.adoc[Download, Install, Configure, and Upgrade On-Premises Mule Runtime Engine]
+* xref:general::java-support.adoc#mule-runtime-java-support[Java Support]
+* xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes]

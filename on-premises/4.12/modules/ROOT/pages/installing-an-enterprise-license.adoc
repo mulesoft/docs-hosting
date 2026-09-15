@@ -4,6 +4,8 @@
 
 Mule Enterprise Edition is the Mule runtime engine (Mule) distribution you download as `mule-enterprise-standalone-*.zip`. See xref:runtime-installation-task.adoc[Download, Install, Configure, and Upgrade On-Premises Mule Runtime Engine]. An Enterprise license is a separate `license.lic` file from your MuleSoft subscription. You install that file on a Mule Enterprise Edition instance with `mule -installLicense`. Mule stores it as `muleLicenseKey.lic` in `$MULE_HOME/conf`. Production use, clustering, and premium connectors require a valid Enterprise license. Mule Kernel (`mule-standalone-*.zip`) doesn't accept an Enterprise license and doesn't include clustering.
 
+This is the License stage in xref:index.adoc[On-Premises Runtimes Overview]. Stop the runtime before you install the license. After it installs, configure the Java Service Wrapper, then start the instance and deploy Mule applications.
+
 An on-premises runtime with an expired Enterprise license doesn't restart. Install a valid Enterprise license before you start the runtime in production.
 
 The Enterprise license isn't the Java Service Wrapper (Tanuki) license. A Tanuki license error means the wrapper key is missing or invalid, not that `mule -installLicense` failed.
@@ -77,7 +79,7 @@ If you download a FIPS license, see xref:mule-runtime::fips-140-2-compliance-sup
 
 == Install an Enterprise License on Embedded Mule Runtime Engine
 
-Though not recommended for production environments, you have the option of installing an Enterprise license on the Mule that comes bundled with Studio.
+Though not recommended for production, you can install an Enterprise license on the Mule that comes bundled with Anypoint Studio. That path isn't the on-premises runtime setup in xref:index.adoc[On-Premises Runtimes Overview]. Don't download a separate on-premises runtime only to license Studio.
 
 . Download and install Mule Enterprise Edition.
 . Contact your account representative or https://www.mulesoft.com/contact[the MuleSoft sales team] to acquire an _Enterprise license_. Depending on your subscription, the license is provided either as a direct `license.lic` file or inside a `.zip` file.
@@ -105,4 +107,8 @@ This message comes from the Java Service Wrapper (Tanuki), not from the Mule Ent
 
 == See Also
 
-* xref:mule-runtime::mule-components.adoc[Mule Components]
+* xref:index.adoc[On-Premises Runtimes Overview]
+* xref:runtime-installation-task.adoc[Download, Install, Configure, and Upgrade On-Premises Mule Runtime Engine]
+* xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine]
+* xref:choosing-the-right-clustering-topology.adoc[Cluster On-Premises Mule Runtime Instances]
+* xref:mule-runtime::fips-140-2-compliance-support.adoc[FIPS 140-2 Compliance Support]

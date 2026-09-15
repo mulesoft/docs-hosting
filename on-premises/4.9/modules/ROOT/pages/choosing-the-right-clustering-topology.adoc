@@ -2,22 +2,22 @@
 :page-aliases: mule-runtime::choosing-the-right-clustering-topology.adoc
 :keywords: hazelcast, quorum, split brain, node failure, failover, virtual IP, load balancer, server group, object store, mule-cluster.properties, 5701, multicast, unicast, on-premises, on-prem, standalone
 
-You can deploy Mule in many different topologies. As you build your Mule application, it is important to think critically about how best to architect your application to achieve the desired availability, fault tolerance, and performance characteristics. This page outlines some of the solutions for achieving the right blend of these characteristics through clustering when you deploy applications on-premises. There is no one correct approach for everyone, and designing your system is both an art and a science. If you need more assistance, MuleSoft Professional Services can help you by reviewing your architecture plan or designing it for you. For more information, https://www.mulesoft.com/contact[contact us].
+Clustering is optional. Use it when on-premises runtime must keep serving traffic if a node fails. Clustering requires Mule Enterprise Edition and an xref:installing-an-enterprise-license.adoc[Enterprise license]. You supply the load balancer. The cluster doesn't create a virtual IP and doesn't copy Mule application artifacts from node to node.
+
+A server group isn't a cluster. A server group is a set of unclustered servers that Runtime Manager can deploy to together. Server groups and Runtime Manager clusters are in xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes]. See the Cluster stage in xref:index.adoc[Run Mule Runtime Engine On-Premises].
+
+After you choose a topology, see xref:mule-high-availability-ha-clusters.adoc[On-Premises Mule Runtime High Availability Cluster Overview] for node behavior, xref:creating-and-managing-a-cluster-manually.adoc[Create and Manage an On-Premises Mule Runtime Cluster Manually] to create the cluster, and xref:on-premises-hadr.adoc[High Availability and Disaster Recovery for On-Premises Mule Runtime Engine] for standby options.
 
 == Choose a Clustering Topology
 
-A server group is not a cluster. A server group is a set of unclustered servers that Runtime Manager can deploy to together. A cluster shares memory, VM queues, and object-store data across nodes and requires the Enterprise standalone distribution.
+A cluster shares memory, VM queues, and object-store data across nodes. Deploying a Mule application into a cluster is useful for:
 
-
-Deploying an application into a cluster is useful for achieving the following:
 
 * High availability (HA): making your system continually available in the event that one or more servers in the cluster, or a data center, fails.
 
 * Fault tolerance (FT): ensuring recovery from failure of an underlying component. Typically, the recovery is achieved through transaction rollback or compensating actions.
 
 * Scaling: ensuring that your application can scale horizontally to meet increased demand.
-
-This page describes several possible clustering solutions.
 
 == Understand On-Premises High Availability
 
@@ -136,7 +136,7 @@ Cons:
 
 == Review Related Clustering Topics
 
-As you design your topology, there are several other topics to keep in mind that are beyond the scope of this documentation:
+As you design your topology, there are several other topics to keep in mind that also affect topology design:
 
 * Maintaining geo-distributed clusters
 
@@ -145,3 +145,12 @@ As you design your topology, there are several other topics to keep in mind that
 * ACID vs. BASE transactions
 
 * Compensation and transactions
+
+== See Also
+
+* xref:index.adoc[Run Mule Runtime Engine On-Premises]
+* xref:installing-an-enterprise-license.adoc[Install an Enterprise License on On-Premises Mule Runtime Engine]
+* xref:mule-high-availability-ha-clusters.adoc[On-Premises Mule Runtime High Availability Cluster Overview]
+* xref:creating-and-managing-a-cluster-manually.adoc[Create and Manage an On-Premises Mule Runtime Cluster Manually]
+* xref:on-premises-hadr.adoc[High Availability and Disaster Recovery for On-Premises Mule Runtime Engine]
+* xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes]

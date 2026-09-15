@@ -2,6 +2,8 @@
 :page-aliases: mule-runtime::runtime-installation-task.adoc
 :keywords: on-premises, on-prem, standalone, install, download, MULE_HOME, wrapper.conf, wrapper.java.command, offline install, air-gapped, mule upgrade tool, linux, RHEL, windows service, heap, Xmx, Metaspace, wrapper.startup.timeout, multiple instances
 
+Download, unpack, and configure on-premises runtime after you confirm xref:hardware-and-software-requirements.adoc[Hardware and Software Requirements for On-Premises Mule Runtime Engine]. This is the Download and Wrapper stages in xref:index.adoc[Run Mule Runtime Engine On-Premises]. After the JVM starts in the console, stop it and install an xref:installing-an-enterprise-license.adoc[Enterprise license] before you run the instance in production.
+
 Before downloading and installing Mule runtime engine, verify that you have a xref:general::java-support.adoc#mule-runtime-java-support[supported JDK] installed.
 This example uses https://adoptium.net/temurin/releases/?version=17[Eclipse Temurin 17^], which is recommended for Mule runtime engine 4.11.
 
@@ -20,10 +22,8 @@ AdoptOpenJDK moved to the Eclipse Foundation and changed its name to the Eclipse
 Download the Enterprise standalone distribution (`mule-enterprise-standalone-*.zip`) when you have an Enterprise license. The Mule Kernel (Community Edition) artifact is `mule-standalone-*.zip`. Kernel does not accept an Enterprise license and does not include clustering.
 
 
-. Download the Mule 4 binary file from the following link and unzip it:
-+
-https://www.mulesoft.com/lp/dl/anypoint-mule-studio[https://www.mulesoft.com/lp/dl/anypoint-mule-studio]
-+
+. Download `mule-enterprise-standalone-*.zip` from the MuleSoft Support portal at https://help.mulesoft.com or from your MuleSoft account representative, then unzip it. Don't use the Anypoint Studio installer to obtain on-premises runtime. Studio already includes Mule for development.
+
 . Set an environment variable called `MULE_HOME` for the `mule` directory inside your extracted folder.
 +
 Example for Mule runtime engine 4.11.0 in the `Downloads` directory:
@@ -207,7 +207,10 @@ The Java Service Wrapper pinged the JVM and the response was slow. The wrapper c
 
 == See Also
 
+* xref:index.adoc[Run Mule Runtime Engine On-Premises]
+* xref:hardware-and-software-requirements.adoc[Hardware and Software Requirements for On-Premises Mule Runtime Engine]
+* xref:installing-an-enterprise-license.adoc[Install an Enterprise License on On-Premises Mule Runtime Engine]
 * xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine]
-* xref:mule-runtime::deploying.adoc[Deploy Mule Applications]
-* xref:studio::to-download-and-install-studio.adoc[Install Anypoint Studio 7.0]
-* xref:mule-runtime::mule-runtime-updates.adoc[What's New in Mule 4]
+* xref:mule-deployment-model.adoc[On-Premises Mule Runtime Deployment Model]
+* xref:hardening-your-mule-installation.adoc[Harden Your On-Premises Mule Runtime Engine Installation]
+* xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes]

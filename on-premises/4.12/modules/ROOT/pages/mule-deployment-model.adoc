@@ -3,14 +3,9 @@
 :keywords: on-premises, on-prem, standalone, apps folder, anchor file, mule-maven-plugin, standaloneDeployment, domain, hot deployment, mule-domain-config.xml, domains folder
 
 
-Mule application deployment consists of two main aspects:
+After on-premises runtime is licensed and started, deploy Mule application JAR files to `$MULE_HOME/apps`. This is the Start and deploy stage in xref:index.adoc[On-Premises Runtimes Overview]. You own the Mule runtime engine (Mule) instance on that host. xref:runtime-manager::cloudhub.adoc[CloudHub], xref:cloudhub-2::index.adoc[CloudHub 2.0], and xref:runtime-fabric::index.adoc[Anypoint Runtime Fabric] manage the runtime instance for you.
 
-* The Mule runtime engine instance
-* The Mule applications deployed to that Mule instance
-
-When you deploy Mule applications to CloudHub or to Anypoint Runtime Fabric, these services take care of the Mule runtime engine instances needed to run Mule applications.
-
-When you deploy Mule applications on-premises, you are responsible for the installation and configuration of the Mule runtime engine instances that run your Mule applications. Because you have complete control of the on-premises instance (unlike with CloudHub or Runtime Fabric deployments), you must understand the characteristics specific to on-premises deployments.
+Start and stop commands are in xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine].
 
 == Run Multiple Mule Applications in One On-Premises Instance
 
@@ -35,9 +30,9 @@ If you want to store your Mule applications in a different location, you can sto
 
 == Share Resources with Domains
 
-A Mule domain shares connector configurations, such as an HTTP Listener, among Mule applications on the same on-premises Mule runtime instance. Domains aren't supported on CloudHub. Two Mule applications cannot bind the same HTTP host and port in one runtime unless they share that listener through a domain. Copying a Studio project to standalone without a domain is the usual cause of `address already in use`.
+A Mule domain shares connector configurations, such as an HTTP Listener, among Mule applications on the same on-premises runtime. Domains aren't supported on CloudHub. Two Mule applications cannot bind the same HTTP host and port in one runtime unless they share that listener through a domain. Copying a Studio project to on-premises runtime without a domain is the usual cause of `address already in use`.
 
-Create and package the domain project in Anypoint Studio. That authoring procedure is in xref:mule-runtime::shared-resources.adoc[Shared Resources (Mule Domains)]. This page covers only deployment to an on-premises host.
+Create and package the domain project in Anypoint Studio. That authoring procedure is in xref:mule-runtime::shared-resources.adoc[Shared Resources (Mule Domains)]. Deploy the domain JAR to `$MULE_HOME/domains` on the on-premises host.
 
 . Export the domain as a deployable JAR and copy it to `$MULE_HOME/domains`.
 . Export each application that references the domain and copy those JARs to `$MULE_HOME/apps`.
@@ -63,22 +58,25 @@ To reload an application, you can:
 
 For example, if you want to modify one of your custom classes, make your changes to the custom class, copy the updated class to the java directory, and then `touch` the anchor file.
 
-== Continue Running After a Management Plane Disconnect
+== Continue Running After a Control Plane Disconnect
 
-Mule instances run independently from the Management pane to execute integration logic and serve API requests. This architecture enables you to deploy Mule runtime engine strategically and ensures that it isn't a bottleneck to communications. +
-When an event occurs that causes the Mule instances to become disconnected from the Management pane, the instances continue to run as designed to execute integration and serve APIs without interruption. However, new or updated policies aren't pulled and updated until the connection is reestablished.
+The Anypoint Platform control plane isn't in the request path. Mule applications keep serving API and integration traffic if Runtime Manager is unreachable. New or updated policies aren't pulled until the connection returns. Unregistered on-premises runtime doesn't depend on Runtime Manager to start or to deploy JARs.
 
 
 == Troubleshoot Common Error Messages
 
 === `address already in use`
 
-Two Mule applications in the same on-premises Mule runtime instance are binding the same HTTP host and port. Put the shared listener in a domain, or change one application's port. This error is expected when you copy a Studio project to standalone without a domain.
+Two Mule applications in the same on-premises runtime are binding the same HTTP host and port. Put the shared listener in a domain, or change one application's port. This error is expected when you copy a Studio project to on-premises runtime without a domain.
 
 === `Unauthorized Access. Please verify that authToken is valid`
 
-A Maven or pipeline deploy to Runtime Manager (`standaloneDeployment` / ARM) used credentials the control plane rejected. User credentials with MFA don't work for this deploy path. Use a connected app.
+A Maven or pipeline deploy to Runtime Manager (`standaloneDeployment` / ARM) used credentials the control plane rejected. User credentials with MFA don't work for this deploy path. Use a connected app. That deploy path is for a xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtime], not for copying a JAR into `$MULE_HOME/apps`.
 
 == See Also
+
+* xref:index.adoc[On-Premises Runtimes Overview]
+* xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine]
+* xref:hardening-your-mule-installation.adoc[Harden Your On-Premises Mule Runtime Engine Installation]
 * xref:mule-runtime::shared-resources.adoc[Shared Resources]
-* xref:index.adoc[Run Mule Runtime Engine On-Premises]
+* xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes]

@@ -2,7 +2,9 @@
 :page-aliases: mule-runtime::runtime-installation-task.adoc
 :keywords: on-premises, on-prem, standalone, install, download, MULE_HOME, wrapper.conf, wrapper.java.command, offline install, air-gapped, mule upgrade tool, linux, RHEL, windows service, heap, Xmx, Metaspace, wrapper.startup.timeout, multiple instances
 
-Before downloading and installing Mule runtime engine, verify that you have a xref:general::java-support.adoc#mule-runtime-java-support[supported JDK] installed.
+Download, unpack, and configure on-premises runtime after you confirm xref:hardware-and-software-requirements.adoc[Hardware and Software Requirements for On-Premises Mule Runtime Engine]. This is the Download and Wrapper stages in xref:index.adoc[On-Premises Runtimes Overview]. After the JVM starts in the console, stop it and install an xref:installing-an-enterprise-license.adoc[Enterprise license] before you run the instance in production.
+
+Before downloading and installing Mule runtime engine (Mule), verify that you have a xref:general::java-support.adoc#mule-runtime-java-support[supported JDK] installed.
 This example uses https://adoptium.net/temurin/releases/?version=17[Eclipse Temurin 17^], which is recommended for Mule runtime engine.
 
 [source,console]
@@ -17,13 +19,10 @@ AdoptOpenJDK moved to the Eclipse Foundation and changed its name to the Eclipse
 
 == Download Mule Runtime Engine for On-Premises
 
-Download the Enterprise standalone distribution (`mule-enterprise-standalone-*.zip`) when you have an Enterprise license. The Mule Kernel (Community Edition) artifact is `mule-standalone-*.zip`. Kernel doesn't accept an Enterprise license and doesn't include clustering.
+Download the Enterprise standalone distribution (`mule-enterprise-standalone-*.zip`) when you have an Enterprise license. That zip is Mule Enterprise Edition. The Mule Kernel (Community Edition) artifact is `mule-standalone-*.zip`. Kernel doesn't accept an Enterprise license and doesn't include clustering.
 
 
-. Download the Mule 4 binary file from this link and unzip it:
-+
-https://www.mulesoft.com/lp/dl/anypoint-mule-studio[https://www.mulesoft.com/lp/dl/anypoint-mule-studio]
-+
+. Download `mule-enterprise-standalone-*.zip` from the MuleSoft Support portal at https://help.mulesoft.com or from your MuleSoft account representative, then unzip it. Don't use the Anypoint Studio installer to obtain on-premises runtime. Studio already includes Mule for development.
 . Set an environment variable called `MULE_HOME` for the `mule` directory inside your extracted folder.
 +
 Example in the `Downloads` directory:
@@ -66,9 +65,13 @@ These commands run Mule in foreground mode, and the startup script displays info
 
 To stop Mule, press `CTRL-C` in the terminal in which the script is running.
 
+After the console start succeeds, stop Mule. Next, install an xref:installing-an-enterprise-license.adoc[Enterprise license]. Then install the Windows service or Linux daemon and configure the wrapper.
+
 == Install as a Windows Service or Linux Daemon
 
-You can install Mule as a Windows service or as a Linux or Unix daemon by executing the corresponding command:
+Installing the service or daemon is the Service stage in xref:index.adoc[On-Premises Runtimes Overview]. Start and stop commands are in xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine].
+
+Install Mule as a Windows service or as a Linux or Unix daemon:
 
 * In Windows environments:
 +
@@ -84,6 +87,7 @@ $ $MULE_HOME\bin\mule.bat install
 $ $MULE_HOME/bin/mule install
 ----
 
+[[configure-the-java-service-wrapper]]
 == Configure the Java Service Wrapper
 
 To point Mule runtime engine at a specific JDK, set `wrapper.java.command` in `wrapper.conf` to the `java` executable path, not to `JAVA_HOME`. An incorrect `wrapper.java.command` value is a common cause of startup failures.
@@ -108,6 +112,7 @@ On Linux hosts, for Mule applications that use Java Native Access (JNA) to load 
 ====
 
 
+[[configure-jvm-memory-and-wrapper-timeouts]]
 == Configure JVM Memory and Wrapper Timeouts
 
 The Java Service Wrapper (Tanuki) starts the JVM that hosts on-premises Mule runtime engine. Set heap, Metaspace, and startup timeouts in `$MULE_HOME/conf/wrapper.conf`. Restart the runtime after you change this file.
@@ -184,7 +189,7 @@ Removing Mule Enterprise Edition daemon...
 
 == Install Anypoint Monitoring
 
-You can xref:monitoring::am-installing.adoc[install Anypoint Monitoring] for cloud-managed supported versions of on-premises runtime instances to monitor Mule applications running on that server.
+You can xref:monitoring::am-installing.adoc[install Anypoint Monitoring] after you register on-premises runtime with Runtime Manager. That registered model is a xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtime]. Unregistered on-premises runtime doesn't use this monitoring install path.
 
 == Update, Upgrade, or Migrate Mule Runtime Engine
 
@@ -195,7 +200,7 @@ include::partial$upgrade-update-migrate-mule.adoc[]
 
 === `Timed out waiting for signal from JVM`
 
-The Java Service Wrapper (Tanuki) started the JVM but did not receive a ready signal before `wrapper.startup.timeout`. Increase that timeout in `wrapper.conf` or fix whatever is blocking JVM startup (JDK, license, or port conflict).
+The Java Service Wrapper (Tanuki) started the JVM but didn't receive a ready signal before `wrapper.startup.timeout`. Increase that timeout in `wrapper.conf` or fix whatever is blocking JVM startup (JDK, license, or port conflict).
 
 === `JVM received a signal SIGKILL (9)`
 
@@ -207,7 +212,10 @@ The Java Service Wrapper pinged the JVM and the response was slow. The wrapper c
 
 == See Also
 
+* xref:index.adoc[On-Premises Runtimes Overview]
+* xref:hardware-and-software-requirements.adoc[Hardware and Software Requirements for On-Premises Mule Runtime Engine]
+* xref:installing-an-enterprise-license.adoc[Install an Enterprise License on On-Premises Mule Runtime Engine]
 * xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine]
-* xref:mule-runtime::deploying.adoc[Deploy Mule Applications]
-* xref:studio::to-download-and-install-studio.adoc[Install Anypoint Studio 7.0]
-* xref:mule-runtime::mule-runtime-updates.adoc[What's New in Mule 4]
+* xref:mule-deployment-model.adoc[On-Premises Mule Runtime Deployment Model]
+* xref:hardening-your-mule-installation.adoc[Harden Your On-Premises Mule Runtime Engine Installation]
+* xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes]

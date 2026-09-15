@@ -2,22 +2,21 @@
 :page-aliases: mule-runtime::hardening-your-mule-installation.adoc
 :keywords: hardening, FIPS, TLS, cipher suites, keystore, BCFKS, non-root, file permissions, on-premises, on-prem, standalone
 
-As distinct from Security, hardening refers to the steps one must perform in order to bring an application from development into production. These are elaborate procedures one must go through in order to deploy something in the IT space after you complete the development cycle.
+Harden on-premises runtime after Mule applications deploy successfully and before you use the instance in production. Run as a non-root user, install as a service, restrict file permissions, and configure TLS or FIPS. This is the Harden stage in xref:index.adoc[On-Premises Runtimes Overview].
 
-Normally, an IT organization already has control of keeping open ports to a minimum, restricting access to administrative applications, minimizing the number of applications, and other measures to ensure quality. We recommend using secure files to configure Mule, as well as using secure configuration files.
+Use secure configuration files for passwords and keystores. Keep those files outside the Mule application archive when DevOps must change them without a redeploy.
 
 == Follow the Hardening Checklist
 
-To begin hardening a Mule runtime engine installation that you are hosting on-premises:
+To harden on-premises runtime:
 
-* Run Mule as a non-privileged User.
-* Install Mule as a Service.
-* Configure Mule to write logs or temporary files within appropriate locations. Configure logs, passwords, and keystore files.
-* In some situations, you must configure usernames, passwords, and keystores on Mule. Usually, these settings are made available externally, so that DevOps can change these settings.
+* Run Mule as a non-privileged user.
+* Install Mule as a service. See xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine].
+* Configure Mule to write logs or temporary files in appropriate locations. Configure logs, passwords, and keystore files.
+* Make usernames, passwords, and keystores available externally so DevOps can change them.
 * Manage certificates in a keystore file.
 * Use a separate property file to store usernames and passwords, and secure it using file system permissions.
-
-For instructions specific to Runtime Fabric, see xref:runtime-fabric::configure-hardening.adoc[Hardening Mule Runtime on Runtime Fabric].
+* For FIPS, see xref:mule-runtime::fips-140-2-compliance-support.adoc[FIPS 140-2 Compliance Support] and xref:installing-an-enterprise-license.adoc#download-your-license-key[Download Your License Key].
 
 === Run as a Non-Root User
 
@@ -51,4 +50,9 @@ TLS trust failed while the on-premises runtime or Runtime Manager agent (`amc_se
 
 == See Also
 
+* xref:index.adoc[On-Premises Runtimes Overview]
+* xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine]
+* xref:mule-deployment-model.adoc[On-Premises Mule Runtime Deployment Model]
+* xref:mule-runtime::fips-140-2-compliance-support.adoc[FIPS 140-2 Compliance Support]
 * xref:mule-runtime::securing.adoc[Security]
+* xref:runtime-fabric::configure-hardening.adoc[Harden Mule Runtime on Runtime Fabric]
