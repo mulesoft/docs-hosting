@@ -17,10 +17,10 @@ OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.212-b03, mixed mode)
 
 == Download Mule Runtime Engine for On-Premises
 
-Download the Enterprise standalone distribution (`mule-enterprise-standalone-*.zip`) when you have an Enterprise license. The Mule Kernel (Community Edition) artifact is `mule-standalone-*.zip`. Kernel does not accept an Enterprise license and does not include clustering.
+Download the Enterprise standalone distribution (`+mule-enterprise-standalone-*.zip+`) when you have an Enterprise license. The Mule Kernel (Community Edition) artifact is `+mule-standalone-*.zip+`. Kernel does not accept an Enterprise license and does not include clustering.
 
 
-. Download `mule-enterprise-standalone-*.zip` from the MuleSoft Support portal at https://help.mulesoft.com or from your MuleSoft account representative, then unzip it. Don't use the Anypoint Studio installer to obtain on-premises runtime. Studio already includes Mule for development.
+. Download `+mule-enterprise-standalone-*.zip+` from the MuleSoft Support portal at https://help.mulesoft.com or from your MuleSoft account representative, then unzip it. Don't use the Anypoint Studio installer to obtain on-premises runtime. Studio already includes Mule for development.
 
 . Set an environment variable called `MULE_HOME` for the `mule` directory inside your extracted folder.
 +
@@ -92,7 +92,7 @@ If startup fails with `Timed out waiting for signal from JVM`, increase `wrapper
 
 == Install Offline or Air-Gapped
 
-An air-gapped on-premises install does not require outbound internet on the runtime host after you have the standalone zip. Download `mule-enterprise-standalone-*.zip` (or the Kernel zip) on a connected machine, transfer the file to the isolated host, unpack it, and set `MULE_HOME`.
+An air-gapped on-premises install does not require outbound internet on the runtime host after you have the standalone zip. Download `+mule-enterprise-standalone-*.zip+` (or the Kernel zip) on a connected machine, transfer the file to the isolated host, unpack it, and set `MULE_HOME`.
 
 The standalone distribution starts without Maven Central. Application JARs must already include their dependencies. Resolve and package applications on a connected build agent, then copy the deployable JARs to `$MULE_HOME/apps` (and domain JARs to `$MULE_HOME/domains`).
 
