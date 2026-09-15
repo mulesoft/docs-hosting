@@ -3,7 +3,7 @@
 :keywords: on-premises, on-prem, standalone, apps folder, anchor file, mule-maven-plugin, standaloneDeployment, domain, hot deployment, mule-domain-config.xml, domains folder
 
 
-After on-premises runtime is licensed and started, deploy Mule application JAR files to `$MULE_HOME/apps`. This is the Start and deploy stage in xref:index.adoc[Run Mule Runtime Engine On-Premises]. You own the Mule runtime engine (Mule) instance on that host. xref:runtime-manager::cloudhub.adoc[CloudHub], xref:cloudhub-2::index.adoc[CloudHub 2.0], and xref:runtime-fabric::index.adoc[Anypoint Runtime Fabric] manage the runtime instance for you.
+After on-premises runtime is licensed and started, deploy Mule application JAR files to `$MULE_HOME/apps`. This is the Start and deploy stage in xref:index.adoc[On-Premises Runtimes Overview]. You own the Mule runtime engine (Mule) instance on that host. xref:runtime-manager::cloudhub.adoc[CloudHub], xref:cloudhub-2::index.adoc[CloudHub 2.0], and xref:runtime-fabric::index.adoc[Anypoint Runtime Fabric] manage the runtime instance for you.
 
 Start and stop commands are in xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine].
 
@@ -76,7 +76,7 @@ A Maven or pipeline deploy to Runtime Manager (`standaloneDeployment` / ARM) use
 
 == See Also
 
-* xref:index.adoc[Run Mule Runtime Engine On-Premises]
+* xref:index.adoc[On-Premises Runtimes Overview]
 * xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine]
 * xref:hardening-your-mule-installation.adoc[Harden Your On-Premises Mule Runtime Engine Installation]
 * xref:mule-runtime::shared-resources.adoc[Shared Resources]

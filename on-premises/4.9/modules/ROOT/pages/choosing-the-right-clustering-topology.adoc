@@ -4,7 +4,7 @@
 
 Clustering is optional. Use it when on-premises runtime must keep serving traffic if a node fails. Clustering requires Mule Enterprise Edition and an xref:installing-an-enterprise-license.adoc[Enterprise license]. You supply the load balancer. The cluster doesn't create a virtual IP and doesn't copy Mule application artifacts from node to node.
 
-A server group isn't a cluster. A server group is a set of unclustered servers that Runtime Manager can deploy to together. Server groups and Runtime Manager clusters are in xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes]. See the Cluster stage in xref:index.adoc[Run Mule Runtime Engine On-Premises].
+A server group isn't a cluster. A server group is a set of unclustered servers that Runtime Manager can deploy to together. Server groups and Runtime Manager clusters are in xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes]. See the Cluster stage in xref:index.adoc[On-Premises Runtimes Overview].
 
 After you choose a topology, see xref:mule-high-availability-ha-clusters.adoc[On-Premises Mule Runtime High Availability Cluster Overview] for node behavior, xref:creating-and-managing-a-cluster-manually.adoc[Create and Manage an On-Premises Mule Runtime Cluster Manually] to create the cluster, and xref:on-premises-hadr.adoc[High Availability and Disaster Recovery for On-Premises Mule Runtime Engine] for standby options.
 
@@ -148,7 +148,7 @@ As you design your topology, there are several other topics to keep in mind that
 
 == See Also
 
-* xref:index.adoc[Run Mule Runtime Engine On-Premises]
+* xref:index.adoc[On-Premises Runtimes Overview]
 * xref:installing-an-enterprise-license.adoc[Install an Enterprise License on On-Premises Mule Runtime Engine]
 * xref:mule-high-availability-ha-clusters.adoc[On-Premises Mule Runtime High Availability Cluster Overview]
 * xref:creating-and-managing-a-cluster-manually.adoc[Create and Manage an On-Premises Mule Runtime Cluster Manually]

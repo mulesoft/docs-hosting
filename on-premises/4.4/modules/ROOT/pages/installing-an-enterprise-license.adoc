@@ -2,7 +2,7 @@
 :page-aliases: mule-runtime::installing-an-enterprise-license.adoc
 :keywords: muleLicenseKey.lic, installLicense, verifyLicense, license expired, tanuki, java service wrapper license, vcore, on-premises, on-prem, standalone, enterprise, ee, license, licensed
 
-This is the License stage in xref:index.adoc[Run Mule Runtime Engine On-Premises]. Stop the runtime before you install the license. After it installs, configure the Java Service Wrapper, then start the instance and deploy Mule applications.
+This is the License stage in xref:index.adoc[On-Premises Runtimes Overview]. Stop the runtime before you install the license. After it installs, configure the Java Service Wrapper, then start the instance and deploy Mule applications.
 
 An on-premises Mule runtime engine 4.4 with an expired license does not restart. Install a valid Enterprise license before you start the runtime in production.
 
@@ -96,7 +96,7 @@ This message comes from the Java Service Wrapper (Tanuki), not from the Mule Ent
 
 == See Also
 
-* xref:index.adoc[Run Mule Runtime Engine On-Premises]
+* xref:index.adoc[On-Premises Runtimes Overview]
 * xref:runtime-installation-task.adoc[Download, Install, Configure, and Upgrade On-Premises Mule Runtime Engine]
 * xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine]
 * xref:choosing-the-right-clustering-topology.adoc[Cluster On-Premises Mule Runtime Instances]

@@ -2,7 +2,7 @@
 :page-aliases: mule-runtime::runtime-installation-task.adoc
 :keywords: on-premises, on-prem, standalone, install, download, MULE_HOME, wrapper.conf, wrapper.java.command, offline install, air-gapped, mule upgrade tool, linux, RHEL, windows service, heap, Xmx, Metaspace, wrapper.startup.timeout, multiple instances
 
-Download, unpack, and configure on-premises runtime after you confirm xref:hardware-and-software-requirements.adoc[Hardware and Software Requirements for On-Premises Mule Runtime Engine]. This is the Download and Wrapper stages in xref:index.adoc[Run Mule Runtime Engine On-Premises]. After the JVM starts in the console, stop it and install an xref:installing-an-enterprise-license.adoc[Enterprise license] before you run the instance in production.
+Download, unpack, and configure on-premises runtime after you confirm xref:hardware-and-software-requirements.adoc[Hardware and Software Requirements for On-Premises Mule Runtime Engine]. This is the Download and Wrapper stages in xref:index.adoc[On-Premises Runtimes Overview]. After the JVM starts in the console, stop it and install an xref:installing-an-enterprise-license.adoc[Enterprise license] before you run the instance in production.
 
 Before downloading and installing Mule runtime engine, verify that you have a supported JDK installed.
 This example uses https://adoptium.net/temurin/releases/?version=8[Eclipse Temurin 8^], which is recommended for Mule runtime engine 4.4 
@@ -212,7 +212,7 @@ The Java Service Wrapper pinged the JVM and the response was slow. The wrapper c
 
 == See Also
 
-* xref:index.adoc[Run Mule Runtime Engine On-Premises]
+* xref:index.adoc[On-Premises Runtimes Overview]
 * xref:hardware-and-software-requirements.adoc[Hardware and Software Requirements for On-Premises Mule Runtime Engine]
 * xref:installing-an-enterprise-license.adoc[Install an Enterprise License on On-Premises Mule Runtime Engine]
 * xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine]

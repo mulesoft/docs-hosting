@@ -1,80 +1,66 @@
-= Run Mule Runtime Engine On-Premises
+= On-Premises Runtimes Overview
 :page-aliases: mule-runtime::mule-standalone.adoc
 :keywords: on-premises, on-prem, on-premise, standalone, mule standalone, mule esb, community edition, mule kernel, customer-hosted, deployment model
 
-On-premises Mule runtime engine is Mule runtime engine that you install and run on infrastructure you manage: a laptop, a virtual machine, or a data center host. You own the Java Virtual Machine, the file system, the Windows service or Linux daemon, application deployment, licensing, and high availability. This documentation covers the Enterprise standalone distribution (`mule-enterprise-standalone-*.zip`) and, where they differ, Mule Kernel. It does not cover CloudHub, CloudHub 2.0, or Anypoint Runtime Fabric.
+On-premises runtime is a Mule runtime engine (Mule) that you install and run on infrastructure you manage: a laptop, a virtual machine, or a data center host. You own the Java Virtual Machine, the file system, the Windows service or Linux daemon, Mule application deployment, licensing, and high availability. xref:runtime-manager::cloudhub.adoc[CloudHub], xref:cloudhub-2::index.adoc[CloudHub 2.0], and xref:runtime-fabric::index.adoc[Anypoint Runtime Fabric] are separate runtime planes.
 
-== Choose On-Premises Mule Runtime Engine
+== Choose On-Premises Runtime
 
-Choose on-premises Mule runtime engine when integrations must run on a host you control. You install the standalone distribution, size CPU and RAM yourself, and deploy application JAR files to `$MULE_HOME/apps`. The CloudHub vCore sizing model does not apply.
+Choose on-premises runtime when Mule applications must run on a host you manage. You install Mule, size CPU and RAM on that host, and deploy Mule application JAR files to `$MULE_HOME/apps`. You don't need Anypoint Runtime Manager to start the runtime or to deploy Mule applications. Production use, clustering, and premium connectors require an xref:installing-an-enterprise-license.adoc[Enterprise license].
 
-Anypoint Studio already includes a Mule runtime engine for development and testing. Do not download a separate on-premises runtime only to use Studio. Do not install an on-premises runtime when the deployment target is CloudHub or Anypoint Runtime Fabric.
+Anypoint Studio already includes Mule for development and testing. Don't download or install a separate on-premises runtime only to use Studio.
 
-On-premises Mule runtime engine does not provide CloudHub autoscaling, Object Store v2, or a built-in load balancer. Production use, clustering, and premium connectors require an Enterprise license. A trial license is not appropriate for production. Mule Kernel (Community Edition, `mule-standalone-*.zip`) does not include clustering and does not accept an Enterprise license.
+If the runtime plane is xref:runtime-manager::cloudhub.adoc[CloudHub], xref:cloudhub-2::index.adoc[CloudHub 2.0], or xref:runtime-fabric::index.adoc[Anypoint Runtime Fabric], deploy the Mule application there instead of installing on-premises runtime.
 
-You do not register the runtime with Anypoint Runtime Manager to start it or to deploy applications. Registration is optional. After you register the Runtime Manager agent, that instance is a Hybrid Standalone runtime. Hybrid Standalone setup, agent registration, and control-plane management are documented in the Hybrid Standalone component, not in this on-premises set.
+To have Anypoint Runtime Manager manage the instance, register the Runtime Manager agent. That instance is then a xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtime].
 
 To confirm the JDK, operating system, and hardware for this Mule version before you download, see xref:hardware-and-software-requirements.adoc[Hardware and Software Requirements for On-Premises Mule Runtime Engine].
 
-== Identify Your On-Premises Deployment
-
-On-premises, on-prem, standalone, and local are used interchangeably in the field. This documentation uses them as follows.
-
-[%header,cols="28a,72a"]
-|===
-|Term |Meaning in this documentation
-|On-premises |You install and run Mule runtime engine on servers you manage. This is the approved name of the deployment model.
-|Standalone distribution |The download artifact: `mule-enterprise-standalone-*.zip` (Enterprise) or `mule-standalone-*.zip` (Mule Kernel). Standalone names the zip, not an unclustered topology.
-|Local or laptop |A developer runtime on a workstation. It is still on-premises. It is not CloudHub.
-|Unregistered on-premises |The standalone distribution running without Runtime Manager. You start, stop, and deploy applications yourself.
-|Hybrid Standalone |The same on-premises runtime after you register the Runtime Manager agent with Anypoint Platform. See xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes].
-|Mule Kernel (Community Edition) |The open-source `mule-standalone-*.zip` distribution. It does not include Enterprise clustering.
-|Anypoint Runtime Fabric |A different runtime plane. Runtime Fabric is not on-premises Mule runtime engine, even when you host the Kubernetes cluster yourself.
-|===
-
 == Complete the On-Premises Setup Path
 
-Install and operate on-premises Mule runtime engine in this order. Complete each stage before the next. Skip a stage only when that work already exists in your environment.
+Install and operate on-premises runtime in this order. Complete each stage before the next. Skip a stage only when that work already exists in your environment.
 
 [%header,cols="18a,46a,36a"]
 |===
-|Stage |What you do |Documentation
+|Stage |Action |References
 |Prerequisites |Confirm the JDK, architecture, RAM, and OS listed for this Mule version. Red Hat Enterprise Linux (RHEL) is tested; RHEL clones such as Rocky Linux are supported. |xref:hardware-and-software-requirements.adoc[Hardware and Software Requirements]
-|Download |Unpack the Enterprise zip. Set `MULE_HOME`. Run `$MULE_HOME/bin/mule` once in the console to prove the JVM starts. |xref:runtime-installation-task.adoc[Download, Install, Configure, and Upgrade]
-|Service |Install as a Windows service or Linux daemon with `mule install`. That command does not create a systemd unit named `mule.service`. |xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine]
-|License |Stop the runtime. Install `license.lic` with `mule -installLicense`. An expired Enterprise license does not restart. The Java Service Wrapper (Tanuki) license is a different key. |xref:installing-an-enterprise-license.adoc[Install an Enterprise License]
-|Wrapper |Point `wrapper.java.command` at the `java` executable, not at `JAVA_HOME`. Set heap, Metaspace, and `wrapper.startup.timeout` in `wrapper.conf`. |xref:runtime-installation-task.adoc[Configure the Java Service Wrapper]
-|Start and deploy |Start with `mule start`. Copy application JARs to `$MULE_HOME/apps`. Read status in `$MULE_HOME/logs/mule_ee.log` when the runtime runs as a service. |xref:mule-deployment-model.adoc[On-Premises Mule Runtime Deployment Model]
+|Download |Unpack the Enterprise zip. Set `MULE_HOME`. Run `$MULE_HOME/bin/mule` once in the console to prove the JVM starts. |xref:runtime-installation-task.adoc[Download, Install, and Upgrade]
+|Service |Install as a Windows service or Linux daemon with `mule install`. That command doesn't create a systemd unit named `mule.service`. |xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine]
+|License |Stop the runtime. Install `license.lic` with `mule -installLicense`. An expired Enterprise license doesn't restart. The Java Service Wrapper (Tanuki) license is a different key. |xref:installing-an-enterprise-license.adoc[Install an Enterprise License]
+|Wrapper |Point `wrapper.java.command` at the `java` executable, not at `JAVA_HOME`. Set heap, Metaspace, and `wrapper.startup.timeout` in `wrapper.conf`. |xref:runtime-installation-task.adoc[Configure JVM Memory and Wrapper Timeouts]
+|Start and deploy |Start with `mule start`. Copy Mule application JARs to `$MULE_HOME/apps`. Read status in `$MULE_HOME/logs/mule_ee.log` when the runtime runs as a service. |xref:mule-deployment-model.adoc[On-Premises Mule Runtime Deployment Model]
 |Harden |Run as a non-root user, restrict file permissions, and configure TLS or FIPS before production. |xref:hardening-your-mule-installation.adoc[Harden Your On-Premises Mule Runtime Engine Installation]
 |Register (optional) |Register the Runtime Manager agent only if the control plane must manage this instance. |xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes]
 |Cluster (optional) |Cluster Enterprise nodes for failover. Supply your own load balancer. |xref:choosing-the-right-clustering-topology.adoc[Cluster On-Premises Mule Runtime Instances]
 |Upgrade |Apply a patch or move to a later 4.x minor using the upgrade documentation. |xref:runtime-installation-task.adoc[Update, Upgrade, or Migrate Mule Runtime Engine]
 |===
 
-== Operate Applications on the Runtime
+== Operate Mule Applications on the Runtime
 
-After on-premises Mule runtime engine is running, you deploy applications as JAR files into `$MULE_HOME/apps`. The runtime unpacks each JAR, creates a folder with the application name, writes an anchor file named `<appName>-anchor.txt`, and deletes the original JAR. One runtime instance can host many applications. Applications do not share classloaders, so they can depend on different library versions.
+After on-premises runtime is running, you deploy Mule applications as JAR files into `$MULE_HOME/apps`. The runtime unpacks each JAR, creates a folder with the application name, writes an anchor file named `<appName>-anchor.txt`, and deletes the original JAR. One runtime instance can host many Mule applications. Mule applications don't share classloaders, so they can depend on different library versions.
 
-Two applications in the same instance cannot bind the same HTTP host and port unless they share a listener through a domain. Domains are not supported on CloudHub. Copying a Studio project to standalone without a domain is the usual cause of `address already in use`.
+Two Mule applications in the same instance cannot bind the same HTTP host and port unless they share a listener through a domain. Domains aren't supported on CloudHub. Copying a Studio project to an on-premises runtime without a domain is the usual cause of `address already in use`.
 
-Hot deployment reloads an application when you update a configuration file declared in `mule-artifact.json` or `touch` the anchor file. Set `mule.deployment.forceParseConfigXmls=true` to pick up XML changes. Packaging validations do not run on a hot deploy.
+Hot deployment reloads an application when you update a configuration file declared in `mule-artifact.json` or `touch` the anchor file. Set `mule.deployment.forceParseConfigXmls=true` to pick up XML changes. Packaging validations don't run on a hot deploy.
 
-The Anypoint Platform control plane is not in the request path. Applications keep serving API and integration traffic if Runtime Manager is unreachable. New or updated policies are not pulled until the connection returns.
+The Anypoint Platform control plane isn't in the request path. Mule applications keep serving API and integration traffic if Runtime Manager is unreachable. New or updated policies aren't pulled until the connection returns.
 
 To package, hot-deploy, or share ports, see xref:mule-deployment-model.adoc[On-Premises Mule Runtime Deployment Model]. To start, stop, or install the daemon, see xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine].
 
 == Plan Clustering and Disaster Recovery
 
-An on-premises cluster groups two or more Mule runtime engine nodes so they share memory, VM queues, and object-store data. Clustering is an Enterprise feature. A server group is not a cluster: Runtime Manager can deploy to a server group, but those nodes do not share state. Server groups and Runtime Manager clusters are documented in xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes].
+An on-premises cluster groups two or more Mule nodes so they share memory, VM queues, and object-store data. Clustering is an Enterprise feature. A server group isn't a cluster: Runtime Manager can deploy to a server group, but those nodes don't share state. Server groups and Runtime Manager clusters are documented in xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes].
 
-An on-premises cluster does not create a virtual IP. It does not include a built-in load balancer. It does not copy application artifacts from node to node. You deploy the same application to each node, or you deploy through Runtime Manager, and you put HTTP and TCP traffic behind a load balancer you supply.
+An on-premises cluster doesn't create a virtual IP. It doesn't include a built-in load balancer. It doesn't copy application artifacts from node to node. You deploy the same application to each node, or you deploy through Runtime Manager, and you put HTTP and TCP traffic behind a load balancer you supply.
 
-High availability keeps serving traffic when a node fails. Disaster recovery restores infrastructure you back up after a site loss. Recovery time objective (RTO) and recovery point objective (RPO) are yours to set; MuleSoft keeps the control plane available and does not store your business data.
+High availability keeps serving traffic when a node fails. Disaster recovery restores infrastructure you back up after a site loss. Recovery time objective (RTO) and recovery point objective (RPO) are yours to set; MuleSoft keeps the control plane available and doesn't store your business data.
 
-To choose a topology, see xref:choosing-the-right-clustering-topology.adoc[Cluster On-Premises Mule Runtime Instances]. For node behavior and ports, see xref:mule-high-availability-ha-clusters.adoc[On-Premises Mule Runtime High Availability Cluster Overview]. For standby options, see xref:on-premises-hadr.adoc[High Availability and Disaster Recovery for On-Premises Mule Runtime Engine].
+* To choose a topology, see xref:choosing-the-right-clustering-topology.adoc[Cluster On-Premises Mule Runtime Instances].
+* For node behavior and ports, see xref:mule-high-availability-ha-clusters.adoc[On-Premises Mule Runtime High Availability Cluster Overview].
+* For standby options, see xref:on-premises-hadr.adoc[High Availability and Disaster Recovery for On-Premises Mule Runtime Engine].
 
 == See Also
 
 * xref:hardware-and-software-requirements.adoc[Hardware and Software Requirements for On-Premises Mule Runtime Engine]
-* xref:runtime-installation-task.adoc[Download, Install, Configure, and Upgrade On-Premises Mule Runtime Engine]
+* xref:runtime-installation-task.adoc[Download, Install, and Upgrade On-Premises Mule Runtime Engine]
 * xref:hybrid-standalone::index.adoc[Hybrid Standalone Runtimes]
