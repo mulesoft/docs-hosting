@@ -121,7 +121,7 @@ This matrix shows which runtime plane options you can deploy to from each contro
 |===
 | Runtime Plane | US Cloud | EU Cloud | Canada Cloud, Japan Cloud, India Cloud, Australia Cloud | MuleSoft Government Cloud | Anypoint Platform PCE
 
-| CloudHub 2.0 | Yes | Yes | Yes | Yes | No
+| CloudHub 2.0 | Yes | Yes | Yes | No | No
 | CloudHub | Yes | Yes | No | Yes | No
 | Runtime Fabric | Yes | Yes | Yes | No | No
 | Hybrid Standalone Runtimes | Yes | Yes | Yes | Yes | Yes
