@@ -1,5 +1,5 @@
 = On-Premises Mule Runtime Deployment Model
-:page-aliases: mule-runtime::mule-deployment-model.adoc, mule-runtime::hot-deployment.adoc
+:page-aliases: 4.9@mule-runtime::mule-deployment-model.adoc, 4.9@mule-runtime::hot-deployment.adoc
 :keywords: on-premises, on-prem, standalone, apps folder, anchor file, mule-maven-plugin, standaloneDeployment, domain, hot deployment, mule-domain-config.xml, domains folder
 
 

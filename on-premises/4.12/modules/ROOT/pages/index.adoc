@@ -1,5 +1,5 @@
 = On-Premises Runtimes Overview
-:page-aliases: mule-runtime::mule-standalone.adoc
+:page-aliases: 4.12@mule-runtime::mule-standalone.adoc
 :keywords: on-premises, on-prem, on-premise, standalone, mule standalone, mule esb, community edition, mule kernel, customer-hosted, deployment model
 
 On-premises runtime is a Mule runtime engine (Mule) that you install and run on infrastructure you manage: a laptop, a virtual machine, or a data center host. You own the Java Virtual Machine, the file system, the Windows service or Linux daemon, Mule application deployment, licensing, and high availability. xref:runtime-manager::cloudhub.adoc[CloudHub], xref:cloudhub-2::index.adoc[CloudHub 2.0], and xref:runtime-fabric::index.adoc[Anypoint Runtime Fabric] are separate runtime planes.

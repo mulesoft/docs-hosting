@@ -1,5 +1,5 @@
 = Harden Your On-Premises Mule Runtime Engine Installation
-:page-aliases: mule-runtime::hardening-your-mule-installation.adoc
+:page-aliases: 4.6@mule-runtime::hardening-your-mule-installation.adoc
 :keywords: hardening, FIPS, TLS, cipher suites, keystore, BCFKS, non-root, file permissions, on-premises, on-prem, standalone
 
 Harden on-premises runtime after Mule applications deploy successfully and before you use the instance in production. Run as a non-root user, install as a service, restrict file permissions, and configure TLS or FIPS. This is the Harden stage in xref:index.adoc[On-Premises Runtimes Overview].

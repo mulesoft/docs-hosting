@@ -1,5 +1,5 @@
 = Install an Enterprise License on On-Premises Mule Runtime Engine
-:page-aliases: mule-runtime::installing-an-enterprise-license.adoc
+:page-aliases: 4.12@mule-runtime::installing-an-enterprise-license.adoc
 :keywords: muleLicenseKey.lic, installLicense, verifyLicense, license expired, tanuki, java service wrapper license, vcore, on-premises, on-prem, standalone, enterprise, ee, license, licensed
 
 Mule Enterprise Edition is the Mule runtime engine (Mule) distribution you download as `+mule-enterprise-standalone-*.zip+`. See xref:runtime-installation-task.adoc[Download, Install, Configure, and Upgrade On-Premises Mule Runtime Engine]. An Enterprise license is a separate `license.lic` file from your MuleSoft subscription. You install that file on a Mule Enterprise Edition instance with `mule -installLicense`. Mule stores it as `muleLicenseKey.lic` in `$MULE_HOME/conf`. Production use, clustering, and premium connectors require a valid Enterprise license. Mule Kernel (`+mule-standalone-*.zip+`) doesn't accept an Enterprise license and doesn't include clustering.

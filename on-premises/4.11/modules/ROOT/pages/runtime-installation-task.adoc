@@ -1,5 +1,5 @@
 = Download, Install, Configure, and Upgrade On-Premises Mule Runtime Engine
-:page-aliases: mule-runtime::runtime-installation-task.adoc
+:page-aliases: 4.11@mule-runtime::runtime-installation-task.adoc
 :keywords: on-premises, on-prem, standalone, install, download, MULE_HOME, wrapper.conf, wrapper.java.command, offline install, air-gapped, mule upgrade tool, linux, RHEL, windows service, heap, Xmx, Metaspace, wrapper.startup.timeout, multiple instances
 
 Download, unpack, and configure on-premises runtime after you confirm xref:hardware-and-software-requirements.adoc[Hardware and Software Requirements for On-Premises Mule Runtime Engine]. This is the Download and Wrapper stages in xref:index.adoc[On-Premises Runtimes Overview]. After the JVM starts in the console, stop it and install an xref:installing-an-enterprise-license.adoc[Enterprise license] before you run the instance in production.
