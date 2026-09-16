@@ -1,5 +1,5 @@
 = Create and Manage an On-Premises Mule Runtime Cluster Manually
-:page-aliases: mule-runtime::creating-and-managing-a-cluster-manually.adoc
+:page-aliases: 4.4@mule-runtime::creating-and-managing-a-cluster-manually.adoc
 :keywords: hazelcast, quorum, split brain, node failure, failover, virtual IP, load balancer, server group, object store, mule-cluster.properties, 5701, multicast, unicast, on-premises, on-prem, standalone
 
 Create a cluster after you install Mule Enterprise Edition, install an xref:installing-an-enterprise-license.adoc[Enterprise license], and choose a topology. See xref:choosing-the-right-clustering-topology.adoc[Cluster On-Premises Mule Runtime Instances] and xref:mule-high-availability-ha-clusters.adoc[On-Premises Mule Runtime High Availability Cluster Overview]. The cluster doesn't include a load balancer. You still start and stop each node with xref:starting-and-stopping-mule-esb.adoc[Start and Stop On-Premises Mule Runtime Engine].

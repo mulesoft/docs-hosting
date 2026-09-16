@@ -1,5 +1,5 @@
 = Start and Stop On-Premises Mule Runtime Engine
-:page-aliases: mule-runtime::starting-and-stopping-mule-esb.adoc
+:page-aliases: 4.6@mule-runtime::starting-and-stopping-mule-esb.adoc
 :keywords: systemd, systemctl, linux service, windows service, daemon, background, console, mule_ee.log, logs, restart, on-premises, on-prem, standalone
 
 Start and stop on-premises runtime to run Mule applications on a host you manage. Use these commands after you unpack the distribution and install an xref:installing-an-enterprise-license.adoc[Enterprise license]. After the runtime is running, deploy Mule application JARs. See xref:mule-deployment-model.adoc[On-Premises Mule Runtime Deployment Model] and the setup path in xref:index.adoc[On-Premises Runtimes Overview].

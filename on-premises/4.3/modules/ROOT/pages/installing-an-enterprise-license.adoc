@@ -1,5 +1,5 @@
 = Install an Enterprise License on On-Premises Mule Runtime Engine
-:page-aliases: mule-runtime::installing-an-enterprise-license.adoc
+:page-aliases: 4.3@mule-runtime::installing-an-enterprise-license.adoc
 :keywords: muleLicenseKey.lic, installLicense, verifyLicense, license expired, tanuki, java service wrapper license, vcore, on-premises, on-prem, standalone, enterprise, ee, license, licensed
 
 This is the License stage in xref:index.adoc[On-Premises Runtimes Overview]. Stop the runtime before you install the license. After it installs, configure the Java Service Wrapper, then start the instance and deploy Mule applications.

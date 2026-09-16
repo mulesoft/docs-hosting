@@ -1,5 +1,5 @@
 = On-Premises Mule Runtime High Availability Cluster Overview
-:page-aliases: mule-runtime::mule-high-availability-ha-clusters.adoc
+:page-aliases: 4.12@mule-runtime::mule-high-availability-ha-clusters.adoc
 :keywords: hazelcast, quorum, split brain, node failure, failover, virtual IP, load balancer, server group, object store, mule-cluster.properties, 5701, multicast, unicast, on-premises, on-prem, standalone, ha, high availability, downtime
 
 Mule Enterprise Edition supports scalable clustering to provide high availability (HA) for on-premises Mule applications. A cluster groups multiple Mule runtime engine nodes into a single unit that shares memory, VM queues, and Object Store data across a distributed grid. Clustering enables automatic failover when a node becomes unavailable, load balancing across active nodes, and coordinated access to resources like files and databases.
