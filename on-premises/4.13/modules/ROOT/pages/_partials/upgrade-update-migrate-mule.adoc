@@ -1,0 +1,4 @@
+MuleSoft releases new major, minor, and patch release versions of Mule, as well as monthly updates to patch releases of Mule that incorporate the latest bug fixes and security enhancements.
+
+* To update a patch version of Mule, see xref:release-notes::mule-runtime/patching-mule-versions.adoc[Update Patches to Mule Runtime Engine]
+* To upgrade to a later version of Mule 4, see xref:release-notes::mule-runtime/updating-mule-4-versions.adoc[Upgrading Mule Runtime Engine (Versions 4.x to 4.n)]
