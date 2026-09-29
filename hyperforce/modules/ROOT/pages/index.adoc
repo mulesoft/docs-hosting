@@ -672,6 +672,8 @@ Asia Pacific::
 
 == Control Plane Regions
 
+MuleSoft hosts a control plane in each supported geography and names that regional control plane a cloud, for example US Cloud or EU Cloud. __Cloud__ is the product name of that isolated Anypoint Platform instance (login URL, organization, and data residency). __Control plane__ is the management layer in that instance.
+
 This table indicates the available and planned cloud regions for Hyperforce:
 
 * Available: Cloud region is available on Hyperforce.
@@ -679,25 +681,38 @@ This table indicates the available and planned cloud regions for Hyperforce:
 
 [%header%autowidth.spread]
 |===
-| Control Plane | Geographic Area | Platform URL | Status
+| Geographic Region | Control Plane | Platform URL | Status
 
+.2+| Americas
 | https://anypoint.mulesoft.com[US Cloud]
-| Americas | `anypoint.mulesoft.com` | Available
-
-| https://eu1.anypoint.mulesoft.com[EU Cloud]
-| Europe | `eu1.anypoint.mulesoft.com` | Available
+| `anypoint.mulesoft.com`
+| Available
 
 | https://ca1.platform.mulesoft.com[Canada Cloud]
-| Americas | `ca1.platform.mulesoft.com` | Available
+| `ca1.platform.mulesoft.com`
+| Available
 
+.2+| Europe
+| https://eu1.anypoint.mulesoft.com[EU Cloud]
+| `eu1.anypoint.mulesoft.com`
+| Available
+
+| https://gb1.platform.mulesoft.com[United Kingdom Cloud]
+| `gb1.platform.mulesoft.com`
+| Available
+
+.3+| Asia Pacific
 | https://jp1.platform.mulesoft.com[Japan Cloud]
-| Asia Pacific | `jp1.platform.mulesoft.com` | Available
+| `jp1.platform.mulesoft.com`
+| Available
 
 | https://in1.platform.mulesoft.com[India Cloud]
-| Asia Pacific | `in1.platform.mulesoft.com` | Available
+| `in1.platform.mulesoft.com`
+| Available
 
 | https://au1.platform.mulesoft.com[Australia Cloud]
-| Asia Pacific | `au1.platform.mulesoft.com` | Available
+| `au1.platform.mulesoft.com`
+| Available
 |===
 
 To use these clouds, see:
