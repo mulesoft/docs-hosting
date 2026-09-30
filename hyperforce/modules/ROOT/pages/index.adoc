@@ -132,7 +132,8 @@ Americas::
 | Monitoring for Hybrid Standalone Deployments | Available | Not planned
 
 //SECURITY SECRETS MANAGER - AMERICAS: US | CANADA
-| xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager] | n/a | Planned | Available | n/a
+.2+| xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager] | MuleSoft Secrets Manager | Available | Available .2+| n/a
+| External Secrets Manager (BYOV) | Available | Available
 
 //STUDIO - AMERICAS: US | CANADA
 | xref:studio::index.adoc[Anypoint Studio] | n/a | Available | Available | For details, refer to xref:studio::hyperforce-configuration.adoc[Configuring Anypoint Studio for Control Planes]
@@ -258,7 +259,7 @@ Europe::
 //AGENT VISUALIZER - EUROPE: EU | UK
 .3+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Available | Available .3+| n/a
 | Links to logs | Available | Available
-| Links to traces | Available | Available
+| Links to traces | Available | Not planned
 
 //API MANAGER - EUROPE: EU | UK
 .7+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Available | Available .7+a| For details, refer to:
@@ -297,7 +298,7 @@ Europe::
 //MONITORING - EUROPE: EU | UK
 | Basic Alerts | Available | Available
 | Basic Monitoring | Available | Available
-| Custom Dashboards | Available | Available
+| Custom Dashboards | Available | Not planned
 | Hybrid Standalone Mule (HSA) | Available | Available
 | Integration Intelligence | Available | Available
 | Log Search | Available | Available
@@ -345,7 +346,8 @@ Europe::
 | Monitoring for Hybrid Standalone Deployments | Available | Not planned
 
 //SECURITY SECRETS MANAGER - EUROPE: EU | UK
-| xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager] | n/a | Planned | Planned | n/a
+.2+| xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager] | MuleSoft Secrets Manager | Available | Available .2+| n/a
+| External Secrets Manager (BYOV) | Available | Available
 
 //STUDIO - EUROPE: EU | UK
 | xref:studio::index.adoc[Anypoint Studio] | n/a | Available | Available | For details, refer to xref:studio::hyperforce-configuration.adoc[Configuring Anypoint Studio for Control Planes]
@@ -414,7 +416,7 @@ Europe::
 | xref:hybrid-standalone::index.adoc[Hybrid Standalone Deployment] | n/a | Available | Available | n/a
 
 //IDP - EUROPE: EU | UK
-| xref:idp::index.adoc[IDP] | n/a | Available | Available | n/a
+| xref:idp::index.adoc[IDP] | n/a | Available | Not planned | n/a
 
 //MULE GATEWAY - EUROPE: EU | UK
 .2+| xref:gateway-home::index.adoc#anypoint_mule_gateway[Mule Gateway] | Mule Gateway Proxies | Available | Available .2+| n/a
@@ -559,7 +561,8 @@ Asia Pacific::
 | Monitoring for Hybrid Standalone Deployments | Not planned | Not planned | Not planned
 
 //SECURITY SECRETS MANAGER - ASIA: JA | INDIA | AU
-| xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager] | n/a | Available | Available | Available | n/a
+.2+| xref:anypoint-security::index-secrets-manager.adoc[Anypoint Security Secrets Manager] | MuleSoft Secrets Manager | Available | Available | Available .2+| n/a
+| External Secrets Manager (BYOV) | Available | Available | Available
 
 //STUDIO - ASIA: JA | INDIA | AU
 | xref:studio::index.adoc[Anypoint Studio] | n/a | Available | Available | Available | For details, refer to xref:studio::hyperforce-configuration.adoc[Configuring Anypoint Studio for Control Planes]
