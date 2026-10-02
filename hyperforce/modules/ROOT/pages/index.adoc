@@ -46,7 +46,7 @@ Americas::
 //AGENT VISUALIZER - AMERICAS: US | CANADA
 .3+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Available | Available .3+| n/a
 | Links to logs | Available | Available
-| Links to traces | Available | Planned
+| Links to traces | Available | Not planned
 
 //API MANAGER - AMERICAS: US | CANADA
 .6+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Available | Available .6+a| For details, refer to:
@@ -54,7 +54,7 @@ Americas::
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
 * xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
 | API Analytics | Not planned | Not planned
-| API Alerts | Available | Planned
+| API Alerts | Available | Not planned
 | API Manager 1.x | Not planned | Not planned
 | API Manager 2.x | Available | Available
 | API Console Proxy/Trusted Domains | Available | Planned
@@ -140,7 +140,7 @@ Americas::
 
 //API VISUALIZER - AMERICAS: US | CANADA
 .2+| xref:visualizer::index.adoc[API Visualizer] | Architecture and Policies View | Available | Available .2+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
-| Troubleshooting View | Available | Planned
+| Troubleshooting View | Available | Not planned
 
 //API COMMUNITY MANAGER - AMERICAS: US | CANADA
 | xref:api-community-manager::index.adoc[API Community Manager] | n/a | Available | Available | n/a
@@ -267,7 +267,7 @@ Europe::
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
 * xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
 | API Analytics | Not planned | Not planned
-| API Alerts | Available | Available
+| API Alerts | Available | Not planned
 | API Manager 1.x | Not planned | Not planned
 | API Manager 2.x | Available | Available
 | API Console Proxy/Trusted Domains | Available | Available
@@ -353,8 +353,8 @@ Europe::
 | xref:studio::index.adoc[Anypoint Studio] | n/a | Available | Available | For details, refer to xref:studio::hyperforce-configuration.adoc[Configuring Anypoint Studio for Control Planes]
 
 //API VISUALIZER - EUROPE: EU | UK
-.2+| xref:visualizer::index.adoc[API Visualizer] | Architecture and Policies View | Available | Planned .2+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
-| Troubleshooting View | Available | Planned
+.2+| xref:visualizer::index.adoc[API Visualizer] | Architecture and Policies View | Available | Available .2+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
+| Troubleshooting View | Available | Not planned
 
 //API COMMUNITY MANAGER - EUROPE: EU | UK
 | xref:api-community-manager::index.adoc[API Community Manager] | n/a | Available | Not planned | n/a
@@ -473,7 +473,7 @@ Asia Pacific::
 //AGENT VISUALIZER - ASIA: JA | INDIA | AU
 .3+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Available | Available | Available .3+| n/a
 | Links to logs | Available | Available | Available
-| Links to traces | Planned | Planned | Planned
+| Links to traces | Not planned | Not planned | Not planned
 
 //API MANAGER - ASIA: JA | INDIA | AU
 .7+| xref:api-manager::latest-overview-concept.adoc[Anypoint API Manager] | All other features | Available | Available | Available .7+a| For details, refer to:
@@ -481,7 +481,7 @@ Asia Pacific::
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
 * xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
 | API Analytics | Not planned | Not planned | Not planned
-| API Alerts | Planned | Available | Available
+| API Alerts | Not planned | Not planned | Not planned
 | API Manager 1.x | Not planned | Not planned | Not planned
 | API Manager 2.x | Available | Available | Available
 | API Console Proxy/Trusted Domains | Planned | Available | Available
@@ -569,7 +569,7 @@ Asia Pacific::
 
 //API VISUALIZER - ASIA: JA | INDIA | AU
 .2+| xref:visualizer::index.adoc[API Visualizer] | Architecture and Policies View | Available | Available | Available .2+| For details, refer to xref:visualizer::index.adoc[API Visualizer]
-| Troubleshooting View | Planned | Planned | Planned
+| Troubleshooting View | Not planned | Not planned | Not planned
 
 //API COMMUNITY MANAGER - ASIA: JA | INDIA | AU
 | xref:api-community-manager::index.adoc[API Community Manager] | n/a | Available | Not planned | Not planned | n/a
