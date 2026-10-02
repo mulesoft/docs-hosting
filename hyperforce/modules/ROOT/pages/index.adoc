@@ -54,7 +54,7 @@ Americas::
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
 * xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
 | API Analytics | Not planned | Not planned
-| API Alerts | Available | Planned
+| API Alerts | Available | Not planned
 | API Manager 1.x | Not planned | Not planned
 | API Manager 2.x | Available | Available
 | API Console Proxy/Trusted Domains | Available | Planned
@@ -481,7 +481,7 @@ Asia Pacific::
 * xref:api-manager::analytics-landing-page.adoc[Mule API Analytics]
 * xref:api-manager::using-api-alerts.adoc[Reviewing Alerts Concepts]
 | API Analytics | Not planned | Not planned | Not planned
-| API Alerts | Planned | Available | Available
+| API Alerts | Not planned | Not planned | Not planned
 | API Manager 1.x | Not planned | Not planned | Not planned
 | API Manager 2.x | Available | Available | Available
 | API Console Proxy/Trusted Domains | Planned | Available | Available
