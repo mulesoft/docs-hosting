@@ -1,7 +1,8 @@
-= Step 4: Validate and Switch Traffic
+= Validate and Switch Traffic
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-pagination:
 
 // DRAFT - Page 5 of the CH1-to-CH2 migration journey
 // Source: Restructured from app-migration "Next Steps After Application Upgrade" including:
@@ -20,6 +21,10 @@ endif::[]
 
 After deploying your application to CloudHub 2.0, validate it by gradually switching traffic, monitoring for issues, and completing the cutover.
 
+.Switch Traffic to CloudHub 2.0
+[%collapsible]
+====
+[discrete]
 == Switch Traffic to CloudHub 2.0
 
 // Source: Reused from app-migration "Next Steps After Application Upgrade"
@@ -172,7 +177,12 @@ Different application types call for different switching strategies:
 |All-or-nothing
 |Don't use gradual traffic switching for scheduled jobs. Splitting traffic risks duplicate execution. Switch 0% → 100% directly.
 |===
+====
 
+.Understand Your Traffic Source
+[%collapsible]
+====
+[discrete]
 == Understand Your Traffic Source
 
 // Source: Reused from app-migration "Understanding the Traffic Source"
@@ -222,7 +232,12 @@ For applications using an SLB and expecting HTTP traffic:
 
 . Enable the *Accept HTTP* option within the *Advanced* tab of your private space settings.
 . Add a firewall rule allowing HTTP from any source.
+====
 
+.Monitor and Validate
+[%collapsible]
+====
+[discrete]
 == Monitor and Validate
 
 // NOTE: This section is new content from the improvement plan (Step 4 "What to Monitor").
@@ -271,6 +286,12 @@ Some behaviors are expected during traffic switching and don't require a rollbac
 * Temporary rate-limit counter resets when traffic shifts
 
 [[manage-api-policies-during-traffic-switching]]
+====
+
+.Manage API Policies During Traffic Switching
+[%collapsible]
+====
+[discrete]
 == Manage API Policies During Traffic Switching
 
 // Source: Reused from app-migration "Managing API Policies During Traffic Switching"
@@ -342,7 +363,12 @@ If there's a hard change in traffic from one application to the other, policy co
 Autodiscovery connects a deployed Mule application with an API defined in API Manager. Throughout the migration, both your CloudHub and CloudHub 2.0 applications link to the same API.
 
 During the CloudHub to CloudHub 2.0 application migration, traffic gradually shifts, and both applications are active simultaneously. To maintain consistent policy enforcement, configure equivalent policies on your CloudHub 2.0 application's API instance during traffic switching.
+====
 
+.Post-Validation Checklist
+[%collapsible]
+====
+[discrete]
 == Post-Validation Checklist
 
 // NOTE: This section is new content from the improvement plan (Step 4, item 2).
@@ -354,7 +380,12 @@ After reaching 100% traffic on CloudHub 2.0, confirm:
 * [ ] Inter-app communication within the private space works correctly.
 * [ ] Connectivity to on-premises systems through VPN or transit gateway (TGW) is functioning.
 * [ ] Anypoint Monitoring dashboards are active and environment-specific alerts are configured.
+====
 
+.Update DNS and Perform DLB Failover
+[%collapsible]
+====
+[discrete]
 == Update DNS and Perform DLB Failover
 
 === Update DNS
@@ -377,7 +408,12 @@ This fails over the `anypointdns.net` domain to CloudHub 2.0, removes any additi
 . After the traffic failover completes, stop and delete the CloudHub DLB linked to the VPC.
 
 NOTE: If there are failures during this stage, restart the DLB to point `anypointdns.net` to CloudHub while the DLB is in a stopped state. After you delete the DLB, you can't roll back to CloudHub.
+====
 
+.Complete the Application Upgrade
+[%collapsible]
+====
+[discrete]
 == Complete the Application Upgrade
 
 // Source: Reused from app-migration "Complete the Application Upgrade"
@@ -391,7 +427,12 @@ After your CloudHub application stops, delete it within 30 days.
 NOTE: After the CloudHub application stops, traffic switches to the linked CloudHub 2.0 application. To roll back the application upgrade, restart your CloudHub application and configure the traffic switching percentage. After you delete the CloudHub application, the migration is complete and you can't create another CloudHub application with the same application name.
 
 Complete or delete all CloudHub applications in a given upgraded VPC to release entitlements.
+====
 
+.See Also
+[%collapsible]
+====
+[discrete]
 == See Also
 
 * xref:ch2-migration-apps.adoc[Step 3: Migrate Applications]
@@ -403,3 +444,4 @@ Complete or delete all CloudHub applications in a given upgraded VPC to release 
 // Prev/Next nav (uses site's built-in nav component)
 // Previous: ch-ch2-migration-applications.adoc (Step 3)
 // Next: ch-ch2-migration-completion.adoc (Step 5)
+====

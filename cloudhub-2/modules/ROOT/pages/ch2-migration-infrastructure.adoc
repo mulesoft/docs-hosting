@@ -1,22 +1,15 @@
-= Step 2: Prepare Infrastructure
+= Prepare Infrastructure
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-pagination:
 
-// DRAFT - Page 3 of the CH1-to-CH2 migration journey
-// Source: Consolidation of:
-//   - ch-ch2-migration-configuration#before-you-begin and #create-your-private-space
-//   - vpc-upgrade (intro, eligibility, environment association, upgrade procedure, next steps)
-// New content:
-//   - Decision tree placeholder
-//   - "Create a New Private Space Manually" expanded procedure
-//   - Validation section
-//   - Cross-platform connectivity (DLB allowlist)
-//   - Troubleshooting common upgrade failures placeholder
-// Per implementation plan decision: vpc-upgrade remains a standalone page linked from here.
+Before migrating applications, set up your CloudHub 2.0 infrastructure . Choose between creating a new private space manually or using the VPC upgrade tool to convert an existing VPC to a private space.
 
-Set up your CloudHub 2.0 infrastructure before migrating applications. Choose between creating a new private space manually or using the VPC upgrade tool to convert an existing VPC to a private space.
-
+.Choose Your Path
+[%collapsible]
+====
+[discrete]
 == Choose Your Path
 
 // NOTE: The improvement plan calls for a decision tree flowchart here.
@@ -41,6 +34,12 @@ Set up your CloudHub 2.0 infrastructure before migrating applications. Choose be
 |===
 
 [[create-a-new-private-space-manually]]
+====
+
+.Create a New Private Space Manually
+[%collapsible]
+====
+[discrete]
 == Create a New Private Space Manually
 
 // Source: Consolidated from ch-ch2-migration-configuration "Before You Begin" + "Create Your Private Space"
@@ -122,6 +121,12 @@ After creating the private space, confirm:
 * TLS contexts are correctly applied.
 
 [[upgrade-a-vpc-to-a-private-space]]
+====
+
+.Upgrade a VPC to a Private Space
+[%collapsible]
+====
+[discrete]
 == Upgrade a VPC to a Private Space
 
 // Source: Content from vpc-upgrade, summarized here with cross-references.
@@ -221,41 +226,13 @@ After the upgrade completes:
 
 IMPORTANT: The VPC upgrade tool migrates DLB certificates on a best-effort basis only. Verify that all certificates are present after the upgrade.
 
-=== Troubleshoot Common Upgrade Failures
+If the upgrade fails, see xref:ch2-migration-troubleshoot.adoc#troubleshoot-vpc-upgrade[VPC Upgrade Issues].
+====
 
-// Source: Improvement plan Step 2, item 5 — Troubleshooting common upgrade failures
-
-[cols="1,2,2"]
-|===
-|Symptom |Likely Cause |Resolution
-
-|Upgrade tooling isn't available on the Settings page
-|Application isn't in an eligible VPC, or VPC hasn't been upgraded yet.
-|Verify that the VPC meets xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[eligibility requirements] and has been upgraded to a private space first.
-
-|Upgrade fails with CIDR conflict
-|The VPC CIDR block is smaller than /24 or doesn't have 100+ available IPs per subnet.
-|Review CIDR allocation. If the block is too small, then create a new private space manually instead.
-
-|DLB certificates missing after upgrade
-|TLS 1.1 ciphers present in the original certificate, or transfer failure during best-effort migration.
-|Re-upload certificates to the private space *Domains & TLS* tab. If they use TLS 1.1 ciphers, then reissue the certificates.
-
-|Upgrade tooling doesn't support default VPC
-|Only named VPCs can be upgraded. The default VPC isn't eligible.
-|Create a new private space manually. Deploy applications directly to the new private space.
-
-|Private space doesn't appear after upgrade
-|Upgrade is still in progress, or the upgrade failed silently.
-|Wait up to 30 minutes. If the private space still doesn't appear, then check *Runtime Manager* > *Private Spaces* and contact MuleSoft Support.
-
-|Can't delete VPC after upgrade
-|Migration not marked complete, or environments still associated with the VPC.
-|Mark the migration as complete for all applications in the VPC. Dissociate all environments. See https://help.salesforce.com/s/articleView?language=en_US&id=005115579&type=1[KA 005115579].
-|===
-
-For additional troubleshooting, see xref:ch2-migration-troubleshoot.adoc[Troubleshoot Migration Issues].
-
+.Enable Cross-Platform Communication
+[%collapsible]
+====
+[discrete]
 == Enable Cross-Platform Communication
 
 // Source: Reused from vpc-upgrade "Enable CloudHub 2.0 Apps to Communicate with CloudHub Apps via DLB"
@@ -399,7 +376,12 @@ After configuring cross-platform communication, validate connectivity using the 
 . Use the *DNS* test to confirm DNS resolution for DLB and ingress endpoints.
 
 NOTE: In CloudHub 2.0 private spaces, the *Ping* command isn't supported due to security restrictions. Use TCP socket tests instead. See https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Network Tools Application For Connectivity Test From CloudHub VPC (KA 001115029)].
+====
 
+.Plan for Static IP Changes
+[%collapsible]
+====
+[discrete]
 == Plan for Static IP Changes
 
 // Source: Section 3, Deliverable B — Static IP provisioning guide
@@ -441,7 +423,12 @@ If backend systems (databases, SaaS APIs, on-premises services) have firewall ru
 
 * If a backend system uses per-app source IP to identify *which* application is calling (rather than just for access control), this model no longer works in CloudHub 2.0 since all apps share outbound IPs. Use mTLS client certificates or API keys for application-level identification instead.
 * Static IP allocation in CloudHub 1.0 is limited to twice the number of production vCores in your subscription. CloudHub 2.0 doesn't have this per-app limit — IPs are assigned per private space automatically.
+====
 
+.Maintain Business Continuity During Migration
+[%collapsible]
+====
+[discrete]
 == Maintain Business Continuity During Migration
 
 // Source: Reused from vpc-upgrade "Next Steps After VPC Upgrade"
@@ -459,43 +446,19 @@ To avoid configuration drift, apply firewall rule changes in both the VPC and th
 
 WARNING: VPC firewall rules that have ports other than `80`, `443`, and `30500` to `32500` drop during the migration.
 
-== Troubleshoot Common Infrastructure Issues
+If you encounter infrastructure issues, see xref:ch2-migration-troubleshoot.adoc#troubleshoot-infrastructure[Infrastructure Issues] and xref:ch2-migration-troubleshoot.adoc#troubleshoot-vpc-upgrade[VPC Upgrade Issues].
+====
 
-// NOTE: This section is new content per the improvement plan (Step 2, item 5).
-// Placeholder — specific issues to be populated from KA articles and support cases.
-// Full troubleshooting page (page 7) covers more scenarios.
-
-[cols="1,2,2"]
-|===
-|Issue |Likely Cause |Resolution
-
-|CIDR block conflict during private space creation
-|CIDR block overlaps with existing on-premises or cloud networks.
-|Choose a non-overlapping CIDR block. Review existing allocations before creating.
-
-|VPN tunnel not establishing to new private space
-|Routing tables or security group configurations not updated for new private space.
-|Verify routing tables. Confirm VPN configuration matches private space network settings.
-
-|Missing DLB certificates post-upgrade
-|TLS 1.1 cipher incompatibility or transfer failure during upgrade.
-|Re-upload certificates to private space. Validate supported ciphers. See https://help.salesforce.com/s/articleView?id=sf.000005237268&type=5[Missing DLB Certificates During CloudHub 1.0 to CloudHub 2.0 Migration].
-
-|Firewall rules not migrated correctly
-|Ports other than 80, 443, and 30500–32500 are dropped during migration.
-|Manually recreate dropped firewall rules in the private space.
-
-|Cannot upgrade default VPC
-|Upgrade tooling doesn't support default VPC.
-|Disable the default VPC configuration before proceeding with the upgrade.
-|===
-
-For additional troubleshooting, see xref:ch2-migration-troubleshoot.adoc[Troubleshoot Migration Issues].
-
+.See Also
+[%collapsible]
+====
+[discrete]
 == See Also
 
 * xref:ch2-migration-plan.adoc[Step 1: Plan the Migration]
 * xref:ch2-migration-apps.adoc[Step 3: Migrate Applications]
+* xref:ch2-migration-troubleshoot.adoc#troubleshoot-vpc-upgrade[VPC Upgrade Issues]
+* xref:ch2-migration-troubleshoot.adoc#troubleshoot-infrastructure[Infrastructure Issues]
 * xref:cloudhub::vpc-upgrade.adoc[CloudHub VPC to CloudHub 2.0 Private Space Upgrade]
 * xref:ps-create-configure.adoc[Create a Private Space via Runtime Manager]
 * xref:ps-gather-setup-info.adoc[Gather Setup Information for a Private Space]
@@ -505,3 +468,4 @@ For additional troubleshooting, see xref:ch2-migration-troubleshoot.adoc[Trouble
 // Prev/Next nav (uses site's built-in nav component)
 // Previous: ch2-migration-plan.adoc (Step 1)
 // Next: ch2-migration-apps.adoc (Step 3)
+====

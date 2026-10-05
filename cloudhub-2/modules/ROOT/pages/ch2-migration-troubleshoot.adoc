@@ -14,6 +14,10 @@ endif::[]
 
 Use this page to diagnose and resolve common issues encountered during CloudHub to CloudHub 2.0 migration.
 
+.Traffic Switching Issues
+[%collapsible]
+====
+[discrete]
 == Traffic Switching Issues
 
 === 502 Bad Gateway During Traffic Switch
@@ -45,7 +49,12 @@ To troubleshoot this issue:
 NOTE: The DLB requires a full chain (intermediate and root certificates). For the private space, split intermediate and root certificates into a single file and upload as *CA Path Certificate*.
 
 For more information, see https://help.salesforce.com/s/articleView?id=005321445&type=1[KA 005321445].
+====
 
+.Certificate and TLS Issues
+[%collapsible]
+====
+[discrete]
 == Certificate and TLS Issues
 
 === Missing DLB Certificates Post-Upgrade
@@ -76,7 +85,12 @@ To troubleshoot this issue:
 ** `ECDHE-RSA-AES128-SHA1`
 ** `ECDHE-RSA-AES256-SHA1`
 . If these ciphers are present, reissue certificates with TLS 1.2+ compatible ciphers.
+====
 
+.Connectivity Issues
+[%collapsible]
+====
+[discrete]
 == Connectivity Issues
 
 [cols="1,2,2,1"]
@@ -103,7 +117,12 @@ To troubleshoot this issue:
 |Update the DNS CNAME to point to the ingress load balancer endpoint.
 |
 |===
+====
 
+.Application Issues
+[%collapsible]
+====
+[discrete]
 == Application Issues
 
 [cols="1,2,2,1"]
@@ -146,31 +165,88 @@ jdbc:oracle:thin:@//host:port/service?oracle.net.keepAlive=true
 
 For more information, see https://help.salesforce.com/s/articleView?id=005321536&type=1[KA 005321536].
 
+[[troubleshoot-vpc-upgrade]]
+====
+
+.VPC Upgrade Issues
+[%collapsible]
+====
+[discrete]
+== VPC Upgrade Issues
+
+[cols="1,2,2"]
+|===
+|Symptom |Likely Cause |Resolution
+
+|Upgrade tooling isn't available on the Settings page
+|Application isn't in an eligible VPC, or VPC hasn't been upgraded yet.
+|Verify that the VPC meets xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[eligibility requirements] and has been upgraded to a private space first.
+
+|Upgrade fails with CIDR conflict
+|The VPC CIDR block is smaller than /24 or doesn't have 100+ available IPs per subnet.
+|Review CIDR allocation. If the block is too small, then create a new private space manually instead.
+
+|DLB certificates missing after upgrade
+|TLS 1.1 ciphers present in the original certificate, or transfer failure during best-effort migration.
+|Re-upload certificates to the private space *Domains & TLS* tab. If they use TLS 1.1 ciphers, then reissue the certificates. See <<missing-dlb-certificates-post-upgrade>>.
+
+|Upgrade tooling doesn't support default VPC
+|Only named VPCs can be upgraded. The default VPC isn't eligible.
+|Create a new private space manually. Deploy applications directly to the new private space.
+
+|Private space doesn't appear after upgrade
+|Upgrade is still in progress, or the upgrade failed silently.
+|Wait up to 30 minutes. If the private space still doesn't appear, then check *Runtime Manager* > *Private Spaces* and contact MuleSoft Support.
+
+|Can't delete VPC after upgrade
+|Migration not marked complete, or environments still associated with the VPC.
+|Mark the migration as complete for all applications in the VPC. Dissociate all environments. See https://help.salesforce.com/s/articleView?language=en_US&id=005115579&type=1[KA 005115579].
+|===
+
+For upgrade steps, see xref:ch2-migration-infrastructure.adoc#upgrade-a-vpc-to-a-private-space[Upgrade a VPC to a Private Space].
+
+[[troubleshoot-infrastructure]]
+====
+
+.Infrastructure Issues
+[%collapsible]
+====
+[discrete]
 == Infrastructure Issues
 
 [cols="1,2,2,1"]
 |===
 |Symptom |Likely Cause |Resolution |Reference
 
-|Can't delete VPC after migration
-|Migration not marked complete, or environment still associated.
-|Mark upgrade complete in Runtime Manager. Verify that no environments are associated.
-|https://help.salesforce.com/s/articleView?language=en_US&id=005115579&type=1[KA 005115579]
-
 |CIDR block conflict during private space creation
 |CIDR block overlaps with existing on-premises or cloud networks.
 |Choose a non-overlapping CIDR block. Review existing allocations before creating.
-|
+|xref:ch2-migration-infrastructure.adoc#create-a-new-private-space-manually[Create a New Private Space Manually]
 
 |VPN tunnel not establishing to new private space
 |Routing tables or security group configurations not updated for new private space.
 |Verify routing tables. Confirm VPN configuration matches private space network settings.
-|
+|xref:ch2-migration-infrastructure.adoc#step-4-establish-network-connectivity[Establish Network Connectivity]
+
+|Missing DLB certificates post-upgrade
+|TLS 1.1 cipher incompatibility or transfer failure during upgrade.
+|Re-upload certificates to private space. Validate supported ciphers. See https://help.salesforce.com/s/articleView?id=sf.000005237268&type=5[Missing DLB Certificates During CloudHub 1.0 to CloudHub 2.0 Migration].
+|<<missing-dlb-certificates-post-upgrade>>
 
 |Firewall rules not migrated correctly
 |Ports other than 80, 443, and 30500–32500 are dropped during migration.
 |Manually recreate dropped firewall rules in the private space.
-|
+|xref:ps-config-fw-rules.adoc[Configure Firewall Rules]
+
+|Cannot upgrade default VPC
+|Upgrade tooling doesn't support default VPC.
+|Disable the default VPC configuration before proceeding with the upgrade.
+|xref:ch2-migration-infrastructure.adoc#step-2-review-environment-association[Review Environment Association]
+
+|Can't delete VPC after migration
+|Migration not marked complete, or environment still associated.
+|Mark upgrade complete in Runtime Manager. Verify that no environments are associated.
+|https://help.salesforce.com/s/articleView?language=en_US&id=005115579&type=1[KA 005115579]
 
 |Application doesn't start on CloudHub 2.0
 |Incompatible Mule runtime version. CloudHub 2.0 requires Mule 4.3.x or later.
@@ -207,7 +283,12 @@ For more information, see https://help.salesforce.com/s/articleView?id=005321536
 |Verify that scheduler configuration is compatible with CloudHub 2.0 clustering. Review timezone settings. See scheduler management docs for CloudHub 2.0-specific behavior.
 |xref:ch2-manage-schedules.adoc[Manage Schedules]
 |===
+====
 
+.Connectivity Diagnostics
+[%collapsible]
+====
+[discrete]
 == Connectivity Diagnostics
 
 To diagnose connectivity issues between CloudHub platforms during migration, deploy the MuleSoft Network Tools application to your VPC or private space. The following tests are available:
@@ -221,7 +302,12 @@ To diagnose connectivity issues between CloudHub platforms during migration, dep
 NOTE: In CloudHub 2.0 private spaces, *Ping* isn't supported due to security restrictions. Use TCP socket tests instead.
 
 See https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Network Tools Application For Connectivity Test From CloudHub VPC (KA 001115029)].
+====
 
+.Related Resources
+[%collapsible]
+====
+[discrete]
 == Related Resources
 
 * https://help.salesforce.com/s/articleView?id=005237269&type=1[Planning Timelines for CloudHub Migration (KA 005237269)]
@@ -231,7 +317,12 @@ See https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Net
 * https://help.salesforce.com/s/articleView?id=005237268&type=1[Missing DLB Certificates During Migration (KA 005237268)]
 * https://help.salesforce.com/s/articleView?id=005321445&type=1[Failed to Update Traffic Switching Percentage (KA 005321445)]
 * https://help.salesforce.com/s/articleView?id=005321536&type=1[Oracle Stored Procedure Dropping Connections (KA 005321536)]
+====
 
+.See Also
+[%collapsible]
+====
+[discrete]
 == See Also
 
 * xref:ch2-migration-overview.adoc[CloudHub 2.0 for CloudHub Users]
@@ -243,3 +334,4 @@ See https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Net
 // Prev/Next nav (uses site's built-in nav component)
 // Previous: ch-ch2-migration-completion.adoc (Step 5)
 // Next: none (end of journey)
+====

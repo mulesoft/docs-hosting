@@ -1,7 +1,8 @@
-= Step 3: Migrate Applications
+= Migrate Applications
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-pagination:
 
 // DRAFT - Page 4 of the CH1-to-CH2 migration journey
 // Source: Consolidation of:
@@ -27,6 +28,10 @@ After setting up your CloudHub 2.0 private space, migrate your applications from
 |<<upgrade-application-using-the-migration-tool>>
 |===
 
+.Prepare Your Application for Migration
+[%collapsible]
+====
+[discrete]
 == Prepare Your Application for Migration
 
 // NOTE: This section is shared preparation steps common to both paths.
@@ -294,6 +299,12 @@ Review and update your connectors to the latest compatible versions. See xref:st
 Make sure that you're using Mule Maven Plugin version 3.7.1 or later.
 
 [[migrate-applications-to-a-new-private-space]]
+====
+
+.Migrate Applications to a New Private Space
+[%collapsible]
+====
+[discrete]
 == Migrate Applications to a New Private Space
 
 // Source: Consolidated from ch-ch2-migration-configuration "Deploy your Application"
@@ -402,6 +413,12 @@ mvn clean deploy -DmuleDeploy \
 For authentication alternatives (Connected Apps, Maven server credentials, auth tokens), see xref:mule-runtime::deploy-to-cloudhub-2.adoc#authentication-methods[Authentication Methods].
 
 [[upgrade-application-using-the-migration-tool]]
+====
+
+.Upgrade Application Using the Migration Tool
+[%collapsible]
+====
+[discrete]
 == Upgrade Application Using the Migration Tool
 
 // Source: Consolidated from app-migration#eligibility and
@@ -484,7 +501,12 @@ After deploying the application to CloudHub 2.0, restart the dedicated load bala
 * Rediscover application endpoints.
 * Load updated DNS records for CloudHub 2.0 applications.
 * Establish connections to CloudHub 2.0 ingress controllers.
+====
 
+.Considerations and Limitations
+[%collapsible]
+====
+[discrete]
 == Considerations and Limitations
 
 === Managing Migrated Apps via Mule Maven Plugin (MMP)
@@ -525,7 +547,12 @@ Deploying directly to CloudHub 2.0 with an existing vanity domain can cause thes
 For applications with inbound traffic, the Shared Load Balancer (SLB) handles traffic switching if your ingress configuration includes the default CloudHub application endpoint in the format `<app_name>.<region>.cloudhub.io`. However, if that default endpoint is missing and you've configured a vanity domain or an `anypointdns.net` endpoint instead, the Dedicated Load Balancer (DLB) switches the traffic.
 
 Understanding your traffic source is critical for xref:ch2-migration-validate.adoc[Step 4: Validate and Cut Over].
+====
 
+.See Also
+[%collapsible]
+====
+[discrete]
 == See Also
 
 * xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure]
@@ -539,3 +566,4 @@ Understanding your traffic source is critical for xref:ch2-migration-validate.ad
 // Prev/Next nav (uses site's built-in nav component)
 // Previous: ch-ch2-migration-infrastructure.adoc (Step 2)
 // Next: ch-ch2-migration-validate.adoc (Step 4)
+====

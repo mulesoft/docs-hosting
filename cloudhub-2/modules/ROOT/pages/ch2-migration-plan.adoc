@@ -1,23 +1,16 @@
-= Step 1: Plan the Migration
+= Plan the Migration
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-
-// DRAFT - Page 2 of the CH1-to-CH2 migration journey
-// Source: Mostly new content per improvement plan Section 1.1 "Step 1: Plan the Migration"
-// Reused content:
-//   - "Before You Begin" checklist items from ch-ch2-migration-configuration
-//   - Eligibility criteria from vpc-upgrade#understand-eligibility
-//   - Entitlement note from ch-ch2-migration-completion
-// New content:
-//   - Audit & Assessment Checklist structure
-//   - Timeline estimation guidance (placeholder — needs validation with PM/CSM)
-//   - Migration strategy decision section
-//   - Communication plan template
+:page-pagination:
 
 Before migrating applications from CloudHub to CloudHub 2.0, audit your existing environment, assess entitlement requirements, estimate timelines, and establish a migration strategy. Thorough planning reduces risk and prevents disruptions during the migration process.
 
-== Audit and Assessment Checklist
+.Audit and Assessment Check
+[%collapsible]
+====
+[discrete]
+== Audit and Assessment Check
 
 Review the following areas to understand the scope and complexity of your migration.
 
@@ -117,7 +110,12 @@ CloudHub 2.0 doesn't support persistent VM queues. If your applications use pers
 
 * Verify that API assets are published to Anypoint Exchange.
 * Confirm that API Spec and Implementation have unique names.
+====
 
+.Determine Your Migration Path
+[%collapsible]
+====
+[discrete]
 == Determine Your Migration Path
 
 // NOTE: This cross-references the decision tree on the overview page.
@@ -157,7 +155,12 @@ a|You can't carry these ciphers over to CloudHub 2.0:
 |===
 
 If your VPC doesn't meet these requirements, then create a new private space manually. See xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure] for both paths.
+====
 
+.Entitlement and Timeline Considerations
+[%collapsible]
+====
+[discrete]
 == Entitlement and Timeline Considerations
 
 === Calculate Resource Requirements
@@ -219,7 +222,12 @@ For phased migrations, consider grouping applications by:
 * Business criticality (migrate low-risk applications first)
 * Dependencies (migrate independent applications before those with inter-app communication)
 * VPC (migrate all applications in a VPC together if using the upgrade tool)
+====
 
+.Alignment and Communication Plan
+[%collapsible]
+====
+[discrete]
 == Alignment and Communication Plan
 
 // NOTE: This section is new content per the improvement plan.
@@ -259,7 +267,12 @@ Document rollback procedures:
 * How to redirect traffic back to CloudHub.
 * How to stop CloudHub 2.0 applications.
 * Who has authority to trigger a rollback decision.
+====
 
+.Pre-Migration Validation Checklist
+[%collapsible]
+====
+[discrete]
 == Pre-Migration Validation Checklist
 
 Use this checklist to confirm readiness before proceeding to infrastructure setup:
@@ -287,7 +300,12 @@ Use this checklist to confirm readiness before proceeding to infrastructure setu
 * [ ] Stakeholders identified and migration windows agreed
 
 After completing all checklist items, proceed to xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure].
+====
 
+.See Also
+[%collapsible]
+====
+[discrete]
 == See Also
 
 * xref:ch2-migration-overview.adoc[Migrate from CloudHub to CloudHub 2.0]
@@ -295,7 +313,12 @@ After completing all checklist items, proceed to xref:ch2-migration-infrastructu
 * xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[Understand VPC Upgrade Eligibility]
 * xref:ps-gather-setup-info.adoc#setup-info-private-space[Information Required to Set Up a Private Space]
 * xref:ch2-manage-schedules.adoc[Manage Schedules]
+====
 
+.Related Support Articles
+[%collapsible]
+====
+[discrete]
 == Related Support Articles
 
 // Source: Section 5 of the improvement plan — Related Knowledge Articles
@@ -307,3 +330,4 @@ After completing all checklist items, proceed to xref:ch2-migration-infrastructu
 // Prev/Next nav (uses site's built-in nav component)
 // Previous: ch2-migration-overview.adoc (Overview)
 // Next: ch2-migration-infrastructure.adoc (Step 2)
+====
