@@ -53,6 +53,7 @@ To gradually switch traffic from CloudHub to CloudHub 2.0:
 
 NOTE: Rolling back to CloudHub is available if there are failures during this stage.
 
+[discrete]
 ==== Automate Traffic Switching via REST API
 
 // Source: Section 4, Deliverable B.5 — REST API calls for traffic switching automation

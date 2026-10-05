@@ -156,6 +156,7 @@ See xref:ch2-integrate-log-system.adoc[Integrate with Your Logging System Using 
 
 CloudHub 2.0 doesn't support CloudHub persistent VM queues. If your application uses persistent queues for reliability or workload distribution, replace them with xref:mq::index.adoc[Anypoint MQ].
 
+[discrete]
 ==== Architectural Differences
 
 [cols="1,2,2"]
@@ -187,6 +188,7 @@ CloudHub 2.0 doesn't support CloudHub persistent VM queues. If your application 
 |Separately licensed. Contact your account team for entitlements.
 |===
 
+[discrete]
 ==== Migration Steps
 
 . *Create queues in Anypoint MQ:*
@@ -275,6 +277,7 @@ See xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector] for the latest
 ** Remove any `queue-profile` elements.
 ** Remove the `batch.persistent.queue.disable` property if present.
 
+[discrete]
 ==== Considerations
 
 * *Egress rules:* If you use application-level egress rules in your private space, add rules that allow HTTPS to the Anypoint MQ regional endpoint (for example, `mq-us-east-1.anypoint.mulesoft.com`) and the Anypoint control plane (`anypoint.mulesoft.com`).
