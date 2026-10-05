@@ -78,37 +78,37 @@ The following sections describe the critical architectural differences and confi
 === Infrastructure and Networking Differences
 
 [discrete]
-==== Architecture
+=== Architecture
 
 include::_partials/ch1-ch2-architecture.adoc[]
 
 [discrete]
-==== Private Network
+=== Private Network
 
 include::_partials/ch1-ch2-private-network.adoc[]
 
 [discrete]
-==== Connectivity Methods
+=== Connectivity Methods
 
 include::_partials/ch1-ch2-connectivity.adoc[]
 
 [discrete]
-==== Firewall Rules
+=== Firewall Rules
 
 include::_partials/ch1-ch2-firewall-rules.adoc[]
 
 [discrete]
-==== Static IP Addresses
+=== Static IP Addresses
 
 include::_partials/ch1-ch2-static-ips.adoc[]
 
 [discrete]
-==== Load Balancing
+=== Load Balancing
 
 include::_partials/ch1-ch2-load-balancing.adoc[]
 
 [discrete]
-===== DLB Features and CloudHub 2.0 Ingress Equivalents
+=== DLB Features and CloudHub 2.0 Ingress Equivalents
 
 // NOTE: This subsection is new content called for by the improvement plan (Section 1.1 item 1
 // and Section 2.1). Content below is drawn from the existing comparison tables and expanded
@@ -151,7 +151,7 @@ When migrating from a Dedicated Load Balancer (DLB) to CloudHub 2.0's ingress lo
 |===
 
 [discrete]
-===== Routing Capabilities Comparison
+=== Routing Capabilities Comparison
 
 // Source: Section 2, Deliverable A.1 — DLB routing capabilities vs. CloudHub 2.0 endpoint configuration
 // Based on: docs.mulesoft.com/cloudhub/lb-mapping-rules and
@@ -198,7 +198,7 @@ For full DLB mapping rules reference, see https://docs.mulesoft.com/cloudhub/lb-
 For CloudHub 2.0 endpoint configuration, see https://docs.mulesoft.com/cloudhub-2/ch2-config-endpoints-paths[Configuring Endpoints and Paths for Apps Deployed to a Private Space].
 
 [discrete]
-===== Certificate Migration
+=== Certificate Migration
 
 // Source: Section 2, Deliverable A.2 — Certificate migration guide
 // Based on KA 005237268 "Missing DLB Certificates During CloudHub 1.0 to CloudHub 2.0 Migration"
@@ -240,7 +240,7 @@ NOTE: DLB requires a full certificate chain that includes intermediate and root 
 For more information, see https://help.salesforce.com/s/articleView?id=005237268&type=1[Missing DLB Certificates During CloudHub 1.0 to CloudHub 2.0 Migration (KA 005237268)].
 
 [discrete]
-===== Allowlist and Denylist Migration
+=== Allowlist and Denylist Migration
 
 // Source: Section 2, Deliverable A.3 — Allowlist/denylist migration procedures
 
@@ -279,7 +279,7 @@ If your CloudHub 2.0 applications need to communicate with applications still on
 These ranges enable cross-platform communication during phased migration.
 
 [discrete]
-===== Logging and Monitoring Comparison
+=== Logging and Monitoring Comparison
 
 // Source: Section 2, Deliverable A.4 — Logging and monitoring comparison
 
@@ -305,7 +305,7 @@ These ranges enable cross-platform communication during phased migration.
 |===
 
 [discrete]
-===== Network Topology
+=== Network Topology
 
 // Source: Section 4, Deliverable A.1 — Network topology diagram (hybrid migration state)
 // and A.2 — Traffic flow diagram (DLB vs Ingress)
@@ -394,7 +394,7 @@ sequenceDiagram
 For step-by-step DLB migration guidance, see xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure].
 
 [discrete]
-===== Operational Behavior Differences
+=== Operational Behavior Differences
 
 // Source: Section 3, Deliverable A — Load balancing operational behaviors
 // Based on: cloudhub/lb-reserved-headers, cloudhub/cloudhub-dedicated-load-balancer,
@@ -403,7 +403,8 @@ For step-by-step DLB migration guidance, see xref:ch2-migration-infrastructure.a
 
 When migrating from a DLB to CloudHub 2.0 ingress, the following operational behaviors change. These differences affect production traffic and can require application-level adjustments.
 
-====== HTTP Header Injection
+[discrete]
+=== HTTP Header Injection
 
 The CloudHub DLB injects HTTP headers that your applications can depend on for routing, logging, or security decisions. CloudHub 2.0's ingress load balancer doesn't inject the same headers.
 
@@ -454,7 +455,8 @@ The CloudHub DLB injects HTTP headers that your applications can depend on for r
 
 For full reference, see https://docs.mulesoft.com/cloudhub/lb-reserved-headers[Dedicated Load Balancer Reserved Headers].
 
-====== Connection Timeouts and Keep-Alive
+[discrete]
+=== Connection Timeouts and Keep-Alive
 
 Connection timeout behavior differs between CloudHub DLB and CloudHub 2.0 ingress:
 
@@ -490,22 +492,22 @@ For CloudHub 2.0 timeout configuration, see https://docs.mulesoft.com/cloudhub-2
 For Flex Gateway timeout policies, see https://docs.mulesoft.com/gateway/latest/flex-conn-timeout[Configuring Timeouts in Connected Mode].
 
 [discrete]
-==== Domains and TLS Context
+=== Domains and TLS Context
 
 include::_partials/ch1-ch2-domains-tls.adoc[]
 
 [discrete]
-==== Mutual TLS
+=== Mutual TLS
 
 include::_partials/ch1-ch2-mtls.adoc[]
 
 [discrete]
-==== URL Rewriting
+=== URL Rewriting
 
 include::_partials/ch1-ch2-url-rewriting.adoc[]
 
 [discrete]
-==== Internal Application Communication
+=== Internal Application Communication
 
 include::_partials/ch1-ch2-internal-communication.adoc[]
 
@@ -513,37 +515,37 @@ include::_partials/ch1-ch2-internal-communication.adoc[]
 === Application Differences
 
 [discrete]
-==== Persistent VM Queues Vs. Anypoint MQ
+=== Persistent VM Queues Vs. Anypoint MQ
 
 include::_partials/ch1-ch2-persistent-queues.adoc[]
 
 [discrete]
-==== Logging
+=== Logging
 
 include::_partials/ch1-ch2-logging.adoc[]
 
 [discrete]
-==== Deployment Configuration
+=== Deployment Configuration
 
 include::_partials/ch1-ch2-deployment-config.adoc[]
 
 [discrete]
-==== vCore Sizes
+=== vCore Sizes
 
 include::_partials/ch1-ch2-vcores.adoc[]
 
 [discrete]
-==== Worker Vs. Replica
+=== Worker Vs. Replica
 
 include::_partials/ch1-ch2-worker-replica.adoc[]
 
 [discrete]
-==== High Availability with Clustering
+=== High Availability with Clustering
 
 include::_partials/ch1-ch2-ha-clustering.adoc[]
 
 [discrete]
-==== Alerts
+=== Alerts
 
 include::_partials/ch1-ch2-alerts.adoc[]
 

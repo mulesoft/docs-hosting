@@ -247,7 +247,7 @@ Your CloudHub 2.0 application can continue to use the same target URL to communi
 However, because CloudHub 2.0 uses a separate infrastructure CIDR pool, the DLB doesn't allow traffic from CloudHub 2.0 apps by default. You must add the CloudHub 2.0 CIDR ranges to the DLB allowlist.
 
 [discrete]
-==== Step 1: Add Infrastructure CIDR Ranges to the DLB Allowlist
+=== Step 1: Add Infrastructure CIDR Ranges to the DLB Allowlist
 
 Add the following CloudHub 2.0 infrastructure CIDR ranges to your DLB allowlist:
 
@@ -266,7 +266,7 @@ To update the DLB allowlist:
 For more information about CloudHub 2.0 infrastructure CIDR ranges, see xref:ps-gather-setup-info.adoc#infra-cidr-pool[Infrastructure CIDR Pool].
 
 [discrete]
-==== Step 2: Verify DLB TLS Configuration
+=== Step 2: Verify DLB TLS Configuration
 
 The DLB must support TLS 1.2+ for upstream connections from CloudHub 2.0:
 
@@ -286,19 +286,19 @@ NOTE: TLS 1.2 can be added alongside TLS 1.1 without disrupting existing connect
 How CloudHub 1.0 applications reach CloudHub 2.0 applications in an upgraded private space depends on whether the target application was migrated or deployed new.
 
 [discrete]
-==== Migrated Applications
+=== Migrated Applications
 
 If the CloudHub 2.0 application is a migrated application (originally deployed to CloudHub 1.0 and then migrated to CloudHub 2.0), the existing custom or vanity domain configured on your DLB continues to work. When traffic is fully switched to CloudHub 2.0, requests from CloudHub 1.0 applications using that custom domain reach the migrated CloudHub 2.0 application without additional configuration.
 
 [discrete]
-==== New Applications in an Upgraded Private Space
+=== New Applications in an Upgraded Private Space
 
 If you deploy a brand-new CloudHub 2.0 application to the upgraded private space and try to configure the same custom or vanity domain endpoint for this new application, CloudHub 1.0 applications can't reach it using the custom domain.
 
 IMPORTANT: To work around this limitation, deploy the new application to CloudHub 1.0 first, then migrate it to CloudHub 2.0. This allows the application to use the existing custom or vanity domain and remain reachable from CloudHub 1.0 applications during migration.
 
 [discrete]
-==== General Configuration
+=== General Configuration
 
 Regardless of whether the target application was migrated or deployed new, configure the following to allow CloudHub 1.0 traffic to reach the CloudHub 2.0 private space:
 
@@ -316,17 +316,17 @@ NOTE: Verify with your network team whether traffic between the CloudHub VPC and
 If your CloudHub 1.0 VPC uses a Transit Gateway (TGW) for on-premises connectivity, then you need both the existing CloudHub VPC TGW attachment and a new CloudHub 2.0 private space TGW attachment during migration.
 
 [discrete]
-==== VPC Upgrade Path
+=== VPC Upgrade Path
 
 If using the VPC upgrade tool, existing TGW connections transfer to the new CloudHub 2.0 private space automatically. No additional TGW configuration is needed.
 
 [discrete]
-==== Manual Private Space Path
+=== Manual Private Space Path
 
 If you created a new private space manually (not using the VPC upgrade tool), your private space has a different CIDR block from your existing VPC and doesn't inherit any TGW connections. Attach the new private space to your existing transit gateway. Refer to the instructions in https://docs.mulesoft.com/cloudhub-2/ps-create-configure-tgw[Connect to a Transit Gateway].
 
 [discrete]
-==== Hybrid Routing During Migration
+=== Hybrid Routing During Migration
 
 If you created a new private space manually and attached it to the same transit gateway as your CloudHub VPC, both attachments are active during the phased migration.
 
@@ -336,7 +336,7 @@ If you created a new private space manually and attached it to the same transit 
 Confirm that TGW route tables include routes for both the VPC CIDR and the private space CIDR so on-premises traffic reaches the correct attachment.
 
 [discrete]
-==== Validate TGW Connectivity
+=== Validate TGW Connectivity
 
 After attaching the transit gateway, test connectivity using the Network Tools application:
 
