@@ -6,9 +6,8 @@ endif::[]
 
 This guide takes you through migrating CloudHub applications and infrastructure to CloudHub 2.0. Review the platform differences, choose a migration path, and complete each step in order.
 
-.Migration Journey Overview
-[%collapsible]
-====
+== Migration Journey Overview
+
 The migration from CloudHub to CloudHub 2.0 follows five steps:
 
 [cols="1,3"]
@@ -30,22 +29,18 @@ The migration from CloudHub to CloudHub 2.0 follows five steps:
 |xref:ch2-migration-finalize.adoc[Step 5: Finalize and Decommission]
 |Decommission CloudHub resources and release entitlements.
 |===
-====
 
-.Choose Your Migration Path
-[%collapsible]
-====
+== Choose Your Migration Path
+
 Choose the path that fits your infrastructure:
 
 * Create a new private space if your VPC doesn't meet upgrade eligibility requirements or if CloudHub 2.0 needs a different CIDR block.
 * Upgrade your VPC to a private space if it meets the eligibility requirements and you need to retain the existing CIDR block and infrastructure configuration.
 
 For the full eligibility criteria and migration-path decision, see xref:ch2-migration-plan.adoc#determine-your-migration-path[Determine Your Migration Path]. For setup procedures for each path, see xref:ch2-migration-infrastructure.adoc[Prepare Infrastructure].
-====
 
-.Assess Migration Impacts
-[%collapsible]
-====
+== Assess Migration Impacts
+
 Before planning your migration, review the differences that can require infrastructure or application changes:
 
 * *Infrastructure and networking:* private spaces, connectivity, firewall rules, static IP addresses, load balancing, domains, and TLS.
@@ -53,17 +48,14 @@ Before planning your migration, review the differences that can require infrastr
 * *Application deployment:* Mule runtime compatibility, deployment configuration, application properties, worker-to-replica sizing, clustering, and alerts.
 * *Application behavior:* persistent VM queues, logging, internal application communication, injected HTTP headers, and connection timeout behavior.
 
-For the complete CloudHub and CloudHub 2.0 comparison, including DLB-to-ingress migration considerations, see xref:ch2-comparison.adoc[Compare CloudHub and CloudHub 2.0].
-====
+For the complete CloudHub and CloudHub 2.0 comparison, including DLB-to-ingress migration considerations, see xref:ch2-migration-comparison.adoc[Compare CloudHub and CloudHub 2.0].
 
-.See Also
-[%collapsible]
-====
-* xref:ch2-comparison.adoc[Compare CloudHub and CloudHub 2.0]
+== See Also
+
+* xref:ch2-migration-comparison.adoc[Compare CloudHub and CloudHub 2.0]
 * xref:ch2-migration-plan.adoc[Step 1: Plan the Migration]
 * xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure]
 * xref:ch2-migration-apps.adoc[Step 3: Migrate Applications]
 * xref:ch2-migration-validate.adoc[Step 4: Validate and Switch Traffic]
 * xref:ch2-migration-finalize.adoc[Step 5: Finalize and Decommission]
 * xref:ch2-migration-troubleshoot.adoc[Troubleshoot Migration Issues]
-====

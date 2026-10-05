@@ -9,7 +9,7 @@
 *** xref:ps-tgw-about.adoc[Transit Gateway Attachments]
 *** xref:ps-outbound-private-link.adoc[Outbound Private Link]
 * xref:ch2-migration-overview.adoc[Migrate from CloudHub to CloudHub 2.0]
-** xref:ch2-comparison.adoc[Compare CloudHub and CloudHub 2.0]
+** xref:ch2-migration-comparison.adoc[Compare CloudHub and CloudHub 2.0]
 ** xref:ch2-migration-plan.adoc[Plan Your Migration]
 ** xref:ch2-migration-infrastructure.adoc[Prepare Infrastructure]
 ** xref:ch2-migration-apps.adoc[Migrate Applications]
