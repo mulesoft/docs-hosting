@@ -9,7 +9,6 @@ Before migrating applications, set up your CloudHub 2.0 infrastructure . Choose 
 .Choose Your Path
 [%collapsible]
 ====
-[discrete]
 == Choose Your Path
 
 // NOTE: The improvement plan calls for a decision tree flowchart here.
@@ -39,7 +38,6 @@ Before migrating applications, set up your CloudHub 2.0 infrastructure . Choose 
 .Create a New Private Space Manually
 [%collapsible]
 ====
-[discrete]
 == Create a New Private Space Manually
 
 // Source: Consolidated from ch-ch2-migration-configuration "Before You Begin" + "Create Your Private Space"
@@ -126,7 +124,6 @@ After creating the private space, confirm:
 .Upgrade a VPC to a Private Space
 [%collapsible]
 ====
-[discrete]
 == Upgrade a VPC to a Private Space
 
 // Source: Content from vpc-upgrade, summarized here with cross-references.
@@ -232,7 +229,6 @@ If the upgrade fails, see xref:ch2-migration-troubleshoot.adoc#troubleshoot-vpc-
 .Enable Cross-Platform Communication
 [%collapsible]
 ====
-[discrete]
 == Enable Cross-Platform Communication
 
 // Source: Reused from vpc-upgrade "Enable CloudHub 2.0 Apps to Communicate with CloudHub Apps via DLB"
@@ -381,7 +377,6 @@ NOTE: In CloudHub 2.0 private spaces, the *Ping* command isn't supported due to 
 .Plan for Static IP Changes
 [%collapsible]
 ====
-[discrete]
 == Plan for Static IP Changes
 
 // Source: Section 3, Deliverable B — Static IP provisioning guide
@@ -428,7 +423,6 @@ If backend systems (databases, SaaS APIs, on-premises services) have firewall ru
 .Maintain Business Continuity During Migration
 [%collapsible]
 ====
-[discrete]
 == Maintain Business Continuity During Migration
 
 // Source: Reused from vpc-upgrade "Next Steps After VPC Upgrade"
@@ -452,7 +446,6 @@ If you encounter infrastructure issues, see xref:ch2-migration-troubleshoot.adoc
 .See Also
 [%collapsible]
 ====
-[discrete]
 == See Also
 
 * xref:ch2-migration-plan.adoc[Step 1: Plan the Migration]

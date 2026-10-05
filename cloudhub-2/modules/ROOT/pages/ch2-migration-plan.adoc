@@ -9,7 +9,6 @@ Before migrating applications from CloudHub to CloudHub 2.0, audit your existing
 .Audit and Assessment Check
 [%collapsible]
 ====
-[discrete]
 == Audit and Assessment Check
 
 Review the following areas to understand the scope and complexity of your migration.
@@ -115,7 +114,6 @@ CloudHub 2.0 doesn't support persistent VM queues. If your applications use pers
 .Determine Your Migration Path
 [%collapsible]
 ====
-[discrete]
 == Determine Your Migration Path
 
 // NOTE: This cross-references the decision tree on the overview page.
@@ -160,7 +158,6 @@ If your VPC doesn't meet these requirements, then create a new private space man
 .Entitlement and Timeline Considerations
 [%collapsible]
 ====
-[discrete]
 == Entitlement and Timeline Considerations
 
 === Calculate Resource Requirements
@@ -227,7 +224,6 @@ For phased migrations, consider grouping applications by:
 .Alignment and Communication Plan
 [%collapsible]
 ====
-[discrete]
 == Alignment and Communication Plan
 
 // NOTE: This section is new content per the improvement plan.
@@ -272,7 +268,6 @@ Document rollback procedures:
 .Pre-Migration Validation Checklist
 [%collapsible]
 ====
-[discrete]
 == Pre-Migration Validation Checklist
 
 Use this checklist to confirm readiness before proceeding to infrastructure setup:
@@ -305,7 +300,6 @@ After completing all checklist items, proceed to xref:ch2-migration-infrastructu
 .See Also
 [%collapsible]
 ====
-[discrete]
 == See Also
 
 * xref:ch2-migration-overview.adoc[Migrate from CloudHub to CloudHub 2.0]
@@ -318,7 +312,6 @@ After completing all checklist items, proceed to xref:ch2-migration-infrastructu
 .Related Support Articles
 [%collapsible]
 ====
-[discrete]
 == Related Support Articles
 
 // Source: Section 5 of the improvement plan — Related Knowledge Articles

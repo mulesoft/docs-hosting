@@ -18,7 +18,6 @@ After completing validation and confirming that all traffic flows through CloudH
 .Observation Period
 [%collapsible]
 ====
-[discrete]
 == Observation Period
 
 // NOTE: This section is new content per the improvement plan.
@@ -34,7 +33,6 @@ Before decommissioning, retain your CloudHub 1.0 environment for one to two week
 .Decommission Checklist
 [%collapsible]
 ====
-[discrete]
 == Decommission Checklist
 
 // Source: New content per improvement plan, cross-referenced with ch-ch2-migration-completion
@@ -63,7 +61,6 @@ Delete all VPN and transit gateway connections associated with the CloudHub VPC.
 .Mark Migration Complete
 [%collapsible]
 ====
-[discrete]
 == Mark Migration Complete
 
 // Source: Reused from ch-ch2-migration-completion
@@ -78,7 +75,6 @@ After you mark the upgrade complete, CloudHub 2.0 replaces all CloudHub resource
 .Decommission DLBs
 [%collapsible]
 ====
-[discrete]
 == Decommission DLBs
 
 // Source: New structure per improvement plan
@@ -93,7 +89,6 @@ NOTE: If there are failures after stopping the DLB, restart it to point `anypoin
 .Delete CloudHub VPCs
 [%collapsible]
 ====
-[discrete]
 == Delete CloudHub VPCs
 
 // Source: New content per improvement plan with sequencing guidance
@@ -127,7 +122,6 @@ If you encounter issues deleting a VPC after migration:
 .Entitlements
 [%collapsible]
 ====
-[discrete]
 == Entitlements
 
 // Source: Reused from ch-ch2-migration-completion
@@ -142,7 +136,6 @@ NOTE: Deleting the upgraded VPC after all applications and their associated DLBs
 .Update CI/CD Pipelines
 [%collapsible]
 ====
-[discrete]
 == Update CI/CD Pipelines
 
 // NOTE: This section is new content per the improvement plan.
@@ -165,7 +158,6 @@ For more information, see xref:mule-runtime::deploy-to-cloudhub-2.adoc[Deploy Ap
 .See Also
 [%collapsible]
 ====
-[discrete]
 == See Also
 
 * xref:ch-ch2-migration-validate.adoc[Step 4: Validate and Cut Over]

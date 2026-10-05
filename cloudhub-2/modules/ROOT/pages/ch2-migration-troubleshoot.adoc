@@ -17,7 +17,6 @@ Use this page to diagnose and resolve common issues encountered during CloudHub 
 .Traffic Switching Issues
 [%collapsible]
 ====
-[discrete]
 == Traffic Switching Issues
 
 === 502 Bad Gateway During Traffic Switch
@@ -54,7 +53,6 @@ For more information, see https://help.salesforce.com/s/articleView?id=005321445
 .Certificate and TLS Issues
 [%collapsible]
 ====
-[discrete]
 == Certificate and TLS Issues
 
 === Missing DLB Certificates Post-Upgrade
@@ -90,7 +88,6 @@ To troubleshoot this issue:
 .Connectivity Issues
 [%collapsible]
 ====
-[discrete]
 == Connectivity Issues
 
 [cols="1,2,2,1"]
@@ -122,7 +119,6 @@ To troubleshoot this issue:
 .Application Issues
 [%collapsible]
 ====
-[discrete]
 == Application Issues
 
 [cols="1,2,2,1"]
@@ -171,7 +167,6 @@ For more information, see https://help.salesforce.com/s/articleView?id=005321536
 .VPC Upgrade Issues
 [%collapsible]
 ====
-[discrete]
 == VPC Upgrade Issues
 
 [cols="1,2,2"]
@@ -211,7 +206,6 @@ For upgrade steps, see xref:ch2-migration-infrastructure.adoc#upgrade-a-vpc-to-a
 .Infrastructure Issues
 [%collapsible]
 ====
-[discrete]
 == Infrastructure Issues
 
 [cols="1,2,2,1"]
@@ -288,7 +282,6 @@ For upgrade steps, see xref:ch2-migration-infrastructure.adoc#upgrade-a-vpc-to-a
 .Connectivity Diagnostics
 [%collapsible]
 ====
-[discrete]
 == Connectivity Diagnostics
 
 To diagnose connectivity issues between CloudHub platforms during migration, deploy the MuleSoft Network Tools application to your VPC or private space. The following tests are available:
@@ -307,7 +300,6 @@ See https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Net
 .Related Resources
 [%collapsible]
 ====
-[discrete]
 == Related Resources
 
 * https://help.salesforce.com/s/articleView?id=005237269&type=1[Planning Timelines for CloudHub Migration (KA 005237269)]
@@ -322,7 +314,6 @@ See https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Net
 .See Also
 [%collapsible]
 ====
-[discrete]
 == See Also
 
 * xref:ch2-migration-overview.adoc[CloudHub 2.0 for CloudHub Users]

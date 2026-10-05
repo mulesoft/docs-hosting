@@ -24,7 +24,6 @@ After deploying your application to CloudHub 2.0, validate it by gradually switc
 .Switch Traffic to CloudHub 2.0
 [%collapsible]
 ====
-[discrete]
 == Switch Traffic to CloudHub 2.0
 
 // Source: Reused from app-migration "Next Steps After Application Upgrade"
@@ -182,7 +181,6 @@ Different application types call for different switching strategies:
 .Understand Your Traffic Source
 [%collapsible]
 ====
-[discrete]
 == Understand Your Traffic Source
 
 // Source: Reused from app-migration "Understanding the Traffic Source"
@@ -237,7 +235,6 @@ For applications using an SLB and expecting HTTP traffic:
 .Monitor and Validate
 [%collapsible]
 ====
-[discrete]
 == Monitor and Validate
 
 // NOTE: This section is new content from the improvement plan (Step 4 "What to Monitor").
@@ -291,7 +288,6 @@ Some behaviors are expected during traffic switching and don't require a rollbac
 .Manage API Policies During Traffic Switching
 [%collapsible]
 ====
-[discrete]
 == Manage API Policies During Traffic Switching
 
 // Source: Reused from app-migration "Managing API Policies During Traffic Switching"
@@ -368,7 +364,6 @@ During the CloudHub to CloudHub 2.0 application migration, traffic gradually shi
 .Post-Validation Checklist
 [%collapsible]
 ====
-[discrete]
 == Post-Validation Checklist
 
 // NOTE: This section is new content from the improvement plan (Step 4, item 2).
@@ -385,7 +380,6 @@ After reaching 100% traffic on CloudHub 2.0, confirm:
 .Update DNS and Perform DLB Failover
 [%collapsible]
 ====
-[discrete]
 == Update DNS and Perform DLB Failover
 
 === Update DNS
@@ -413,7 +407,6 @@ NOTE: If there are failures during this stage, restart the DLB to point `anypoin
 .Complete the Application Upgrade
 [%collapsible]
 ====
-[discrete]
 == Complete the Application Upgrade
 
 // Source: Reused from app-migration "Complete the Application Upgrade"
@@ -432,7 +425,6 @@ Complete or delete all CloudHub applications in a given upgraded VPC to release 
 .See Also
 [%collapsible]
 ====
-[discrete]
 == See Also
 
 * xref:ch2-migration-apps.adoc[Step 3: Migrate Applications]
