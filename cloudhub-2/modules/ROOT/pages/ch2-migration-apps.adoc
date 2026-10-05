@@ -22,10 +22,10 @@ After setting up your CloudHub 2.0 private space, migrate your applications from
 |If your private space was... |Follow this path
 
 |Created manually from scratch
-|<<migrate-applications-to-a-new-private-space>>
+|<<migrate-applications-to-a-new-private-space,Migrate Applications to a New Private Space>>
 
 |Created by upgrading a VPC
-|<<upgrade-application-using-the-migration-tool>>
+|<<upgrade-application-using-the-migration-tool,Upgrade Application Using the Migration Tool>>
 |===
 
 .Prepare Your Application for Migration
