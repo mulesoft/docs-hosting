@@ -311,85 +311,63 @@ These ranges enable cross-platform communication during phased migration.
 // and A.2 — Traffic flow diagram (DLB vs Ingress)
 // Based on: ch2-networking-guide, lb-architecture, ps-create-configure-tgw
 
-*Diagram 1: Hybrid Migration State — Network Topology*
+.Hybrid Migration State
+[cols="1,2,2",options="header"]
+|===
+|Layer |CloudHub 1.0 VPC |CloudHub 2.0 Private Space
 
-[source,mermaid]
-----
-graph TB
-    subgraph Internet
-        Client[External Client]
-    end
+|Internet ingress
+|External clients send HTTPS traffic on port 443 to the Dedicated Load Balancer (DLB).
+|External clients send HTTPS traffic on port 443 to the ingress load balancer.
 
-    subgraph "Anypoint Platform"
-        subgraph "CloudHub 1.0 — VPC"
-            DLB[Dedicated Load Balancer<br/>TLS termination<br/>Mapping rules]
-            W1[Worker 1<br/>port 8091/8092]
-            W2[Worker 2<br/>port 8091/8092]
-        end
+|Load balancing and routing
+|The DLB terminates TLS and applies ordered mapping rules.
+|The ingress load balancer terminates TLS and routes requests by domain and path.
 
-        subgraph "CloudHub 2.0 — Private Space"
-            ILB[Ingress Load Balancer<br/>TLS termination<br/>Domain-based routing]
-            R1[Replica 1<br/>port 8081]
-            R2[Replica 2<br/>port 8081]
-            NAT[NAT Gateway<br/>Outbound Static IPs]
-        end
-    end
+|Application runtime
+|Workers receive HTTP or HTTPS traffic on ports 8091 and 8092.
+|Replicas receive traffic on port 8081.
 
-    subgraph "On-Premises / AWS"
-        TGW[Transit Gateway]
-        Backend[Backend Systems<br/>Databases, SaaS APIs]
-    end
+|Connectivity during migration
+|Workers can communicate with CloudHub 2.0 through the `100.64.0.0/16` and `100.66.0.0/16` through `100.68.0.0/16` ranges.
+|Replicas connect to on-premises or AWS systems through the Transit Gateway using the private space CIDR.
 
-    Client -->|HTTPS :443| DLB
-    Client -->|HTTPS :443| ILB
-    DLB --> W1
-    DLB --> W2
-    ILB --> R1
-    ILB --> R2
+|Outbound traffic
+|Workers reach backend systems through the VPC network and Transit Gateway.
+|Replicas use the NAT Gateway when backend systems require outbound static IP addresses.
 
-    W1 -.->|100.64.0.0/16<br/>100.66-68.0.0/16| ILB
-    R1 -.->|PS CIDR| TGW
-    W1 -.->|VPC CIDR| TGW
-    TGW --> Backend
-    R1 --> NAT
-    NAT -->|Outbound Static IPs| Backend
-----
+|Backend connectivity
+2+|Both environments connect to backend systems, such as databases and SaaS APIs, through the Transit Gateway.
+|===
 
-*Diagram 2: Traffic Flow — DLB vs. Ingress Controller*
+.Traffic Paths During Hybrid Migration
+* *CloudHub 1.0 path:* External client -> DLB -> CloudHub worker -> Transit Gateway -> backend system.
+* *CloudHub 2.0 path:* External client -> ingress load balancer -> CloudHub 2.0 replica -> Transit Gateway or NAT Gateway -> backend system.
+* *Cross-platform path:* A CloudHub 1.0 worker can communicate with CloudHub 2.0 through the documented cross-platform CIDR ranges.
 
-[source,mermaid]
-----
-sequenceDiagram
-    participant C as Client
-    participant DNS as DNS (CNAME)
-    participant DLB as DLB (CH1)
-    participant ILB as Ingress LB (CloudHub 2.0)
-    participant W as CH1 Worker
-    participant R as CloudHub 2.0 Replica
+.Traffic Flow: DLB and Ingress Controller
+[cols="1,2,2",options="header"]
+|===
+|Stage |CloudHub 1.0 Path |CloudHub 2.0 Path
 
-    Note over C,R: CloudHub 1.0 Path
-    C->>DNS: myapp.example.com
-    DNS->>DLB: [lb-name].lb.anypointdns.net
-    DLB->>DLB: TLS termination + mapping rule match
-    DLB->>W: HTTP to mule-worker-myApp:8091
+|DNS resolution
+|The client requests `myapp.example.com`, which resolves to `[lb-name].lb.anypointdns.net`.
+|The client requests `myapp.example.com`, which resolves to `[space-id].[region].cloudhub.io`.
 
-    Note over C,R: CloudHub 2.0 Path
-    C->>DNS: myapp.example.com
-    DNS->>ILB: [space-id].[region].cloudhub.io
-    ILB->>ILB: TLS termination + domain/path match
-    ILB->>R: HTTP to app replica:8081
+|TLS and routing
+|The DLB terminates TLS and evaluates its mapping rules.
+|The ingress load balancer terminates TLS and matches the configured domain and path.
 
-    Note over C,R: During Migration (traffic switching)
-    C->>DNS: myapp.example.com
-    DNS->>DLB: still points to DLB
-    DLB->>DLB: TLS termination
-    alt X% to CH1
-        DLB->>W: existing CloudHub worker
-    else Y% to CloudHub 2.0
-        DLB->>ILB: routed to CloudHub 2.0 ingress
-        ILB->>R: CloudHub 2.0 replica
-    end
-----
+|Application request
+|The DLB sends HTTP traffic to the CloudHub worker on port 8091.
+|The ingress load balancer sends HTTP traffic to the CloudHub 2.0 replica on port 8081.
+|===
+
+.Traffic Switching During Migration
+During a phased migration, the DNS CNAME for `myapp.example.com` can continue to point to the DLB. The DLB terminates TLS and routes traffic to either of the following targets:
+
+* *CloudHub 1.0:* The existing CloudHub worker.
+* *CloudHub 2.0:* The CloudHub 2.0 ingress load balancer, which then routes traffic to the CloudHub 2.0 replica.
 
 For step-by-step DLB migration guidance, see xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure].
 

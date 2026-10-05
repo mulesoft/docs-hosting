@@ -352,7 +352,7 @@ For full TGW configuration steps, see https://docs.mulesoft.com/cloudhub-2/ps-cr
 // Source: Section 2, Deliverable B.5 — Network topology diagram placeholder
 // NOTE: Diagram placeholder — to be created with a diagram tool (Mermaid, draw.io, or static image).
 
-.Diagram: Cross-Platform Communication During Migration
+This diagram illustrates the network topology during migration.
 ----
 On-Premises / Cloud Network
     │
