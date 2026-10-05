@@ -24,8 +24,6 @@ After deploying your application to CloudHub 2.0, validate it by gradually switc
 .Switch Traffic to CloudHub 2.0
 [%collapsible]
 ====
-== Switch Traffic to CloudHub 2.0
-
 // Source: Reused from app-migration "Next Steps After Application Upgrade"
 
 After the upgrade process deploys your CloudHub 2.0 application, test it by directing traffic to it and verifying network connectivity and application behavior.
@@ -184,8 +182,6 @@ Different application types call for different switching strategies:
 .Understand Your Traffic Source
 [%collapsible]
 ====
-== Understand Your Traffic Source
-
 // Source: Reused from app-migration "Understanding the Traffic Source"
 
 The traffic source determines which type of DNS record the process updates to manage traffic flow between your CloudHub and CloudHub 2.0 applications during migration.
@@ -242,8 +238,6 @@ For applications using an SLB and expecting HTTP traffic:
 .Monitor and Validate
 [%collapsible]
 ====
-== Monitor and Validate
-
 // NOTE: This section is new content from the improvement plan (Step 4 "What to Monitor").
 // Threshold values are recommendations from the improvement plan, not official MuleSoft guidance.
 // Validate with PM/CSM before publishing.
@@ -299,8 +293,6 @@ Some behaviors are expected during traffic switching and don't require a rollbac
 .Manage API Policies During Traffic Switching
 [%collapsible]
 ====
-== Manage API Policies During Traffic Switching
-
 // Source: Reused from app-migration "Managing API Policies During Traffic Switching"
 
 When you apply API policies to your new application, they begin with a clean internal status.
@@ -380,8 +372,6 @@ During the CloudHub to CloudHub 2.0 application migration, traffic gradually shi
 .Post-Validation Checklist
 [%collapsible]
 ====
-== Post-Validation Checklist
-
 // NOTE: This section is new content from the improvement plan (Step 4, item 2).
 
 After reaching 100% traffic on CloudHub 2.0, confirm:
@@ -396,8 +386,6 @@ After reaching 100% traffic on CloudHub 2.0, confirm:
 .Update DNS and Perform DLB Failover
 [%collapsible]
 ====
-== Update DNS and Perform DLB Failover
-
 [discrete]
 === Update DNS
 
@@ -425,8 +413,6 @@ NOTE: If there are failures during this stage, restart the DLB to point `anypoin
 .Complete the Application Upgrade
 [%collapsible]
 ====
-== Complete the Application Upgrade
-
 // Source: Reused from app-migration "Complete the Application Upgrade"
 
 After traffic fully redirects to the CloudHub 2.0 application, stop your CloudHub application within 30 days and mark the upgrade as complete:
@@ -443,8 +429,6 @@ Complete or delete all CloudHub applications in a given upgraded VPC to release 
 .See Also
 [%collapsible]
 ====
-== See Also
-
 * xref:ch2-migration-apps.adoc[Step 3: Migrate Applications]
 * xref:ch2-migration-validate.adoc[Step 5: Finalize and Decommission]
 * xref:ch2-migration-troubleshoot.adoc[Troubleshoot Migration Issues]

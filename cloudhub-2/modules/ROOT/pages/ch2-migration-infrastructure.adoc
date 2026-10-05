@@ -9,8 +9,6 @@ Before migrating applications, set up your CloudHub 2.0 infrastructure . Choose 
 .Choose Your Path
 [%collapsible]
 ====
-== Choose Your Path
-
 // NOTE: The improvement plan calls for a decision tree flowchart here.
 // Placeholder for a diagram (Mermaid or static image).
 // Decision points:
@@ -38,8 +36,6 @@ Before migrating applications, set up your CloudHub 2.0 infrastructure . Choose 
 .Create a New Private Space Manually
 [%collapsible]
 ====
-== Create a New Private Space Manually
-
 // Source: Consolidated from ch-ch2-migration-configuration "Before You Begin" + "Create Your Private Space"
 // Expanded with procedural steps per improvement plan Section 1.1 Step 2
 
@@ -131,8 +127,6 @@ After creating the private space, confirm:
 .Upgrade a VPC to a Private Space
 [%collapsible]
 ====
-== Upgrade a VPC to a Private Space
-
 // Source: Content from vpc-upgrade, summarized here with cross-references.
 // Per implementation plan decision: vpc-upgrade remains standalone; this section provides
 // context and links to the full procedure.
@@ -240,8 +234,6 @@ If the upgrade fails, see xref:ch2-migration-troubleshoot.adoc#troubleshoot-vpc-
 .Enable Cross-Platform Communication
 [%collapsible]
 ====
-== Enable Cross-Platform Communication
-
 // Source: Reused from vpc-upgrade "Enable CloudHub 2.0 Apps to Communicate with CloudHub Apps via DLB"
 // Expanded with Section 2, Deliverable B.1 — CH2→CH1 detailed configuration steps and B.5 diagram
 
@@ -392,8 +384,6 @@ NOTE: In CloudHub 2.0 private spaces, the *Ping* command isn't supported due to 
 .Plan for Static IP Changes
 [%collapsible]
 ====
-== Plan for Static IP Changes
-
 // Source: Section 3, Deliverable B — Static IP provisioning guide
 // Based on: _partials/ch1-ch2-static-ips.adoc, cloudhub-networking-guide, ps-about
 
@@ -440,8 +430,6 @@ If backend systems (databases, SaaS APIs, on-premises services) have firewall ru
 .Maintain Business Continuity During Migration
 [%collapsible]
 ====
-== Maintain Business Continuity During Migration
-
 // Source: Reused from vpc-upgrade "Next Steps After VPC Upgrade"
 
 During the migration, continue deploying and managing applications in your VPC to maintain business continuity.
@@ -463,8 +451,6 @@ If you encounter infrastructure issues, see xref:ch2-migration-troubleshoot.adoc
 .See Also
 [%collapsible]
 ====
-== See Also
-
 * xref:ch2-migration-plan.adoc[Step 1: Plan the Migration]
 * xref:ch2-migration-apps.adoc[Step 3: Migrate Applications]
 * xref:ch2-migration-troubleshoot.adoc#troubleshoot-vpc-upgrade[VPC Upgrade Issues]

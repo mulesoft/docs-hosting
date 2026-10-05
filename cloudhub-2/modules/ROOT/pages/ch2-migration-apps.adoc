@@ -31,8 +31,6 @@ After setting up your CloudHub 2.0 private space, migrate your applications from
 .Prepare Your Application for Migration
 [%collapsible]
 ====
-== Prepare Your Application for Migration
-
 // NOTE: This section is shared preparation steps common to both paths.
 // Source: Consolidated from ch-ch2-migration-configuration "Update the Mule Runtime Version"
 // and "Update the Mule Application Code", plus improvement plan Step 3 item 2.
@@ -309,8 +307,6 @@ Make sure that you're using Mule Maven Plugin version 3.7.1 or later.
 .Migrate Applications to a New Private Space
 [%collapsible]
 ====
-== Migrate Applications to a New Private Space
-
 // Source: Consolidated from ch-ch2-migration-configuration "Deploy your Application"
 // plus improvement plan Step 3 "Migrate Applications to a New Private Space"
 
@@ -428,8 +424,6 @@ For authentication alternatives (Connected Apps, Maven server credentials, auth 
 .Upgrade Application Using the Migration Tool
 [%collapsible]
 ====
-== Upgrade Application Using the Migration Tool
-
 // Source: Consolidated from app-migration#eligibility and
 // app-migration#upgrade-your-cloudhub-application-to-cloudhub-2-0-via-anypoint-platform
 
@@ -522,8 +516,6 @@ After deploying the application to CloudHub 2.0, restart the dedicated load bala
 .Considerations and Limitations
 [%collapsible]
 ====
-== Considerations and Limitations
-
 [discrete]
 === Managing Migrated Apps via Mule Maven Plugin (MMP)
 
@@ -571,8 +563,6 @@ Understanding your traffic source is critical for xref:ch2-migration-validate.ad
 .See Also
 [%collapsible]
 ====
-== See Also
-
 * xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure]
 * xref:ch2-migration-validate.adoc[Step 4: Validate and Cut Over]
 * xref:ch2-deploy-private-space.adoc[Deploy to a Private Space]

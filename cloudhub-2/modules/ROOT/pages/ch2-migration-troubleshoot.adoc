@@ -17,8 +17,6 @@ Use this page to diagnose and resolve common issues encountered during CloudHub 
 .Traffic Switching Issues
 [%collapsible]
 ====
-== Traffic Switching Issues
-
 [discrete]
 === 502 Bad Gateway During Traffic Switch
 
@@ -55,8 +53,6 @@ For more information, see https://help.salesforce.com/s/articleView?id=005321445
 .Certificate and TLS Issues
 [%collapsible]
 ====
-== Certificate and TLS Issues
-
 [discrete]
 === Missing DLB Certificates Post-Upgrade
 
@@ -92,8 +88,6 @@ To troubleshoot this issue:
 .Connectivity Issues
 [%collapsible]
 ====
-== Connectivity Issues
-
 [cols="1,2,2,1"]
 |===
 |Symptom |Likely Cause |Resolution |Reference
@@ -123,8 +117,6 @@ To troubleshoot this issue:
 .Application Issues
 [%collapsible]
 ====
-== Application Issues
-
 [cols="1,2,2,1"]
 |===
 |Symptom |Likely Cause |Resolution |Reference
@@ -172,8 +164,6 @@ For more information, see https://help.salesforce.com/s/articleView?id=005321536
 .VPC Upgrade Issues
 [%collapsible]
 ====
-== VPC Upgrade Issues
-
 [cols="1,2,2"]
 |===
 |Symptom |Likely Cause |Resolution
@@ -211,8 +201,6 @@ For upgrade steps, see xref:ch2-migration-infrastructure.adoc#upgrade-a-vpc-to-a
 .Infrastructure Issues
 [%collapsible]
 ====
-== Infrastructure Issues
-
 [cols="1,2,2,1"]
 |===
 |Symptom |Likely Cause |Resolution |Reference
@@ -287,8 +275,6 @@ For upgrade steps, see xref:ch2-migration-infrastructure.adoc#upgrade-a-vpc-to-a
 .Connectivity Diagnostics
 [%collapsible]
 ====
-== Connectivity Diagnostics
-
 To diagnose connectivity issues between CloudHub platforms during migration, deploy the MuleSoft Network Tools application to your VPC or private space. The following tests are available:
 
 * *Socket test:* Verify TCP connectivity between platforms (equivalent to a TCP handshake).
@@ -305,8 +291,6 @@ See https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Net
 .Related Resources
 [%collapsible]
 ====
-== Related Resources
-
 * https://help.salesforce.com/s/articleView?id=005237269&type=1[Planning Timelines for CloudHub Migration (KA 005237269)]
 * https://help.salesforce.com/s/articleView?id=005228668&type=1[REST API Migration Steps (KA 005228668)]
 * https://help.salesforce.com/s/articleView?id=001115029&type=1[Network Testing Tools (KA 001115029)]
@@ -319,8 +303,6 @@ See https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Net
 .See Also
 [%collapsible]
 ====
-== See Also
-
 * xref:ch2-migration-overview.adoc[CloudHub 2.0 for CloudHub Users]
 * xref:ch2-migration-validate.adoc[Step 4: Validate and Cut Over]
 * xref:ch2-migration-validate.adoc[Step 5: Finalize and Decommission]

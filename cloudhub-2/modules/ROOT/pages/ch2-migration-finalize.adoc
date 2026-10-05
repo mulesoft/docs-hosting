@@ -18,8 +18,6 @@ After completing validation and confirming that all traffic flows through CloudH
 .Observation Period
 [%collapsible]
 ====
-== Observation Period
-
 // NOTE: This section is new content per the improvement plan.
 
 Before decommissioning, retain your CloudHub 1.0 environment for one to two weeks for observation and reference:
@@ -33,8 +31,6 @@ Before decommissioning, retain your CloudHub 1.0 environment for one to two week
 .Decommission Checklist
 [%collapsible]
 ====
-== Decommission Checklist
-
 // Source: New content per improvement plan, cross-referenced with ch-ch2-migration-completion
 
 Complete these steps in order:
@@ -64,8 +60,6 @@ Delete all VPN and transit gateway connections associated with the CloudHub VPC.
 .Mark Migration Complete
 [%collapsible]
 ====
-== Mark Migration Complete
-
 // Source: Reused from ch-ch2-migration-completion
 
 WARNING: Marking the upgrade as complete is irreversible. This action deletes the original VPC, stopped DLBs, and all CloudHub 1.0 applications marked as upgraded. All traffic then flows through the CloudHub 2.0 private space.
@@ -78,8 +72,6 @@ After you mark the upgrade complete, CloudHub 2.0 replaces all CloudHub resource
 .Decommission DLBs
 [%collapsible]
 ====
-== Decommission DLBs
-
 // Source: New structure per improvement plan
 
 . Stop the DLB.
@@ -92,8 +84,6 @@ NOTE: If there are failures after stopping the DLB, restart it to point `anypoin
 .Delete CloudHub VPCs
 [%collapsible]
 ====
-== Delete CloudHub VPCs
-
 // Source: New content per improvement plan with sequencing guidance
 
 After DLBs are decommissioned, delete the CloudHub VPCs to release entitlements.
@@ -128,8 +118,6 @@ If you encounter issues deleting a VPC after migration:
 .Entitlements
 [%collapsible]
 ====
-== Entitlements
-
 // Source: Reused from ch-ch2-migration-completion
 
 After you complete the VPC upgrade and bring over any existing transit gateway and VPN network connections, your old and new infrastructure count separately against your usage. If your company uses all purchased quota, your usage can exceed the allowed quota until you move all your applications to CloudHub 2.0 and decommission your old VPC.
@@ -142,8 +130,6 @@ NOTE: Deleting the upgraded VPC after all applications and their associated DLBs
 .Update CI/CD Pipelines
 [%collapsible]
 ====
-== Update CI/CD Pipelines
-
 // NOTE: This section is new content per the improvement plan.
 
 After decommissioning CloudHub 1.0, update your CI/CD pipelines to target CloudHub 2.0 exclusively. Make the following changes:
@@ -164,8 +150,6 @@ For more information, see xref:mule-runtime::deploy-to-cloudhub-2.adoc[Deploy Ap
 .See Also
 [%collapsible]
 ====
-== See Also
-
 * xref:ch-ch2-migration-validate.adoc[Step 4: Validate and Cut Over]
 * xref:ch-ch2-migration-troubleshoot.adoc[Troubleshoot Migration Issues]
 * xref:vpc-upgrade.adoc[CloudHub VPC to CloudHub 2.0 Private Space Upgrade]
