@@ -21,11 +21,11 @@ Before migrating applications, set up your CloudHub 2.0 infrastructure . Choose 
 |===
 |Path |Use When |What Happens
 
-|<<create-a-new-private-space-manually>>
+|xref:#create-a-new-private-space-manually[Create a New Private Space Manually]
 |Your VPC doesn't meet upgrade eligibility requirements, or you need CloudHub 2.0 on a different CIDR from your existing VPC.
 |You create a new private space from scratch with its own CIDR block, configure network connections, and set up firewall rules independently.
 
-|<<upgrade-a-vpc-to-a-private-space>>
+|xref:#upgrade-a-vpc-to-a-private-space[Upgrade a VPC to a Private Space]
 |Your VPC meets all xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[eligibility requirements] and you want to retain your existing infrastructure configuration.
 |The upgrade tool clones your VPC configuration (CIDR block, firewall rules, VPN/TGW connections, DLB certificates) into a new CloudHub 2.0 private space.
 |===
@@ -343,10 +343,7 @@ For full TGW configuration steps, see https://docs.mulesoft.com/cloudhub-2/ps-cr
 // Source: Section 2, Deliverable B.5 — Network topology diagram placeholder
 // NOTE: Diagram placeholder — to be created with a diagram tool (Mermaid, draw.io, or static image).
 
-[NOTE]
-====
-*Diagram: Cross-Platform Communication During Migration*
-
+.Diagram: Cross-Platform Communication During Migration
 ----
 On-Premises / Cloud Network
     │
@@ -365,9 +362,6 @@ Cross-platform flows:
   CloudHub 2.0 app → DLB endpoint → CloudHub worker (requires DLB allowlist CIDR ranges)
   CloudHub app → CloudHub 2.0 ingress endpoint → CloudHub 2.0 replica (requires PS firewall rule)
 ----
-
-A visual diagram will replace this text representation.
-====
 
 === Validate Connectivity
 
