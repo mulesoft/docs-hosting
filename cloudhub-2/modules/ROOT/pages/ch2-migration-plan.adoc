@@ -13,6 +13,7 @@ Before migrating applications from CloudHub to CloudHub 2.0, audit your existing
 
 Review the following areas to understand the scope and complexity of your migration.
 
+[discrete]
 === CloudHub Applications
 
 Inventory all applications currently deployed to CloudHub:
@@ -48,6 +49,7 @@ a|
 |Verify that the Mule Maven Plugin is version 3.7.1 or later.
 |===
 
+[discrete]
 === Application Properties
 
 [cols="1,2"]
@@ -64,6 +66,7 @@ a|
 |Note any properties that differ between environments (Dev, QA, UAT, Prod). Plan to configure these per environment in CloudHub 2.0.
 |===
 
+[discrete]
 === VPC Configuration
 
 Gather the following from your existing CloudHub environment. This information is required to set up a private space. For more details, see xref:ps-gather-setup-info.adoc#setup-info-private-space[Information Required to Set Up a Private Space].
@@ -83,6 +86,7 @@ If you are creating a new private space manually, then allocate a different CIDR
 * Internal DNS entries
 * TLS certificates and contexts
 
+[discrete]
 === Connector Compatibility
 
 Most MuleSoft connectors are compatible with CloudHub 2.0. Review the following:
@@ -91,6 +95,7 @@ Most MuleSoft connectors are compatible with CloudHub 2.0. Review the following:
 * Verify that connector versions are up to date.
 * Review xref:studio::update-modules.adoc[Update Modules] for guidance on updating connectors.
 
+[discrete]
 === Scheduler Applications
 
 Review applications that use Mule Scheduler components:
@@ -98,6 +103,7 @@ Review applications that use Mule Scheduler components:
 * In CloudHub 2.0's clustered environment, only one replica executes a scheduled flow at a time (primary-node processing). Applications that rely on all workers running the same schedule concurrently need to be redesigned.
 * Review xref:ch2-manage-schedules.adoc[Manage Schedules] for CloudHub 2.0 scheduler management.
 
+[discrete]
 === Persistent Queues
 
 CloudHub 2.0 doesn't support persistent VM queues. If your applications use persistent queues:
@@ -105,6 +111,7 @@ CloudHub 2.0 doesn't support persistent VM queues. If your applications use pers
 * Plan to replace persistent VM queues with xref:mq::index.adoc[Anypoint MQ] for reliable message queuing.
 * Remove the CloudHub Connector (used for VM queue operations) and replace with the Anypoint MQ Connector.
 
+[discrete]
 === API Assets
 
 * Verify that API assets are published to Anypoint Exchange.
@@ -160,6 +167,7 @@ If your VPC doesn't meet these requirements, then create a new private space man
 ====
 == Entitlement and Timeline Considerations
 
+[discrete]
 === Calculate Resource Requirements
 
 During migration, you need resources for both CloudHub and CloudHub 2.0 environments simultaneously. Plan for double entitlements across:
@@ -173,6 +181,7 @@ During migration, you need resources for both CloudHub and CloudHub 2.0 environm
 
 Work with your account representative to plan for additional entitlements. Decommission your CloudHub infrastructure (VPCs and associated DLBs) within six months after the upgrade to avoid interruptions when creating or editing VPCs, private spaces, or network connections.
 
+[discrete]
 === Estimate Timelines
 
 // NOTE: The following timeline estimates are guidance from the improvement plan.
@@ -198,6 +207,7 @@ Plan migration timelines based on the number of applications and complexity of y
 |Complex networking (multiple VPNs/TGW), extensive inter-app dependencies, multiple DLBs, phased rollout required.
 |===
 
+[discrete]
 === Decide on a Migration Strategy
 
 [cols="1,2,2"]
@@ -231,6 +241,7 @@ For phased migrations, consider grouping applications by:
 
 Establish the following before starting migration work:
 
+[discrete]
 === Owners and Stakeholders
 
 * Identify the migration project owner.
@@ -238,18 +249,21 @@ Establish the following before starting migration work:
 * Identify infrastructure and networking team contacts.
 * Engage your MuleSoft account representative for entitlement planning.
 
+[discrete]
 === Migration Windows
 
 * Define maintenance windows for each environment.
 * Plan production migrations during low-traffic periods.
 * Allow adequate time between phases for monitoring and validation.
 
+[discrete]
 === Cutover Schedule
 
 * Communicate the migration schedule to all stakeholders.
 * Document expected downtime per application (if any).
 * Establish notification procedures for cutover events.
 
+[discrete]
 === Rollback Criteria and Procedures
 
 Define conditions that trigger a rollback:

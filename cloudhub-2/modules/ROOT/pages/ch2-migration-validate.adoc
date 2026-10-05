@@ -37,6 +37,7 @@ To avoid updating your client applications that connect to CloudHub, retain the 
 
 NOTE: APIs are also available for https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.1/console/method/%231340/[application linking] using the `upgradeData` object while creating CloudHub 2.0 deployments, and for https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.1/console/method/%231736/[traffic switching] using the newly introduced endpoint.
 
+[discrete]
 === Gradually Switch Traffic
 
 // Source: Procedure from app-migration
@@ -118,6 +119,7 @@ for PERCENT in 10 25 50 75 100; do
 done
 ----
 
+[discrete]
 === Recommended Traffic Switching Timeline
 
 // NOTE: This timeline is new content from the improvement plan (Step 4, item 1).
@@ -153,6 +155,7 @@ Total estimated time: ~12 days before cleanup.
 // NOTE: The improvement plan suggests creating a diagram to illustrate this timeline.
 // Placeholder for a visual (stepped bar chart or timeline diagram).
 
+[discrete]
 === Risk-Based Switching Strategies
 
 // NOTE: This section is new content from the improvement plan. NOT currently documented.
@@ -194,6 +197,7 @@ CloudHub receives traffic from two main sources:
 
 NOTE: If your CloudHub 1.0 application has the default endpoint configured, then traffic switches at the SLB. To switch traffic from the DLB instead, remove the CloudHub 1.0 default endpoint, apply changes, and then change the traffic switch percentage.
 
+[discrete]
 === DLB with HTTPS Traffic Switching
 
 // Source: Reused from app-migration
@@ -204,6 +208,7 @@ For applications using a DLB and expecting HTTPS traffic:
 . Enable *Upstream TLS 1.2* or higher in your DLB settings.
 . Make sure that vanity domains on CloudHub 2.0 match those on the CloudHub application to prevent dropped traffic.
 
+[discrete]
 === DLB with HTTP Traffic Switching
 
 // Source: Reused from app-migration
@@ -214,6 +219,7 @@ For applications using a DLB and expecting HTTP traffic:
 
 WARNING: The CloudHub DLB routes requests from clients to Mule applications deployed within the VPC. The DLB sends requests to a Mule application and uses the HTTP Host header to find the certificate endpoint that matches the request. Then, the DLB uses the URL mapping rules for that endpoint to send the request to the Mule application. If the request doesn't match any certificate configured on the DLB, then the DLB uses the "default" certificate endpoint to match the request against its URL mapping rules. During traffic switching, CloudHub 2.0 doesn't contain mapping rules for this unmatched host within the default certificate.
 
+[discrete]
 === SLB with HTTPS Traffic Switching
 
 // Source: Reused from app-migration
@@ -222,6 +228,7 @@ For applications using an SLB and expecting HTTPS traffic:
 
 * Enable the *Last-Mile Security* setting in the *Ingress* tab of the deployment settings for the CloudHub 2.0 application.
 
+[discrete]
 === SLB with HTTP Traffic Switching
 
 // Source: Reused from app-migration
@@ -241,6 +248,7 @@ For applications using an SLB and expecting HTTP traffic:
 // Threshold values are recommendations from the improvement plan, not official MuleSoft guidance.
 // Validate with PM/CSM before publishing.
 
+[discrete]
 === What to Monitor
 
 Track the following metrics during traffic switching:
@@ -250,6 +258,7 @@ Track the following metrics during traffic switching:
 * *CPU and memory usage* — Verify that replicas are appropriately sized.
 * *Request rate* — Confirm that traffic is arriving at expected levels.
 
+[discrete]
 === Threshold Guidance
 
 [cols="1,1,1"]
@@ -269,12 +278,14 @@ Track the following metrics during traffic switching:
 |>2x degradation from baseline
 |===
 
+[discrete]
 === When to Roll Back Immediately
 
 * 500 Internal Server errors
 * 502 Bad Gateway errors
 * Performance degradation greater than 2x baseline
 
+[discrete]
 === When NOT to Roll Back
 
 Some behaviors are expected during traffic switching and don't require a rollback:
@@ -294,6 +305,7 @@ Some behaviors are expected during traffic switching and don't require a rollbac
 
 When you apply API policies to your new application, they begin with a clean internal status.
 
+[discrete]
 === Policies Unchanged by the Migration
 
 // Source: Reused from app-migration
@@ -312,6 +324,7 @@ These policies don't rely on internal status, and their behavior remains consist
 * json-threat-protection
 * xml-threat-protection
 
+[discrete]
 === Policies Affected by Internal Status (Caching)
 
 // Source: Reused from app-migration
@@ -327,6 +340,7 @@ These policies rely on internal status to cache data:
 
 When transitioning to the new application, these policies either trigger additional requests to the origin servers or have different cached values depending on which application receives the requests.
 
+[discrete]
 === Policies Affected by Internal Status (Request Counting)
 
 // Source: Reused from app-migration
@@ -339,6 +353,7 @@ These policies track the number of processed requests and sometimes exhibit unex
 
 If there's a hard change in traffic from one application to the other, policy counters behave as if they were reset. In a balanced round-robin traffic distribution, the effective number of requests sometimes doubles because each application maintains an independent counting mechanism.
 
+[discrete]
 === Rate-Limiting Mitigation
 
 // NOTE: This section is new content from the improvement plan.
@@ -352,6 +367,7 @@ If there's a hard change in traffic from one application to the other, policy co
 * Accept temporarily doubled limits during the transition.
 * Apply rate-limiting policies only after 100% cutover.
 
+[discrete]
 === Autodiscovery
 
 // Source: Reused from app-migration
@@ -382,12 +398,14 @@ After reaching 100% traffic on CloudHub 2.0, confirm:
 ====
 == Update DNS and Perform DLB Failover
 
+[discrete]
 === Update DNS
 
 // Source: From improvement plan Step 4, item 3
 
 Update DNS aliases and CNAMEs to point exclusively to CloudHub 2.0 endpoints.
 
+[discrete]
 === Perform DLB Failover
 
 // Source: Reused from app-migration "Perform DLB Failover"

@@ -19,6 +19,7 @@ Use this page to diagnose and resolve common issues encountered during CloudHub 
 ====
 == Traffic Switching Issues
 
+[discrete]
 === 502 Bad Gateway During Traffic Switch
 
 TLS protocol incompatibility. The DLB requires TLS 1.2 or higher as the upstream protocol when routing to CloudHub 2.0 applications. If configured with only TLS 1.1, traffic switching to CloudHub 2.0 fails with a 502 error. Additionally, incorrect ingress endpoint selection can cause 404 errors after resolving the TLS issue.
@@ -33,6 +34,7 @@ To troubleshoot this issue:
 
 For more information, see https://help.salesforce.com/s/articleView?id=005315578&type=1[KA 005315578].
 
+[discrete]
 === Failed to Update Traffic Switching Percentage
 
 Missing permissions, incorrect application configuration, or certificate migration issues can prevent the traffic switching percentage from being updated.
@@ -55,6 +57,7 @@ For more information, see https://help.salesforce.com/s/articleView?id=005321445
 ====
 == Certificate and TLS Issues
 
+[discrete]
 === Missing DLB Certificates Post-Upgrade
 
 The VPC upgrade tool migrates DLB configurations on a *best-effort basis only*. Due to architectural differences between the DLB and CloudHub 2.0 ingress controller, automated certificate migration isn't guaranteed.
@@ -70,6 +73,7 @@ NOTE: Split intermediate and root certificates into a separate file and upload a
 
 For more information, see https://help.salesforce.com/s/articleView?id=005237268&type=1[KA 005237268].
 
+[discrete]
 === TLS Handshake Failure
 
 Certificates aren't applied to the ingress load balancer, or incompatible TLS 1.1 ciphers are in use.
@@ -146,6 +150,7 @@ To troubleshoot this issue:
 |
 |===
 
+[discrete]
 === Oracle Stored Procedure Dropping Connections After 8 Minutes
 
 After migrating to CloudHub 2.0, long-running stored procedure calls can terminate silently after approximately 8 minutes. An intermediate network component (load balancer, NAT gateway, or firewall) drops idle TCP connections without application-level error reporting.

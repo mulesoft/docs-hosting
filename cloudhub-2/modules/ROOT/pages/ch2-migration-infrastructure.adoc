@@ -45,6 +45,7 @@ Before migrating applications, set up your CloudHub 2.0 infrastructure . Choose 
 
 Create a new private space when your VPC isn't eligible for the upgrade tool, or when you need both CloudHub and CloudHub 2.0 to coexist on the same network with independent CIDR blocks.
 
+[discrete]
 === Prerequisites
 
 Gather the following information from your existing CloudHub environment before creating a private space:
@@ -63,6 +64,7 @@ If you require both CloudHub and CloudHub 2.0 to exist at the same time on the s
 
 For complete requirements, see xref:ps-gather-setup-info.adoc#setup-info-private-space[Information Required to Set Up a Private Space].
 
+[discrete]
 === Step 1: Define a CIDR Block
 
 Allocate a CIDR block for the new private space:
@@ -73,6 +75,7 @@ Allocate a CIDR block for the new private space:
 
 For CIDR block requirements, see xref:ps-gather-setup-info.adoc#cidr-block[CIDR Block].
 
+[discrete]
 === Step 2: Create the Private Space
 
 Create and configure your CloudHub 2.0 private space using one of these methods:
@@ -82,6 +85,7 @@ Create and configure your CloudHub 2.0 private space using one of these methods:
 * https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-20-api/[CloudHub 2.0 API]
 * Anypoint Runtime Manager — See xref:ps-create-configure.adoc[Create a Private Space via Runtime Manager].
 
+[discrete]
 === Step 3: Configure Firewall Rules
 
 All traffic to a private space is blocked by default until explicitly allowed by a firewall rule.
@@ -90,6 +94,7 @@ All traffic to a private space is blocked by default until explicitly allowed by
 * Configure outbound (egress) firewall rules to allow applications to reach required destinations.
 * Review xref:ps-config-fw-rules.adoc[Configure Firewall Rules for a Private Space] for detailed instructions.
 
+[discrete]
 === Step 4: Establish Network Connectivity
 
 Reestablish VPN tunnels or Transit Gateway (TGW) attachments to the new private space:
@@ -98,6 +103,7 @@ Reestablish VPN tunnels or Transit Gateway (TGW) attachments to the new private 
 * Validate that routing tables have correct traffic flow.
 * Test connectivity between the private space and on-premises or other cloud networks.
 
+[discrete]
 === Step 5: Configure TLS
 
 * If you're using a DLB in CloudHub, configure custom TLS certificates in your private space.
@@ -109,6 +115,7 @@ Reestablish VPN tunnels or Transit Gateway (TGW) attachments to the new private 
 +
 NOTE: DNS record updates (CNAME cutover) happen during application migration, not during infrastructure setup. Until apps are migrated, keep DNS pointing to your CloudHub load balancer.
 
+[discrete]
 === Step 6: Validate the Private Space
 
 After creating the private space, confirm:
@@ -147,6 +154,7 @@ The default CloudHub certificates are configured as part of the private space's 
 
 For additional context, see the blog post https://blogs.mulesoft.com/news/upgrade-to-cloudhub-2-0-with-our-in-app-upgrade-tool/[Upgrade from CloudHub 1.0 to CloudHub 2.0 With Our In-App Upgrade Tool].
 
+[discrete]
 === Step 1: Complete the Eligibility Checklist
 
 Before starting the upgrade, confirm that your VPC meets all eligibility requirements:
@@ -161,6 +169,7 @@ Before starting the upgrade, confirm that your VPC meets all eligibility require
 
 For the complete eligibility checklist, see xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[Understand Eligibility].
 
+[discrete]
 === Step 2: Review Environment Association
 
 // Source: Reused from vpc-upgrade#understand-environment-association
@@ -176,6 +185,7 @@ WARNING: The upgrade tooling doesn't support the upgrade of a default VPC. To pr
 
 For full details, see xref:cloudhub::vpc-upgrade.adoc#understand-environment-association[Understand Environment Association].
 
+[discrete]
 === Step 3: Run the Upgrade
 
 // Source: Reused from vpc-upgrade#upgrade-your-vpc-via-anypoint-platform
@@ -208,6 +218,7 @@ To revert to your VPC at any time, click *Cancel Upgrade*. The system deletes th
 
 After the private space is provisioned, the *Cancel Upgrade* button no longer appears. To roll back, delete the private space.
 
+[discrete]
 === Step 4: Validate the Private Space Upgrade
 
 After the upgrade completes:
@@ -236,6 +247,7 @@ If the upgrade fails, see xref:ch2-migration-troubleshoot.adoc#troubleshoot-vpc-
 
 During a phased migration, applications on CloudHub 2.0 and CloudHub 1.0 must communicate across platforms. This section covers the connectivity configuration required for cross-platform communication.
 
+[discrete]
 === CloudHub 2.0 to CloudHub 1.0 (via DLB)
 
 Your CloudHub 2.0 application can continue to use the same target URL to communicate with existing CloudHub 1.0 applications — no endpoint changes are required. If communication uses a public IP (such as a DLB vanity domain or the default `<app-name>.<region>.cloudhub.io` endpoint), traffic continues to route through the internet. If communication uses internal IPs (app-to-app calls within the same VPC), this routing also continues to work from the new CloudHub 2.0 application in the upgraded private space.
@@ -270,6 +282,7 @@ The DLB must support TLS 1.2+ for upstream connections from CloudHub 2.0:
 
 NOTE: TLS 1.2 can be added alongside TLS 1.1 without disrupting existing connections. See https://help.salesforce.com/s/articleView?id=005315578&type=1[502 Bad Gateway Error When Switching Traffic (KA 005315578)].
 
+[discrete]
 === CloudHub 1.0 to CloudHub 2.0
 
 // NOTE: This scenario needs engineering verification. The steps below are based on
@@ -297,6 +310,7 @@ Regardless of whether the target application was migrated or deployed new, confi
 
 NOTE: Verify with your network team whether traffic between the CloudHub VPC and CloudHub 2.0 private space routes through the public internet or can use internal routing via VPN or Transit Gateway.
 
+[discrete]
 === Transit Gateway Configuration During Migration
 
 // Source: Section 2, Deliverable B.4 — Transit Gateway hybrid setup
@@ -331,6 +345,7 @@ After attaching the transit gateway, test connectivity using the Network Tools a
 
 For full TGW configuration steps, see https://docs.mulesoft.com/cloudhub-2/ps-create-configure-tgw[Creating Transit Gateway Attachments].
 
+[discrete]
 === Network Topology During Migration
 
 // Source: Section 2, Deliverable B.5 — Network topology diagram placeholder
@@ -401,6 +416,7 @@ Static IP allocation differs between CloudHub and CloudHub 2.0:
 |Not available within a single private space. To have unique static IPs per application, deploy to a different private space.
 |===
 
+[discrete]
 === Impact on Backend System Allowlists
 
 If backend systems (databases, SaaS APIs, on-premises services) have firewall rules that allow traffic only from specific CloudHub 1.0 application static IPs, you must update those rules to allow the new private space outbound IPs.
@@ -414,6 +430,7 @@ If backend systems (databases, SaaS APIs, on-premises services) have firewall ru
 . Update backend allowlists to include the new private space outbound IPs.
 . During migration, keep *both* the old CloudHub IPs and new CloudHub 2.0 IPs in backend allowlists until decommissioning is complete.
 
+[discrete]
 === Considerations
 
 * If a backend system uses per-app source IP to identify *which* application is calling (rather than just for access control), this model no longer works in CloudHub 2.0 since all apps share outbound IPs. Use mTLS client certificates or API keys for application-level identification instead.

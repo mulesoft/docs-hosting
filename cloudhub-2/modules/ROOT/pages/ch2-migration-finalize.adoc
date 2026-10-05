@@ -39,6 +39,7 @@ Before decommissioning, retain your CloudHub 1.0 environment for one to two week
 
 Complete these steps in order:
 
+[discrete]
 === Step 1: Stop CloudHub Applications
 
 Stop all CloudHub 1.0 applications that have been successfully migrated to CloudHub 2.0.
@@ -49,10 +50,12 @@ Stop all CloudHub 1.0 applications that have been successfully migrated to Cloud
 * After your CloudHub application stops, delete it within 30 days.
 * Complete or delete all CloudHub applications in a given upgraded VPC to release entitlements.
 
+[discrete]
 === Step 2: Dissociate Environments
 
 Dissociate all environments from the CloudHub VPC.
 
+[discrete]
 === Step 3: Delete Network Connections
 
 Delete all VPN and transit gateway connections associated with the CloudHub VPC.
@@ -95,6 +98,7 @@ NOTE: If there are failures after stopping the DLB, restart it to point `anypoin
 
 After DLBs are decommissioned, delete the CloudHub VPCs to release entitlements.
 
+[discrete]
 === Sequencing for Multiple VPCs
 
 If your company has multiple VPCs:
@@ -104,12 +108,14 @@ If your company has multiple VPCs:
 . Check entitlement usage after each deletion.
 . Delete production VPCs last.
 
+[discrete]
 === Before Deleting
 
 * Confirm that all items on the decommission checklist are complete.
 * Delete all DLBs associated with the VPC.
 * Verify that no environments are still associated with the VPC.
 
+[discrete]
 === Troubleshooting VPC Deletion
 
 If you encounter issues deleting a VPC after migration:

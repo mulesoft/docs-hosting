@@ -39,6 +39,7 @@ After setting up your CloudHub 2.0 private space, migrate your applications from
 
 Complete these preparation steps regardless of which migration path you follow.
 
+[discrete]
 === Upgrade the Mule Runtime Version
 
 // Source: Reused from ch-ch2-migration-configuration
@@ -51,6 +52,7 @@ CloudHub 2.0 supports Mule runtime versions 4.3.x and later. If your application
 
 For upgrade guidance, see https://docs.mulesoft.com/release-notes/mule-runtime/updating-mule-4-versions#ensuring-mule-application-compatibility[Ensuring Mule Application Compatibility].
 
+[discrete]
 === Update the Application Code
 
 // Source: Reused from ch-ch2-migration-configuration "Update the Mule Application Code"
@@ -148,6 +150,7 @@ See xref:ch2-integrate-log-system.adoc[Integrate with Your Logging System Using 
 * Remove CloudHub 1.0–specific port configurations (`http.port`, `https.port`, `http.private.port`, `https.private.port`). CloudHub 2.0 uses the standard `${http.port}` property (port 8081).
 
 [[migrate-persistent-queues]]
+[discrete]
 === Migrate Persistent Queues to Anypoint MQ
 
 // Source: Section 3, Deliverable C — Persistent Queues migration guide
@@ -282,10 +285,12 @@ See xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector] for the latest
 
 For more information, see xref:mq::index.adoc[Anypoint MQ] and xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector].
 
+[discrete]
 === Review and Update Connectors
 
 Review and update your connectors to the latest compatible versions. See xref:studio::update-modules.adoc[Update Modules].
 
+[discrete]
 === Test Locally
 
 * Test your application locally using Anypoint Studio or Anypoint Code Builder with the updated runtime version.
@@ -293,6 +298,7 @@ Review and update your connectors to the latest compatible versions. See xref:st
 ** xref:studio::import-export-packages.adoc#export-project-studio[Anypoint Studio]
 ** xref:anypoint-code-builder::int-export-mule-project.adoc[Anypoint Code Builder]
 
+[discrete]
 === Verify Mule Maven Plugin Version
 
 Make sure that you're using Mule Maven Plugin version 3.7.1 or later.
@@ -310,10 +316,12 @@ Make sure that you're using Mule Maven Plugin version 3.7.1 or later.
 
 If you created your private space manually from scratch, use this method to deploy your applications.
 
+[discrete]
 === Step 1: Publish to Exchange
 
 Publish your application to xref:exchange::index.adoc[Anypoint Exchange] so it's available for deployment.
 
+[discrete]
 === Step 2: Deploy to the Private Space
 
 Deploy your application to your CloudHub 2.0 private space. For detailed deployment instructions, see xref:ch2-deploy-private-space.adoc[Deploy to a Private Space].
@@ -333,6 +341,7 @@ NOTE: In CloudHub 2.0, names are unique per private space. CloudHub 2.0 adds a s
 +
 See xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas] for vCore options.
 
+[discrete]
 === Step 3: Configure Horizontal Autoscaling (Optional)
 
 CloudHub 2.0 supports horizontal autoscaling natively. If your application needs to scale based on demand:
@@ -342,6 +351,7 @@ CloudHub 2.0 supports horizontal autoscaling natively. If your application needs
 
 See xref:ch2-configure-horizontal-autoscaling.adoc[Configure Horizontal Autoscaling].
 
+[discrete]
 === Step 4: Configure Application Properties
 
 // Source: Property behavior from app-migration#application-properties
@@ -352,10 +362,12 @@ IMPORTANT: Application properties aren't automatically carried over during migra
 * Secure properties use the same encryption key mechanism — make sure that your keys are migrated.
 * Configure environment-specific properties per environment (Dev, UAT, Prod).
 
+[discrete]
 === Step5: Configure Endpoints
 
 If you're using a dedicated load balancer (DLB) in CloudHub, configure application mapping rules using path and path rewrite configurations for endpoints in the application deployment.
 
+[discrete]
 === Step 7: Update CI/CD Pipelines
 
 // Source: Reused from ch-ch2-migration-configuration "Deploy your Application"
@@ -423,6 +435,7 @@ For authentication alternatives (Connected Apps, Maven server credentials, auth 
 
 If your private space was created by upgrading a VPC, use the application migration tool to link your CloudHub application with a new CloudHub 2.0 application and gradually switch traffic.
 
+[discrete]
 === Eligibility
 
 // Source: Reused from app-migration#eligibility
@@ -431,6 +444,7 @@ To use the application migration tool, first upgrade your CloudHub VPC to a Clou
 
 The application upgrade tool works only in CloudHub 2.0 private spaces that were upgraded from a CloudHub VPC.
 
+[discrete]
 === Step 1: Start the Upgrade
 
 // Source: Reused from app-migration "Upgrade Your CloudHub Application to CloudHub 2.0 via Anypoint Platform"
@@ -447,6 +461,7 @@ The *Upgrade Application to CloudHub 2.0* page opens with these fields:
 ** *Upgrading From* — Shows the name of the CloudHub application you're migrating from. You can't edit this field.
 ** *Deployment Target* — Shows the preselected private space based on the upgraded CloudHub VPC. You can't edit this field.
 
+[discrete]
 === Step 2: Configure the Application File
 
 // Source: Reused from app-migration
@@ -456,6 +471,7 @@ For *Application File*, choose one of these options:
 * *Upload your application file* — Download the application asset from the link under *Application File*, make the necessary changes, and upload it to deploy your new application to the CloudHub 2.0 private space.
 * *Import file from Exchange* — Import the CloudHub application you want to upgrade.
 
+[discrete]
 === Step 3: Configure Ingress
 
 // Source: Reused from app-migration
@@ -475,6 +491,7 @@ WARNING: If you use a different name for the CloudHub 2.0 application, enter the
 
 NOTE: The *Host* dropdown list shows only the domains that were initially added under the certificates of the underlying VPC's DLB configuration. If you add a new certificate to the original VPC's DLB after the application upgrade starts, add it manually under the *Domain & TLS* tab of your new private space for that domain to appear in the *Host* dropdown list.
 
+[discrete]
 === Step 4: Configure Application Properties
 
 // Source: Reused from app-migration#application-properties
@@ -484,10 +501,12 @@ IMPORTANT: The upgrade process doesn't automatically carry over application prop
 * The upgrade process copies your CloudHub application's properties during configuration. However, these properties don't persist unless you edit at least one property or add a new one. Editing or adding a single property causes all copied properties to persist.
 * The upgrade process copies protected properties with `+++******+++` as the displayed value. Manually change this value to the correct protected value in your CloudHub 2.0 application settings.
 
+[discrete]
 === Step 5: Deploy the Application
 
 Follow the steps to xref:ch2-deploy.adoc[deploy an application to CloudHub 2.0].
 
+[discrete]
 === Step 6: Restart the DLB
 
 // Source: From improvement plan Step 3
@@ -505,18 +524,21 @@ After deploying the application to CloudHub 2.0, restart the dedicated load bala
 ====
 == Considerations and Limitations
 
+[discrete]
 === Managing Migrated Apps via Mule Maven Plugin (MMP)
 
 // Source: Reused from app-migration
 
 To manage a migrated application using the Mule Maven Plugin (MMP), copy the public URL configured in Runtime Manager during the migration. If the endpoints specified in the `publicUrl` field of your `pom.xml` file don't match the ones configured in the UI, the ingress configuration is lost.
 
+[discrete]
 === CloudHub Application Default Domain
 
 // Source: Reused from app-migration
 
 When you deploy a new CloudHub 2.0 application, avoid using the CloudHub default domain to prevent issues such as traffic outages.
 
+[discrete]
 === Mid-Migration Deployment Constraint
 
 // Source: Section 2, Deliverable C — mid-migration deployment constraint
@@ -536,6 +558,7 @@ Deploying directly to CloudHub 2.0 with an existing vanity domain can cause thes
 * Inconsistent traffic routing through the DLB
 * DNS propagation issues
 
+[discrete]
 === Traffic Source Awareness
 
 // Source: From app-migration warning

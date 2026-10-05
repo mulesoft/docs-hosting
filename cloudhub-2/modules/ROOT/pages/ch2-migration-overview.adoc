@@ -93,6 +93,7 @@ For eligibility details, see xref:cloudhub::vpc-upgrade.adoc#understand-eligibil
 
 The following sections describe the critical architectural differences and configuration gaps between CloudHub and CloudHub 2.0, including deployment models and environmental dependencies that affect custom configurations. Use this information to scope the migration effort and reduce incompatibility risk during upgrade planning.
 
+[discrete]
 === Infrastructure and Networking Differences
 
 ==== Architecture
@@ -510,6 +511,7 @@ include::_partials/ch1-ch2-url-rewriting.adoc[]
 
 include::_partials/ch1-ch2-internal-communication.adoc[]
 
+[discrete]
 === Application Differences
 
 ==== Persistent VM Queues Vs. Anypoint MQ
