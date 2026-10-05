@@ -6,9 +6,8 @@ endif::[]
 
 Before migrating applications, set up your CloudHub 2.0 infrastructure . Choose between creating a new private space manually or using the VPC upgrade tool to convert an existing VPC to a private space.
 
-.Choose Your Path
-[%collapsible]
-====
+== Choose Your Path
+
 // NOTE: The improvement plan calls for a decision tree flowchart here.
 // Placeholder for a diagram (Mermaid or static image).
 // Decision points:
@@ -29,9 +28,6 @@ Before migrating applications, set up your CloudHub 2.0 infrastructure . Choose 
 |Your VPC meets all xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[eligibility requirements] and you want to retain your existing infrastructure configuration.
 |The upgrade tool clones your VPC configuration (CIDR block, firewall rules, VPN/TGW connections, DLB certificates) into a new CloudHub 2.0 private space.
 |===
-
-[[create-a-new-private-space-manually]]
-====
 
 .Create a New Private Space Manually
 [%collapsible]
