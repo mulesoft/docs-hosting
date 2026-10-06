@@ -674,8 +674,6 @@ Asia Pacific::
 Government::
 +
 --
-Feature values for MuleSoft Government Cloud Plus are Available, Planned, or Not planned pending product management sign-off.
-
 [%header%autowidth.spread,cols=".^a,.^a,.^a,.^a"]
 |===
 |Component |Feature Description |MuleSoft Government Cloud Plus |Notes
