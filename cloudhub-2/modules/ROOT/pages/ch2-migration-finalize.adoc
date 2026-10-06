@@ -4,20 +4,9 @@ include::_attributes.adoc[]
 endif::[]
 :page-pagination: prev
 
-// DRAFT - Page 6 of the CH1-to-CH2 migration journey
-// Source: Expanded from ch-ch2-migration-completion (entire page)
-// plus improvement plan Step 5 additions:
-//   - Observation period
-//   - Detailed decommission checklist
-//   - Sequencing guidance for multiple VPCs
-//   - CI/CD update section
-//   - KA reference for VPC deletion issues
-
 After completing validation and confirming that all traffic flows through CloudHub 2.0, decommission your CloudHub 1.0 resources and release entitlements. Complete this process within six months after the upgrade to avoid interruptions when creating or editing VPCs, private spaces, or network connections.
 
 == Observation Period
-// NOTE: This section is new content per the improvement plan.
-
 Before decommissioning, retain your CloudHub 1.0 environment for one to two weeks for observation and reference:
 
 * Monitor CloudHub 2.0 applications for any remaining issues.
@@ -26,13 +15,9 @@ Before decommissioning, retain your CloudHub 1.0 environment for one to two week
 * Confirm that all stakeholders have validated their applications.
 
 == Decommission Steps
-// Source: New content per improvement plan, cross-referenced with ch-ch2-migration-completion
-
 Complete these steps in order:
 
 1. Stop all CloudHub 1.0 applications that have been successfully migrated to CloudHub 2.0.
-
-// Source: From app-migration "Complete the Application Upgrade"
 
 * After traffic fully redirects to CloudHub 2.0, stop your CloudHub application within 30 days.
 * After your CloudHub application stops, delete it within 30 days.
@@ -47,8 +32,6 @@ Dissociate all environments from the CloudHub VPC.
 Delete all VPN and transit gateway connections associated with the CloudHub VPC.
 
 === Step 4: Decommission DLBs
-// Source: New structure per improvement plan
-
 . Stop the DLB.
 . Verify that traffic is still flowing correctly to CloudHub 2.0 applications.
 . Delete the DLB.
@@ -56,8 +39,6 @@ Delete all VPN and transit gateway connections associated with the CloudHub VPC.
 NOTE: If there are failures after stopping the DLB, restart it to point `anypointdns.net` back to CloudHub while the DLB is in a stopped state. After you delete the DLB, you can't roll back to CloudHub.
 
 === Step 5: Delete CloudHub VPCs
-// Source: New content per improvement plan with sequencing guidance
-
 After DLBs are decommissioned, delete the CloudHub VPCs to release entitlements.
 
 === Step 6:Sequencing for Multiple VPCs
@@ -84,8 +65,6 @@ If you encounter issues deleting a VPC after migration:
 * See https://help.salesforce.com/s/articleView?language=en_US&id=005115579&type=1[You cannot delete CH 1.0 VPC after it upgraded to CH 2.0 (Private Space) from Runtime Manager UI].
 
 ==== Review Entitlements
-// Source: Reused from ch-ch2-migration-completion
-
 After you complete the VPC upgrade and bring over any existing transit gateway and VPN network connections, your old and new infrastructure count separately against your usage. If your company uses all purchased quota, your usage can exceed the allowed quota until you move all your applications to CloudHub 2.0 and decommission your old VPC.
 
 Work with your account representative to plan for additional entitlements. Decommission your CloudHub infrastructure (VPCs and associated DLBs) within six months after the upgrade to avoid interruptions when creating or editing VPCs, private spaces, or network connections.
@@ -93,8 +72,6 @@ Work with your account representative to plan for additional entitlements. Decom
 NOTE: Deleting the upgraded VPC after all applications and their associated DLBs are removed doesn't affect your CloudHub 2.0 private spaces or CloudHub 2.0 applications.
 
 === Step 7: Mark Migration Complete
-// Source: Reused from ch-ch2-migration-completion
-
 WARNING: Marking the upgrade as complete is irreversible. This action deletes the original VPC, stopped DLBs, and all CloudHub 1.0 applications marked as upgraded. All traffic then flows through the CloudHub 2.0 private space.
 
 To finish the VPC upgrade process, go to the *Upgrade* tab and click *Mark Upgrade Complete*.
@@ -102,8 +79,6 @@ To finish the VPC upgrade process, go to the *Upgrade* tab and click *Mark Upgra
 After you mark the upgrade complete, CloudHub 2.0 replaces all CloudHub resources and CloudHub assets become immutable. Make any required changes on CloudHub 2.0.
 
 == Update CI/CD Pipelines
-// NOTE: This section is new content per the improvement plan.
-
 After decommissioning CloudHub 1.0, update your CI/CD pipelines to target CloudHub 2.0 exclusively. Make the following changes:
 
 . Update deployment targets to use CloudHub 2.0 endpoints instead of CloudHub 1.0.
@@ -119,11 +94,8 @@ CloudHub 2.0 deployment uses a two-step process:
 For more information, see xref:mule-runtime::deploy-to-cloudhub-2.adoc[Deploy Applications to CloudHub 2.0 Using the Mule Maven Plugin].
 
 == See Also
+
 * xref:ch-ch2-migration-validate.adoc[Step 4: Validate and Cut Over]
 * xref:ch-ch2-migration-troubleshoot.adoc[Troubleshoot Migration Issues]
 * xref:vpc-upgrade.adoc[CloudHub VPC to CloudHub 2.0 Private Space Upgrade]
 * xref:mule-runtime::deploy-to-cloudhub-2.adoc[Deploy Applications to CloudHub 2.0 Using the Mule Maven Plugin]
-
-// Prev/Next nav (uses site's built-in nav component)
-// Previous: ch-ch2-migration-validate.adoc (Step 4)
-// Next: ch-ch2-migration-troubleshoot.adoc (Troubleshooting)

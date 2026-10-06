@@ -300,16 +300,10 @@ See https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Net
 * https://help.salesforce.com/s/articleView?id=005321536&type=1[Oracle Stored Procedure Dropping Connections (KA 005321536)]
 ====
 
-.See Also
-[%collapsible]
-====
+== See Also
+
 * xref:ch2-migration-overview.adoc[CloudHub 2.0 for CloudHub Users]
 * xref:ch2-migration-validate.adoc[Step 4: Validate and Cut Over]
 * xref:ch2-migration-validate.adoc[Step 5: Finalize and Decommission]
 * xref:cloudhub::vpc-upgrade.adoc[CloudHub VPC to CloudHub 2.0 Private Space Upgrade]
 * xref:ps-config-fw-rules.adoc[Configure Firewall Rules for a Private Space]
-
-// Prev/Next nav (uses site's built-in nav component)
-// Previous: ch-ch2-migration-completion.adoc (Step 5)
-// Next: none (end of journey)
-====

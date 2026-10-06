@@ -31,16 +31,11 @@ After setting up your CloudHub 2.0 private space, migrate your applications from
 .Prepare Your Application for Migration
 [%collapsible]
 ====
-// NOTE: This section is shared preparation steps common to both paths.
-// Source: Consolidated from ch-ch2-migration-configuration "Update the Mule Runtime Version"
-// and "Update the Mule Application Code", plus improvement plan Step 3 item 2.
 
 Complete these preparation steps regardless of which migration path you follow.
 
 [discrete]
 === Upgrade the Mule Runtime Version
-
-// Source: Reused from ch-ch2-migration-configuration
 
 CloudHub 2.0 supports Mule runtime versions 4.3.x and later. If your application runs on an older version, upgrade to a supported runtime before migrating.
 
@@ -150,9 +145,6 @@ See xref:ch2-integrate-log-system.adoc[Integrate with Your Logging System Using 
 [[migrate-persistent-queues]]
 [discrete]
 === Migrate Persistent Queues to Anypoint MQ
-
-// Source: Section 3, Deliverable C — Persistent Queues migration guide
-// Based on: cloudhub/cloudhub-fabric (persistent queues), anypoint-mq docs, _partials/ch1-ch2-persistent-queues.adoc
 
 CloudHub 2.0 doesn't support CloudHub persistent VM queues. If your application uses persistent queues for reliability or workload distribution, replace them with xref:mq::index.adoc[Anypoint MQ].
 
@@ -310,8 +302,6 @@ Make sure that you're using Mule Maven Plugin version 3.7.1 or later.
 .Migrate Applications to a New Private Space
 [%collapsible]
 ====
-// Source: Consolidated from ch-ch2-migration-configuration "Deploy your Application"
-// plus improvement plan Step 3 "Migrate Applications to a New Private Space"
 
 If you created your private space manually from scratch, use this method to deploy your applications.
 
@@ -353,8 +343,6 @@ See xref:ch2-configure-horizontal-autoscaling.adoc[Configure Horizontal Autoscal
 [discrete]
 === Step 4: Configure Application Properties
 
-// Source: Property behavior from app-migration#application-properties
-
 IMPORTANT: Application properties aren't automatically carried over during migration. Reconfigure them manually in CloudHub 2.0.
 
 * Recreate all application properties (plain and secure/encrypted).
@@ -368,9 +356,6 @@ If you're using a dedicated load balancer (DLB) in CloudHub, configure applicati
 
 [discrete]
 === Step 7: Update CI/CD Pipelines
-
-// Source: Reused from ch-ch2-migration-configuration "Deploy your Application"
-// Code examples: Section 4, Deliverable B.4 — Maven deployment commands
 
 Update your CI/CD scripts to support the two-step deployment process:
 
@@ -427,15 +412,11 @@ For authentication alternatives (Connected Apps, Maven server credentials, auth 
 .Upgrade Application Using the Migration Tool
 [%collapsible]
 ====
-// Source: Consolidated from app-migration#eligibility and
-// app-migration#upgrade-your-cloudhub-application-to-cloudhub-2-0-via-anypoint-platform
 
 If your private space was created by upgrading a VPC, use the application migration tool to link your CloudHub application with a new CloudHub 2.0 application and gradually switch traffic.
 
 [discrete]
 === Eligibility
-
-// Source: Reused from app-migration#eligibility
 
 To use the application migration tool, first upgrade your CloudHub VPC to a CloudHub 2.0 private space using the xref:cloudhub::vpc-upgrade.adoc[VPC upgrade tool].
 
@@ -461,8 +442,6 @@ The *Upgrade Application to CloudHub 2.0* page opens with these fields:
 [discrete]
 === Step 2: Configure the Application File
 
-// Source: Reused from app-migration
-
 For *Application File*, choose one of these options:
 
 * *Upload your application file* — Download the application asset from the link under *Application File*, make the necessary changes, and upload it to deploy your new application to the CloudHub 2.0 private space.
@@ -470,8 +449,6 @@ For *Application File*, choose one of these options:
 
 [discrete]
 === Step 3: Configure Ingress
-
-// Source: Reused from app-migration
 
 In the *Ingress* tab, configure the endpoint:
 
@@ -491,8 +468,6 @@ NOTE: The *Host* dropdown list shows only the domains that were initially added 
 [discrete]
 === Step 4: Configure Application Properties
 
-// Source: Reused from app-migration#application-properties
-
 IMPORTANT: The upgrade process doesn't automatically carry over application properties to CloudHub 2.0.
 
 * The upgrade process copies your CloudHub application's properties during configuration. However, these properties don't persist unless you edit at least one property or add a new one. Editing or adding a single property causes all copied properties to persist.
@@ -505,8 +480,6 @@ Follow the steps to xref:ch2-deploy.adoc[deploy an application to CloudHub 2.0].
 
 [discrete]
 === Step 6: Restart the DLB
-
-// Source: From improvement plan Step 3
 
 After deploying the application to CloudHub 2.0, restart the dedicated load balancer (DLB) to:
 
@@ -522,21 +495,15 @@ After deploying the application to CloudHub 2.0, restart the dedicated load bala
 [discrete]
 === Managing Migrated Apps via Mule Maven Plugin (MMP)
 
-// Source: Reused from app-migration
-
 To manage a migrated application using the Mule Maven Plugin (MMP), copy the public URL configured in Runtime Manager during the migration. If the endpoints specified in the `publicUrl` field of your `pom.xml` file don't match the ones configured in the UI, the ingress configuration is lost.
 
 [discrete]
 === CloudHub Application Default Domain
 
-// Source: Reused from app-migration
-
 When you deploy a new CloudHub 2.0 application, avoid using the CloudHub default domain to prevent issues such as traffic outages.
 
 [discrete]
 === Mid-Migration Deployment Constraint
-
-// Source: Section 2, Deliverable C — mid-migration deployment constraint
 
 WARNING: You can't deploy a new application directly to CloudHub 2.0 during an active migration and use the same vanity domain.
 
@@ -556,16 +523,13 @@ Deploying directly to CloudHub 2.0 with an existing vanity domain can cause thes
 [discrete]
 === Traffic Source Awareness
 
-// Source: From app-migration warning
-
 For applications with inbound traffic, the Shared Load Balancer (SLB) handles traffic switching if your ingress configuration includes the default CloudHub application endpoint in the format `<app_name>.<region>.cloudhub.io`. However, if that default endpoint is missing and you've configured a vanity domain or an `anypointdns.net` endpoint instead, the Dedicated Load Balancer (DLB) switches the traffic.
 
 Understanding your traffic source is critical for xref:ch2-migration-validate.adoc[Step 4: Validate and Cut Over].
 ====
 
-.See Also
-[%collapsible]
-====
+== See Also
+
 * xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure]
 * xref:ch2-migration-validate.adoc[Step 4: Validate and Cut Over]
 * xref:ch2-deploy-private-space.adoc[Deploy to a Private Space]
@@ -573,8 +537,3 @@ Understanding your traffic source is critical for xref:ch2-migration-validate.ad
 * xref:ch2-configure-horizontal-autoscaling.adoc[Configure Horizontal Autoscaling]
 * xref:mule-runtime::deploy-to-cloudhub-2.adoc[Deploy Applications to CloudHub 2.0 Using the Mule Maven Plugin]
 * xref:ch2-integrate-log-system.adoc[Integrate with Your Logging System Using Log4j]
-
-// Prev/Next nav (uses site's built-in nav component)
-// Previous: ch-ch2-migration-infrastructure.adoc (Step 2)
-// Next: ch-ch2-migration-validate.adoc (Step 4)
-====

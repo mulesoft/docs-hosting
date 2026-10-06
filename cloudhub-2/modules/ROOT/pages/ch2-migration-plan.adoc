@@ -26,11 +26,6 @@ a|
 * Mule 4.3.x: Supported, but MuleSoft recommends upgrading to 4.4+.
 * Mule 3.x: Not supported on CloudHub 2.0. These applications require rearchitecting to Mule 4.
 
-// NOTE: The improvement plan says "Mule 4.4+ supported, Mule 4.3 require upgrade."
-// The live vpc-upgrade doc says "Mule 4.3.0 and later" are supported.
-// The ch2-comparison doc says "Only Mule 4.3.0 and later versions are supported."
-// Using the live doc language (4.3+ supported) but noting 4.4+ recommended.
-
 |vCore allocations
 |Document current worker sizes and counts per application. CloudHub 2.0 uses replicas with more granular vCore options (0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4). Plan equivalent replica sizing.
 
@@ -68,8 +63,6 @@ a|
 === VPC Configuration
 
 Gather the following from your existing CloudHub environment. This information is required to set up a private space. For more details, see xref:ps-gather-setup-info.adoc#setup-info-private-space[Information Required to Set Up a Private Space].
-
-// Source: Reused from ch-ch2-migration-configuration "Before You Begin" section
 
 * CIDR block information
 +
@@ -119,8 +112,6 @@ CloudHub 2.0 doesn't support persistent VM queues. If your applications use pers
 .Determine Your Migration Path
 [%collapsible]
 ====
-// NOTE: This cross-references the decision tree on the overview page.
-// Source: Eligibility checklist from vpc-upgrade#understand-eligibility
 
 Determine whether to create a new private space or use the VPC upgrade tool. The following eligibility criteria apply to the upgrade tool:
 
@@ -178,10 +169,6 @@ Work with your account representative to plan for additional entitlements. Decom
 [discrete]
 === Estimate Timelines
 
-// NOTE: The following timeline estimates are guidance from the improvement plan.
-// These are NOT from official MuleSoft documentation and should be validated with PM/CSM
-// before publishing. Placeholder values below.
-
 Plan migration timelines based on the number of applications and complexity of your environment:
 
 [cols="1,1,2"]
@@ -228,8 +215,6 @@ For phased migrations, consider grouping applications by:
 .Alignment and Communication Plan
 [%collapsible]
 ====
-// NOTE: This section is new content per the improvement plan.
-// It provides a template structure. Content is intentionally generic guidance.
 
 Establish the following before starting migration work:
 
@@ -276,9 +261,6 @@ Document rollback procedures:
 ====
 Use this checklist to confirm readiness before proceeding to infrastructure setup:
 
-// Source: Adapted from the Appendix "Pre-Migration Validation" checklist in the improvement plan.
-// Cross-referenced with vpc-upgrade eligibility and ch-ch2-migration-configuration prerequisites.
-
 * [ ] Mule runtime 4.3.0 or later (4.4+ recommended)
 * [ ] Java 17 compatibility verified
 * [ ] HTTP listeners using port 8081
@@ -301,26 +283,16 @@ Use this checklist to confirm readiness before proceeding to infrastructure setu
 After completing all checklist items, proceed to xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure].
 ====
 
-.See Also
-[%collapsible]
-====
+== See Also
+
 * xref:ch2-migration-overview.adoc[Migrate from CloudHub to CloudHub 2.0]
 * xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure]
 * xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[Understand VPC Upgrade Eligibility]
 * xref:ps-gather-setup-info.adoc#setup-info-private-space[Information Required to Set Up a Private Space]
 * xref:ch2-manage-schedules.adoc[Manage Schedules]
-====
 
-.Related Support Articles
-[%collapsible]
-====
-// Source: Section 5 of the improvement plan — Related Knowledge Articles
+== Related Support Articles
 
 * https://help.salesforce.com/s/articleView?id=005237269&type=1[Planning Timelines for CloudHub to CloudHub 2.0 Migration (KA 005237269)] — Guidance on estimating migration timelines and phasing.
 * https://help.salesforce.com/s/articleView?id=005228668&type=1[REST API Migration Steps for CloudHub to CloudHub 2.0 (KA 005228668)] — API-based migration procedures for automating the upgrade process.
 * https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Network Tools Application for Connectivity Test From CloudHub VPC (KA 001115029)] — Diagnose network connectivity issues during migration using the Network Tools application.
-
-// Prev/Next nav (uses site's built-in nav component)
-// Previous: ch2-migration-overview.adoc (Overview)
-// Next: ch2-migration-infrastructure.adoc (Step 2)
-====
