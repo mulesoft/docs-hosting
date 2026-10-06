@@ -9,15 +9,22 @@ MuleSoft Government Cloud Plus and xref:gov-cloud::index.adoc[MuleSoft Governmen
 
 For Salesforce Government Cloud Plus product scope, isolation, and compliance, see https://help.salesforce.com/s/articleView?id=ind.government_cloud_overview.htm&type=5[Government Cloud Overview] in Salesforce Help.
 
-The following behaviors differ from commercial Hyperforce regions and from MuleSoft Government Cloud:
+These behaviors differ from Anypoint Platform Control Plane regions and from MuleSoft Government Cloud:
 
-* *Mule runtime engine:* MuleSoft Government Cloud Plus supports both LTS and Edge release channels. MuleSoft Government Cloud supports LTS only.
+* Mule runtime engine +
+MuleSoft Government Cloud Plus supports both LTS and Edge release channels. MuleSoft Government Cloud supports LTS only.
 
-* *Anypoint Omni Gateway:* Available from version 1.13.0 and later. All Omni Gateway versions 1.13.0 and later are supported. Omni Gateway is not available in MuleSoft Government Cloud.
+* Anypoint Omni Gateway +
+Available from version 1.13.0 and later. All Omni Gateway versions 1.13.0 and later are supported. Omni Gateway is not available in MuleSoft Government Cloud.
 
-* *CloudHub 2.0 Private Space:* Only Private Spaces are available. Shared Spaces are not supported. End-to-end cryptographic encryption is enabled by default on all Private Space traffic. No opt-in is required. Outbound internet access is disabled by default; workloads cannot reach external hosts to download packages or scripts at runtime. External load balancers are not provisioned; all inbound and outbound external traffic must route through transit networking (IPSec VPN, AWS Transit Gateway, or AWS PrivateLink). To configure transit networking, see xref:cloudhub-2::ps-setup.adoc[Extending Your Network to Anypoint Platform].
+* CloudHub 2.0 Private Space +
+** Only Private Spaces are available. Shared Spaces aren't supported.
+** End-to-end cryptographic encryption is enabled by default on all Private Space traffic. No opt-in is required.
+** Outbound internet access is disabled by default. Workloads can't reach external hosts to download packages or scripts at runtime.
+** External load balancers aren't provisioned. All inbound and outbound external traffic must route through transit networking (IPSec VPN, AWS Transit Gateway, or AWS PrivateLink). To configure transit networking, see xref:cloudhub-2::ps-setup.adoc[Extending Your Network to Anypoint Platform].
 
-* *Connectors:* Only connectors tagged `fips-140-3-verified` in Anypoint Exchange are permitted. See the *Notes* column in xref:hyperforce::index.adoc#features-supported-on-hyperforce[Features Supported on Hyperforce] for connectors not available in MuleSoft Government Cloud Plus.
+*  Connectors +
+Only connectors tagged `fips-140-3-verified` in Anypoint Exchange are permitted. See the *Notes* column in xref:hyperforce::index.adoc#features-supported-on-hyperforce[Features Supported on Hyperforce] for connectors not available in MuleSoft Government Cloud Plus.
 
 == See Also
 

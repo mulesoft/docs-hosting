@@ -11,19 +11,19 @@ For Salesforce Government Cloud Plus product scope, isolation, and compliance, s
 
 MuleSoft Government Cloud Plus adheres to these security protocols:
 
-* *Federal Information Processing Standards (FIPS) 140-3*
+* Federal Information Processing Standards (FIPS) 140-3
 +
 Enforces cryptographic standards for all data at rest and in transit.
 
-* *Transport Layer Security (TLS) 1.2 and 1.3*
+* Transport Layer Security (TLS) 1.2 and 1.3
 +
 Encrypts all external and internal data transmission.
 
-* *NIST 800-53*
+* NIST 800-53
 +
 Enhances physical and logical security controls.
 
-* *Center for Internet Security (CIS) benchmarks*
+* Center for Internet Security (CIS) benchmarks
 +
 Hardens instances against CIS security checklists.
 
@@ -40,24 +40,33 @@ MuleSoft Government Cloud Plus runs within a dedicated AWS GovCloud (US-East) ha
 
 MuleSoft Government Cloud Plus enforces FIPS 140-3 across all platform layers:
 
-* *Runtime:* Mule runtime engine runs in FIPS 140-3 security mode using the Bouncy Castle 2.0.0 certified cryptographic provider.
-* *TLS:* TLS 1.2 and TLS 1.3 are supported. Earlier TLS versions are not permitted.
-* *Keystores:* BCFKS (Bouncy Castle FIPS Keystore) format is required. PKCS12 and JKS formats are not permitted within the compliance boundary.
-* *Connectors:* Only connectors tagged `fips-140-3-verified` in Anypoint Exchange are permitted.
-* *Omni Gateway:* Anypoint Omni Gateway 1.13.0 and later is FIPS 140-3 compliant and supported.
+* Runtime +
+Mule runtime engine runs in FIPS 140-3 security mode using the Bouncy Castle 2.0.0 certified cryptographic provider.
+
+* TLS +
+TLS 1.2 and TLS 1.3 are supported. Earlier TLS versions aren't permitted.
+
+* Keystores +
+BCFKS (Bouncy Castle FIPS Keystore) format is required. PKCS12 and JKS formats aren't permitted within the compliance boundary.
+
+* Connectors +
+Only connectors tagged `fips-140-3-verified` in Anypoint Exchange are permitted.
+
+* Omni Gateway +
+Anypoint Omni Gateway 1.13.0 and later is FIPS 140-3 compliant and supported.
 
 === FIPS 140-3 Compliant Cipher Suites
 
 These cipher suites are enabled by default when Mule runtime runs in FIPS 140-3 mode.
 
-*TLS 1.3*
+TLS 1.3
 
 * `TLS_AES_128_GCM_SHA256`
 * `TLS_AES_256_GCM_SHA384`
 * `TLS_AES_128_CCM_SHA256`
 * `TLS_AES_128_CCM_8_SHA256`
 
-*TLS 1.2*
+TLS 1.2
 
 * `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
 * `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
@@ -71,16 +80,17 @@ These cipher suites are enabled by default when Mule runtime runs in FIPS 140-3 
 * `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`
 * `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
 
-NOTE: These cipher suites are configured in `$MULE_HOME/conf/tls-fips140-3.conf`. FIPS 140-3 requires TLS 1.3 and TLS 1.2 support. Earlier TLS versions are not supported.
+[NOTE] 
+These cipher suites are configured in `$MULE_HOME/conf/tls-fips140-3.conf`. FIPS 140-3 requires TLS 1.3 and TLS 1.2 support. Earlier TLS versions aren't supported.
 
 == Authentication and Access Control
 
 Multi-factor authentication (MFA) is required for all access to MuleSoft Government Cloud Plus:
 
-* *PIV and CAC support:* Personal Identity Verification (PIV) and Common Access Card (CAC) hardware tokens are supported and recommended for agency personnel.
-* *User data protection:* User data is hashed before leaving the compliance boundary.
-* *Tenant resolution:* Masked-email tenant resolution prevents email-based enumeration.
-* *Administrative accounts:* Top-level administrative accounts follow secure configuration guidance that covers provisioning, operation, and decommissioning procedures.
+* PIV and CAC support: Personal Identity Verification (PIV) and Common Access Card (CAC) hardware tokens are supported and recommended for agency personnel.
+* User data protection: User data is hashed before leaving the compliance boundary.
+* Tenant resolution: Masked-email tenant resolution prevents email-based enumeration.
+* Administrative accounts: Top-level administrative accounts follow secure configuration guidance that covers provisioning, operation, and decommissioning procedures.
 
 == FedRAMP Rev 5 Secure Configuration
 
@@ -122,9 +132,11 @@ MuleSoft Government Cloud Plus satisfies all 10 Secure Configuration Guide (SCG)
 
 MuleSoft Government Cloud Plus provides continuous compliance monitoring tools:
 
-* *Security Health Check:* An interactive dashboard in Setup that scores your org against the Salesforce Baseline Standard or a custom agency-defined baseline. You can upload up to five custom baselines and remediate failing controls directly from the dashboard.
+* Security Health Check +
+An interactive dashboard in Setup that scores your org against the Salesforce Baseline Standard or a custom agency-defined baseline. You can upload up to five custom baselines and remediate failing controls directly from the dashboard.
 
-* *Metadata API drift detection:* Export security configurations — including password policies, session settings, network access controls, and permission sets — as machine-readable XML. Store exports in version control to detect unauthorized configuration drift, maintain an immutable audit trail, and push corrected configurations programmatically across environments using `deploy()`.
+* Metadata API drift detection +
+Export security configurations — including password policies, session settings, network access controls, and permission sets — as machine-readable XML. Store exports in version control to detect unauthorized configuration drift, maintain an immutable audit trail, and push corrected configurations programmatically across environments using `deploy()`.
 
 == See Also
 
