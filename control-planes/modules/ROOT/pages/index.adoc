@@ -3,7 +3,7 @@
 
 Anypoint Platform control planes are the MuleSoft-managed environments where you design, deploy, and manage APIs and Mule apps. Each Anypoint Platform organization lives in exactly one cloud. Sign in to that control plane and deploy Mule apps to the runtime planes it supports.
 
-For the full catalog of control planes (including MuleSoft Government Cloud and Anypoint Platform Private Cloud Edition (PCE)) and the control plane and runtime compatibility matrix, see xref:hosting-home::index.adoc[Anypoint Platform Hosting Overview].
+For the full catalog of control planes (including MuleSoft Government Cloud, MuleSoft Government Cloud Plus, and Anypoint Platform Private Cloud Edition (PCE)) and the control plane and runtime compatibility matrix, see xref:hosting-home::index.adoc[Anypoint Platform Hosting Overview]. To sign in to MuleSoft Government Cloud Plus, see xref:govcloud-plus::gov-cloud-plus-access.adoc[Access MuleSoft Government Cloud Plus].
 
 == Control Plane Clouds
 
@@ -50,10 +50,6 @@ Sign in to the Anypoint Platform control plane that holds your organization. Use
 
 | https://au1.platform.mulesoft.com[Australia Cloud]
 | `+https://au1.platform.mulesoft.com+`
-
-| Government
-| https://gprod1.platform.mulesoft.com[MuleSoft Government Cloud Plus]
-| `+https://gprod1.platform.mulesoft.com+`
 |===
 
 . If you don't have an account in that cloud, click *Sign Up* and create one.
@@ -79,3 +75,4 @@ To sign in from Anypoint Studio, the Anypoint Code Builder desktop IDE, Anypoint
 * xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes]
 * xref:hosting-home::index.adoc[Anypoint Platform Hosting Overview]
 * xref:hyperforce::index.adoc[Salesforce Hyperforce Overview]
+* xref:govcloud-plus::gov-cloud-plus-access.adoc[Access MuleSoft Government Cloud Plus]

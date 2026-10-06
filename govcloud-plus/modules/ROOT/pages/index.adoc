@@ -28,6 +28,7 @@ Only connectors tagged `fips-140-3-verified` in Anypoint Exchange are permitted.
 
 == See Also
 
+* xref:gov-cloud-plus-access.adoc[Access MuleSoft Government Cloud Plus]
 * xref:gov-cloud-plus-compliance.adoc[Security and Compliance in MuleSoft Government Cloud Plus]
 * xref:hyperforce::index.adoc#features-supported-on-hyperforce[Features Supported on Hyperforce]
 * https://help.salesforce.com/s/articleView?id=ind.government_cloud_overview.htm&type=5[Government Cloud Overview] (Salesforce Help)

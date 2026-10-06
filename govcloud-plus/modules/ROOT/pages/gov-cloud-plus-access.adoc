@@ -1,0 +1,60 @@
+= Access MuleSoft Government Cloud Plus
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+MuleSoft Anypoint Platform on Salesforce Government Cloud Plus (MuleSoft Government Cloud Plus) uses its own control plane.
+
+== Sign In
+
+Sign in to the control plane that holds your organization. Organizations and user accounts aren't shared with other clouds.
+
+[%header%autowidth.spread]
+|===
+| Control Plane | Platform URL
+
+| https://gprod1.platform.mulesoft.com[MuleSoft Government Cloud Plus]
+| `+https://gprod1.platform.mulesoft.com+`
+|===
+
+. Go to the platform URL.
+. If you don't have an account in that cloud, click *Sign Up* and create one.
+. Enter your username and password, then click *Sign In*.
+
+== Hostnames and Allowlists
+
+Allow outbound HTTPS (port 443) to these hosts. Some Runtime Manager and ingest endpoints also use port 8443.
+
+When you set `anypoint.platform.base_uri` and `anypoint.platform.analytics_base_uri`, prefix the Platform URL and Analytics ingest hosts with `https://`.
+
+[%header%autowidth.spread]
+|===
+| Cloud | Platform URL | Analytics ingest | Runtime Manager | `amc_setup --region`
+
+| MuleSoft Government Cloud Plus
+| `gprod1.platform.mulesoft.com`
+| `analytics-ingest.gprod1.platform.mulesoft.com`
+| `runtime-manager.gprod1.platform.mulesoft.com`
+| Copy the command Runtime Manager generates when you add a server.
+|===
+
+Don't allowlist Anypoint Platform services by a single IP address. Some addresses are assigned dynamically and can change.
+
+== Configure Mule Properties
+
+Set these properties when a Mule app must use API gateway with MuleSoft Government Cloud Plus, or when you register a Hybrid Standalone instance to this control plane.
+
+This example shows the properties configuration for MuleSoft Government Cloud Plus:
+
+----
+anypoint.platform.client_id=<environment client ID>
+anypoint.platform.client_secret=<environment client secret>
+anypoint.platform.base_uri=https://gprod1.platform.mulesoft.com
+anypoint.platform.analytics_base_uri=https://analytics-ingest.gprod1.platform.mulesoft.com
+----
+
+== See Also
+
+* xref:index.adoc[MuleSoft Government Cloud Plus]
+* xref:control-planes::configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes]
+* xref:hybrid-standalone::setting-hybrid-standalone.adoc[Setting up Hybrid Standalone Instances]
