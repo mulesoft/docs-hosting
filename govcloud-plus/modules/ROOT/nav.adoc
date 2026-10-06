@@ -1,0 +1,4 @@
+.xref:index.adoc[MuleSoft Government Cloud Plus]
+* xref:index.adoc[MuleSoft Government Cloud Plus Overview]
+* xref:gov-cloud-plus-compliance.adoc[Security and Compliance]
+* xref:release-notes.adoc[Release Notes]

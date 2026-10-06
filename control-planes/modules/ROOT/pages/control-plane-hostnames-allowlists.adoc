@@ -1,7 +1,7 @@
 = Control Plane Hostnames and Allowlists
 :page-aliases: eu-control-plane::servers-create-eu.adoc, anypoint-clouds::finding-endpoints-allowlists.adoc, finding-endpoints-allowlists.adoc
 
-Use these hostnames when you allowlist outbound access to an Anypoint Platform control plane, when you pass `--region` to `amc_setup`, or when you set `anypoint.platform.base_uri` and `anypoint.platform.analytics_base_uri`. This table lists platform, analytics ingest, and Runtime Manager hosts for the commercial clouds.
+Use these hostnames when you allowlist outbound access to an Anypoint Platform control plane, when you pass `--region` to `amc_setup`, or when you set `anypoint.platform.base_uri` and `anypoint.platform.analytics_base_uri`. This table lists platform, analytics ingest, and Runtime Manager hosts for the clouds below.
 
 When you set `anypoint.platform.base_uri` and `anypoint.platform.analytics_base_uri`, prefix the Platform URL and Analytics ingest hosts with `https://`. See xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes].
 
@@ -55,6 +55,12 @@ Allow outbound HTTPS (port 443) to these hosts, substituting the row for your cl
 | `gb1.platform.mulesoft.com`
 | `analytics-ingest.gb1.platform.mulesoft.com`
 | `runtime-manager.gb1.platform.mulesoft.com`
+| Copy the command Runtime Manager generates when you add a server.
+
+| MuleSoft Government Cloud Plus
+| `gprod1.platform.mulesoft.com`
+| `analytics-ingest.gprod1.platform.mulesoft.com`
+| `runtime-manager.gprod1.platform.mulesoft.com`
 | Copy the command Runtime Manager generates when you add a server.
 |===
 

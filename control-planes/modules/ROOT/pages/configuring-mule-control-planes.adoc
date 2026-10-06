@@ -72,6 +72,15 @@ anypoint.platform.base_uri=https://jp1.platform.mulesoft.com
 anypoint.platform.analytics_base_uri=https://analytics-ingest.jp1.platform.mulesoft.com
 ----
 
+This example shows the properties configuration for MuleSoft Government Cloud Plus:
+
+----
+anypoint.platform.client_id=<environment client ID>
+anypoint.platform.client_secret=<environment client secret>
+anypoint.platform.base_uri=https://gprod1.platform.mulesoft.com
+anypoint.platform.analytics_base_uri=https://analytics-ingest.gprod1.platform.mulesoft.com
+----
+
 == See Also
 
 * xref:index.adoc[Anypoint Platform Control Planes Overview]

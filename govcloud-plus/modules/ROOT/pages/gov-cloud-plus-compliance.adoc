@@ -1,0 +1,134 @@
+= Security and Compliance in MuleSoft Government Cloud Plus
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+MuleSoft Anypoint Platform on Salesforce Government Cloud Plus (MuleSoft Government Cloud Plus) runs on a dedicated AWS GovCloud (US-East) hardware partition. This page describes the security controls enforced on that control plane.
+
+For Salesforce Government Cloud Plus product scope, isolation, and compliance, see https://help.salesforce.com/s/articleView?id=ind.government_cloud_overview.htm&type=5[Government Cloud Overview] in Salesforce Help.
+
+== Security Protocols
+
+MuleSoft Government Cloud Plus adheres to these security protocols:
+
+* *Federal Information Processing Standards (FIPS) 140-3*
++
+Enforces cryptographic standards for all data at rest and in transit.
+
+* *Transport Layer Security (TLS) 1.2 and 1.3*
++
+Encrypts all external and internal data transmission.
+
+* *NIST 800-53*
++
+Enhances physical and logical security controls.
+
+* *Center for Internet Security (CIS) benchmarks*
++
+Hardens instances against CIS security checklists.
+
+== Secure Hosting Platform
+
+MuleSoft Government Cloud Plus runs within a dedicated AWS GovCloud (US-East) hardware partition:
+
+* Non-routable Amazon Resource Names (ARNs) prevent cross-environment data exposure.
+* Blocked cross-partition IAM eliminates lateral movement between tenants.
+* CloudHub 2.0 Private Spaces enforce end-to-end cryptographic encryption by default.
+* Zero outbound internet access is enforced. All external connectivity requires explicit configuration through approved channels.
+
+== FIPS 140-3 Compliance
+
+MuleSoft Government Cloud Plus enforces FIPS 140-3 across all platform layers:
+
+* *Runtime:* Mule runtime engine runs in FIPS 140-3 security mode using the Bouncy Castle 2.0.0 certified cryptographic provider.
+* *TLS:* TLS 1.2 and TLS 1.3 are supported. Earlier TLS versions are not permitted.
+* *Keystores:* BCFKS (Bouncy Castle FIPS Keystore) format is required. PKCS12 and JKS formats are not permitted within the compliance boundary.
+* *Connectors:* Only connectors tagged `fips-140-3-verified` in Anypoint Exchange are permitted.
+* *Omni Gateway:* Anypoint Omni Gateway 1.13.0 and later is FIPS 140-3 compliant and supported.
+
+=== FIPS 140-3 Compliant Cipher Suites
+
+These cipher suites are enabled by default when Mule runtime runs in FIPS 140-3 mode.
+
+*TLS 1.3*
+
+* `TLS_AES_128_GCM_SHA256`
+* `TLS_AES_256_GCM_SHA384`
+* `TLS_AES_128_CCM_SHA256`
+* `TLS_AES_128_CCM_8_SHA256`
+
+*TLS 1.2*
+
+* `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
+* `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
+* `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
+* `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`
+* `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+* `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
+* `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`
+* `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`
+* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`
+* `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
+
+NOTE: These cipher suites are configured in `$MULE_HOME/conf/tls-fips140-3.conf`. FIPS 140-3 requires TLS 1.3 and TLS 1.2 support. Earlier TLS versions are not supported.
+
+== Authentication and Access Control
+
+Multi-factor authentication (MFA) is required for all access to MuleSoft Government Cloud Plus:
+
+* *PIV and CAC support:* Personal Identity Verification (PIV) and Common Access Card (CAC) hardware tokens are supported and recommended for agency personnel.
+* *User data protection:* User data is hashed before leaving the compliance boundary.
+* *Tenant resolution:* Masked-email tenant resolution prevents email-based enumeration.
+* *Administrative accounts:* Top-level administrative accounts follow secure configuration guidance that covers provisioning, operation, and decommissioning procedures.
+
+== FedRAMP Rev 5 Secure Configuration
+
+MuleSoft Government Cloud Plus satisfies all 10 Secure Configuration Guide (SCG) requirements introduced by FedRAMP Revision 5.
+
+[cols="1,2,3",options="header"]
+|===
+| Requirement | Description | MuleSoft Government Cloud Plus Approach
+
+| SCG-CSO-RSC | Recommended Secure Configuration
+| Detailed guidance on top-level administrator and privileged accounts, including security settings and their implications
+
+| SCG-CSO-AUP | Use Instructions
+| Included in the System Security Plan (SSP)
+
+| SCG-CSO-PUB | Public Guidance
+| Guidance is publicly available as part of the FedRAMP Package
+
+| SCG-CSO-SDF | Secure Defaults
+| Security features are enabled by default at provisioning, including MFA and FIPS 140-3 enforcement
+
+| SCG-ENH-CMP | Comparison Capability
+| Security Health Check compares org settings against the Salesforce Baseline Standard or a custom agency baseline (up to five custom baselines)
+
+| SCG-ENH-EXP | Export Capability
+| Security settings are exportable as machine-readable XML via the Salesforce Metadata API `retrieve()` call
+
+| SCG-ENH-API | API Capability
+| Security settings are configurable via the Salesforce Metadata API `retrieve()` and `deploy()` calls
+
+| SCG-ENH-MRG | Machine-Readable Guidance
+| Secure configuration guidance is available in JSON and Markdown
+
+| SCG-ENH-VRH | Versioning and Release History
+| Revision and release history is included
+|===
+
+== Compliance Monitoring
+
+MuleSoft Government Cloud Plus provides continuous compliance monitoring tools:
+
+* *Security Health Check:* An interactive dashboard in Setup that scores your org against the Salesforce Baseline Standard or a custom agency-defined baseline. You can upload up to five custom baselines and remediate failing controls directly from the dashboard.
+
+* *Metadata API drift detection:* Export security configurations — including password policies, session settings, network access controls, and permission sets — as machine-readable XML. Store exports in version control to detect unauthorized configuration drift, maintain an immutable audit trail, and push corrected configurations programmatically across environments using `deploy()`.
+
+== See Also
+
+* xref:index.adoc[MuleSoft Government Cloud Plus]
+* https://help.salesforce.com/s/articleView?id=ind.government_cloud_compliance.htm&type=5[Compliance for Salesforce Government Cloud]
+* https://help.salesforce.com/s/articleView?id=ind.government_cloud_secure_configuration_guide.htm&type=5[Secure Configuration in Salesforce Government Cloud]
+* https://help.salesforce.com/s/articleView?id=ind.government_cloud_security_settings_and_compliance_monitoring.htm&type=5[Security Settings and Compliance Monitoring in Salesforce Government Cloud]
