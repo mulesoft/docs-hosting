@@ -40,8 +40,5 @@
 | Europe | United Kingdom (London) | `gbr-e1` | `cloudhub-eu-west-2` | `Cloudhub-EU-West-2` | `myapp-_uniq-id_._shard_.gbr-e1.gb1.cloudhub.io` | `<app>.internal-<space-id>.gbr-e1.gb1.cloudhub.io`
 
 | https://gprod1.platform.mulesoft.com[MuleSoft Government Cloud Plus]
-| US Government | US GovCloud (East) | `<placeholder>` | `<placeholder>` | `<placeholder>` | `<placeholder>` | `<placeholder>`
-
-| https://gov.anypoint.mulesoft.com[MuleSoft Government Cloud]
-| US Government | US GovCloud (West) | `usg-w1.gov` | - | - | `myapp.usg-w1.gov.cloudhub.io` | -
+| US Government | US GovCloud (East) | `<placeholder>` | `cloudhub-us-gov-east-1` | `Cloudhub-US-Gov-East-1` | `<placeholder>` | `<placeholder>`
 |===
