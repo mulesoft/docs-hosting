@@ -32,7 +32,7 @@ Migrate from CloudHub to CloudHub 2.0 in five steps:
 
 == Choose Your Migration Path
 
-Choose the path that fits your infrastructure:
+Choose the path that fits your infrastructure.
 
 * Create a new private space if your VPC doesn't meet upgrade eligibility requirements or if CloudHub 2.0 needs a different CIDR block.
 * Upgrade your VPC to a private space if it meets the eligibility requirements and you need to retain the existing CIDR block and infrastructure configuration.

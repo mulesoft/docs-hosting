@@ -41,7 +41,13 @@ Delete all VPN and transit gateway connections associated with the CloudHub VPC.
 NOTE: If there are failures after stopping the DLB, restart it to point `anypointdns.net` back to CloudHub while the DLB is in a stopped state. After you delete the DLB, you can't roll back to CloudHub.
 
 === Step 5: Delete CloudHub VPCs
-After DLBs are decommissioned, delete the CloudHub VPCs to release entitlements.
+After DLBs are decommissioned, delete the CloudHub VPCs to release entitlements. 
+
+Before you delete any VPCs:
+
+* Confirm that all items on the decommission checklist are complete.
+* Delete all DLBs associated with the VPC.
+* Verify that no environments are still associated with the VPC.
 
 === Step 6: Sequence Multiple VPCs
 
@@ -52,13 +58,7 @@ If your company has multiple VPCs:
 . Check entitlement usage after each deletion.
 . Delete production VPCs last.
 
-==== Before Deleting
-
-* Confirm that all items on the decommission checklist are complete.
-* Delete all DLBs associated with the VPC.
-* Verify that no environments are still associated with the VPC.
-
-==== Troubleshooting VPC Deletion
+=== Troubleshooting VPC Deletion
 
 If you encounter issues deleting a VPC after migration:
 
