@@ -8,7 +8,7 @@ This guide takes you through migrating CloudHub applications and infrastructure 
 
 == Migration Journey Overview
 
-The migration from CloudHub to CloudHub 2.0 follows five steps:
+Migrate from CloudHub to CloudHub 2.0 in five steps:
 
 [cols="1,3"]
 |===
@@ -37,7 +37,7 @@ Choose the path that fits your infrastructure:
 * Create a new private space if your VPC doesn't meet upgrade eligibility requirements or if CloudHub 2.0 needs a different CIDR block.
 * Upgrade your VPC to a private space if it meets the eligibility requirements and you need to retain the existing CIDR block and infrastructure configuration.
 
-For the full eligibility criteria and migration-path decision, see xref:ch2-migration-plan.adoc#determine-your-migration-path[Determine Your Migration Path]. For setup procedures for each path, see xref:ch2-migration-infrastructure.adoc[Prepare Infrastructure].
+For eligibility criteria and help choosing a migration path, see xref:ch2-migration-plan.adoc#determine-your-migration-path[Determine Your Migration Path]. For setup procedures for each path, see xref:ch2-migration-infrastructure.adoc[Prepare Infrastructure].
 
 == Assess Migration Impacts
 

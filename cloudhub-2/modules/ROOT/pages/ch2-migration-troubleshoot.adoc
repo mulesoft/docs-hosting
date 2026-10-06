@@ -3,15 +3,6 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-// DRAFT - Page 7 of the CH1-to-CH2 migration journey
-// Source: New page per improvement plan "Troubleshoot Migration Issues"
-// Content drawn from:
-//   - Troubleshooting table in the improvement plan
-//   - KA article references from the improvement plan
-//   - Infrastructure troubleshooting items from page 3 (expanded here)
-// All content in this table is from the improvement plan's troubleshooting section
-// which cites KA articles and customer feedback.
-
 Use this page to diagnose and resolve common issues encountered during CloudHub to CloudHub 2.0 migration.
 
 .Traffic Switching Issues
@@ -26,7 +17,7 @@ To troubleshoot this issue:
 
 . In *Runtime Manager*, select *CloudHub* > *Load Balancers*.
 . Select your DLB and review the *Upstream TLS* settings.
-. Make sure that *TLS 1.2 or higher* is enabled (it can be added alongside TLS 1.1).
+. Verify that *TLS 1.2 or higher* is enabled (it can be added alongside TLS 1.1).
 . In your CloudHub 2.0 application, go to the *Ingress* tab and select the correct DLB endpoint from the dropdown.
 . Verify that the endpoint mapping matches your DLB vanity domain configuration.
 
@@ -42,7 +33,7 @@ To troubleshoot this issue:
 . Verify that the user has the *CloudHub Network Administrator* permission.
 . Verify that both CloudHub 1.0 and CloudHub 2.0 applications are deployed and running.
 . Verify that the CloudHub 2.0 application's HTTP Listener is listening on port 8081.
-. Verify that Last-Mile Security is enabled only if your application has a TLS context.
+. Enable Last-Mile Security only when your application has a TLS context.
 . If migrating with a DLB, go to *Runtime Manager* > *Private Spaces* > your private space > *Domains & TLS* and verify that the DLB certificate was migrated. If it's missing, upload it and create a TLS context.
 
 NOTE: The DLB requires a full chain (intermediate and root certificates). For the private space, split intermediate and root certificates into a single file and upload as *CA Path Certificate*.
@@ -56,7 +47,7 @@ For more information, see https://help.salesforce.com/s/articleView?id=005321445
 [discrete]
 === Missing DLB Certificates Post-Upgrade
 
-The VPC upgrade tool migrates DLB configurations on a *best-effort basis only*. Due to architectural differences between the DLB and CloudHub 2.0 ingress controller, automated certificate migration isn't guaranteed.
+The VPC upgrade tool migrates DLB configurations on a *best-effort basis*. Due to architectural differences between the DLB and CloudHub 2.0 ingress controller, automated certificate migration isn't guaranteed.
 
 To troubleshoot this issue:
 
@@ -72,7 +63,7 @@ For more information, see https://help.salesforce.com/s/articleView?id=005237268
 [discrete]
 === TLS Handshake Failure
 
-Certificates aren't applied to the ingress load balancer, or incompatible TLS 1.1 ciphers are in use.
+The ingress load balancer doesn't use the certificates, or the certificates use incompatible TLS 1.1 ciphers.
 
 To troubleshoot this issue:
 
@@ -94,7 +85,7 @@ To troubleshoot this issue:
 
 |CloudHub 2.0 application can't connect to CloudHub application
 |DLB allowlist missing infrastructure CIDR ranges.
-|Add the following CIDR ranges to the DLB allowlist: `100.64.0.0/16`, `100.66.0.0/16`, `100.67.0.0/16`, `100.68.0.0/16`.
+|Add these CIDR ranges to the DLB allowlist: `100.64.0.0/16`, `100.66.0.0/16`, `100.67.0.0/16`, `100.68.0.0/16`.
 |xref:cloudhub::vpc-upgrade.adoc[VPC Upgrade docs]
 
 |CloudHub 2.0 application can't connect to another CloudHub 2.0 application
@@ -145,12 +136,12 @@ To troubleshoot this issue:
 [discrete]
 === Oracle Stored Procedure Dropping Connections After 8 Minutes
 
-After migrating to CloudHub 2.0, long-running stored procedure calls can terminate silently after approximately 8 minutes. An intermediate network component (load balancer, NAT gateway, or firewall) drops idle TCP connections without application-level error reporting.
+After migrating to CloudHub 2.0, long-running stored procedure calls can terminate without an error after about 8 minutes. An intermediate network component (load balancer, NAT gateway, or firewall) drops idle TCP connections without application-level error reporting.
 
 To troubleshoot this issue:
 
 * *Option 1:* Set JVM argument `oracle.net.keepAlive=true` in the Mule Runtime via Runtime Manager properties.
-* *Option 2:* Use a Generic connection in the Database Connector with the keepAlive property in the JDBC URL:
+* *Option 2:* Use a Generic connection in the Database Connector with the keepAlive property in the JDBC connection URL:
 +
 ----
 jdbc:oracle:thin:@//host:port/service?oracle.net.keepAlive=true
@@ -174,7 +165,7 @@ For more information, see https://help.salesforce.com/s/articleView?id=005321536
 
 |Upgrade fails with CIDR conflict
 |The VPC CIDR block is smaller than /24 or doesn't have 100+ available IPs per subnet.
-|Review CIDR allocation. If the block is too small, then create a new private space manually instead.
+|Review CIDR allocation. If the block is too small, create a new private space manually instead.
 
 |DLB certificates missing after upgrade
 |TLS 1.1 ciphers present in the original certificate, or transfer failure during best-effort migration.
@@ -275,7 +266,7 @@ For upgrade steps, see xref:ch2-migration-infrastructure.adoc#upgrade-a-vpc-to-a
 .Connectivity Diagnostics
 [%collapsible]
 ====
-To diagnose connectivity issues between CloudHub platforms during migration, deploy the MuleSoft Network Tools application to your VPC or private space. The following tests are available:
+To diagnose connectivity issues between CloudHub platforms during migration, deploy the MuleSoft Network Tools application to your VPC or private space. Use these tests:
 
 * *Socket test:* Verify TCP connectivity between platforms (equivalent to a TCP handshake).
 * *DNS test:* Confirm DNS resolution for DLB and ingress endpoints.
@@ -302,8 +293,8 @@ See https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Net
 
 == See Also
 
-* xref:ch2-migration-overview.adoc[CloudHub 2.0 for CloudHub Users]
+* xref:ch2-migration-overview.adoc[Migrate from CloudHub to CloudHub 2.0]
 * xref:ch2-migration-validate.adoc[Step 4: Validate and Cut Over]
-* xref:ch2-migration-validate.adoc[Step 5: Finalize and Decommission]
+* xref:ch2-migration-finalize.adoc[Step 5: Finalize and Decommission]
 * xref:cloudhub::vpc-upgrade.adoc[CloudHub VPC to CloudHub 2.0 Private Space Upgrade]
 * xref:ps-config-fw-rules.adoc[Configure Firewall Rules for a Private Space]

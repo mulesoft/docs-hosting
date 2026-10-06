@@ -68,7 +68,7 @@ include::_partials/ch1-ch2-load-balancing.adoc[]
 // with feature mapping. Verify routing capabilities and URL rewrite equivalents with engineering.
 // This section is NOT shared via include — it is migration-specific context.
 
-When migrating from a Dedicated Load Balancer (DLB) to CloudHub 2.0's ingress load balancer, review the following feature mapping:
+When migrating from a Dedicated Load Balancer (DLB) to CloudHub 2.0's ingress load balancer, review this feature mapping:
 
 [cols="1,1,1"]
 |===
@@ -100,18 +100,14 @@ When migrating from a Dedicated Load Balancer (DLB) to CloudHub 2.0's ingress lo
 
 |High availability
 |Up to four load balancer units (up to eight workers total).
-|Auto-scales to accommodate traffic. Replicas distributed across two or more AZs automatically.
+|Auto-scales to accommodate traffic. Replicas are automatically distributed across two or more availability zones (AZs).
 |===
 
 
 [discrete]
 ==== Routing Capabilities Comparison
 
-// Source: Section 2, Deliverable A.1 — DLB routing capabilities vs. CloudHub 2.0 endpoint configuration
-// Based on: docs.mulesoft.com/cloudhub/lb-mapping-rules and
-// docs.mulesoft.com/cloudhub-2/ch2-config-endpoints-paths
-
-DLB uses *mapping rules* to route requests. CloudHub 2.0 uses *endpoint and path configuration* per application. The following table maps the DLB routing model to the CloudHub 2.0 equivalent:
+DLB uses *mapping rules* to route requests. CloudHub 2.0 uses *endpoint and path configuration* per application. This table maps the DLB routing model to the CloudHub 2.0 equivalent:
 
 [cols="1,2,2"]
 |===
@@ -142,11 +138,12 @@ DLB uses *mapping rules* to route requests. CloudHub 2.0 uses *endpoint and path
 |Subdomain placeholders (`app-name`, `business-group-id`, `environment-id`) provide dynamic matching. No regex or custom variable patterns.
 |===
 
-*Key migration considerations:*
+*Migration considerations:*
 
 * DLB mapping rules are *centralized* (one ordered list per SSL endpoint). CloudHub 2.0 endpoints are *distributed* (each app manages its own routing). This removes priority conflicts but requires each app to have unique endpoint definitions.
 * DLB's flexible regex-like patterns (`{variable}`) don't have a direct equivalent in CloudHub 2.0. Apps that rely on dynamic path-to-app-name routing must be reconfigured with explicit per-app endpoints.
-* DLB Output Path limitations (no patterns) are solved in CloudHub 2.0 — Path Rewrite supports static mappings per-app.
+* CloudHub 2.0 Path Rewrite supports static per-app mappings, addressing the DLB Output Path limitation that patterns aren't supported.
+* CloudHub 2.0 supports ingress URIs up to 4 KB. Before migrating, identify clients that send request paths or query strings larger than 4 KB and redesign those requests. See xref:ch2-limits.adoc[Limits in CloudHub 2.0].
 
 For full DLB mapping rules reference, see https://docs.mulesoft.com/cloudhub/lb-mapping-rules[Dedicated Load Balancer Mapping Rules]. +
 For CloudHub 2.0 endpoint configuration, see https://docs.mulesoft.com/cloudhub-2/ch2-config-endpoints-paths[Configuring Endpoints and Paths for Apps Deployed to a Private Space].
@@ -154,9 +151,6 @@ For CloudHub 2.0 endpoint configuration, see https://docs.mulesoft.com/cloudhub-
 
 [discrete]
 ==== Certificate Migration
-
-// Source: Section 2, Deliverable A.2 — Certificate migration guide
-// Based on KA 005237268 "Missing DLB Certificates During CloudHub 1.0 to CloudHub 2.0 Migration"
 
 The VPC upgrade tool migrates DLB configurations to the new private space on a best-effort basis only. Due to architectural differences between the CloudHub 1.0 DLB and the CloudHub 2.0 ingress controller, automated migration of certificates and vanity domains isn't guaranteed.
 
@@ -177,7 +171,7 @@ CloudHub 2.0 doesn't support TLS 1.1 ciphers. You can't migrate the following ci
 * `ECDHE-RSA-AES128-SHA1`
 * `ECDHE-RSA-AES256-SHA1`
 +
-If your DLB uses any of these ciphers, then reissue certificates with TLS 1.2+ compatible ciphers before migrating.
+If your DLB uses any of these ciphers, reissue certificates with TLS 1.2+ compatible ciphers before migrating.
 
 . *Upload certificates to the private space:*
 ** In *Runtime Manager*, navigate to your private space and select the *Domains & TLS* tab.
@@ -197,8 +191,6 @@ For more information, see https://help.salesforce.com/s/articleView?id=005237268
 
 [discrete]
 ==== Allowlist and Denylist Migration
-
-// Source: Section 2, Deliverable A.3 — Allowlist/denylist migration procedures
 
 When migrating from a DLB to CloudHub 2.0 ingress, your allowlist and denylist rules translate to private space firewall rules.
 
@@ -225,7 +217,7 @@ To migrate access control rules:
 
 . *Add infrastructure CIDR ranges:*
 +
-If your CloudHub 2.0 applications need to communicate with applications still on CloudHub 1.0, then add the following CIDR ranges to the DLB allowlist:
+If your CloudHub 2.0 applications need to communicate with applications still on CloudHub 1.0, add the following CIDR ranges to the DLB allowlist:
 +
 * `100.64.0.0/16`
 * `100.66.0.0/16`
@@ -238,7 +230,6 @@ These ranges enable cross-platform communication during phased migration.
 [discrete]
 ==== Logging and Monitoring Comparison
 
-// Source: Section 2, Deliverable A.4 — Logging and monitoring comparison
 
 [cols="1,2,2"]
 |===
@@ -264,10 +255,6 @@ These ranges enable cross-platform communication during phased migration.
 
 [discrete]
 ==== Network Topology
-
-// Source: Section 4, Deliverable A.1 — Network topology diagram (hybrid migration state)
-// and A.2 — Traffic flow diagram (DLB vs Ingress)
-// Based on: ch2-networking-guide, lb-architecture, ps-create-configure-tgw
 
 .Hybrid Migration State
 [cols="1,2,2",options="header"]
@@ -322,7 +309,7 @@ These ranges enable cross-platform communication during phased migration.
 |===
 
 .Traffic Switching During Migration
-During a phased migration, the DNS CNAME for `myapp.example.com` can continue to point to the DLB. The DLB terminates TLS and routes traffic to either of the following targets:
+During a phased migration, the DNS CNAME for `myapp.example.com` can point to the DLB. The DLB terminates TLS and routes traffic to either of the following targets:
 
 * *CloudHub 1.0:* The existing CloudHub worker.
 * *CloudHub 2.0:* The CloudHub 2.0 ingress load balancer, which then routes traffic to the CloudHub 2.0 replica.
@@ -335,12 +322,7 @@ For step-by-step DLB migration guidance, see xref:ch2-migration-infrastructure.a
 
 [%collapsible]
 ====
-// Source: Section 3, Deliverable A — Load balancing operational behaviors
-// Based on: cloudhub/lb-reserved-headers, cloudhub/cloudhub-dedicated-load-balancer,
-// cloudhub-2/ch2-networking-guide (Load Balancer Connections section),
-// gateway/latest/flex-conn-timeout (Omni Gateway timeout configuration)
-
-When migrating from a DLB to CloudHub 2.0 ingress, the following operational behaviors change. These differences affect production traffic and can require application-level adjustments.
+When migrating from a DLB to CloudHub 2.0 ingress, the following operational behaviors change. These differences affect production traffic and can require changes to your applications.
 
 
 [discrete]
@@ -390,7 +372,7 @@ The CloudHub DLB injects HTTP headers that your applications can depend on for r
 
 * If your application reads `X-SSL-Client-*` headers for mTLS-based authorization decisions, then reconfigure to use CloudHub 2.0's native mTLS with TLS contexts and truststores. Certificate data is available through the Mule TLS context, not via injected HTTP headers.
 * If your application relies on `x-ch1-path` for original path preservation, then note that CloudHub 2.0 doesn't apply global mapping rules — the application receives the request path directly as configured in its endpoint.
-* If your application relies on `X-Forwarded-For` for client IP resolution, then verify that the CloudHub 2.0 ingress passes this header. Standard proxy behavior forwards this header, but confirm during testing.
+* If your application relies on `X-Forwarded-For` for client IP resolution, verify that the CloudHub 2.0 ingress passes this header. Standard proxy behavior forwards this header, but confirm during testing.
 * If downstream security appliances or browsers depend on the DLB's injected security response headers (`HSTS`, `X-Frame-Options`, and others), then configure your Mule application to return these headers explicitly in responses.
 
 For full reference, see https://docs.mulesoft.com/cloudhub/lb-reserved-headers[Dedicated Load Balancer Reserved Headers].
@@ -424,7 +406,7 @@ Connection timeout behavior differs between CloudHub DLB and CloudHub 2.0 ingres
 
 *Migration impact:*
 
-* The CloudHub 2.0 default idle timeout of 15 seconds is significantly lower than the DLB's 300-second default. This affects clients that use persistent connections (connection pools) with a client-side idle timeout higher than the load balancer's idle timeout. For example, a client configured with a 60-second idle timeout works with the CH1 DLB (60s < 300s) but causes premature connection closures in CloudHub 2.0 (60s > 15s). Reduce the client-side idle timeout to a value below 15 seconds (for example, 10 seconds).
+* CloudHub 2.0 has a 15-second default idle timeout, compared with the DLB's 300-second default. This affects clients that use persistent connections (connection pools) with a client-side idle timeout higher than the load balancer's idle timeout. For example, a client configured with a 60-second idle timeout works with the CH1 DLB (60s < 300s) but causes premature connection closures in CloudHub 2.0 (60s > 15s). Reduce the client-side idle timeout to a value below 15 seconds (for example, 10 seconds).
 * For long-running synchronous requests that expect a response, the *Read Response Timeout* applies, not the idle timeout. Customize this value in the *Advanced* tab of your private space settings in Runtime Manager.
 * For API gateway use cases, timeout policies (Stream Idle Timeout, Upstream Idle Timeout, Response Timeout) are configurable via Anypoint API Manager or Flex Gateway declarative configuration.
 * If your applications use WebSockets or Server-Sent Events (SSE), then verify that the stream idle timeout (default 300 seconds) is sufficient for your keep-alive intervals.

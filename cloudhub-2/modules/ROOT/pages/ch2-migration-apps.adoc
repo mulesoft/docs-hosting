@@ -4,18 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :page-pagination:
 
-// DRAFT - Page 4 of the CH1-to-CH2 migration journey
-// Source: Consolidation of:
-//   - ch-ch2-migration-configuration#update-the-mule-runtime-version
-//   - ch-ch2-migration-configuration#update-the-mule-application-code
-//   - ch-ch2-migration-configuration#deploy-your-application
-//   - app-migration#eligibility through app-migration#considerations-and-limitations
-// New content:
-//   - Shared "Prepare Application" section (common to both paths)
-//   - Path-specific deployment procedures with clear bifurcation
-//   - Application properties admonition
-
-After setting up your CloudHub 2.0 private space, migrate your applications from CloudHub. The migration procedure depends on how your private space was created.
+After setting up your CloudHub 2.0 private space, migrate your applications from CloudHub. Choose a migration procedure based on how you created your private space.
 
 [cols="1,2"]
 |===
@@ -32,12 +21,12 @@ After setting up your CloudHub 2.0 private space, migrate your applications from
 [%collapsible]
 ====
 
-Complete these preparation steps regardless of which migration path you follow.
+Complete these preparation steps for either migration path.
 
 [discrete]
 === Upgrade the Mule Runtime Version
 
-CloudHub 2.0 supports Mule runtime versions 4.3.x and later. If your application runs on an older version, upgrade to a supported runtime before migrating.
+CloudHub 2.0 supports Mule runtime versions 4.3.x and later. If your application runs on an unsupported version, upgrade to a supported runtime before migrating.
 
 * Mule 4.4 and later: Supported. No runtime upgrade needed.
 * Mule 4.3.x: Supported, but MuleSoft recommends upgrading to 4.4 or later.
@@ -47,9 +36,6 @@ For upgrade guidance, see https://docs.mulesoft.com/release-notes/mule-runtime/u
 
 [discrete]
 === Update the Application Code
-
-// Source: Reused from ch-ch2-migration-configuration "Update the Mule Application Code"
-// plus improvement plan additions (mule-artifact.json, port configs, local testing)
 
 * Update your application's `pom.xml` with the CloudHub 2.0 deployment configuration.
 +
@@ -107,7 +93,7 @@ See xref:mule-runtime::deploy-to-cloudhub-2.adoc[Deploy Applications to CloudHub
 
 * To forward logs to an external system, update your application's `log4j2.xml`.
 +
-CloudHub 2.0 disables console logging by default. To stream logs to an external system (for example, Splunk), configure an asynchronous Log4j appender:
+CloudHub 2.0 disables console logging by default. To stream logs to an external system, such as Splunk, configure an asynchronous Log4j appender:
 +
 [source,xml]
 ----
@@ -139,7 +125,7 @@ See xref:ch2-integrate-log-system.adoc[Integrate with Your Logging System Using 
 
 * Remove persistent queues and implement Anypoint MQ (see <<migrate-persistent-queues>>).
 * Remove CloudHub Connector and replace it with custom logic.
-* Update `mule-artifact.json`: make sure that `minMuleVersion` is set correctly.
+* Update `mule-artifact.json`: set `minMuleVersion` to the required version.
 * Remove CloudHub 1.0–specific port configurations (`http.port`, `https.port`, `http.private.port`, `https.private.port`). CloudHub 2.0 uses the standard `${http.port}` property (port 8081).
 
 [[migrate-persistent-queues]]
@@ -156,7 +142,7 @@ CloudHub 2.0 doesn't support CloudHub persistent VM queues. If your application 
 |Aspect |CloudHub Persistent VM Queues |Anypoint MQ
 
 |Architecture
-|In-process, per-worker, file-backed queues managed by CloudHub infrastructure. Turn on using a checkbox in deployment settings.
+|In-process, per-worker, file-backed queues managed by CloudHub infrastructure. Enable in deployment settings.
 |Fully external, cloud-hosted messaging service. Queues and exchanges are managed independently of the application.
 
 |Delivery guarantee
@@ -186,7 +172,7 @@ CloudHub 2.0 doesn't support CloudHub persistent VM queues. If your application 
 . *Create queues in Anypoint MQ:*
 ** In *Anypoint Platform*, select *MQ* > *Destinations*.
 ** Create queues to replace each VM queue used in your application.
-** Optionally, create dead letter queues for error handling.
+** Optionally, create dead-letter queues for error handling.
 ** Note your MQ region URL for connector configuration.
 
 . *Add Anypoint MQ connector dependency:*
@@ -273,7 +259,7 @@ See xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector] for the latest
 ==== Considerations
 
 * *Egress rules:* If you use application-level egress rules in your private space, add rules that allow HTTPS to the Anypoint MQ regional endpoint (for example, `mq-us-east-1.anypoint.mulesoft.com`) and the Anypoint control plane (`anypoint.mulesoft.com`).
-* *Batch jobs:* CloudHub persistent queues were used internally for batch job queuing. In CloudHub 2.0, batch jobs use Object Store v2 by default. No code changes are needed specifically for batch.
+* *Batch jobs:* CloudHub persistent queues were used internally for batch job queuing. In CloudHub 2.0, batch jobs use Object Store v2 by default. Batch jobs don't require code changes.
 * *Testing:* Test MQ connectivity from your private space before you migrate production workloads.
 
 For more information, see xref:mq::index.adoc[Anypoint MQ] and xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector].
@@ -294,7 +280,7 @@ Review and update your connectors to the latest compatible versions. See xref:st
 [discrete]
 === Verify Mule Maven Plugin Version
 
-Make sure that you're using Mule Maven Plugin version 3.7.1 or later.
+Use Mule Maven Plugin version 3.7.1 or later.
 
 [[migrate-applications-to-a-new-private-space]]
 ====
@@ -318,8 +304,6 @@ Deploy your application to your CloudHub 2.0 private space. For detailed deploym
 Configure the following settings:
 
 * *Application name* — The name is unique within the org.
-+
-// Source: From improvement plan
 +
 NOTE: In CloudHub 2.0, names are unique per private space. CloudHub 2.0 adds a six-character unique ID to the application name in the public endpoint URL.
 
@@ -346,16 +330,16 @@ See xref:ch2-configure-horizontal-autoscaling.adoc[Configure Horizontal Autoscal
 IMPORTANT: Application properties aren't automatically carried over during migration. Reconfigure them manually in CloudHub 2.0.
 
 * Recreate all application properties (plain and secure/encrypted).
-* Secure properties use the same encryption key mechanism — make sure that your keys are migrated.
+* Secure properties use the same encryption key mechanism — migrate the encryption keys.
 * Configure environment-specific properties per environment (Dev, UAT, Prod).
 
 [discrete]
-=== Step5: Configure Endpoints
+=== Step 5: Configure Endpoints
 
-If you're using a dedicated load balancer (DLB) in CloudHub, configure application mapping rules using path and path rewrite configurations for endpoints in the application deployment.
+If you're using a dedicated load balancer (DLB) in CloudHub, configure endpoints by using path and path-rewrite settings in the application deployment.
 
 [discrete]
-=== Step 7: Update CI/CD Pipelines
+=== Step 6: Update CI/CD Pipelines
 
 Update your CI/CD scripts to support the two-step deployment process:
 
@@ -425,8 +409,6 @@ The application upgrade tool works only in CloudHub 2.0 private spaces that were
 [discrete]
 === Step 1: Start the Upgrade
 
-// Source: Reused from app-migration "Upgrade Your CloudHub Application to CloudHub 2.0 via Anypoint Platform"
-
 . In *Anypoint Platform*, select *Runtime Manager* > *Applications*.
 . Select the CloudHub application you want to upgrade, then click *Settings*.
 +
@@ -444,7 +426,7 @@ The *Upgrade Application to CloudHub 2.0* page opens with these fields:
 
 For *Application File*, choose one of these options:
 
-* *Upload your application file* — Download the application asset from the link under *Application File*, make the necessary changes, and upload it to deploy your new application to the CloudHub 2.0 private space.
+* *Upload your application file* — Download the application asset from the link under *Application File*, make the required changes, and upload it to deploy your new application to the CloudHub 2.0 private space.
 * *Import file from Exchange* — Import the CloudHub application you want to upgrade.
 
 [discrete]
@@ -461,7 +443,7 @@ NOTE: If you're using the `anypoint.dns.net` endpoint without a TLS context, the
 . Optionally, add a path rewrite.
 . Select whether to provide internal or external access to your endpoint.
 
-WARNING: If you use a different name for the CloudHub 2.0 application, enter the original CloudHub application name in the subdomain field of the *Ingress* tab endpoint configuration. If you configure URLs incorrectly, traffic doesn't reach the CloudHub 2.0 application during traffic switching.
+WARNING: If you use a different name for the CloudHub 2.0 application, enter the original CloudHub application name in the subdomain field of the *Ingress* tab endpoint configuration. If you configure the URLs incorrectly, traffic doesn't reach the CloudHub 2.0 application during traffic switching.
 
 NOTE: The *Host* dropdown list shows only the domains that were initially added under the certificates of the underlying VPC's DLB configuration. If you add a new certificate to the original VPC's DLB after the application upgrade starts, add it manually under the *Domain & TLS* tab of your new private space for that domain to appear in the *Host* dropdown list.
 
@@ -500,7 +482,7 @@ To manage a migrated application using the Mule Maven Plugin (MMP), copy the pub
 [discrete]
 === CloudHub Application Default Domain
 
-When you deploy a new CloudHub 2.0 application, avoid using the CloudHub default domain to prevent issues such as traffic outages.
+When you deploy a new CloudHub 2.0 application, avoid using the CloudHub default domain because it can cause traffic outages.
 
 [discrete]
 === Mid-Migration Deployment Constraint
@@ -525,7 +507,7 @@ Deploying directly to CloudHub 2.0 with an existing vanity domain can cause thes
 
 For applications with inbound traffic, the Shared Load Balancer (SLB) handles traffic switching if your ingress configuration includes the default CloudHub application endpoint in the format `<app_name>.<region>.cloudhub.io`. However, if that default endpoint is missing and you've configured a vanity domain or an `anypointdns.net` endpoint instead, the Dedicated Load Balancer (DLB) switches the traffic.
 
-Understanding your traffic source is critical for xref:ch2-migration-validate.adoc[Step 4: Validate and Cut Over].
+Identify your traffic source before xref:ch2-migration-validate.adoc[Step 4: Validate and Cut Over].
 ====
 
 == See Also

@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :page-pagination:
 
-Before migrating applications, set up your CloudHub 2.0 infrastructure . Choose between creating a new private space manually or using the VPC upgrade tool to convert an existing VPC to a private space.
+Before migrating applications, set up your CloudHub 2.0 infrastructure. Choose between creating a new private space manually or using the VPC upgrade tool to convert an existing VPC to a private space.
 
 == Choose Your Path
 
@@ -33,7 +33,7 @@ Gather the following information from your existing CloudHub environment before 
 
 * CIDR block information
 +
-If you require both CloudHub and CloudHub 2.0 to exist at the same time on the same network, then use a new CIDR block for CloudHub 2.0.
+If CloudHub and CloudHub 2.0 must coexist on the same network, use a new CIDR block for CloudHub 2.0.
 
 * VPN connection information
 * SSL certificates
@@ -46,10 +46,10 @@ For complete requirements, see xref:ps-gather-setup-info.adoc#setup-info-private
 [discrete]
 === Step 1: Define a CIDR Block
 
-Allocate a CIDR block for the new private space:
+Allocate a CIDR block for the private space:
 
 * The CIDR block can't overlap with on-premises or other cloud networks.
-* If CloudHub and CloudHub 2.0 must coexist on the same network, then choose a CIDR block that doesn't overlap with your existing VPC's CIDR range.
+* If CloudHub and CloudHub 2.0 must coexist on the same network, choose a CIDR block that doesn't overlap with your existing VPC's CIDR range.
 * Plan for adequate IP address space to accommodate all applications and future growth.
 
 For CIDR block requirements, see xref:ps-gather-setup-info.adoc#cidr-block[CIDR Block].
@@ -77,7 +77,7 @@ All traffic to a private space is blocked by default until explicitly allowed by
 Reestablish VPN tunnels or Transit Gateway (TGW) attachments to the new private space:
 
 * Configure VPN or TGW connections to the new private space.
-* Validate that routing tables have correct traffic flow.
+* Verify that routing tables route traffic correctly.
 * Test connectivity between the private space and on-premises or other cloud networks.
 
 [discrete]
@@ -88,7 +88,7 @@ Reestablish VPN tunnels or Transit Gateway (TGW) attachments to the new private 
 * Upload SSL certificates to the private space's ingress load balancer.
 * Configure custom vanity domains with your own TLS context if needed. For TLS configuration, see xref:ps-config-domains.adoc[Configure Domains and TLS for a Private Space].
 +
-NOTE: DNS record updates (CNAME cutover) happen during application migration, not during infrastructure setup. Until apps are migrated, keep DNS pointing to your CloudHub load balancer.
+NOTE: Update DNS records during application migration, not during infrastructure setup. Until apps are migrated, keep DNS pointing to your CloudHub load balancer.
 
 [discrete]
 === Step 6: Validate the Private Space
@@ -121,7 +121,7 @@ For additional context, see the blog post https://blogs.mulesoft.com/news/upgrad
 [discrete]
 === Step 1: Complete the Eligibility Checklist
 
-Before starting the upgrade, confirm that your VPC meets all eligibility requirements:
+Before starting the upgrade, confirm that your VPC meets these eligibility requirements:
 
 * VPC has at least 25% free space and 100+ available IP addresses per subnet.
 * No legacy VPNs configured.
@@ -134,7 +134,7 @@ For the complete eligibility checklist, see xref:cloudhub::vpc-upgrade.adoc#unde
 [discrete]
 === Step 2: Review Environment Association
 
-During the upgrade, the environments associated with your VPC stay in sync with the environments associated with the upgraded CloudHub 2.0 private space to avoid configuration drift.
+During the upgrade, the environments associated with your VPC remain synchronized with the environments associated with the upgraded CloudHub 2.0 private space to avoid configuration drift.
 
 Key considerations:
 
@@ -172,7 +172,7 @@ NOTE: If you create a VPN to provision your CloudHub VPC, wait until the newly c
 
 As soon as the upgrade process starts, the upgraded VPC is locked for any further updates.
 
-To revert to your VPC at any time, click *Cancel Upgrade*. The system deletes the newly created private space and unlocks your VPC.
+To cancel the upgrade before private-space provisioning completes, click *Cancel Upgrade*. The system deletes the newly created private space and unlocks your VPC.
 
 After the private space is provisioned, the *Cancel Upgrade* button no longer appears. To roll back, delete the private space.
 
@@ -203,7 +203,7 @@ During a phased migration, applications on CloudHub 2.0 and CloudHub 1.0 must co
 
 Your CloudHub 2.0 application can continue to use the same target URL to communicate with existing CloudHub 1.0 applications — no endpoint changes are required. If communication uses a public IP (such as a DLB vanity domain or the default `<app-name>.<region>.cloudhub.io` endpoint), traffic continues to route through the internet. If communication uses internal IPs (app-to-app calls within the same VPC), this routing also continues to work from the new CloudHub 2.0 application in the upgraded private space.
 
-However, because CloudHub 2.0 uses a separate infrastructure CIDR pool, the DLB doesn't allow traffic from CloudHub 2.0 apps by default. You must add the CloudHub 2.0 CIDR ranges to the DLB allowlist.
+However, because CloudHub 2.0 uses a separate infrastructure CIDR pool, the DLB blocks traffic from CloudHub 2.0 apps by default. You must add the CloudHub 2.0 CIDR ranges to the DLB allowlist.
 
 [discrete]
 === Step 1: Add Infrastructure CIDR Ranges to the DLB Allowlist
@@ -238,7 +238,7 @@ NOTE: TLS 1.2 can be added alongside TLS 1.1 without disrupting existing connect
 [discrete]
 === CloudHub 1.0 to CloudHub 2.0
 
-How CloudHub 1.0 applications reach CloudHub 2.0 applications in an upgraded private space depends on whether the target application was migrated or deployed new.
+The way CloudHub 1.0 applications reach CloudHub 2.0 applications in an upgraded private space depends on whether the target application was migrated or deployed new.
 
 [discrete]
 === Migrated Applications
@@ -248,7 +248,7 @@ If the CloudHub 2.0 application is a migrated application (originally deployed t
 [discrete]
 === New Applications in an Upgraded Private Space
 
-If you deploy a brand-new CloudHub 2.0 application to the upgraded private space and try to configure the same custom or vanity domain endpoint for this new application, CloudHub 1.0 applications can't reach it using the custom domain.
+If you deploy a CloudHub 2.0 application to the upgraded private space and try to configure the same custom or vanity domain endpoint for this new application, CloudHub 1.0 applications can't reach it using the custom domain.
 
 IMPORTANT: To work around this limitation, deploy the new application to CloudHub 1.0 first, then migrate it to CloudHub 2.0. This allows the application to use the existing custom or vanity domain and remain reachable from CloudHub 1.0 applications during migration.
 
@@ -324,7 +324,7 @@ Cross-platform flows:
 [discrete]
 === Validate Connectivity
 
-After configuring cross-platform communication, validate connectivity using the MuleSoft Network Tools application:
+After configuring cross-platform communication, use the MuleSoft Network Tools application:
 
 . Deploy the Network Tools app to your VPC or private space.
 . Use the *Socket* test to verify TCP connectivity between platforms.
@@ -380,7 +380,7 @@ If backend systems (databases, SaaS APIs, on-premises services) have firewall ru
 .Maintain Business Continuity During Migration
 [%collapsible]
 ====
-During the migration, continue deploying and managing applications in your VPC to maintain business continuity.
+During the migration, continue to deploy and manage applications in your VPC to maintain business continuity.
 
 Key constraints after upgrade:
 
@@ -391,7 +391,7 @@ Key constraints after upgrade:
 
 To avoid configuration drift, apply firewall rule changes in both the VPC and the private space throughout the migration.
 
-WARNING: VPC firewall rules that have ports other than `80`, `443`, and `30500` to `32500` drop during the migration.
+WARNING: The migration removes VPC firewall rules for ports other than `80`, `443`, and `30500` to `32500`.
 
 If you encounter infrastructure issues, see xref:ch2-migration-troubleshoot.adoc#troubleshoot-infrastructure[Infrastructure Issues] and xref:ch2-migration-troubleshoot.adoc#troubleshoot-vpc-upgrade[VPC Upgrade Issues].
 ====

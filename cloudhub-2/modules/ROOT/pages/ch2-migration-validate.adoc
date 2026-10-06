@@ -9,14 +9,14 @@ After deploying your application to CloudHub 2.0, validate it by gradually switc
 .Switch Traffic to CloudHub 2.0
 [%collapsible]
 ====
-After the upgrade process deploys your CloudHub 2.0 application, test it by directing traffic to it and verifying network connectivity and application behavior.
+After you deploy your CloudHub 2.0 application, test it by directing traffic to it and verifying network connectivity and application behavior.
 
-To avoid updating your client applications that connect to CloudHub, retain the domains from CloudHub on CloudHub 2.0. Choose one of these options:
+To avoid updating client applications, use the same domains in CloudHub 2.0. Choose one of these options:
 
 * *Customer-Managed:* Switch the application's xref:ch2-config-endpoints-paths.adoc[DNS] to point to CloudHub 2.0.
 * *MuleSoft-Managed:* Carry over vanity URLs while incrementally switching a percentage of traffic from CloudHub to CloudHub 2.0.
 
-NOTE: APIs are also available for https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.1/console/method/%231340/[application linking] using the `upgradeData` object while creating CloudHub 2.0 deployments, and for https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.1/console/method/%231736/[traffic switching] using the newly introduced endpoint.
+NOTE: You can also use APIs for https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.1/console/method/%231340/[application linking] using the `upgradeData` object while creating CloudHub 2.0 deployments, and for https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.1/console/method/%231736/[traffic switching] using the newly introduced endpoint.
 
 [discrete]
 === Gradually Switch Traffic
@@ -25,19 +25,19 @@ IMPORTANT: Restart your DLB before initiating traffic switching.
 
 NOTE: Switching application traffic requires the CloudHub Network Administrator permission. Without this permission, the traffic switching fails. For more information about assigning permissions, see xref:access-management::permissions-by-product.adoc[Permissions by Product in Anypoint Platform].
 
-IMPORTANT: Keep the CloudHub application in STARTED state until the link between CloudHub and CloudHub 2.0 is successfully established. Stopping the CloudHub application before the link is established can cause traffic disruptions.
+IMPORTANT: Keep the CloudHub application in the STARTED state until the link between CloudHub and CloudHub 2.0 is successfully established. Stopping the CloudHub application before the link is established can cause traffic disruptions.
 
 To gradually switch traffic from CloudHub to CloudHub 2.0:
 
 . In *Runtime Manager*, go to *Finish Upgrade*.
 . Select the percentage of traffic to direct from CloudHub to CloudHub 2.0, and click *Save Changes*.
 
-NOTE: Rolling back to CloudHub is available if there are failures during this stage.
+NOTE: If failures occur during this stage, roll back to CloudHub.
 
 [discrete]
 ==== Automate Traffic Switching via REST API
 
-Automate traffic switching using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/[AMC Application Manager API].
+Use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/[AMC Application Manager API] to automate traffic switching.
 
 *Step 1: Get an access token:*
 
@@ -66,7 +66,7 @@ curl -X PATCH \
   }'
 ----
 
-NOTE: The exact endpoint path and payload structure are available in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.1/console/method/%231736/[AMC Application Manager API reference]. Verify the endpoint path and parameters against the latest API documentation before using them in automation scripts.
+NOTE: Find the current endpoint path and request body in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.1/console/method/%231736/[AMC Application Manager API reference]. Verify the endpoint path and parameters against the latest API documentation before using them in automation scripts.
 
 *Example automation script:*
 
@@ -90,7 +90,7 @@ for PERCENT in 10 25 50 75 100; do
     -H "Content-Type: application/json" \
     -d "{\"percentage\": ${PERCENT}}"
 
-  echo "Traffic at ${PERCENT}%. Monitor for errors before proceeding."
+  echo "Traffic at ${PERCENT}%. Monitor for errors before you proceed."
   echo "Press Enter to continue to next increment..."
   read -r
 done
@@ -124,7 +124,7 @@ done
 |Full cutover. Monitor for any remaining issues before decommissioning.
 |===
 
-Total estimated time: ~12 days before cleanup.
+The estimated time before cleanup is about 12 days.
 
 [discrete]
 === Risk-Based Switching Strategies
@@ -145,21 +145,21 @@ Different application types call for different switching strategies:
 
 |Batch/scheduled jobs
 |All-or-nothing
-|Don't use gradual traffic switching for scheduled jobs. Splitting traffic risks duplicate execution. Switch 0% → 100% directly.
+|Don't use gradual traffic switching for scheduled jobs. Splitting traffic risks duplicate execution. Switch directly from 0% to 100%.
 |===
 ====
 
 .Understand Your Traffic Source
 [%collapsible]
 ====
-The traffic source determines which type of DNS record the process updates to manage traffic flow between your CloudHub and CloudHub 2.0 applications during migration.
+Your traffic source determines which DNS record CloudHub updates to manage traffic flow between your CloudHub and CloudHub 2.0 applications during migration.
 
 CloudHub receives traffic from two main sources:
 
 * *Shared Load Balancer (SLB):* Associated with the default endpoints of your CloudHub application. The SLB handles traffic switching if your ingress configuration includes the default CloudHub application endpoint in the format `<app_name>.<region>.cloudhub.io`.
 * *Dedicated Load Balancer (DLB):* Associated with vanity domains configured for your CloudHub application. If the default CloudHub endpoint is missing and you've configured a vanity domain or an `anypointdns.net` endpoint, the DLB switches the traffic.
 
-NOTE: If your CloudHub 1.0 application has the default endpoint configured, then traffic switches at the SLB. To switch traffic from the DLB instead, remove the CloudHub 1.0 default endpoint, apply changes, and then change the traffic switch percentage.
+NOTE: If your CloudHub 1.0 application has the default endpoint configured, traffic switches at the SLB. To switch traffic from the DLB instead, remove the CloudHub 1.0 default endpoint, apply changes, and then change the traffic switch percentage.
 
 [discrete]
 === DLB with HTTPS Traffic Switching
@@ -168,7 +168,7 @@ For applications using a DLB and expecting HTTPS traffic:
 
 . Enable the *Last-Mile Security* setting in the *Ingress* tab of the deployment settings for the CloudHub 2.0 application.
 . Enable *Upstream TLS 1.2* or higher in your DLB settings.
-. Make sure that vanity domains on CloudHub 2.0 match those on the CloudHub application to prevent dropped traffic.
+. Verify that vanity domains on CloudHub 2.0 match those on the CloudHub application to prevent dropped traffic.
 
 [discrete]
 === DLB with HTTP Traffic Switching
@@ -236,7 +236,7 @@ Track the following metrics during traffic switching:
 * Performance degradation greater than 2x baseline
 
 [discrete]
-=== When NOT to Roll Back
+=== When Not to Roll Back
 
 Some behaviors are expected during traffic switching and don't require a rollback:
 
@@ -296,7 +296,7 @@ If there's a hard change in traffic from one application to the other, policy co
 [discrete]
 === Rate-Limiting Mitigation
 
-*Problem:* Rate limiting effectively doubles during a 50/50 traffic split because each application maintains independent counters.
+*Problem:* The effective rate limit doubles during a 50/50 traffic split because each application maintains independent counters.
 
 *Solutions:*
 
@@ -344,7 +344,7 @@ To perform a DLB failover:
 This fails over the `anypointdns.net` domain to CloudHub 2.0, removes any additional DLB hop, and redirects traffic to your new CloudHub 2.0 private space URL.
 . After the traffic failover completes, stop and delete the CloudHub DLB linked to the VPC.
 
-NOTE: If there are failures during this stage, restart the DLB to point `anypointdns.net` to CloudHub while the DLB is in a stopped state. After you delete the DLB, you can't roll back to CloudHub.
+NOTE: If there are failures during this stage, restart the stopped DLB to point `anypointdns.net` to CloudHub. After you delete the DLB, you can't roll back to CloudHub.
 ====
 
 .Complete the Application Upgrade
@@ -364,7 +364,7 @@ Complete or delete all CloudHub applications in a given upgraded VPC to release 
 == See Also
 
 * xref:ch2-migration-apps.adoc[Step 3: Migrate Applications]
-* xref:ch2-migration-validate.adoc[Step 5: Finalize and Decommission]
+* xref:ch2-migration-finalize.adoc[Step 5: Finalize and Decommission]
 * xref:ch2-migration-troubleshoot.adoc[Troubleshoot Migration Issues]
 * xref:ch2-config-endpoints-paths.adoc[Configure Endpoints and Paths]
 * xref:access-management::permissions-by-product.adoc[Permissions by Product in Anypoint Platform]

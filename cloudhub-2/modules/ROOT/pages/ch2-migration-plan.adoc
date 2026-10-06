@@ -4,9 +4,9 @@ include::_attributes.adoc[]
 endif::[]
 :page-pagination:
 
-Before migrating applications from CloudHub to CloudHub 2.0, audit your existing environment, assess entitlement requirements, estimate timelines, and establish a migration strategy. Thorough planning reduces risk and prevents disruptions during the migration process.
+Before migrating applications from CloudHub to CloudHub 2.0, audit your existing environment, assess entitlement requirements, estimate timelines, and establish a migration strategy. Planning reduces risk and helps prevent migration disruptions.
 
-.Audit and Assessment Check
+.Audit and Assessment Checklist
 [%collapsible]
 ====
 Review the following areas to understand the scope and complexity of your migration.
@@ -24,7 +24,7 @@ Inventory all applications currently deployed to CloudHub:
 a|
 * Mule 4.4 and later: Supported on CloudHub 2.0.
 * Mule 4.3.x: Supported, but MuleSoft recommends upgrading to 4.4+.
-* Mule 3.x: Not supported on CloudHub 2.0. These applications require rearchitecting to Mule 4.
+* Mule 3.x: Not supported on CloudHub 2.0. These applications require Mule 4.
 
 |vCore allocations
 |Document current worker sizes and counts per application. CloudHub 2.0 uses replicas with more granular vCore options (0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4). Plan equivalent replica sizing.
@@ -33,10 +33,13 @@ a|
 |List all environments (Development, QA, UAT, Production) and their associated VPCs. Note which environments share a VPC.
 
 |Java version
-|Verify that all applications are compatible with Java 17.
+|Verify that all applications are compatible with Java 17. Java 8 is supported if you have Mule 4.6.
 
 |HTTP listeners
 |Confirm that applications use port 8081 for HTTP listeners. CloudHub 2.0 uses standard `${http.port}` (8081).
+
+|Ingress URI size
+|Identify clients that send request paths or query strings larger than 4 KB. CloudHub 2.0 supports ingress URIs up to 4 KB, so redesign these requests before migrating. See xref:ch2-limits.adoc[Limits in CloudHub 2.0].
 
 |Mule Maven Plugin
 |Verify that the Mule Maven Plugin is version 3.7.1 or later.
@@ -66,7 +69,7 @@ Gather the following from your existing CloudHub environment. This information i
 
 * CIDR block information
 +
-If you are creating a new private space manually, then allocate a different CIDR block for CloudHub 2.0. If you are upgrading an existing VPC, the private space automatically uses the same CIDR as the original VPC, so no CIDR selection is required.
+If you are creating a new private space manually, allocate a different CIDR block for CloudHub 2.0. If you are upgrading an existing VPC, the private space automatically uses the same CIDR as the original VPC, so no CIDR selection is required.
 
 * VPN connection information
 * SSL certificates
@@ -113,7 +116,7 @@ CloudHub 2.0 doesn't support persistent VM queues. If your applications use pers
 [%collapsible]
 ====
 
-Determine whether to create a new private space or use the VPC upgrade tool. The following eligibility criteria apply to the upgrade tool:
+Choose whether to create a new private space or use the VPC upgrade tool. The following eligibility criteria apply to the upgrade tool:
 
 [cols="1,2"]
 |===
@@ -146,7 +149,7 @@ a|You can't carry these ciphers over to CloudHub 2.0:
 |The upgrade tooling doesn't support the upgrade of a default VPC. Disable the default VPC configuration before proceeding.
 |===
 
-If your VPC doesn't meet these requirements, then create a new private space manually. See xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure] for both paths.
+If your VPC doesn't meet these requirements, create a new private space manually. See xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure] for both paths.
 ====
 
 .Entitlement and Timeline Considerations
@@ -155,16 +158,14 @@ If your VPC doesn't meet these requirements, then create a new private space man
 [discrete]
 === Calculate Resource Requirements
 
-During migration, you need resources for both CloudHub and CloudHub 2.0 environments simultaneously. Plan for double entitlements across:
-
-// Source: Entitlement note from ch-ch2-migration-completion, expanded per improvement plan
+During migration, you need resources for CloudHub and CloudHub 2.0 environments at the same time. Plan for double entitlements across:
 
 * *VPCs and Private Spaces* — Each VPC being migrated requires a corresponding private space.
 * *VPNs and Transit Gateways* — Network connections transfer to CloudHub 2.0 but count separately against usage until you decommission CloudHub.
 * *Applications* — Applications run on both platforms during the transition period.
 * *DLBs and Ingress Controllers* — DLBs remain active during traffic switching.
 
-Work with your account representative to plan for additional entitlements. Decommission your CloudHub infrastructure (VPCs and associated DLBs) within six months after the upgrade to avoid interruptions when creating or editing VPCs, private spaces, or network connections.
+Work with your account representative to obtain the required additional entitlements. Decommission your CloudHub infrastructure (VPCs and associated DLBs) within six months after the upgrade to avoid interruptions when creating or editing VPCs, private spaces, or network connections.
 
 [discrete]
 === Estimate Timelines
@@ -259,11 +260,12 @@ Document rollback procedures:
 .Pre-Migration Validation Checklist
 [%collapsible]
 ====
-Use this checklist to confirm readiness before proceeding to infrastructure setup:
+Use this checklist to confirm that you're ready to set up infrastructure:
 
 * [ ] Mule runtime 4.3.0 or later (4.4+ recommended)
 * [ ] Java 17 compatibility verified
 * [ ] HTTP listeners using port 8081
+* [ ] Clients with request paths or query strings larger than 4 KB identified and redesigned
 * [ ] API assets published to Exchange
 * [ ] API Spec and Implementation have unique names
 * [ ] Mule Maven Plugin version 3.7.1 or later
@@ -295,4 +297,4 @@ After completing all checklist items, proceed to xref:ch2-migration-infrastructu
 
 * https://help.salesforce.com/s/articleView?id=005237269&type=1[Planning Timelines for CloudHub to CloudHub 2.0 Migration (KA 005237269)] — Guidance on estimating migration timelines and phasing.
 * https://help.salesforce.com/s/articleView?id=005228668&type=1[REST API Migration Steps for CloudHub to CloudHub 2.0 (KA 005228668)] — API-based migration procedures for automating the upgrade process.
-* https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Network Tools Application for Connectivity Test From CloudHub VPC (KA 001115029)] — Diagnose network connectivity issues during migration using the Network Tools application.
+* https://help.salesforce.com/s/articleView?id=001115029&type=1[How to Use the Network Tools Application for Connectivity Tests from a CloudHub VPC (KA 001115029)] — Diagnose network connectivity issues during migration using the Network Tools application.
