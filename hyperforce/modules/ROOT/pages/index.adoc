@@ -943,6 +943,9 @@ To use these clouds, see:
 * xref:control-planes::creating-and-deploying-mule-apps.adoc[Creating and Deploying Mule Apps]
 * xref:control-planes::control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists]
 * xref:control-planes::configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes]
+* xref:govcloud-plus::index.adoc[MuleSoft Government Cloud Plus]
+* xref:govcloud-plus::gov-cloud-plus-access.adoc[Access MuleSoft Government Cloud Plus]
+* xref:govcloud-plus::gov-cloud-plus-compliance.adoc[Security and Compliance in MuleSoft Government Cloud Plus]
 
 == Mule Runtime Version Compatibility
 
