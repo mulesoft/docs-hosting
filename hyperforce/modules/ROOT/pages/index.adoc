@@ -22,6 +22,12 @@ Provides you privacy standards that give you control and transparency over your 
 [[features-supported-on-hyperforce]]
 == Features Supported on Hyperforce
 
+This table indicates the support status of Anypoint Platform features on Hyperforce:
+
+* Available: Feature is currently available on Hyperforce.
+* Planned: Feature is scheduled for a future release on Hyperforce.
+* Not planned: Feature is not currently planned for release or is not supported on Hyperforce.
+
 include::partial$features-supported.adoc[tag=features]
 
 == Control Plane Regions

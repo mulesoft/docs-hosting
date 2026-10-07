@@ -71,6 +71,12 @@ To sign in from Anypoint Studio, the Anypoint Code Builder desktop IDE, Anypoint
 [[features-supported-on-control-planes]]
 == Features Supported on Anypoint Platform Control Planes
 
+This table indicates the support status of Anypoint Platform features on Anypoint Platform control planes:
+
+* Available: Feature is currently available on Anypoint Platform control planes.
+* Planned: Feature is scheduled for a future release on Anypoint Platform control planes.
+* Not planned: Feature is not currently planned for release or is not supported on Anypoint Platform control planes.
+
 include::hyperforce::partial$features-supported.adoc[tags=features;!government]
 
 == See Also

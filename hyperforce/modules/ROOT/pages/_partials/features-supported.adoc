@@ -1,17 +1,9 @@
 // Canonical Hyperforce feature-support tables.
-// tag=features includes the status key and every tab.
+// tag=features includes every tab.
 // tags=features;!government includes Americas, Europe, and Asia Pacific.
 // tag=government-table includes the MuleSoft Government Cloud Plus table only.
 
 // tag::features[]
-// tag::legend[]
-This table indicates the support status of Anypoint Platform features on Hyperforce:
-
-* Available: Feature is currently available on Hyperforce.
-* Planned: Feature is scheduled for a future release on Hyperforce.
-* Not planned: Feature is not currently planned for release or is not supported on Hyperforce.
-// end::legend[]
-
 [tabs]
 ====
 // tag::americas[]

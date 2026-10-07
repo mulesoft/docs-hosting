@@ -40,7 +40,11 @@ MuleSoft Government Cloud Plus uses different runtime, networking, and connector
 [[features-supported-on-government-cloud-plus]]
 == Features Supported on MuleSoft Government Cloud Plus
 
-include::hyperforce::partial$features-supported.adoc[tag=legend]
+This table indicates the support status of Anypoint Platform features on MuleSoft Government Cloud Plus:
+
+* Available: Feature is currently available on MuleSoft Government Cloud Plus.
+* Planned: Feature is scheduled for a future release on MuleSoft Government Cloud Plus.
+* Not planned: Feature is not currently planned for release or is not supported on MuleSoft Government Cloud Plus.
 
 include::hyperforce::partial$features-supported.adoc[tag=government-table]
 
