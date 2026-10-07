@@ -18,7 +18,10 @@ MuleSoft Government Cloud Plus uses different runtime, networking, and connector
 | Area | Behavior
 
 | Mule runtime engine
-| Supports LTS and Edge release channels. MuleSoft Government Cloud supports the LTS release channel only.
+| Supports LTS and Edge release channels. The initial versions are Mule runtime engine 4.9 (LTS) and Mule runtime engine 4.13 (Edge). MuleSoft Government Cloud supports the LTS release channel only.
+
+| Deployment models
+| Supports xref:cloudhub-2::index.adoc[CloudHub 2.0], xref:runtime-fabric::index.adoc[Runtime Fabric], and xref:hybrid-standalone::index.adoc[Hybrid Standalone].
 
 | Anypoint Omni Gateway
 | Supports version 1.13.0 and later. MuleSoft Government Cloud doesn't support Omni Gateway.
