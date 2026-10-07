@@ -66,7 +66,12 @@ To sign in from Anypoint Studio, the Anypoint Code Builder desktop IDE, Anypoint
 
 * Runtime plane support varies by control plane. See the xref:hosting-home::index.adoc#support-matrix-control-plane[control plane and runtime plane compatibility matrix], then xref:creating-and-deploying-mule-apps.adoc[Creating and Deploying Mule Apps].
 * Object Store capabilities vary by control plane. See xref:object-store::index.adoc#os-features-control-plane[Object Store Features by Control Plane].
-* MuleSoft product features vary by control plane. See xref:hyperforce::index.adoc#features-supported-on-hyperforce[MuleSoft product features by Control Plane].
+* MuleSoft product features vary by control plane. See <<features-supported-on-control-planes>>.
+
+[[features-supported-on-control-planes]]
+== Features Supported on Anypoint Platform Control Planes
+
+include::hyperforce::partial$features-supported.adoc[tags=features;!government]
 
 == See Also
 

@@ -34,8 +34,15 @@ MuleSoft Government Cloud Plus uses different runtime, networking, and connector
 * Doesn't provision external load balancers. Routes all inbound and outbound external traffic through transit networking (IPSec VPN, AWS Transit Gateway, or AWS PrivateLink). To configure transit networking, see xref:cloudhub-2::ps-setup.adoc[Extending Your Network to Anypoint Platform].
 
 | Connectors
-| Permits only connectors tagged `fips-140-3-verified` in Anypoint Exchange. For connectors that aren't available, see the *Notes* column in xref:hyperforce::index.adoc#features-supported-on-hyperforce[Features Supported on Hyperforce].
+| Permits only connectors tagged `fips-140-3-verified` in Anypoint Exchange. For connectors that aren't available, see the *Notes* column in <<features-supported-on-government-cloud-plus>>.
 |===
+
+[[features-supported-on-government-cloud-plus]]
+== Features Supported on MuleSoft Government Cloud Plus
+
+include::hyperforce::partial$features-supported.adoc[tag=legend]
+
+include::hyperforce::partial$features-supported.adoc[tag=government-table]
 
 == See Also
 
