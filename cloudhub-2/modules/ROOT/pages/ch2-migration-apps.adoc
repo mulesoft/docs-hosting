@@ -26,11 +26,13 @@ Complete these preparation steps for either migration path.
 [discrete]
 === Upgrade the Mule Runtime Version
 
-CloudHub 2.0 supports Mule runtime versions 4.3.x and later. If your application runs on an unsupported version, upgrade to a supported runtime before migrating.
+Deploy on a currently supported LTS or Edge runtime. If your application runs on an unsupported version, upgrade to a supported runtime before migrating.
 
-* Mule 4.4 and later: Supported. No runtime upgrade needed.
-* Mule 4.3.x: Supported, but MuleSoft recommends upgrading to 4.4 or later.
+* Mule 4.3.0 deploys are blocked on CloudHub 2.0.
+* Runtimes past end of support are rejected with `Runtime Version not supported for this target`.
 * Mule 3.x: Not supported. Rearchitect your application to Mule 4 before migrating.
+
+See xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[] for the currently supported versions.
 
 For upgrade guidance, see https://docs.mulesoft.com/release-notes/mule-runtime/updating-mule-4-versions#ensuring-mule-application-compatibility[Ensuring Mule Application Compatibility].
 
@@ -46,7 +48,7 @@ Add the `cloudhub2Deployment` configuration to your Mule Maven Plugin section:
 <plugin>
   <groupId>org.mule.tools.maven</groupId>
   <artifactId>mule-maven-plugin</artifactId>
-  <version>3.7.1</version>
+  <version>4.1.1</version>
   <extensions>true</extensions>
   <configuration>
     <cloudhub2Deployment>
@@ -282,11 +284,11 @@ Review and update your connectors to the latest compatible versions. See xref:st
 [discrete]
 === Verify Mule Maven Plugin Version
 
-Use Mule Maven Plugin version 3.7.1 or later.
+Use Mule Maven Plugin version 4.1.1 or later, which is required for the `javaVersion` and `releaseChannel` parameters. Avoid 4.0.0, which has a known NPE, and 3.8.3, which is deprecated.
 
-[[migrate-applications-to-a-new-private-space]]
 ====
 
+[[migrate-applications-to-a-new-private-space]]
 .Migrate Applications to a New Private Space
 [%collapsible]
 ====
@@ -311,7 +313,7 @@ NOTE: In CloudHub 2.0, names are unique per private space. CloudHub 2.0 adds a s
 
 * *Application file* — Upload the application JAR or import from Exchange.
 * *Deployment target* — Select the new manually created private space.
-* *Runtime version* — Select a supported Mule runtime (4.4+ recommended).
+* *Runtime version* — Select a currently supported LTS or Edge runtime.
 * *Replica size and count* — Configure replicas equivalent to your CloudHub worker sizing.
 +
 See xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas] for vCore options.
@@ -329,11 +331,12 @@ See xref:ch2-configure-horizontal-autoscaling.adoc[Configure Horizontal Autoscal
 [discrete]
 === Step 4: Configure Application Properties
 
-IMPORTANT: Application properties aren't automatically carried over during migration. Reconfigure them manually in CloudHub 2.0.
+IMPORTANT: If you're deploying to a manually created private space, application properties aren't carried over at all — there's no copy tool for this path. Reconfigure them manually in CloudHub 2.0. (If you're using the application migration tool on an upgraded VPC instead, see <<upgrade-application-using-the-migration-tool,Upgrade Application Using the Migration Tool>> for how that tool copies properties.)
 
 * Recreate all application properties (plain and secure/encrypted).
 * Secure properties use the same encryption key mechanism — migrate the encryption keys.
 * Configure environment-specific properties per environment (Dev, UAT, Prod).
+* CloudHub 2.0 limits properties to 300 per application, with a maximum of 1,024 characters per key or value. CloudHub 2.0 ignores any value assigned to a reserved property. Properties defined in the `pom.xml` `properties` element replace (don't merge with) properties already configured in Runtime Manager, and CloudHub 2.0 doesn't support `-D` command-line overrides for application properties. See xref:ch2-manage-props.adoc[Changing App Behavior with Properties].
 
 [discrete]
 === Step 5: Configure Endpoints
@@ -381,9 +384,9 @@ mvn clean deploy -DmuleDeploy \
 
 For authentication alternatives (Connected Apps, Maven server credentials, auth tokens), see xref:mule-runtime::deploy-to-cloudhub-2.adoc#authentication-methods[Authentication Methods].
 
-[[upgrade-application-using-the-migration-tool]]
 ====
 
+[[upgrade-application-using-the-migration-tool]]
 .Upgrade Application Using the Migration Tool
 [%collapsible]
 ====
@@ -498,13 +501,20 @@ Deploying directly to CloudHub 2.0 with an existing vanity domain can cause thes
 
 For applications with inbound traffic, the Shared Load Balancer (SLB) handles traffic switching if your ingress configuration includes the default CloudHub application endpoint in the format `<app_name>.<region>.cloudhub.io`. However, if that default endpoint is missing and you've configured a vanity domain or an `anypointdns.net` endpoint instead, the Dedicated Load Balancer (DLB) switches the traffic.
 
-Identify your traffic source before xref:ch2-migration-validate.adoc[Step 4: Validate and Cut Over].
+Identify your traffic source before xref:ch2-migration-validate.adoc[Step 4: Validate and Switch Traffic].
+
+[discrete]
+=== POST Request Content-Length
+
+The CloudHub 2.0 ingress controller requires the `content-length` header on POST requests, even when the value is 0. Clients that omit this header fail during traffic switching.
+
+See xref:ch2-migration-plan.adoc#traffic-switching-prerequisites[Traffic-Switching Prerequisites] for the full precondition checklist before you switch traffic.
 ====
 
 == See Also
 
 * xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure]
-* xref:ch2-migration-validate.adoc[Step 4: Validate and Cut Over]
+* xref:ch2-migration-validate.adoc[Step 4: Validate and Switch Traffic]
 * xref:ch2-deploy-private-space.adoc[Deploy to a Private Space]
 * xref:ch2-deploy.adoc[Deploy Applications to CloudHub 2.0]
 * xref:ch2-configure-horizontal-autoscaling.adoc[Configure Horizontal Autoscaling]

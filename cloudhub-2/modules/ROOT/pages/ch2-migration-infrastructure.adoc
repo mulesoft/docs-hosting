@@ -21,6 +21,7 @@ Before migrating applications, set up your CloudHub 2.0 infrastructure. Choose b
 |The upgrade tool clones your VPC configuration (CIDR block, firewall rules, VPN/TGW connections, DLB certificates) into a new CloudHub 2.0 private space.
 |===
 
+[[create-a-new-private-space-manually]]
 .Create a New Private Space Manually
 [%collapsible]
 ====
@@ -99,10 +100,9 @@ After creating the private space, confirm:
 * Firewall rules are correctly configured (inbound and outbound).
 * VPN or TGW connections are stable.
 * TLS contexts are correctly applied.
-
-[[upgrade-a-vpc-to-a-private-space]]
 ====
 
+[[upgrade-a-vpc-to-a-private-space]]
 .Upgrade a VPC to a Private Space
 [%collapsible]
 ====
@@ -233,7 +233,7 @@ The DLB must support TLS 1.2+ for upstream connections from CloudHub 2.0:
 . Select your DLB and review the *Upstream TLS* settings.
 . Confirm that *TLS 1.2 or higher* is enabled as an upstream protocol.
 
-NOTE: TLS 1.2 can be added alongside TLS 1.1 without disrupting existing connections. See https://help.salesforce.com/s/articleView?id=005315578&type=1[502 Bad Gateway Error When Switching Traffic (KA 005315578)].
+NOTE: TLS 1.1 is no longer supported. See https://help.salesforce.com/s/articleView?id=005315578&type=1[502 Bad Gateway Error When Switching Traffic (KA 005315578)].
 
 [discrete]
 === CloudHub 1.0 to CloudHub 2.0

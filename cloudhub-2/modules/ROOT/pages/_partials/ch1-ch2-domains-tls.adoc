@@ -14,7 +14,7 @@
 
 a|Supported protocols:
 
-* https://help.salesforce.com/s/articleView?id=004205269&type=1[TLS 1.1] (for existing DLBs until January 31, 2026)
+* https://help.salesforce.com/s/articleView?id=004205269&type=1[TLS 1.1] (no longer supported)
 * TLS 1.2
 * https://help.salesforce.com/s/articleView?id=001116412&type=1[TLS 1.3]
 

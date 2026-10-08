@@ -241,10 +241,9 @@ Some behaviors are expected during traffic switching and don't require a rollbac
 
 * API policy caching differences (see <<manage-api-policies-during-traffic-switching>>)
 * Temporary rate-limit counter resets when traffic shifts
-
-[[manage-api-policies-during-traffic-switching]]
 ====
 
+[[manage-api-policies-during-traffic-switching]]
 .Manage API Policies During Traffic Switching
 [%collapsible]
 ====

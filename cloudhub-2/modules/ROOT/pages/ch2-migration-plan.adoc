@@ -22,18 +22,17 @@ Inventory all applications currently deployed to CloudHub:
 
 |Mule runtime versions
 a|
-* Mule 4.4 and later: Supported on CloudHub 2.0.
-* Mule 4.3.x: Supported, but MuleSoft recommends upgrading to 4.4+.
+* Deploy on a currently supported LTS or Edge runtime. Mule 4.3.0 deploys are blocked on CloudHub 2.0, and runtimes past end of support are rejected with `Runtime Version not supported for this target`. See xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[].
 * Mule 3.x: Not supported on CloudHub 2.0. These applications require Mule 4.
 
 |vCore allocations
-|Document current worker sizes and counts per application. CloudHub 2.0 uses replicas with more granular vCore options (0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4). Plan equivalent replica sizing.
+|Document current worker sizes and counts per application. CloudHub 2.0 uses replicas with more granular vCore options (0.1, 0.2, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4), but has no 8 or 16 vCore equivalent — size large CloudHub workers down into multiple replicas instead. Plan equivalent replica sizing.
 
 |Environments
 |List all environments (Development, QA, UAT, Production) and their associated VPCs. Note which environments share a VPC.
 
 |Java version
-|Verify that all applications are compatible with Java 17. Java 8 is supported if you have Mule 4.6.
+|Verify that all applications are compatible with the Java version your runtime requires. For example, Mule 4.9 requires Java 17. Check your target runtime's Java requirement before migrating.
 
 |HTTP listeners
 |Confirm that applications use port 8081 for HTTP listeners. CloudHub 2.0 uses standard `${http.port}` (8081).
@@ -42,7 +41,7 @@ a|
 |Identify clients that send request paths or query strings larger than 4 KB. CloudHub 2.0 supports ingress URIs up to 4 KB, so redesign these requests before migrating. See xref:ch2-limits.adoc[Limits in CloudHub 2.0].
 
 |Mule Maven Plugin
-|Verify that the Mule Maven Plugin is version 3.7.1 or later.
+|Use version 4.1.1 or later, which is required for the `javaVersion` and `releaseChannel` parameters. Avoid 4.0.0 and 3.8.3 (deprecated).
 |===
 
 [discrete]
@@ -53,7 +52,7 @@ a|
 |Item |Notes
 
 |Application properties
-|Document all application properties per environment. These must be reconfigured manually in CloudHub 2.0.
+|Document all application properties per environment. These must be reconfigured manually in CloudHub 2.0. CloudHub 2.0 limits properties to 300 per application and 1,024 characters per key or value.
 
 |Secure properties
 |Identify all secure and encrypted properties. Protected property values aren't visible after creation and must be re-entered during migration.
@@ -94,7 +93,8 @@ Most MuleSoft connectors are compatible with CloudHub 2.0. Review the following:
 
 Review applications that use Mule Scheduler components:
 
-* In CloudHub 2.0's clustered environment, only one replica executes a scheduled flow at a time (primary-node processing). Applications that rely on all workers running the same schedule concurrently need to be redesigned.
+* Clustering must be enabled for CloudHub 2.0 to run a scheduled flow on only the primary replica. Without clustering, every replica runs the schedule independently, which causes duplicate executions. Clustering itself is active-active; only schedulers and polling sources are restricted to the primary replica.
+* Applications that rely on all replicas running the same schedule concurrently need to be redesigned to avoid duplicate processing when clustering is enabled.
 * Review xref:ch2-manage-schedules.adoc[Manage Schedules] for CloudHub 2.0 scheduler management.
 
 [discrete]
@@ -112,6 +112,7 @@ CloudHub 2.0 doesn't support persistent VM queues. If your applications use pers
 * Confirm that API Spec and Implementation have unique names.
 ====
 
+[[determine-your-migration-path]]
 .Determine Your Migration Path
 [%collapsible]
 ====
@@ -150,6 +151,24 @@ a|You can't carry these ciphers over to CloudHub 2.0:
 |===
 
 If your VPC doesn't meet these requirements, create a new private space manually. See xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure] for both paths.
+====
+
+[[traffic-switching-prerequisites]]
+.Traffic-Switching Prerequisites
+[%collapsible]
+====
+
+Confirm these preconditions before you plan a cutover window. Missing any of them during traffic switching can cause outages or a failed cutover. See xref:ch2-migration-validate.adoc[Step 4: Validate and Switch Traffic] for the switching procedure.
+
+* Restart the DLB before you start switching traffic.
+* The user performing the switch needs the *CloudHub Network Administrator* permission.
+* Keep the CloudHub 1.0 application in the STARTED state until the application link is established — stopping it early can cause traffic disruptions.
+* If using a DLB, enable Last-Mile Security and upstream TLS 1.2 or higher.
+* Don't route traffic through the default `*.cloudhub.io` endpoint for a new CloudHub 2.0 application. Using it can cause traffic outages.
+* The `publicUrl` in your `pom.xml` must match the endpoint configured in the UI, or the ingress configuration is lost.
+* POST requests must include the `content-length` header (0 or greater) — the ingress controller requires it even when the value is 0.
+* Expect API policy counters (rate-limiting, spike control) to reset or temporarily double while traffic is split between CloudHub 1.0 and CloudHub 2.0.
+* Document a static-IP and downstream-allowlist checklist for backend systems that allowlist by source IP — the application URL format changes after migration.
 ====
 
 .Entitlement and Timeline Considerations
@@ -262,13 +281,13 @@ Document rollback procedures:
 ====
 Use this checklist to confirm that you're ready to set up infrastructure:
 
-* [ ] Mule runtime 4.3.0 or later (4.4+ recommended)
+* [ ] Mule runtime on a currently supported LTS or Edge version
 * [ ] Java 17 compatibility verified
 * [ ] HTTP listeners using port 8081
 * [ ] Clients with request paths or query strings larger than 4 KB identified and redesigned
 * [ ] API assets published to Exchange
 * [ ] API Spec and Implementation have unique names
-* [ ] Mule Maven Plugin version 3.7.1 or later
+* [ ] Mule Maven Plugin version 4.1.1 or later
 * [ ] VPC has 25%+ free space and 100+ available IPs per subnet (if using upgrade tool)
 * [ ] No legacy VPNs, Direct Connect, or VPC Peering (if using upgrade tool)
 * [ ] CIDR blocks documented

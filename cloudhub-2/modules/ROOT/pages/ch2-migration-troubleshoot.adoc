@@ -119,8 +119,8 @@ To troubleshoot this issue:
 |Symptom |Likely Cause |Resolution |Reference
 
 |Application doesn't start
-|Incompatible runtime version.
-|Upgrade to Mule 4.4 or later.
+|Incompatible runtime version, or the runtime is past end of support.
+|Deploy on a currently supported LTS or Edge runtime. If the deployment fails with `Runtime Version not supported for this target`, the runtime is past end of support or blocked (Mule 4.3.0 deploys are blocked on CloudHub 2.0).
 |
 
 |Application properties missing
@@ -128,9 +128,9 @@ To troubleshoot this issue:
 |Re-enter all secure property values in the CloudHub 2.0 deployment settings.
 |
 
-|Scheduler not firing
-|Timezone or configuration difference in the CloudHub 2.0 clustered environment.
-|Review scheduler component configuration for CloudHub 2.0 compatibility. See xref:ch2-manage-schedules.adoc[Manage Schedules].
+|Scheduler not firing, or firing on every replica (duplicate executions)
+|Clustering isn't enabled. Without clustering, every replica runs the schedule independently, which causes duplicate executions; a timezone or configuration difference can also prevent a schedule from firing.
+|Enable clustering so only the primary replica runs the schedule. Review scheduler component configuration for CloudHub 2.0 compatibility. See xref:ch2-manage-schedules.adoc[Manage Schedules].
 |
 
 |High latency after migration
@@ -154,10 +154,9 @@ jdbc:oracle:thin:@//host:port/service?oracle.net.keepAlive=true
 ----
 
 For more information, see https://help.salesforce.com/s/articleView?id=005321536&type=1[KA 005321536].
-
-[[troubleshoot-vpc-upgrade]]
 ====
 
+[[troubleshoot-vpc-upgrade]]
 .VPC Upgrade Issues
 [%collapsible]
 ====
@@ -191,10 +190,9 @@ For more information, see https://help.salesforce.com/s/articleView?id=005321536
 |===
 
 For upgrade steps, see xref:ch2-migration-infrastructure.adoc#upgrade-a-vpc-to-a-private-space[Upgrade a VPC to a Private Space].
-
-[[troubleshoot-infrastructure]]
 ====
 
+[[troubleshoot-infrastructure]]
 .Infrastructure Issues
 [%collapsible]
 ====
@@ -233,9 +231,9 @@ For upgrade steps, see xref:ch2-migration-infrastructure.adoc#upgrade-a-vpc-to-a
 |https://help.salesforce.com/s/articleView?language=en_US&id=005115579&type=1[KA 005115579]
 
 |Application doesn't start on CloudHub 2.0
-|Incompatible Mule runtime version. CloudHub 2.0 requires Mule 4.3.x or later.
-|Upgrade the application to Mule 4.4 or later and rebuild the JAR. Verify `minMuleVersion` in `mule-artifact.json`.
-|xref:mule-runtime::updating-mule-4-versions.adoc[Updating Mule 4 Versions]
+|Incompatible Mule runtime version. Mule 4.3.0 deploys are blocked on CloudHub 2.0, and runtimes past end of support are rejected with `Runtime Version not supported for this target`.
+|Deploy on a currently supported LTS or Edge runtime and rebuild the JAR. Verify `minMuleVersion` in `mule-artifact.json`.
+|xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[]
 
 |Connection refused from on-premises systems
 |Private space firewall rules don't allow egress to on-premises destinations, or transit gateway/VPN routing not configured.
@@ -262,9 +260,9 @@ For upgrade steps, see xref:ch2-migration-infrastructure.adoc#upgrade-a-vpc-to-a
 |Increase replica vCore size or replica count. Compare original worker sizing to current replica allocation using the vCore equivalency table.
 |xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas]
 
-|Scheduler not firing in CloudHub 2.0
-|Scheduler behavior differs in a clustered environment. In CloudHub 2.0, only one replica executes the scheduler when clustering is enabled.
-|Verify that scheduler configuration is compatible with CloudHub 2.0 clustering. Review timezone settings. See scheduler management docs for CloudHub 2.0-specific behavior.
+|Scheduler not firing, or firing on every replica (duplicate executions)
+|Clustering determines scheduler behavior. With clustering enabled, only the primary replica runs the scheduler; clustering itself remains active-active, but schedulers and polling sources are primary-only. Without clustering, every replica runs the schedule independently, causing duplicate executions.
+|Enable clustering to avoid duplicate executions. Verify that scheduler configuration is compatible with CloudHub 2.0 clustering, and review timezone settings. See scheduler management docs for CloudHub 2.0-specific behavior.
 |xref:ch2-manage-schedules.adoc[Manage Schedules]
 |===
 ====
