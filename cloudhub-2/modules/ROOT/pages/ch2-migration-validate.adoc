@@ -124,7 +124,7 @@ done
 |Full cutover. Monitor for any remaining issues before decommissioning.
 |===
 
-The estimated time before cleanup is about 12 days.
+The estimated time before cleanup is about 14 days.
 
 [discrete]
 === Risk-Based Switching Strategies
@@ -365,11 +365,11 @@ NOTE: If there are failures during this stage, restart the stopped DLB to point 
 .Complete the Application Upgrade
 [%collapsible]
 ====
-After traffic fully redirects to the CloudHub 2.0 application, stop your CloudHub application within 30 days and mark the upgrade as complete:
+After traffic fully redirects to the CloudHub 2.0 application, stop your CloudHub application within 30 days and mark the upgrade as complete.
 
 If you change your CloudHub application after it stops, the changes aren't replicated in your new CloudHub 2.0 application. Make any changes directly to the CloudHub 2.0 application settings.
 
-After your CloudHub application stops, delete it within 30 days.
+Stopping your CloudHub application starts the 30-day period for deleting it. Delete the application within 30 days after it stops.
 
 NOTE: After the CloudHub application stops, traffic switches to the linked CloudHub 2.0 application. To roll back the application upgrade, restart your CloudHub application and configure the traffic switching percentage. After you delete the CloudHub application, the migration is complete and you can't create another CloudHub application with the same application name.
 

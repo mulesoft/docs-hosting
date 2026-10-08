@@ -24,7 +24,7 @@ The following steps apply to both migration paths (VPC upgrade and new private s
 Stop all CloudHub 1.0 applications that have been successfully migrated to CloudHub 2.0.
 
 * After traffic fully redirects to CloudHub 2.0, stop your CloudHub application within 30 days.
-* After your CloudHub application stops, delete it within 30 days.
+* Stopping a CloudHub application starts the 30-day period for deleting it. Delete the application within 30 days after it stops.
 * Complete or delete all CloudHub applications in a given upgraded VPC to release entitlements.
 
 === Step 2: Stop the DLB and Verify Traffic
@@ -32,7 +32,7 @@ Stop all CloudHub 1.0 applications that have been successfully migrated to Cloud
 . Stop the DLB.
 . Verify that traffic is still flowing correctly to CloudHub 2.0 applications.
 
-NOTE: If there are failures after stopping the DLB, restart it to point `anypointdns.net` back to CloudHub while the DLB is in a stopped state. This is your last rollback point — once you delete the DLB in the next step, you can't roll back to CloudHub.
+NOTE: If traffic fails after you stop the DLB, restart the DLB to point `anypointdns.net` back to CloudHub. Don't continue to the next step until traffic is stable. After you delete the DLB, you can't roll back to CloudHub.
 
 === Step 3: Delete the DLB
 

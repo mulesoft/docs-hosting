@@ -19,6 +19,6 @@ a|CloudHub provides two types of load balancing:
 |CloudHub doesn't support load balancer logs for the DLB. The SLB has no log access.
 |Download ingress traffic logs from Runtime Manager for full visibility into ingress traffic and troubleshooting.
 
-|You can assign up to four load balancer units (up to eight workers total) to a Dedicated Load Balancer (DLB) for high availability and load distribution. The Shared Load Balancer (SLB) provides fully managed high availability with no customer configuration required.
+|You can assign up to four load balancer units to a Dedicated Load Balancer (DLB) for high availability and load distribution. The Shared Load Balancer (SLB) provides fully managed high availability with no customer configuration required.
 |CloudHub 2.0 automatically distributes application replicas across two or more availability zones (AZs) for built-in high availability and fault tolerance. If you use the xref:vpc-upgrade.adoc[VPC upgrade tool], the private space inherits the same number of AZs as the original CloudHub VPC.
 |===

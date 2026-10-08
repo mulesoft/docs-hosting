@@ -20,7 +20,7 @@ For more information, see xref:mule-runtime::deploy-to-cloudhub-2.adoc[Deploy Ap
 |Names are unique per control plane.
 a|Names are unique per private space. CloudHub 2.0 adds a six-character unique ID to the application name that you specify in the public endpoint URL: `Myapp-uniq-id.shard.region.cloudhub.io`
 
-* `uniq-id`: is a six-digit value appended to the app name to ensure uniqueness.
+* `uniq-id`: is a six-character value appended to the app name to ensure uniqueness.
 * `shard`: is a six-digit value associated with the space (private or shared) the app is deployed to.
 
 |The DLB supports a maximum HTTP POST (payload) size of 200 MB.

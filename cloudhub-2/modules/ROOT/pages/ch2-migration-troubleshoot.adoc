@@ -212,7 +212,7 @@ For upgrade steps, see xref:ch2-migration-infrastructure.adoc#upgrade-a-vpc-to-a
 
 |Missing DLB certificates post-upgrade
 |TLS 1.1 cipher incompatibility or transfer failure during upgrade.
-|Re-upload certificates to private space. Validate supported ciphers. See https://help.salesforce.com/s/articleView?id=sf.000005237268&type=5[Missing DLB Certificates During CloudHub 1.0 to CloudHub 2.0 Migration].
+|Re-upload certificates to private space. Validate supported ciphers.
 |<<missing-dlb-certificates-post-upgrade>>
 
 |Firewall rules not migrated correctly

@@ -25,4 +25,7 @@ The Private Network extends your corporate network and helps CloudHub workers an
 
 |To move an application to a different region, redeploy it to a VPC in the target region.
 |To move an application to a different region, redeploy it to a shared space or private space in the target region. You cannot move an application to a different region once deployed.
+
+|VPCs support VPN connections, VPC peering, and static IPs.
+|Shared spaces don't support VPN connections, transit gateway attachments, static IPs, or HTTP traffic on port 80. To use these features, deploy to a private space.
 |===

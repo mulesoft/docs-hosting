@@ -308,7 +308,7 @@ Deploy your application to your CloudHub 2.0 private space. For detailed deploym
 
 Configure the following settings:
 
-* *Application name* — The name is unique within the org.
+* *Application name* — The name is unique within the private space.
 +
 NOTE: In CloudHub 2.0, names are unique per private space. CloudHub 2.0 adds a six-character unique ID to the application name in the public endpoint URL.
 
@@ -431,7 +431,7 @@ In the *Ingress* tab, configure the endpoint:
 
 . Select a *Host* from the dropdown list.
 +
-NOTE: If you're using the `anypoint.dns.net` endpoint without a TLS context, the *Ingress* tab doesn't show it as a possible endpoint.
+NOTE: If you're using the `anypointdns.net` endpoint without a TLS context, the *Ingress* tab doesn't show it as a possible endpoint.
 +
 . Select a subdomain from the dropdown list.
 . Add a path.

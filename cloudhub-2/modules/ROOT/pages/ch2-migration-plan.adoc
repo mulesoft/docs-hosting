@@ -189,7 +189,7 @@ Work with your account representative to obtain the required additional entitlem
 [discrete]
 === Estimate Timelines
 
-Plan migration timelines based on the number of applications and complexity of your environment:
+Plan migration timelines based on the number of applications and complexity of your environment. These estimates are guidance, not guarantees. For more information, see https://help.salesforce.com/s/articleView?id=005237269&type=1[Planning Timelines for CloudHub Migration (KA 005237269)].
 
 [cols="1,1,2"]
 |===

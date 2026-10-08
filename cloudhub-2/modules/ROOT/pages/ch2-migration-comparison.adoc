@@ -99,7 +99,7 @@ When migrating from a Dedicated Load Balancer (DLB) to CloudHub 2.0's ingress lo
 |Download ingress traffic logs from Runtime Manager.
 
 |High availability
-|Up to four load balancer units (up to eight workers total).
+|Up to four load balancer units.
 |Auto-scales to accommodate traffic. Replicas are automatically distributed across two or more availability zones (AZs).
 |===
 
