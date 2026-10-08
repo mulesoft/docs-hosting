@@ -103,7 +103,7 @@ Review applications that use Mule Scheduler components:
 CloudHub 2.0 doesn't support persistent VM queues. If your applications use persistent queues:
 
 * Plan to replace persistent VM queues with xref:mq::index.adoc[Anypoint MQ] for reliable message queuing.
-* Remove the CloudHub Connector (used for VM queue operations) and replace with the Anypoint MQ Connector.
+* CloudHub Connector notifications aren't supported on CloudHub 2.0. If your applications use CloudHub Connector for notifications, replace it with the Email Connector or Anypoint Monitoring alerts.
 
 [discrete]
 === API Assets

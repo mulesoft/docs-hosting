@@ -57,18 +57,18 @@ Use the traffic switching endpoint to set the percentage of traffic directed to 
 
 [source,bash]
 ----
-curl -X PATCH \
-  https://anypoint.mulesoft.com/amc/application-manager/api/v2/organizations/{orgId}/environments/{envId}/deployments/{deploymentId}/trafficSwitch \
+curl -X PUT \
+  https://anypoint.mulesoft.com/amc/application-manager/api/v2/organizations/{orgId}/environments/{envId}/deployments/{deploymentId}/upgradedata/trafficswitching \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "percentage": 25
+    "switchedTraffic": 25
   }'
 ----
 
 NOTE: Find the current endpoint path and request body in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.1/console/method/%231736/[AMC Application Manager API reference]. Verify the endpoint path and parameters against the latest API documentation before using them in automation scripts.
 
-*Example automation script:*
+*Example automation script:* The increments and durations below are illustrative — adjust them to your own risk tolerance and application type.
 
 [source,bash]
 ----
@@ -84,11 +84,11 @@ BASE_URL="https://anypoint.mulesoft.com/amc/application-manager/api/v2"
 
 for PERCENT in 10 25 50 75 100; do
   echo "Switching to ${PERCENT}% traffic..."
-  curl -X PATCH \
-    "${BASE_URL}/organizations/${ORG_ID}/environments/${ENV_ID}/deployments/${DEPLOYMENT_ID}/trafficSwitch" \
+  curl -X PUT \
+    "${BASE_URL}/organizations/${ORG_ID}/environments/${ENV_ID}/deployments/${DEPLOYMENT_ID}/upgradedata/trafficswitching" \
     -H "Authorization: Bearer ${TOKEN}" \
     -H "Content-Type: application/json" \
-    -d "{\"percentage\": ${PERCENT}}"
+    -d "{\"switchedTraffic\": ${PERCENT}}"
 
   echo "Traffic at ${PERCENT}%. Monitor for errors before you proceed."
   echo "Press Enter to continue to next increment..."
@@ -231,8 +231,7 @@ Track the following metrics during traffic switching:
 [discrete]
 === When to Roll Back Immediately
 
-* 500 Internal Server errors
-* 502 Bad Gateway errors
+* Sustained 5xx errors (500, 502) above baseline, not isolated occurrences. See xref:ch2-migration-troubleshoot.adoc#_502_bad_gateway_during_traffic_switch[502 Bad Gateway During Traffic Switch] for common causes to rule out before rolling back.
 * Performance degradation greater than 2x baseline
 
 [discrete]

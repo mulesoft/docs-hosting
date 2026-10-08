@@ -73,6 +73,8 @@ Add the `cloudhub2Deployment` configuration to your Mule Maven Plugin section:
 </plugin>
 ----
 +
+NOTE: The pom `groupId` must equal your organization or business group ID, and the version can't have a `-SNAPSHOT` suffix, or the deploy fails with "No application with the provided GAV could be retrieved from Exchange."
++
 Also, add the Mule Maven Facade API as a repository in your `distributionManagement` section:
 +
 [source,xml]
@@ -341,28 +343,17 @@ If you're using a dedicated load balancer (DLB) in CloudHub, configure endpoints
 [discrete]
 === Step 6: Update CI/CD Pipelines
 
-Update your CI/CD scripts to support the two-step deployment process:
+Update your CI/CD scripts to deploy to CloudHub 2.0:
 
-. *Publish the artifact to Anypoint Exchange:*
-+
-[source,bash]
-----
-mvn clean deploy
-----
-+
-This publishes the application JAR to Anypoint Exchange using the `distributionManagement` repository configured in your `pom.xml`.
-
-. *Deploy the artifact from Exchange to CloudHub 2.0:*
-+
 [source,bash]
 ----
 mvn clean deploy -DmuleDeploy
 ----
-+
-The `-DmuleDeploy` flag triggers the Mule Maven Plugin's deployment goal, deploying the application to the target specified in your `cloudhub2Deployment` configuration.
-+
-To deploy without rebuilding:
-+
+
+`mvn clean deploy -DmuleDeploy` is a single command: it publishes the artifact to Anypoint Exchange and deploys it to CloudHub 2.0 in the same step, using the target specified in your `cloudhub2Deployment` configuration.
+
+To redeploy an existing Exchange asset without rebuilding:
+
 [source,bash]
 ----
 mvn mule:deploy
