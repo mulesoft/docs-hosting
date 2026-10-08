@@ -49,9 +49,11 @@ For complete requirements, see xref:ps-gather-setup-info.adoc#setup-info-private
 
 Allocate a CIDR block for the private space:
 
-* The CIDR block can't overlap with on-premises or other cloud networks.
+* The CIDR block must be between /16 and /24, and you can't change it after the private space is created. A /22 block is recommended for most workloads.
+* The CIDR block can't overlap with on-premises or other cloud networks, or with another private space.
+* The CIDR block can't use these unusable ranges: `100.64.0.0/10`, `198.19.0.0/16`, `224.0.0.0/4`, `169.254.0.0/16`, `127.0.0.0/8`, `172.17.0.0/16`, `0.0.0.0/8`.
 * If CloudHub and CloudHub 2.0 must coexist on the same network, choose a CIDR block that doesn't overlap with your existing VPC's CIDR range.
-* Plan for adequate IP address space to accommodate all applications and future growth.
+* Plan for adequate IP address space to accommodate all applications and future growth. Undersizing the CIDR block can cause replicas to fail with "replicas are unschedulable due to insufficient available IP addresses" — see the sizing tiers in xref:ps-gather-setup-info.adoc#cidr-block[CIDR Block].
 
 For CIDR block requirements, see xref:ps-gather-setup-info.adoc#cidr-block[CIDR Block].
 
@@ -66,10 +68,10 @@ Create and configure your CloudHub 2.0 private space using one of these methods:
 [discrete]
 === Step 3: Configure Firewall Rules
 
-All traffic to a private space is blocked by default until explicitly allowed by a firewall rule.
+A new private space has default inbound firewall rules that allow HTTPS (443) and HTTP (80) traffic from `0.0.0.0/0`, and a default outbound rule that allows all egress traffic. You can configure up to 300 firewall rules per direction (inbound and outbound).
 
-* Configure inbound firewall rules to allow traffic to your applications.
-* Configure outbound (egress) firewall rules to allow applications to reach required destinations.
+* Configure additional inbound firewall rules if you need to allow traffic from other ports, or to restrict inbound traffic to specific CIDR ranges.
+* Configure outbound (egress) firewall rules if you want to restrict egress to specific destinations instead of relying on the default allow-all rule.
 * Review xref:ps-config-fw-rules.adoc[Configure Firewall Rules for a Private Space] for detailed instructions.
 
 [discrete]
@@ -77,7 +79,8 @@ All traffic to a private space is blocked by default until explicitly allowed by
 
 Reestablish VPN tunnels or Transit Gateway (TGW) attachments to the new private space:
 
-* Configure VPN or TGW connections to the new private space.
+* Configure VPN or TGW connections to the new private space. Each VPN connection requires a single static public remote IP address and a unique /30 CIDR for the tunnel interface. Static routing requires a pre-shared key (PSK) and IPsec Dead Peer Detection (DPD); dynamic (BGP) routing requires perfect forward secrecy (PFS) and a local ASN in the range 64512–65534. A private space allows a maximum of 95 route table entries across all VPN and TGW connections. See xref:ps-gather-setup-info.adoc#vpn-requirements[VPN Requirements] for full details.
+* If you use internal DNS servers, confirm that every DNS server returns identical records for the same query — inconsistent records cause intermittent `UnknownHostException` errors. You can't forward certain domains (including `cloudhub.io`, `mulesoft.com`, `anypointdns.net`, and `amazonaws.com`) to an internal DNS server, DNS server IP addresses can't fall in the unusable CIDR ranges, and the internal DNS domain list is limited to 255 characters total. See xref:ps-gather-setup-info.adoc#internal-dns-server[Internal DNS Servers].
 * Verify that routing tables route traffic correctly.
 * Test connectivity between the private space and on-premises or other cloud networks.
 
@@ -193,6 +196,37 @@ IMPORTANT: The VPC upgrade tool migrates DLB certificates on a best-effort basis
 If the upgrade fails, see xref:ch2-migration-troubleshoot.adoc#troubleshoot-vpc-upgrade[VPC Upgrade Issues].
 ====
 
+.Migrate DLB Features to CloudHub 2.0 Ingress
+[%collapsible]
+====
+When migrating from a CloudHub DLB to CloudHub 2.0's ingress load balancer, review how DLB features map to CloudHub 2.0 equivalents and what changes are required:
+
+[cols="1,2"]
+|===
+|DLB Feature |CloudHub 2.0 Equivalent
+
+|URL mapping rules (Input Path / Output Path)
+|Configure per-app path and path-rewrite in the *Ingress* tab of each CloudHub 2.0 application. URL rewriting is now distributed (per-app) rather than centralized at the load balancer.
+
+|mTLS via DLB client certificate validation
+|Configure mTLS at the private space level via TLS contexts and truststores. Enable *Forward SSL Session* in the TLS context if your applications need the client certificate information via headers.
+
+|Cipher suites
+|Only custom TLS contexts support cipher suite customization. Cipher suites can't be configured on the default CloudHub 2.0 TLS context — verify custom TLS contexts are configured before switching traffic.
+
+|`*.cloudhub.io` vanity domain carry-over
+|The `*.cloudhub.io` endpoint carries over to the upgraded private space but can cause traffic outages if used during migration. Don't route traffic through it; use a custom vanity domain instead.
+
+|DLB whitelist (allowlist rules)
+|Map DLB allowlist rules to private space ingress firewall rules. Each CIDR on the DLB allowlist becomes an inbound firewall rule on the private space.
+
+|DLB denylist (blocklist rules)
+|CloudHub 2.0 firewall rules are allow-only — there's no deny equivalent. To block traffic, use allow-list only the CIDRs you trust, or block upstream with a WAF or Flex Gateway policy.
+|===
+
+For additional DLB and ingress routing details, see xref:ch2-migration-comparison.adoc#routing-capabilities-comparison[Routing Capabilities Comparison].
+====
+
 .Enable Cross-Platform Communication
 [%collapsible]
 ====
@@ -201,9 +235,11 @@ During a phased migration, applications on CloudHub 2.0 and CloudHub 1.0 must co
 [discrete]
 === CloudHub 2.0 to CloudHub 1.0 (via DLB)
 
-Your CloudHub 2.0 application can continue to use the same target URL to communicate with existing CloudHub 1.0 applications — no endpoint changes are required. If communication uses a public IP (such as a DLB vanity domain or the default `<app-name>.<region>.cloudhub.io` endpoint), traffic continues to route through the internet. If communication uses internal IPs (app-to-app calls within the same VPC), this routing also continues to work from the new CloudHub 2.0 application in the upgraded private space.
+Your CloudHub 2.0 application can continue to use the same target URL to communicate with existing CloudHub 1.0 applications — no endpoint changes are required. If communication uses a public IP (such as a DLB vanity domain or the default `<app-name>.<region>.cloudhub.io` endpoint), traffic continues to route through the internet.
 
-However, because CloudHub 2.0 uses a separate infrastructure CIDR pool, the DLB blocks traffic from CloudHub 2.0 apps by default. You must add the CloudHub 2.0 CIDR ranges to the DLB allowlist.
+If communication uses internal IPs (app-to-app calls within the same VPC), don't assume this routing continues to work unchanged after the upgrade. The upgrade removes VPC firewall rules for ports other than `80`, `443`, and `30500`–`32500`, which drops rules for ports such as `8081`/`8082` that internal app-to-app calls might depend on. Validate internal connectivity with the Network Tools application after the upgrade, and recreate any dropped firewall rules the connection needs.
+
+Because CloudHub 2.0 uses a separate infrastructure CIDR pool, the DLB also blocks traffic from CloudHub 2.0 apps by default. You must add the CloudHub 2.0 CIDR ranges to the DLB allowlist.
 
 [discrete]
 === Step 1: Add Infrastructure CIDR Ranges to the DLB Allowlist
@@ -375,6 +411,7 @@ If backend systems (databases, SaaS APIs, on-premises services) have firewall ru
 
 * If a backend system uses per-app source IP to identify *which* application is calling (rather than just for access control), this model no longer works in CloudHub 2.0 since all apps share outbound IPs. Use mTLS client certificates or API keys for application-level identification instead.
 * Static IP allocation in CloudHub 1.0 is limited to twice the number of production vCores in your subscription. CloudHub 2.0 doesn't have this per-app limit — IPs are assigned per private space automatically.
+* For private spaces created by upgrading a VPC, the *Network* tab may not display all outbound static IPs. If you need the complete list, contact MuleSoft Support with your organization ID and private space ID.
 ====
 
 .Maintain Business Continuity During Migration
@@ -388,6 +425,9 @@ Key constraints after upgrade:
 * Make any required infrastructure changes to the newly created private space.
 * The upgrade process applies CloudHub 2.0 configuration changes to the CloudHub VPC.
 * If your CloudHub VPC doesn't have any network connections and you create new ones in your new CloudHub 2.0 private space after the upgrade, these new connections aren't reflected in your CloudHub VPC.
+* VPC peering connections aren't migrated to the private space, and CloudHub 2.0 applications can't use CloudHub 1.0 VPC peering. If you use VPC peering, migrate those connections to Transit Gateway or VPN before upgrading the VPC.
+* The upgraded private space inherits the availability zone (AZ) count from the original VPC. A 2-AZ VPC upgrades to a 2-AZ private space; to use a different AZ count, create a new private space manually instead of using the upgrade tool.
+* During migration, your organization uses entitlements for both CloudHub 1.0 (VPC, DLB, VPN/TGW) and CloudHub 2.0 (private space, ingress, VPN/TGW) simultaneously. Plan for double entitlements until you decommission CloudHub resources.
 
 To avoid configuration drift, apply firewall rule changes in both the VPC and the private space throughout the migration.
 

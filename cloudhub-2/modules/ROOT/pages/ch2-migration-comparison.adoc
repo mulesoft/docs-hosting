@@ -516,6 +516,31 @@ include::_partials/ch1-ch2-alerts.adoc[]
 
 ====
 
+[discrete]
+== CloudHub Features Not Supported in CloudHub 2.0
+
+The following features are not supported on CloudHub 2.0:
+
+* TLS 1.0 and TLS 1.1 — CloudHub 2.0 supports TLS 1.2 and TLS 1.3 only.
+* Custom notifications using the CloudHub Connector — use Email Connector or Anypoint Monitoring alerts instead.
+* VPN between a CloudHub 1.0 VPC and a CloudHub 2.0 private space — use Transit Gateway or separate VPN connections instead.
+* VPC peering — migrate to Transit Gateway or VPN before upgrading a VPC.
+* Direct Connect — migrate to Transit Gateway or VPN before upgrading a VPC.
+* Peering connections are not migrated when you upgrade a VPC. Delete them manually before or after the upgrade.
+
+[discrete]
+== Useful Migration Facts
+
+The following details apply during migration:
+
+* Default VPN HA — VPN connections are created with high availability by default.
+* Transit Gateway is preserved when a private space is deleted — you can delete and recreate a private space without losing TGW attachments.
+* Static IPs and AZ count — If your VPC is deployed across two AZs, it has two sets of inbound static IPs. When you upgrade, the private space inherits the same AZ count (2 AZs → 2 AZs). To use a different AZ count, create a new private space manually instead.
+* Secure properties are write-only — You can change a secure property value but can't read it back after creation. When migrating, re-enter the values in CloudHub 2.0 settings.
+* Application name uniqueness — In CloudHub, app names are unique per control plane. In CloudHub 2.0, app names are unique per private space.
+* Ingress logs — CloudHub 2.0 provides self-service access to ingress traffic logs via Runtime Manager. Application logs integrate with Titanium (Anypoint Monitoring) for full visibility.
+* Internal load balancer — CloudHub 2.0's internal ingress load balancer listens on HTTP (80) and HTTPS (443) only. Inbound protocols are limited to HTTP, HTTPS, and TCP (TCP only on newly created private spaces, not upgraded ones).
+
 == See Also
 
 * xref:ch2-migration-overview.adoc[Migrate from CloudHub to CloudHub 2.0]

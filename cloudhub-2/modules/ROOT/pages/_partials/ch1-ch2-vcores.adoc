@@ -10,4 +10,6 @@
 |See xref:cloudhub-2:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas].
 |===
 
-CloudHub 2.0 provides a more granular resource capacity for applications. You can assign specific vCore increments (including 0.1, 0.2, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, and 4). This granularity helps match processing needs precisely and avoids forcing a jump from 0.2 to 1 vCores. Replicas with fewer than 1.0 vCores offer limited CPU and I/O suitable for smaller workloads, while those with one or more vCores provide performance consistency. CloudHub 2.0 has no 8 or 16 vCore equivalent — size large CloudHub workers down into multiple replicas instead.
+CloudHub 2.0 provides a more granular resource capacity for applications. You can assign specific vCore increments (including 0.1, 0.2, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, and 4). This granularity helps match processing needs precisely and avoids forcing a jump from 0.2 to 1 vCores. Replicas with fewer than 1.0 vCores offer limited CPU and I/O suitable for smaller workloads, while those with one or more vCores provide performance consistency.
+
+CloudHub 2.0 has no 8 or 16 vCore equivalent — size large CloudHub workers down into multiple replicas instead. Replicas are limited to 256 MB metaspace regardless of vCore size. Applications requiring more than the default 256 MB of `/tmp` storage should use 2 or more vCores.

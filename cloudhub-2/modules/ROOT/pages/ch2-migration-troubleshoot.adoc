@@ -168,9 +168,9 @@ For more information, see https://help.salesforce.com/s/articleView?id=005321536
 |Application isn't in an eligible VPC, or VPC hasn't been upgraded yet.
 |Verify that the VPC meets xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[eligibility requirements] and has been upgraded to a private space first.
 
-|Upgrade fails with CIDR conflict
-|The VPC CIDR block is smaller than /24 or doesn't have 100+ available IPs per subnet.
-|Review CIDR allocation. If the block is too small, create a new private space manually instead.
+|Upgrade fails with eligibility or capacity checks
+|VPC doesn't meet eligibility requirements: ≥25% free space and 100+ available IPs per subnet; legacy VPNs configured; Direct Connect or VPC Peering in use; TLS 1.1 ciphers present; or default VPC enabled. TCP traffic is also not supported on upgraded spaces.
+|Verify all requirements per xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[VPC Upgrade Eligibility]. Migrate Direct Connect or VPC Peering to Transit Gateway or VPN first. Reissue TLS 1.1 certificates with TLS 1.2+ ciphers. If your app needs TCP, create a new private space manually instead.
 
 |DLB certificates missing after upgrade
 |TLS 1.1 ciphers present in the original certificate, or transfer failure during best-effort migration.
@@ -182,7 +182,7 @@ For more information, see https://help.salesforce.com/s/articleView?id=005321536
 
 |Private space doesn't appear after upgrade
 |Upgrade is still in progress, or the upgrade failed silently.
-|Wait up to 30 minutes. If the private space still doesn't appear, then check *Runtime Manager* > *Private Spaces* and contact MuleSoft Support.
+|Allow up to 30 minutes for the upgrade to complete (see https://help.salesforce.com/s/articleView?id=005389730&type=1[KA 005389730]). If the private space still doesn't appear, then check *Runtime Manager* > *Private Spaces* and contact MuleSoft Support.
 
 |Can't delete VPC after upgrade
 |Migration not marked complete, or environments still associated with the VPC.
@@ -281,6 +281,51 @@ To diagnose connectivity issues between CloudHub platforms during migration, dep
 NOTE: In CloudHub 2.0 private spaces, *Ping* isn't supported due to security restrictions. Use TCP socket tests instead.
 
 See https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Network Tools Application For Connectivity Test From CloudHub VPC (KA 001115029)].
+====
+
+.Additional Troubleshooting Scenarios
+[%collapsible]
+====
+[cols="1,2,2"]
+|===
+|Symptom |Likely Cause |Resolution
+
+|Application deployment stuck in PENDING state, or replicas TERMINATED/RECOVERING
+|Insufficient cluster capacity or out-of-memory (OOM) errors at startup. The private space may not have enough available resources.
+|Check replica status and reason in Runtime Manager. Increase replica size or count, or reduce memory consumption in the application. Check if other applications in the private space are consuming resources.
+
+|"Unknown error" when deploying CH2 application after linking to CH1 app
+|The CH1 application was stopped before the link was fully established, causing the deployment to fail.
+|Keep the CH1 application STARTED until the link is complete and verified. See xref:ch2-migration-validate.adoc[Step 4: Validate and Switch Traffic] for proper sequencing.
+
+|504 (Gateway Timeout) errors during or after traffic switch
+|Client-side request takes longer than 300 seconds to send, or application takes longer than configured to respond. Read Response Timeout and max request timeout limits apply.
+|Verify client-side timeout is less than 300 seconds. Configure Read Response Timeout up to 3,600 seconds in the private space's *Advanced* settings. For uploads or long-running processes, break requests into smaller chunks or use asynchronous patterns.
+
+|Brief 502 or 503 errors during PS rolling updates or patches
+|During scheduled monthly patches or replica rolling updates, the platform temporarily recycles infrastructure. This is expected behavior.
+|Schedule traffic-switching cutover to avoid monthly maintenance windows if possible. Expect brief connectivity gaps during rolling updates. Monitor and resume after infrastructure stabilizes.
+
+|Object Store v2 in cluster mode throws ConcurrentModificationException or persistent VM queues lost on restart
+|Object Store v2 or VM queues in clustered mode have known issues. VM queue storage is ephemeral and lost on redeploy or restart.
+|Migrate to Anypoint MQ for persistent queues and disable persistent VM queues. For Object Store, verify cluster serialization configuration. See xref:mule-runtime::batch-processing.adoc[Batch Processing] for CH2 batch job behavior.
+
+|Outbound static IP addresses changed after migration; third-party systems reject traffic
+|Migrated private spaces have different outbound NAT IPs than CH1 apps. Third-party allowlists weren't updated with the new CH2 private space IPs (KI-62898).
+|Identify all backend systems that allowlist by source IP. Update their allowlists to include the new private space outbound IPs before switching 100% of traffic. During migration, maintain both old and new IPs in allowlists.
+
+|VPN connection shows "Unavailable" after migration; traffic doesn't flow
+|Duplicate or overlapping static routes exist on the VPN connection after migration. These can prevent proper route advertisement.
+|Check VPN routing tables for duplicate or overlapping routes. Remove duplicates. If issue persists, contact MuleSoft Support with your VPN connection ID and VPC/private space IDs.
+
+|Ping fails from private space to on-premises or external hosts
+|CloudHub 2.0 private spaces don't support ICMP (ping). The firewall or network policy may block UDP-based tests as well.
+|Use TCP socket tests instead of ping. Deploy the xref:anypoint-platform::network-tools-app.adoc[Network Tools] application to the private space and use its *Socket* test to verify connectivity.
+
+|DLB mTLS or URL-rewrite mapping rules are missing after migration
+|The VPC upgrade tool migrates these configurations on a best-effort basis. Some complex rules or custom configurations may not transfer automatically.
+|Manually recreate URL-rewrite rules as per-app path and path-rewrite settings in the *Ingress* tab. Reconfigure mTLS via the private space's TLS contexts and truststores. Verify mappings match the original DLB configuration.
+|===
 ====
 
 .Related Resources

@@ -12,7 +12,7 @@
 |CloudHub 2.0 adds firewall rules automatically when you create a private space.
 
 |By default, all traffic to a VPC is blocked unless explicitly allowed by a firewall rule. However, CloudHub automatically creates four default inbound firewall rules when you create a VPC.
-|Traffic to a private space is blocked unless explicitly allowed by a firewall rule.
+|By default, inbound traffic is blocked unless explicitly allowed by a firewall rule. However, CloudHub 2.0 automatically creates default rules allowing HTTP (80) and HTTPS (443) from `0.0.0.0/0`, and a default rule allowing all outbound egress traffic.
 
 a|CloudHub creates four default inbound rules automatically:
 

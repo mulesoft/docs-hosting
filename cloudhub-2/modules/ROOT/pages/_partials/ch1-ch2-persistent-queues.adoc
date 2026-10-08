@@ -7,5 +7,7 @@
 |CloudHub |CloudHub 2.0
 
 |CloudHub persistent queues store VM queue messages externally to the application. Use this feature mainly with VM components. Turn on CloudHub persistent queues on a per-application basis.
-|xref:mq::index.adoc[Anypoint MQ] provides persistent message storage in cloud infrastructure, eliminating VM-dependent queue management. Anypoint MQ provides asynchronous message processing, event-driven architectures, and cross-application communication. Configure Anypoint MQ on a per-application basis with automatic scaling and high availability.
+|CloudHub 2.0 doesn't support persistent VM queues. All VM queue storage is ephemeral and lost on application restart or redeploy. For persistent messaging, use xref:mq::index.adoc[Anypoint MQ], which provides persistent message storage in cloud infrastructure. Anypoint MQ provides asynchronous message processing, event-driven architectures, and cross-application communication. Configure Anypoint MQ on a per-application basis with automatic scaling and high availability.
+
+For batch jobs that used persistent queues in CloudHub, batch jobs in CloudHub 2.0 use xref:mule-runtime::batch-processing.adoc[Object Store v2] by default with no code changes required.
 |===

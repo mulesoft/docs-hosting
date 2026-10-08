@@ -22,4 +22,6 @@ a|
 
 |Contact the MuleSoft Support team to enable VPC peering and AWS Direct Connect.
 |CloudHub 2.0 supports Transit Gateway or VPN tunnel.
+
+|When upgrading a VPC to a private space, VPN and TGW connections transfer to the private space, but VPC peering is not migrated and can't be reused. CloudHub 2.0 apps can't use CloudHub VPC peering — migrate peering connections to Transit Gateway or VPN before upgrading.
 |===

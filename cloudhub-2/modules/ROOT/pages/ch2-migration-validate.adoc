@@ -294,13 +294,13 @@ If there's a hard change in traffic from one application to the other, policy co
 [discrete]
 === Rate-Limiting Mitigation
 
-*Problem:* The effective rate limit doubles during a 50/50 traffic split because each application maintains independent counters.
+*Problem:* The effective rate limit doubles during a 50/50 traffic split because each application (CloudHub and CloudHub 2.0) maintains independent policy counters, and each maintains per-replica counters.
 
 *Solutions:*
 
-* Configure half the rate limit on the CloudHub 2.0 application during the split.
+* Configure half the rate limit on both the CloudHub 1.0 and CloudHub 2.0 applications during the split.
 * Accept temporarily doubled limits during the transition.
-* Apply rate-limiting policies only after 100% cutover.
+* Apply rate-limiting policies only after 100% cutover and consolidate back to full limits.
 
 [discrete]
 === Autodiscovery
@@ -315,11 +315,28 @@ During the CloudHub to CloudHub 2.0 application migration, traffic gradually shi
 ====
 After reaching 100% traffic on CloudHub 2.0, confirm:
 
-* [ ] Application is reachable with new domain URLs and responds through port 8081 as expected.
+* [ ] Application is reachable with new domain URLs and its HTTP listener is bound to `0.0.0.0:${http.port}` as expected.
 * [ ] API policies, certificates, and secure properties are functioning post-deployment.
 * [ ] Inter-app communication within the private space works correctly.
 * [ ] Connectivity to on-premises systems through VPN or transit gateway (TGW) is functioning.
 * [ ] Anypoint Monitoring dashboards are active and environment-specific alerts are configured.
+====
+
+.Contact Support for Migration Issues
+[%collapsible]
+====
+If you encounter issues during or after traffic switching, gather the following information before contacting MuleSoft Support.
+
+* Org ID, environment name, and control plane/region (e.g., `usa-e1`, `deu-c1.n`).
+* CloudHub 1.0 application name and CloudHub 2.0 deployment ID.
+* Private space name and ID.
+* Timestamps with timezone of when the issue occurred.
+* `x-request-id` header values from failed requests (if applicable).
+* Replica status and reason (from the CloudHub 2.0 application's *Deployments* tab).
+* DLB name and failover status.
+* Traffic switch percentage at the time the issue occurred.
+
+Include this information in your support case to help engineering teams diagnose network, routing, and application state issues quickly.
 ====
 
 .Update DNS and Perform DLB Failover

@@ -59,6 +59,7 @@ Add the `cloudhub2Deployment` configuration to your Mule Maven Plugin section:
       <muleVersion>${muleVersion}</muleVersion>
       <username>${user}</username>
       <password>${pass}</password>
+      <!-- Consider using connected-app authentication instead: see Authentication Methods below -->
       <applicationName>${appName}</applicationName>
       <replicas>1</replicas>
       <vCores>1</vCores>
@@ -128,7 +129,7 @@ IMPORTANT: Use only asynchronous log appenders. CloudHub 2.0 automatically remov
 See xref:ch2-integrate-log-system.adoc[Integrate with Your Logging System Using Log4j].
 
 * Remove persistent queues and implement Anypoint MQ (see <<migrate-persistent-queues>>).
-* Remove CloudHub Connector and replace it with custom logic.
+* CloudHub Connector notifications aren't supported on CloudHub 2.0. If your applications use CloudHub Connector for notifications, replace it with the Email Connector or Anypoint Monitoring alerts.
 * Update `mule-artifact.json`: set `minMuleVersion` to the required version.
 * Remove CloudHub 1.0–specific port configurations (`http.port`, `https.port`, `http.private.port`, `https.private.port`). CloudHub 2.0 uses the standard `${http.port}` property (port 8081).
 
@@ -146,7 +147,7 @@ CloudHub 2.0 doesn't support CloudHub persistent VM queues. If your application 
 |Aspect |CloudHub Persistent VM Queues |Anypoint MQ
 
 |Architecture
-|In-process, per-worker, file-backed queues managed by CloudHub infrastructure. Enable in deployment settings.
+|External to the application, managed by CloudHub infrastructure. Enable in deployment settings.
 |Fully external, cloud-hosted messaging service. Queues and exchanges are managed independently of the application.
 
 |Delivery guarantee
@@ -158,12 +159,12 @@ CloudHub 2.0 doesn't support CloudHub persistent VM queues. If your application 
 |Configurable retention (default 7 days, up to 14 days). Maximum message size 10 MB.
 
 |Scope
-|Per-application. Messages are accessible only within the same application's workers.
+|Per-application. Messages are accessible only within the same application's instances.
 |Cross-application. Any application with credentials can publish or consume from a queue.
 
 |Performance
-|Low latency (in-process). Adding a message: 10–20 ms. Consuming: 70–100 ms.
-|Network hop adds latency. Throughput scales independently of application replicas.
+|CloudHub infrastructure manages throughput. Throughput scales with the number of application instances.
+|External service. Throughput scales independently of application replicas.
 
 |Cost
 |Included with CloudHub.
@@ -263,7 +264,7 @@ See xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector] for the latest
 ==== Considerations
 
 * *Egress rules:* If you use application-level egress rules in your private space, add rules that allow HTTPS to the Anypoint MQ regional endpoint (for example, `mq-us-east-1.anypoint.mulesoft.com`) and the Anypoint control plane (`anypoint.mulesoft.com`).
-* *Batch jobs:* CloudHub persistent queues were used internally for batch job queuing. In CloudHub 2.0, batch jobs use Object Store v2 by default. Batch jobs don't require code changes.
+* *Batch jobs:* CloudHub persistent queues were used internally for batch job queuing. In CloudHub 2.0, batch jobs use xref:mule-runtime::batch-processing.adoc[Object Store v2 by default]. Batch jobs don't require code changes.
 * *Testing:* Test MQ connectivity from your private space before you migrate production workloads.
 
 For more information, see xref:mq::index.adoc[Anypoint MQ] and xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector].
