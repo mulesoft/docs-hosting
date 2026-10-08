@@ -12,7 +12,7 @@ All connectivity requirements are for outbound connections from your network to 
 
 Runtime Manager agent establishes persistent WebSocket connections that remain active for ongoing communication with Anypoint Platform services.
 
-This page lists US Cloud, EU Cloud, and MuleSoft Government Cloud endpoints. For Canada Cloud, Japan Cloud, India Cloud, and Australia Cloud, allowlist the Platform URL, analytics ingest, and Runtime Manager hosts in xref:control-planes::control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists].
+This page lists US Cloud, EU Cloud, MuleSoft Government Cloud, Japan Cloud, India Cloud, Australia Cloud, and United Kingdom Cloud endpoints. For Canada Cloud, allowlist the Platform URL, analytics ingest, and Runtime Manager hosts in xref:control-planes::control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists].
 
 
 == Mutual TLS Authentication Endpoints
@@ -66,6 +66,10 @@ Configure your firewall to allow outbound connections to these ports and hostnam
 |*EU*|data-authenticator.eu1.anypoint.mulesoft.com |  443
 |*EU*|exchange2-asset-manager-kprod-eu.s3.eu-central-1.amazonaws.com |  443
 |*EU*|eu1.ingest.mulesoft.com |  8443
+|*JP*|runtime-manager.jp1.platform.mulesoft.com | 8443
+|*IN*|runtime-manager.in1.platform.mulesoft.com | 8443
+|*AU*|runtime-manager.au1.platform.mulesoft.com | 8443
+|*GB*|runtime-manager.gb1.platform.mulesoft.com | 8443
 |===
 
 
