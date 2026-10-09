@@ -81,7 +81,10 @@ If you disable logging, the *Logs* heading still appears in the Runtime Manager 
 
 To configure additional log levels and categories to include in logs:
 
+Set the log level for specific a Java package class by selecting the log level, entering the `package.name`, pressing the Enter key, and click *Apply Changes*.
+
 . Click the *Monitoring* tab.
+
 . Select the log level:
 +
 ** *INFO*: Informative messages
@@ -90,11 +93,12 @@ To configure additional log levels and categories to include in logs:
 ** *ERROR*: Error messages, such as when an exception occurs
 ** *FATAL*: Fatal messages for when an application fails
 
-. Optionally, set the log level for specific a Java package class by selecting the log level, entering the `package.name`, and pressing the Enter key.
+. Enter the `package.name`, and press the Enter key.
+
 . Click *Apply Changes*.
 
 [NOTE]
-Changing the log level and clicking *Apply Changes* restarts the application.
+Changing the log level and clicking *Apply Changes* creates a new configuration and restarts the application.
 
 // end::configureLogging[]
 
