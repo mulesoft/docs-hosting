@@ -91,11 +91,11 @@ A `201` response indicates that the request was accepted. MuleSoft then *asynchr
 [[establish-the-private-link-connection]]
 == Establish the Private Link Connection
 
-. *Poll for the endpoint service name.* Because provisioning is asynchronous, poll the resource until `status` reports the service is available and `endpointServiceName` is populated:
+. *Check for the endpoint service name.* Because provisioning is asynchronous, the resource will update the `status` when the service is available and populate the `endpointServiceName` as well:
 +
 [source,curl,linenums]
 ----
-curl -s \
+curl \
   "https://anypoint.mulesoft.com/runtimefabric/api/organizations/$ORG/privatespaces/$PS/endpointservice" \
   -H "Authorization: Bearer $TOKEN"
 ----
