@@ -363,7 +363,7 @@ Europe::
 | xref:design-center::design-create-publish-api-specs.adoc[API Designer] | n/a | Available | Not planned | n/a
 
 //API EXPERIENCE HUB - EUROPE: EU | UK
-| xref:api-experience-hub::index.adoc[API Experience Hub] | n/a | Available | Available | n/a
+| xref:api-experience-hub::index.adoc[API Experience Hub] | n/a | Available | Planned | n/a
 
 //API FUNCTIONAL MONITORING - EUROPE: EU | UK
 | xref:api-functional-monitoring::index.adoc[API Functional Monitoring] | n/a | Available | Available | n/a
