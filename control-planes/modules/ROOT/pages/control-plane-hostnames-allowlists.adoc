@@ -9,7 +9,7 @@ For MuleSoft Government Cloud hostnames, see xref:hybrid-standalone::configure-p
 
 == Control Plane Hostnames
 
-Allow outbound HTTPS (port 443) to these hosts, substituting the row for your cloud. Some Runtime Manager and ingest endpoints also use port 8443.
+Allow outbound HTTPS (port 443) to these hosts, substituting the row for your cloud. For Hybrid Standalone deployments in newer regions (Canada, Japan, India, Australia, United Kingdom), the Runtime Manager endpoint uses port 8443. Some ingest endpoints also use port 8443.
 
 [%header%autowidth.spread]
 |===
@@ -57,6 +57,22 @@ Allow outbound HTTPS (port 443) to these hosts, substituting the row for your cl
 | `runtime-manager.gb1.platform.mulesoft.com`
 | Copy the command Runtime Manager generates when you add a server.
 |===
+
+=== Hybrid Standalone Port Requirements
+
+For Hybrid Standalone deployments in newer regions (Canada, Japan, India, Australia, and United Kingdom), the Runtime Manager endpoint requires port 8443 instead of port 443. Ensure your firewall rules include:
+
+* `runtime-manager.<region>.platform.mulesoft.com:8443` (where `<region>` is `ca1`, `jp1`, `in1`, `au1`, or `gb1`)
+
+These endpoints also support mTLS and WebSocket connections, consistent with US and EU deployments.
+
+=== Metrics and Monitoring Endpoints
+
+For Anypoint Monitoring (including OpenTelemetry metrics ingestion), allow outbound access to the ingest endpoints in each region using port 8443:
+
+* `ingest.<region>.platform.mulesoft.com:8443` (where `<region>` is `au1`, `in1`, `jp1`, `gb1`, or `ca1`)
+
+Note: The `data-authenticator.anypoint.mulesoft.com` endpoint is not used in newer regions and does not require allowlisting.
 
 Don't allowlist Anypoint Platform services by a single IP address. Some addresses are assigned dynamically and can change.
 
