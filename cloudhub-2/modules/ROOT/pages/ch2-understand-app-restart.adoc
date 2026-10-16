@@ -30,7 +30,7 @@ For more information about designing resilient applications, see xref:ch2-ha-dr.
 
 CloudHub 2.0 overrides the Mule runtime's default `shutdownTimeout` value to avoid disruption for long-running flows. By default, the Mule runtime sets `shutdownTimeout` to five seconds. CloudHub 2.0 extends the shutdown grace period to accommodate applications that require more time to complete in-flight processing.
 
-For infrastructure-triggered restarts (such as infrastructure failure, maintenance, security patching, or replica rebalancing):
+For infrastructure-triggered restarts (such as infrastructure failure, maintenance, security patching, private space upgrades, or replica rebalancing):
 
 * CloudHub 2.0 provides a grace period up to a maximum of 12 hours.
 * If no custom `shutdownTimeout` is configured, CloudHub 2.0 applies a 12-hour maximum grace period to ensure long-running flows complete without disruption.
