@@ -69,7 +69,7 @@ Agency systems and your API listeners use these cipher suites to negotiate TLS w
 
 == Authentication and Access Control
 
-You federate authentication to your identity provider by using SAML or OpenID Connect.
+Federate authentication to your identity provider by using SAML or OpenID Connect.
 
 Under shared controls, you're responsible for these tasks:
 
