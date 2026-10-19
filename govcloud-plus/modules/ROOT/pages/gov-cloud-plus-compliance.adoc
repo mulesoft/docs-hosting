@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-MuleSoft Government Cloud Plus meets FedRAMP Certification Class D (High) (formerly FedRAMP (High)) and Department of Defense Impact Level 4 (IL4) security and compliance standards for U.S. federal and defense agency integration workloads. It runs on a dedicated AWS GovCloud (US-East) hardware partition and inherits compliance certifications from Salesforce Government Cloud Plus.
+MuleSoft Anypoint Platform on Salesforce Government Cloud Plus (MuleSoft Government Cloud Plus) meets FedRAMP Certification Class D (High) (formerly FedRAMP (High)) and Department of Defense Impact Level 4 (IL4) security and compliance standards for U.S. federal and defense agency integration workloads. It runs on a dedicated AWS GovCloud (US-East) hardware partition and inherits compliance certifications from Salesforce Government Cloud Plus.
 
 == Compliance Authorizations
 
