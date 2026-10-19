@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-aliases: cloudhub::app-migration.adoc
 :page-pagination:
 
 After setting up your CloudHub 2.0 private space, migrate your applications from CloudHub. Choose a migration procedure based on how you created your private space.

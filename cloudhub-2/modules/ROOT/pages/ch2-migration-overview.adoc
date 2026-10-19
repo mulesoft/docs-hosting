@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-aliases: cloudhub::ch-ch2-migration-configuration.adoc
 :page-pagination: next
 
 This guide takes you through migrating CloudHub applications and infrastructure to CloudHub 2.0. Review the platform differences, choose a migration path, and complete each step in order.

@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-aliases: cloudhub::ch-ch2-migration-completion.adoc
 :page-pagination:
 
 After deploying your application to CloudHub 2.0, validate it by gradually switching traffic, monitoring for issues, and completing the cutover.
