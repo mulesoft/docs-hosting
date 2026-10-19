@@ -59,15 +59,15 @@ DR centers on your RPO and RTO. RPO is the point you return to after a disaster.
 
 Backups form a major component of a solid disaster recovery program. How much of your backup environment runs before a disaster determines your standby type, and each type trades cost for recovery time:
 
-Cold standby:: You set up the backup environment but don't run it. After you detect an outage, you start the environment, start or deploy your Mule applications, and route traffic to them. Cold standby costs the least but has the longest RTO.
+Cold standby:: Nothing runs in the backup environment, which keeps your expense to a minimum. After you detect an outage, you start or create the backup infrastructure, deploy and start your Mule applications, and route traffic to them. Cold standby costs the least but has the longest RTO.
 
-Warm standby:: The backup infrastructure runs, but your Mule runtimes or applications stay stopped. After you detect an outage, you start them and route traffic to them. Warm standby has a shorter RTO than cold standby.
+Warm standby:: You fully set up the backup infrastructure and deploy your Mule applications, but no Mule applications run. After you detect an outage, you start them and route traffic to them. Warm standby has a shorter RTO than cold standby.
 
-Hot standby (active-passive):: The backup environment, including your Mule runtimes and applications, runs fully but doesn't process requests until you detect an outage. Your RTO covers only the time to route traffic to the backup environment.
+Hot standby (active-passive):: You install, configure, and fully run the backup environment, including your Mule runtimes and applications, but it doesn't process requests until you detect an outage. Your RTO covers only the time to route traffic to the backup environment.
 
 Active-active:: Two or more environments run and process traffic at the same time. When one environment fails, the others keep serving requests with no downtime. Active-active costs the most.
 
-How each deployment model implements these types depends on what you manage. For example, on-premises, a cold standby leaves the operating system stopped, whereas on CloudHub 2.0, a cold standby leaves the application undeployed. See the HA and DR page for your deployment model.
+How each deployment model implements these types depends on what you manage. For example, on-premises, a cold standby leaves the operating system stopped, whereas on CloudHub 2.0, a cold standby has no active private space in the backup region. See the HA and DR page for your deployment model.
 
 [%header%autowidth.spread]
 |===
