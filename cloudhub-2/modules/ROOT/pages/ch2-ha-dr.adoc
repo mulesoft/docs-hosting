@@ -34,7 +34,7 @@ CloudHub 2.0 improves on CloudHub in these areas:
 
 * Decouples the runtime plane region from the control plane region through a service-oriented architecture.
 * Supports clustering, which lets you configure HA while running the process on a single primary replica.
-* Optimizes usage through elastic scaling with Horizontal Pod Autoscaling (HPA) for warm standby when a failover is required.
+* Optimizes usage through elastic scaling with Horizontal Pod Autoscaling (HPA) for scaled-down hot standby deployments when a failover is required.
 * Manages applications in active/passive mode, which lets you set schedulers and listening connectors—such as Anypoint MQ, Database, FTP, and Salesforce listeners—to a stopped or inactive state. Externalize DR flags and expose REST endpoints to enable and disable flows through a Groovy script as needed.
 
 == Disaster Recovery in CloudHub 2.0
@@ -86,35 +86,41 @@ image::hadr-load-balancer.png["A bring-your-own global load balancer routing tra
 * With usage-based pricing (UBP), this configuration distributes xref:general::usage-metrics.adoc[Mule messages and data throughput] between the two regions and consumes Mule flows based on the number of running replicas per application deployment.
 * Without UBP, this configuration consumes additional vCores.
 
-==== Warm Standby Configuration
+==== Hot Standby (Active-Passive) Configuration
 
-*When to use:* Choose this configuration for medium-impact stateless APIs that tolerate brief downtime during failover, or for stateful APIs.
+In a hot standby configuration, your backup application runs in the passive region but doesn't process requests until you detect an outage.
+
+*When to use:* Choose this configuration for high-impact stateful APIs, or for medium-impact stateless APIs that tolerate brief downtime during failover.
 
 *Application state:*
 
-* Set up infrastructure across multiple regions. In the passive region, deploy backup applications either fully scaled up or scaled down, with fewer replicas or smaller replica sizes. Scaled-down applications rely more on the control plane to redeploy and scale up during an outage in the primary runtime plane region.
-* Configure CPU-based Horizontal Pod Autoscaling (HPA) where your organization supports it. See xref:ch2-configure-horizontal-autoscaling.adoc[].
+* Set up infrastructure across multiple regions, and deploy and run your backup applications in the passive region.
+* Run the backup applications either fully scaled up or scaled down, with fewer replicas or smaller replica sizes. Scaled-down applications rely more on the control plane to redeploy and scale up during an outage in the primary runtime plane region.
+* For scaled-down backup applications, configure CPU-based Horizontal Pod Autoscaling (HPA) where your organization supports it. See xref:ch2-configure-horizontal-autoscaling.adoc[].
 
 *Traffic management:*
 
 * Route traffic to only one region at a time with a BYO global load balancer.
 * Run health checks to determine DR and switch routing.
-* For non-HTTP use cases such as schedulers, externalize a DR flag in your application and use a Groovy script to enable and disable scheduler flows directly in the runtime plane, which reduces reliance on the control plane to trigger your backup applications through a cold-standby approach.
+* For non-HTTP use cases such as schedulers, externalize a DR flag in your application and use a Groovy script to enable and disable scheduler flows directly in the runtime plane. Because the backup application is already running, this approach doesn't rely on the control plane to activate your backup applications.
 
 *Licensing:*
 
-* With UBP, this configuration consumes no messages or throughput, and it consumes fewer flows when you configure xref:ch2-configure-horizontal-autoscaling.adoc[CPU-based HPA].
-* Without UBP, this configuration consumes fewer vCores when the backup deployment stays scaled down before it scales up in response to an outage in the primary region.
+* With UBP, this configuration consumes no messages or throughput until traffic switches to the backup region, and it consumes fewer flows when you configure xref:ch2-configure-horizontal-autoscaling.adoc[CPU-based HPA].
+* Without UBP, this configuration consumes additional vCores for the backup deployment. It consumes fewer vCores when the backup deployment stays scaled down before it scales up in response to an outage in the primary region.
 
-*Recovery time objective:* A fully scaled backup application experiences lower disruption during an outage. A scaled-down backup application has an RTO that depends on the time to scale up, either through control-plane-triggered redeployments or through xref:ch2-configure-horizontal-autoscaling.adoc[CPU-based HPA]. To let integrating systems resend events or in-flight transaction data, capture recovery points in logs and monitoring, which builds reliability into your applications.
+*Recovery time objective:* A fully scaled backup application has minimal to no downtime, covering only the time to route traffic to the backup region. A scaled-down backup application has an RTO that depends on the time to scale up, either through control-plane-triggered redeployments or through xref:ch2-configure-horizontal-autoscaling.adoc[CPU-based HPA]. To let integrating systems resend events or in-flight transaction data, capture recovery points in logs and monitoring, which builds reliability into your applications.
 
-==== Cold Standby Configuration
+==== Warm Standby Configuration
 
-*When to use:* Choose this configuration for low-impact, stateless or stateful applications that tolerate longer downtime during recovery.
+In a warm standby configuration, your backup application is deployed to the passive region but stays stopped until you detect an outage.
+
+*When to use:* Choose this configuration for medium-impact stateless or stateful applications that tolerate some downtime during recovery.
 
 *Application state:*
 
-* Set up infrastructure, but keep your application stopped in the passive region.
+* Set up infrastructure, such as your private space and networking, in the passive region.
+* Deploy your backup application to the passive region, and keep it stopped.
 * Start the application only when you detect an outage.
 
 *Traffic management:*
@@ -125,15 +131,39 @@ image::hadr-load-balancer.png["A bring-your-own global load balancer routing tra
 
 *Licensing:* Because the backup application stays stopped, this configuration consumes no additional vCores, Mule flows, Mule messages, or data throughput until the backup application starts during a disaster.
 
-*Recovery time objective:* Your RTO depends on the time to start applications through the control plane.
+*Recovery time objective:* Your RTO depends on the time to start applications through the control plane and route traffic to the backup region.
+
+==== Cold Standby Configuration
+
+In a cold standby configuration, you prepare the passive region but don't deploy your backup application until you detect an outage.
+
+*When to use:* Choose this configuration for low-impact stateless or stateful applications that tolerate longer downtime during recovery.
+
+*Application state:*
+
+* Set up infrastructure, such as your private space and networking, in the passive region.
+* Keep your application artifacts and configuration available outside the primary region, for example, in Exchange and in your source control or CI/CD pipeline.
+* Deploy your backup application to the passive region only when you detect an outage.
+
+*Traffic management:*
+
+* Route traffic only to the region that is up with a BYO global load balancer.
+* Run health checks to determine DR, and use scripts or your CI/CD pipeline to deploy your backup applications and switch traffic routing.
+* If the control plane is unavailable, you cannot deploy the backup application to the runtime plane.
+
+*Licensing:* Because the backup application isn't deployed, this configuration consumes no additional vCores, Mule flows, Mule messages, or data throughput until you deploy the backup application during a disaster.
+
+*Recovery time objective:* Your RTO depends on the time to deploy and start applications through the control plane and route traffic to the backup region. This configuration has the longest RTO of the standby options.
 
 === Runtime Plane High Availability and Disaster Recovery Summary
 
 High-impact stateless API:: Use an active-active setup with active replicas in two regions and an external load balancer.
 
-High-impact stateful API:: Use an external load balancer to route traffic, and run health checks to determine DR and switch traffic.
+High-impact stateful API:: Use a hot standby setup with fully scaled backup applications running in the secondary region. Use an external load balancer to route traffic, and run health checks to determine DR and switch traffic.
 
-Medium-impact stateless and stateful API:: Use cold or warm standby with applications deployed to both regions, and stop or scale down the applications or replicas in the secondary region.
+Medium-impact stateless and stateful API:: Use a hot standby setup with scaled-down backup applications, or a warm standby setup with backup applications deployed but stopped in the secondary region.
+
+Low-impact stateless and stateful API:: Use a cold standby setup, and deploy your backup applications to the secondary region only when you detect an outage.
 
 === Disaster Recovery for Regional Services
 
