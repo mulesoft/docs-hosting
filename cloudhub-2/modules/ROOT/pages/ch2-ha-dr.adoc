@@ -136,25 +136,28 @@ In a warm standby configuration, you fully set up your backup infrastructure in 
 
 ==== Cold Standby Configuration
 
-In a cold standby configuration, nothing runs in the passive region, and you keep your expense to a minimum. You have no active private space in the passive region until you detect an outage.
+In a cold standby configuration, nothing runs in the passive region, and you keep your expense to a minimum. Your cold standby is a plan or script that builds your backup environment in the passive region after you detect an outage.
 
 *When to use:* Choose this configuration for low-impact stateless or stateful applications that tolerate longer downtime during recovery.
 
 *Application state:*
 
-* Don't create a private space or deploy applications in the passive region before an outage.
-* Keep your private space configuration, API Manager configuration, application artifacts, and application properties available outside the primary region, for example, in Exchange and in your source control or CI/CD pipeline.
-* When you detect an outage, create and configure the private space, configure API Manager, and deploy your backup applications to the passive region.
+* Don't create a private space or deploy applications or gateways in the passive region before an outage.
+* Maintain a plan or script that, when you detect an outage:
+.. Creates a private space and other infrastructure connectivity, such as VPNs and transit gateway attachments, in the passive region.
+.. Deploys and starts your Mule applications and Omni Gateway instances.
+.. Deploys your API policies.
+* Keep the artifacts and configuration that your plan or script uses available outside the primary region, for example, in Exchange and in your source control or CI/CD pipeline.
 
 *Traffic management:*
 
 * Route traffic only to the region that is up with a BYO global load balancer.
-* Run health checks to determine DR, and use scripts or your CI/CD pipeline to set up the passive region, deploy your backup applications, and switch traffic routing.
+* Run health checks to determine DR, run your plan or script to build the backup environment, and switch traffic routing.
 * If the control plane is unavailable, you cannot create the private space or deploy the backup applications.
 
-*Licensing:* Because nothing runs in the passive region, this configuration consumes no private space, API Manager, vCore, Mule flow, Mule message, or data throughput entitlements for the DR region until you set up the region during a disaster.
+*Licensing:* Because nothing runs in the passive region, this configuration consumes no private space, vCore, Mule flow, Mule message, or data throughput entitlements for the DR region until you build the backup environment during a disaster.
 
-*Recovery time objective:* Your RTO depends on the time to create and configure the private space, configure API Manager, deploy and start applications through the control plane, and route traffic to the backup region. This configuration has the longest RTO of the standby options.
+*Recovery time objective:* Your RTO depends on the time your plan or script takes to create the private space and infrastructure connectivity, deploy and start your Mule applications and Omni Gateway instances, and deploy your API policies, plus the time to route traffic to the backup region. This configuration has the longest RTO of the standby options.
 
 === Runtime Plane High Availability and Disaster Recovery Summary
 

@@ -59,7 +59,7 @@ DR centers on your RPO and RTO. RPO is the point you return to after a disaster.
 
 Backups form a major component of a solid disaster recovery program. How much of your backup environment runs before a disaster determines your standby type, and each type trades cost for recovery time:
 
-Cold standby:: Nothing runs in the backup environment, which keeps your expense to a minimum. After you detect an outage, you start or create the backup infrastructure, deploy and start your Mule applications, and route traffic to them. Cold standby costs the least but has the longest RTO.
+Cold standby:: Nothing runs in the backup environment, which keeps your expense to a minimum. Your cold standby is a plan or script that, after you detect an outage, starts or creates the backup infrastructure, deploys and starts your Mule applications, and routes traffic to them. Cold standby costs the least but has the longest RTO.
 
 Warm standby:: You fully set up the backup infrastructure and deploy your Mule applications, but no Mule applications run. After you detect an outage, you start them and route traffic to them. Warm standby has a shorter RTO than cold standby.
 
@@ -67,7 +67,7 @@ Hot standby (active-passive):: You install, configure, and fully run the backup 
 
 Active-active:: Two or more environments run and process traffic at the same time. When one environment fails, the others keep serving requests with no downtime. Active-active costs the most.
 
-How each deployment model implements these types depends on what you manage. For example, on-premises, a cold standby leaves the operating system stopped, whereas on CloudHub 2.0, a cold standby has no active private space in the backup region. See the HA and DR page for your deployment model.
+How each deployment model implements these types depends on what you manage. For example, on-premises, a cold standby leaves the operating system stopped, whereas on CloudHub 2.0, a cold standby is a plan or script to create the private space and deploy your applications in the backup region. See the HA and DR page for your deployment model.
 
 [%header%autowidth.spread]
 |===
