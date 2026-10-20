@@ -67,7 +67,7 @@ Hot standby (active-passive):: You install, configure, and fully run the backup 
 
 Active-active:: Two or more environments run and process traffic at the same time. When one environment fails, the others keep serving requests with no downtime. Active-active costs the most.
 
-How each deployment model implements these types depends on what you manage. For example, on-premises, a cold standby leaves the operating system stopped, whereas on CloudHub 2.0, a cold standby is a plan or script to create the private space and deploy your applications in the backup region. See the HA and DR page for your deployment model.
+How each deployment model implements these types depends on what you manage. For example, in an on-premises deployment, a cold standby leaves the operating system stopped, whereas in CloudHub 2.0, a cold standby is a plan or script to create the private space and deploy your applications in the backup region. See the HA and DR page for your deployment model.
 
 [%header%autowidth.spread]
 |===
