@@ -22,7 +22,7 @@ Before migrating applications, set up your CloudHub 2.0 infrastructure. Choose b
 |===
 
 [[create-a-new-private-space-manually]]
-.Create a New Private Space Manually
+== Create a New Private Space Manually
 [%collapsible]
 ====
 Create a new private space when your VPC isn't eligible for the upgrade tool, or when you need both CloudHub and CloudHub 2.0 to coexist on the same network with independent CIDR blocks.
@@ -106,7 +106,7 @@ After creating the private space, confirm:
 ====
 
 [[upgrade-a-vpc-to-a-private-space]]
-.Upgrade a VPC to a Private Space
+== Upgrade a VPC to a Private Space
 [%collapsible]
 ====
 Use the in-product VPC upgrade tool to migrate your CloudHub VPC to a CloudHub 2.0 private space while retaining your existing infrastructure configuration.
@@ -196,7 +196,7 @@ IMPORTANT: The VPC upgrade tool migrates DLB certificates on a best-effort basis
 If the upgrade fails, see xref:ch2-migration-troubleshoot.adoc#troubleshoot-vpc-upgrade[VPC Upgrade Issues].
 ====
 
-.Migrate DLB Features to CloudHub 2.0 Ingress
+== Migrate DLB Features to CloudHub 2.0 Ingress
 [%collapsible]
 ====
 When migrating from a CloudHub DLB to CloudHub 2.0's ingress load balancer, review how DLB features map to CloudHub 2.0 equivalents and what changes are required:
@@ -227,10 +227,10 @@ When migrating from a CloudHub DLB to CloudHub 2.0's ingress load balancer, revi
 For additional DLB and ingress routing details, see xref:ch2-migration-comparison.adoc#routing-capabilities-comparison[Routing Capabilities Comparison].
 ====
 
-.Enable Cross-Platform Communication
+== Enable Cross-Platform Communication
 [%collapsible]
 ====
-During a phased migration, applications on CloudHub 2.0 and CloudHub 1.0 must communicate across platforms. This section covers the connectivity configuration required for cross-platform communication.
+During a phased migration, configure routing, firewall rules, and TLS so CloudHub and CloudHub 2.0 applications can communicate across platforms.
 
 [discrete]
 === CloudHub 2.0 to CloudHub 1.0 (via DLB)
@@ -370,7 +370,7 @@ After configuring cross-platform communication, use the MuleSoft Network Tools a
 NOTE: In CloudHub 2.0 private spaces, the *Ping* command isn't supported due to security restrictions. Use TCP socket tests instead. See https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Network Tools Application For Connectivity Test From CloudHub VPC (KA 001115029)].
 ====
 
-.Plan for Static IP Changes
+== Plan for Static IP Changes
 [%collapsible]
 ====
 Static IP allocation differs between CloudHub and CloudHub 2.0:
@@ -414,7 +414,7 @@ If backend systems (databases, SaaS APIs, on-premises services) have firewall ru
 * For private spaces created by upgrading a VPC, the *Network* tab may not display all outbound static IPs. If you need the complete list, contact MuleSoft Support with your organization ID and private space ID.
 ====
 
-.Maintain Business Continuity During Migration
+== Maintain Business Continuity During Migration
 [%collapsible]
 ====
 During the migration, continue to deploy and manage applications in your VPC to maintain business continuity.

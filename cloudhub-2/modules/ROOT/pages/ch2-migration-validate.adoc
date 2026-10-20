@@ -7,7 +7,7 @@ endif::[]
 
 After deploying your application to CloudHub 2.0, validate it by gradually switching traffic, monitoring for issues, and completing the cutover.
 
-.Switch Traffic to CloudHub 2.0
+== Switch Traffic to CloudHub 2.0
 [%collapsible]
 ====
 After you deploy your CloudHub 2.0 application, test it by directing traffic to it and verifying network connectivity and application behavior.
@@ -150,7 +150,7 @@ Different application types call for different switching strategies:
 |===
 ====
 
-.Understand Your Traffic Source
+== Understand Your Traffic Source
 [%collapsible]
 ====
 Your traffic source determines which DNS record CloudHub updates to manage traffic flow between your CloudHub and CloudHub 2.0 applications during migration.
@@ -196,9 +196,11 @@ For applications using an SLB and expecting HTTP traffic:
 . Add a firewall rule allowing HTTP from any source.
 ====
 
-.Monitor and Validate
+== Monitor and Validate
 [%collapsible]
 ====
+Monitor application health and performance during the cutover, and use defined thresholds to decide when to roll back.
+
 [discrete]
 === What to Monitor
 
@@ -245,7 +247,7 @@ Some behaviors are expected during traffic switching and don't require a rollbac
 ====
 
 [[manage-api-policies-during-traffic-switching]]
-.Manage API Policies During Traffic Switching
+== Manage API Policies During Traffic Switching
 [%collapsible]
 ====
 When you apply API policies to your new application, they begin with a clean internal status.
@@ -311,7 +313,7 @@ Autodiscovery connects a deployed Mule application with an API defined in API Ma
 During the CloudHub to CloudHub 2.0 application migration, traffic gradually shifts, and both applications are active simultaneously. To maintain consistent policy enforcement, configure equivalent policies on your CloudHub 2.0 application's API instance during traffic switching.
 ====
 
-.Post-Validation Checklist
+== Post-Validation Checklist
 [%collapsible]
 ====
 After reaching 100% traffic on CloudHub 2.0, confirm:
@@ -323,7 +325,7 @@ After reaching 100% traffic on CloudHub 2.0, confirm:
 * [ ] Anypoint Monitoring dashboards are active and environment-specific alerts are configured.
 ====
 
-.Contact Support for Migration Issues
+== Contact Support for Migration Issues
 [%collapsible]
 ====
 If you encounter issues during or after traffic switching, gather the following information before contacting MuleSoft Support.
@@ -340,9 +342,11 @@ If you encounter issues during or after traffic switching, gather the following 
 Include this information in your support case to help engineering teams diagnose network, routing, and application state issues quickly.
 ====
 
-.Update DNS and Perform DLB Failover
+== Update DNS and Perform DLB Failover
 [%collapsible]
 ====
+Update client DNS records and fail over eligible DLB domains to route traffic exclusively to CloudHub 2.0.
+
 [discrete]
 === Update DNS
 
@@ -363,7 +367,7 @@ This fails over the `anypointdns.net` domain to CloudHub 2.0, removes any additi
 NOTE: If there are failures during this stage, restart the stopped DLB to point `anypointdns.net` to CloudHub. After you delete the DLB, you can't roll back to CloudHub.
 ====
 
-.Complete the Application Upgrade
+== Complete the Application Upgrade
 [%collapsible]
 ====
 After traffic fully redirects to the CloudHub 2.0 application, stop your CloudHub application within 30 days and mark the upgrade as complete.

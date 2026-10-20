@@ -52,7 +52,7 @@ Delete all VPN and transit gateway connections associated with the CloudHub VPC.
 
 How you complete decommissioning depends on which migration path you used:
 
-.VPC Upgrade Path
+== VPC Upgrade Path
 [%collapsible]
 ====
 If you upgraded an existing CloudHub VPC to a private space, go to the *Upgrade* tab and click *Mark Upgrade Complete*.
@@ -62,7 +62,7 @@ WARNING: Marking the upgrade as complete is irreversible. This action deletes th
 After you mark the upgrade complete, CloudHub 2.0 replaces the CloudHub resources, which become immutable. Make any required changes on CloudHub 2.0.
 ====
 
-.New Private Space Path
+== New Private Space Path
 [%collapsible]
 ====
 If you migrated to a newly created private space, manually delete the CloudHub VPCs to release entitlements.

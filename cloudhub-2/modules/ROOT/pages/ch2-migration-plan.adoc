@@ -6,7 +6,7 @@ endif::[]
 
 Before migrating applications from CloudHub to CloudHub 2.0, audit your existing environment, assess entitlement requirements, estimate timelines, and establish a migration strategy. Planning reduces risk and helps prevent migration disruptions.
 
-.Audit and Assessment Checklist
+== Audit and Assessment Checklist
 [%collapsible]
 ====
 Review the following areas to understand the scope and complexity of your migration.
@@ -113,7 +113,7 @@ CloudHub 2.0 doesn't support persistent VM queues. If your applications use pers
 ====
 
 [[determine-your-migration-path]]
-.Determine Your Migration Path
+== Determine Your Migration Path
 [%collapsible]
 ====
 
@@ -154,7 +154,7 @@ If your VPC doesn't meet these requirements, create a new private space manually
 ====
 
 [[traffic-switching-prerequisites]]
-.Traffic-Switching Prerequisites
+== Traffic-Switching Prerequisites
 [%collapsible]
 ====
 
@@ -171,9 +171,11 @@ Confirm these preconditions before you plan a cutover window. Missing any of the
 * Document a static-IP and downstream-allowlist checklist for backend systems that allowlist by source IP — the application URL format changes after migration.
 ====
 
-.Entitlement and Timeline Considerations
+== Entitlement and Timeline Considerations
 [%collapsible]
 ====
+Estimate the resources and time required to run CloudHub and CloudHub 2.0 in parallel, then select a migration strategy that fits your environment.
+
 [discrete]
 === Calculate Resource Requirements
 
@@ -232,11 +234,10 @@ For phased migrations, consider grouping applications by:
 * VPC (migrate all applications in a VPC together if using the upgrade tool)
 ====
 
-.Alignment and Communication Plan
+== Alignment and Communication Plan
 [%collapsible]
 ====
-
-Establish the following before starting migration work:
+Define ownership, migration windows, cutover communications, and rollback criteria before starting migration work.
 
 [discrete]
 === Owners and Stakeholders
@@ -276,7 +277,7 @@ Document rollback procedures:
 * Who has authority to trigger a rollback decision.
 ====
 
-.Pre-Migration Validation Checklist
+== Pre-Migration Validation Checklist
 [%collapsible]
 ====
 Use this checklist to confirm that you're ready to set up infrastructure:
