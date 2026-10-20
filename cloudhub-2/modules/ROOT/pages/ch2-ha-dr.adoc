@@ -109,7 +109,7 @@ In a hot standby configuration, you install, configure, and fully run your backu
 * With UBP, this configuration consumes no messages or throughput until traffic switches to the backup region, and it consumes fewer flows when you configure xref:ch2-configure-horizontal-autoscaling.adoc[CPU-based HPA].
 * Without UBP, this configuration consumes additional vCores for the backup deployment. It consumes fewer vCores when the backup deployment stays scaled down before it scales up in response to an outage in the primary region.
 
-*Recovery time objective:* A fully scaled backup application has minimal to no downtime, covering only the time to route traffic to the backup region. A scaled-down backup application has an RTO that depends on the time to scale up, either through control-plane-triggered redeployments or through xref:ch2-configure-horizontal-autoscaling.adoc[CPU-based HPA]. To let integrating systems resend events or in-flight transaction data, capture recovery points in logs and monitoring, which builds reliability into your applications.
+*Recovery time objective:* A fully scaled backup application has minimal to no downtime, covering only the time to route traffic to the backup region. A scaled-down backup application has an RTO that depends on the time to scale up, either through control-plane-triggered redeployments or through xref:ch2-configure-horizontal-autoscaling.adoc[CPU-based HPA]. To let integrating systems resend events or in-flight transaction data, capture recovery points in logs and monitoring systems to improve application reliability.
 
 ==== Warm Standby Configuration
 
