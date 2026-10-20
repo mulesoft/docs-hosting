@@ -151,7 +151,6 @@ In a cold standby configuration, nothing runs in the passive region, and you kee
 
 *Traffic management:*
 
-* Route traffic only to the region that is up. You don't need a global load balancer or DNS routing service; updating the CNAME records on your standard DNS server works.
 * Run health checks to determine DR, run your plan or script to build the backup environment, and switch traffic routing.
 * If the control plane is unavailable, you cannot create the private space or deploy the backup applications.
 
