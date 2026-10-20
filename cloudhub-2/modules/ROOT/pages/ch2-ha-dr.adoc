@@ -34,7 +34,7 @@ CloudHub 2.0 improves on CloudHub in these areas:
 
 * Decouples the runtime plane region from the control plane region through a service-oriented architecture.
 * Supports clustering, which lets you configure HA while running the process on a single primary replica.
-* Optimizes usage through elastic scaling with Horizontal Pod Autoscaling (HPA) for scaled-down hot standby deployments when a failover is required.
+* Optimizes usage through elastic scaling with Horizontal Pod Autoscaling (HPA) for scaled-down hot standby deployments when not in use and then scaling up when a failover is required.
 * Manages applications in active/passive mode, which lets you set schedulers and listening connectors—such as Anypoint MQ, Database, FTP, and Salesforce listeners—to a stopped or inactive state. Externalize DR flags and expose REST endpoints to enable and disable flows through a Groovy script as needed.
 
 == Disaster Recovery in CloudHub 2.0
@@ -63,7 +63,7 @@ For more about how to deploy for HA and DR strategies, see xref:hosting-home::ha
 
 === Disaster Recovery Use Cases for the Runtime Plane
 
-CloudHub 2.0 supports multiple multiregion DR strategies based on application impact and statefulness. These strategies typically use a bring-your-own (BYO) global load balancer to manage traffic distribution and failover across regions.
+CloudHub 2.0 supports multiple multiregion DR strategies based on application impact. These strategies typically use a bring-your-own (BYO) global load balancer to manage traffic distribution and failover across regions.
 
 To decouple your runtime plane application availability from the control plane region, configure your primary and backup runtime plane regions to differ from the region that hosts your Anypoint Platform control plane. This guidance applies to the EU, with the control plane in eu-central-1, and to the US, with the control plane in us-east-1.
 
@@ -71,7 +71,7 @@ image::hadr-load-balancer.png["A bring-your-own global load balancer routing tra
 
 ==== Active-Active Configuration
 
-*When to use:* Choose this configuration for high-impact, stateless applications that require continuous availability with minimal downtime.
+*When to use:* Choose this configuration for high-impact applications that require continuous availability with minimal downtime.
 
 *Application state:* Run applications in different regions simultaneously and fully scaled up.
 
@@ -90,17 +90,17 @@ image::hadr-load-balancer.png["A bring-your-own global load balancer routing tra
 
 In a hot standby configuration, you install, configure, and fully run your backup environment in the passive region, but it doesn't process requests until you detect an outage.
 
-*When to use:* Choose this configuration for high-impact stateful APIs, or for medium-impact stateless APIs that tolerate brief downtime during failover.
+*When to use:* Choose this configuration for high-impact APIs that can only tolerate brief downtime during failover.
 
 *Application state:*
 
 * Set up infrastructure across multiple regions, and deploy and run your backup applications in the passive region.
-* Run the backup applications either fully scaled up or scaled down, with fewer replicas or smaller replica sizes. Scaled-down applications rely more on the control plane to redeploy and scale up during an outage in the primary runtime plane region.
+* Run the backup applications either fully scaled up or scaled down, with fewer replicas or smaller replica sizes. Scaled-down applications rely on the control plane to redeploy, start, or scale up during an outage.
 * For scaled-down backup applications, configure CPU-based Horizontal Pod Autoscaling (HPA) where your organization supports it. See xref:ch2-configure-horizontal-autoscaling.adoc[].
 
 *Traffic management:*
 
-* Route traffic to only one region at a time with a BYO global load balancer.
+* Route traffic to only one region at a time with a BYO global load balancer or DNS routing, such as Amazon Route 53.
 * Run health checks to determine DR and switch routing.
 * For non-HTTP use cases such as schedulers, externalize a DR flag in your application and use a Groovy script to enable and disable scheduler flows directly in the runtime plane. Because the backup application is already running, this approach doesn't rely on the control plane to activate your backup applications.
 
@@ -115,18 +115,18 @@ In a hot standby configuration, you install, configure, and fully run your backu
 
 In a warm standby configuration, you fully set up your backup infrastructure in the passive region and deploy your backup applications, but no applications run until you detect an outage.
 
-*When to use:* Choose this configuration for medium-impact stateless or stateful applications that tolerate some downtime during recovery.
+*When to use:* Choose this configuration for medium-impact APIs that can only tolerate brief downtime during failover.
 
 *Application state:*
 
 * Create and configure your private space, including networking, in the passive region. A running private space is equivalent to a running production system or virtual machine in an on-premises environment.
 * Configure API Manager for your backup APIs in the passive region.
-* Deploy your backup applications to the passive region, and keep them stopped.
+* Deploy your backup applications to the passive region in a stopped state, for example, by setting `<autoStart>false</autoStart>` in your deployment configuration.
 * Start the applications only when you detect an outage.
 
 *Traffic management:*
 
-* Route traffic only to the region that is up with a BYO global load balancer.
+* Route traffic only to the region that is up with a BYO global load balancer or DNS routing, such as Amazon Route 53.
 * Run health checks to determine DR, and use scripts to start your backup applications and switch traffic routing.
 * If the control plane is unavailable, you cannot start the backup application in the runtime plane.
 
@@ -138,7 +138,7 @@ In a warm standby configuration, you fully set up your backup infrastructure in 
 
 In a cold standby configuration, nothing runs in the passive region, and you keep your expense to a minimum. Your cold standby is a plan or script that builds your backup environment in the passive region after you detect an outage.
 
-*When to use:* Choose this configuration for low-impact stateless or stateful applications that tolerate longer downtime during recovery.
+*When to use:* Choose this configuration for low-impact applications that tolerate longer downtime during recovery.
 
 *Application state:*
 
@@ -151,7 +151,7 @@ In a cold standby configuration, nothing runs in the passive region, and you kee
 
 *Traffic management:*
 
-* Route traffic only to the region that is up with a BYO global load balancer.
+* Route traffic only to the region that is up. You don't need a global load balancer or DNS routing service; updating the CNAME records on your standard DNS server works.
 * Run health checks to determine DR, run your plan or script to build the backup environment, and switch traffic routing.
 * If the control plane is unavailable, you cannot create the private space or deploy the backup applications.
 
@@ -161,13 +161,13 @@ In a cold standby configuration, nothing runs in the passive region, and you kee
 
 === Runtime Plane High Availability and Disaster Recovery Summary
 
-High-impact stateless API:: Use an active-active setup with active replicas in two regions and an external load balancer.
+High-impact API:: Use an active-active setup with active replicas in two regions and an external load balancer.
 
-High-impact stateful API:: Use a hot standby setup with fully scaled backup applications running in the secondary region. Use an external load balancer to route traffic, and run health checks to determine DR and switch traffic.
+High-impact API:: Use a hot standby setup with fully scaled backup applications running in the secondary region. Use an external load balancer to route traffic, and run health checks to determine DR and switch traffic.
 
-Medium-impact stateless and stateful API:: Use a hot standby setup with scaled-down backup applications, or a warm standby setup with backup applications deployed but stopped in the secondary region.
+Medium-impact API:: Use a hot standby setup with scaled-down backup applications, or a warm standby setup with backup applications deployed but stopped in the secondary region.
 
-Low-impact stateless and stateful API:: Use a cold standby setup, and create the private space and deploy your backup applications in the secondary region only when you detect an outage.
+Low-impact API:: Use a cold standby setup, and create the private space and deploy your backup applications in the secondary region only when you detect an outage.
 
 === Disaster Recovery for Regional Services
 
