@@ -504,7 +504,7 @@ Asia Pacific::
 | Reports | Available | Available | Available
 | Standard Dashboards (Anypoint Insights) | Available | Available | Available
 | Telemetry Exporter | Available | Available | Available
-| Traces Beta | Not planned | Not planned | Not Planned
+| Traces Beta | Not planned | Not planned | Not planned
 
 //MQ - ASIA: JA | INDIA | AU
 .18+| xref:mq::index.adoc[Anypoint MQ] | All other features | Available | Available | Available .18+a| For details, refer to:
@@ -535,7 +535,7 @@ Asia Pacific::
 | Generative B2B Message Summary Feature | Available | Planned | Planned
 
 //PRIVATE CLOUD EDITION - ASIA: JA | INDIA | AU
-| xref:private-cloud::index.adoc[Anypoint Private Cloud Edition] | n/a | Not planned | Not planned | Not Planned | Anypoint Private Cloud Edition (Anypoint Platform PCE) is a complete software package that you install and manage entirely within your private network. PCE runs exclusively on your infrastructure and isn't hosted or managed on any public cloud by MuleSoft.
+| xref:private-cloud::index.adoc[Anypoint Private Cloud Edition] | n/a | Not planned | Not planned | Not planned | Anypoint Private Cloud Edition (Anypoint Platform PCE) is a complete software package that you install and manage entirely within your private network. PCE runs exclusively on your infrastructure and isn't hosted or managed on any public cloud by MuleSoft.
 
 //RUNTIME MANAGER - ASIA: JA | INDIA | AU
 .4+| xref:runtime-manager::index.adoc[Anypoint Runtime Manager] | All non Monitoring features | Available | Available | Available .4+| n/a
@@ -634,7 +634,7 @@ Asia Pacific::
 * xref:object-store::index.adoc#os-features-control-plane[Object Store Features by Control Plane]
 * xref:object-store::osv2-faq.adoc#osv2-regions[Object Store v2 Regions]
 | Connected Apps | Available | Available | Available
-| CloudHub 1.0 Deployments | Not planned | No planned | Not planned
+| CloudHub 1.0 Deployments | Not planned | Not planned | Not planned
 | Object Store v2 Stats API | Not planned | Not planned | Not planned
 | Usage Reports (Usage) | Available | Available | Available
 | Usage Charts (Access Management) | Not planned | Not planned | Not planned
@@ -672,7 +672,7 @@ Government::
 | External Identity Management Integration | Available
 
 //AGENT VISUALIZER - GOVERNMENT
-.3+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Available .3+| n/a
+.3+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Planned .3+| n/a
 | Links to logs | Planned
 | Links to traces | Not planned
 
@@ -709,12 +709,12 @@ Government::
 | Usage and Engagement Metrics | Planned
 
 //ANYPOINT MONITORING - GOVERNMENT
-.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Available .13+a| For details, refer to:
+.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Not planned .13+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
 | Basic Alerts | Planned
-| Basic Monitoring | Available
-| Custom Dashboards | Planned
+| Basic Monitoring | Planned
+| Custom Dashboards | Not planned
 | Hybrid Standalone Mule (HSA) | Available
 | Integration Intelligence | Not planned
 | Log Search | Planned
@@ -722,7 +722,7 @@ Government::
 | Log Tailing | Planned
 | Reports | Planned
 | Standard Dashboards (Anypoint Insights) | Planned
-| Telemetry Exporter | Available
+| Telemetry Exporter | Planned
 | Traces Beta | Not planned
 
 //ANYPOINT MQ - GOVERNMENT
