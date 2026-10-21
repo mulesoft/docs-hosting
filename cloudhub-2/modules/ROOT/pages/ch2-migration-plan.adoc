@@ -7,11 +7,9 @@ endif::[]
 Before migrating applications from CloudHub to CloudHub 2.0, audit your existing environment, assess entitlement requirements, estimate timelines, and establish a migration strategy. Planning reduces risk and helps prevent migration disruptions.
 
 == Audit and Assessment Checklist
-[%collapsible]
-====
+
 Review the following areas to understand the scope and complexity of your migration.
 
-[discrete]
 === CloudHub Applications
 
 Inventory all applications currently deployed to CloudHub:
@@ -44,7 +42,6 @@ a|
 |Use version 4.1.1 or later, which is required for the `javaVersion` and `releaseChannel` parameters. Avoid 4.0.0 and 3.8.3 (deprecated).
 |===
 
-[discrete]
 === Application Properties
 
 [cols="1,2"]
@@ -61,7 +58,6 @@ a|
 |Note any properties that differ between environments (Dev, QA, UAT, Prod). Plan to configure these per environment in CloudHub 2.0.
 |===
 
-[discrete]
 === VPC Configuration
 
 Gather the following from your existing CloudHub environment. This information is required to set up a private space. For more details, see xref:ps-gather-setup-info.adoc#setup-info-private-space[Information Required to Set Up a Private Space].
@@ -79,7 +75,6 @@ If you are creating a new private space manually, allocate a different CIDR bloc
 * Internal DNS entries
 * TLS certificates and contexts
 
-[discrete]
 === Connector Compatibility
 
 Most MuleSoft connectors are compatible with CloudHub 2.0. Review the following:
@@ -88,7 +83,6 @@ Most MuleSoft connectors are compatible with CloudHub 2.0. Review the following:
 * Verify that connector versions are up to date.
 * Review xref:studio::update-modules.adoc[Update Modules] for guidance on updating connectors.
 
-[discrete]
 === Scheduler Applications
 
 Review applications that use Mule Scheduler components:
@@ -97,7 +91,6 @@ Review applications that use Mule Scheduler components:
 * Applications that rely on all replicas running the same schedule concurrently need to be redesigned to avoid duplicate processing when clustering is enabled.
 * Review xref:ch2-manage-schedules.adoc[Manage Schedules] for CloudHub 2.0 scheduler management.
 
-[discrete]
 === Persistent Queues
 
 CloudHub 2.0 doesn't support persistent VM queues. If your applications use persistent queues:
@@ -105,17 +98,13 @@ CloudHub 2.0 doesn't support persistent VM queues. If your applications use pers
 * Plan to replace persistent VM queues with xref:mq::index.adoc[Anypoint MQ] for reliable message queuing.
 * CloudHub Connector notifications aren't supported on CloudHub 2.0. If your applications use CloudHub Connector for notifications, replace it with the Email Connector or Anypoint Monitoring alerts.
 
-[discrete]
 === API Assets
 
 * Verify that API assets are published to Anypoint Exchange.
 * Confirm that API Spec and Implementation have unique names.
-====
 
 [[determine-your-migration-path]]
 == Determine Your Migration Path
-[%collapsible]
-====
 
 Choose whether to create a new private space or use the VPC upgrade tool. The following eligibility criteria apply to the upgrade tool:
 
@@ -155,7 +144,6 @@ If your VPC doesn't meet these requirements, create a new private space manually
 
 [[traffic-switching-prerequisites]]
 == Traffic-Switching Prerequisites
-[%collapsible]
 ====
 
 Confirm these preconditions before you plan a cutover window. Missing any of them during traffic switching can cause outages or a failed cutover. See xref:ch2-migration-validate.adoc[Step 4: Validate and Switch Traffic] for the switching procedure.
@@ -172,11 +160,9 @@ Confirm these preconditions before you plan a cutover window. Missing any of the
 ====
 
 == Entitlement and Timeline Considerations
-[%collapsible]
 ====
 Estimate the resources and time required to run CloudHub and CloudHub 2.0 in parallel, then select a migration strategy that fits your environment.
 
-[discrete]
 === Calculate Resource Requirements
 
 During migration, you need resources for CloudHub and CloudHub 2.0 environments at the same time. Plan for double entitlements across:
@@ -188,7 +174,6 @@ During migration, you need resources for CloudHub and CloudHub 2.0 environments 
 
 Work with your account representative to obtain the required additional entitlements. Decommission your CloudHub infrastructure (VPCs and associated DLBs) within six months after the upgrade to avoid interruptions when creating or editing VPCs, private spaces, or network connections.
 
-[discrete]
 === Estimate Timelines
 
 Plan migration timelines based on the number of applications and complexity of your environment. These estimates are guidance, not guarantees. For more information, see https://help.salesforce.com/s/articleView?id=005237269&type=1[Planning Timelines for CloudHub Migration (KA 005237269)].
@@ -210,7 +195,6 @@ Plan migration timelines based on the number of applications and complexity of y
 |Complex networking (multiple VPNs/TGW), extensive inter-app dependencies, multiple DLBs, phased rollout required.
 |===
 
-[discrete]
 === Decide on a Migration Strategy
 
 [cols="1,2,2"]
@@ -232,14 +216,11 @@ For phased migrations, consider grouping applications by:
 * Business criticality (migrate low-risk applications first)
 * Dependencies (migrate independent applications before those with inter-app communication)
 * VPC (migrate all applications in a VPC together if using the upgrade tool)
-====
 
 == Alignment and Communication Plan
-[%collapsible]
-====
+
 Define ownership, migration windows, cutover communications, and rollback criteria before starting migration work.
 
-[discrete]
 === Owners and Stakeholders
 
 * Identify the migration project owner.
@@ -247,21 +228,18 @@ Define ownership, migration windows, cutover communications, and rollback criter
 * Identify infrastructure and networking team contacts.
 * Engage your MuleSoft account representative for entitlement planning.
 
-[discrete]
 === Migration Windows
 
 * Define maintenance windows for each environment.
 * Plan production migrations during low-traffic periods.
 * Allow adequate time between phases for monitoring and validation.
 
-[discrete]
 === Cutover Schedule
 
 * Communicate the migration schedule to all stakeholders.
 * Document expected downtime per application (if any).
 * Establish notification procedures for cutover events.
 
-[discrete]
 === Rollback Criteria and Procedures
 
 Define conditions that trigger a rollback:
@@ -275,10 +253,8 @@ Document rollback procedures:
 * How to redirect traffic back to CloudHub.
 * How to stop CloudHub 2.0 applications.
 * Who has authority to trigger a rollback decision.
-====
 
 == Pre-Migration Validation Checklist
-[%collapsible]
 ====
 Use this checklist to confirm that you're ready to set up infrastructure:
 
@@ -303,7 +279,6 @@ Use this checklist to confirm that you're ready to set up infrastructure:
 * [ ] Stakeholders identified and migration windows agreed
 
 After completing all checklist items, proceed to xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure].
-====
 
 == See Also
 
@@ -312,9 +287,6 @@ After completing all checklist items, proceed to xref:ch2-migration-infrastructu
 * xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[Understand VPC Upgrade Eligibility]
 * xref:ps-gather-setup-info.adoc#setup-info-private-space[Information Required to Set Up a Private Space]
 * xref:ch2-manage-schedules.adoc[Manage Schedules]
-
-== Related Support Articles
-
 * https://help.salesforce.com/s/articleView?id=005237269&type=1[Planning Timelines for CloudHub to CloudHub 2.0 Migration (KA 005237269)] — Guidance on estimating migration timelines and phasing.
 * https://help.salesforce.com/s/articleView?id=005228668&type=1[REST API Migration Steps for CloudHub to CloudHub 2.0 (KA 005228668)] — API-based migration procedures for automating the upgrade process.
 * https://help.salesforce.com/s/articleView?id=001115029&type=1[How to Use the Network Tools Application for Connectivity Tests from a CloudHub VPC (KA 001115029)] — Diagnose network connectivity issues during migration using the Network Tools application.
