@@ -2,8 +2,10 @@
 // tag=features includes every tab.
 // tags=features;!government includes Americas, Europe, and Asia Pacific.
 // tag=government-table includes the MuleSoft Government Cloud Plus table only.
+// tag=government-with-regions includes all region tabs (Americas, Europe, Asia Pacific) plus MuleSoft Government Cloud Plus.
 
 // tag::features[]
+// tag::government-with-regions[]
 [tabs]
 ====
 // tag::americas[]
@@ -873,4 +875,5 @@ Government::
 --
 // end::government[]
 ====
+// end::government-with-regions[]
 // end::features[]
