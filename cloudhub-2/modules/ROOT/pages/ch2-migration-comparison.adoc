@@ -316,7 +316,7 @@ CloudHub 2.0 provides two ways to cut over traffic. Choose one, don't mix them f
 * *Gradual, DLB-managed switch:* Keep the DNS CNAME pointed at the DLB and use the traffic-switching API or UI to shift a percentage of traffic between the CloudHub 1.0 worker and the CloudHub 2.0 ingress load balancer, which then routes to the CloudHub 2.0 replica. The DLB and the CloudHub 2.0 private space it targets must support this split; see xref:ch2-migration-validate.adoc[Step 4: Validate and Switch Traffic].
 * *Full DNS cutover:* Repoint the CNAME for `myapp.example.com` directly from the DLB to the CloudHub 2.0 ingress endpoint. The DLB and SLB can't route to applications in a migrated private space, so this is an all-or-nothing switch rather than a gradual one.
 
-For step-by-step DLB migration guidance, see xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure].
+For step-by-step DLB migration guidance, see xref:ch2-migration-infrastructure-considerations.adoc[Infrastructure Considerations for Migration].
 ====
 
 == Operational Behavior Differences
@@ -549,9 +549,9 @@ The following details apply during migration:
 == See Also
 
 * xref:ch2-migration-overview.adoc[Migrate from CloudHub to CloudHub 2.0]
-* xref:ch2-migration-plan.adoc[Step 1: Plan the Migration]
-* xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure]
-* xref:ch2-migration-apps.adoc[Step 3: Migrate Applications]
-* xref:ch2-migration-validate.adoc[Step 4: Validate and Switch Traffic]
-* xref:ch2-migration-finalize.adoc[Step 5: Finalize and Decommission]
+* xref:ch2-migration-plan.adoc[Plan the Migration]
+* xref:ch2-migration-infrastructure.adoc[Prepare Infrastructure]
+* xref:ch2-migration-apps.adoc[Migrate Applications]
+* xref:ch2-migration-validate.adoc[Validate and Switch Traffic]
+* xref:ch2-migration-finalize.adoc[Finalize and Decommission]
 * xref:ch2-migration-troubleshoot.adoc[Troubleshoot Migration Issues]

@@ -112,7 +112,7 @@ For more information, see xref:mule-runtime::deploy-to-cloudhub-2.adoc[Deploy Ap
 
 == See Also
 
-* xref:ch2-migration-validate.adoc[Step 4: Validate and Switch Traffic]
+* xref:ch2-migration-validate.adoc[Validate and Switch Traffic]
 * xref:ch2-migration-troubleshoot.adoc[Troubleshoot Migration Issues]
 * xref:cloudhub::vpc-upgrade.adoc[CloudHub VPC to CloudHub 2.0 Private Space Upgrade]
 * xref:mule-runtime::deploy-to-cloudhub-2.adoc[Deploy Applications to CloudHub 2.0 Using the Mule Maven Plugin]

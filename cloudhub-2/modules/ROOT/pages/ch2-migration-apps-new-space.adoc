@@ -1,0 +1,101 @@
+= Migrate Applications to a New Private Space
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+If you created your private space manually from scratch, publish your applications to Exchange, deploy them to the private space, and then configure scaling, properties, endpoints, and CI/CD pipelines.
+
+== Step 1: Publish to Exchange
+
+Publish your application to xref:exchange::index.adoc[Anypoint Exchange] so it's available for deployment.
+
+== Step 2: Deploy to the Private Space
+
+Deploy your application to your CloudHub 2.0 private space. For detailed deployment instructions, see xref:ch2-deploy-private-space.adoc[Deploy to a Private Space].
+
+Configure the following settings:
+
+* *Application name* — The name is unique within the private space.
++
+NOTE: In CloudHub 2.0, names are unique per private space. CloudHub 2.0 adds a six-character unique ID to the application name in the public endpoint URL.
+
+* *Application file* — Upload the application JAR or import from Exchange.
+* *Deployment target* — Select the new manually created private space.
+* *Runtime version* — Select a currently supported LTS or Edge runtime.
+* *Replica size and count* — Configure replicas equivalent to your CloudHub worker sizing.
++
+See xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas] for vCore options.
+
+== Step 3: Configure Horizontal Autoscaling (Optional)
+
+CloudHub 2.0 supports horizontal autoscaling natively. If your application needs to scale based on demand:
+
+* Set the minimum and maximum replica counts.
+* Define scaling metrics (CPU or memory thresholds).
+
+See xref:ch2-configure-horizontal-autoscaling.adoc[Configure Horizontal Autoscaling].
+
+== Step 4: Configure Application Properties
+
+Recreate your application properties in CloudHub 2.0 and stay within the property limits.
+
+IMPORTANT: If you're deploying to a manually created private space, application properties aren't carried over at all — there's no copy tool for this path. Reconfigure them manually in CloudHub 2.0. (If you're using the application migration tool on an upgraded VPC instead, see xref:ch2-migration-apps-tool.adoc[Upgrade Application Using the Migration Tool] for how that tool copies properties.)
+
+* Recreate all application properties (plain and secure/encrypted).
+* Secure properties use the same encryption key mechanism — migrate the encryption keys.
+* Configure environment-specific properties per environment (Dev, UAT, Prod).
+* CloudHub 2.0 limits properties to 300 per application, with a maximum of 1,024 characters per key or value. CloudHub 2.0 ignores any value assigned to a reserved property. Properties defined in the `pom.xml` `properties` element replace (don't merge with) properties already configured in Runtime Manager, and CloudHub 2.0 doesn't support `-D` command-line overrides for application properties. See xref:ch2-manage-props.adoc[Changing App Behavior with Properties].
+
+== Step 5: Configure Endpoints
+
+If you're using a dedicated load balancer (DLB) in CloudHub, configure endpoints by using path and path-rewrite settings in the application deployment.
+
+== Step 6: Update CI/CD Pipelines
+
+Update your CI/CD scripts to deploy to CloudHub 2.0 with the Mule Maven Plugin:
+
+[source,bash]
+----
+mvn clean deploy -DmuleDeploy
+----
+
+`mvn clean deploy -DmuleDeploy` is a single command: it publishes the artifact to Anypoint Exchange and deploys it to CloudHub 2.0 in the same step, using the target specified in your `cloudhub2Deployment` configuration.
+
+To redeploy an existing Exchange asset without rebuilding:
+
+[source,bash]
+----
+mvn mule:deploy
+----
+
+*Example CI/CD script (bash):*
+
+[source,bash]
+----
+#!/bin/bash
+# CloudHub 2.0 deployment script
+# Requires: Maven, configured pom.xml with cloudhub2Deployment
+
+export ANYPOINT_ENV="Production"
+export ANYPOINT_TARGET="my-private-space"
+
+# Step 1: Publish to Exchange and deploy to CloudHub 2.0
+mvn clean deploy -DmuleDeploy \
+  -Denvironment="${ANYPOINT_ENV}" \
+  -DtargetName="${ANYPOINT_TARGET}" \
+  -Duser="${ANYPOINT_USERNAME}" \
+  -Dpass="${ANYPOINT_PASSWORD}" \
+  -DappName="my-application"
+----
+
+For authentication alternatives (Connected Apps, Maven server credentials, auth tokens), see xref:mule-runtime::deploy-to-cloudhub-2.adoc#authentication-methods[Authentication Methods].
+
+== See Also
+
+* xref:ch2-migration-infrastructure.adoc[Prepare Infrastructure]
+* xref:ch2-migration-validate.adoc[Validate and Switch Traffic]
+* xref:ch2-deploy-private-space.adoc[Deploy to a Private Space]
+* xref:ch2-deploy.adoc[Deploy Applications to CloudHub 2.0]
+* xref:ch2-configure-horizontal-autoscaling.adoc[Configure Horizontal Autoscaling]
+* xref:mule-runtime::deploy-to-cloudhub-2.adoc[Deploy Applications to CloudHub 2.0 Using the Mule Maven Plugin]
+* xref:ch2-integrate-log-system.adoc[Integrate with Your Logging System Using Log4j]

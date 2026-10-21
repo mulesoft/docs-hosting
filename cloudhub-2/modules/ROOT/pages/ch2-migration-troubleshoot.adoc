@@ -199,7 +199,7 @@ Resolve eligibility, capacity, certificate, and deletion problems that can occur
 |Mark the migration as complete for all applications in the VPC. Dissociate all environments. See https://help.salesforce.com/s/articleView?language=en_US&id=005115579&type=1[KA 005115579].
 |===
 
-For upgrade steps, see xref:ch2-migration-infrastructure.adoc#upgrade-a-vpc-to-a-private-space[Upgrade a VPC to a Private Space].
+For upgrade steps, see xref:ch2-migration-infrastructure-vpc-upgrade.adoc[Upgrade a VPC to a Private Space].
 ====
 
 [[troubleshoot-infrastructure]]
@@ -215,12 +215,12 @@ Use this table to resolve private space, networking, DNS, and configuration prob
 |CIDR block conflict during private space creation
 |CIDR block overlaps with existing on-premises or cloud networks.
 |Choose a non-overlapping CIDR block. Review existing allocations before creating.
-|xref:ch2-migration-infrastructure.adoc#create-a-new-private-space-manually[Create a New Private Space Manually]
+|xref:ch2-migration-infrastructure-new-space.adoc[Create a New Private Space Manually]
 
 |VPN tunnel not establishing to new private space
 |Routing tables or security group configurations not updated for new private space.
 |Verify routing tables. Confirm VPN configuration matches private space network settings.
-|xref:ch2-migration-infrastructure.adoc#step-4-establish-network-connectivity[Establish Network Connectivity]
+|xref:ch2-migration-infrastructure-new-space.adoc#step-4-establish-network-connectivity[Establish Network Connectivity]
 
 |Missing DLB certificates post-upgrade
 |TLS 1.1 cipher incompatibility or transfer failure during upgrade.
@@ -235,7 +235,7 @@ Use this table to resolve private space, networking, DNS, and configuration prob
 |Cannot upgrade default VPC
 |Upgrade tooling doesn't support default VPC.
 |Disable the default VPC configuration before proceeding with the upgrade.
-|xref:ch2-migration-infrastructure.adoc#step-2-review-environment-association[Review Environment Association]
+|xref:ch2-migration-infrastructure-vpc-upgrade.adoc#step-2-review-environment-association[Review Environment Association]
 
 |Can't delete VPC after migration
 |Migration not marked complete, or environment still associated.
