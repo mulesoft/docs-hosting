@@ -34,11 +34,11 @@ Sign in to the Anypoint Platform control plane that holds your organization. Use
 | https://ca1.platform.mulesoft.com[Canada Cloud]
 | `+https://ca1.platform.mulesoft.com+`
 
-| MS Gov Cloud
+| MuleSoft Government Cloud
 | `+https://gov.mulesoft.com+`
 
-| GovCloud Plus
-| `+https://gov-plus.mulesoft.com+`
+| MuleSoft Government Cloud Plus
+| `+https://gprod1.platform.mulesoft.com+`
 
 .2+| Europe
 | https://eu1.anypoint.mulesoft.com[EU Cloud]
