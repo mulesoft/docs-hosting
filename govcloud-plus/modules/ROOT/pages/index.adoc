@@ -46,7 +46,7 @@ This table indicates the support status of Anypoint Platform features on MuleSof
 * Planned: Feature is scheduled for a future release on MuleSoft Government Cloud Plus.
 * Not planned: Feature is not currently planned for release or is not supported on MuleSoft Government Cloud Plus.
 
-include::hyperforce::partial$features-supported.adoc[tag=government-table]
+include::hyperforce::partial$features-supported.adoc[tag=government-wit-regions]
 
 == See Also
 
