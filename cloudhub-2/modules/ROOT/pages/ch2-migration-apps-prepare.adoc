@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Upgrade the runtime, update the application code and configuration, replace persistent queues with Anypoint MQ, and test locally so your application is ready to deploy on CloudHub 2.0. These steps apply to both migration paths.
+Prepare an app for CloudHub 2.0 by upgrading the runtime, updating code and configuration, replacing persistent queues with Anypoint MQ, and testing locally. These requirements apply to both migration paths.
 
 == Upgrade the Mule Runtime Version
 
@@ -41,7 +41,7 @@ Add the `cloudhub2Deployment` configuration to your Mule Maven Plugin section:
       <muleVersion>${muleVersion}</muleVersion>
       <username>${user}</username>
       <password>${pass}</password>
-      <!-- Consider using connected-app authentication instead: see Authentication Methods below -->
+      <!-- Consider connected-app authentication instead. See Authentication Methods. -->
       <applicationName>${appName}</applicationName>
       <replicas>1</replicas>
       <vCores>1</vCores>
@@ -157,15 +157,15 @@ Anypoint MQ differs from CloudHub persistent VM queues in architecture, delivery
 
 Create queues in Anypoint MQ, replace the VM connector operations, configure credentials and error handling, and remove the CloudHub persistent queue configuration.
 
-. *Create queues in Anypoint MQ:*
+. Create queues in Anypoint MQ:
 ** In *Anypoint Platform*, select *MQ* > *Destinations*.
 ** Create queues to replace each VM queue used in your application.
 ** Optionally, create dead-letter queues for error handling.
 ** Note your MQ region URL for connector configuration.
 
-. *Add Anypoint MQ connector dependency:*
+. Add the Anypoint MQ connector dependency:
 +
-Add the MQ connector to your application's `pom.xml`:
+Add the AnypointMQ connector to your application's `pom.xml`:
 +
 [source,xml]
 ----
@@ -179,12 +179,12 @@ Add the MQ connector to your application's `pom.xml`:
 +
 See xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector] for the latest version.
 
-. *Replace VM connector operations:*
+. Replace VM connector operations:
 ** Replace `<vm:publish>` with `<anypoint-mq:publish>`
 ** Replace `<vm:listener>` (inbound VM endpoint) with `<anypoint-mq:subscriber>`
 ** Replace `<vm:consume>` with `<anypoint-mq:consume>`
 +
-*Before (VM queue):*
+Before: VM queue
 +
 [source,xml]
 ----
@@ -205,7 +205,7 @@ See xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector] for the latest
 </flow>
 ----
 +
-*After (Anypoint MQ):*
+After: Anypoint MQ
 +
 [source,xml]
 ----
@@ -230,15 +230,15 @@ See xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector] for the latest
 </flow>
 ----
 
-. *Configure MQ credentials:*
+. Configure MQ credentials:
 ** Create a client app in *MQ* > *Client Apps* to obtain a client ID and client secret.
 ** Configure the Anypoint MQ connector with the client ID, client secret, and regional URL.
 
-. *Update error handling:*
+. Update error handling:
 ** Anypoint MQ uses an acknowledgment model. Messages remain in the queue until explicitly acknowledged (`ack`) or negatively acknowledged (`nack`).
 ** Replace XA transaction rollback patterns with MQ's `nack` operation for redelivery.
 
-. *Remove CloudHub persistent queue configuration:*
+. Remove CloudHub persistent queue configuration:
 ** Remove the *Persistent Queues* setting from your deployment configuration.
 ** Remove any `queue-profile` elements.
 ** Remove the `batch.persistent.queue.disable` property if present.
@@ -247,9 +247,9 @@ See xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector] for the latest
 
 Egress rules, batch job behavior, and connectivity testing affect the move to Anypoint MQ.
 
-* *Egress rules:* If you use application-level egress rules in your private space, add rules that allow HTTPS to the Anypoint MQ regional endpoint (for example, `mq-us-east-1.anypoint.mulesoft.com`) and the Anypoint control plane (`anypoint.mulesoft.com`).
-* *Batch jobs:* CloudHub persistent queues were used internally for batch job queuing. In CloudHub 2.0, batch jobs use xref:mule-runtime::batch-processing.adoc[Object Store v2 by default]. Batch jobs don't require code changes.
-* *Testing:* Test MQ connectivity from your private space before you migrate production workloads.
+* Egress rules: If you use app-level egress rules in your private space, add rules that allow HTTPS to the Anypoint MQ regional endpoint (for example, `mq-us-east-1.anypoint.mulesoft.com`) and the Anypoint control plane (`anypoint.mulesoft.com`).
+* Batch jobs: CloudHub persistent queues were used internally for batch job queuing. In CloudHub 2.0, batch jobs use xref:mule-runtime::batch-processing.adoc[Object Store v2 by default]. Batch jobs don't require code changes.
+* Testing: Test Anypoint MQ connectivity from your private space before migrating production workloads.
 
 For more information, see xref:mq::index.adoc[Anypoint MQ] and xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector].
 

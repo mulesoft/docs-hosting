@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Create a new private space when your VPC isn't eligible for the upgrade tool, or when you need both CloudHub and CloudHub 2.0 to coexist on the same network with independent CIDR blocks.
+Create a private space when the VPC isn't eligible for the upgrade tool or when CloudHub and CloudHub 2.0 require independent CIDR blocks on the same network. Configure the CIDR block, connectivity, firewall rules, TLS, and validation checks before migrating apps.
 
 == Prerequisites
 

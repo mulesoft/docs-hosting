@@ -3,11 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-If you created your private space manually from scratch, publish your applications to Exchange, deploy them to the private space, and then configure scaling, properties, endpoints, and CI/CD pipelines.
+Deploy apps to a manually created private space by publishing to Anypoint Exchange, configuring runtime and replica settings, recreating properties, configuring endpoints, and updating CI/CD pipelines.
 
 == Step 1: Publish to Exchange
 
-Publish your application to xref:exchange::index.adoc[Anypoint Exchange] so it's available for deployment.
+Publish your application to xref:exchange::workflow-sharing-assets.adoc[Anypoint Exchange] so it's available for deployment.
 
 == Step 2: Deploy to the Private Space
 
@@ -15,14 +15,14 @@ Deploy your application to your CloudHub 2.0 private space. For detailed deploym
 
 Configure the following settings:
 
-* *Application name* — The name is unique within the private space.
+* App name: The name is unique within the private space.
 +
 NOTE: In CloudHub 2.0, names are unique per private space. CloudHub 2.0 adds a six-character unique ID to the application name in the public endpoint URL.
 
-* *Application file* — Upload the application JAR or import from Exchange.
-* *Deployment target* — Select the new manually created private space.
-* *Runtime version* — Select a currently supported LTS or Edge runtime.
-* *Replica size and count* — Configure replicas equivalent to your CloudHub worker sizing.
+* App file: Upload the app JAR or import from Anypoint Exchange.
+* Deployment target: Select the new manually created private space.
+* Runtime version: Select a currently supported LTS or Edge runtime.
+* Replica size and count: Configure replicas equivalent to CloudHub worker sizing.
 +
 See xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas] for vCore options.
 
@@ -48,7 +48,7 @@ IMPORTANT: If you're deploying to a manually created private space, application 
 
 == Step 5: Configure Endpoints
 
-If you're using a dedicated load balancer (DLB) in CloudHub, configure endpoints by using path and path-rewrite settings in the application deployment.
+If you're using a dedicated load balancer (DLB) in CloudHub, xref:ch2-config-endpoints-paths.adoc[configure endpoints] by using path and path-rewrite settings in the application deployment.
 
 == Step 6: Update CI/CD Pipelines
 
@@ -68,7 +68,7 @@ To redeploy an existing Exchange asset without rebuilding:
 mvn mule:deploy
 ----
 
-*Example CI/CD script (bash):*
+Example CI/CD script:
 
 [source,bash]
 ----

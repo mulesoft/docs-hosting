@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-If your private space was created by upgrading a VPC, use the application migration tool to link your CloudHub application with a new CloudHub 2.0 application and gradually switch traffic.
+Use the application migration tool for apps in private spaces created from upgraded VPCs. Link a CloudHub app to a CloudHub 2.0 app, configure deployment settings, and prepare the DLB for traffic switching.
 
 == Eligibility
 
@@ -31,8 +31,8 @@ The *Upgrade Application to CloudHub 2.0* page opens with these fields:
 
 Provide the application file by uploading it or importing it from Exchange:
 
-* *Upload your application file* — Download the application asset from the link under *Application File*, make the required changes, and upload it to deploy your new application to the CloudHub 2.0 private space.
-* *Import file from Exchange* — Import the CloudHub application you want to upgrade.
+* Upload an app file: Download the app asset from the link under *Application File*, make the required changes, and upload it to deploy the new app to the CloudHub 2.0 private space.
+* Import a file from Anypoint Exchange: Import the CloudHub app to upgrade.
 
 == Step 3: Configure Ingress
 

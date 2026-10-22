@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Map DLB features to CloudHub 2.0 ingress, enable communication between CloudHub and CloudHub 2.0 applications, plan for static IP changes, and keep your VPC running during the migration.
+Plan infrastructure changes required during migration, including DLB-to-ingress configuration, cross-platform communication, static IP allowlists, Transit Gateway routing, and VPC configuration boundaries.
 
 == Migrate DLB Features to CloudHub 2.0 Ingress
 
@@ -57,7 +57,7 @@ The DLB blocks CloudHub 2.0 traffic until you add the CloudHub 2.0 infrastructur
 
 To update the DLB allowlist:
 
-. In *Runtime Manager*, navigate to *CloudHub* > *Load Balancers*.
+. In *Runtime Manager*, go to *CloudHub* > *Load Balancers*.
 . Select your DLB.
 . In the *Whitelists* tab, add each CIDR range.
 . Save the configuration.
@@ -68,7 +68,7 @@ For more information about CloudHub 2.0 infrastructure CIDR ranges, see xref:ps-
 
 The DLB must support TLS 1.2+ for upstream connections from CloudHub 2.0:
 
-. In *Runtime Manager*, navigate to *CloudHub* > *Load Balancers*.
+. In *Runtime Manager*, go to *CloudHub* > *Load Balancers*.
 . Select your DLB and review the *Upstream TLS* settings.
 . Confirm that *TLS 1.2 or higher* is enabled as an upstream protocol.
 
@@ -92,8 +92,8 @@ IMPORTANT: To work around this limitation, deploy the new application to CloudHu
 
 Regardless of whether the target application was migrated or deployed new, configure the following to allow CloudHub 1.0 traffic to reach the CloudHub 2.0 private space:
 
-. *Firewall rules:* In the CloudHub 2.0 private space, add ingress firewall rules to allow traffic from the CloudHub 1.0 VPC CIDR range.
-. *TLS:* Confirm that the CloudHub 2.0 application has a valid TLS context configured if calling over HTTPS.
+. Firewall rules: In the CloudHub 2.0 private space, add ingress firewall rules to allow traffic from the CloudHub 1.0 VPC CIDR range.
+. TLS: Confirm that the CloudHub 2.0 app has a valid TLS context configured for HTTPS calls.
 
 NOTE: Verify with your network team whether traffic between the CloudHub VPC and CloudHub 2.0 private space routes through the public internet or can use internal routing via VPN or Transit Gateway.
 
@@ -123,8 +123,8 @@ Confirm that TGW route tables include routes for both the VPC CIDR and the priva
 After attaching the transit gateway, test connectivity using the Network Tools application:
 
 . Deploy Network Tools to the new private space.
-. Use the *Socket* test to verify TCP connectivity to on-premises hosts via the TGW.
-. Use the *Traceroute* test to confirm the traffic path traverses the TGW.
+. Use the *Socket* test to verify TCP connectivity to on-premises hosts through the TGW.
+. Use the *Traceroute* test to confirm that the traffic path traverses the TGW.
 
 For full TGW configuration steps, see https://docs.mulesoft.com/cloudhub-2/ps-create-configure-tgw[Creating Transit Gateway Attachments].
 
@@ -186,20 +186,20 @@ Static IPs are allocated per application in CloudHub but per private space in Cl
 
 If backend systems (databases, SaaS APIs, on-premises services) have firewall rules that allow traffic only from specific CloudHub 1.0 application static IPs, you must update those rules to allow the new private space outbound IPs.
 
-*Planning checklist:*
+Planning checklist:
 
 . Inventory all backend systems that allowlist traffic by source IP.
 . For each system, record the current CloudHub 1.0 static IPs in use.
 . After creating your CloudHub 2.0 private space, locate the private space's outbound NAT IPs:
-** In *Runtime Manager*, navigate to *Private Spaces* > your space > *Network* tab.
+** In *Runtime Manager*, go to *Private Spaces* > your space > *Network*.
 . Update backend allowlists to include the new private space outbound IPs.
-. During migration, keep *both* the old CloudHub IPs and new CloudHub 2.0 IPs in backend allowlists until decommissioning is complete.
+. During migration, keep the old CloudHub IPs and new CloudHub 2.0 IPs in backend allowlists until decommissioning is complete.
 
 === Considerations
 
 Per-application IP identification, IP allocation limits, and upgraded private spaces behave differently in CloudHub 2.0.
 
-* If a backend system uses per-app source IP to identify *which* application is calling (rather than just for access control), this model no longer works in CloudHub 2.0 since all apps share outbound IPs. Use mTLS client certificates or API keys for application-level identification instead.
+* If a backend system uses per-app source IP to identify which app is calling, rather than only for access control, this model no longer works in CloudHub 2.0 because all apps share outbound IPs. Use mTLS client certificates or API keys for app-level identification instead.
 * Static IP allocation in CloudHub 1.0 is limited to twice the number of production vCores in your subscription. CloudHub 2.0 doesn't have this per-app limit — IPs are assigned per private space automatically.
 * For private spaces created by upgrading a VPC, the *Network* tab may not display all outbound static IPs. If you need the complete list, contact MuleSoft Support with your organization ID and private space ID.
 

@@ -5,31 +5,17 @@ endif::[]
 :page-aliases: cloudhub::ch-ch2-migration-configuration.adoc
 :page-pagination: next
 
-This guide takes you through migrating CloudHub applications and infrastructure to CloudHub 2.0. Review the platform differences, choose a migration path, and complete each step in order.
+Migrate CloudHub applications and infrastructure to CloudHub 2.0. Review the platform differences, choose a migration path, and complete each step in order.
 
 == Migration Journey Overview
 
-Migrate from CloudHub to CloudHub 2.0 in five steps:
+Migrate from CloudHub to CloudHub 2.0 in these five steps:
 
-[cols="1,3"]
-|===
-|Step |Description
-
-|xref:ch2-migration-plan.adoc[Step 1: Plan the Migration]
-|Audit your applications, assess entitlements, estimate timelines, and choose a migration strategy.
-
-|xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure]
-|Create a private space or upgrade an eligible VPC, then configure network connectivity.
-
-|xref:ch2-migration-apps.adoc[Step 3: Migrate Applications]
-|Update application code, redeploy to CloudHub 2.0, and configure application properties.
-
-|xref:ch2-migration-validate.adoc[Step 4: Validate and Switch Traffic]
-|Switch traffic gradually, monitor for issues, and complete DNS cutover.
-
-|xref:ch2-migration-finalize.adoc[Step 5: Finalize and Decommission]
-|Decommission CloudHub resources and release entitlements.
-|===
+. xref:ch2-migration-plan.adoc[Plan the Migration]. Audit apps, assess entitlements, estimate timelines, and choose a migration strategy.
+. xref:ch2-migration-infrastructure.adoc[Prepare Infrastructure]. Create a private space or upgrade an eligible VPC, then configure network connectivity.
+. xref:ch2-migration-apps.adoc[Migrate Applications]. Update app code, deploy to CloudHub 2.0, and configure app properties.
+. xref:ch2-migration-validate.adoc[Validate and Switch Traffic]. Switch traffic gradually, monitor for issues, and complete DNS cutover.
+. xref:ch2-migration-finalize.adoc[Finalize and Decommission]. Decommission CloudHub resources and release entitlements.
 
 == Choose Your Migration Path
 
@@ -44,10 +30,10 @@ For eligibility criteria and help choosing a migration path, see xref:ch2-migrat
 
 Before planning your migration, review the differences that can require infrastructure or application changes:
 
-* *Infrastructure and networking:* private spaces, connectivity, firewall rules, static IP addresses, load balancing, domains, and TLS.
-* *Traffic routing:* DLB mapping rules, ingress endpoints and paths, certificates, access-control rules, and traffic switching behavior.
-* *Application deployment:* Mule runtime compatibility, deployment configuration, application properties, worker-to-replica sizing, clustering, and alerts.
-* *Application behavior:* persistent VM queues, logging, internal application communication, injected HTTP headers, and connection timeout behavior.
+* Infrastructure and networking: private spaces, connectivity, firewall rules, static IP addresses, load balancing, domains, and TLS.
+* Traffic routing: DLB mapping rules, ingress endpoints and paths, certificates, access-control rules, and traffic switching behavior.
+* App deployment: Mule runtime compatibility, deployment configuration, app properties, worker-to-replica sizing, clustering, and alerts.
+* App behavior: persistent VM queues, logging, internal app communication, injected HTTP headers, and connection timeout behavior.
 
 For the complete CloudHub and CloudHub 2.0 comparison, including DLB-to-ingress migration considerations, see xref:ch2-migration-comparison.adoc[Compare CloudHub and CloudHub 2.0].
 

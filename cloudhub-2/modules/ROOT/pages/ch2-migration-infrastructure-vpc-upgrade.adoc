@@ -3,14 +3,23 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Use the in-product VPC upgrade tool to migrate your CloudHub VPC to a CloudHub 2.0 private space while retaining your existing infrastructure configuration.
+Use the VPC upgrade tool to create a CloudHub 2.0 private space that retains an eligible CloudHub VPC configuration. Confirm eligibility, account for the VPC lock and rollback boundary, run the upgrade, and validate the resulting private space.
 
-The tool provisions the infrastructure for a CloudHub 2.0 private space by cloning the existing configurations of your eligible CloudHub dedicated VPC, using the same CIDR block. Existing Transit Gateway (TGW) and VPN connections transfer seamlessly to the new CloudHub 2.0 private space.
+The tool provisions a CloudHub 2.0 private space by cloning the configuration of an eligible CloudHub dedicated VPC and using the same CIDR block. Existing Transit Gateway (TGW) and VPN connections transfer to the new CloudHub 2.0 private space.
 
 The default CloudHub certificates are configured as part of the private space's default certificates. The DLB custom domains of the migrated VPC are created as part of the private space's custom TLS certificates.
 
 ++++
-<iframe src="https://videos.mulesoft.com/watch/ntztWgqFZA5xmKc1rXQU2C" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+<script type="text/javascript" async src="https://play.vidyard.com/embed/v4.js" data-playbackurl="play.vidyard.com"></script>
+<img style="margin: auto; display: block; width: 100%;"
+     class="vidyard-player-embed"
+     src="https://play.vidyard.com/ntztWgqFZA5xmKc1rXQU2C.jpg"
+     data-height="540"
+     data-width="960"
+     data-controller="hubs"
+     data-action="show"
+     data-uuid="ntztWgqFZA5xmKc1rXQU2C"
+     data-type="inline">
 ++++
 
 For additional context, see the blog post https://blogs.mulesoft.com/news/upgrade-to-cloudhub-2-0-with-our-in-app-upgrade-tool/[Upgrade from CloudHub 1.0 to CloudHub 2.0 With Our In-App Upgrade Tool].

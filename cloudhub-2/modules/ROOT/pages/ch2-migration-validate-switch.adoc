@@ -11,8 +11,8 @@ Your traffic source determines which DNS record CloudHub updates to manage traff
 
 CloudHub receives traffic from two main sources:
 
-* *Shared Load Balancer (SLB):* Associated with the default endpoints of your CloudHub application. The SLB handles traffic switching if your ingress configuration includes the default CloudHub application endpoint in the format `<app_name>.<region>.cloudhub.io`.
-* *Dedicated Load Balancer (DLB):* Associated with vanity domains configured for your CloudHub application. If the default CloudHub endpoint is missing and you've configured a vanity domain or an `anypointdns.net` endpoint, the DLB switches the traffic.
+* Shared Load Balancer (SLB): Associated with the default endpoints of your CloudHub app. The SLB handles traffic switching if the ingress configuration includes the default CloudHub app endpoint in the format `<app_name>.<region>.cloudhub.io`.
+* Dedicated Load Balancer (DLB): Associated with vanity domains configured for your CloudHub app. If the default CloudHub endpoint is missing and you configured a vanity domain or an `anypointdns.net` endpoint, the DLB switches the traffic.
 
 NOTE: If your CloudHub 1.0 application has the default endpoint configured, traffic switches at the SLB. To switch traffic from the DLB instead, remove the CloudHub 1.0 default endpoint, apply changes, and then change the traffic switch percentage.
 
@@ -51,8 +51,8 @@ After you deploy your CloudHub 2.0 application, test it by directing traffic to 
 
 To avoid updating client applications, use the same domains in CloudHub 2.0. Choose one of these options:
 
-* *Customer-Managed:* Switch the application's xref:ch2-config-endpoints-paths.adoc[DNS] to point to CloudHub 2.0.
-* *MuleSoft-Managed:* Carry over vanity URLs while incrementally switching a percentage of traffic from CloudHub to CloudHub 2.0.
+* Customer-managed: Switch the app's xref:ch2-config-endpoints-paths.adoc[DNS] to point to CloudHub 2.0.
+* MuleSoft-managed: Carry over vanity URLs while incrementally switching a percentage of traffic from CloudHub to CloudHub 2.0.
 
 NOTE: You can also use APIs for https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.1/console/method/%231340/[application linking] using the `upgradeData` object while creating CloudHub 2.0 deployments, and for https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.1/console/method/%231736/[traffic switching] using the newly introduced endpoint.
 
@@ -105,7 +105,7 @@ curl -X PUT \
 
 NOTE: Find the current endpoint path and request body in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/amc-application-manager/minor/4.1/console/method/%231736/[AMC Application Manager API reference]. Verify the endpoint path and parameters against the latest API documentation before using them in automation scripts.
 
-*Example automation script:* The increments and durations below are illustrative — adjust them to your own risk tolerance and application type.
+Example automation script: The increments and durations are illustrative. Adjust them to your risk tolerance and app type.
 
 [source,bash]
 ----
@@ -193,10 +193,10 @@ Monitor application health and performance during the cutover, and use defined t
 
 Track the following metrics during traffic switching:
 
-* *Error rates* — Compare against the baseline from CloudHub.
-* *Response times* — Track latency changes.
-* *CPU and memory usage* — Verify that replicas are appropriately sized.
-* *Request rate* — Confirm that traffic is arriving at expected levels.
+* Error rates: Compare against the baseline from CloudHub.
+* Response times: Track latency changes.
+* CPU and memory usage: Verify that replicas are appropriately sized.
+* Request rate: Confirm that traffic is arriving at expected levels.
 
 === Threshold Guidance
 
@@ -223,7 +223,7 @@ Compare error rate and response time against your CloudHub baseline to decide wh
 
 Roll back to CloudHub if you see either of these conditions:
 
-* Sustained 5xx errors (500, 502) above baseline, not isolated occurrences. See xref:ch2-migration-troubleshoot.adoc#_502_bad_gateway_during_traffic_switch[502 Bad Gateway During Traffic Switch] for common causes to rule out before rolling back.
+* Sustained 5xx errors (500, 502) exceeding the baseline, not isolated occurrences. See xref:ch2-migration-troubleshoot.adoc#_502_bad_gateway_during_traffic_switch[502 Bad Gateway During Traffic Switch] for common causes to rule out before rolling back.
 * Performance degradation greater than 2x baseline
 
 === When Not to Roll Back
@@ -281,9 +281,9 @@ If there's a hard change in traffic from one application to the other, policy co
 
 The effective rate limit can double during a split. Use one of these approaches to mitigate it.
 
-*Problem:* The effective rate limit doubles during a 50/50 traffic split because each application (CloudHub and CloudHub 2.0) maintains independent policy counters, and each maintains per-replica counters.
+Problem: The effective rate limit doubles during a 50/50 traffic split because each app (CloudHub and CloudHub 2.0) maintains independent policy counters, and each maintains per-replica counters.
 
-*Solutions:*
+Solutions:
 
 * Configure half the rate limit on both the CloudHub 1.0 and CloudHub 2.0 applications during the split.
 * Accept temporarily doubled limits during the transition.

@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After traffic is fully on CloudHub 2.0, verify the application, update DNS, fail over the DLB, and stop and delete the CloudHub application.
+Complete the cutover after CloudHub 2.0 receives all traffic. Verify app behavior, update DNS, fail over eligible DLB domains, and retire CloudHub apps within the rollback boundary.
 
 == Post-Validation Checklist
 

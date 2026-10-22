@@ -4,18 +4,10 @@ include::_attributes.adoc[]
 endif::[]
 :page-aliases: cloudhub::app-migration.adoc
 
-After setting up your CloudHub 2.0 private space, migrate your applications from CloudHub. Complete the steps in xref:ch2-migration-apps-prepare.adoc[Prepare Your Application for Migration], then choose a migration procedure based on how you created your private space.
+Migrate CloudHub apps after you set up a CloudHub 2.0 private space. Prepare the app, then follow the procedure for a manually created private space or an upgraded VPC.
 
-[cols="1,2"]
-|===
-|If your private space was... |Follow this path
-
-|Created manually from scratch
-|xref:ch2-migration-apps-new-space.adoc[Migrate Applications to a New Private Space]
-
-|Created by upgrading a VPC
-|xref:ch2-migration-apps-tool.adoc[Upgrade Application Using the Migration Tool]
-|===
+* For a manually created private space, follow xref:ch2-migration-apps-new-space.adoc[Migrate Applications to a New Private Space].
+* For a private space created by upgrading a VPC, follow xref:ch2-migration-apps-tool.adoc[Upgrade Application Using the Migration Tool].
 
 == Considerations and Limitations
 

@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :page-aliases: cloudhub::ch-ch2-migration-completion.adoc
 
-After deploying your application to CloudHub 2.0, validate it by gradually switching traffic, monitoring for issues, and completing the cutover.
+Validate a CloudHub 2.0 app after deployment by switching traffic in stages, monitoring health and rollback thresholds, updating DNS, and completing the cutover.
 
 The process has two phases:
 
@@ -13,7 +13,7 @@ The process has two phases:
 
 == Contact Support for Migration Issues
 
-If you encounter issues during or after traffic switching, gather the following information before contacting MuleSoft Support.
+If you encounter issues during or after traffic switching, gather the following information before contacting https://help.mulesoft.com/s/support[MuleSoft Support].
 
 * Org ID, environment name, and control plane/region (e.g., `usa-e1`, `deu-c1.n`).
 * CloudHub 1.0 application name and CloudHub 2.0 deployment ID.

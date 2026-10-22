@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Use this page to diagnose and resolve common issues encountered during CloudHub to CloudHub 2.0 migration.
+Diagnose traffic switching, certificate, connectivity, app, VPC upgrade, and deployment issues that can occur when migrating from CloudHub to CloudHub 2.0.
 
 == Traffic Switching Issues
 Resolve 502 errors, traffic-switching percentage failures, and DLB configuration problems during cutover.
@@ -12,11 +12,11 @@ Resolve 502 errors, traffic-switching percentage failures, and DLB configuration
 
 Several distinct issues can cause a 502 error during or after traffic switching:
 
-* *TLS protocol incompatibility* — The DLB requires TLS 1.2 or higher as the upstream protocol when routing to CloudHub 2.0 applications. If configured with only TLS 1.1, traffic switching to CloudHub 2.0 fails with a 502 error. Additionally, incorrect ingress endpoint selection can cause 404 errors after resolving the TLS issue.
-* *Stale backend IP after a redeploy* — CloudHub 2.0 Edge Ingress can briefly route to a replica's previous (now-terminated) ClusterIP after a redeploy, causing connect timeouts and intermittent 502s until ingress routing refreshes.
-* *Path-rewrite trailing slash* — Ingress path rewrite can append an unexpected trailing slash on an exact-prefix match, breaking APIkit routing and returning a 502.
-* *Listener bound to the wrong interface* — If your application's HTTP listener is bound to `127.0.0.1` instead of `0.0.0.0`, the ingress controller can't reach it, which surfaces as a 502.
-* *Duplicate vanity domain paths* — Two or more applications in the same private space sharing the same vanity domain and path cause ambiguous routing and intermittent 502s.
+* TLS protocol incompatibility: The DLB requires TLS 1.2 or higher as the upstream protocol when routing to CloudHub 2.0 apps. If configured with only TLS 1.1, traffic switching to CloudHub 2.0 fails with a 502 error. Incorrect ingress endpoint selection can also cause 404 errors after resolving the TLS issue.
+* Stale backend IP after a redeploy: CloudHub 2.0 Edge Ingress can briefly route to a replica's previous (now-terminated) ClusterIP after a redeploy, causing connect timeouts and intermittent 502s until ingress routing refreshes.
+* Path-rewrite trailing slash: Ingress path rewrite can append an unexpected trailing slash on an exact-prefix match, breaking APIkit routing and returning a 502.
+* Listener bound to the wrong interface: If the app's HTTP listener is bound to `127.0.0.1` instead of `0.0.0.0`, the ingress controller can't reach it, which surfaces as a 502.
+* Duplicate vanity domain paths: Two or more apps in the same private space sharing the same vanity domain and path cause ambiguous routing and intermittent 502s.
 
 To troubleshoot the TLS cause:
 
@@ -49,7 +49,7 @@ Diagnose missing DLB certificates and TLS handshake failures after upgrading to 
 
 === Missing DLB Certificates Post-Upgrade
 
-The VPC upgrade tool migrates DLB configurations on a *best-effort basis*. Due to architectural differences between the DLB and CloudHub 2.0 ingress controller, automated certificate migration isn't guaranteed.
+The VPC upgrade tool migrates DLB configurations on a best-effort basis. Due to architectural differences between the DLB and CloudHub 2.0 ingress controller, automated certificate migration isn't guaranteed.
 
 To troubleshoot this issue:
 
@@ -138,8 +138,8 @@ After migrating to CloudHub 2.0, long-running stored procedure calls can termina
 
 To troubleshoot this issue:
 
-* *Option 1:* Set JVM argument `oracle.net.keepAlive=true` in the Mule Runtime via Runtime Manager properties.
-* *Option 2:* Use a Generic connection in the Database Connector with the keepAlive property in the JDBC connection URL:
+* Option 1: Set JVM argument `oracle.net.keepAlive=true` in Mule Runtime through Runtime Manager properties.
+* Option 2: Use a Generic connection in Database Connector with the keepAlive property in the JDBC connection URL:
 +
 ----
 jdbc:oracle:thin:@//host:port/service?oracle.net.keepAlive=true
@@ -259,11 +259,11 @@ Use this table to resolve private space, networking, DNS, and configuration prob
 == Connectivity Diagnostics
 To diagnose connectivity issues between CloudHub platforms during migration, deploy the MuleSoft Network Tools application to your VPC or private space. Use these tests:
 
-* *Socket test:* Verify TCP connectivity between platforms (equivalent to a TCP handshake).
-* *DNS test:* Confirm DNS resolution for DLB and ingress endpoints.
-* *cURL test:* Validate HTTP/HTTPS endpoint accessibility end-to-end.
-* *Certificate test:* Inspect TLS certificates presented by an endpoint.
-* *Cipher test:* Identify which TLS ciphers a remote endpoint supports.
+* Socket test: Verify TCP connectivity between platforms (equivalent to a TCP handshake).
+* DNS test: Confirm DNS resolution for DLB and ingress endpoints.
+* cURL test: Validate HTTP or HTTPS endpoint accessibility end-to-end.
+* Certificate test: Inspect TLS certificates presented by an endpoint.
+* Cipher test: Identify which TLS ciphers a remote endpoint supports.
 
 NOTE: In CloudHub 2.0 private spaces, *Ping* isn't supported due to security restrictions. Use TCP socket tests instead.
 
