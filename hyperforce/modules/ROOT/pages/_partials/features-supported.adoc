@@ -155,7 +155,7 @@ Americas::
 | Shared Spaces | Available | Available
 
 //CONNECTORS - AMERICAS: US | CANADA
-| xref:connectors::index.adoc[Connectors] |  | Available | Available |
+| xref:connectors::index.adoc[Connectors] |  | Available | Available | For details, refer to xref:connectors::introduction/connector-release-notes.adoc[Connectors Release Notes]
 
 //DATAWEAVE - AMERICAS: US | CANADA
 | xref:dataweave::index.adoc[DataWeave] | n/a | Available | Available | n/a
@@ -715,7 +715,7 @@ Government::
 | Basic Alerts | Planned
 | Basic Monitoring | Planned
 | Custom Dashboards | Not planned
-| Hybrid Standalone Mule (HSA) | Available
+| Hybrid Standalone Mule (HSA) | Planned
 | Integration Intelligence | Not planned
 | Log Search | Planned
 | Logs Raw Data | Planned
@@ -750,8 +750,8 @@ Government::
 | Usage Reports (Usage) | Planned
 
 //ANYPOINT PARTNER MANAGER - GOVERNMENT
-.2+| xref:partner-manager::index.adoc[Anypoint Partner Manager] | All other features | Not planned .2+| n/a
-| Generative B2B Message Summary Feature | Not planned
+.2+| xref:partner-manager::index.adoc[Anypoint Partner Manager] | All other features | Planned .2+| n/a
+| Generative B2B Message Summary Feature | Planned
 
 //ANYPOINT PRIVATE CLOUD EDITION - GOVERNMENT
 | xref:private-cloud::index.adoc[Anypoint Private Cloud Edition] | n/a | Not planned | Anypoint Private Cloud Edition (Anypoint Platform PCE) is a complete software package that you install and manage entirely within your private network. PCE runs exclusively on your infrastructure and isn't hosted or managed on any public cloud by MuleSoft.
@@ -780,7 +780,7 @@ Government::
 | xref:design-center::design-create-publish-api-specs.adoc[API Designer] | n/a | Not planned | n/a
 
 //API EXPERIENCE HUB - GOVERNMENT
-| xref:api-experience-hub::index.adoc[API Experience Hub] | n/a | Not planned | n/a
+| xref:api-experience-hub::index.adoc[API Experience Hub] | n/a | Planned | n/a
 
 //API FUNCTIONAL MONITORING - GOVERNMENT
 | xref:api-functional-monitoring::index.adoc[API Functional Monitoring] | n/a | Planned | n/a
@@ -828,7 +828,7 @@ Government::
 | Model Proxy | Planned
 | Agent Kill Switch | Planned
 | Model Wallet | Planned
-| LLM Gateway | Available
+| LLM Gateway | Planned
 | Cost Management Dashboard | Planned
 | Cost Management Optimizations | Planned
 
@@ -873,7 +873,7 @@ Government::
 * xref:runtime-fabric::use-anypoint-monitoring.adoc[Using Anypoint Monitoring]
 
 //USAGE REPORTS - GOVERNMENT
-| xref:general::usage-reports.adoc[Usage Reports] | n/a | Available | n/a
+| xref:general::usage-reports.adoc[Usage Reports] | n/a | Planned | n/a
 
 |===
 // end::government-table[]
