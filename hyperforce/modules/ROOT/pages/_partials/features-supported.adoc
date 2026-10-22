@@ -155,7 +155,7 @@ Americas::
 | Shared Spaces | Available | Available
 
 //CONNECTORS - AMERICAS: US | CANADA
-| xref:connectors::index.adoc[Connectors] |  | Available | Available | For details, refer to xref:connectors::introduction/connector-release-notes.adoc[Connectors Release Notes]
+| xref:connectors::index.adoc[Connectors] |  | Available | Available | For details, refer to xref:release-notes::connector/anypoint-connector-release-notes.adoc[Anypoint Connector Release Notes]
 
 //DATAWEAVE - AMERICAS: US | CANADA
 | xref:dataweave::index.adoc[DataWeave] | n/a | Available | Available | n/a
