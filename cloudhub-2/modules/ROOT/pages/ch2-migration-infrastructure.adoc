@@ -7,23 +7,23 @@ Prepare CloudHub 2.0 infrastructure before migrating apps. Select a manually cre
 
 == Choose Your Path
 
-Choose a path based on whether your VPC meets the upgrade eligibility requirements:
+Choose a path based on whether your VPC meets the upgrade eligibility requirements.
 
-* xref:ch2-migration-infrastructure-new-space.adoc[Create a New Private Space Manually] when the VPC isn't eligible for upgrade or CloudHub 2.0 requires a different CIDR block. Create a private space with its own CIDR block, network connections, and firewall rules.
-* xref:ch2-migration-infrastructure-vpc-upgrade.adoc[Upgrade a VPC to a Private Space] when the VPC meets all xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[eligibility requirements] and you want to retain the existing infrastructure configuration. The upgrade tool clones the VPC CIDR block, firewall rules, VPN or TGW connections, and DLB certificates into a CloudHub 2.0 private space.
+* xref:ch2-migration-infrastructure-new-space.adoc[] when the VPC isn't eligible for upgrade or CloudHub 2.0 requires a different CIDR block. Create a private space with its own CIDR block, network connections, and firewall rules.
+* xref:ch2-migration-infrastructure-vpc-upgrade.adoc[] when the VPC meets all xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[eligibility requirements] and you want to retain the existing infrastructure configuration. The upgrade tool clones the VPC CIDR block, firewall rules, VPN or TGW connections, and DLB certificates into a CloudHub 2.0 private space.
 
 == Review Infrastructure Considerations
 
-Whichever path you choose, review how DLB features map to CloudHub 2.0 ingress, how CloudHub and CloudHub 2.0 applications communicate, how static IPs change, and how to maintain business continuity. See xref:ch2-migration-infrastructure-considerations.adoc[Infrastructure Considerations for Migration].
+Whichever path you choose, review how DLB features map to CloudHub 2.0 ingress, how CloudHub and CloudHub 2.0 applications communicate, how static IPs change, and how to maintain business continuity. See xref:ch2-migration-infrastructure-considerations.adoc[].
 
 == See Also
 
-* xref:ch2-migration-plan.adoc[Plan the Migration]
-* xref:ch2-migration-apps.adoc[Migrate Applications]
+* xref:ch2-migration-plan.adoc[]
+* xref:ch2-migration-apps.adoc[]
 * xref:ch2-migration-troubleshoot.adoc#troubleshoot-vpc-upgrade[VPC Upgrade Issues]
 * xref:ch2-migration-troubleshoot.adoc#troubleshoot-infrastructure[Infrastructure Issues]
-* xref:cloudhub::vpc-upgrade.adoc[CloudHub VPC to CloudHub 2.0 Private Space Upgrade]
-* xref:ps-create-configure.adoc[Create a Private Space via Runtime Manager]
-* xref:ps-gather-setup-info.adoc[Gather Setup Information for a Private Space]
-* xref:ps-config-fw-rules.adoc[Configure Firewall Rules for a Private Space]
-* xref:ps-config-domains.adoc[Configure Domains and TLS for a Private Space]
+* xref:cloudhub::vpc-upgrade.adoc[]
+* xref:ps-create-configure.adoc[]
+* xref:ps-gather-setup-info.adoc[]
+* xref:ps-config-fw-rules.adoc[]
+* xref:ps-config-domains.adoc[]

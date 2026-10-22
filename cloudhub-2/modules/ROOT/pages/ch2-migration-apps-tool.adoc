@@ -21,7 +21,7 @@ Open the upgrade page for your CloudHub application in Runtime Manager.
 If your application is eligible for the upgrade, the upgrade tooling appears on the *Settings* page.
 . Click *Upgrade to CloudHub 2.0*, then click *Start Upgrade*.
 +
-The *Upgrade Application to CloudHub 2.0* page opens with these fields:
+The *Upgrade Application to CloudHub 2.0* page opens with these fields.
 +
 ** *Application Name* — Shows the inherited CloudHub application name by default. To use a different name for your CloudHub 2.0 application, edit this field.
 ** *Upgrading From* — Shows the name of the CloudHub application you're migrating from. You can't edit this field.
@@ -29,14 +29,14 @@ The *Upgrade Application to CloudHub 2.0* page opens with these fields:
 
 == Step 2: Configure the Application File
 
-Provide the application file by uploading it or importing it from Exchange:
+Provide the application file by uploading it or importing it from Exchange.
 
 * Upload an app file: Download the app asset from the link under *Application File*, make the required changes, and upload it to deploy the new app to the CloudHub 2.0 private space.
 * Import a file from Anypoint Exchange: Import the CloudHub app to upgrade.
 
 == Step 3: Configure Ingress
 
-Configure the endpoint in the *Ingress* tab so traffic reaches the CloudHub 2.0 application:
+Configure the endpoint in the *Ingress* tab so traffic reaches the CloudHub 2.0 application.
 
 . Select a *Host* from the dropdown list.
 +
@@ -62,11 +62,11 @@ IMPORTANT: The upgrade process doesn't automatically carry over application prop
 
 == Step 5: Deploy the Application
 
-Deploy the application to your CloudHub 2.0 private space. For the full procedure, see xref:ch2-deploy.adoc[Deploy Applications to CloudHub 2.0].
+Deploy the application to your CloudHub 2.0 private space. For the full procedure, see xref:ch2-deploy.adoc[].
 
 == Step 6: Restart the DLB
 
-After deploying the application to CloudHub 2.0, restart the dedicated load balancer (DLB) to:
+After deploying the application to CloudHub 2.0, restart the dedicated load balancer (DLB) to.
 
 * Clear cached routing tables.
 * Rediscover application endpoints.
@@ -75,10 +75,10 @@ After deploying the application to CloudHub 2.0, restart the dedicated load bala
 
 == See Also
 
-* xref:ch2-migration-infrastructure.adoc[Prepare Infrastructure]
-* xref:ch2-migration-validate.adoc[Validate and Switch Traffic]
-* xref:ch2-deploy-private-space.adoc[Deploy to a Private Space]
-* xref:ch2-deploy.adoc[Deploy Applications to CloudHub 2.0]
-* xref:ch2-configure-horizontal-autoscaling.adoc[Configure Horizontal Autoscaling]
-* xref:mule-runtime::deploy-to-cloudhub-2.adoc[Deploy Applications to CloudHub 2.0 Using the Mule Maven Plugin]
-* xref:ch2-integrate-log-system.adoc[Integrate with Your Logging System Using Log4j]
+* xref:ch2-migration-infrastructure.adoc[]
+* xref:ch2-migration-validate.adoc[]
+* xref:ch2-deploy-private-space.adoc[]
+* xref:ch2-deploy.adoc[]
+* xref:ch2-configure-horizontal-autoscaling.adoc[]
+* xref:mule-runtime::deploy-to-cloudhub-2.adoc[]
+* xref:ch2-integrate-log-system.adoc[]

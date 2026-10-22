@@ -48,14 +48,14 @@ Because CloudHub 2.0 uses a separate infrastructure CIDR pool, the DLB also bloc
 
 ==== Step 1: Add Infrastructure CIDR Ranges to the DLB Allowlist
 
-The DLB blocks CloudHub 2.0 traffic until you add the CloudHub 2.0 infrastructure CIDR ranges to its allowlist:
+The DLB blocks CloudHub 2.0 traffic until you add the CloudHub 2.0 infrastructure CIDR ranges to its allowlist.
 
 * `100.64.0.0/16`
 * `100.66.0.0/16`
 * `100.67.0.0/16`
 * `100.68.0.0/16`
 
-To update the DLB allowlist:
+To update the DLB allowlist.
 
 . In *Runtime Manager*, go to *CloudHub* > *Load Balancers*.
 . Select your DLB.
@@ -66,7 +66,7 @@ For more information about CloudHub 2.0 infrastructure CIDR ranges, see xref:ps-
 
 ==== Step 2: Verify DLB TLS Configuration
 
-The DLB must support TLS 1.2+ for upstream connections from CloudHub 2.0:
+The DLB must support TLS 1.2+ for upstream connections from CloudHub 2.0.
 
 . In *Runtime Manager*, go to *CloudHub* > *Load Balancers*.
 . Select your DLB and review the *Upstream TLS* settings.
@@ -90,7 +90,7 @@ IMPORTANT: To work around this limitation, deploy the new application to CloudHu
 
 ==== General Configuration
 
-Regardless of whether the target application was migrated or deployed new, configure the following to allow CloudHub 1.0 traffic to reach the CloudHub 2.0 private space:
+Regardless of whether the target application was migrated or deployed new, configure the following to allow CloudHub 1.0 traffic to reach the CloudHub 2.0 private space.
 
 . Firewall rules: In the CloudHub 2.0 private space, add ingress firewall rules to allow traffic from the CloudHub 1.0 VPC CIDR range.
 . TLS: Confirm that the CloudHub 2.0 app has a valid TLS context configured for HTTPS calls.
@@ -120,7 +120,7 @@ Confirm that TGW route tables include routes for both the VPC CIDR and the priva
 
 ==== Validate TGW Connectivity
 
-After attaching the transit gateway, test connectivity using the Network Tools application:
+After attaching the transit gateway, test connectivity using the Network Tools application.
 
 . Deploy Network Tools to the new private space.
 . Use the *Socket* test to verify TCP connectivity to on-premises hosts through the TGW.
@@ -145,25 +145,23 @@ On-Premises / Cloud Network
                          ├── Ingress LB (firewall rules)
                          └── Replicas
 
-Cross-platform flows:
+Cross-platform flows.
   CloudHub 2.0 app → DLB endpoint → CloudHub worker (requires DLB allowlist CIDR ranges)
   CloudHub app → CloudHub 2.0 ingress endpoint → CloudHub 2.0 replica (requires PS firewall rule)
 ----
 
 === Validate Connectivity
 
-Use the MuleSoft Network Tools application to confirm that CloudHub and CloudHub 2.0 applications can reach each other:
+Use the MuleSoft Network Tools application to confirm that CloudHub and CloudHub 2.0 applications can reach each other.
 
 . Deploy the Network Tools app to your VPC or private space.
 . Use the *Socket* test to verify TCP connectivity between platforms.
 . Use the *cURL* test to validate HTTP/HTTPS endpoint accessibility.
 . Use the *DNS* test to confirm DNS resolution for DLB and ingress endpoints.
 
-NOTE: In CloudHub 2.0 private spaces, the *Ping* command isn't supported due to security restrictions. Use TCP socket tests instead. See https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Network Tools Application For Connectivity Test From CloudHub VPC (KA 001115029)].
-
 == Plan for Static IP Changes
 
-Static IPs are allocated per application in CloudHub but per private space in CloudHub 2.0, which affects the allowlists on your backend systems:
+Static IPs are allocated per application in CloudHub but per private space in CloudHub 2.0, which affects the allowlists on your backend systems.
 
 [cols="1,1,1"]
 |===
@@ -186,11 +184,11 @@ Static IPs are allocated per application in CloudHub but per private space in Cl
 
 If backend systems (databases, SaaS APIs, on-premises services) have firewall rules that allow traffic only from specific CloudHub 1.0 application static IPs, you must update those rules to allow the new private space outbound IPs.
 
-Planning checklist:
+Planning checklist.
 
 . Inventory all backend systems that allowlist traffic by source IP.
 . For each system, record the current CloudHub 1.0 static IPs in use.
-. After creating your CloudHub 2.0 private space, locate the private space's outbound NAT IPs:
+. After creating your CloudHub 2.0 private space, locate the private space's outbound NAT IPs.
 ** In *Runtime Manager*, go to *Private Spaces* > your space > *Network*.
 . Update backend allowlists to include the new private space outbound IPs.
 . During migration, keep the old CloudHub IPs and new CloudHub 2.0 IPs in backend allowlists until decommissioning is complete.
@@ -207,7 +205,7 @@ Per-application IP identification, IP allocation limits, and upgraded private sp
 
 After the upgrade, your CloudHub VPC is locked for infrastructure changes, so make infrastructure changes in the private space and plan for dual entitlements while both platforms run. Continue to deploy and manage applications in your VPC during the migration.
 
-Key constraints after upgrade:
+Key constraints after upgrade.
 
 * Your CloudHub dedicated VPC is locked for any changes to the infrastructure, including environment or business group associations, network connections, and internal DNS.
 * Make any required infrastructure changes to the newly created private space.
@@ -225,12 +223,12 @@ If you encounter infrastructure issues, see xref:ch2-migration-troubleshoot.adoc
 
 == See Also
 
-* xref:ch2-migration-plan.adoc[Plan the Migration]
-* xref:ch2-migration-apps.adoc[Migrate Applications]
+* xref:ch2-migration-plan.adoc[]
+* xref:ch2-migration-apps.adoc[]
 * xref:ch2-migration-troubleshoot.adoc#troubleshoot-vpc-upgrade[VPC Upgrade Issues]
 * xref:ch2-migration-troubleshoot.adoc#troubleshoot-infrastructure[Infrastructure Issues]
-* xref:cloudhub::vpc-upgrade.adoc[CloudHub VPC to CloudHub 2.0 Private Space Upgrade]
-* xref:ps-create-configure.adoc[Create a Private Space via Runtime Manager]
-* xref:ps-gather-setup-info.adoc[Gather Setup Information for a Private Space]
-* xref:ps-config-fw-rules.adoc[Configure Firewall Rules for a Private Space]
-* xref:ps-config-domains.adoc[Configure Domains and TLS for a Private Space]
+* xref:cloudhub::vpc-upgrade.adoc[]
+* xref:ps-create-configure.adoc[]
+* xref:ps-gather-setup-info.adoc[]
+* xref:ps-config-fw-rules.adoc[]
+* xref:ps-config-domains.adoc[]

@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-pagination:next
 
 Identify your traffic source, switch traffic from CloudHub to CloudHub 2.0 in stages, monitor application health against rollback thresholds, and account for how API policies behave during the split.
 
@@ -9,7 +10,7 @@ Identify your traffic source, switch traffic from CloudHub to CloudHub 2.0 in st
 
 Your traffic source determines which DNS record CloudHub updates to manage traffic flow between your CloudHub and CloudHub 2.0 applications during migration.
 
-CloudHub receives traffic from two main sources:
+CloudHub receives traffic from two main sources.
 
 * Shared Load Balancer (SLB): Associated with the default endpoints of your CloudHub app. The SLB handles traffic switching if the ingress configuration includes the default CloudHub app endpoint in the format `<app_name>.<region>.cloudhub.io`.
 * Dedicated Load Balancer (DLB): Associated with vanity domains configured for your CloudHub app. If the default CloudHub endpoint is missing and you configured a vanity domain or an `anypointdns.net` endpoint, the DLB switches the traffic.
@@ -18,7 +19,7 @@ NOTE: If your CloudHub 1.0 application has the default endpoint configured, traf
 
 === DLB with HTTPS Traffic Switching
 
-For applications using a DLB and expecting HTTPS traffic:
+For applications using a DLB and expecting HTTPS traffic.
 
 . Enable the *Last-Mile Security* setting in the *Ingress* tab of the deployment settings for the CloudHub 2.0 application.
 . Enable *Upstream TLS 1.2* or higher in your DLB settings.
@@ -26,7 +27,7 @@ For applications using a DLB and expecting HTTPS traffic:
 
 === DLB with HTTP Traffic Switching
 
-For applications using a DLB and expecting HTTP traffic:
+For applications using a DLB and expecting HTTP traffic.
 
 . Add a firewall rule allowing HTTP from the local private network.
 
@@ -34,13 +35,13 @@ WARNING: The CloudHub DLB routes requests from clients to Mule applications depl
 
 === SLB with HTTPS Traffic Switching
 
-For applications using an SLB and expecting HTTPS traffic:
+For applications using an SLB and expecting HTTPS traffic.
 
 * Enable the *Last-Mile Security* setting in the *Ingress* tab of the deployment settings for the CloudHub 2.0 application.
 
 === SLB with HTTP Traffic Switching
 
-For applications using an SLB and expecting HTTP traffic:
+For applications using an SLB and expecting HTTP traffic.
 
 . Enable the *Accept HTTP* option within the *Advanced* tab of your private space settings.
 . Add a firewall rule allowing HTTP from any source.
@@ -49,7 +50,7 @@ For applications using an SLB and expecting HTTP traffic:
 
 After you deploy your CloudHub 2.0 application, test it by directing traffic to it and verifying network connectivity and application behavior.
 
-To avoid updating client applications, use the same domains in CloudHub 2.0. Choose one of these options:
+To avoid updating client applications, use the same domains in CloudHub 2.0. Choose one of these options.
 
 * Customer-managed: Switch the app's xref:ch2-config-endpoints-paths.adoc[DNS] to point to CloudHub 2.0.
 * MuleSoft-managed: Carry over vanity URLs while incrementally switching a percentage of traffic from CloudHub to CloudHub 2.0.
@@ -62,11 +63,11 @@ Shift a percentage of traffic from CloudHub to CloudHub 2.0 in Runtime Manager, 
 
 IMPORTANT: Restart your DLB before initiating traffic switching.
 
-NOTE: Switching application traffic requires the CloudHub Network Administrator permission. Without this permission, the traffic switching fails. For more information about assigning permissions, see xref:access-management::permissions-by-product.adoc[Permissions by Product in Anypoint Platform].
+NOTE: Switching application traffic requires the CloudHub Network Administrator permission. Without this permission, the traffic switching fails. For more information about assigning permissions, see xref:access-management::permissions-by-product.adoc[].
 
 IMPORTANT: Keep the CloudHub application in the STARTED state until the link between CloudHub and CloudHub 2.0 is successfully established. Stopping the CloudHub application before the link is established can cause traffic disruptions.
 
-To gradually switch traffic from CloudHub to CloudHub 2.0:
+To gradually switch traffic from CloudHub to CloudHub 2.0.
 
 . In *Runtime Manager*, go to *Finish Upgrade*.
 . Select the percentage of traffic to direct from CloudHub to CloudHub 2.0, and click *Save Changes*.
@@ -90,7 +91,7 @@ curl -X POST https://anypoint.mulesoft.com/accounts/login \
 ----
 . Switch traffic percentage
 +
-Use the traffic switching endpoint to set the percentage of traffic directed to CloudHub 2.0:
+Use the traffic switching endpoint to set the percentage of traffic directed to CloudHub 2.0.
 
 [source,bash]
 ----
@@ -166,7 +167,7 @@ The estimated time before cleanup is about 14 days.
 
 === Risk-Based Switching Strategies
 
-The right switching pace depends on the application's risk profile and workload type:
+The right switching pace depends on the application's risk profile and workload type.
 
 [cols="1,1,2"]
 |===
@@ -191,7 +192,7 @@ Monitor application health and performance during the cutover, and use defined t
 
 === What to Monitor
 
-Track the following metrics during traffic switching:
+Track the following metrics during traffic switching.
 
 * Error rates: Compare against the baseline from CloudHub.
 * Response times: Track latency changes.
@@ -221,14 +222,14 @@ Compare error rate and response time against your CloudHub baseline to decide wh
 
 === When to Roll Back Immediately
 
-Roll back to CloudHub if you see either of these conditions:
+Roll back to CloudHub if you see either of these conditions.
 
 * Sustained 5xx errors (500, 502) exceeding the baseline, not isolated occurrences. See xref:ch2-migration-troubleshoot.adoc#_502_bad_gateway_during_traffic_switch[502 Bad Gateway During Traffic Switch] for common causes to rule out before rolling back.
 * Performance degradation greater than 2x baseline
 
 === When Not to Roll Back
 
-Some behaviors are expected during traffic switching and don't require a rollback:
+Some behaviors are expected during traffic switching and don't require a rollback.
 
 * API policy caching differences (see <<manage-api-policies-during-traffic-switching>>)
 * Temporary rate-limit counter resets when traffic shifts
@@ -240,7 +241,7 @@ When you apply API policies to your new application, they begin with a clean int
 
 === Policies Unchanged by the Migration
 
-These policies don't rely on internal status, and their behavior remains consistent:
+These policies don't rely on internal status, and their behavior remains consistent.
 
 * http-basic-authentication
 * cors
@@ -256,7 +257,7 @@ These policies don't rely on internal status, and their behavior remains consist
 
 === Policies Affected by Internal Status (Caching)
 
-These policies rely on internal status to cache data:
+These policies rely on internal status to cache data.
 
 * external-oauth2-access-token-enforcement
 * openam-access-token-enforcement
@@ -269,7 +270,7 @@ When transitioning to the new application, these policies either trigger additio
 
 === Policies Affected by Internal Status (Request Counting)
 
-These policies track the number of processed requests and sometimes exhibit unexpected behavior during the transition to the new application:
+These policies track the number of processed requests and sometimes exhibit unexpected behavior during the transition to the new application.
 
 * rate-limiting
 * rate-limiting-sla-based
@@ -283,7 +284,7 @@ The effective rate limit can double during a split. Use one of these approaches 
 
 Problem: The effective rate limit doubles during a 50/50 traffic split because each app (CloudHub and CloudHub 2.0) maintains independent policy counters, and each maintains per-replica counters.
 
-Solutions:
+Solutions.
 
 * Configure half the rate limit on both the CloudHub 1.0 and CloudHub 2.0 applications during the split.
 * Accept temporarily doubled limits during the transition.
@@ -297,8 +298,8 @@ During the CloudHub to CloudHub 2.0 application migration, traffic gradually shi
 
 == See Also
 
-* xref:ch2-migration-apps.adoc[Migrate Applications]
-* xref:ch2-migration-finalize.adoc[Finalize and Decommission]
-* xref:ch2-migration-troubleshoot.adoc[Troubleshoot Migration Issues]
-* xref:ch2-config-endpoints-paths.adoc[Configure Endpoints and Paths]
-* xref:access-management::permissions-by-product.adoc[Permissions by Product in Anypoint Platform]
+* xref:ch2-migration-apps.adoc[]
+* xref:ch2-migration-finalize.adoc[]
+* xref:ch2-migration-troubleshoot.adoc[]
+* xref:ch2-config-endpoints-paths.adoc[]
+* xref:access-management::permissions-by-product.adoc[]

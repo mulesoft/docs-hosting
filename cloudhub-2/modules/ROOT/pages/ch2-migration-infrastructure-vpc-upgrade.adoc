@@ -26,7 +26,7 @@ For additional context, see the blog post https://blogs.mulesoft.com/news/upgrad
 
 == Step 1: Complete the Eligibility Checklist
 
-Before starting the upgrade, confirm that your VPC meets these eligibility requirements:
+Before starting the upgrade, confirm that your VPC meets these eligibility requirements.
 
 * VPC has at least 25% free space and 100+ available IP addresses per subnet.
 * No legacy VPNs configured.
@@ -34,20 +34,20 @@ Before starting the upgrade, confirm that your VPC meets these eligibility requi
 * No TLS 1.1 ciphers that can't be carried over (ECDHE-ECDSA-AES128-SHA1, ECDHE-ECDSA-AES256-SHA1, ECDHE-RSA-AES128-SHA1, ECDHE-RSA-AES256-SHA1).
 * Default VPC configuration is disabled.
 
-For the complete eligibility checklist, see xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[Understand Eligibility].
+For the complete eligibility checklist, see xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[].
 
 == Step 2: Review Environment Association
 
 During the upgrade, the environments associated with your VPC remain synchronized with the environments associated with the upgraded CloudHub 2.0 private space to avoid configuration drift.
 
-Key considerations:
+Key considerations.
 
 * In CloudHub 2.0, an environment can be associated with multiple private spaces. In CloudHub, one environment can only be associated with one VPC in a given region.
 * Bulk environment association for an upgraded private space can result in all environments in the same region getting associated with the underlying VPC. If those environments were previously associated with other CloudHub 1.0 VPCs, they get disassociated.
 
 WARNING: The upgrade tooling doesn't support the upgrade of a default VPC. To proceed with the upgrade, disable the default VPC configuration.
 
-For full details, see xref:cloudhub::vpc-upgrade.adoc#understand-environment-association[Understand Environment Association].
+For full details, see xref:cloudhub::vpc-upgrade.adoc#understand-environment-association[].
 
 == Step 3: Run the Upgrade
 
@@ -65,7 +65,7 @@ Optionally, specify xref:ps-gather-setup-info.adoc#cidr-block[reserved CIDRs] to
 +
 The upgrade process takes about 15 to 30 minutes.
 
-The tool validates:
+The tool validates.
 
 * CIDR block compatibility
 * Firewall rules migration
@@ -83,7 +83,7 @@ After the private space is provisioned, the *Cancel Upgrade* button no longer ap
 
 == Step 4: Validate the Private Space Upgrade
 
-Verify that the private space, its network connections, and its security configuration match your VPC:
+Verify that the private space, its network connections, and its security configuration match your VPC.
 
 * Confirm that the private space appears under *Runtime Manager* > *Private Spaces*.
 * Verify that xref:ps-config-app-level-egress.adoc[egress rules] are applied correctly.
@@ -98,12 +98,12 @@ If the upgrade fails, see xref:ch2-migration-troubleshoot.adoc#troubleshoot-vpc-
 
 == See Also
 
-* xref:ch2-migration-plan.adoc[Plan the Migration]
-* xref:ch2-migration-apps.adoc[Migrate Applications]
+* xref:ch2-migration-plan.adoc[]
+* xref:ch2-migration-apps.adoc[]
 * xref:ch2-migration-troubleshoot.adoc#troubleshoot-vpc-upgrade[VPC Upgrade Issues]
 * xref:ch2-migration-troubleshoot.adoc#troubleshoot-infrastructure[Infrastructure Issues]
-* xref:cloudhub::vpc-upgrade.adoc[CloudHub VPC to CloudHub 2.0 Private Space Upgrade]
-* xref:ps-create-configure.adoc[Create a Private Space via Runtime Manager]
-* xref:ps-gather-setup-info.adoc[Gather Setup Information for a Private Space]
-* xref:ps-config-fw-rules.adoc[Configure Firewall Rules for a Private Space]
-* xref:ps-config-domains.adoc[Configure Domains and TLS for a Private Space]
+* xref:cloudhub::vpc-upgrade.adoc[]
+* xref:ps-create-configure.adoc[]
+* xref:ps-gather-setup-info.adoc[]
+* xref:ps-config-fw-rules.adoc[]
+* xref:ps-config-domains.adoc[]

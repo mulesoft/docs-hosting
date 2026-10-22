@@ -3,14 +3,14 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Diagnose traffic switching, certificate, connectivity, app, VPC upgrade, and deployment issues that can occur when migrating from CloudHub to CloudHub 2.0.
+Diagnose and resolve traffic switching, certificate, connectivity, app, VPC upgrade, and deployment issues encountered during CloudHub to CloudHub 2.0 migration.
 
 == Traffic Switching Issues
 Resolve 502 errors, traffic-switching percentage failures, and DLB configuration problems during cutover.
 
 === 502 Bad Gateway During Traffic Switch
 
-Several distinct issues can cause a 502 error during or after traffic switching:
+Several distinct issues can cause a 502 error during or after traffic switching.
 
 * TLS protocol incompatibility: The DLB requires TLS 1.2 or higher as the upstream protocol when routing to CloudHub 2.0 apps. If configured with only TLS 1.1, traffic switching to CloudHub 2.0 fails with a 502 error. Incorrect ingress endpoint selection can also cause 404 errors after resolving the TLS issue.
 * Stale backend IP after a redeploy: CloudHub 2.0 Edge Ingress can briefly route to a replica's previous (now-terminated) ClusterIP after a redeploy, causing connect timeouts and intermittent 502s until ingress routing refreshes.
@@ -18,7 +18,7 @@ Several distinct issues can cause a 502 error during or after traffic switching:
 * Listener bound to the wrong interface: If the app's HTTP listener is bound to `127.0.0.1` instead of `0.0.0.0`, the ingress controller can't reach it, which surfaces as a 502.
 * Duplicate vanity domain paths: Two or more apps in the same private space sharing the same vanity domain and path cause ambiguous routing and intermittent 502s.
 
-To troubleshoot the TLS cause:
+To troubleshoot the TLS cause.
 
 . In *Runtime Manager*, select *CloudHub* > *Load Balancers*.
 . Select your DLB and review the *Upstream TLS* settings.
@@ -32,7 +32,7 @@ For more information, see https://help.salesforce.com/s/articleView?id=005315578
 
 Missing permissions, incorrect application configuration, or certificate migration issues can prevent the traffic switching percentage from being updated.
 
-To troubleshoot this issue:
+To troubleshoot this issue.
 
 . Verify that the user has the *CloudHub Network Administrator* permission.
 . Verify that both CloudHub 1.0 and CloudHub 2.0 applications are deployed and running.
@@ -51,7 +51,7 @@ Diagnose missing DLB certificates and TLS handshake failures after upgrading to 
 
 The VPC upgrade tool migrates DLB configurations on a best-effort basis. Due to architectural differences between the DLB and CloudHub 2.0 ingress controller, automated certificate migration isn't guaranteed.
 
-To troubleshoot this issue:
+To troubleshoot this issue.
 
 . In *Runtime Manager*, go to your private space > *Domains & TLS* tab.
 . Manually upload your server certificates and private keys.
@@ -66,10 +66,10 @@ For more information, see https://help.salesforce.com/s/articleView?id=005237268
 
 The ingress load balancer doesn't use the certificates, or the certificates use incompatible TLS 1.1 ciphers.
 
-To troubleshoot this issue:
+To troubleshoot this issue.
 
 . Upload certificates to the ingress load balancer in the private space's *Domains & TLS* tab.
-. Verify that no TLS 1.1-only ciphers are in use:
+. Verify that no TLS 1.1-only ciphers are in use.
 ** `ECDHE-ECDSA-AES128-SHA1`
 ** `ECDHE-ECDSA-AES256-SHA1`
 ** `ECDHE-RSA-AES128-SHA1`
@@ -86,7 +86,7 @@ Use this table to resolve connection, firewall, and DNS issues between CloudHub,
 |CloudHub 2.0 application can't connect to CloudHub application
 |DLB allowlist missing infrastructure CIDR ranges.
 |Add these CIDR ranges to the DLB allowlist: `100.64.0.0/16`, `100.66.0.0/16`, `100.67.0.0/16`, `100.68.0.0/16`.
-|xref:cloudhub::vpc-upgrade.adoc[VPC Upgrade docs]
+|xref:cloudhub::vpc-upgrade.adoc[]
 
 |CloudHub 2.0 application can't connect to another CloudHub 2.0 application
 |Incorrect private space firewall rules or missing internal network configuration.
@@ -123,7 +123,7 @@ Use this table to resolve deployment, property, scheduler, and performance issue
 
 |Scheduler not firing, or firing on every replica (duplicate executions)
 |Clustering isn't enabled. Without clustering, every replica runs the schedule independently, which causes duplicate executions; a timezone or configuration difference can also prevent a schedule from firing.
-|Enable clustering so only the primary replica runs the schedule. Review scheduler component configuration for CloudHub 2.0 compatibility. See xref:ch2-manage-schedules.adoc[Manage Schedules].
+|Enable clustering so only the primary replica runs the schedule. Review scheduler component configuration for CloudHub 2.0 compatibility. See xref:ch2-manage-schedules.adoc[].
 |
 
 |High latency after migration
@@ -136,7 +136,7 @@ Use this table to resolve deployment, property, scheduler, and performance issue
 
 After migrating to CloudHub 2.0, long-running stored procedure calls can terminate without an error after about 8 minutes. An intermediate network component (load balancer, NAT gateway, or firewall) drops idle TCP connections without application-level error reporting.
 
-To troubleshoot this issue:
+To troubleshoot this issue.
 
 * Option 1: Set JVM argument `oracle.net.keepAlive=true` in Mule Runtime through Runtime Manager properties.
 * Option 2: Use a Generic connection in Database Connector with the keepAlive property in the JDBC connection URL:
@@ -180,7 +180,7 @@ Resolve eligibility, capacity, certificate, and deletion problems that can occur
 |Mark the migration as complete for all applications in the VPC. Dissociate all environments. See https://help.salesforce.com/s/articleView?language=en_US&id=005115579&type=1[KA 005115579].
 |===
 
-For upgrade steps, see xref:ch2-migration-infrastructure-vpc-upgrade.adoc[Upgrade a VPC to a Private Space].
+For upgrade steps, see xref:ch2-migration-infrastructure-vpc-upgrade.adoc[].
 
 [[troubleshoot-infrastructure]]
 == Infrastructure Issues
@@ -193,7 +193,7 @@ Use this table to resolve private space, networking, DNS, and configuration prob
 |CIDR block conflict during private space creation
 |CIDR block overlaps with existing on-premises or cloud networks.
 |Choose a non-overlapping CIDR block. Review existing allocations before creating.
-|xref:ch2-migration-infrastructure-new-space.adoc[Create a New Private Space Manually]
+|xref:ch2-migration-infrastructure-new-space.adoc[]
 
 |VPN tunnel not establishing to new private space
 |Routing tables or security group configurations not updated for new private space.
@@ -208,7 +208,7 @@ Use this table to resolve private space, networking, DNS, and configuration prob
 |Firewall rules not migrated correctly
 |Ports other than 80, 443, and 30500–32500 are dropped during migration.
 |Manually recreate dropped firewall rules in the private space.
-|xref:ps-config-fw-rules.adoc[Configure Firewall Rules]
+|xref:ps-config-fw-rules.adoc[]
 
 |Cannot upgrade default VPC
 |Upgrade tooling doesn't support default VPC.
@@ -228,12 +228,12 @@ Use this table to resolve private space, networking, DNS, and configuration prob
 |Connection refused from on-premises systems
 |Private space firewall rules don't allow egress to on-premises destinations, or transit gateway/VPN routing not configured.
 |Add egress firewall rules for the on-premises CIDR range. Verify that the transit gateway attachment or VPN tunnel is active and that routing tables include the destination.
-|xref:ps-config-fw-rules.adoc[Configure Firewall Rules]
+|xref:ps-config-fw-rules.adoc[]
 
 |TLS handshake failure
 |Certificates not uploaded to the private space TLS context, or TLS 1.1 ciphers in use.
 |Upload certificates to the private space *Domains & TLS* tab. Verify that all certificates use TLS 1.2 or higher compatible ciphers.
-|xref:ps-config-domains.adoc[Configure Domains]
+|xref:ps-config-domains.adoc[]
 
 |Application properties missing after migration
 |Secure properties aren't carried over automatically. Copied properties require at least one edit to persist.
@@ -253,11 +253,11 @@ Use this table to resolve private space, networking, DNS, and configuration prob
 |Scheduler not firing, or firing on every replica (duplicate executions)
 |Clustering determines scheduler behavior. With clustering enabled, only the primary replica runs the scheduler; clustering itself remains active-active, but schedulers and polling sources are primary-only. Without clustering, every replica runs the schedule independently, causing duplicate executions.
 |Enable clustering to avoid duplicate executions. Verify that scheduler configuration is compatible with CloudHub 2.0 clustering, and review timezone settings. See scheduler management docs for CloudHub 2.0-specific behavior.
-|xref:ch2-manage-schedules.adoc[Manage Schedules]
+|xref:ch2-manage-schedules.adoc[]
 |===
 
 == Connectivity Diagnostics
-To diagnose connectivity issues between CloudHub platforms during migration, deploy the MuleSoft Network Tools application to your VPC or private space. Use these tests:
+To diagnose connectivity issues between CloudHub platforms during migration, deploy the MuleSoft Network Tools application to your VPC or private space. Use these tests.
 
 * Socket test: Verify TCP connectivity between platforms (equivalent to a TCP handshake).
 * DNS test: Confirm DNS resolution for DLB and ingress endpoints.
@@ -325,8 +325,8 @@ Use these support articles for additional migration planning, traffic switching,
 * https://help.salesforce.com/s/articleView?id=005237268&type=1[Missing DLB Certificates During Migration (KA 005237268)]
 * https://help.salesforce.com/s/articleView?id=005321445&type=1[Failed to Update Traffic Switching Percentage (KA 005321445)]
 * https://help.salesforce.com/s/articleView?id=005321536&type=1[Oracle Stored Procedure Dropping Connections (KA 005321536)]
-* xref:ch2-migration-overview.adoc[Migrate from CloudHub to CloudHub 2.0]
-* xref:ch2-migration-validate.adoc[Step 4: Validate and Switch Traffic]
-* xref:ch2-migration-finalize.adoc[Step 5: Finalize and Decommission]
-* xref:cloudhub::vpc-upgrade.adoc[CloudHub VPC to CloudHub 2.0 Private Space Upgrade]
-* xref:ps-config-fw-rules.adoc[Configure Firewall Rules for a Private Space]
+* xref:ch2-migration-overview.adoc[]
+* xref:ch2-migration-validate.adoc[]
+* xref:ch2-migration-finalize.adoc[]
+* xref:cloudhub::vpc-upgrade.adoc[]
+* xref:ps-config-fw-rules.adoc[]

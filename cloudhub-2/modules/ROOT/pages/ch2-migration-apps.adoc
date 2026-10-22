@@ -6,8 +6,8 @@ endif::[]
 
 Migrate CloudHub apps after you set up a CloudHub 2.0 private space. Prepare the app, then follow the procedure for a manually created private space or an upgraded VPC.
 
-* For a manually created private space, follow xref:ch2-migration-apps-new-space.adoc[Migrate Applications to a New Private Space].
-* For a private space created by upgrading a VPC, follow xref:ch2-migration-apps-tool.adoc[Upgrade Application Using the Migration Tool].
+* For a manually created private space, follow xref:ch2-migration-apps-new-space.adoc[].
+* For a private space created by upgrading a VPC, follow xref:ch2-migration-apps-tool.adoc[].
 
 == Considerations and Limitations
 
@@ -27,14 +27,14 @@ A new application that uses a vanity domain must be deployed to CloudHub 1.0 fir
 
 WARNING: You can't deploy a new application directly to CloudHub 2.0 during an active migration and use the same vanity domain.
 
-To deploy a new application with a vanity domain during migration, use this workaround:
+To deploy a new application with a vanity domain during migration, use this workaround.
 
 . Deploy the new application to CloudHub 1.0 first.
 . Configure the application with the desired vanity domain on CloudHub 1.0.
 . Migrate the newly deployed application from CloudHub 1.0 to CloudHub 2.0 using the migration tool.
 . This preserves domain continuity and DNS routing.
 
-Deploying directly to CloudHub 2.0 with an existing vanity domain can cause these issues:
+Deploying directly to CloudHub 2.0 with an existing vanity domain can cause these issues.
 
 * Domain conflicts between the DLB and ingress controller
 * Inconsistent traffic routing through the DLB
@@ -54,10 +54,10 @@ See xref:ch2-migration-plan.adoc#traffic-switching-prerequisites[Traffic-Switchi
 
 == See Also
 
-* xref:ch2-migration-infrastructure.adoc[Prepare Infrastructure]
-* xref:ch2-migration-validate.adoc[Validate and Switch Traffic]
-* xref:ch2-deploy-private-space.adoc[Deploy to a Private Space]
-* xref:ch2-deploy.adoc[Deploy Applications to CloudHub 2.0]
-* xref:ch2-configure-horizontal-autoscaling.adoc[Configure Horizontal Autoscaling]
-* xref:mule-runtime::deploy-to-cloudhub-2.adoc[Deploy Applications to CloudHub 2.0 Using the Mule Maven Plugin]
-* xref:ch2-integrate-log-system.adoc[Integrate with Your Logging System Using Log4j]
+* xref:ch2-migration-infrastructure.adoc[]
+* xref:ch2-migration-validate.adoc[]
+* xref:ch2-deploy-private-space.adoc[]
+* xref:ch2-deploy.adoc[]
+* xref:ch2-configure-horizontal-autoscaling.adoc[]
+* xref:mule-runtime::deploy-to-cloudhub-2.adoc[]
+* xref:ch2-integrate-log-system.adoc[]

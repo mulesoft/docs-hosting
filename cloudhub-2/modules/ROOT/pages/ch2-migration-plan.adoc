@@ -12,14 +12,14 @@ Review the following areas to understand the scope and complexity of your migrat
 
 === CloudHub Applications
 
-Inventory all apps currently deployed to CloudHub:
+Inventory all apps currently deployed to CloudHub.
 
 * Mule runtime versions: Deploy on a currently supported LTS or Edge runtime. Mule 4.3.0 deployments are blocked on CloudHub 2.0, and runtimes past end of support are rejected with `Runtime Version not supported for this target`. See xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[]. Mule 3.x isn't supported on CloudHub 2.0 and requires Mule 4.
 * vCore allocations: Document current worker sizes and counts per app. CloudHub 2.0 uses replicas with more granular vCore options (0.1, 0.2, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4), but has no 8 or 16 vCore equivalent. Size large CloudHub workers down into multiple replicas and plan equivalent replica sizing.
 * Environments: List all environments (Development, QA, UAT, Production) and their associated VPCs. Note which environments share a VPC.
 * Java version: Verify that all apps are compatible with the Java version required by the target runtime. For example, Mule 4.9 requires Java 17.
 * HTTP listeners: Confirm that apps use port 8081 for HTTP listeners. CloudHub 2.0 uses standard `${http.port}` (8081).
-* Ingress URI size: Identify clients that send request paths or query strings larger than 4 KB. CloudHub 2.0 supports ingress URIs up to 4 KB. Redesign these requests before migrating. See xref:ch2-limits.adoc[Limits in CloudHub 2.0].
+* Ingress URI size: Identify clients that send request paths or query strings larger than 4 KB. CloudHub 2.0 supports ingress URIs up to 4 KB. Redesign these requests before migrating. See xref:ch2-limits.adoc[].
 * Mule Maven Plugin: Use version 4.1.1 or later, which is required for the `javaVersion` and `releaseChannel` parameters. Avoid 4.0.0 and deprecated version 3.8.3.
 
 === Application Properties
@@ -30,7 +30,7 @@ Inventory all apps currently deployed to CloudHub:
 
 === VPC Configuration
 
-Gather the following from your existing CloudHub environment. This information is required to set up a private space. For more details, see xref:ps-gather-setup-info.adoc#setup-info-private-space[Information Required to Set Up a Private Space].
+Gather the following from your existing CloudHub environment. This information is required to set up a private space. For more details, see xref:ps-gather-setup-info.adoc#setup-info-private-space[].
 
 * CIDR block information
 +
@@ -47,25 +47,25 @@ If you are creating a new private space manually, allocate a different CIDR bloc
 
 === Connector Compatibility
 
-Most MuleSoft connectors are compatible with CloudHub 2.0. Review the following:
+Most MuleSoft connectors are compatible with CloudHub 2.0. Review the following.
 
 * Check for proprietary or custom connectors that have platform-specific dependencies.
 * Verify that connector versions are up to date.
-* Review xref:studio::update-modules.adoc[Update Modules] for guidance on updating connectors.
+* Review xref:studio::update-modules.adoc[] for guidance on updating connectors.
 
 === Scheduler Applications
 
-Review applications that use Mule Scheduler components:
+Review applications that use Mule Scheduler components.
 
 * Clustering must be enabled for CloudHub 2.0 to run a scheduled flow on only the primary replica. Without clustering, every replica runs the schedule independently, which causes duplicate executions. Clustering itself is active-active; only schedulers and polling sources are restricted to the primary replica.
 * Applications that rely on all replicas running the same schedule concurrently need to be redesigned to avoid duplicate processing when clustering is enabled.
-* Review xref:ch2-manage-schedules.adoc[Manage Schedules] for CloudHub 2.0 scheduler management.
+* Review xref:ch2-manage-schedules.adoc[] for CloudHub 2.0 scheduler management.
 
 === Persistent Queues
 
-CloudHub 2.0 doesn't support persistent VM queues. If your applications use persistent queues:
+CloudHub 2.0 doesn't support persistent VM queues. If your applications use persistent queues.
 
-* Plan to replace persistent VM queues with xref:mq::index.adoc[Anypoint MQ] for reliable message queuing.
+* Plan to replace persistent VM queues with xref:mq::index.adoc[] for reliable message queuing.
 * CloudHub Connector notifications aren't supported on CloudHub 2.0. If your applications use CloudHub Connector for notifications, replace it with the Email Connector or Anypoint Monitoring alerts.
 
 === API Assets
@@ -76,7 +76,7 @@ CloudHub 2.0 doesn't support persistent VM queues. If your applications use pers
 [[determine-your-migration-path]]
 == Determine Your Migration Path
 
-Choose whether to create a new private space or use the VPC upgrade tool. The VPC upgrade tool requires:
+Choose whether to create a new private space or use the VPC upgrade tool. The VPC upgrade tool requires.
 
 * IP availability: At least 25% free space and 100 or more available IP addresses per subnet.
 * No legacy VPNs: VPCs with legacy VPNs aren't eligible for the upgrade.
@@ -114,7 +114,7 @@ Estimate the resources and time required to run CloudHub and CloudHub 2.0 in par
 
 === Calculate Resource Requirements
 
-During migration, you need resources for CloudHub and CloudHub 2.0 environments at the same time. Plan for double entitlements across:
+During migration, you need resources for CloudHub and CloudHub 2.0 environments at the same time. Plan for double entitlements across.
 
 * VPCs and private spaces: Each VPC being migrated requires a corresponding private space.
 * VPNs and Transit Gateways: Network connections transfer to CloudHub 2.0 but count separately against usage until you decommission CloudHub.
@@ -159,7 +159,7 @@ Plan migration timelines based on the number of applications and complexity of y
 |Longer total timeline. Requires managing cross-platform connectivity (CloudHub apps calling CloudHub 2.0 apps and vice versa). Extended double-entitlement period.
 |===
 
-For phased migrations, consider grouping applications by:
+For phased migrations, consider grouping applications by.
 
 * Environment (migrate non-production first)
 * Business criticality (migrate low-risk applications first)
@@ -191,20 +191,20 @@ Define ownership, migration windows, cutover communications, and rollback criter
 
 === Rollback Criteria and Procedures
 
-Define conditions that trigger a rollback:
+Define conditions that trigger a rollback.
 
 * Error rate exceeds acceptable thresholds.
 * Response time degrades beyond acceptable limits.
 * Critical application functionality is broken.
 
-Document rollback procedures:
+Document rollback procedures.
 
 * How to redirect traffic back to CloudHub.
 * How to stop CloudHub 2.0 applications.
 * Who has authority to trigger a rollback decision.
 
 == Pre-Migration Validation Checklist
-Use this checklist to confirm that you're ready to set up infrastructure:
+Use this checklist to confirm that you're ready to set up infrastructure.
 
 * [ ] Mule runtime on a currently supported LTS or Edge version
 * [ ] Java 17 compatibility verified
@@ -230,11 +230,11 @@ After completing all checklist items, proceed to xref:ch2-migration-infrastructu
 
 == See Also
 
-* xref:ch2-migration-overview.adoc[Migrate from CloudHub to CloudHub 2.0]
+* xref:ch2-migration-overview.adoc[]
 * xref:ch2-migration-infrastructure.adoc[Step 2: Prepare Infrastructure]
 * xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[Understand VPC Upgrade Eligibility]
 * xref:ps-gather-setup-info.adoc#setup-info-private-space[Information Required to Set Up a Private Space]
-* xref:ch2-manage-schedules.adoc[Manage Schedules]
+* xref:ch2-manage-schedules.adoc[]
 * https://help.salesforce.com/s/articleView?id=005237269&type=1[Planning Timelines for CloudHub to CloudHub 2.0 Migration (KA 005237269)] — Guidance on estimating migration timelines and phasing.
 * https://help.salesforce.com/s/articleView?id=005228668&type=1[REST API Migration Steps for CloudHub to CloudHub 2.0 (KA 005228668)] — API-based migration procedures for automating the upgrade process.
 * https://help.salesforce.com/s/articleView?id=001115029&type=1[How to Use the Network Tools Application for Connectivity Tests from a CloudHub VPC (KA 001115029)] — Diagnose network connectivity issues during migration using the Network Tools application.

@@ -7,7 +7,7 @@ Complete the cutover after CloudHub 2.0 receives all traffic. Verify app behavio
 
 == Post-Validation Checklist
 
-After reaching 100% traffic on CloudHub 2.0, confirm:
+After reaching 100% traffic on CloudHub 2.0, confirm.
 
 * [ ] Application is reachable with new domain URLs and its HTTP listener is bound to `0.0.0.0:${http.port}` as expected.
 * [ ] API policies, certificates, and secure properties are functioning post-deployment.
@@ -27,7 +27,7 @@ Update DNS aliases and CNAMEs to point exclusively to CloudHub 2.0 endpoints.
 
 After the VPC upgrade and CloudHub application migration to CloudHub 2.0, perform a DLB failover to retain domains during the transition from CloudHub to CloudHub 2.0. This maintains client application compatibility.
 
-To perform a DLB failover:
+To perform a DLB failover.
 
 . For each DLB linked to your upgraded VPC, go to the DLB settings page and click *Failover to CloudHub 2.0*.
 +
@@ -50,8 +50,8 @@ Complete or delete all CloudHub applications in a given upgraded VPC to release 
 
 == See Also
 
-* xref:ch2-migration-apps.adoc[Migrate Applications]
-* xref:ch2-migration-finalize.adoc[Finalize and Decommission]
-* xref:ch2-migration-troubleshoot.adoc[Troubleshoot Migration Issues]
-* xref:ch2-config-endpoints-paths.adoc[Configure Endpoints and Paths]
-* xref:access-management::permissions-by-product.adoc[Permissions by Product in Anypoint Platform]
+* xref:ch2-migration-apps.adoc[]
+* xref:ch2-migration-finalize.adoc[]
+* xref:ch2-migration-troubleshoot.adoc[]
+* xref:ch2-config-endpoints-paths.adoc[]
+* xref:access-management::permissions-by-product.adoc[]

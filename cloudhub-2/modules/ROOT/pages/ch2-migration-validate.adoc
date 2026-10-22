@@ -6,10 +6,10 @@ endif::[]
 
 Validate a CloudHub 2.0 app after deployment by switching traffic in stages, monitoring health and rollback thresholds, updating DNS, and completing the cutover.
 
-The process has two phases:
+The process has two phases.
 
-* xref:ch2-migration-validate-switch.adoc[Switch Traffic and Monitor the Migration] — Identify your traffic source, shift traffic in stages, and watch for rollback conditions.
-* xref:ch2-migration-validate-cutover.adoc[Complete the Cutover] — Verify the migration, update DNS, fail over the DLB, and decommission the CloudHub application.
+* xref:ch2-migration-validate-switch.adoc[] — Identify your traffic source, shift traffic in stages, and watch for rollback conditions.
+* xref:ch2-migration-validate-cutover.adoc[] — Verify the migration, update DNS, fail over the DLB, and decommission the CloudHub application.
 
 == Contact Support for Migration Issues
 
@@ -28,8 +28,8 @@ Include this information in your support case to help engineering teams diagnose
 
 == See Also
 
-* xref:ch2-migration-apps.adoc[Migrate Applications]
-* xref:ch2-migration-finalize.adoc[Finalize and Decommission]
-* xref:ch2-migration-troubleshoot.adoc[Troubleshoot Migration Issues]
-* xref:ch2-config-endpoints-paths.adoc[Configure Endpoints and Paths]
-* xref:access-management::permissions-by-product.adoc[Permissions by Product in Anypoint Platform]
+* xref:ch2-migration-apps.adoc[]
+* xref:ch2-migration-finalize.adoc[]
+* xref:ch2-migration-troubleshoot.adoc[]
+* xref:ch2-config-endpoints-paths.adoc[]
+* xref:access-management::permissions-by-product.adoc[]

@@ -23,7 +23,7 @@ Update the `pom.xml`, `log4j2.xml`, `mule-artifact.json`, and port settings, and
 
 * Update your application's `pom.xml` with the CloudHub 2.0 deployment configuration.
 +
-Add the `cloudhub2Deployment` configuration to your Mule Maven Plugin section:
+Add the `cloudhub2Deployment` configuration to your Mule Maven Plugin section.
 +
 [source,xml]
 ----
@@ -60,7 +60,7 @@ Add the `cloudhub2Deployment` configuration to your Mule Maven Plugin section:
 +
 NOTE: The pom `groupId` must equal your organization or business group ID, and the version can't have a `-SNAPSHOT` suffix, or the deploy fails with "No application with the provided GAV could be retrieved from Exchange."
 +
-Also, add the Mule Maven Facade API as a repository in your `distributionManagement` section:
+Also, add the Mule Maven Facade API as a repository in your `distributionManagement` section.
 +
 [source,xml]
 ----
@@ -76,11 +76,11 @@ Also, add the Mule Maven Facade API as a repository in your `distributionManagem
 +
 Replace `ORGANIZATION_ID` with your Anypoint Platform org ID.
 +
-See xref:mule-runtime::deploy-to-cloudhub-2.adoc[Deploy Applications to CloudHub 2.0 Using the Mule Maven Plugin] for the full parameter reference.
+See xref:mule-runtime::deploy-to-cloudhub-2.adoc[] for the full parameter reference.
 
 * To forward logs to an external system, update your application's `log4j2.xml`.
 +
-CloudHub 2.0 disables console logging by default. To stream logs to an external system, such as Splunk, configure an asynchronous Log4j appender:
+CloudHub 2.0 disables console logging by default. To stream logs to an external system, such as Splunk, configure an asynchronous Log4j appender.
 +
 [source,xml]
 ----
@@ -108,7 +108,7 @@ CloudHub 2.0 disables console logging by default. To stream logs to an external 
 +
 IMPORTANT: Use only asynchronous log appenders. CloudHub 2.0 automatically removes file appenders (`FileAppender`, `RollingFileAppender`, `RandomAccessFileAppender`). The `AnypointMonitoringFileAppender` is configured automatically at deployment — don't add it to `log4j2.xml`.
 +
-See xref:ch2-integrate-log-system.adoc[Integrate with Your Logging System Using Log4j].
+See xref:ch2-integrate-log-system.adoc[].
 
 * Remove persistent queues and implement Anypoint MQ (see <<migrate-persistent-queues>>).
 * CloudHub Connector notifications aren't supported on CloudHub 2.0. If your applications use CloudHub Connector for notifications, replace it with the Email Connector or Anypoint Monitoring alerts.
@@ -118,7 +118,7 @@ See xref:ch2-integrate-log-system.adoc[Integrate with Your Logging System Using 
 [[migrate-persistent-queues]]
 == Migrate Persistent Queues to Anypoint MQ
 
-CloudHub 2.0 doesn't support CloudHub persistent VM queues. If your application uses persistent queues for reliability or workload distribution, replace them with xref:mq::index.adoc[Anypoint MQ].
+CloudHub 2.0 doesn't support CloudHub persistent VM queues. If your application uses persistent queues for reliability or workload distribution, replace them with xref:mq::index.adoc[].
 
 === Architectural Differences
 
@@ -157,15 +157,15 @@ Anypoint MQ differs from CloudHub persistent VM queues in architecture, delivery
 
 Create queues in Anypoint MQ, replace the VM connector operations, configure credentials and error handling, and remove the CloudHub persistent queue configuration.
 
-. Create queues in Anypoint MQ:
+. Create queues in Anypoint MQ.
 ** In *Anypoint Platform*, select *MQ* > *Destinations*.
 ** Create queues to replace each VM queue used in your application.
 ** Optionally, create dead-letter queues for error handling.
 ** Note your MQ region URL for connector configuration.
 
-. Add the Anypoint MQ connector dependency:
+. Add the Anypoint MQ connector dependency.
 +
-Add the AnypointMQ connector to your application's `pom.xml`:
+Add the AnypointMQ connector to your application's `pom.xml`.
 +
 [source,xml]
 ----
@@ -177,9 +177,9 @@ Add the AnypointMQ connector to your application's `pom.xml`:
 </dependency>
 ----
 +
-See xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector] for the latest version.
+See xref:anypoint-mq-connector::index.adoc[] for the latest version.
 
-. Replace VM connector operations:
+. Replace VM connector operations.
 ** Replace `<vm:publish>` with `<anypoint-mq:publish>`
 ** Replace `<vm:listener>` (inbound VM endpoint) with `<anypoint-mq:subscriber>`
 ** Replace `<vm:consume>` with `<anypoint-mq:consume>`
@@ -230,15 +230,15 @@ After: Anypoint MQ
 </flow>
 ----
 
-. Configure MQ credentials:
+. Configure MQ credentials.
 ** Create a client app in *MQ* > *Client Apps* to obtain a client ID and client secret.
 ** Configure the Anypoint MQ connector with the client ID, client secret, and regional URL.
 
-. Update error handling:
+. Update error handling.
 ** Anypoint MQ uses an acknowledgment model. Messages remain in the queue until explicitly acknowledged (`ack`) or negatively acknowledged (`nack`).
 ** Replace XA transaction rollback patterns with MQ's `nack` operation for redelivery.
 
-. Remove CloudHub persistent queue configuration:
+. Remove CloudHub persistent queue configuration.
 ** Remove the *Persistent Queues* setting from your deployment configuration.
 ** Remove any `queue-profile` elements.
 ** Remove the `batch.persistent.queue.disable` property if present.
@@ -251,11 +251,11 @@ Egress rules, batch job behavior, and connectivity testing affect the move to An
 * Batch jobs: CloudHub persistent queues were used internally for batch job queuing. In CloudHub 2.0, batch jobs use xref:mule-runtime::batch-processing.adoc[Object Store v2 by default]. Batch jobs don't require code changes.
 * Testing: Test Anypoint MQ connectivity from your private space before migrating production workloads.
 
-For more information, see xref:mq::index.adoc[Anypoint MQ] and xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector].
+For more information, see xref:mq::index.adoc[] and xref:anypoint-mq-connector::index.adoc[].
 
 == Review and Update Connectors
 
-Update your connectors to the latest versions that are compatible with your target runtime. See xref:studio::update-modules.adoc[Update Modules].
+Update your connectors to the latest versions that are compatible with your target runtime. See xref:studio::update-modules.adoc[].
 
 == Test Locally
 
@@ -263,9 +263,9 @@ Run the updated application locally on the target runtime version, then rebuild 
 
 Test your application locally using Anypoint Studio or Anypoint Code Builder with the updated runtime version.
 
-* Rebuild and package the application JAR file from one of these tools:
-** xref:studio::import-export-packages.adoc#export-project-studio[Anypoint Studio]
-** xref:anypoint-code-builder::int-export-mule-project.adoc[Anypoint Code Builder]
+* Rebuild and package the application JAR file from one of these tools.
+** xref:studio::import-export-packages.adoc#export-project-studio[]
+** xref:anypoint-code-builder::int-export-mule-project.adoc[]
 
 == Verify Mule Maven Plugin Version
 
@@ -273,10 +273,10 @@ Use Mule Maven Plugin version 4.1.1 or later, which is required for the `javaVer
 
 == See Also
 
-* xref:ch2-migration-infrastructure.adoc[Prepare Infrastructure]
-* xref:ch2-migration-validate.adoc[Validate and Switch Traffic]
-* xref:ch2-deploy-private-space.adoc[Deploy to a Private Space]
-* xref:ch2-deploy.adoc[Deploy Applications to CloudHub 2.0]
-* xref:ch2-configure-horizontal-autoscaling.adoc[Configure Horizontal Autoscaling]
-* xref:mule-runtime::deploy-to-cloudhub-2.adoc[Deploy Applications to CloudHub 2.0 Using the Mule Maven Plugin]
-* xref:ch2-integrate-log-system.adoc[Integrate with Your Logging System Using Log4j]
+* xref:ch2-migration-infrastructure.adoc[]
+* xref:ch2-migration-validate.adoc[]
+* xref:ch2-deploy-private-space.adoc[]
+* xref:ch2-deploy.adoc[]
+* xref:ch2-configure-horizontal-autoscaling.adoc[]
+* xref:mule-runtime::deploy-to-cloudhub-2.adoc[]
+* xref:ch2-integrate-log-system.adoc[]
