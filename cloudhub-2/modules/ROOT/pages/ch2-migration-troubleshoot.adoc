@@ -1,0 +1,332 @@
+= Troubleshoot Migration Issues
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Diagnose and resolve traffic switching, certificate, connectivity, app, VPC upgrade, and deployment issues encountered during CloudHub to CloudHub 2.0 migration.
+
+== Traffic Switching Issues
+Resolve 502 errors, traffic-switching percentage failures, and DLB configuration problems during cutover.
+
+=== 502 Bad Gateway During Traffic Switch
+
+Several distinct issues can cause a 502 error during or after traffic switching.
+
+* TLS protocol incompatibility: The DLB requires TLS 1.2 or higher as the upstream protocol when routing to CloudHub 2.0 apps. If configured with only TLS 1.1, traffic switching to CloudHub 2.0 fails with a 502 error. Incorrect ingress endpoint selection can also cause 404 errors after resolving the TLS issue.
+* Stale backend IP after a redeploy: CloudHub 2.0 Edge Ingress can briefly route to a replica's previous (now-terminated) ClusterIP after a redeploy, causing connect timeouts and intermittent 502s until ingress routing refreshes.
+* Path-rewrite trailing slash: Ingress path rewrite can append an unexpected trailing slash on an exact-prefix match, breaking APIkit routing and returning a 502.
+* Listener bound to the wrong interface: If the app's HTTP listener is bound to `127.0.0.1` instead of `0.0.0.0`, the ingress controller can't reach it, which surfaces as a 502.
+* Duplicate vanity domain paths: Two or more apps in the same private space sharing the same vanity domain and path cause ambiguous routing and intermittent 502s.
+
+To troubleshoot the TLS cause.
+
+. In *Runtime Manager*, select *CloudHub* > *Load Balancers*.
+. Select your DLB and review the *Upstream TLS* settings.
+. Verify that *TLS 1.2 or higher* is enabled (it can be added alongside TLS 1.1).
+. In your CloudHub 2.0 application, go to the *Ingress* tab and select the correct DLB endpoint from the dropdown.
+. Verify that the endpoint mapping matches your DLB vanity domain configuration.
+
+For more information, see https://help.salesforce.com/s/articleView?id=005315578&type=1[KA 005315578] and https://help.salesforce.com/s/articleView?id=005305510&type=1[KA 005305510] (duplicate vanity domain paths).
+
+=== Failed to Update Traffic Switching Percentage
+
+Missing permissions, incorrect application configuration, or certificate migration issues can prevent the traffic switching percentage from being updated.
+
+To troubleshoot this issue.
+
+. Verify that the user has the *CloudHub Network Administrator* permission.
+. Verify that both CloudHub 1.0 and CloudHub 2.0 applications are deployed and running.
+. Verify that the CloudHub 2.0 application's HTTP Listener is listening on port 8081.
+. Enable Last-Mile Security only when your application has a TLS context.
+. If migrating with a DLB, go to *Runtime Manager* > *Private Spaces* > your private space > *Domains & TLS* and verify that the DLB certificate was migrated. If it's missing, upload it and create a TLS context.
+
+NOTE: The DLB requires a full chain (intermediate and root certificates). For the private space, split intermediate and root certificates into a single file and upload as *CA Path Certificate*.
+
+For more information, see https://help.salesforce.com/s/articleView?id=005321445&type=1[KA 005321445].
+
+== Certificate and TLS Issues
+Diagnose missing DLB certificates and TLS handshake failures after upgrading to a private space.
+
+=== Missing DLB Certificates Post-Upgrade
+
+The VPC upgrade tool migrates DLB configurations on a best-effort basis. Due to architectural differences between the DLB and CloudHub 2.0 ingress controller, automated certificate migration isn't guaranteed.
+
+To troubleshoot this issue.
+
+. In *Runtime Manager*, go to your private space > *Domains & TLS* tab.
+. Manually upload your server certificates and private keys.
+. Verify that all Subject Alternative Names (SANs) for vanity domains are correctly listed.
+. Create TLS contexts for each vanity domain.
+
+NOTE: Split intermediate and root certificates into a separate file and upload as the *CA Path Certificate*.
+
+For more information, see https://help.salesforce.com/s/articleView?id=005237268&type=1[KA 005237268].
+
+=== TLS Handshake Failure
+
+The ingress load balancer doesn't use the certificates, or the certificates use incompatible TLS 1.1 ciphers.
+
+To troubleshoot this issue.
+
+. Upload certificates to the ingress load balancer in the private space's *Domains & TLS* tab.
+. Verify that no TLS 1.1-only ciphers are in use.
+** `ECDHE-ECDSA-AES128-SHA1`
+** `ECDHE-ECDSA-AES256-SHA1`
+** `ECDHE-RSA-AES128-SHA1`
+** `ECDHE-RSA-AES256-SHA1`
+. If these ciphers are present, reissue certificates with TLS 1.2+ compatible ciphers.
+
+== Connectivity Issues
+Use this table to resolve connection, firewall, and DNS issues between CloudHub, CloudHub 2.0, and on-premises systems.
+
+[cols="1,2,2,1"]
+|===
+|Symptom |Likely Cause |Resolution |Reference
+
+|CloudHub 2.0 application can't connect to CloudHub application
+|DLB allowlist missing infrastructure CIDR ranges.
+|Add these CIDR ranges to the DLB allowlist: `100.64.0.0/16`, `100.66.0.0/16`, `100.67.0.0/16`, `100.68.0.0/16`.
+|xref:cloudhub::vpc-upgrade.adoc[]
+
+|CloudHub 2.0 application can't connect to another CloudHub 2.0 application
+|Incorrect private space firewall rules or missing internal network configuration.
+|Add an ingress rule allowing traffic from the local private network. Verify domain configuration.
+|
+
+|Connection refused from on-premises
+|Firewall rules not migrated correctly to the private space.
+|Check firewall rules in the private space. Verify VPN and transit gateway routing tables.
+|
+
+|DNS not resolving
+|DNS CNAME not updated to point to CloudHub 2.0 endpoints.
+|Update the DNS CNAME to point to the ingress load balancer endpoint.
+|
+|===
+
+== Application Issues
+Use this table to resolve deployment, property, scheduler, and performance issues in migrated applications.
+
+[cols="1,2,2,1"]
+|===
+|Symptom |Likely Cause |Resolution |Reference
+
+|Application doesn't start
+|Incompatible runtime version, or the runtime is past end of support.
+|Deploy on a currently supported LTS or Edge runtime. If the deployment fails with `Runtime Version not supported for this target`, the runtime is past end of support or blocked (Mule 4.3.0 deploys are blocked on CloudHub 2.0).
+|
+
+|Application properties missing
+|Secure properties not re-entered during migration.
+|Re-enter all secure property values in the CloudHub 2.0 deployment settings.
+|
+
+|Scheduler not firing, or firing on every replica (duplicate executions)
+|Clustering isn't enabled. Without clustering, every replica runs the schedule independently, which causes duplicate executions; a timezone or configuration difference can also prevent a schedule from firing.
+|Enable clustering so only the primary replica runs the schedule. Review scheduler component configuration for CloudHub 2.0 compatibility. See xref:ch2-manage-schedules.adoc[].
+|
+
+|High latency after migration
+|Replica size under-provisioned.
+|Increase replica size or count. Compare with original CloudHub worker sizing.
+|
+|===
+
+=== Oracle Stored Procedure Dropping Connections After 8 Minutes
+
+After migrating to CloudHub 2.0, long-running stored procedure calls can terminate without an error after about 8 minutes. An intermediate network component (load balancer, NAT gateway, or firewall) drops idle TCP connections without application-level error reporting.
+
+To troubleshoot this issue.
+
+* Option 1: Set JVM argument `oracle.net.keepAlive=true` in Mule Runtime through Runtime Manager properties.
+* Option 2: Use a Generic connection in Database Connector with the keepAlive property in the JDBC connection URL:
++
+----
+jdbc:oracle:thin:@//host:port/service?oracle.net.keepAlive=true
+----
+
+For more information, see https://help.salesforce.com/s/articleView?id=005321536&type=1[KA 005321536].
+
+[[troubleshoot-vpc-upgrade]]
+== VPC Upgrade Issues
+Resolve eligibility, capacity, certificate, and deletion problems that can occur when upgrading a VPC to a private space.
+
+[cols="1,2,2"]
+|===
+|Symptom |Likely Cause |Resolution
+
+|Upgrade tooling isn't available on the Settings page
+|Application isn't in an eligible VPC, or VPC hasn't been upgraded yet.
+|Verify that the VPC meets xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[eligibility requirements] and has been upgraded to a private space first.
+
+|Upgrade fails with eligibility or capacity checks
+|VPC doesn't meet eligibility requirements: ≥25% free space and 100+ available IPs per subnet; legacy VPNs configured; Direct Connect or VPC Peering in use; TLS 1.1 ciphers present; or default VPC enabled. TCP traffic is also not supported on upgraded spaces.
+|Verify all requirements per xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[VPC Upgrade Eligibility]. Migrate Direct Connect or VPC Peering to Transit Gateway or VPN first. Reissue TLS 1.1 certificates with TLS 1.2+ ciphers. If your app needs TCP, create a new private space manually instead.
+
+|DLB certificates missing after upgrade
+|TLS 1.1 ciphers present in the original certificate, or transfer failure during best-effort migration.
+|Re-upload certificates to the private space *Domains & TLS* tab. If they use TLS 1.1 ciphers, then reissue the certificates. See <<missing-dlb-certificates-post-upgrade>>.
+
+|Upgrade tooling doesn't support default VPC
+|Only named VPCs can be upgraded. The default VPC isn't eligible.
+|Create a new private space manually. Deploy applications directly to the new private space.
+
+|Private space doesn't appear after upgrade
+|Upgrade is still in progress, or the upgrade failed silently.
+|Allow up to 30 minutes for the upgrade to complete (see https://help.salesforce.com/s/articleView?id=005389730&type=1[KA 005389730]). If the private space still doesn't appear, then check *Runtime Manager* > *Private Spaces* and contact MuleSoft Support.
+
+|Can't delete VPC after upgrade
+|Migration not marked complete, or environments still associated with the VPC.
+|Mark the migration as complete for all applications in the VPC. Dissociate all environments. See https://help.salesforce.com/s/articleView?language=en_US&id=005115579&type=1[KA 005115579].
+|===
+
+For upgrade steps, see xref:ch2-migration-infrastructure-vpc-upgrade.adoc[].
+
+[[troubleshoot-infrastructure]]
+== Infrastructure Issues
+Use this table to resolve private space, networking, DNS, and configuration problems during infrastructure migration.
+
+[cols="1,2,2,1"]
+|===
+|Symptom |Likely Cause |Resolution |Reference
+
+|CIDR block conflict during private space creation
+|CIDR block overlaps with existing on-premises or cloud networks.
+|Choose a non-overlapping CIDR block. Review existing allocations before creating.
+|xref:ch2-migration-infrastructure-new-space.adoc[]
+
+|VPN tunnel not establishing to new private space
+|Routing tables or security group configurations not updated for new private space.
+|Verify routing tables. Confirm VPN configuration matches private space network settings.
+|xref:ch2-migration-infrastructure-new-space.adoc#step-4-establish-network-connectivity[Establish Network Connectivity]
+
+|Missing DLB certificates post-upgrade
+|TLS 1.1 cipher incompatibility or transfer failure during upgrade.
+|Re-upload certificates to private space. Validate supported ciphers.
+|<<missing-dlb-certificates-post-upgrade>>
+
+|Firewall rules not migrated correctly
+|Ports other than 80, 443, and 30500–32500 are dropped during migration.
+|Manually recreate dropped firewall rules in the private space.
+|xref:ps-config-fw-rules.adoc[]
+
+|Cannot upgrade default VPC
+|Upgrade tooling doesn't support default VPC.
+|Disable the default VPC configuration before proceeding with the upgrade.
+|xref:ch2-migration-infrastructure-vpc-upgrade.adoc#step-2-review-environment-association[Review Environment Association]
+
+|Can't delete VPC after migration
+|Migration not marked complete, or environment still associated.
+|Mark upgrade complete in Runtime Manager. Verify that no environments are associated.
+|https://help.salesforce.com/s/articleView?language=en_US&id=005115579&type=1[KA 005115579]
+
+|Application doesn't start on CloudHub 2.0
+|Incompatible Mule runtime version. Mule 4.3.0 deploys are blocked on CloudHub 2.0, and runtimes past end of support are rejected with `Runtime Version not supported for this target`.
+|Deploy on a currently supported LTS or Edge runtime and rebuild the JAR. Verify `minMuleVersion` in `mule-artifact.json`.
+|xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[]
+
+|Connection refused from on-premises systems
+|Private space firewall rules don't allow egress to on-premises destinations, or transit gateway/VPN routing not configured.
+|Add egress firewall rules for the on-premises CIDR range. Verify that the transit gateway attachment or VPN tunnel is active and that routing tables include the destination.
+|xref:ps-config-fw-rules.adoc[]
+
+|TLS handshake failure
+|Certificates not uploaded to the private space TLS context, or TLS 1.1 ciphers in use.
+|Upload certificates to the private space *Domains & TLS* tab. Verify that all certificates use TLS 1.2 or higher compatible ciphers.
+|xref:ps-config-domains.adoc[]
+
+|Application properties missing after migration
+|Secure properties aren't carried over automatically. Copied properties require at least one edit to persist.
+|Re-enter all secure property values in the CloudHub 2.0 application settings. Edit or add at least one property to persist all copied properties.
+|xref:cloudhub::app-migration.adoc#application-properties[Application Properties]
+
+|DNS not resolving for CloudHub 2.0 application
+|DNS CNAME not updated to point to the CloudHub 2.0 ingress endpoint.
+|Update the DNS CNAME to point to the private space's ingress endpoint, not the application's own URL: `<space-id>.<region>.cloudhub.io` for public access, or `internal-<space-id>.<region>.cloudhub.io` for internal access (where the region code varies by control plane, for example `usa-e1` for US or `deu-c1.n` for EU Germany).
+|xref:ch2-networking-guide.adoc[CloudHub 2.0 Networking Architecture]
+
+|High latency after migration
+|Replica size under-provisioned compared to original CloudHub worker size.
+|Increase replica vCore size or replica count. Compare original worker sizing to current replica allocation using the vCore equivalency table.
+|xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas]
+
+|Scheduler not firing, or firing on every replica (duplicate executions)
+|Clustering determines scheduler behavior. With clustering enabled, only the primary replica runs the scheduler; clustering itself remains active-active, but schedulers and polling sources are primary-only. Without clustering, every replica runs the schedule independently, causing duplicate executions.
+|Enable clustering to avoid duplicate executions. Verify that scheduler configuration is compatible with CloudHub 2.0 clustering, and review timezone settings. See scheduler management docs for CloudHub 2.0-specific behavior.
+|xref:ch2-manage-schedules.adoc[]
+|===
+
+== Connectivity Diagnostics
+To diagnose connectivity issues between CloudHub platforms during migration, deploy the MuleSoft Network Tools application to your VPC or private space. Use these tests.
+
+* Socket test: Verify TCP connectivity between platforms (equivalent to a TCP handshake).
+* DNS test: Confirm DNS resolution for DLB and ingress endpoints.
+* cURL test: Validate HTTP or HTTPS endpoint accessibility end-to-end.
+* Certificate test: Inspect TLS certificates presented by an endpoint.
+* Cipher test: Identify which TLS ciphers a remote endpoint supports.
+
+NOTE: In CloudHub 2.0 private spaces, *Ping* isn't supported due to security restrictions. Use TCP socket tests instead.
+
+See https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Network Tools Application For Connectivity Test From CloudHub VPC (KA 001115029)].
+
+== Additional Troubleshooting Scenarios
+Use this table to address deployment states, timeouts, rolling updates, static IP changes, and VPN routing issues not covered elsewhere.
+
+[cols="1,2,2"]
+|===
+|Symptom |Likely Cause |Resolution
+
+|Application deployment stuck in PENDING state, or replicas TERMINATED/RECOVERING
+|Insufficient cluster capacity or out-of-memory (OOM) errors at startup. The private space may not have enough available resources.
+|Check replica status and reason in Runtime Manager. Increase replica size or count, or reduce memory consumption in the application. Check if other applications in the private space are consuming resources.
+
+|"Unknown error" when deploying CH2 application after linking to CH1 app
+|The CH1 application was stopped before the link was fully established, causing the deployment to fail.
+|Keep the CH1 application STARTED until the link is complete and verified. See xref:ch2-migration-validate.adoc[Step 4: Validate and Switch Traffic] for proper sequencing.
+
+|504 (Gateway Timeout) errors during or after traffic switch
+|Client-side request takes longer than 300 seconds to send, or application takes longer than configured to respond. Read Response Timeout and max request timeout limits apply.
+|Verify client-side timeout is less than 300 seconds. Configure Read Response Timeout up to 3,600 seconds in the private space's *Advanced* settings. For uploads or long-running processes, break requests into smaller chunks or use asynchronous patterns.
+
+|Brief 502 or 503 errors during PS rolling updates or patches
+|During scheduled monthly patches or replica rolling updates, the platform temporarily recycles infrastructure. This is expected behavior.
+|Schedule traffic-switching cutover to avoid monthly maintenance windows if possible. Expect brief connectivity gaps during rolling updates. Monitor and resume after infrastructure stabilizes.
+
+|Object Store v2 in cluster mode throws ConcurrentModificationException or persistent VM queues lost on restart
+|Object Store v2 or VM queues in clustered mode have known issues. VM queue storage is ephemeral and lost on redeploy or restart.
+|Migrate to Anypoint MQ for persistent queues and disable persistent VM queues. For Object Store, verify cluster serialization configuration. See xref:mule-runtime::batch-processing.adoc[Batch Processing] for CH2 batch job behavior.
+
+|Outbound static IP addresses changed after migration; third-party systems reject traffic
+|Migrated private spaces have different outbound NAT IPs than CH1 apps. Third-party allowlists weren't updated with the new CH2 private space IPs (KI-62898).
+|Identify all backend systems that allowlist by source IP. Update their allowlists to include the new private space outbound IPs before switching 100% of traffic. During migration, maintain both old and new IPs in allowlists.
+
+|VPN connection shows "Unavailable" after migration; traffic doesn't flow
+|Duplicate or overlapping static routes exist on the VPN connection after migration. These can prevent proper route advertisement.
+|Check VPN routing tables for duplicate or overlapping routes. Remove duplicates. If issue persists, contact MuleSoft Support with your VPN connection ID and VPC/private space IDs.
+
+|Ping fails from private space to on-premises or external hosts
+|CloudHub 2.0 private spaces don't support ICMP (ping). The firewall or network policy may block UDP-based tests as well.
+|Use TCP socket tests instead of ping. Deploy the xref:anypoint-platform::network-tools-app.adoc[Network Tools] application to the private space and use its *Socket* test to verify connectivity.
+
+|DLB mTLS or URL-rewrite mapping rules are missing after migration
+|The VPC upgrade tool migrates these configurations on a best-effort basis. Some complex rules or custom configurations may not transfer automatically.
+|Manually recreate URL-rewrite rules as per-app path and path-rewrite settings in the *Ingress* tab. Reconfigure mTLS via the private space's TLS contexts and truststores. Verify mappings match the original DLB configuration.
+|===
+
+== See Also
+
+Use these support articles for additional migration planning, traffic switching, networking, and certificate troubleshooting guidance.
+
+* https://help.salesforce.com/s/articleView?id=005237269&type=1[Planning Timelines for CloudHub Migration (KA 005237269)]
+* https://help.salesforce.com/s/articleView?id=005228668&type=1[REST API Migration Steps (KA 005228668)]
+* https://help.salesforce.com/s/articleView?id=001115029&type=1[Network Testing Tools (KA 001115029)]
+* https://help.salesforce.com/s/articleView?id=005315578&type=1[502 Bad Gateway Error When Switching Traffic (KA 005315578)]
+* https://help.salesforce.com/s/articleView?id=005305510&type=1[502 Bad Gateway Error in CloudHub 2.0 When Using Vanity Domain URL via Ingress (KA 005305510)]
+* https://help.salesforce.com/s/articleView?id=005237268&type=1[Missing DLB Certificates During Migration (KA 005237268)]
+* https://help.salesforce.com/s/articleView?id=005321445&type=1[Failed to Update Traffic Switching Percentage (KA 005321445)]
+* https://help.salesforce.com/s/articleView?id=005321536&type=1[Oracle Stored Procedure Dropping Connections (KA 005321536)]
+* xref:ch2-migration-overview.adoc[]
+* xref:ch2-migration-validate.adoc[]
+* xref:ch2-migration-finalize.adoc[]
+* xref:cloudhub::vpc-upgrade.adoc[]
+* xref:ps-config-fw-rules.adoc[]

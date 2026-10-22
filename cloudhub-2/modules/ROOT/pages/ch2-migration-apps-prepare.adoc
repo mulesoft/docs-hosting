@@ -1,0 +1,282 @@
+= Prepare Your Application for Migration
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Prepare an app for CloudHub 2.0 by upgrading the runtime, updating code and configuration, replacing persistent queues with Anypoint MQ, and testing locally. These requirements apply to both migration paths.
+
+== Upgrade the Mule Runtime Version
+
+Deploy on a currently supported LTS or Edge runtime. If your application runs on an unsupported version, upgrade to a supported runtime before migrating.
+
+* Mule 4.3.0 deploys are blocked on CloudHub 2.0.
+* Runtimes past end of support are rejected with `Runtime Version not supported for this target`.
+* Mule 3.x: Not supported. Rearchitect your application to Mule 4 before migrating.
+
+See xref:release-notes::mule-runtime/lts-edge-release-cadence.adoc[] for the currently supported versions.
+
+For upgrade guidance, see https://docs.mulesoft.com/release-notes/mule-runtime/updating-mule-4-versions#ensuring-mule-application-compatibility[Ensuring Mule Application Compatibility].
+
+== Update the Application Code
+
+Update the `pom.xml`, `log4j2.xml`, `mule-artifact.json`, and port settings, and remove CloudHub features that CloudHub 2.0 doesn't support.
+
+* Update your application's `pom.xml` with the CloudHub 2.0 deployment configuration.
++
+Add the `cloudhub2Deployment` configuration to your Mule Maven Plugin section.
++
+[source,xml]
+----
+<plugin>
+  <groupId>org.mule.tools.maven</groupId>
+  <artifactId>mule-maven-plugin</artifactId>
+  <version>4.1.1</version>
+  <extensions>true</extensions>
+  <configuration>
+    <cloudhub2Deployment>
+      <uri>https://anypoint.mulesoft.com</uri>
+      <provider>MC</provider>
+      <environment>${environment}</environment>
+      <target>${targetName}</target>
+      <muleVersion>${muleVersion}</muleVersion>
+      <username>${user}</username>
+      <password>${pass}</password>
+      <!-- Consider connected-app authentication instead. See Authentication Methods. -->
+      <applicationName>${appName}</applicationName>
+      <replicas>1</replicas>
+      <vCores>1</vCores>
+      <deploymentSettings>
+        <http>
+          <inbound>
+            <publicUrl>${publicURL}</publicUrl>
+            <lastMileSecurity>true</lastMileSecurity>
+          </inbound>
+        </http>
+      </deploymentSettings>
+    </cloudhub2Deployment>
+  </configuration>
+</plugin>
+----
++
+NOTE: The pom `groupId` must equal your organization or business group ID, and the version can't have a `-SNAPSHOT` suffix, or the deploy fails with "No application with the provided GAV could be retrieved from Exchange."
++
+Also, add the Mule Maven Facade API as a repository in your `distributionManagement` section.
++
+[source,xml]
+----
+<distributionManagement>
+  <repository>
+    <id>Repository</id>
+    <name>Corporate Repository</name>
+    <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/ORGANIZATION_ID/maven</url>
+    <layout>default</layout>
+  </repository>
+</distributionManagement>
+----
++
+Replace `ORGANIZATION_ID` with your Anypoint Platform org ID.
++
+See xref:mule-runtime::deploy-to-cloudhub-2.adoc[] for the full parameter reference.
+
+* To forward logs to an external system, update your application's `log4j2.xml`.
++
+CloudHub 2.0 disables console logging by default. To stream logs to an external system, such as Splunk, configure an asynchronous Log4j appender.
++
+[source,xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" name="cloudhub"
+    packages="com.splunk.logging,org.apache.logging.log4j">
+    <Appenders>
+        <SplunkHttp name="SPLUNK"
+            source="${env:APP_NAME}"
+            host="${env:POD_NAME}"
+            sourceType="mule-app"
+            url="${sys:splunk.host}"
+            token="${sys:splunk.token}"
+            index="main">
+            <PatternLayout pattern="[%d{MM-dd HH:mm:ss}] %-5p %c{1} [%t]: %m%n" />
+        </SplunkHttp>
+    </Appenders>
+    <Loggers>
+        <AsyncRoot level="INFO">
+            <AppenderRef ref="SPLUNK"/>
+        </AsyncRoot>
+    </Loggers>
+</Configuration>
+----
++
+IMPORTANT: Use only asynchronous log appenders. CloudHub 2.0 automatically removes file appenders (`FileAppender`, `RollingFileAppender`, `RandomAccessFileAppender`). The `AnypointMonitoringFileAppender` is configured automatically at deployment — don't add it to `log4j2.xml`.
++
+See xref:ch2-integrate-log-system.adoc[].
+
+* Remove persistent queues and implement Anypoint MQ (see <<migrate-persistent-queues>>).
+* CloudHub Connector notifications aren't supported on CloudHub 2.0. If your applications use CloudHub Connector for notifications, replace it with the Email Connector or Anypoint Monitoring alerts.
+* Update `mule-artifact.json`: set `minMuleVersion` to the required version.
+* Remove CloudHub 1.0–specific port configurations (`http.port`, `https.port`, `http.private.port`, `https.private.port`). CloudHub 2.0 uses the standard `${http.port}` property (port 8081).
+
+[[migrate-persistent-queues]]
+== Migrate Persistent Queues to Anypoint MQ
+
+CloudHub 2.0 doesn't support CloudHub persistent VM queues. If your application uses persistent queues for reliability or workload distribution, replace them with xref:mq::index.adoc[].
+
+=== Architectural Differences
+
+Anypoint MQ differs from CloudHub persistent VM queues in architecture, delivery guarantee, message retention, scope, performance, and cost.
+
+[cols="1,2,2"]
+|===
+|Aspect |CloudHub Persistent VM Queues |Anypoint MQ
+
+|Architecture
+|External to the application, managed by CloudHub infrastructure. Enable in deployment settings.
+|Fully external, cloud-hosted messaging service. Queues and exchanges are managed independently of the application.
+
+|Delivery guarantee
+|At-least-once (duplicate messages are possible). Doesn't guarantee one-time-only delivery.
+|At-least-once delivery with configurable acknowledgment timeouts. Supports dead letter queues for failed messages.
+
+|Message retention
+|Up to 4 days. No limit on message size or number of messages.
+|Configurable retention (default 7 days, up to 14 days). Maximum message size 10 MB.
+
+|Scope
+|Per-application. Messages are accessible only within the same application's instances.
+|Cross-application. Any application with credentials can publish or consume from a queue.
+
+|Performance
+|CloudHub infrastructure manages throughput. Throughput scales with the number of application instances.
+|External service. Throughput scales independently of application replicas.
+
+|Cost
+|Included with CloudHub.
+|Separately licensed. Contact your account team for entitlements.
+|===
+
+=== Migration Steps
+
+Create queues in Anypoint MQ, replace the VM connector operations, configure credentials and error handling, and remove the CloudHub persistent queue configuration.
+
+. Create queues in Anypoint MQ.
+** In *Anypoint Platform*, select *MQ* > *Destinations*.
+** Create queues to replace each VM queue used in your application.
+** Optionally, create dead-letter queues for error handling.
+** Note your MQ region URL for connector configuration.
+
+. Add the Anypoint MQ connector dependency.
++
+Add the AnypointMQ connector to your application's `pom.xml`.
++
+[source,xml]
+----
+<dependency>
+    <groupId>com.mulesoft.connectors</groupId>
+    <artifactId>anypoint-mq-connector</artifactId>
+    <version>4.x.x</version>
+    <classifier>mule-plugin</classifier>
+</dependency>
+----
++
+See xref:anypoint-mq-connector::index.adoc[] for the latest version.
+
+. Replace VM connector operations.
+** Replace `<vm:publish>` with `<anypoint-mq:publish>`
+** Replace `<vm:listener>` (inbound VM endpoint) with `<anypoint-mq:subscriber>`
+** Replace `<vm:consume>` with `<anypoint-mq:consume>`
++
+Before: VM queue
++
+[source,xml]
+----
+<vm:config name="VM_Config">
+    <vm:queues>
+        <vm:queue queueName="orderQueue" />
+    </vm:queues>
+</vm:config>
+
+<flow name="orderProducerFlow">
+    <http:listener config-ref="HTTP_Listener" path="/orders"/>
+    <vm:publish config-ref="VM_Config" queueName="orderQueue"/>
+</flow>
+
+<flow name="orderConsumerFlow">
+    <vm:listener config-ref="VM_Config" queueName="orderQueue"/>
+    <logger message="Processing order: #[payload]"/>
+</flow>
+----
++
+After: Anypoint MQ
++
+[source,xml]
+----
+<anypoint-mq:config name="Anypoint_MQ_Config">
+    <anypoint-mq:connection
+        clientId="${mq.clientId}"
+        clientSecret="${mq.clientSecret}"
+        url="https://mq-us-east-1.anypoint.mulesoft.com/api/v1"/>
+</anypoint-mq:config>
+
+<flow name="orderProducerFlow">
+    <http:listener config-ref="HTTP_Listener" path="/orders"/>
+    <anypoint-mq:publish config-ref="Anypoint_MQ_Config"
+        destination="orderQueue"/>
+</flow>
+
+<flow name="orderConsumerFlow">
+    <anypoint-mq:subscriber config-ref="Anypoint_MQ_Config"
+        destination="orderQueue"/>
+    <logger message="Processing order: #[payload]"/>
+    <anypoint-mq:ack/>
+</flow>
+----
+
+. Configure MQ credentials.
+** Create a client app in *MQ* > *Client Apps* to obtain a client ID and client secret.
+** Configure the Anypoint MQ connector with the client ID, client secret, and regional URL.
+
+. Update error handling.
+** Anypoint MQ uses an acknowledgment model. Messages remain in the queue until explicitly acknowledged (`ack`) or negatively acknowledged (`nack`).
+** Replace XA transaction rollback patterns with MQ's `nack` operation for redelivery.
+
+. Remove CloudHub persistent queue configuration.
+** Remove the *Persistent Queues* setting from your deployment configuration.
+** Remove any `queue-profile` elements.
+** Remove the `batch.persistent.queue.disable` property if present.
+
+=== Considerations
+
+Egress rules, batch job behavior, and connectivity testing affect the move to Anypoint MQ.
+
+* Egress rules: If you use app-level egress rules in your private space, add rules that allow HTTPS to the Anypoint MQ regional endpoint (for example, `mq-us-east-1.anypoint.mulesoft.com`) and the Anypoint control plane (`anypoint.mulesoft.com`).
+* Batch jobs: CloudHub persistent queues were used internally for batch job queuing. In CloudHub 2.0, batch jobs use xref:mule-runtime::batch-processing.adoc[Object Store v2 by default]. Batch jobs don't require code changes.
+* Testing: Test Anypoint MQ connectivity from your private space before migrating production workloads.
+
+For more information, see xref:mq::index.adoc[] and xref:anypoint-mq-connector::index.adoc[].
+
+== Review and Update Connectors
+
+Update your connectors to the latest versions that are compatible with your target runtime. See xref:studio::update-modules.adoc[].
+
+== Test Locally
+
+Run the updated application locally on the target runtime version, then rebuild the application JAR file for deployment.
+
+Test your application locally using Anypoint Studio or Anypoint Code Builder with the updated runtime version.
+
+* Rebuild and package the application JAR file from one of these tools.
+** xref:studio::import-export-packages.adoc#export-project-studio[]
+** xref:anypoint-code-builder::int-export-mule-project.adoc[]
+
+== Verify Mule Maven Plugin Version
+
+Use Mule Maven Plugin version 4.1.1 or later, which is required for the `javaVersion` and `releaseChannel` parameters. Avoid 4.0.0, which has a known NPE, and 3.8.3, which is deprecated.
+
+== See Also
+
+* xref:ch2-migration-infrastructure.adoc[]
+* xref:ch2-migration-validate.adoc[]
+* xref:ch2-deploy-private-space.adoc[]
+* xref:ch2-deploy.adoc[]
+* xref:ch2-configure-horizontal-autoscaling.adoc[]
+* xref:mule-runtime::deploy-to-cloudhub-2.adoc[]
+* xref:ch2-integrate-log-system.adoc[]

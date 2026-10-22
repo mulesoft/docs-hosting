@@ -1,0 +1,63 @@
+= Migrate Applications
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:page-aliases: cloudhub::app-migration.adoc
+
+Migrate CloudHub apps after you set up a CloudHub 2.0 private space. Prepare the app, then follow the procedure for a manually created private space or an upgraded VPC.
+
+* For a manually created private space, follow xref:ch2-migration-apps-new-space.adoc[].
+* For a private space created by upgrading a VPC, follow xref:ch2-migration-apps-tool.adoc[].
+
+== Considerations and Limitations
+
+Maven Plugin endpoint requirements, domain limitations, traffic sources, and POST request requirements can affect a migration in progress.
+
+=== Managing Migrated Apps via Mule Maven Plugin (MMP)
+
+To manage a migrated application using the Mule Maven Plugin (MMP), copy the public URL configured in Runtime Manager during the migration. If the endpoints specified in the `publicUrl` field of your `pom.xml` file don't match the ones configured in the UI, the ingress configuration is lost.
+
+=== CloudHub Application Default Domain
+
+When you deploy a new CloudHub 2.0 application, avoid using the CloudHub default domain because it can cause traffic outages.
+
+=== Mid-Migration Deployment Constraint
+
+A new application that uses a vanity domain must be deployed to CloudHub 1.0 first and then migrated while a migration is active.
+
+WARNING: You can't deploy a new application directly to CloudHub 2.0 during an active migration and use the same vanity domain.
+
+To deploy a new application with a vanity domain during migration, use this workaround.
+
+. Deploy the new application to CloudHub 1.0 first.
+. Configure the application with the desired vanity domain on CloudHub 1.0.
+. Migrate the newly deployed application from CloudHub 1.0 to CloudHub 2.0 using the migration tool.
+. This preserves domain continuity and DNS routing.
+
+Deploying directly to CloudHub 2.0 with an existing vanity domain can cause these issues.
+
+* Domain conflicts between the DLB and ingress controller
+* Inconsistent traffic routing through the DLB
+* DNS propagation issues
+
+=== Traffic Source Awareness
+
+For applications with inbound traffic, the Shared Load Balancer (SLB) handles traffic switching if your ingress configuration includes the default CloudHub application endpoint in the format `<app_name>.<region>.cloudhub.io`. However, if that default endpoint is missing and you've configured a vanity domain or an `anypointdns.net` endpoint instead, the Dedicated Load Balancer (DLB) switches the traffic.
+
+Identify your traffic source before xref:ch2-migration-validate.adoc[Step 4: Validate and Switch Traffic].
+
+=== POST Request Content-Length
+
+The CloudHub 2.0 ingress controller requires the `content-length` header on POST requests, even when the value is 0. Clients that omit this header fail during traffic switching.
+
+See xref:ch2-migration-plan.adoc#traffic-switching-prerequisites[Traffic-Switching Prerequisites] for the full precondition checklist before you switch traffic.
+
+== See Also
+
+* xref:ch2-migration-infrastructure.adoc[]
+* xref:ch2-migration-validate.adoc[]
+* xref:ch2-deploy-private-space.adoc[]
+* xref:ch2-deploy.adoc[]
+* xref:ch2-configure-horizontal-autoscaling.adoc[]
+* xref:mule-runtime::deploy-to-cloudhub-2.adoc[]
+* xref:ch2-integrate-log-system.adoc[]

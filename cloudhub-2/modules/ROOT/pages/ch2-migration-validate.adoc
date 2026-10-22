@@ -1,0 +1,35 @@
+= Validate and Switch Traffic
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:page-aliases: cloudhub::ch-ch2-migration-completion.adoc
+
+Validate a CloudHub 2.0 app after deployment by switching traffic in stages, monitoring health and rollback thresholds, updating DNS, and completing the cutover.
+
+The process has two phases.
+
+* xref:ch2-migration-validate-switch.adoc[] — Identify your traffic source, shift traffic in stages, and watch for rollback conditions.
+* xref:ch2-migration-validate-cutover.adoc[] — Verify the migration, update DNS, fail over the DLB, and decommission the CloudHub application.
+
+== Contact Support for Migration Issues
+
+If you encounter issues during or after traffic switching, gather the following information before contacting https://help.mulesoft.com/s/support[MuleSoft Support].
+
+* Org ID, environment name, and control plane/region (e.g., `usa-e1`, `deu-c1.n`).
+* CloudHub 1.0 application name and CloudHub 2.0 deployment ID.
+* Private space name and ID.
+* Timestamps with timezone of when the issue occurred.
+* `x-request-id` header values from failed requests (if applicable).
+* Replica status and reason (from the CloudHub 2.0 application's *Deployments* tab).
+* DLB name and failover status.
+* Traffic switch percentage at the time the issue occurred.
+
+Include this information in your support case to help engineering teams diagnose network, routing, and application state issues quickly.
+
+== See Also
+
+* xref:ch2-migration-apps.adoc[]
+* xref:ch2-migration-finalize.adoc[]
+* xref:ch2-migration-troubleshoot.adoc[]
+* xref:ch2-config-endpoints-paths.adoc[]
+* xref:access-management::permissions-by-product.adoc[]
