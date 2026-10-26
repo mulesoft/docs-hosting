@@ -10,11 +10,11 @@ Create a private space when the VPC isn't eligible for the upgrade tool or when 
 Before you create the private space.
 
 * Assign the required xref:ps-assign-permissions.adoc[].
-* Gather the xref:ps-gather-setup-info.adoc#setup-info-private-space[].
+* Gather the xref:ps-gather-setup-info.adoc#setup-info-private-space[setup information for a private space].
 * Inventory the CloudHub VPC CIDR block, VPN or Transit Gateway (TGW) connections, internal DNS configuration, firewall rules, DLB certificates, vanity domains, and backend system allowlists.
 * Select a new private-space CIDR block that doesn't overlap with the existing CloudHub VPC or networks reachable through it. Size the block for the applications that you plan to migrate and future growth.
 
-For CIDR block requirements and sizing guidance, see xref:ps-gather-setup-info.adoc#cidr-block[].
+For CIDR block requirements and sizing guidance, see xref:ps-gather-setup-info.adoc#cidr-block[CIDR Block].
 
 == Set Up the Private Space
 

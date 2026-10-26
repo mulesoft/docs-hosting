@@ -34,7 +34,7 @@ Before starting the upgrade, confirm that your VPC meets these eligibility requi
 * No TLS 1.1 ciphers that can't be carried over (ECDHE-ECDSA-AES128-SHA1, ECDHE-ECDSA-AES256-SHA1, ECDHE-RSA-AES128-SHA1, ECDHE-RSA-AES256-SHA1).
 * Default VPC configuration is disabled.
 
-For the complete eligibility checklist, see xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[].
+For the complete eligibility checklist, see xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[Understand Upgrade Eligibility].
 
 == Step 2: Review Environment Association
 
@@ -47,7 +47,7 @@ Key considerations.
 
 WARNING: The upgrade tooling doesn't support the upgrade of a default VPC. To proceed with the upgrade, disable the default VPC configuration.
 
-For full details, see xref:cloudhub::vpc-upgrade.adoc#understand-environment-association[].
+For full details, see xref:cloudhub::vpc-upgrade.adoc#understand-environment-association[Understand Environment Association].
 
 == Step 3: Run the Upgrade
 

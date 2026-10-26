@@ -30,7 +30,7 @@ Inventory all apps currently deployed to CloudHub.
 
 === VPC Configuration
 
-Gather the following from your existing CloudHub environment. This information is required to set up a private space. For more details, see xref:ps-gather-setup-info.adoc#setup-info-private-space[].
+Gather the following from your existing CloudHub environment. This information is required to set up a private space. For more details, see xref:ps-gather-setup-info.adoc#setup-info-private-space[Gather Setup Information for a Private Space].
 
 * CIDR block information
 +

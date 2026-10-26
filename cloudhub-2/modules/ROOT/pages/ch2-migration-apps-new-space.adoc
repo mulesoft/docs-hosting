@@ -24,7 +24,7 @@ NOTE: In CloudHub 2.0, names are unique per private space. CloudHub 2.0 adds a s
 * Runtime version: Select a currently supported LTS or Edge runtime.
 * Replica size and count: Configure replicas equivalent to CloudHub worker sizing.
 +
-See xref:ch2-architecture.adoc#cloudhub-2-replicas[] for vCore options.
+See xref:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas] for vCore options.
 
 == Step 3: Configure Horizontal Autoscaling (Optional)
 

@@ -17,6 +17,13 @@ Before decommissioning, retain your CloudHub 1.0 environment for one to two week
 == Decommission Steps
 Complete these decommissioning steps in order. You can roll back to CloudHub 1.0 until you complete Step 2: Stop the DLB and Verify Traffic. Don't dissociate environments, delete network connections, or delete the VPC before completing Step 2.
 
+. xref:#step-1-stop-cloudhub-10-applications[Stop CloudHub 1.0 Applications]
+. xref:#step-2-stop-the-dlb-and-verify-traffic[Stop the DLB and Verify Traffic]
+. xref:#step-3-delete-the-dlb[Delete the DLB]
+. xref:#step-4-dissociate-environments[Dissociate Environments]
+. xref:#step-5-delete-network-connections[Delete Network Connections]
+. xref:#step-6-complete-decommissioning[Complete Decommissioning]
+
 The following steps apply to both migration paths (VPC upgrade and new private space). The difference is in Step 6, which depends on which path you used. If you created a new private space manually, skip the "Mark Upgrade Complete" step and proceed with manual VPC deletion instead.
 
 === Step 1: Stop CloudHub 1.0 Applications

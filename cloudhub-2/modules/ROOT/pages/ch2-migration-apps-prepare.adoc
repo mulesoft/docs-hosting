@@ -264,7 +264,7 @@ Run the updated application locally on the target runtime version, then rebuild 
 Test your application locally using Anypoint Studio or Anypoint Code Builder with the updated runtime version.
 
 * Rebuild and package the application JAR file from one of these tools.
-** xref:studio::import-export-packages.adoc#export-project-studio[]
+** xref:studio::import-export-packages.adoc#export-project-studio[Export a Project from Anypoint Studio]
 ** xref:anypoint-code-builder::int-export-mule-project.adoc[]
 
 == Verify Mule Maven Plugin Version

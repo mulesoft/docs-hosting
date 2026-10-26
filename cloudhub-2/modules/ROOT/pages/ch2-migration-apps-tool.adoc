@@ -5,6 +5,13 @@ endif::[]
 
 Use the application migration tool for apps in private spaces created from upgraded VPCs. Link a CloudHub app to a CloudHub 2.0 app, configure deployment settings, and prepare the DLB for traffic switching.
 
+. xref:#step-1-start-the-upgrade[Start the Upgrade]
+. xref:#step-2-configure-the-application-file[Configure the Application File]
+. xref:#step-3-configure-ingress[Configure Ingress]
+. xref:#step-4-configure-application-properties[Configure Application Properties]
+. xref:#step-5-deploy-the-application[Deploy the Application]
+. xref:#step-6-restart-the-dlb[Restart the DLB]
+
 == Eligibility
 
 To use the application migration tool, first upgrade your CloudHub VPC to a CloudHub 2.0 private space using the xref:cloudhub::vpc-upgrade.adoc[VPC upgrade tool].
