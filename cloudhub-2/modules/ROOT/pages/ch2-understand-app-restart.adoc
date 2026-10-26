@@ -30,7 +30,7 @@ For more information about designing resilient applications, see xref:ch2-ha-dr.
 
 CloudHub 2.0 overrides the Mule runtime's default `shutdownTimeout` value to avoid disruption for long-running flows. By default, the Mule runtime sets `shutdownTimeout` to five seconds. CloudHub 2.0 extends the shutdown grace period to accommodate applications that require more time to complete in-flight processing.
 
-For infrastructure-triggered restarts (such as infrastructure failure, maintenance, security patching, or replica rebalancing):
+For infrastructure-triggered restarts (such as infrastructure failure, maintenance, security patching, private space upgrades, or replica rebalancing):
 
 * CloudHub 2.0 provides a grace period up to a maximum of 12 hours.
 * If no custom `shutdownTimeout` is configured, CloudHub 2.0 applies a 12-hour maximum grace period to ensure long-running flows complete without disruption.
@@ -75,11 +75,13 @@ If the compute infrastructure suffers a failure, CloudHub 2.0 moves your applica
 [[karpenter-node-downscaling]]
 == Karpenter Node Downscaling in Private Spaces
 
-In Private Spaces, CloudHub 2.0 uses Karpenter to manage node lifecycle. When Karpenter downscales nodes to remove underused capacity, CloudHub 2.0 restarts applications running on those nodes as replicas move to remaining nodes. Restarts occur once per week at most, within a random two-hour window that starts between Saturday 12:00 AM and 4:00 AM in the Private Space region's local time zone.
+In Private Spaces, CloudHub 2.0 uses Karpenter to manage node lifecycle. When Karpenter downscales nodes to remove underused capacity, CloudHub 2.0 restarts applications running on those nodes as replicas move to remaining nodes.
+
+Restarts occur once per week at most. Each private space has a 4-hour consolidation window. CloudHub 2.0 randomizes the start time per space so it doesn't restart all spaces in a region at once. The 4-hour block can start anytime between Friday 10:00 PM and Saturday 2:00 AM in the Private Space region's local time zone, so restarts can occur anytime from Friday 10:00 PM through Saturday 6:00 AM.
 
 [NOTE]
 ====
-Apps in a Private Space can restart during Karpenter node downscaling during this weekly window. Design for resiliency so that restarts have minimal impact. See xref:ch2-ha-dr.adoc[].
+Apps in a Private Space can restart during Karpenter node downscaling in this weekly window. These restarts are routine maintenance, not an outage. Design for resiliency so that restarts have minimal impact. See xref:ch2-ha-dr.adoc[].
 ====
 
 == Security Patching

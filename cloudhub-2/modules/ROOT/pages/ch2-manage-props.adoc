@@ -91,7 +91,11 @@ See xref:mule-runtime::configuring-properties.adoc[].
 
 CloudHub 2.0 then loads these properties into the application when the application starts. 
 
-Although this method is not the best practice on CloudHub 2.0 (because the *Properties* tab values override any with the same name in the file), you can work around this by changing options in the Mule app.
+Although this method isn't the best practice on CloudHub 2.0 (because the *Properties* tab values override any with the same name in the file), you can work around this by changing options in the Mule app.
+
+[NOTE]
+To mask secure property values on CloudHub 2.0, set property protection on the *Properties* tab in Runtime Manager. Because Runtime Manager properties override archive-bundled properties of the same name, masking values through `mule-artifact.json` or a configuration file doesn't take effect on CloudHub 2.0.
+For information, see xref:ch2-protect-app-props.adoc[].
 
 To prevent CloudHub 2.0 properties from overriding properties bundled with the deployable archive, change options in the `property-placeholder` element in the Mule application.
 For more information about nondefault property placeholder options, see the https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/support/PropertySourcesPlaceholderConfigurer.html[Spring documentation on Property Placeholder options^].

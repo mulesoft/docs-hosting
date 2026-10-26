@@ -2,7 +2,7 @@
 
 CloudHub 2.0 imposes the following limits:
 
-Environments per business group:: 200
+Environments per business group:: 150
 
 Private spaces per organization:: 100
 
@@ -23,7 +23,7 @@ This is the read-request timeout, which is the maximum time the ingress controll
 [NOTE]
 In private spaces, you can configure the read-response timeout (the time CloudHub 2.0 waits for a response from your Mule application) up to 3600 seconds. For more information, see xref:ps-config-advanced.adoc#configure-http-requests-and-read-response-timeout[Configure HTTP Requests and Read-Response Timeout].
 
-Maximum ingress URI size:: 4 KB
+Maximum ingress URI size:: 8 KB
 
 Firewall rules (inbound):: 300
 

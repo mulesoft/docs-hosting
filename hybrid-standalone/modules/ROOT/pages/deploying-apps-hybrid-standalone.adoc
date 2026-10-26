@@ -50,7 +50,7 @@ Review xref:hybrid-standalone-requirements-limitations.adoc[Requirements and Lim
 
 Complete this infrastructure setup:
 
-. xref:mule-runtime::runtime-installation-task.adoc[Download and install Mule] on target servers with appropriate Java version compatibility
+. xref:on-premises::runtime-installation-task.adoc[Download, Install, Configure, and Upgrade On-Premises Mule Runtime Engine] on target servers with appropriate Java version compatibility
 . xref:creating-servers.adoc[Add servers to Runtime Manager] for centralized management and deployment capabilities
 . Ensure servers have connectivity to Anypoint Platform for management communication
 

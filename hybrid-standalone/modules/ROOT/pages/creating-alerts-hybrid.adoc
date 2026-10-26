@@ -4,16 +4,16 @@ Configure proactive monitoring alerts for your hybrid standalone infrastructure 
 
 == Overview
 
-Runtime Manager provides comprehensive alerting capabilities for monitoring your hybrid standalone infrastructure, including:
+Runtime Manager alerts for hybrid standalone servers are event alerts, such as server connected, disconnected, or deleted.
 
-* Individual server health and performance monitoring
-* Server group coordination and member status tracking
-* Cluster connectivity and node health supervision
-* Resource utilization threshold monitoring (CPU, memory, load average, thread count)
-* Infrastructure lifecycle event notifications (connections, disconnections, deletions)
+On US Cloud and EU Cloud, Runtime Manager also provides metric threshold alerts for CPU, memory, load average, and thread count. Alerts based on metrics on Canada Cloud, Japan Cloud, India Cloud, and Australia Cloud come from Anypoint Monitoring, not from Runtime Manager. See xref:monitoring::alerts.adoc[Getting Alerts] in Anypoint Monitoring.
 
 [NOTE]
 ====
+On Canada Cloud, Japan Cloud, India Cloud, and Australia Cloud, Runtime Manager monitoring for hybrid standalone deployments isn't available. Runtime Manager alerts on those control planes are limited to event alerts.
+
+For metric-based alerts, such as CPU usage, memory usage, and resource utilization, use Anypoint Monitoring. Basic and advanced Anypoint Monitoring alerts vary by control plane. See xref:hyperforce::index.adoc#features-supported-on-hyperforce[Features Supported on Hyperforce].
+
 Runtime Manager retains 30 days of alert history for audit and analysis.
 
 Alerts retrigger when conditions continuously exceed specified thresholds, ensuring persistent notification of ongoing issues.
@@ -104,6 +104,8 @@ Configure specific conditions that trigger notifications based on your infrastru
 
 === Performance and Resource Monitoring
 
+These metric threshold alerts apply to all infrastructure types (servers, server groups, and clusters) on US Cloud and EU Cloud. They aren't available as Runtime Manager alerts on Canada Cloud, Japan Cloud, India Cloud, and Australia Cloud. Use xref:monitoring::alerts.adoc[Anypoint Monitoring alerts] for metric-based monitoring on those control planes.
+
 These performance alerts apply to all infrastructure types (servers, server groups, and clusters):
 
 
@@ -150,8 +152,8 @@ image::alerts-conditions-servers-thread-count.png["Server thread count alert con
 *Configuration:* Set the thread count threshold and monitoring duration.
 --
 
-These alerts vary according to the target type (server, server groups, or clusters)
-and require no additional parameters:
+These event alerts vary according to the target type (server, server groups, or clusters)
+and require no additional parameters. They are available on all control planes that support hybrid standalone:
 
 Servers::
 +
@@ -361,4 +363,6 @@ image::alerts-delete.png["Delete (trash can) icon"]
 
 * xref:monitoring-hybrid-standalone.adoc[Monitoring Hybrid Standalone Instances]
 * xref:monitoring-dashboards-hybrid.adoc[Monitoring Dashboards for Server, Server Groups and Clusters]
+* xref:monitoring::alerts.adoc[Getting Alerts]
+* xref:hyperforce::index.adoc#features-supported-on-hyperforce[Features Supported on Hyperforce]
 * xref:managing-hybrid-standalone.adoc[Managing Hybrid Standalone Instances]

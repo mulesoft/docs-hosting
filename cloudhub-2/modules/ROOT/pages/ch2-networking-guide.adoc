@@ -56,6 +56,7 @@ For each request a client makes through the CloudHub 2.0 load balancer `(<app>.<
 
 For connections that take longer than 300 seconds to process from either side, handle the processing asynchronously. You can customize the Read Response Timeout value in the *Advanced* tab of your xref:ps-config-advanced.adoc#configure-http-requests-and-read-response-timeout[private space settings] in Runtime Manager, or via the Mule application xref:mule-runtime::global-settings-configuration.adoc[global configurations] of the xref:mule-runtime::about-mule-configuration.adoc[Mule configuration file].
 
+[[dns-records]]
 == DNS Records
 
 The following DNS records are exposed for your CloudHub 2.0 applications:
@@ -147,6 +148,11 @@ Use a xref:ps-create-configure-tgw.adoc[TGW attachment] to connect a dedicated V
 
 === Firewall Rules and Port Access
 
+[NOTE]
+====
+CloudHub 2.0 private spaces provide configurable inbound and outbound firewall rules, with ports `80` and `443` open by default. Private spaces don't include a built-in Web Application Firewall (WAF) or Layer 7 DDoS protection. If you need these protections, implement them externally.
+====
+
 HTTP Ingress::
 
 By default, ports `443` and `80` are exposed for all external inbound traffic. You can remove or change these ports to restrict inbound traffic.
@@ -169,16 +175,27 @@ You can remove all ingress and egress rules from and to the internet. In this ca
 * You can remove the default route to the Internet Gateway. However, for the egress firewall rules to work, the destination IPs must be routable.
 
 
+=== Test Private Space Connectivity
+
+To test connectivity to applications in a private space, use the *Network Tools* application. ICMP ping isn't a supported connectivity test, so a failed ping doesn't mean that your application is down. For download and usage information, see https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Network Tools Application].
+
+If traffic reaches the firewall but gets no response, check these common causes:
+
+* A port restriction. The internal load balancer accepts traffic on port `443`.
+* A pod-network CIDR that isn't allowlisted in your connected network.
+
+
 == Regional Services
 
-The DNS record and the load balancer for your integration can change depending on what region you deploy your applications in. This table summarizes what DNS records are available for your applications in each region:
+The DNS record and the load balancer for your integration can change depending on the region you deploy your applications in.
 
-include::partial$region-table-long.adoc[]
+For the runtime regions available for each control plane, including the *Region* token used in DNS records, see xref:ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records].
 
 include::partial$url-format-by-control-plane.adoc[]
 
 
 == See Also
 
+* xref:ch2-architecture.adoc#regions-and-dns-records[Runtime Plane Regions and DNS Records]
 * xref:ch2-private-space-about.adoc[]
 * xref:ps-config-ssl-endpoints.adoc[]

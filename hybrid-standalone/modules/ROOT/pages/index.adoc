@@ -1,8 +1,10 @@
-= Hybrid Standalone
+= Hybrid Standalone Runtimes Overview
 
-Hybrid standalone instances enable you to host the Mule runtime engine (Mule) in an environment you control. This model provides the control and security of deployments within customer trust boundary combined with the flexibility, scalability, and centralized management of cloud-based services.
+Hybrid Standalone Runtimes are Mule runtime engines that you host in an environment you control and register with Anypoint Runtime Manager. This option provides the control and security of deployments within your trust boundary, plus centralized management from Anypoint Platform.
 
-With hybrid standalone instances, Mule can run on a physical server, a virtual machine, or within a third-party cloud service like Amazon Web Services (AWS) or Microsoft Azure.
+A hybrid standalone instance is one running copy of that runtime. Runtime Manager lists the instance as a server. Setup, management, deployment, and monitoring topics use *instance* for that running copy.
+
+Mule can run on a physical server, a virtual machine, or a third-party cloud service such as Amazon Web Services (AWS) or Microsoft Azure.
 
 == Key Benefits
 
