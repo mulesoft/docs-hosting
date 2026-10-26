@@ -1,0 +1,57 @@
+= Complete the Cutover
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Complete the cutover after CloudHub 2.0 receives all traffic. Verify app behavior, update DNS, fail over eligible DLB domains, and retire CloudHub apps within the rollback boundary.
+
+== Post-Validation Checklist
+
+After reaching 100% traffic on CloudHub 2.0, confirm.
+
+* [ ] Application is reachable with new domain URLs and its HTTP listener is bound to `0.0.0.0:${http.port}` as expected.
+* [ ] API policies, certificates, and secure properties are functioning post-deployment.
+* [ ] Inter-app communication within the private space works correctly.
+* [ ] Connectivity to on-premises systems through VPN or transit gateway (TGW) is functioning.
+* [ ] Anypoint Monitoring dashboards are active and environment-specific alerts are configured.
+
+== Update DNS and Perform DLB Failover
+
+Update client DNS records and fail over eligible DLB domains to route traffic exclusively to CloudHub 2.0.
+
+=== Update DNS
+
+Update DNS aliases and CNAMEs to point exclusively to CloudHub 2.0 endpoints.
+
+=== Perform DLB Failover
+
+After the VPC upgrade and CloudHub application migration to CloudHub 2.0, perform a DLB failover to retain domains during the transition from CloudHub to CloudHub 2.0. This maintains client application compatibility.
+
+To perform a DLB failover.
+
+. For each DLB linked to your upgraded VPC, go to the DLB settings page and click *Failover to CloudHub 2.0*.
++
+This fails over the `anypointdns.net` domain to CloudHub 2.0, removes any additional DLB hop, and redirects traffic to your new CloudHub 2.0 private space URL.
+. After the traffic failover completes, stop and delete the CloudHub DLB linked to the VPC.
+
+NOTE: If there are failures during this stage, restart the stopped DLB to point `anypointdns.net` to CloudHub. After you delete the DLB, you can't roll back to CloudHub.
+
+== Complete the Application Upgrade
+
+After traffic fully redirects to the CloudHub 2.0 application, stop your CloudHub application within 30 days and mark the upgrade as complete.
+
+If you change your CloudHub application after it stops, the changes aren't replicated in your new CloudHub 2.0 application. Make any changes directly to the CloudHub 2.0 application settings.
+
+Stopping your CloudHub application starts the 30-day period for deleting it. Delete the application within 30 days after it stops.
+
+NOTE: After the CloudHub application stops, traffic switches to the linked CloudHub 2.0 application. To roll back the application upgrade, restart your CloudHub application and configure the traffic switching percentage. After you delete the CloudHub application, the migration is complete and you can't create another CloudHub application with the same application name.
+
+Complete or delete all CloudHub applications in a given upgraded VPC to release entitlements.
+
+== See Also
+
+* xref:ch2-migration-apps.adoc[]
+* xref:ch2-migration-finalize.adoc[]
+* xref:ch2-migration-troubleshoot.adoc[]
+* xref:ch2-config-endpoints-paths.adoc[]
+* xref:access-management::permissions-by-product.adoc[]
