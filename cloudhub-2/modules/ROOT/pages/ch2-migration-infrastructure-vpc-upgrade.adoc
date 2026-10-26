@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-aliases: cloudhub::vpc-upgrade.adoc
 
 Use the VPC upgrade tool to create a CloudHub 2.0 private space that retains an eligible CloudHub VPC configuration. Confirm eligibility, account for the VPC lock and rollback boundary, run the upgrade, and validate the resulting private space.
 
