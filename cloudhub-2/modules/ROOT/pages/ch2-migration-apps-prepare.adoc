@@ -248,7 +248,7 @@ After: Anypoint MQ
 Egress rules, batch job behavior, and connectivity testing affect the move to Anypoint MQ.
 
 * Egress rules: If you use app-level egress rules in your private space, add rules that allow HTTPS to the Anypoint MQ regional endpoint (for example, `mq-us-east-1.anypoint.mulesoft.com`) and the Anypoint control plane (`anypoint.mulesoft.com`).
-* Batch jobs: CloudHub persistent queues were used internally for batch job queuing. In CloudHub 2.0, batch jobs use xref:mule-runtime::batch-processing.adoc[Object Store v2 by default]. Batch jobs don't require code changes.
+* Batch jobs: CloudHub persistent queues were used internally for batch job queuing. In CloudHub 2.0, batch jobs use xref:mule-runtime::batch-processing-concept.adoc[Object Store v2 by default]. Batch jobs don't require code changes.
 * Testing: Test Anypoint MQ connectivity from your private space before migrating production workloads.
 
 For more information, see xref:mq::index.adoc[] and xref:anypoint-mq-connector::index.adoc[].

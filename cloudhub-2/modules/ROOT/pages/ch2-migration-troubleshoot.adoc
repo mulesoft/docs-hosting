@@ -294,7 +294,7 @@ Use this table to address deployment states, timeouts, rolling updates, static I
 
 |Object Store v2 in cluster mode throws ConcurrentModificationException or persistent VM queues lost on restart
 |Object Store v2 or VM queues in clustered mode have known issues. VM queue storage is ephemeral and lost on redeploy or restart.
-|Migrate to Anypoint MQ for persistent queues and disable persistent VM queues. For Object Store, verify cluster serialization configuration. See xref:mule-runtime::batch-processing.adoc[Batch Processing] for CH2 batch job behavior.
+|Migrate to Anypoint MQ for persistent queues and disable persistent VM queues. For Object Store, verify cluster serialization configuration. See xref:mule-runtime::batch-processing-concept.adoc[Batch Processing] for CH2 batch job behavior.
 
 |Outbound static IP addresses changed after migration; third-party systems reject traffic
 |Migrated private spaces have different outbound NAT IPs than CH1 apps. Third-party allowlists weren't updated with the new CH2 private space IPs (KI-62898).
@@ -306,7 +306,7 @@ Use this table to address deployment states, timeouts, rolling updates, static I
 
 |Ping fails from private space to on-premises or external hosts
 |CloudHub 2.0 private spaces don't support ICMP (ping). The firewall or network policy may block UDP-based tests as well.
-|Use TCP socket tests instead of ping. Deploy the xref:anypoint-platform::network-tools-app.adoc[Network Tools] application to the private space and use its *Socket* test to verify connectivity.
+|Use TCP socket tests instead of ping. Deploy the https://help.salesforce.com/s/articleView?id=001115029&type=1[Network Tools] application to the private space and use its *Socket* test to verify connectivity.
 
 |DLB mTLS or URL-rewrite mapping rules are missing after migration
 |The VPC upgrade tool migrates these configurations on a best-effort basis. Some complex rules or custom configurations may not transfer automatically.

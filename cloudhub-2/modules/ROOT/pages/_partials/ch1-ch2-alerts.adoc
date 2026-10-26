@@ -7,7 +7,7 @@
 |CloudHub |CloudHub 2.0
 
 |CloudHub triggers custom alerts when your application sends notifications to Runtime Manager using Anypoint Connector for CloudHub (CloudHub Connector). For more information, see xref:cloudhub::custom-application-alerts.adoc[Custom Application Alerts].
-|CloudHub 2.0 enables application deployment success and failure alerts. For custom alerting, CloudHub 2.0 leverages Anypoint Monitoring Alerts. For more information, see xref:cloudhub-2:ch2-config-app-alerts.adoc[Configuring Application Alerts].
+|CloudHub 2.0 enables application deployment success and failure alerts. For custom alerting, CloudHub 2.0 leverages Anypoint Monitoring Alerts. For more information, see xref:ch2-config-app-alerts.adoc[Configuring Application Alerts].
 
 |In xref:monitoring::alerts.adoc[Anypoint Monitoring], you can set alerts for all apps simultaneously.
 |In xref:monitoring::alerts.adoc[Anypoint Monitoring], you must set alerts for apps individually. Setting alerts for all apps simultaneously is not supported.

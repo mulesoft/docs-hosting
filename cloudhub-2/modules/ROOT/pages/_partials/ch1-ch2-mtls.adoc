@@ -10,5 +10,5 @@
 |CloudHub 2.0 provides native mTLS with TLS contexts and truststores. Configure mTLS at the private space level with centralized management. CloudHub 2.0 also supports forward SSL, which forwards client certificate information to applications via HTTP headers.
 
 |CloudHub supports limited Certificate Authority (CA) certificates through the DLB. It accepts certificate files in PEM format only.
-|CloudHub 2.0 provides dynamic certificate management, application-level xref:cloudhub-2:ps-config-domains.adoc#truststore[truststore] access, and in-place updates without redeployment. Upload truststore files in PEM and JKS formats.
+|CloudHub 2.0 provides dynamic certificate management, application-level xref:ps-config-domains.adoc#truststore[truststore] access, and in-place updates without redeployment. Upload truststore files in PEM and JKS formats.
 |===

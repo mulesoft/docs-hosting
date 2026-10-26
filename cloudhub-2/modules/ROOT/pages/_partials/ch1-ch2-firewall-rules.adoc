@@ -51,13 +51,13 @@ CloudHub 2.0 adds two egress rules by default. You can delete these rules if you
 
 *Application-Level Egress Rules*
 
-CloudHub 2.0 supports egress firewall rules at the application level. Application-level egress rules are independent of private-space-level firewall rules. See xref:cloudhub-2:ps-config-app-level-egress.adoc[Configuring Application-Level Egress Rules].
+CloudHub 2.0 supports egress firewall rules at the application level. Application-level egress rules are independent of private-space-level firewall rules. See xref:ps-config-app-level-egress.adoc[Configuring Application-Level Egress Rules].
 
 Turn on application-level egress rules in Runtime Manager.
 
 In CloudHub 2.0, egress traffic passes through both application-level control (enforced first) and private-space-level control (enforced after application-level control).
 
-Apply application-level egress rules when you deploy your application. See xref:cloudhub-2:ps-config-app-level-egress.adoc#apply-application-level-egress-rules-when-deploying-your-applications[Apply Application-Level Egress Rules].
+Apply application-level egress rules when you deploy your application. See xref:ps-config-app-level-egress.adoc#apply-application-level-egress-rules-when-deploying-your-applications[Apply Application-Level Egress Rules].
 
 You can configure application-level egress connections, such as:
 
