@@ -22,7 +22,7 @@
 CloudHub application workers and CloudHub 2.0 application replicas of the same vCore size may differ in performance metrics and cannot be directly compared. When sizing replicas, use performance testing rather than assuming a 1:1 equivalence with CloudHub workers.
 
 .CloudHub worker
-image::worker-logical-rep.png[Diagram showing the logic of a worker,500,300]
+image:cloudhub::worker-logical-rep.png[Diagram showing the logic of a worker,500,300]
 
 .CloudHub 2.0 replica
-image::replica-logical-rep.png[Diagram showing the logic of a replica,500,300]
+image:cloudhub::replica-logical-rep.png[Diagram showing the logic of a replica,500,300]

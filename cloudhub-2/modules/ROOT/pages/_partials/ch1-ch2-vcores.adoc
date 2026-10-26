@@ -6,7 +6,7 @@
 |===
 |CloudHub |CloudHub 2.0
 
-|See xref:cloudhub-architecture.adoc#cloudhub-workers[CloudHub Workers].
+|See xref:cloudhub::cloudhub-architecture.adoc#cloudhub-workers[CloudHub Workers].
 |See xref:cloudhub-2:ch2-architecture.adoc#cloudhub-2-replicas[CloudHub 2.0 Replicas].
 |===
 

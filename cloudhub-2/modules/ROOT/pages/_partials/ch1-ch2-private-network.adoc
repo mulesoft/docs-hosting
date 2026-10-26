@@ -8,7 +8,7 @@ The Private Network extends your corporate network and helps CloudHub workers an
 |===
 |CloudHub |CloudHub 2.0
 
-|A xref:virtual-private-cloud.adoc[Virtual Private Cloud (VPC)] is a virtual, private, and isolated cloud network segment for hosting CloudHub workers.
+|A xref:cloudhub::virtual-private-cloud.adoc[Virtual Private Cloud (VPC)] is a virtual, private, and isolated cloud network segment for hosting CloudHub workers.
 |A private space is a virtual, private, and isolated logical space in CloudHub 2.0 for running Mule apps.
 
 |Static IPs are managed per application, not at the VPC level. Turn on *Static IPs* for individual apps to receive their own set of egress static IPs.
