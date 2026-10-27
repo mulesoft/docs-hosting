@@ -174,6 +174,94 @@ You can remove all ingress and egress rules from and to the internet. In this ca
 * You can apply egress rules at the application level. For more information, see xref:ps-config-app-level-egress.adoc[].
 * You can remove the default route to the Internet Gateway. However, for the egress firewall rules to work, the destination IPs must be routable.
 
+[[required-outbound-hostnames]]
+==== Required Outbound Hostnames When the Default Route Is Removed
+
+If you remove the default route to the Internet Gateway and route all traffic (`0.0.0.0/0`) through a transit gateway or VPN, update your firewall or proxy. Allow outbound HTTPS traffic on port `443` to the hostnames required for your control plane. CloudHub 2.0 uses these hostnames to pull the container images that it needs to deploy applications. If your firewall or proxy blocks these hostnames, deployments fail with `ErrImagePull` or `ImagePullBackOff` errors. The error message can include `TLS handshake timeout`.
+
+The required hostnames vary by control plane. Use the hostnames for your control plane, regardless of the runtime region where your private space runs.
+
+===== US Cloud
+
+This table lists the required hostname endpoint configurations for the US Cloud.
+
+[%header,cols="4*a"]
+|===
+| Port | Protocol | Hostnames | Description
+| 443 | HTTPS | `rtf-runtime-registry.kprod.msap.io` | Container image registry.
+| 443 | HTTPS | `prod-us-east-1-starport-layer-bucket.s3.amazonaws.com`, `prod-us-east-1-starport-layer-bucket.s3.us-east-1.amazonaws.com` | Container image delivery.
+|===
+
+===== EU Cloud
+
+This table lists the required hostname endpoint configurations for the EU Cloud.
+
+[%header,cols="4*a"]
+|===
+| Port | Protocol | Hostnames | Description
+| 443 | HTTPS | `rtf-runtime-registry.kprod-eu.msap.io` | Container image registry.
+| 443 | HTTPS | `prod-eu-central-1-starport-layer-bucket.s3.amazonaws.com`, `prod-eu-central-1-starport-layer-bucket.s3.eu-central-1.amazonaws.com` | Container image delivery.
+|===
+
+===== Canada Cloud
+
+This table lists the required hostname endpoint configurations for the Canada Cloud.
+
+[%header,cols="4*a"]
+|===
+| Port | Protocol | Hostnames | Description
+| 443 | HTTPS | `rtf-runtime-registry-mulesoft-cp.sfdc-58ktaz.svc.sfdcfc.net` | Container image registry.
+| 443 | HTTPS | `prod-us-east-1-starport-layer-bucket.s3.us-east-1.amazonaws.com` | Container image delivery.
+|===
+
+===== Japan Cloud
+
+This table lists the required hostname endpoint configurations for the Japan Cloud.
+
+[%header,cols="4*a"]
+|===
+| Port | Protocol | Hostnames | Description
+| 443 | HTTPS | `rtf-runtime-registry-mulesoft-cp.sfdc-mchho0.svc.sfdcfc.net` | Container image registry.
+| 443 | HTTPS | `prod-us-east-1-starport-layer-bucket.s3.us-east-1.amazonaws.com` | Container image delivery.
+|===
+
+===== India Cloud
+
+This table lists the required hostname endpoint configurations for the India Cloud.
+
+[%header,cols="4*a"]
+|===
+| Port | Protocol | Hostnames | Description
+| 443 | HTTPS | `rtf-runtime-registry-mulesoft-cp.sfdc-y37hzm.svc.sfdcfc.net` | Container image registry.
+| 443 | HTTPS | `prod-us-east-1-starport-layer-bucket.s3.us-east-1.amazonaws.com` | Container image delivery.
+|===
+
+===== Australia Cloud
+
+This table lists the required hostname endpoint configurations for the Australia Cloud.
+
+[%header,cols="4*a"]
+|===
+| Port | Protocol | Hostnames | Description
+| 443 | HTTPS | `rtf-runtime-registry-mulesoft-cp.sfdc-vwfla6.svc.sfdcfc.net` | Container image registry.
+| 443 | HTTPS | `prod-us-east-1-starport-layer-bucket.s3.us-east-1.amazonaws.com` | Container image delivery.
+|===
+
+===== United Kingdom Cloud
+
+This table lists the required hostname endpoint configurations for the United Kingdom Cloud.
+
+[%header,cols="4*a"]
+|===
+| Port | Protocol | Hostnames | Description
+| 443 | HTTPS | `rtf-runtime-registry-mulesoft-cp.sfdc-5pakla.svc.sfdcfc.net` | Container image registry.
+| 443 | HTTPS | `prod-us-east-1-starport-layer-bucket.s3.us-east-1.amazonaws.com` | Container image delivery.
+|===
+
+If your firewall or proxy inspects TLS traffic, exclude these hostnames from TLS inspection. Otherwise, image pulls fail with the error `x509: certificate signed by unknown authority`.
+
+If you previously allowed an Amazon ECR endpoint, such as `<account-id>.dkr.ecr.<region>.amazonaws.com`, for image pulls, also allow these hostnames.
+
 
 === Test Private Space Connectivity
 
