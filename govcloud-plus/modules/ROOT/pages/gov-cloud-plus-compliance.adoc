@@ -1,0 +1,96 @@
+= Security and Compliance in MuleSoft Government Cloud Plus
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+MuleSoft Anypoint Platform on Salesforce Government Cloud Plus (MuleSoft Government Cloud Plus) meets FedRAMP Certification Class D (High) (formerly FedRAMP (High)) and Department of Defense Impact Level 4 (IL4) security and compliance standards for U.S. federal and defense agency integration workloads. It runs on a dedicated AWS GovCloud (US-East) hardware partition and inherits compliance certifications from Salesforce Government Cloud Plus.
+
+== Compliance Authorizations
+
+MuleSoft Government Cloud Plus inherits these authorizations from Salesforce Government Cloud Plus:
+
+* FedRAMP Certification Class D (High)
+* Department of Defense Impact Level 4
+
+== Security Protocols
+
+FedRAMP Certification Class D (High) and Department of Defense (DoD) Impact Level 4 (IL4) authorizations follow these standards:
+
+* Federal Information Processing Standards (FIPS) 140-3
++
+Enforces cryptographic modules for data at rest and in transit. 
+
+* Transport Layer Security (TLS) 1.2 and 1.3
++
+MuleSoft Anypoint Platform inherits the Government Cloud Plus cipher configuration.
+
+* NIST 800-53
++
+Provides security and privacy controls for the authorization.
+
+* Center for Internet Security (CIS) benchmarks and Department of Defense Secure Technical Implementation Guides (STIGs)
++
+Harden baselines for the environment.
+
+== Secure Hosting Platform
+
+MuleSoft Government Cloud Plus operates in AWS GovCloud (US-East) within the Government Cloud Plus authorization boundary. Your CloudHub 2.0 workloads run in a dedicated, isolated network.
+
+Under shared controls, you are responsible for these areas:
+
+* Access control through your identity provider using SAML or OpenID Connect, including multi-factor authentication
+* Account, role, and privileged assignment administration in Access Management, including revoking unnecessary privileged access
+* Keystore, truststore, certificate, and secret lifecycle management and rotation in Secrets Manager
+* Platform audit log export to support retention past the default 365-day limit
+* Application alert selection and destination configuration
+
+MuleSoft manages connections among platform services, including CloudHub 2.0 on MuleSoft Government Cloud Plus. Runtime Fabric and hybrid deployment models run on customer-managed infrastructure.
+
+
+
+== FIPS 140-3 Compliance
+
+Platform cryptography inherits the FIPS 140-3 implementation authorized for Salesforce Government Cloud Plus. You manage the keystores, truststores, certificates, and secrets that your applications use in Secrets Manager.
+
+MuleSoft verifies connectors published to Anypoint Exchange on Government Cloud Plus for FIPS 140-3 compliance before publication with the `FIPS-140-3-verified` tag. This verification applies to connector artifacts used on CloudHub 2.0. 
+
+
+=== FIPS 140-3 Supported Cipher Suites
+
+Mule runtime traffic on CloudHub 2.0 supports these cipher suites:
+
+* TLS_AES_128_GCM_SHA256
+* TLS_AES_256_GCM_SHA384
+* TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+
+Agency systems and your API listeners use these cipher suites to negotiate TLS with CloudHub 2.0 applications.
+
+
+== Authentication and Access Control
+
+Federate authentication to your identity provider by using SAML or OpenID Connect.
+
+Under shared controls, you're responsible for these tasks:
+
+* Multi-factor authentication enforcement for privileged and non-privileged accounts in your identity provider
+* PIV or CAC authentication implementation (when required by agency policy) federated to Anypoint Platform
+* Account, role, and privileged assignment management in Access Management, including revocation of unnecessary privileged access
+* Identifier and authenticator management in your identity provider
+
+MuleSoft restricts privileged functions to privileged users.
+
+
+== Network Segmentation
+
+Your CloudHub 2.0 workloads run on a dedicated network that's isolated from other organizations. Connectivity between CloudHub 2.0 and agency systems is private and stays on the agency network.
+
+You manage this connection by using a site-to-site VPN or Transit Gateway, including firewall rules and inbound TLS certificates.
+
+
+== See Also
+
+* xref:index.adoc[MuleSoft Government Cloud Plus]
+* https://help.salesforce.com/s/articleView?id=ind.government_cloud_compliance.htm&type=5[Compliance for Salesforce Government Cloud]
+* https://help.salesforce.com/s/articleView?id=ind.government_cloud_secure_configuration_guide.htm&type=5[Secure Configuration in Salesforce Government Cloud]
+* https://help.salesforce.com/s/articleView?id=ind.government_cloud_security_settings_and_compliance_monitoring.htm&type=5[Security Settings and Compliance Monitoring in Salesforce Government Cloud]

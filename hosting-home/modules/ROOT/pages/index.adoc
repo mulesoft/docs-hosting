@@ -78,6 +78,12 @@ MuleSoft provides cloud-managed and self-hosted control plane options. This tabl
 | Federal Risk and Authorization Management Program (FedRAMP)-compliant control plane managed by MuleSoft, suitable for US government agencies.
 | FedRAMP authorized. See xref:gov-cloud::index.adoc[MuleSoft Government Cloud Overview].
 
+| https://gprod1.platform.mulesoft.com[MuleSoft Government Cloud Plus]
+| `gprod1.platform.mulesoft.com`
+| United States
+| MuleSoft-managed Hyperforce control plane for US public-sector organizations. See xref:govcloud-plus::index.adoc[MuleSoft Government Cloud Plus].
+| See xref:hyperforce::index.adoc[Salesforce Hyperforce Overview] and xref:govcloud-plus::gov-cloud-plus-compliance.adoc[Security and Compliance in MuleSoft Government Cloud Plus].
+
 | Anypoint Platform Private Cloud Edition (PCE)
 | N/A (self-hosted)
 | Customer-managed
@@ -139,6 +145,7 @@ This matrix shows which runtime plane options you can deploy to from each contro
 * xref:control-planes::index.adoc[Anypoint Platform Control Planes Overview]
 * xref:hyperforce::index.adoc[Salesforce Hyperforce Overview]
 * xref:gov-cloud::index.adoc[MuleSoft Government Cloud]
+* xref:govcloud-plus::index.adoc[MuleSoft Government Cloud Plus]
 * xref:private-cloud::index.adoc[Anypoint Platform Private Cloud Edition]
 * xref:cloudhub-2::index.adoc[CloudHub 2.0]
 * xref:cloudhub-2::ch2-architecture.adoc#regions-and-dns-records[CloudHub 2.0 Runtime Plane Regions]
