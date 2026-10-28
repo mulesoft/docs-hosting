@@ -1,4 +1,4 @@
-= Prepare Your Application for Migration
+= Prepare Your Applications for Migration
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
