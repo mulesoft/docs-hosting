@@ -1,4 +1,4 @@
-= Upgrade Application Using the Migration Tool
+= Upgrade Applications Using the Migration Tool
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
