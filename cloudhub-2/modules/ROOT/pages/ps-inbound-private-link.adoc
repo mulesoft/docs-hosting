@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :page-aliases:
 
-AWS PrivateLink enables you to reach the Mule applications deployed in your CloudHub 2.0 private space privately from your own AWS accounts, without traversing the public internet. An inbound Private Link connection publishes your private space's internal Network Load Balancer (NLB) as an AWS endpoint service. You then create interface VPC endpoints in your own VPCs that connect to that endpoint service, so traffic reaches your private-space apps over the AWS network at OSI layer 4.
+AWS PrivateLink enables you to reach the Mule applications deployed in your CloudHub 2.0 private space privately from your own AWS accounts, without traversing the public internet. An inbound Private Link connection publishes your private space's internal Network Load Balancer (NLB) as an AWS endpoint service. You then create interface VPC endpoints in your own VPCs or Private Spaces that connect to that endpoint service, so traffic reaches your private-space apps over the AWS network at OSI layer 4.
 
 Unlike an xref:ps-outbound-private-link.adoc[outbound Private Link connection], where the private space consumes an AWS-hosted service, an inbound connection makes the private space the _provider_: MuleSoft owns the endpoint service and you own the consuming VPC endpoints, or the VPC endpoint in the consumer private space.
 
@@ -134,6 +134,8 @@ A representative `EndpointServiceResponse`:
 ====
 
 . *Create interface VPC endpoints in your AWS account.* In each of your VPCs, create an https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html[interface VPC endpoint] that targets the `endpointServiceName` returned above. Choose subnets in availability zones that overlap the service's `connectableAZs`, and attach a security group that permits traffic to your application ports.
++
+If the consumer is another CloudHub 2.0 private space rather than a VPC in your own AWS account, create the VPC endpoint in that private space using the outbound Private Link flow, targeting the `endpointServiceName` as the service name. See xref:ps-outbound-private-link.adoc[Setting Up an Outbound Private Link Connection].
 
 . *Register the VPC endpoint IDs with MuleSoft.* Send the endpoint IDs so MuleSoft accepts the connections. Until an endpoint ID is registered here, its connection stays in `pendingAcceptance` on the endpoint service:
 +
