@@ -83,7 +83,7 @@ This table indicates the support status of Anypoint Platform features on Anypoin
 * Planned: Feature is scheduled for a future release on Anypoint Platform control planes.
 * Not planned: Feature is not currently planned for release or is not supported on Anypoint Platform control planes.
 
-include::hyperforce::partial$features-supported.adoc[tag=government-with-regions]
+include::hyperforce::partial$features-supported.adoc[tags=features;!government]
 
 == See Also
 
