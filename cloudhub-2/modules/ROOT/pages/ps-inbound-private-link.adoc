@@ -4,26 +4,26 @@ include::_attributes.adoc[]
 endif::[]
 :page-aliases:
 
-AWS PrivateLink enables you to reach the Mule applications deployed in your CloudHub 2.0 private space privately from your own AWS accounts, without traversing the public internet. An inbound Private Link connection publishes your private space's internal Network Load Balancer (NLB) as an AWS endpoint service. You then create interface VPC endpoints in your own VPCs or Private Spaces that connect to that endpoint service, so traffic reaches your private-space apps over the AWS network at OSI layer 4.
+With AWS PrivateLink you can reach the Mule applications deployed in your CloudHub 2.0 private space privately from your own AWS accounts, without traversing the public internet. An inbound Private Link connection publishes your private space's internal Network Load Balancer (NLB) as an AWS endpoint service. You then create interface VPC endpoints in your own VPCs or Private Spaces that connect to that endpoint service, so traffic reaches your private-space apps over the AWS network at OSI layer 4.
 
-Unlike an xref:ps-outbound-private-link.adoc[outbound Private Link connection], where the private space consumes an AWS-hosted service, an inbound connection makes the private space the _provider_: MuleSoft owns the endpoint service and you own the consuming VPC endpoints, or the VPC endpoint in the consumer private space.
+Unlike an xref:ps-outbound-private-link.adoc[outbound Private Link connection], where the private space consumes an AWS-hosted service, an inbound connection makes the private space the provider. MuleSoft owns the endpoint service, and you own the consuming VPC endpoints or the VPC endpoint in the consumer private space.
 
 [NOTE]
 ====
-Inbound Private Link is managed through the Runtime Fabric API. The examples on this page use `curl`; substitute your own organization ID, private space ID, and access token.
+Manage inbound Private Link connections using the Runtime Fabric API. The examples on this page use `curl``. Replace the placeholder values with your organization ID, private space ID, and access token.
 ====
 
 == Before You Begin
 
 Before you configure an inbound Private Link connection, ensure that you have:
 
-* Inbound Private Link enabled for your organization. This feature is enabled per organization; if it isn't enabled, every call to the endpoint service returns `403` with the message `Inbound PrivateLink feature is not enabled for this organization`. To request access, contact your account team or Support.
+* Inbound Private Link enabled for your organization. This feature is enabled per organization. If it isn't enabled, calls to the endpoint service return `403` with the message `Inbound PrivateLink feature is not enabled for this organization`. To request access, contact your account team or Support.
 * A private space that is fully provisioned and in a ready state. See xref:ps-create-configure.adoc[Creating and Configuring a Private Space].
-* Permission to manage the private space. The endpoint service can be managed only from the organization that *owns* the private space, not from an organization the space is shared with.
-* One or more AWS IAM principal ARNs that you want to authorize to connect, and access to those accounts to create interface VPC endpoints. See <<configure-the-inbound-connection>> for the accepted ARN formats.
-* A bearer token for calling the API.
+* Permission to manage the private space. You can manage the endpoint service only from the organization that owns the private space, not from an organization that shares the space with it.
+* One or more AWS IAM principal ARNs that you want to authorize to connect, and access to those accounts to create interface VPC endpoints. For the accepted ARN formats, see <<configure-the-inbound-connection>> .
+* A bearer token to call the API.
 +
-Follow the instructions from xref:access-management::saml-bearer-token.adoc[Anypoint identity] or https://help.salesforce.com/s/articleView?id=001115323&type=1[external identity] to get a bearer access token for your Anypoint organization. The token owner must have permission to manage private spaces.
+To get a bearer access token for your Anypoint organization, follow the instructions from xref:access-management::saml-bearer-token.adoc[Anypoint identity] or https://help.salesforce.com/s/articleView?id=001115323&type=1[external identity]. The token owner requires permission to manage private spaces.
 
 == The Endpoint Service Resource
 
@@ -55,24 +55,24 @@ https://anypoint.mulesoft.com/runtimefabric/api/organizations/{orgId}/privatespa
 | `204`
 |===
 
-All requests are authenticated with a bearer token and authorized against the owning organization of the private space. A request for a space your token cannot see returns `404`; a request without sufficient permission returns `403`. A `GET` also returns `404` when the private space exists but has no endpoint service yet, which is what you see if you call `GET` before `POST`.
+All requests are authenticated using a bearer token and authorized against the organization that owns the private space. A request for a space that your token can't see returns `404`. A request without sufficient permissions returns `403`. A `GET` request also returns `404` when the private space exists without an endpoint service, such as when you send a `GET` request before a `POST` request.
 
 [[configure-the-inbound-connection]]
 == Configure the Inbound Connection
 
-Create the endpoint service and authorize the AWS accounts (_principals_) that are allowed to connect to it.
+Create the endpoint service, and authorize the AWS accounts (principals) to connect.
 
-The request body accepts the following properties:
+The request body accepts the these properties:
 
 `principals`::
-Required. An array of AWS IAM principal ARNs that are authorized to create interface VPC endpoints to this endpoint service. Only these principals can connect. Use the full ARN form — for example, `arn:aws:iam::<account-id>:root` to authorize an entire account, or a role or user ARN such as `arn:aws:iam::<account-id>:role/<role-name>`.
+Required. An array of AWS IAM principal ARNs authorized to create interface VPC endpoints for this endpoint service. Only these principals can connect. Use the full ARN form, such as `arn:aws:iam::<account-id>:root`, to authorize an entire account, or `arn:aws:iam::<account-id>:role/<role-name>` for a specific role or user.
 
 `vpcEndpoints`::
-Optional (defaults to `[]`). An array of your interface VPC endpoint IDs authorized to connect to the endpoint service. This is usually empty at creation time — you can't add endpoint IDs until the endpoint service exists — and is supplied later with a `PATCH`.
+Optional (defaults to `[]`). An array of your interface VPC endpoint IDs authorized to connect to the endpoint service. This array is usually empty at creation time because you can't add endpoint IDs until the endpoint service exists. You supply endpoint IDs later using a `PATCH` request.
 
 [NOTE]
 ====
-MuleSoft resolves your private space's internal load balancer automatically. A private space can have only one endpoint service; a second `POST` returns `400`.
+MuleSoft resolves your private space's internal load balancer automatically. A private space can have only one endpoint service. A second `POST` returns `400`.
 ====
 
 To create the endpoint service:
@@ -88,12 +88,17 @@ curl -X POST \
       }'
 ----
 
-A `201` response indicates that the request was accepted. MuleSoft then *asynchronously* provisions the AWS endpoint service in front of your private space's internal NLB, authorizes your principals, assigns the internal NLB domain as your private DNS name, and verifies domain ownership on your behalf.
+A `201` response indicates that the request succeeded. MuleSoft then asynchronously completes these actions:
+
+* Provisions the AWS endpoint service in front of your private space's internal NLB.
+* Authorizes your principals.
+* Assigns the internal NLB domain as your private DNS name.
+* Verifies domain ownership.
 
 [[establish-the-private-link-connection]]
 == Establish the Private Link Connection
 
-. *Check for the endpoint service name.* Because provisioning is asynchronous, the resource will update the `status` when the service is available and populate the `endpointServiceName` as well:
+. Check for the endpoint service name: Because provisioning is asynchronous, the resource updates the `status` when the service becomes available and populates the `endpointServiceName`:
 +
 [source,curl,linenums]
 ----
@@ -130,14 +135,14 @@ A representative `EndpointServiceResponse`:
 +
 [NOTE]
 ====
-`status` returns `unknown` while the endpoint service exists in configuration but has not yet been provisioned in AWS. Wait until it is available before continuing.
+If the endpoint service exists in the configuration but hasn't been provisioned in AWS, `status` returns `unknown`. Wait for the endpoint service to become available before continuing.
 ====
 
-. *Create interface VPC endpoints in your AWS account.* In each of your VPCs, create an https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html[interface VPC endpoint] that targets the `endpointServiceName` returned above. Choose subnets in availability zones that overlap the service's `connectableAZs`, and attach a security group that permits traffic to your application ports.
+. Create interface VPC endpoints in your AWS account: In each of your VPCs, create an https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html[interface VPC endpoint] that targets the `endpointServiceName` returned above. Choose subnets in availability zones that overlap the service's `connectableAZs`, and attach a security group that permits traffic to your application ports.
 +
-If the consumer is another CloudHub 2.0 private space rather than a VPC in your own AWS account, create the VPC endpoint in that private space using the outbound Private Link flow, targeting the `endpointServiceName` as the service name. See xref:ps-outbound-private-link.adoc[Setting Up an Outbound Private Link Connection].
+If the consumer is another CloudHub 2.0 private space instead of a VPC in your AWS account, create the VPC endpoint in that private space using the outbound Private Link flow. Specify `endpointServiceName `as the service name. For setup instructions, see xref:ps-outbound-private-link.adoc[Setting Up an Outbound Private Link Connection].
 
-. *Register the VPC endpoint IDs with MuleSoft.* Send the endpoint IDs so MuleSoft accepts the connections. Until an endpoint ID is registered here, its connection stays in `pendingAcceptance` on the endpoint service:
+. Register your VPC endpoint IDs with MuleSoft so that the endpoint service can accept connections: Unregistered endpoint IDs remain in `pendingAcceptance` on the endpoint service.
 +
 [source,curl,linenums]
 ----
@@ -150,11 +155,11 @@ curl -X PATCH \
       }'
 ----
 
-. *Resolve your application hostnames to the endpoint.* CloudHub 2.0 ingress selects the target application by its hostname, which sits under the private space's internal domain (for example, `<app>.internal-<id>.<region>.cloudhub.io`), and the private space's TLS certificate matches that domain.
+. Resolve your application hostnames to the endpoint: CloudHub 2.0 ingress selects the target application by its hostname, which belongs to the private space's internal domain, such as `{app}.internal-{id}.{region}.cloudhub.io`. Ensure that the private space's TLS certificate matches that domain.
 +
-The simplest way to resolve application hostnames is to enable *Private DNS names* on your interface VPC endpoint. MuleSoft verifies domain ownership of the `privateDnsName` for you, and because `privateDnsName` is a wildcard (`*.internal-<id>.<region>.cloudhub.io`) that covers the application hostnames one level below it, enabling private DNS resolves your application hostnames to the endpoint automatically inside your VPC.
+To resolve application hostnames, enable private DNS on your interface VPC endpoint. MuleSoft verifies domain ownership of `privateDnsName`. Because `privateDnsName` is a wildcard domain (`*.internal-{id}.{region}.cloudhub.io`) that covers application hostnames one level below it, private DNS resolves hostnames to the endpoint inside your VPC.
 +
-Alternatively, if you don't enable private DNS, map each application hostname to the endpoint yourself — for example, with a CNAME record in a Route 53 private hosted zone that points the application hostname at one of the endpoint's `dnsEntries`.
+Alternatively, map each application hostname to the endpoint. For example, create a CNAME record in a Route 53 private hosted zone that points the application hostname to one of the endpoint's `dnsEntries`.
 
 == Update an Inbound Connection
 
@@ -176,17 +181,17 @@ Use `PATCH` to change the authorized principals or the set of connected VPC endp
 
 [WARNING]
 ====
-Removing a VPC endpoint ID from `vpcEndpoints` (or clearing the list with `[]`) does not, on its own, disconnect an endpoint that is already connected. You must first act on your (the consumer) side.
+Removing a VPC endpoint ID from `vpcEndpoints`, or clearing the list with `[]`, doesn't automatically disconnect an endpoint that's already connected. First, take action on the consumer side.
 
-To disconnect an already-connected endpoint:
+To disconnect an endpoint:
 
-. On your side, remove the endpoint from the connection, or delete the interface VPC endpoint if it is attached to another private space.
-. Then remove that VPC endpoint ID from `vpcEndpoints` with a `PATCH`.
+. On the consumer side, remove the endpoint from the connection, or delete the interface VPC endpoint if it's attached to another private space. 
+. Remove that VPC endpoint ID from `vpcEndpoints` using a `PATCH` request.
 
-Removing the owning principal with `PATCH` prevents that principal from creating _new_ endpoints but does not tear down connections that are already established.
+Removing the owning principal using a `PATCH` request prevents that principal from creating new endpoints, but doesn't tear down established connections.
 ====
 
-For example, to authorize an additional AWS account without touching the connected endpoints, send the complete desired `principals` list and omit `vpcEndpoints`:
+For example, to authorize an additional AWS account without affecting connected endpoints, provide the full list of `principals` and omit `vpcEndpoints`:
 
 [source,curl,linenums]
 ----
@@ -204,7 +209,7 @@ curl -X PATCH \
 
 == Delete an Inbound Connection
 
-Before you delete the endpoint service, disconnect every consuming VPC endpoint. For each one, on your side remove the endpoint from the connection (or delete the interface VPC endpoint if it is attached to another private space). If VPC endpoints are still connected, removal of the AWS endpoint service can fail.
+Before you delete the endpoint service, disconnect every consuming VPC endpoint. On the consumer side, remove each endpoint from the connection, or delete the interface VPC endpoint if it's attached to another private space. If VPC endpoints remain connected, removing the AWS endpoint service fails.
 
 To remove the endpoint service, delete the resource:
 
@@ -215,16 +220,17 @@ curl -X DELETE \
   -H "Authorization: Bearer $TOKEN"
 ----
 
-A `204` response indicates that the configuration was cleared. As with creation, the underlying AWS endpoint service is removed *asynchronously* afterward, not at the instant the `204` returns.
+A `204` response indicates that MuleSoft cleared the configuration. MuleSoft removes the underlying AWS endpoint service asynchronously, rather than immediately when the `204` response returns.
 
 == Use the Private Link
 
-Once a connection is established, your workloads reach the private space applications through the interface VPC endpoint:
+After establishing a connection, complete these steps to reach private space applications using the interface VPC endpoint:
 
-. Ensure your route tables, network ACLs, and security groups permit traffic from your workloads to the endpoint's network interfaces.
-. On the private space, add an inbound firewall rule that allows HTTP/HTTPS traffic from your consumer-side CIDR, unless you already allow all HTTP/HTTPS inbound traffic to the private space. Use the CIDR of the client resources (subnets or VPC) that originate the requests, not the interface VPC endpoint's subnet. Without this rule, the private space blocks traffic arriving over the endpoint service. See xref:ps-create-configure.adoc[Creating and Configuring a Private Space] for how to manage firewall rules.
-. Address requests to the application's hostname, which must resolve to the interface VPC endpoint (see step 4 of <<establish-the-private-link-connection>>).
-. Traffic flows privately over AWS PrivateLink to your private space's internal NLB and on to your deployed apps.
+. Verify that your route tables, network ACLs, and security groups permit traffic from your workloads to the endpoint network interfaces.
+. Add an inbound firewall rule on the private space to permit HTTP/HTTPS traffic from your consumer-side CIDR block. Use the CIDR of the client subnets or VPC that originate requests, rather than the interface VPC endpoint subnet. Without this rule, the private space blocks traffic arriving over the endpoint service. See xref:ps-create-configure.adoc[Creating and Configuring a Private Space].
+. Point requests to the application hostname resolving to the interface VPC endpoint. See <<establish-the-private-link-connection>>.
+
+Traffic flows privately over AWS PrivateLink to your private space internal NLB and to your deployed apps.
 
 == Endpoint Service Response Reference
 
@@ -241,10 +247,10 @@ The `GET` response (`EndpointServiceResponse`) contains:
 | The AWS account ID that owns the endpoint service (the private space's account).
 
 | `status`
-| Provisioning and availability status of the endpoint service. Returns `unknown` before AWS provisioning completes.
+| The provisioning and availability status of the endpoint service. Returns `unknown` before AWS provisioning completes.
 
 | `baseEndpointDnsNames`
-| Regional DNS names of the endpoint service.
+| The regional DNS names of the endpoint service.
 
 | `privateDnsName`
 | The private DNS name assigned to the endpoint service (your private space's internal domain).
@@ -253,22 +259,22 @@ The `GET` response (`EndpointServiceResponse`) contains:
 | The AWS principals currently authorized to connect.
 
 | `vpcEndpoints`
-| Live status of each connected interface VPC endpoint: `awsId`, `serviceName`, `status`, an error `message` (if failing), `dnsEntries`, and `connectableAZs`.
+| The live status of each connected interface VPC endpoint: `awsId`, `serviceName`, `status`, an error `message` (if failing), `dnsEntries`, and `connectableAZs`.
 |===
 
 == Entitlements
 
-Each endpoint service consumes a network connection entitlement from your quota. A private space can have only one endpoint service, but you can create an endpoint service in each of your private spaces, and each one consumes an entitlement. Creating an endpoint service when no entitlement remains returns a `400` response indicating the network connections maximum has been reached.
+Each endpoint service consumes one network connection entitlement from your quota. A private space can have only one endpoint service, but you can create an endpoint service in each private space. Creating an endpoint service when no entitlements remain returns a 400 response indicating that you reached the network connection limit.
 
-Interface VPC endpoints are counted only on the consumer side — against the quota of the private space a customer adds the VPC endpoint to — not against the endpoint service.
+Interface VPC endpoints count only on the consumer side, against the quota of the private space where you add the VPC endpoint. They don't count against the endpoint service.
 
 == Limitations
 
-* A private space supports a single inbound endpoint service.
-* The endpoint service is available only in the private space's own AWS region. The consuming interface VPC endpoints must be created in that same region.
-* The endpoint service can be managed only from the organization that owns the private space, not from an organization it is shared with.
-* Provisioning is asynchronous — the endpoint service is not available the instant the `POST` returns. Always poll `GET` before creating VPC endpoints.
-* Create and update requests are rejected while the private space is being deleted.
+* A private space supports only one inbound endpoint service.
+* The endpoint service is available only in the private space's AWS region. Create consuming interface VPC endpoints in that same region.
+* Manage the endpoint service only from the organization that owns the private space, not from an organization that shares the private space.
+* Provisioning is asynchronous. The endpoint service isn't available immediately when the `POST` request returns. Poll `GET` before creating VPC endpoints.
+* CMuleSoft rejects create and update requests while deleting a private space.
 
 == See Also
 
