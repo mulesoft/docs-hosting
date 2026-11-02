@@ -709,12 +709,12 @@ Government::
 | Usage and Engagement Metrics | Planned
 
 //ANYPOINT MONITORING - GOVERNMENT
-.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Not planned .13+a| For details, refer to:
+.13+| xref:monitoring::index.adoc[Anypoint Monitoring] | Advanced Alerts | Planned .13+a| For details, refer to:
 
 * xref:monitoring::index.adoc#features[Monitoring Features by Control Plane]
 | Basic Alerts | Planned
 | Basic Monitoring | Planned
-| Custom Dashboards | Not planned
+| Custom Dashboards | Planned
 | Hybrid Standalone Mule (HSA) | Planned
 | Integration Intelligence | Not planned
 | Log Search | Planned
