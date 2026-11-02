@@ -259,7 +259,7 @@ The `GET` response (`EndpointServiceResponse`) contains:
 | The AWS principals currently authorized to connect.
 
 | `vpcEndpoints`
-| The live status of each connected interface VPC endpoint: `awsId`, `serviceName`, `status`, an error `message` (if failing), `dnsEntries`, and `connectableAZs`.
+| The live status of each connected interface VPC endpoint: `awsId`, `serviceName`, `status`, `message` (an error description returned if the endpoint fails), `dnsEntries`, and `connectableAZs`.
 |===
 
 == Entitlements
