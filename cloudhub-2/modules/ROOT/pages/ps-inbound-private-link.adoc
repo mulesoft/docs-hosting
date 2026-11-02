@@ -140,7 +140,7 @@ If the endpoint service exists in the configuration but hasn't been provisioned 
 
 . Create interface VPC endpoints in your AWS account: In each of your VPCs, create an https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html[interface VPC endpoint] that targets the `endpointServiceName` returned above. Choose subnets in availability zones that overlap the service's `connectableAZs`, and attach a security group that permits traffic to your application ports.
 +
-If the consumer is another CloudHub 2.0 private space instead of a VPC in your AWS account, create the VPC endpoint in that private space using the outbound Private Link flow. Specify `endpointServiceName `as the service name. For setup instructions, see xref:ps-outbound-private-link.adoc[Setting Up an Outbound Private Link Connection].
+If the consumer is another CloudHub 2.0 private space instead of a VPC in your AWS account, create the VPC endpoint in that private space using the outbound Private Link flow. Specify `endpointServiceName` as the service name. For setup instructions, see xref:ps-outbound-private-link.adoc[Setting Up an Outbound Private Link Connection].
 
 . Register your VPC endpoint IDs with MuleSoft so that the endpoint service can accept connections: Unregistered endpoint IDs remain in `pendingAcceptance` on the endpoint service.
 +
