@@ -8,6 +8,7 @@
 *** xref:ps-vpn-about.adoc[Anypoint VPN]
 *** xref:ps-tgw-about.adoc[Transit Gateway Attachments]
 *** xref:ps-outbound-private-link.adoc[Outbound Private Link]
+*** xref:ps-inbound-private-link.adoc[Inbound Private Link]
 * xref:ch2-migration-overview.adoc[Migrate from CloudHub to CloudHub 2.0]
 ** xref:ch2-migration-comparison.adoc[Compare CloudHub and CloudHub 2.0]
 ** xref:ch2-migration-plan.adoc[Step 1. Plan Your Migration]
