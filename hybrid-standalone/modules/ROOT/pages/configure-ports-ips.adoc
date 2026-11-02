@@ -12,7 +12,7 @@ All connectivity requirements are for outbound connections from your network to 
 
 Runtime Manager agent establishes persistent WebSocket connections that remain active for ongoing communication with Anypoint Platform services.
 
-This page lists US Cloud, EU Cloud, and MuleSoft Government Cloud endpoints. For Canada Cloud, Japan Cloud, India Cloud, and Australia Cloud, allowlist the Platform URL, analytics ingest, and Runtime Manager hosts in xref:control-planes::control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists].
+This page lists US Cloud, EU Cloud, MuleSoft Government Cloud, Japan Cloud, India Cloud, Australia Cloud, and United Kingdom Cloud endpoints. For Canada Cloud, allowlist the Platform URL, analytics ingest, and Runtime Manager hosts in xref:control-planes::control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists].
 
 
 == Mutual TLS Authentication Endpoints
@@ -22,6 +22,10 @@ The Runtime Manager agent uses mutual TLS (mTLS) to authenticate directly with t
 * runtime-manager.anypoint.mulesoft.com
 * runtime-manager.eu1.anypoint.mulesoft.com
 * runtime-manager.gov.anypoint.mulesoft.com
+* runtime-manager.jp1.platform.mulesoft.com
+* runtime-manager.in1.platform.mulesoft.com
+* runtime-manager.au1.platform.mulesoft.com
+* runtime-manager.gb1.platform.mulesoft.com
 * data-authenticator.anypoint.mulesoft.com
 * data-authenticator.gov.anypoint.mulesoft.com
 * us1.ingest.mulesoft.com
@@ -39,6 +43,10 @@ These endpoints use WebSocket connections for real-time communication between th
 * runtime-manager.anypoint.mulesoft.com
 * runtime-manager.eu1.anypoint.mulesoft.com
 * runtime-manager.gov.anypoint.mulesoft.com
+* runtime-manager.jp1.platform.mulesoft.com
+* runtime-manager.in1.platform.mulesoft.com
+* runtime-manager.au1.platform.mulesoft.com
+* runtime-manager.gb1.platform.mulesoft.com
 
 
 == Required Ports and Hostnames
@@ -66,6 +74,10 @@ Configure your firewall to allow outbound connections to these ports and hostnam
 |*EU*|data-authenticator.eu1.anypoint.mulesoft.com |  443
 |*EU*|exchange2-asset-manager-kprod-eu.s3.eu-central-1.amazonaws.com |  443
 |*EU*|eu1.ingest.mulesoft.com |  8443
+|*JP*|runtime-manager.jp1.platform.mulesoft.com | 8443
+|*IN*|runtime-manager.in1.platform.mulesoft.com | 8443
+|*AU*|runtime-manager.au1.platform.mulesoft.com | 8443
+|*GB*|runtime-manager.gb1.platform.mulesoft.com | 8443
 |===
 
 
@@ -95,10 +107,13 @@ For network environments that require IP-based firewall rules, use these static 
 |*EU*|runtime-manager.eu1.anypoint.mulesoft.com |3.127.253.183 (Starting Feb 2024)
 |===
 
+NOTE: Static IP addresses aren't available for the Runtime Manager hosts in Japan Cloud, India Cloud, Australia Cloud, and United Kingdom Cloud. For these clouds, configure firewall rules using the hostnames in <<layer-7-firewall-configuration>>.
+
 == Dynamic IP Addresses
 
 Configure hostname-based firewall rules for Anypoint Platform services that use dynamically assigned IP addresses.
 
+[[layer-7-firewall-configuration]]
 === Layer 7 Firewall Configuration
 
 Some Anypoint Platform services use IP addresses that are dynamically assigned by cloud infrastructure. For these services, configure Layer 7 firewall rules based on fully qualified domain names (FQDNs) rather than static IP addresses.
@@ -118,7 +133,11 @@ Configure your Layer 7 firewall rules to include these hostnames:
 |*EU*|eu1.anypoint.mulesoft.com
 |*EU*|analytics-ingest.eu1.anypoint.mulesoft.com
 |*EU*|data-authenticator.eu1.anypoint.mulesoft.com
-|*EU*|eu1.ingest.mulesoft.com  
+|*EU*|eu1.ingest.mulesoft.com
+|*JP*|runtime-manager.jp1.platform.mulesoft.com
+|*IN*|runtime-manager.in1.platform.mulesoft.com
+|*AU*|runtime-manager.au1.platform.mulesoft.com
+|*GB*|runtime-manager.gb1.platform.mulesoft.com
 |===
 
 === Agent-Specific Allowlist

@@ -1,0 +1,29 @@
+// Shared partial: Connectivity Methods comparison
+// Used by: cloudhub/ch-ch2-migration-configuration (overview page)
+//          cloudhub-2/ch2-comparison
+
+The private network connects to the corporate network using these connectivity methods:
+
+[cols="1,1"]
+|===
+|CloudHub |CloudHub 2.0
+
+a|
+* VPC peering (AWS VPC to Mule VPC) +
+Requires configuration. Contact the MuleSoft Support team to enable.
+* AWS Direct Connect +
+Requires configuration. Contact the MuleSoft Support team to enable.
+* Transit Gateway Attachments
+* VPN tunnel/IPsec tunnel
+
+a|
+* VPN tunnel
+* Transit Gateway Attachments
+
+|Contact the MuleSoft Support team to enable VPC peering and AWS Direct Connect.
+|CloudHub 2.0 supports Transit Gateway or VPN tunnel.
+
+|When upgrading a VPC to a private space, VPN and TGW connections transfer to the private space, but VPC peering is not migrated and can't be reused. CloudHub 2.0 apps can't use CloudHub VPC peering — migrate peering connections to Transit Gateway or VPN before upgrading.
+|Ping tests are supported by the Network Tools application.
+|The *Ping* command isn't supported due to security restrictions. Use TCP socket tests instead. See https://help.salesforce.com/s/articleView?id=001115029&type=1[How To Use Network Tools Application For Connectivity Test From CloudHub VPC (KA 001115029)].
+|===

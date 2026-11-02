@@ -1,0 +1,1 @@
+include::release-notes::gov-cloud-plus/gov-cloud-plus-release-notes.adoc[]

@@ -1,0 +1,29 @@
+= Prepare Infrastructure
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Prepare CloudHub 2.0 infrastructure before migrating apps. Select a manually created private space or upgrade an eligible VPC, then complete the required network and security configuration.
+
+== Choose Your Path
+
+Choose a path based on whether your VPC meets the upgrade eligibility requirements.
+
+* xref:ch2-migration-infrastructure-new-space.adoc[] when the VPC isn't eligible for upgrade or CloudHub 2.0 requires a different CIDR block. Create a private space with its own CIDR block, network connections, and firewall rules.
+* xref:ch2-migration-infrastructure-vpc-upgrade.adoc[] when the VPC meets all xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[eligibility requirements] and you want to retain the existing infrastructure configuration. The upgrade tool clones the VPC CIDR block, firewall rules, VPN or TGW connections, and DLB certificates into a CloudHub 2.0 private space.
+
+== Review Infrastructure Considerations
+
+Whichever path you choose, review how DLB features map to CloudHub 2.0 ingress, how CloudHub and CloudHub 2.0 applications communicate, how static IPs change, and how to maintain business continuity. See xref:ch2-migration-infrastructure-considerations.adoc[].
+
+== See Also
+
+* xref:ch2-migration-plan.adoc[]
+* xref:ch2-migration-apps.adoc[]
+* xref:ch2-migration-troubleshoot.adoc#troubleshoot-vpc-upgrade[VPC Upgrade Issues]
+* xref:ch2-migration-troubleshoot.adoc#troubleshoot-infrastructure[Infrastructure Issues]
+* xref:cloudhub::vpc-upgrade.adoc[]
+* xref:ps-create-configure.adoc[]
+* xref:ps-gather-setup-info.adoc[]
+* xref:ps-config-fw-rules.adoc[]
+* xref:ps-config-domains.adoc[]

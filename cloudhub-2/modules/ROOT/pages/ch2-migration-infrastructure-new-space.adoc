@@ -1,0 +1,53 @@
+= Create a New Private Space Manually
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Create a private space when the VPC isn't eligible for the upgrade tool or when CloudHub and CloudHub 2.0 require independent CIDR blocks on the same network. Set up the private space, then recreate the connectivity and ingress configuration required while both platforms operate during the migration.
+
+== Before You Begin
+
+Before you create the private space.
+
+* Assign the required xref:ps-assign-permissions.adoc[].
+* Gather the xref:ps-gather-setup-info.adoc#setup-info-private-space[setup information for a private space].
+* Inventory the CloudHub VPC CIDR block, VPN or Transit Gateway (TGW) connections, internal DNS configuration, firewall rules, DLB certificates, vanity domains, and backend system allowlists.
+* Select a new private-space CIDR block that doesn't overlap with the existing CloudHub VPC or networks reachable through it. Size the block for the applications that you plan to migrate and future growth.
+
+For CIDR block requirements and sizing guidance, see xref:ps-gather-setup-info.adoc#cidr-block[CIDR Block].
+
+== Set Up the Private Space
+
+Follow xref:ps-setup.adoc[] to create the private space and private network, configure internal DNS, connect to external networks, and configure the private space.
+
+The private space is independent of your CloudHub VPC. The setup doesn't copy any VPC configuration, so recreate the connections and configuration that your migrated applications require.
+
+* Create new VPN or TGW connections. If both the VPC and private space connect to the same on-premises network through a TGW, add routes for both CIDR blocks to the TGW route tables.
+* Configure internal DNS servers if migrated applications resolve private domains. Confirm that every DNS server returns identical records for the same query.
+* Recreate inbound and outbound firewall rules. Update backend-system allowlists with the private space outbound IP addresses, and retain the CloudHub IP addresses until decommissioning is complete.
+* Configure TLS contexts and vanity domains that migrated applications use. If your CloudHub applications use a DLB, export its certificates and domain configuration before migration.
+
+NOTE: Update DNS records during application migration, not during private space setup. Until applications are migrated, keep DNS pointing to the CloudHub load balancer.
+
+== Validate Migration Readiness
+
+Before migrating applications, confirm that.
+
+* The private network and VPN or TGW connections are active.
+* Route tables allow traffic between the private space, on-premises networks, and the CloudHub VPC as required for the migration.
+* Firewall rules allow the required ingress and egress traffic.
+* Internal DNS and TLS contexts resolve and serve the expected domains.
+* Backend systems allow traffic from both the CloudHub and CloudHub 2.0 source IP addresses.
+
+Deploy a test application and verify connectivity to required backend systems before migrating production applications.
+
+== See Also
+
+* xref:ch2-migration-plan.adoc[]
+* xref:ch2-migration-apps.adoc[]
+* xref:ch2-migration-troubleshoot.adoc#troubleshoot-vpc-upgrade[VPC Upgrade Issues]
+* xref:ch2-migration-troubleshoot.adoc#troubleshoot-infrastructure[Infrastructure Issues]
+* xref:cloudhub::vpc-upgrade.adoc[]
+* xref:ps-setup.adoc[]
+* xref:ps-create-configure.adoc[]
+* xref:ps-gather-setup-info.adoc[]

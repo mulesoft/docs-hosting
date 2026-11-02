@@ -1,0 +1,110 @@
+= Upgrade a VPC to a Private Space
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:page-aliases: cloudhub::vpc-upgrade.adoc
+
+Use the VPC upgrade tool to create a CloudHub 2.0 private space that retains an eligible CloudHub VPC configuration. Confirm eligibility, account for the VPC lock and rollback boundary, run the upgrade, and validate the resulting private space.
+
+The tool provisions a CloudHub 2.0 private space by cloning the configuration of an eligible CloudHub dedicated VPC and using the same CIDR block. Existing Transit Gateway (TGW) and VPN connections transfer to the new CloudHub 2.0 private space.
+
+The default CloudHub certificates are configured as part of the private space's default certificates. The DLB custom domains of the migrated VPC are created as part of the private space's custom TLS certificates.
+
+++++
+<script type="text/javascript" async src="https://play.vidyard.com/embed/v4.js" data-playbackurl="play.vidyard.com"></script>
+<img style="margin: auto; display: block; width: 100%;"
+     class="vidyard-player-embed"
+     src="https://play.vidyard.com/ntztWgqFZA5xmKc1rXQU2C.jpg"
+     data-height="540"
+     data-width="960"
+     data-controller="hubs"
+     data-action="show"
+     data-uuid="ntztWgqFZA5xmKc1rXQU2C"
+     data-type="inline">
+++++
+
+For additional context, see the blog post https://blogs.mulesoft.com/news/upgrade-to-cloudhub-2-0-with-our-in-app-upgrade-tool/[Upgrade from CloudHub 1.0 to CloudHub 2.0 With Our In-App Upgrade Tool].
+
+== Step 1: Complete the Eligibility Checklist
+
+Before starting the upgrade, confirm that your VPC meets these eligibility requirements.
+
+* VPC has at least 25% free space and 100+ available IP addresses per subnet.
+* No legacy VPNs configured.
+* No Direct Connect or VPC Peering (migrate to Transit Gateway or VPN first).
+* No TLS 1.1 ciphers that can't be carried over (ECDHE-ECDSA-AES128-SHA1, ECDHE-ECDSA-AES256-SHA1, ECDHE-RSA-AES128-SHA1, ECDHE-RSA-AES256-SHA1).
+* Default VPC configuration is disabled.
+
+For the complete eligibility checklist, see xref:cloudhub::vpc-upgrade.adoc#understand-eligibility[Understand Upgrade Eligibility].
+
+== Step 2: Review Environment Association
+
+During the upgrade, the environments associated with your VPC remain synchronized with the environments associated with the upgraded CloudHub 2.0 private space to avoid configuration drift.
+
+Key considerations.
+
+* In CloudHub 2.0, an environment can be associated with multiple private spaces. In CloudHub, one environment can only be associated with one VPC in a given region.
+* Bulk environment association for an upgraded private space can result in all environments in the same region getting associated with the underlying VPC. If those environments were previously associated with other CloudHub 1.0 VPCs, they get disassociated.
+
+WARNING: The upgrade tooling doesn't support the upgrade of a default VPC. To proceed with the upgrade, disable the default VPC configuration.
+
+For full details, see xref:cloudhub::vpc-upgrade.adoc#understand-environment-association[Understand Environment Association].
+
+== Step 3: Run the Upgrade
+
+Start the upgrade from Runtime Manager, name the new private space, and create it.
+
+. From *Anypoint Platform*, select *Runtime Manager* > *Upgrade*.
+. Click *Upgrade Now* in the *Upgrade Status* column for the VPC to upgrade.
++
+The *Upgrade to CloudHub 2.0* review page displays the configurations currently available in your VPC and the configurations created during the upgrade.
+. Click *Next* to continue.
+. Provide a name for the new private space.
++
+Optionally, specify xref:ps-gather-setup-info.adoc#cidr-block[reserved CIDRs] to connect to your new private space.
+. Click *Create* to create the new private space.
++
+The upgrade process takes about 15 to 30 minutes.
+
+The tool validates.
+
+* CIDR block compatibility
+* Firewall rules migration
+* Associated DLB configurations
+
+Existing CloudHub applications continue running uninterrupted during the upgrade.
+
+NOTE: If you create a VPN to provision your CloudHub VPC, wait until the newly created VPN status shows as available before migrating your VPC to a CloudHub 2.0 private space.
+
+As soon as the upgrade process starts, the upgraded VPC is locked for any further updates.
+
+To cancel the upgrade before private-space provisioning completes, click *Cancel Upgrade*. The system deletes the newly created private space and unlocks your VPC.
+
+After the private space is provisioned, the *Cancel Upgrade* button no longer appears. To roll back, delete the private space.
+
+== Step 4: Validate the Private Space Upgrade
+
+Verify that the private space, its network connections, and its security configuration match your VPC.
+
+* Confirm that the private space appears under *Runtime Manager* > *Private Spaces*.
+* Verify that xref:ps-config-app-level-egress.adoc[egress rules] are applied correctly.
+* Verify that xref:ps-config-fw-rules.adoc[firewall rules] are correctly copied and that outgoing firewall rules allow necessary destinations while restricting other destinations.
+* Verify that Transit Gateway and VPN connections are stable.
+* Verify that DNS resolution works for both internal and external services.
+* Check that DLB certificates transferred successfully. If certificates are missing or your apps require specific TLS configurations, then manually add TLS contexts using the *Domains & TLS* tab.
+
+IMPORTANT: The VPC upgrade tool migrates DLB certificates on a best-effort basis only. Verify that all certificates are present after the upgrade.
+
+If the upgrade fails, see xref:ch2-migration-troubleshoot.adoc#troubleshoot-vpc-upgrade[VPC Upgrade Issues].
+
+== See Also
+
+* xref:ch2-migration-plan.adoc[]
+* xref:ch2-migration-apps.adoc[]
+* xref:ch2-migration-troubleshoot.adoc#troubleshoot-vpc-upgrade[VPC Upgrade Issues]
+* xref:ch2-migration-troubleshoot.adoc#troubleshoot-infrastructure[Infrastructure Issues]
+* xref:cloudhub::vpc-upgrade.adoc[]
+* xref:ps-create-configure.adoc[]
+* xref:ps-gather-setup-info.adoc[]
+* xref:ps-config-fw-rules.adoc[]
+* xref:ps-config-domains.adoc[]

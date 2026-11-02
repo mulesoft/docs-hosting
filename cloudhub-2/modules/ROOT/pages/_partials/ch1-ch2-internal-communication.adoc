@@ -1,0 +1,15 @@
+// Shared partial: Internal Application Communication comparison
+// Used by: cloudhub/ch-ch2-migration-configuration (overview page)
+//          cloudhub-2/ch2-comparison
+
+[cols="1,1"]
+|===
+|CloudHub |CloudHub 2.0
+
+|The internal worker hostname `mule-worker-internal-<app>.<region>.cloudhub.io` resolves to the Mule worker's internal IP address for VPC-internal communication.
+a|Use one of these three options:
+
+* Internal endpoint: `<app>.internal-<space-id>.<region>.cloudhub.io`
+* Custom internal endpoint: CNAME pointing to the internal endpoint. You can configure custom TLS contexts for internal endpoints that are only accessible via the private network.
+* Kubernetes service address: `<app>.<envid>.svc.cluster.local:${http.port}` for direct pod-to-pod communication within the same namespace (environment). This path isn't highly available and bypasses the ingress load balancer, so use the internal endpoint instead unless you specifically need direct pod-to-pod routing.
+|===
