@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :page-aliases:
 
-With AWS PrivateLink you can reach the Mule applications deployed in your CloudHub 2.0 private space privately from your own AWS accounts, without traversing the public internet. An inbound Private Link connection publishes your private space's internal Network Load Balancer (NLB) as an AWS endpoint service. You then create interface VPC endpoints in your own VPCs or Private Spaces that connect to that endpoint service, so traffic reaches your private-space apps over the AWS network at OSI layer 4.
+With AWS PrivateLink you can reach the Mule applications deployed in your CloudHub 2.0 private space privately from your own AWS accounts, without traversing the public internet. An inbound Private Link connection publishes your private space's internal Network Load Balancer (NLB) as an AWS endpoint service. You then create interface VPC endpoints in your own VPCs or private spaces that connect to that endpoint service, so traffic reaches your private-space apps over the AWS network at OSI layer 4.
 
 Unlike an xref:ps-outbound-private-link.adoc[outbound Private Link connection], where the private space consumes an AWS-hosted service, an inbound connection makes the private space the provider. MuleSoft owns the endpoint service, and you own the consuming VPC endpoints or the VPC endpoint in the consumer private space.
 
