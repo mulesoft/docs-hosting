@@ -62,7 +62,7 @@ All requests are authenticated using a bearer token and authorized against the o
 
 Create the endpoint service, and authorize the AWS accounts (principals) to connect.
 
-The request body accepts the these properties:
+The request body accepts these properties:
 
 `principals`::
 Required. An array of AWS IAM principal ARNs authorized to create interface VPC endpoints for this endpoint service. Only these principals can connect. Use the full ARN form, such as `arn:aws:iam::<account-id>:root`, to authorize an entire account, or `arn:aws:iam::<account-id>:role/<role-name>` for a specific role or user.
