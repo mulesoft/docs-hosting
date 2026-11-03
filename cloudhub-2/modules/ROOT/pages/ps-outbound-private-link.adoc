@@ -108,7 +108,7 @@ To prepare custom services:
 .. Expose the service via a network load balancer or application load balancer.
 .. https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html[Create an endpoint service] following AWS guidance.
 .. Set *Acceptance required* to *Yes* to prevent unauthorized connections.
-.. Add the private space CIDR range to the inbound rules of the AWS security group attached to your endpoint service (for example, the security group for your network load balancer or application load balancer). Traffic from the CloudHub 2.0 private space originates from this CIDR; allowing it is required for Private Link connectivity. You can find your private space CIDR in the private space configuration (the xref:ps-gather-setup-info.adoc#cidr-block[CIDR block] you specified when creating the private space).
+.. Add the private space CIDR range and the pod-network CIDR `100.64.0.0/16` to the inbound rules of the AWS security group attached to your endpoint service (for example, the security group for your network load balancer or application load balancer). The private space CIDR doesn't cover traffic from the Mule application. That traffic originates from `100.64.0.0/16`, so allow this range for Private Link connectivity from the application. You can find your private space CIDR in the private space configuration (the xref:ps-gather-setup-info.adoc#cidr-block[CIDR block] you specified when creating the private space). For the pod-network range, see xref:ps-gather-setup-info.adoc#infra-cidr-pool[MuleSoft Infrastructure CIDR Pool].
 .. Optionally, configure a private DNS name for your service. CloudHub 2.0 private space automatically picks up the private DNS and makes it available to Mule applications.
 +
 [NOTE]
