@@ -15,7 +15,7 @@
 ** xref:creating-alerts-hybrid.adoc[Creating Alerts for Server, Server Groups or Clusters]
 ** xref:monitoring-dashboards-hybrid.adoc[Monitoring Dashboards for Server, Server Groups and Clusters]
 * xref:deploying-apps-hybrid-standalone.adoc[Deploying Mule Apps to Hybrid Standalone Instances]
-** xref:configure-ports-ips.adoc[Adding Ports, Ips, and Hostnames for Runtimer Manager Agent]
+** xref:configure-ports-ips.adoc[Adding Ports, IPs, and Hostnames for Runtime Manager Agent]
 * xref:managing-apps-hybrid-standalone.adoc[Managing Mule Apps Deployed to Hybrid Standalone Instances]
 ** xref:managing-schedulers-hybrid.adoc[Managing Schedulers]
 ** xref:managing-properties-hybrid.adoc[Managing Properties]
