@@ -79,8 +79,6 @@ If a truststore is not configured, partial client authentication is disabled.
 
 CloudHub 2.0 accepts truststore files in PEM formats.
 
-If at least one custom domain in the private space uses a truststore, CloudHub 2.0 rejects a TLS connection that doesn't include the Server Name Indication (SNI) extension. The handshake fails with the alert `unrecognized name`. Send the application hostname in the SNI extension. A private space that doesn't use a truststore still accepts a connection that omits SNI.
-
 === DNS Targets
 
 Configure a DNS target to allow clients to reach your applications from within or outside of the private network.
