@@ -21,15 +21,15 @@ All CloudHub 2.0 features are supported across all control planes, with a few ex
 
 * Deleting the default egress traffic route (0.0.0.0) can cause Anypoint Monitoring to fail in CloudHub 2.0.
 * The endpoint URL format requires the region suffix or not before `cloudhub.io`.
-* India Cloud uses a different Ingress controller. It maintains feature parity, but has some behavioral differences. Read this link:https://help.salesforce.com/s/articleView?id=005387259&type=1[knowledge article].
+* India Cloud, Australia Cloud, United Kingdom Cloud, and regions added after them use a different Ingress controller. The controller maintains feature parity and has some behavioral differences. US Cloud, EU Cloud, Canada Cloud, and Japan Cloud use the existing Ingress controller. See https://help.salesforce.com/s/articleView?id=005387259&type=1[Edge and Istio ingress behavioral differences].
 
-[cols="~,15,20,20,20,20"]
+[cols="~,12,12,12,12,12,12,12"]
 |===
-|CloudHub 2.0 Features |US Cloud |EU Cloud |Canada Cloud |Japan Cloud |India Cloud
+|CloudHub 2.0 Features |US Cloud |EU Cloud |Canada Cloud |Japan Cloud |India Cloud |Australia Cloud |United Kingdom Cloud
 
-| Deleting the Default Route| Available | Available | Available | Available | Available
+| Deleting the Default Route| Available | Available | Available | Available | Available | Available | Available
 
-| Endpoints URL Format| No region suffix: `https://*.10u6w7.usa-e1.cloudhub.io`| Needs region suffix: `https://*.10u6w7.usa-e1.eu1.cloudhub.io` | Needs region suffix: `https://*.10u6w7.can-c1.ca1.cloudhub.io` | Needs region suffix: `https://*.10u6w7.jpn-e1.jp1.cloudhub.io` | Needs region suffix: `https://*.10u6w7.ind-w1.in1.cloudhub.io`
+| Endpoints URL Format| No region suffix: `https://*.10u6w7.usa-e1.cloudhub.io`| Needs region suffix: `https://*.10u6w7.usa-e1.eu1.cloudhub.io` | Needs region suffix: `https://*.10u6w7.can-c1.ca1.cloudhub.io` | Needs region suffix: `https://*.10u6w7.jpn-e1.jp1.cloudhub.io` | Needs region suffix: `https://*.10u6w7.ind-w1.in1.cloudhub.io` | Needs region suffix: `https://*.10u6w7.aus-s1.au1.cloudhub.io` | Needs region suffix: `https://*.10u6w7.gbr-e1.gb1.cloudhub.io`
 |=== 
 
 
