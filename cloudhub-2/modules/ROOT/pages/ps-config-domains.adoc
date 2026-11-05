@@ -33,6 +33,10 @@ To <<create-tls-context,create a TLS context>>:
 . Upload the truststore (optional).
 . Accept the default ciphers or select ciphers to add or remove.
 
+[NOTE]
+====
+For every request, the TLS Server Name Indication (SNI) value must exactly match the HTTP `Host` header. A valid SNI is also required to establish a mutual TLS (mTLS) connection.
+====
 
 === Keystore
 
@@ -74,8 +78,6 @@ To enable partial client authentication, configure a truststore.
 If a truststore is not configured, partial client authentication is disabled.
 
 CloudHub 2.0 accepts truststore files in PEM formats.
-
-If at least one custom domain in the private space uses a truststore, CloudHub 2.0 rejects a TLS connection that doesn't include the Server Name Indication (SNI) extension. The handshake fails with the alert `unrecognized name`. Send the application hostname in the SNI extension. A private space that doesn't use a truststore still accepts a connection that omits SNI.
 
 === DNS Targets
 
