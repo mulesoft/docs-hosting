@@ -40,7 +40,7 @@ Mule runtime engine passed functional testing against these software and operati
 [%header,cols="15a,85a"]
 |===
 |Software |Version
-| OS | MacOS 10.15, Windows Server 2019, Windows 10, Red Hat Enterprise Linux 9.4, Ubuntu Server 20.04
+| OS | MacOS 10.15, Windows Server 2019, Windows 10, Red Hat Enterprise Linux 9.8, Ubuntu Server 20.04
 | JDK | Adoptium OpenJDK distribution
 |===
 
