@@ -10,6 +10,8 @@ The tool provisions a CloudHub 2.0 private space by cloning the configuration of
 
 The default CloudHub certificates are configured as part of the private space's default certificates. The DLB custom domains of the migrated VPC are created as part of the private space's custom TLS certificates.
 
+[IMPORTANT] 
+Private spaces created by the VPC upgrade tool don't support inbound Private Link. If you require inbound Private Link, use xref:ch2-migration-infrastructure-new-space.adoc[create a new private space].
 ++++
 <script type="text/javascript" async src="https://play.vidyard.com/embed/v4.js" data-playbackurl="play.vidyard.com"></script>
 <img style="margin: auto; display: block; width: 100%;"
