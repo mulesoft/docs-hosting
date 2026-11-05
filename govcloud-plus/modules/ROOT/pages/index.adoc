@@ -17,8 +17,8 @@ MuleSoft Government Cloud Plus uses different runtime, networking, and connector
 |===
 | Area | Behavior
 
-| Mule runtime engine
-| Supports LTS and Edge release channels. The initial versions are Mule runtime engine 4.9 (LTS) and Mule runtime engine 4.13 (Edge).
+| Mule runtime engine (Mule)
+| Supports LTS and Edge release channels. The initial versions are Mule 4.9 (LTS) and Mule 4.13 (Edge).
 
 | Deployment models
 | Supports xref:cloudhub-2::index.adoc[CloudHub 2.0], xref:runtime-fabric::index.adoc[Runtime Fabric], and xref:hybrid-standalone::index.adoc[Hybrid Standalone].
@@ -35,6 +35,24 @@ MuleSoft Government Cloud Plus uses different runtime, networking, and connector
 
 | Connectors
 | Permits only connectors tagged `fips-140-3-verified` in Anypoint Exchange. For connectors that aren't available, see the *Notes* column in <<features-supported-on-government-cloud-plus>>.
+|===
+
+=== API Contract Enforcement
+
+On MuleSoft Government Cloud Plus, API Manager contract enforcement depends on the Mule version. This applies when you protect an API with a contract, whether the API is a proxy or a basic endpoint.
+
+[%header,cols="1,2a"]
+|===
+| Mule runtime engine | Contract enforcement
+
+| 4.9.14 and 4.9.19
+| API contract enforcement isn't supported.
+
+| 4.9.24 and later 4.9 distributions
+| To enforce API contracts, set the JVM property `-M-Danypoint.platform.clients_fetch_mode=fallback`.
+
+| 4.13.2 and later
+| API contract enforcement is enabled by default.
 |===
 
 [[features-supported-on-government-cloud-plus]]
