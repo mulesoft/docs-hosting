@@ -400,10 +400,12 @@ If your device uses an active/active tunnel configuration, you must allow asymme
 [[local-asn]]
 === Local ASN
 
-The _local ASN_ (Autonomous System Number) specifies a private ASN (`64512–65534`) to assign to the Anypoint Platform side of the VPN.
+The _local ASN_ (Autonomous System Number) identifies the Anypoint Platform side of the VPN.
 
-Use a private ASN that is not already assigned to your network.
+Use a 2-byte private ASN (`64512–65534`) or a 4-byte private ASN (`4200000000–4294967294`). Choose a value that isn't already assigned to your network.
 The default value is `64512`.
+
+The private space uses one local ASN for every VPN. Choose a 2-byte value or a 4-byte value for that ASN.
 
 [NOTE]
 You configure the local ASN for both static and dynamic routing.
@@ -412,8 +414,9 @@ include::partial$caveats.adoc[tag=localAsnNote]
 For subsequent VPNs that you create in the private space,
 the *Local ASN* option is not available for static routing.
 
-To change the local ASN after creating the VPN,
-you must delete all existing connections first.
+To change the local ASN, delete all existing VPN connections and create them again, or create a new private space with the new local ASN and move the VPN connections to that space.
+
+Creating a dynamic BGP VPN that uses a 4-byte ASN doesn't change the other VPN connections in the private space. Deleting one VPN doesn't affect the connectivity of the other VPNs.
 
 ////
 Local ASN is a property of the VPN gateway, which is used for all VPNs in a private space and must be created with its first VPN. The only opportunity to set the Local ASN is when the VPN gateway is created.
@@ -424,14 +427,15 @@ However, to answer your second question, Michelle said that users can set a diff
 [[remote-asn]]
 === Remote ASN
 
-The _remote ASN_ specifies a private ASN that corresponds to your backend.
+The _remote ASN_ identifies your gateway.
 
 [NOTE]
 You configure the remote ASN only for dynamic routing.
 
-Use either an existing ASN assigned to your network or a private ASN (`64512–65534`) that is not
-already assigned to your network.
+Use an ASN already assigned to your network, or a private ASN that isn't already assigned to your network. A private ASN is a 2-byte value (`64512–65534`) or a 4-byte value (`4200000000–4294967294`).
 The default value is `65001`.
+
+You can use a 4-byte local ASN with a 2-byte remote ASN.
 
 [[static-ip-prefixes]]
 === Static IP Prefixes
