@@ -17,6 +17,7 @@ Manage inbound Private Link connections using the Runtime Fabric API. The exampl
 
 Before you configure an inbound Private Link connection, ensure that you have:
 
+* A private space that wasn't created by the VPC upgrade tool. To use inbound Private Link when migrating from CloudHub, create a new private space. See xref:ch2-migration-infrastructure-new-space.adoc[Create a New Private Space Manually].
 * Inbound Private Link enabled for your organization. This feature is enabled per organization. If it isn't enabled, calls to the endpoint service return `403` with the message `Inbound PrivateLink feature is not enabled for this organization`. To request access, contact your account team or Support.
 * A private space that is fully provisioned and in a ready state. See xref:ps-create-configure.adoc[Creating and Configuring a Private Space].
 * Permission to manage the private space. You can manage the endpoint service only from the organization that owns the private space, not from an organization that shares the space with it.

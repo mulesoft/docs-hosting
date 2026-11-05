@@ -24,6 +24,8 @@ Choose the path that fits your infrastructure.
 * Create a new private space if your VPC doesn't meet upgrade eligibility requirements or if CloudHub 2.0 needs a different CIDR block.
 * Upgrade your VPC to a private space if it meets the eligibility requirements and you need to retain the existing CIDR block and infrastructure configuration.
 
+IMPORTANT: Private spaces created by the VPC upgrade tool don't support inbound Private Link. If you require inbound Private Link, create a new private space instead.
+
 For eligibility criteria and help choosing a migration path, see xref:ch2-migration-plan.adoc#determine-your-migration-path[Determine Your Migration Path]. For setup procedures for each path, see xref:ch2-migration-infrastructure.adoc[].
 
 == Assess Migration Impacts
