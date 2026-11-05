@@ -48,7 +48,7 @@ On MuleSoft Government Cloud Plus, API Manager contract enforcement depends on t
 | 4.9.14 and 4.9.19
 | API contract enforcement isn't supported.
 
-| 4.9.24 and later 4.9 distributions +
+| 4.9.24 and later 4.9 distributions
 | To enforce API contracts, set the JVM property `-M-Danypoint.platform.clients_fetch_mode=fallback`.
 
 | 4.13.2 and later
