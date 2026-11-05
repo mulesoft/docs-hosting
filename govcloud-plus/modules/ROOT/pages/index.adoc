@@ -52,7 +52,7 @@ On MuleSoft Government Cloud Plus, API Manager contract enforcement depends on t
 | To enforce API contracts, set the JVM property `-M-Danypoint.platform.clients_fetch_mode=fallback`.
 
 | 4.13.2 and later
-| Enforces API contracts with no additional configuration.
+| API contract enforcement is enabled by default.
 |===
 
 [[features-supported-on-government-cloud-plus]]
