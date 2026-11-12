@@ -1,9 +1,9 @@
 = Control Plane Hostnames and Allowlists
 :page-aliases: eu-control-plane::servers-create-eu.adoc, anypoint-clouds::finding-endpoints-allowlists.adoc, finding-endpoints-allowlists.adoc
 
-Use these hostnames when you allowlist outbound access to an Anypoint Platform control plane, when you pass `--region` to `amc_setup`, or when you set `anypoint.platform.base_uri` and `anypoint.platform.analytics_base_uri`. This table lists platform, analytics ingest, and Runtime Manager hosts for the commercial clouds.
+Use these hostnames when you allowlist outbound access to an Anypoint Platform control plane, when you pass `--region` to `amc_setup`, or when you set `anypoint.platform.base_uri`. Set `anypoint.platform.analytics_base_uri` only for US Cloud and EU Cloud. API Analytics isn't available on Canada Cloud, Japan Cloud, India Cloud, Australia Cloud, or United Kingdom Cloud, so those control planes don't have an analytics ingest host.
 
-When you set `anypoint.platform.base_uri` and `anypoint.platform.analytics_base_uri`, prefix the Platform URL and Analytics ingest hosts with `https://`. See xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes].
+When you set `anypoint.platform.base_uri` or `anypoint.platform.analytics_base_uri`, prefix the host with `https://`. See xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes].
 
 For MuleSoft Government Cloud hostnames, see xref:hybrid-standalone::configure-ports-ips.adoc[Adding Ports, IPs, and Hostnames for Runtime Manager Agent] and xref:gov-cloud::index.adoc[MuleSoft Government Cloud Overview]. For MuleSoft Government Cloud Plus, see xref:govcloud-plus::gov-cloud-plus-access.adoc[Access MuleSoft Government Cloud Plus]. Anypoint Platform PCE uses the hosts you configure when you install PCE. See xref:private-cloud::index.adoc[Anypoint Platform PCE].
 
@@ -29,31 +29,31 @@ Allow outbound HTTPS (port 443) to these hosts, substituting the row for your cl
 
 | Canada Cloud
 | `ca1.platform.mulesoft.com`
-| `analytics-ingest.ca1.platform.mulesoft.com`
+| Not available
 | `runtime-manager.ca1.platform.mulesoft.com`
 | Copy the command Runtime Manager generates when you add a server.
 
 | Japan Cloud
 | `jp1.platform.mulesoft.com`
-| `analytics-ingest.jp1.platform.mulesoft.com`
+| Not available
 | `runtime-manager.jp1.platform.mulesoft.com`
 | Copy the command Runtime Manager generates when you add a server.
 
 | India Cloud
 | `in1.platform.mulesoft.com`
-| `analytics-ingest.in1.platform.mulesoft.com`
+| Not available
 | `runtime-manager.in1.platform.mulesoft.com`
 | Copy the command Runtime Manager generates when you add a server.
 
 | Australia Cloud
 | `au1.platform.mulesoft.com`
-| `analytics-ingest.au1.platform.mulesoft.com`
+| Not available
 | `runtime-manager.au1.platform.mulesoft.com`
 | Copy the command Runtime Manager generates when you add a server.
 
 | United Kingdom Cloud
 | `gb1.platform.mulesoft.com`
-| `analytics-ingest.gb1.platform.mulesoft.com`
+| Not available
 | `runtime-manager.gb1.platform.mulesoft.com`
 | Copy the command Runtime Manager generates when you add a server.
 |===
