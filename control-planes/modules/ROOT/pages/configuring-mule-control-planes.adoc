@@ -1,7 +1,7 @@
 = Configuring Mule to Access Anypoint Platform Control Planes
 :page-aliases: hyperforce::configure-mule-hyperforce.adoc, eu-control-plane::runtime-configure-eu.adoc, configuring-mule-anypoint-clouds.adoc, anypoint-clouds::configuring-mule-anypoint-clouds.adoc
 
-A running Mule runtime engine (Mule) instance must know which Anypoint Platform control plane holds your organization. Mule uses that connection for API gateway and, on Hybrid Standalone, for the Runtime Manager agent. Mule connects to the US Cloud control plane by default. If your organization is in any other cloud, set `anypoint.platform.base_uri`, `anypoint.platform.analytics_base_uri`, and the xref:access-management::managing-business-groups.adoc#client-id-and-secret[client ID and client secret] of the environment.
+A running Mule runtime engine (Mule) instance must know which Anypoint Platform control plane holds your organization. Mule uses that connection for API gateway and, on Hybrid Standalone, for the Runtime Manager agent. Mule connects to the US Cloud control plane by default. If your organization is in any other cloud, set `anypoint.platform.base_uri` and the xref:access-management::managing-business-groups.adoc#client-id-and-secret[client ID and client secret] of the environment. Also set `anypoint.platform.analytics_base_uri` for US Cloud and EU Cloud. Don't set `anypoint.platform.analytics_base_uri` for Canada Cloud, Japan Cloud, India Cloud, Australia Cloud, or United Kingdom Cloud. API Analytics isn't available on those control planes.
 
 You don't do this before you create your first Mule app. Design the app in Anypoint Studio or Anypoint Code Builder; those IDEs don't use these properties. Set them when you install and register a Hybrid Standalone instance, or when you deploy an app to CloudHub or CloudHub 2.0 that must use API gateway with a non-US Cloud control plane. If you leave the defaults, API gateway on Mule is disabled in those clouds.
 
@@ -28,7 +28,7 @@ a| The fabric connects to the control plane when you install it. Configure netwo
 a| Unregistered Mule doesn't connect to a control plane, so `anypoint.platform.base_uri` has no effect. See xref:on-premises::index.adoc[Run Mule Runtime Engine On-Premises].
 |===
 
-For the `base_uri` and `analytics_base_uri` values, prefix the Anypoint Platform URL and Analytics ingest hostname for your cloud with `https://`. See xref:control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists].
+Prefix each host you set with `https://`. Set `anypoint.platform.analytics_base_uri` only when xref:control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists] lists an Analytics ingest host for your cloud.
 
 [[configure-hybrid-standalone]]
 == Configuring a Hybrid Standalone Instance
@@ -37,7 +37,7 @@ For Hybrid Standalone, set these properties on the Mule instance you installed, 
 
 === Configuring Mule Properties in the Wrapper.conf File
 
-To configure Mule in the `wrapper.conf` file, modify these properties, replacing `<n>` with an integer value that is unique within `wrapper.conf`. Use `https://` plus the Platform URL and Analytics ingest hostname for your cloud.
+To configure Mule in the `wrapper.conf` file, modify these properties, replacing `<n>` with an integer value that is unique within `wrapper.conf`. Use `https://` plus the Platform URL for your cloud. Add `anypoint.platform.analytics_base_uri` only for US Cloud and EU Cloud.
 
 This example shows the `wrapper.conf` configuration for Canada Cloud:
 
@@ -45,7 +45,6 @@ This example shows the `wrapper.conf` configuration for Canada Cloud:
 wrapper.java.additional.<n>=-Danypoint.platform.client_id=<environment client ID>
 wrapper.java.additional.<n>=-Danypoint.platform.client_secret=<environment client secret>
 wrapper.java.additional.<n>=-Danypoint.platform.base_uri=https://ca1.platform.mulesoft.com
-wrapper.java.additional.<n>=-Danypoint.platform.analytics_base_uri=https://analytics-ingest.ca1.platform.mulesoft.com
 ----
 
 === Configuring Mule Properties via the Command Line
@@ -61,7 +60,7 @@ This example shows the command-line configuration for EU Cloud:
 [[configure-runtime-manager-properties]]
 == Configuring App Properties in Runtime Manager
 
-When you deploy to CloudHub 2.0, or to CloudHub from US Cloud or EU Cloud, include these properties in the *Properties* tab in Runtime Manager if the app must use API gateway with that control plane. Use `https://` plus the Platform URL and Analytics ingest hostname for your cloud.
+When you deploy to CloudHub 2.0, or to CloudHub from US Cloud or EU Cloud, include these properties in the *Properties* tab in Runtime Manager if the app must use API gateway with that control plane. Use `https://` plus the Platform URL for your cloud. Add `anypoint.platform.analytics_base_uri` only for US Cloud and EU Cloud.
 
 This example shows the properties configuration for Japan Cloud:
 
@@ -69,7 +68,6 @@ This example shows the properties configuration for Japan Cloud:
 anypoint.platform.client_id=<environment client ID>
 anypoint.platform.client_secret=<environment client secret>
 anypoint.platform.base_uri=https://jp1.platform.mulesoft.com
-anypoint.platform.analytics_base_uri=https://analytics-ingest.jp1.platform.mulesoft.com
 ----
 
 For MuleSoft Government Cloud Plus, see xref:govcloud-plus::gov-cloud-plus-access.adoc[Access MuleSoft Government Cloud Plus].

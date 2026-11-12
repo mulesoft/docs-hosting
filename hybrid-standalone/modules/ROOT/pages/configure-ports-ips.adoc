@@ -12,7 +12,7 @@ All connectivity requirements are for outbound connections from your network to 
 
 Runtime Manager agent establishes persistent WebSocket connections that remain active for ongoing communication with Anypoint Platform services.
 
-This page lists US Cloud, EU Cloud, MuleSoft Government Cloud, Japan Cloud, India Cloud, Australia Cloud, and United Kingdom Cloud endpoints. For Canada Cloud, allowlist the Platform URL, analytics ingest, and Runtime Manager hosts in xref:control-planes::control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists].
+This page lists US Cloud, EU Cloud, MuleSoft Government Cloud, Japan Cloud, India Cloud, Australia Cloud, and United Kingdom Cloud endpoints. For Canada Cloud, allowlist the Platform URL and Runtime Manager hosts in xref:control-planes::control-plane-hostnames-allowlists.adoc[Control Plane Hostnames and Allowlists]. API Analytics isn't available on Canada Cloud, so don't allowlist an analytics ingest host.
 
 
 == Mutual TLS Authentication Endpoints
