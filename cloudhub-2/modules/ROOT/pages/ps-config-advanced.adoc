@@ -19,8 +19,6 @@ For data transfers that exceed 300 seconds, consider breaking the request into s
 
 == Configure HTTP Requests and Read-Response Timeout
 
-When you modify HTTP requests, applications may not be reachable for up to 5 seconds.
-
 // SELECT PRIVATE SPACE SHARED
 include::partial$select-private-space.adoc[tag=selectPrivateSpace]
 include::partial$select-private-space.adoc[tag=clickPrivateSpaceName]
@@ -42,10 +40,19 @@ Accepts the inbound request on the default SSL endpoint using the HTTP protocol.
 +
 Silently drops HTTP requests.
 --
++
+[IMPORTANT]
+====
+When you modify the *HTTP Requests* setting, applications might not be reachable for up to 5 seconds.
+====
 . Specify the read response timeout value.
 +
 The default read-response timeout is 300 seconds. You can configure this value up to 3600 seconds (1 hour).
 +
+[NOTE]
+====
+The read-response timeout is separate from the *HTTP Requests* setting. A read-response-timeout-only change isn't documented as causing the interruption that can occur when you modify *HTTP Requests*. For applications with strict availability requirements, make the change during a maintenance window and validate application traffic afterward.
+====
 . Click *Save Changes* or *Discard Changes*.
 
 [NOTE]
