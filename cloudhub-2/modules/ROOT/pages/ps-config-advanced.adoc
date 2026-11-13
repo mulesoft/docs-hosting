@@ -51,7 +51,7 @@ The default read-response timeout is 300 seconds. You can configure this value u
 +
 [NOTE]
 ====
-The read-response timeout is separate from the *HTTP Requests* setting. The documentation doesn't identify a read-response-timeout-only change as causing the interruption that can occur when you modify *HTTP Requests*. For applications with strict availability requirements, make the change during a maintenance window. Then validate application traffic.
+The read-response timeout is separate from the *HTTP Requests* setting. For applications with strict availability requirements, make the change during a maintenance window. Then validate application traffic.
 ====
 . Click *Save Changes* or *Discard Changes*.
 
