@@ -27,6 +27,9 @@
 | https://ca1.platform.mulesoft.com[Canada Cloud]
 | North America | Canada (Montreal) | `can-c1` | `cloudhub-ca-central-1` | `Cloudhub-CA-Central-1` | `myapp-_uniq-id_._shard_.can-c1.ca1.cloudhub.io` | `<app>.internal-<space-id>.can-c1.ca1.cloudhub.io`
 
+| https://br1.platform.mulesoft.com[Brazil Cloud]
+| South America | Brazil (São Paulo) | `bra-s1` | `cloudhub-sa-east-1` | `Cloudhub-SA-East-1` | `myapp-_uniq-id_._shard_.bra-s1.br1.cloudhub.io` | `<app>.internal-<space-id>.bra-s1.br1.cloudhub.io`
+
 | https://jp1.platform.mulesoft.com[Japan Cloud]
 | Asia Pacific | Japan (Tokyo) | `jpn-e1` | `cloudhub-ap-northeast-1` | `Cloudhub-AP-Northeast-1` | `myapp-_uniq-id_._shard_.jpn-e1.jp1.cloudhub.io` | `<app>.internal-<space-id>.jpn-e1.jp1.cloudhub.io`
 
