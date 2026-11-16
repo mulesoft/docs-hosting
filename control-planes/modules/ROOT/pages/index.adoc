@@ -27,12 +27,15 @@ Sign in to the Anypoint Platform control plane that holds your organization. Use
 |===
 | Geographic Region | Control Plane | Platform URL
 
-.4+| Americas
+.5+| Americas
 | https://anypoint.mulesoft.com[US Cloud]
 | `+https://anypoint.mulesoft.com+`
 
 | https://ca1.platform.mulesoft.com[Canada Cloud]
 | `+https://ca1.platform.mulesoft.com+`
+
+| https://br1.platform.mulesoft.com[Brazil Cloud]
+| `+https://br1.platform.mulesoft.com+`
 
 | MuleSoft Government Cloud
 | `+https://gov.mulesoft.com+`
