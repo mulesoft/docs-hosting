@@ -37,10 +37,10 @@ Sign in to the Anypoint Platform control plane that holds your organization. Use
 | https://br1.platform.mulesoft.com[Brazil Cloud]
 | `+https://br1.platform.mulesoft.com+`
 
-| MuleSoft Government Cloud
+| https://gov.mulesoft.com[MuleSoft Government Cloud]
 | `+https://gov.mulesoft.com+`
 
-| MuleSoft Government Cloud Plus
+| https://gprod1.platform.mulesoft.com[MuleSoft Government Cloud Plus]
 | `+https://gprod1.platform.mulesoft.com+`
 
 .2+| Europe
