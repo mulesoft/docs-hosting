@@ -687,7 +687,7 @@ Government::
 | API Manager 1.x | Not planned
 | API Manager 2.x | Available
 | API Console Proxy/Trusted Domains | Available
-| Key Metrics | Not planned
+| Key Metrics | Planned
 
 //ANYPOINT CLI - GOVERNMENT
 .2+| xref:anypoint-cli::index.adoc[Anypoint CLI] | All features | Available .2+| n/a
