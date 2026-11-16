@@ -37,7 +37,7 @@ Americas::
 | API Manager 1.x | Not planned | Not planned | Not planned
 | API Manager 2.x | Available | Available | Available
 | API Console Proxy/Trusted Domains | Available | Planned | Available
-| Key Metrics | Available | Available | Not planned
+| Key Metrics | Available | Not planned | Not planned
 
 //CLI - AMERICAS: US | CANADA | BRAZIL
 .2+| xref:anypoint-cli::index.adoc[Anypoint CLI] | All features | Available | Available | Available .2+| n/a
@@ -253,7 +253,7 @@ Europe::
 | API Manager 1.x | Not planned | Not planned
 | API Manager 2.x | Available | Available
 | API Console Proxy/Trusted Domains | Available | Available
-| Key Metrics | Planned | Not planned
+| Key Metrics | Available | Not planned
 
 //CLI - EUROPE: EU | UK
 .2+| xref:anypoint-cli::index.adoc[Anypoint CLI] | All features | Available | Available .2+| n/a
@@ -687,7 +687,7 @@ Government::
 | API Manager 1.x | Not planned
 | API Manager 2.x | Available
 | API Console Proxy/Trusted Domains | Available
-| Key Metrics | Planned
+| Key Metrics | Not planned
 
 //ANYPOINT CLI - GOVERNMENT
 .2+| xref:anypoint-cli::index.adoc[Anypoint CLI] | All features | Available .2+| n/a
