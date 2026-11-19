@@ -32,7 +32,7 @@ Optionally, design the API specification first in Anypoint Platform, publish it 
 
 | Create the Mule app from natural language
 | xref:anypoint-code-builder::mulesoft-vibes.adoc[MuleSoft Vibes]
-| MuleSoft Vibes is the assistant in Anypoint Code Builder. You describe the outcome in the IDE. It uses your Anypoint Code Builder session to create and configure applications. MuleSoft Vibes is available on US, EU, Canada, and Japan cloud hosts.
+| MuleSoft Vibes is the assistant in Anypoint Code Builder. You describe the outcome in the IDE. It uses your Anypoint Code Builder session to create and configure applications. MuleSoft Vibes is available on US, EU, Canada, Japan, India, Australia, United Kingdom, and MuleSoft Government Cloud Plus cloud hosts.
 
 | Create the Mule app on your computer
 | xref:studio::index.adoc[Anypoint Studio]
