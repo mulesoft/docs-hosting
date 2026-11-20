@@ -101,6 +101,21 @@ To configure different paths:
 . In the *Path Rewrite* field, enter the base path expected by the HTTP Listener in your app, for example,  `/v1/api`.
 . Click *Apply Changes* to create a configuration for your application.
 
+[WARNING]
+CloudHub 2.0 ingress appends a trailing slash to the rewritten path. For example, a request to `/api/v1/health` reaches your app as `/api/v1/health/`, which can cause requests to fail if your HTTP Listener strictly matches paths. See <<trailing-slash,Path Rewrite Trailing Slash Considerations>>.
+
+[[trailing-slash]]
+=== Path Rewrite Trailing Slash Considerations
+
+If your app's HTTP Listener strictly matches paths, requests can fail with a 404, 500, or 502 error, and the app logs can show an error such as `No matching patterns for URI /email/`.
+
+To avoid these errors:
+
+* Configure the HTTP Listener path in your app to accept the trailing slash, for example, with a wildcard path such as `/yourAPI/*`.
+* Perform the path rewrite upstream, for example, in a Dedicated Load Balancer (DLB), and clear the *Path Rewrite* field in the *Ingress* tab.
+
+These solutions might not fit every use case. For example, you can't use the upstream approach if you need to rewrite only specific URLs.
+
 [[remove-external-endpoint]]
 == Remove an Endpoint
 
