@@ -1,7 +1,7 @@
 = Control Plane Hostnames and Allowlists
 :page-aliases: eu-control-plane::servers-create-eu.adoc, anypoint-clouds::finding-endpoints-allowlists.adoc, finding-endpoints-allowlists.adoc
 
-Use these hostnames when you allowlist outbound access to an Anypoint Platform control plane, when you pass `--region` to `amc_setup`, or when you set `anypoint.platform.base_uri`. Set `anypoint.platform.analytics_base_uri` only for US Cloud and EU Cloud. API Analytics isn't available on Canada Cloud, Japan Cloud, India Cloud, Australia Cloud, or United Kingdom Cloud, so those control planes don't have an analytics ingest host.
+Use these hostnames when you allowlist outbound access to an Anypoint Platform control plane, when you pass `--region` to `amc_setup`, or when you set `anypoint.platform.base_uri`. Set `anypoint.platform.analytics_base_uri` only for US Cloud and EU Cloud. API Analytics isn't available on Canada Cloud, Brazil Cloud, Japan Cloud, India Cloud, Australia Cloud, or United Kingdom Cloud, so those control planes don't have an analytics ingest host.
 
 When you set `anypoint.platform.base_uri` or `anypoint.platform.analytics_base_uri`, prefix the host with `https://`. See xref:configuring-mule-control-planes.adoc[Configuring Mule to Access Anypoint Platform Control Planes].
 
@@ -9,7 +9,7 @@ For MuleSoft Government Cloud hostnames, see xref:hybrid-standalone::configure-p
 
 == Control Plane Hostnames
 
-Allow outbound HTTPS (port 443) to these hosts, substituting the row for your cloud. For Hybrid Standalone deployments in Hyperforce regions (Canada, Japan, India, Australia, United Kingdom), the Runtime Manager endpoint uses port 8443.
+Allow outbound HTTPS (port 443) to these hosts, substituting the row for your cloud. For Hybrid Standalone deployments in Hyperforce regions (Canada, Brazil, Japan, India, Australia, United Kingdom), the Runtime Manager endpoint uses port 8443.
 
 [%header%autowidth.spread]
 |===
@@ -31,6 +31,12 @@ Allow outbound HTTPS (port 443) to these hosts, substituting the row for your cl
 | `ca1.platform.mulesoft.com`
 | Not available
 | `runtime-manager.ca1.platform.mulesoft.com`
+| Copy the command Runtime Manager generates when you add a server.
+
+| Brazil Cloud
+| `br1.platform.mulesoft.com`
+| Not available
+| `runtime-manager.br1.platform.mulesoft.com`
 | Copy the command Runtime Manager generates when you add a server.
 
 | Japan Cloud
@@ -60,9 +66,9 @@ Allow outbound HTTPS (port 443) to these hosts, substituting the row for your cl
 
 === Hybrid Standalone Port Requirements for Hyperforce Regions
 
-For Hybrid Standalone deployments in Hyperforce regions (Canada, Japan, India, Australia, and United Kingdom), the Runtime Manager endpoint requires port 8443 instead of port 443. Ensure your firewall rules include:
+For Hybrid Standalone deployments in Hyperforce regions (Canada, Brazil, Japan, India, Australia, and United Kingdom), the Runtime Manager endpoint requires port 8443 instead of port 443. Ensure your firewall rules include:
 
-* `runtime-manager.<region>.platform.mulesoft.com:8443` (where `<region>` is `ca1`, `jp1`, `in1`, `au1`, or `gb1`)
+* `runtime-manager.<region>.platform.mulesoft.com:8443` (where `<region>` is `ca1`, `br1`, `jp1`, `in1`, `au1`, or `gb1`)
 
 These endpoints support mTLS and WebSocket connections, consistent with US and EU deployments.
 
