@@ -23,7 +23,7 @@ Americas::
 | External Identity Management Integration | Available | Available | Available
 
 //AGENT VISUALIZER - AMERICAS: US | CANADA | BRAZIL
-.3+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Available | Available | Available .3+| n/a
+.3+| xref:agent-fabric::agent-viz-overview.adoc[Agent Visualizer] | All other features | Available | Available | Available .3+| n/a
 | Links to logs | Available | Available | Available
 | Links to traces | Available | Not planned | Available
 
@@ -239,7 +239,7 @@ Europe::
 | External Identity Management Integration | Available | Available
 
 //AGENT VISUALIZER - EUROPE: EU | UK
-.3+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Available | Available .3+| n/a
+.3+| xref:agent-fabric::agent-viz-overview.adoc[Agent Visualizer] | All other features | Available | Available .3+| n/a
 | Links to logs | Available | Available
 | Links to traces | Available | Not planned
 
@@ -455,7 +455,7 @@ Asia Pacific::
 | External Identity Management Integration | Available | Available | Available
 
 //AGENT VISUALIZER - ASIA: JA | INDIA | AU
-.3+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Available | Available | Available .3+| n/a
+.3+| xref:agent-fabric::agent-viz-overview.adoc[Agent Visualizer] | All other features | Available | Available | Available .3+| n/a
 | Links to logs | Available | Available | Available
 | Links to traces | Not planned | Not planned | Not planned
 
@@ -673,7 +673,7 @@ Government::
 | External Identity Management Integration | Available
 
 //AGENT VISUALIZER - GOVERNMENT
-.3+| xref:agent-visualizer::index.adoc[Agent Visualizer] | All other features | Planned .3+| n/a
+.3+| xref:agent-fabric::agent-viz-overview.adoc[Agent Visualizer] | All other features | Planned .3+| n/a
 | Links to logs | Planned
 | Links to traces | Not planned
 
