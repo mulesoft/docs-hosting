@@ -26,6 +26,7 @@ Complete these decommissioning steps in order. You can roll back to CloudHub 1.0
 
 The following steps apply to both migration paths (VPC upgrade and new private space). The difference is in Step 6, which depends on which path you used. If you created a new private space manually, skip the "Mark Upgrade Complete" step and proceed with manual VPC deletion instead.
 
+[[step-1-stop-cloudhub-10-applications]]
 === Step 1: Stop CloudHub 1.0 Applications
 
 Stop all CloudHub 1.0 applications that have been successfully migrated to CloudHub 2.0.
