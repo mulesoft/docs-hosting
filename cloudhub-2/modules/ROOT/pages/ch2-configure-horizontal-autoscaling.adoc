@@ -23,6 +23,8 @@ To configure horizontal autoscaling for Mule apps deployed to CloudHub 2.0, foll
 . In the *Runtime* tab, check the *Enable CPU Based Horizontal Autoscaling* box.
 . Set the minimum and maximum *Replica Count* limits.
 +
+Set the minimum replica count to 3 or fewer.
++
 You can deploy your application with up to 8 replicas, or you can deploy with up to 16 replicas if you have the Anypoint Integration Advanced package or a Platinum or Titanium subscription to Anypoint Platform.
 . Select the *Replica Size* from the dropdown menu.
 +
@@ -115,6 +117,7 @@ Some points to consider:
 Min replicas: +
 
 * The minimum number of replicas guaranteed to run at any given moment.
+* Set this value to 3 or fewer.
 * Scale-down policy should never remove replicas below this number.
 
 Max replicas: +
