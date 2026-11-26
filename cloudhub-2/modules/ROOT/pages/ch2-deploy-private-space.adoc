@@ -125,6 +125,8 @@ https://sapi-one-o4azsf.2x9yyp.usa-e2.cloudhub.io/acct/moreInfo
 ----
 /version1/moreInfo
 ----
+
+On India Cloud, Australia Cloud, United Kingdom Cloud, Brazil Cloud, and control planes added after them, use the path values in <<ingress-behavior-by-control-plane>>.
 --
 TLS Options::
 +
@@ -146,7 +148,7 @@ The following headers are available:
 | Header Name | Value
 | x-ssl-client-verify | SUCCESS/FAIL
 | x-ssl-issuer | Client certificate issuer
-| x-ssl-client-serial | Client certificate serial number
+| x-ssl-client-serial | Client certificate serial number. The format differs by control plane. See <<ingress-behavior-by-control-plane>>.
 | x-ssl-client-dn | Contents of the client certificate DN field
 | x-ssl-client-cert | Contents of the client certificate
 |===
@@ -159,6 +161,99 @@ This option requires that the Mule application include an SSL certificate and al
 --
 . Click *Deploy Application* to create a new configuration for your application.
 
+
+[[ingress-behavior-by-control-plane]]
+== Ingress Behavior Differences by Control Plane
+
+India Cloud, Australia Cloud, United Kingdom Cloud, Brazil Cloud, and control planes added after them use a different ingress controller. US Cloud, EU Cloud, Canada Cloud, and Japan Cloud use the original ingress controller. The same CloudHub 2.0 features are available on every control plane. HTTP header handling and path rewrite differ.
+
+If you move an app to India Cloud, Australia Cloud, United Kingdom Cloud, Brazil Cloud, or a control plane added after them, review this behavior before you switch traffic.
+
+=== HTTP Header Handling
+
+`x-forwarded-host`::
+On India Cloud, Australia Cloud, United Kingdom Cloud, Brazil Cloud, and control planes added after them, the ingress controller passes the client `Host` header to the app unchanged and doesn't send `x-forwarded-host`.
++
+On US Cloud, EU Cloud, Canada Cloud, and Japan Cloud, the ingress controller removes the original host and sends that value in `x-forwarded-host`.
++
+If the app reads `x-forwarded-host`, update it to read the `Host` header.
+
+`x-correlation-id`::
+On US Cloud, EU Cloud, Canada Cloud, and Japan Cloud, the ingress controller creates an `x-correlation-id` value when the client doesn't send one.
++
+On India Cloud, Australia Cloud, United Kingdom Cloud, Brazil Cloud, and control planes added after them, the ingress controller forwards `x-correlation-id` only when the client sends it.
++
+If tracing depends on a correlation ID from the ingress controller, send `x-correlation-id` from the client or create the ID in the app.
+
+`x-ssl-client-serial`::
+When *Forward SSL Session* is enabled, the ingress controller sends the client certificate serial number in `x-ssl-client-serial`.
++
+On US Cloud, EU Cloud, Canada Cloud, and Japan Cloud, the value is a decimal integer.
++
+On India Cloud, Australia Cloud, United Kingdom Cloud, Brazil Cloud, and control planes added after them, the value is a hexadecimal string. That string matches the serial number shown by certificate tools such as OpenSSL.
++
+If the app reads this header, parse a hexadecimal string on those control planes.
+
+=== Path Rewrite
+
+_Path_ is the path clients request. _Path Rewrite_ is the path the HTTP listener in the app expects. A trailing slash is part of the path, so set _Path_ and _Path Rewrite_ to match the public URL and the application endpoint, including the slash.
+
+On India Cloud, Australia Cloud, United Kingdom Cloud, Brazil Cloud, and control planes added after them, use these values:
+
+[cols="1,1,1,1"]
+|===
+2+h|Expectation 2+h|Configuration of Path and Corresponding Path Rewrite
+
+h|URL
+h|Application Endpoint
+h|Path
+h|Path Rewrite
+
+|`example.com`
+|`/`
+|`/`
+|`/`
+
+|`example.com/`
+|`/`
+|`/`
+|`/`
+
+|`example.com`
+|`/test`
+|`/`
+|`/test`
+
+|`example.com`
+|`/test/`
+|`/`
+|`/test/`
+
+|`example.com/home`
+|`/test/home`
+|`/`
+|`/test/`
+
+|`example.com/test/home`
+|`/home`
+|`/test`
+|`/`
+
+|`example.com/test/home`
+|`/home`
+|`/test/`
+|`/`
+
+|`example.com/v1/hello`
+|`/helloworld`
+|`/v1/hello`
+|`/helloworld`
+
+|`example.com/v1/hello/test`
+|`/helloworld/test`
+|`/v1/hello`
+|`/helloworld/`
+|===
 
 // === Application Names
 include::partial$deployment.adoc[tag=appNameReqs,leveloffset=+2]
